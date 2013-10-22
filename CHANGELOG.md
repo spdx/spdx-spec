@@ -1,6 +1,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 1.2 (2013-10-22)
+
+* A field to specify license list version and one to describe file dependencies
+* More flexibility in locally naming non-standard licenses
+* Clarity with respect to case sensitivity for existing fields
+* Fields to document notices, project homepage and author credits
+* The ability to identify and map standard license headers
+
+See also the [SPDX specification 1.2 release announcement](https://spdx.org/news/news/2013/10/spdx-releases-version-12-specification)
+
 ## 1.1 (2012-08-30)
 
 * Optional fields for including license names and cross references to license sites
