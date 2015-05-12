@@ -1,6 +1,17 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.0 (2015-05-12)
+
+* The new relationship view makes the SPDX standard more useful for a broader range of uses, including exchanging data about software and modules introduced throughout the supply chain. The improvements are said to ease the exchange of open source and license data, streamline compliance with open source licenses, and help vendors more easily identify obligations or security vulnerabilities before shipment.
+* Descriptions of multiple packages in a single SPDX document, allowing aggregation of information that should be kept together
+* Expanded annotations that include replacing “review” comments, available for any specific element in an SPDX document
+* New license expression syntax with improved license matching guidelines, making the capture of complex licensing within a file easier and more reliable
+* Additional file types and checksum algorithms with expanded file types, allowing for more precise identification of a file
+* Support for referencing software pulled from version control systems, in addition to software served as downloads
+
+See also the [SPDX specification 2.0 release announcement](https://spdx.org/news/news/2015/05/milestone-day-spdx-release-version-20-release-great-step-forward-and-greatly)
+
 ## 1.2 (2013-10-22)
 
 * A field to specify license list version and one to describe file dependencies
