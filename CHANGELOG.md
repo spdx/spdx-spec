@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.1 (2016-10-04)
+
+* Snippets allow a portion of a file to be identified as having different properties from the file it resides within. The use of snippets is completely optional, and it is not mandatory for snippets to be identified;
+* Improvements in referencing external packages and repositories; users can now associate packages with security vulnerability databases as well as component repositories, such as npm, maven, bower, among others; and
+* A new appendix has been added to explain how to use SPDX License List identifiers in source files. An increasing number of open source projects are adding these short identifiers to code, as they allow anyone to quickly scan a directory of files to identify the licenses included. SPDX license identifier tags also eliminate common mistakes based on scanning headers to conclude the license of a source file
+
+See also the [SPDX specification 2.1 release announcement](https://www.linuxfoundation.org/announcements/linux-foundation%E2%80%99s-open-compliance-initiative-releases-new-spdx-specification)
+
 ## 2.0 (2015-05-12)
 
 * The new relationship view makes the SPDX standard more useful for a broader range of uses, including exchanging data about software and modules introduced throughout the supply chain. The improvements are said to ease the exchange of open source and license data, streamline compliance with open source licenses, and help vendors more easily identify obligations or security vulnerabilities before shipment.
