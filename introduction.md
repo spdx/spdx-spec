@@ -1,10 +1,7 @@
 # The Software Package Data Exchange (SPDX​®​) ​Specification
 
-**Warning**: working in progress, **DO NOT CLONE** 
 
-Converting the specification into MarkDown with build toolchain to create HTML and eBook output.
-
-# Building the specification
+# Build the specification
 
 The SPDX specification is written in MarkDown and HTML, PDF, ePub, Mobi version can be generated using [GitBook](https://www.gitbook.com/).
 Note that for generating eBoks and PDF you have to install Callibre using these [instructions](https://toolchain.gitbook.com/ebook.html).

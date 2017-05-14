@@ -1,0 +1,89 @@
+{
+    "author": "Linux Foundation and its Contributors",
+    "title": "Software Package Data Exchange (SPDX​®​) ​Specification",
+    "description": "The Software Package Data Exchange® (SPDX®) specification is a standard format for communicating the components, licenses and copyrights associated with software packages.",
+    "copyright": "&copy; 2010 - 2016 Linux Foundation and its Contributors",
+    "license": "CC-BY-3.0",
+    "website": "http://spdx.org",
+    "keywords": "SPDX, Software Package Data Exchange, SPDX-License-Identifier, specification,licenses, license, id, identifiers, oss, open source, software",
+    "language": "en",
+    "gitbook": ">=3.2.2",
+    "structure": {
+        "readme": "Introduction.md"
+    },
+    "plugins": [
+        "include-codeblock",
+        "-sharing",
+        "regexplace"
+    ],
+    "pluginsConfig": {
+        "include-codeblock": {
+            "template": "ace",
+            "unindent": true,
+            "theme": "monokai"
+        },
+        "regexplace": {
+            "substitutes": [
+                {"pattern": "<!-- pagebreak -->", "flags": "g", "substitute": "<div class=\"page-break\"></div>"},
+                {"pattern": "<!-- clear -->", "flags": "g", "substitute": "<div class=\"clear\"></div>"},
+                {"pattern": "<!-- nopb -->", "flags": "g", "substitute": "<div class=\"nopb\">"},
+                {"pattern": "<!-- endnopb -->", "flags": "g", "substitute": "</div>"},
+                {"pattern": "<!-- note -->", "flags": "g", "substitute": "<div class=\"note\">"},
+                {"pattern": "<!-- endnote -->", "flags": "g", "substitute": "</div>"},
+                {   
+                    "pattern": "!\\[(.*?)\\]\\((.*?)(?:\\s+\"(.*)\")?\\){0,}{caption=1([^\\}]*)}",
+                    "flags": "gmi", 
+                    "substitute": "<figure id=\"fig_PAGE_LEVEL_._INDEX_\"><img $3 alt=\"$1\" title=\"$1\" href=\"$2\"><figcaption></figcaption></figure>", 
+                    "decode": true
+                },
+                {
+                    "pattern": "<img ([^>]*) {0,}\/{0,}> {0,}{caption=1([^\\}]*)}", 
+                    "flags": "g", 
+                    "substitute": "<figure id=\"fig_PAGE_LEVEL_._INDEX_\"><img $2 $1><figcaption></figcaption></figure>", 
+                    "decode": true
+                },
+                {
+                    "pattern": "<img (.*)alt=\"([^\"]*)\"(.*) {0,1}\/{0,1}><figcaption></figcaption>", 
+                    "flags": "g", 
+                    "substitute": "<img$1alt=\"$2\"$3><figcaption><span>Figure _INDEX_</span>: $2</figcaption>",
+                    "store": {
+                        "substitute": "<a href=\"_PAGE_PATH_#fig_PAGE_LEVEL_._INDEX_\">Pic. _PAGE_LEVEL_._INDEX_</a> <span>$2</span>",
+                        "variable_name": "pictures"
+                    }
+                },
+                {
+                    "pattern": "<p><img(.+?){style (.+?)}<\/p>",
+                    "flags": "g",
+                    "substitute": "<p style=\"$2\"><img$1</p>",
+                    "decode": true
+                }
+            ]
+        },
+        "": [
+            {"pattern": "<!-- pagewrapper -->", "flags": "g", "substitute": "<div id=\"_PAGE_PATH_\">"},
+            {"pattern": "<!-- endpagewrapper -->", "flags": "g", "substitute": "</div>"}
+        ]
+    },
+    "styles": {
+        "ebook": "styles/ebook.css",
+        "pdf": "styles/pdf.css",
+        "website": "styles/website.css"
+    },
+    "variables": {
+        "hideHeaderOnPages": [1],
+        "hideFooterOnPages": [1, 3],
+        "document": {
+            "type": "​Specification",
+            "version": "2.1"
+        },
+        "strings": {
+            "license": "Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved.",
+            "version": "Version"
+        }
+    },
+    "pdf": {
+        "fontSize": 10,
+        "paper-size": "a4",
+        "toc": true
+    }
+}
