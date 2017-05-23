@@ -1,6 +1,6 @@
 # Summary
 
-* [Contributors](contributors.md)
+* [Copyright](CONTRIBUTORS.md)
 * [1 Rationale](./chapters/1-rationale.md)
 * [2 Document Creation Information](./chapters/2-document-creation-information.md)
 * [3 Package Information](./chapters/3-package-information.md)
