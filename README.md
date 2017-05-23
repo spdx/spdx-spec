@@ -1,8 +1,8 @@
 # The Software Package Data Exchange (SPDX​®​) ​Specification
 
-**Warning**: working in progress, **DO NOT CLONE** 
+The Software Package Data Exchange® (SPDX®) specification is a standard format for communicating the components, licenses and copyrights associated with software packages.
 
-Converting the specification into MarkDown with build toolchain to create HTML and eBook output.
+The SPDX standard helps facilitate compliance with free and open source software licenses by standardizing the way license information is shared across the software supply chain. SPDX reduces redundant work by providing a common format for companies and communities to share important data about software licenses and copyrights, thereby streamlining and improving compliance.
 
 # Building the specification
 
@@ -25,4 +25,4 @@ Note that for generating eBooks and PDF you have to install Callibre using these
     $ gitbook epub ./ ./spdx-specification.epub
 
     # Generate a Mobi document
-    $ .gitbook mobi ./ ./spdx-specification.mobi
+    $ gitbook mobi ./ ./spdx-specification.mobi
