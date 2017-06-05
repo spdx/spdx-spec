@@ -6,7 +6,7 @@ The Software Package Data Exchange® (SPDX®) specification is a standard format
 
 The SPDX standard helps facilitate compliance with free and open source software licenses by standardizing the way license information is shared across the software supply chain. SPDX reduces redundant work by providing a common format for companies and communities to share important data about software licenses and copyrights, thereby streamlining and improving compliance.
 
-See for additonal information also the [SPDX website](https://spdx.org).
+The master branch of this repository holds under active development version of the specification in [MarkDown](https://github.com/tsteenbe/specification/tree/master/chapters) of which [HTML](https://tsteenbe.github.io/specification/) version is build on every commit. See for official [releases of the specification](https://spdx.org/specifications) or additional information also the [SPDX website](https://spdx.org).
 
 # Building the specification
 
@@ -34,7 +34,7 @@ Note that for generating eBooks and PDF you have to install Callibre using these
 Or alternatively you can also use [Gulp](https://gulpjs.com) and then the commands are
 
     # Install via npm document build toochain 
-    $ npm install -g gitbook-cli
+    $ npm install -g gitbook-cli gulp
     
     # Install all dependencies (GitBook + plugins, build tools, etc)
     $ npm install
