@@ -102,25 +102,27 @@ gulp.task('html', 'Generates HTML website in ' + buildDir, ['clean-build-html','
             './_book/LICENSE',
             './_book/search_index.json'
         ], { base: './_book' })
+        // FIXME Using Cheerio breaks GitBook page JS so disabled below code
+        /*
         .pipe(cheerio(function ($, file) {
           // Each file will be run through cheerio and each corresponding `$` will be passed here. 
           // `file` is the gulp file object 
-      
           if (file.history[0].includes("chapters")) {
               // Insert Dublin Core Metadata tags for traceability
-              $('meta[name="author"]')
+              $('link[rel="next"]')
               .append('\n<meta name="DC.source" content="https://github.com/spdx/spdx-spec">')
               .append('\n<meta name="DC.identifier" content="#' + gitHash + '">')
               .append('\n<meta name="DC.date.created" content="' + (new Date).toISOString() + '">')
               .append('\n<meta name="DC.rights" content="SPDX-License-Identifier: CC-BY-3.0">');
           }
         }))
+        */
         .pipe(prettify())
         .pipe(removeEmptyLines())
         .pipe(gulp.dest(buildDir + 'html/'))
         .on('end', () => {
             console.log("Completed building HTML files from source MarkDown");
-            del('./_book').then(cb());
+            del('./_book2').then(cb());
         })
 });
 
