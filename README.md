@@ -8,7 +8,7 @@ See for additonal information also the [SPDX website](https://spdx.org).
 
 # Building the specification
 
-The SPDX specification is written in MarkDown and HTML, PDF, ePub, Mobi version can be generated using [GitBook](https://www.gitbook.com/).
+The SPDX specification is written in MarkDown and HTML, PDF, ePUB, Mobipocket version can be generated using [GitBook](https://www.gitbook.com/).
 Note that for generating eBooks and PDF you have to install Callibre using these [instructions](https://toolchain.gitbook.com/ebook.html).
 
     # Install via npm document build toochain 
@@ -23,10 +23,10 @@ Note that for generating eBooks and PDF you have to install Callibre using these
     # Generate a PDF document 
     $ gitbook pdf ./ ./spdx-specification.pdf
 
-    # Generate an ePub document
+    # Generate an ePUB document
     $ gitbook epub ./ ./spdx-specification.epub
 
-    # Generate a Mobi document
+    # Generate a Mobipocket document
     $ gitbook mobi ./ ./spdx-specification.mobi
 
 Or alternatively you can also use [Gulp](https://gulpjs.com) and then the commands are
@@ -34,20 +34,16 @@ Or alternatively you can also use [Gulp](https://gulpjs.com) and then the comman
     # Install via npm document build toochain 
     $ npm install -g gitbook-cli
     
-    # Install all dependencies (GitBook + plugins, etc)
+    # Install all dependencies (GitBook + plugins, build tools, etc)
     $ npm install
 
-    # Generate static HTML website in ./build/html
-    $ gitbook build
+    Usage
+      gulp [TASK] [OPTIONS...]
 
-    # Generate a PDF document 
-    $ gulp pdf
-
-    # Generate an ePub document
-    $ gulp epub
-
-    # Generate a Mobi document
-    $ gulp mobi
-    
-    # Publish HTML to GitHub's GH pages
-    $ gulp publish
+    Available tasks
+      all      Generates all document versions
+      epub     Generates ePUB of the SPDX specification Gitbook in ./build/
+      help     Display this help text.
+      html     Generates HTML website in ./build/
+      mobi     Generates Mobipocket of the SPDX specification Gitbook in ./build/
+      pdf      Generates PDF of the SPDX specification Gitbook in ./build/
