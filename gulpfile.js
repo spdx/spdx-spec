@@ -175,6 +175,6 @@ gulp.task('publish', ['git-hash', 'html'], () => {
         .pipe($.ghPages({
             origin: 'origin',
             branch: 'gh-pages',
-            message: "Based on #" + gitHash + " published " + (new Date()).toUTCString()
+            message: "Update based on #" + gitHash
         }));
 });
