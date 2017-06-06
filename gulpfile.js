@@ -96,6 +96,7 @@ gulp.task('html', 'Generates HTML website in ' + buildDir, ['clean-build-html','
     // Copy files to buildDir we do not want to alter seperately
     gulp.src([
             './_book/gitbook/**/*',
+            './_book/img/**/*',
             './_book/LICENSE',
         ], { base: './_book' })
         .pipe(gulp.dest(buildDir + 'html/'));
@@ -103,7 +104,6 @@ gulp.task('html', 'Generates HTML website in ' + buildDir, ['clean-build-html','
     // Copy files to buildDir whilst doing that beautify them
     gulp.src([
             './_book/chapters/**/*',
-            './_book/img/**/*',
             './_book/styles/**/*',
             './_book/index.html',
             './_book/search_index.json'
