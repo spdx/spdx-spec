@@ -8,13 +8,13 @@ Fields:
 
 ## 2.1 SPDX Version
 
-**2.1.1** Purpose: Provide a reference number that can be used to understand how to parse and interpret the rest of the file.  It will enable both future changes to the specification and to support backward compatibility.   The version number consists of a major and minor version indicator.  The major field will be incremented when incompatible changes between versions are made (one or more sections are created, modified or deleted).  The minor field will be incremented when backwards compatible changes are made.
+**2.1.1** Purpose: Provide a reference number that can be used to understand how to parse and interpret the rest of the file. It will enable both future changes to the specification and to support backward compatibility. The version number consists of a major and minor version indicator. The major field will be incremented when incompatible changes between versions are made (one or more sections are created, modified or deleted). The minor field will be incremented when backwards compatible changes are made.
 
 **2.1.2** Intent: Here, parties exchanging information in accordance with SPDX specification need to provide 100% transparency as to which SPDX specification such information is conforming to.
 
 **2.1.3** Cardinality: Mandatory, one.
 
-**2.1.4** Data Format:  “SPDX-M.N” where:
+**2.1.4** Data Format: “SPDX-M.N” where:
 
 M is major version number
 
@@ -60,9 +60,9 @@ Example:
       <dataLicense rdf:resource="http://spdx.org/licenses/CC0-1.0" />
     </SpdxDocument>
 
-##2.3 SPDX Identifier
+## 2.3 SPDX Identifier
 
-**2.3.1** Purpose: Identify the current SPDX document which may be referenced in relationships by other files, packages internally and documents externally.  To reference another SPDX document in total, this identifier should be used with the external document identifier preceding it.  See the “Relationships between SPDX Elements” section for examples.
+**2.3.1** Purpose: Identify the current SPDX document which may be referenced in relationships by other files, packages internally and documents externally. To reference another SPDX document in total, this identifier should be used with the external document identifier preceding it. See the “Relationships between SPDX Elements” section for examples.
 
 **2.3.2** Intent:  Provide a way for the document to refer to itself in relationship to other elements.
 
@@ -84,7 +84,7 @@ Example:
     ...
     </spdx:SpdxDocument>
 
-##2.4 Document Name
+## 2.4 Document Name
 
 **2.4.1** Purpose: Identify name of this document as designated by creator.
 
@@ -118,9 +118,9 @@ Example:
 
 **2.5.1** Purpose: Provide an SPDX document specific namespace as a unique absolute [Uniform Resource Identifier][URI] (URI) as specified in [RFC-3986][rfc3986], with the exception of the ‘#’ delimiter. The SPDX Document URI cannot contain a URI "part" (e.g. the "#" character), since the ‘#’ is used in SPDX element URIs (packages, files, snippets, etc) to separate the document namespace from the element’s SPDX identifier. Additionally, a scheme (e.g. “https:”) is required.
 
-The URI must be unique for the SPDX document including the specific version of the SPDX document.  If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used.  There can only be one URI for an SPDX document and only one SPDX document for a given URI.
+The URI must be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI.
 
-**2.5.2** Intent: The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See section 2.6 for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found.  For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet.  A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
+**2.5.2** Intent: The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See section 2.6 for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
 
 * `CreatorWebsite` is a website hosted by the creator of the document. (e.g. an SPDX document provided by SPDX would be spdx.org)
 * `PathToSpdx` is a path to where SPDX documents are stored on the website (e.g. /spdx/spdxdocs)
@@ -141,7 +141,7 @@ Note that the URI does not have to be accessible. It is only intended to provide
 The SPDX Document URI cannot contain a URI "part" (e.g. the "#" delimiter), since the "#" is used to uniquely identify SPDX element identifiers.
 The URI must contain a scheme (e.g. “https:”).
 
-The URI must be unique for the SPDX document including the specific version of the SPDX document.  If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used.  There can only be one URI for an SPDX document and only one SPDX document for a given URI.
+The URI must be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI.
 
 **2.5.5** Tag: `DocumentNamespace:`
 
@@ -161,7 +161,7 @@ Example:
  
 **2.6.1** Purpose: Identify any external SPDX documents referenced within this SPDX document.
 
-**2.6.2** Intent:  SPDX elements within this document may be related to other SPDX elements referenced from external SPDX documents. An SPDX element could be a snippet, file, package, license reference or SPDX document.
+**2.6.2** Intent: SPDX elements within this document may be related to other SPDX elements referenced from external SPDX documents. An SPDX element could be a snippet, file, package, license reference or SPDX document.
 
 **2.6.3** Cardinality: Optional, one or many.
 
@@ -213,7 +213,7 @@ Notes: in RDF, a namespace can be created for the external document reference if
 
 **2.7.1** Purpose: An optional field for creators of the SPDX file to provide the version of the SPDX License List used when the SPDX file was created.
 
-**2.7.2** Intent: Recognizing that licenses are added to the SPDX License List with each subsequent version, the intent is to provide recipients of the SPDX file with the version of the SPDX License List used.  This anticipates that in the future, an SPDX file may have used a version of the SPDX License List that is older than the then current one.
+**2.7.2** Intent: Recognizing that licenses are added to the SPDX License List with each subsequent version, the intent is to provide recipients of the SPDX file with the version of the SPDX License List used. This anticipates that in the future, an SPDX file may have used a version of the SPDX License List that is older than the then current one.
 
 **2.7.3** Cardinality: Optional, one.
 
@@ -240,7 +240,7 @@ Example:
 
 ## 2.8 Creator
 
-**2.8.1** Purpose: Identify who (or what, in the case of a tool) created the SPDX file.  If the SPDX file was created by an individual, indicate the person's name. If the SPDX file was created on behalf of a company or organization, indicate the entity name. If the SPDX file was created using a software tool, indicate the name and version for that tool. If multiple participants or tools were involved, use multiple instances of this field. Person name or organization name may be designated as “anonymous” if appropriate.
+**2.8.1** Purpose: Identify who (or what, in the case of a tool) created the SPDX file. If the SPDX file was created by an individual, indicate the person's name. If the SPDX file was created on behalf of a company or organization, indicate the entity name. If the SPDX file was created using a software tool, indicate the name and version for that tool. If multiple participants or tools were involved, use multiple instances of this field. Person name or organization name may be designated as “anonymous” if appropriate.
 
 **2.8.2** Intent: Here, the generation method will assist the recipient of the SPDX file in assessing the general reliability/accuracy of the analysis information.
 
@@ -248,7 +248,7 @@ Example:
 
 **2.8.4** Data Format: single line of text with the following keywords:
 
-    ”Person: person name”  and optional  “(email)”
+    ”Person: person name” and optional “(email)”
     "Organization: organization” and optional “(email)”
     "Tool: toolidentifier-version”
 
@@ -341,7 +341,7 @@ Example:
 
 **2.11.3** Cardinality: Optional, one.
 
-**2.11.4** Data Format: free form text that can span multiple lines.  In Tag:value format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`.
+**2.11.4** Data Format: free form text that can span multiple lines. In Tag:value format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`.
 
 **2.11.5** Tag: `DocumentComment:`
 

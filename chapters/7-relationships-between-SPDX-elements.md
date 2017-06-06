@@ -43,7 +43,7 @@
 
 \* see DESCRIBES relationship for one mandatory case.
 
-**7.1.4**  Data Format:
+**7.1.4** Data Format:
 
     [“DocumentRef-”[idstring]”:”]SPDXID <relationship> [“DocumentRef-”[idstring]”:”]SPDXID
 

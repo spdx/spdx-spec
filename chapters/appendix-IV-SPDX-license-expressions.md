@@ -18,7 +18,7 @@ license-ref = ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
 
 simple-expression = license-id / license-id”+” / license-ref
 
-compound-expression =  1*1(simple-expression /
+compound-expression = 1*1(simple-expression /
 
 
 simple-expression "WITH" license-exception-id /
@@ -29,7 +29,7 @@ simple-expression "WITH" license-exception-id /
 
   "(" compound-expression ")" )
 
-license-expression =  1*1(simple-expression / compound-expression)
+license-expression = 1*1(simple-expression / compound-expression)
 
 In the following sections we describe in more detail \<license-expression> construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern day software. 
 
@@ -39,7 +39,7 @@ A valid \<license-expression> string consists of either:
 
 (ii) a more complex expression constructed by combining smaller valid expressions using Boolean license operators.
 
-There MUST NOT be whitespace between a license-id and any following "+". This supports easy parsing and backwards compatibility.  There MUST be whitespace on either side of the operator "WITH".  There MUST be whitespace and/or parentheses on either side of the operators "AND" and "OR".
+There MUST NOT be whitespace between a license-id and any following "+". This supports easy parsing and backwards compatibility. There MUST be whitespace on either side of the operator "WITH". There MUST be whitespace and/or parentheses on either side of the operators "AND" and "OR".
 
 ## Simple License Expressions
 
@@ -49,7 +49,7 @@ A simple `<license-expression>` is composed one of the following:
 * An SPDX License List Short Form Identifier with a unary"+" operator suffix to represent the current version of the license or any later version. For example: GPL-2.0+
 * A SPDX user defined license reference: ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring) 
 
-Some examples:  
+Some examples:
 
     LicenseRef-23
 
@@ -68,7 +68,7 @@ If presented with a choice between two or more licenses, use the disjunctive bin
 For example, when given a choice between the LGPL-2.1 or MIT licenses, a valid expression would be:
 
     (LGPL-2.1 OR MIT)
-    
+
 An example representing a choice between three different licenses would be:  
 
 (LGPL-2.1 OR MIT OR BSD-3-Clause)
@@ -136,7 +136,7 @@ A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet
         </spdx:ExtractedLicensingInfo>
     </spdx:ConjunctiveLicenseSet>
     
-A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet>` element, with an spdx:member property for each  element in the disjunctive license. Two or more members are required.
+A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet>` element, with an spdx:member property for each element in the disjunctive license. Two or more members are required.
 
     <spdx:DisjunctiveLicenseSet>
         <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0"/>

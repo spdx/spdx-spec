@@ -6,9 +6,9 @@
 
 **8.1.2** Intent: It may also be important for participants in the software supply chain to validate and add information on ambiguous files, and packages.
 
-**8.1.3** Cardinality:  Conditional (Mandatory, one), if there is an Annotation.
+**8.1.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
 
-**8.1.4** Data Format:  single line of text with the following keywords.
+**8.1.4** Data Format: single line of text with the following keywords.
 
     ”Person: person name” and optional  “(email)”  
     "Organization: organization” and optional “(email)”  
@@ -28,7 +28,7 @@ Example:
         <annotator> Person: Jane Doe () </annotator>
     </Annotations>
 
-# 8.2 Annotation Date
+## 8.2 Annotation Date
 
 **8.2.1** Purpose: Identify when the comment was made. This is to be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.
 
@@ -63,7 +63,7 @@ Example:
         <annotationDate> 2010-01-29T18:30:22Z </annotation Date>
     </Annotation>
 
-# 8.3 Annotation Type
+## 8.3 Annotation Type
 
 **8.3.1** Purpose: This field describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be REVIEW. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of OTHER.
 
@@ -87,11 +87,11 @@ Example:
         <spdx:annotationType rdf:resource="http://spdx.org/rdf/terms#annotationType_other"/>
     </Annotation>
 
-# 8.4 SPDX Identifier Reference
+## 8.4 SPDX Identifier Reference
 
 **8.4.1** Purpose: Uniquely identify the element in an SPDX document which is being referenced. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
 
-**8.4.2** Intent:  There may be several versions of the same package or file within an SPDX document.  Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
+**8.4.2** Intent: There may be several versions of the same package or file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
 
 **8.4.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
 
@@ -124,7 +124,7 @@ For RDF, the annotations are a property of the SPDX element it is annotationg.
         </annotation>
     </SpdxElement rdf:about=”#SPDXRef-45”>
 
-#8.5 Annotation Comment
+## 8.5 Annotation Comment
 
 **8.5.1** Purpose: This optional free form text field permits the annotator to provide commentary on the analysis.
 

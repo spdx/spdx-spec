@@ -155,7 +155,7 @@ Example:
 
 where:
 
-number1 is greater than or equal to 1 and less than or equal to number2,  
+number1 is greater than or equal to 1 and less than or equal to number2, 
 AND number2 is less than or equal to the total number of lines in file.
 
 **5.4.5** Tag: `SnippetLineRange:`
@@ -201,7 +201,7 @@ xmlns:ptr=http://www.w3.org/2009/pointers#
 
 A valid SPDX License Expression as defined in Appendix IV.
 NONE should be used if there is no licensing information from which to conclude a license for the snippet.
-NOASSERTION  should be used if for the snippet:
+NOASSERTION should be used if for the snippet:
 
 (i) the SPDX document creator has attempted to, but cannot reach a reasonable objective determination of the Concluded License;
 
@@ -209,9 +209,9 @@ NOASSERTION  should be used if for the snippet:
 
 (iii) the SPDX document creator has made no attempt to determine a Concluded License;
 
-(iv) the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).  
+(iv) the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (section X.5).  With respect to NOASSERTION, a written explanation in the Comments on License field (section X.7) is preferred.
+If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (section X.5). With respect to NOASSERTION, a written explanation in the Comments on License field (section X.7) is preferred.
 
 **5.5.2** Intent: Here, the intent is for the SPDX document creator to reconcile the license information known about the snippet,  what license information is in the file itself and other objective information for a package, along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the snippet.
 
@@ -223,7 +223,7 @@ where:
 
 \<SPDX License Expression> is a valid SPDX License Expression as defined in Appendix IV.
 
-**5.5.5**  Tag: `SnippetLicenseConcluded:`
+**5.5.5** Tag: `SnippetLicenseConcluded:`
 
 Example: 
 
@@ -312,7 +312,7 @@ Example:
 
 ## 5.7 Snippet Comments on License
 
-**5.7.1**  Purpose: This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a snippet.
+**5.7.1** Purpose: This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a snippet.
 
 **5.7.2** Intent: Here, the intent is to provide the recipient of the SPDX document with a detailed explanation of how the Concluded License was determined for a Snippet  if it does not match the License Information in File, is marked NOASSERTION, or other helpful information relevant to determining the license of the snippet in a file.
 
@@ -343,7 +343,7 @@ Example:
         ...
     </Snippet>
 
-## 5.8  Snippet Copyright Text
+## 5.8 Snippet Copyright Text
 
 **5.8.1** Purpose: Identify the copyright holder of the snippet, as well as any dates present. This will be a free form text field, ideally extracted from the actual snippet.  The options to populate this field are limited to:
 
@@ -385,9 +385,9 @@ Example:
 
 **5.9.3** Cardinality: Optional, one.
 
-**5.9.4**  Data Format: free form text that can span multiple lines
+**5.9.4** Data Format: free form text that can span multiple lines
 
-**5.9.5**  Tag: `SnippetComment:`
+**5.9.5** Tag: `SnippetComment:`
 
 In Tag:value format multiple lines are delimited by <text> .. </text>.
 
@@ -426,7 +426,7 @@ Example:
 
     SnippetName: from linux kernel
 
-5.10.6  RDF: property `spdx:snippetName` in class `spdx:Snippet`
+5.10.6 RDF: property `spdx:snippetName` in class `spdx:Snippet`
 
 Example:
 

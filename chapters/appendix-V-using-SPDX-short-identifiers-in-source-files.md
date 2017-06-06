@@ -37,7 +37,7 @@ Examples:
 
 ## Representing Multiple Licenses
 
-Multiple licenses can be represented using a SPDX license expression as defined in Appendix IV.  A set of licenses must be enclosed in parentheses (this is a convention for SPDX expressions). As further described there:
+Multiple licenses can be represented using a SPDX license expression as defined in Appendix IV. A set of licenses must be enclosed in parentheses (this is a convention for SPDX expressions). As further described there:
 
 1. When there is a choice between licenses ("disjunctive license"), they should be separated with "OR". If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new license expression.
 2. Similarly when multiple licenses need to be simultaneously applied ("conjunctive license"), they should be separated with "AND". If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression.

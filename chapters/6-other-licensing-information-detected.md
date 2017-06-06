@@ -6,11 +6,11 @@ One instance should be created for every unique license or licensing information
 
 Fields:
 
-## 6.1  License Identifier
+## 6.1 License Identifier
 
 **6.1.1** Purpose: Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (sections 3 and 4, respectively).
 
-**6.1.2** Intent:  Create a human readable short form license identifier for a license not on the SPDX License List.  This identifier should be unique within the SPDX file. In previous versions of SPDX, the references were required to be sequential numbers, but as of  version 1.2, creators may specify references that are easier for humans to remember and mentally map.
+**6.1.2** Intent: Create a human readable short form license identifier for a license not on the SPDX License List. This identifier should be unique within the SPDX file. In previous versions of SPDX, the references were required to be sequential numbers, but as of  version 1.2, creators may specify references that are easier for humans to remember and mentally map.
 
 **6.1.3** Cardinality: Conditional (mandatory, one) if license is not on SPDX License List.
 
@@ -44,7 +44,7 @@ Examples:
 
 **6.2.1** Purpose: Provide a copy of the actual text of the license reference extracted from the package or file that is associated with the License Identifier to aid in future analysis.
 
-**6.2.2** Intent:  Provide the actual text as found in the package or file for a license that is not on the SPDX License List.
+**6.2.2** Intent: Provide the actual text as found in the package or file for a license that is not on the SPDX License List.
 
 **6.2.3** Cardinality: Conditional (Mandatory, one) if there is a License Identifier assigned.
 
@@ -84,7 +84,7 @@ Example 2 (if indeed full text of license present in File):
 
 Use NOASSERTION If there is no common name or it is not known.
 
-**6.3.2** Intent:  Provides a human readable name suitable for use as a title or label of the license when showing compact lists of licenses from the SPDX data to humans.
+**6.3.2** Intent: Provides a human readable name suitable for use as a title or label of the license when showing compact lists of licenses from the SPDX data to humans.
 
 **6.3.3** Cardinality: Conditional (mandatory, one) if license is not on SPDX License List.
 
@@ -107,17 +107,17 @@ Example:
  
 # 6.4 License Cross Reference
  
-**6.4.1** Purpose: Provide a pointer to the official source of a license that is not included in the SPDX License List, that is referenced by the License Identifier.  
+**6.4.1** Purpose: Provide a pointer to the official source of a license that is not included in the SPDX License List, that is referenced by the License Identifier.
 
-**6.4.2** Intent:  Canonical source for a license currently not on the SPDX License List.
+**6.4.2** Intent: Canonical source for a license currently not on the SPDX License List.
 
-**6.4.3** Cardinality: Conditional  (optional, one or more) if license is not on SPDX License List.
+**6.4.3** Cardinality: Conditional (optional, one or more) if license is not on SPDX License List.
 
 **6.4.4** Data Format: uniform resource locator
 
 **6.4.5** Tag: `LicenseCrossReference:`
 
-Example:  
+Example:
 
     LicenseCrossReference: http://people.freebsd.org/~phk/
 

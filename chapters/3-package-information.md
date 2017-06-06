@@ -188,7 +188,7 @@ Use NOASSERTION if:
 
 **3.6.3** Cardinality: Optional, one.
 
-**3.6.4** Data Format: single line of text  with the following keywords | “NOASSERTION”
+**3.6.4** Data Format: single line of text with the following keywords | “NOASSERTION”
 
     "Person:" person name and optional "("email")" 
     "Organization:" organization name and optional "("email")"
@@ -230,7 +230,7 @@ For version-controlled files, the VCS location syntax is similar to a URL and ha
 
 This VCS location compact notation (inspired and mostly adopted from https://pip.pypa.io/en/latest/reference/pip_install.html#vcs-support as of 20150220)  supports referencing locations in version control systems such as Git, Mercurial, Subversion and Bazaar, and specifies the type of VCS tool using url prefixes: “git+”, “hg+”, “bzr+”, “svn+” and specific transport schemes such as SSH or HTTPS.
 
-Specifying sub-paths,  branch names, a commit hash, a revision or a tag name is recommended, and supported using the "@"delimiter for commits and the "#" delimiter for sub-paths.
+Specifying sub-paths, branch names, a commit hash, a revision or a tag name is recommended, and supported using the "@"delimiter for commits and the "#" delimiter for sub-paths.
 
 Using user names and password in the host_name is not supported and should be considered as an error. User access control to URLs or VCS repositories must be handled outside of an SPDX document.
 
@@ -392,7 +392,7 @@ Sub-paths and revisions can be combined too:
 
 **3.7.6** RDF: property `spdx:downloadLocation` in class `spdx:Package`
 
-Example:  
+Example:
 
     <Package rdf:about="...">
         <downloadLocation>http://ftp.gnu.org/gnu/glibc/glibc-ports-2.15.tar.gz</downloadLocation>
@@ -444,20 +444,20 @@ Example:
         ...
     </Package>
 
-##3.9 Package Verification Code
+## 3.9 Package Verification Code
 
-**3.9.1** Purpose: This field provides an independently reproducible mechanism identifying specific contents of a package based on the actual files (except the SPDX file itself, if it is included in the package) that make up each package and that correlates to the data in this SPDX file.  This identifier enables a recipient to determine if any file in the original package (that the analysis was done on) has been changed and permits inclusion of an SPDX file as part of a package.
+**3.9.1** Purpose: This field provides an independently reproducible mechanism identifying specific contents of a package based on the actual files (except the SPDX file itself, if it is included in the package) that make up each package and that correlates to the data in this SPDX file. This identifier enables a recipient to determine if any file in the original package (that the analysis was done on) has been changed and permits inclusion of an SPDX file as part of a package.
 
-**3.9.2** Intent: Providing a unique identifier based on the files inside each package, eliminates confusion over which version or modification of a specific package the SPDX file refers to.  It also permits one to embed the SPDX file within the package without altering the identifier.
+**3.9.2** Intent: Providing a unique identifier based on the files inside each package, eliminates confusion over which version or modification of a specific package the SPDX file refers to. It also permits one to embed the SPDX file within the package without altering the identifier.
 
 **3.9.3** Cardinality: Mandatory, one if filesAnalyzed is true or omitted, Zero (must be omitted) if filesAnalyzed is false.
 
-**3.9.4**  Algorithm:
+**3.9.4** Algorithm:
 
     verificationcode = 0
     filelist = templist = “”
     for all files in the package {
-        if file is an “excludes” file, skip it  /* exclude SPDX analysis file(s) */
+        if file is an “excludes” file, skip it /* exclude SPDX analysis file(s) */
         
             append templist with “SHA1(file)/n”
         }
@@ -465,9 +465,9 @@ Example:
     filelist = templist with "/n"s removed. /* ordered sequence of SHA1 values with no separators */
     verificationcode = SHA1(filelist)
 
-Where SHA1(file)  applies a SHA1 algorithm on the contents of file and returns the result in lowercase hexadecimal digits.
+Where SHA1(file) applies a SHA1 algorithm on the contents of file and returns the result in lowercase hexadecimal digits.
 
-Required sort order:  '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'  (ASCII order)
+Required sort order: '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f' (ASCII order)
 
 **3.9.5** Data Format: single line of text with 160 bit binary represented as 40 lowercase hexadecimal digits
 
@@ -618,7 +618,7 @@ NOASSERTION if:
 (ii) the SPDX file creator has made no attempt to determine this field; or
 (iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the Declared License, a written explanation should be provided in the Comments on License field (section 3.15).  With respect to NOASSERTION, a written explanation in the Comments on License field (section 3.15) is preferred.
+If the Concluded License is not the same as the Declared License, a written explanation should be provided in the Comments on License field (section 3.15). With respect to NOASSERTION, a written explanation in the Comments on License field (section 3.15) is preferred.
 
 **3.13.2** Intent: Here, the intent is for the SPDX file creator to analyze the license information in package, and other objective information, e.g., COPYING file, together with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the package.
 
@@ -628,7 +628,7 @@ If the Concluded License is not the same as the Declared License, a written expl
 
 where:
 
-<SPDX LIcense Expression> is a valid SPDX License Expression as defined in Appendix IV.  
+<SPDX LIcense Expression> is a valid SPDX License Expression as defined in Appendix IV.
 
 **3.13.5** Tag: `PackageLicenseConcluded:`
 
@@ -674,7 +674,7 @@ A user defined license reference denoted by LicenseRef-\[idstring\] \(for a lice
 NONE, if no license information is detected in any of the files; or
 NOASSERTION, if:
 
-(i) the SPDX file creator has made no attempt to determine this field;  or
+(i) the SPDX file creator has made no attempt to determine this field; or
 (ii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
 **3.14.2** Intent: Here, the intention is to capture all license information detected in the actual files.
@@ -803,9 +803,9 @@ Example:
     <Package rdf:about="...">
         ...
         <licenseComments>
-            This package has been shipped in source and binary form.  
+            This package has been shipped in source and binary form.
             The binaries were created with gcc 4.5.1 and expect to link to
-            compatible system run time libraries.  
+            compatible system run time libraries.
         </licenseComments>
         ...
     </Package>
@@ -836,7 +836,7 @@ Example:
 
     PackageCopyrightText: <text>Copyright 2008-2010 John Smith</text>
 
-**3.17.6**  RDF: property `spdx:copyrightText` in class `spdx:Package`
+**3.17.6** RDF: property `spdx:copyrightText` in class `spdx:Package`
 
 Example: 
 
@@ -982,7 +982,7 @@ Example (for a ‘listed’ location):
 
 Example  (for a not ‘listed’ location):
 
-    <spdx:Package  rdf:about="...">
+    <spdx:Package rdf:about="...">
         ...
         <spdx:externalRef>
             <spdx:ExternalRef>
@@ -1020,7 +1020,7 @@ Example:
 
 **3.22.6** RDF: Property `rdfs:comment` in class `spdx:ExternalRef`
 
-    <spdx:Package  rdf:about="...">
+    <spdx:Package rdf:about="...">
         ...
         <spdx:externalRef>
             <spdx:ExternalRef>

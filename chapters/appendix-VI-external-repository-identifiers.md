@@ -49,7 +49,7 @@ Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-
 When <category> = “PACKAGE_MANAGER”:
 ***
 
-## \<type> maven-central  
+## \<type> maven-central
 
 ### \<locator> Information
 

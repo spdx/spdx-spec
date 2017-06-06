@@ -45,7 +45,7 @@ Example:
 
 **4.2.1** Purpose: Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
 
-**4.2.2** Intent:  There may be several versions of the same file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
+**4.2.2** Intent: There may be several versions of the same file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
 
 **4.2.3** Cardinality: Mandatory, one.
 
@@ -86,7 +86,7 @@ Example using document URI:
 * AUDIO if the file is associated with an audio file (MIME type of audio/* , e.g. .mp3);
 * IMAGE if the file is associated with an picture image file (MIME type of image/*, e.g., .jpg, .gif);
 * TEXT if the file is human readable text file (MIME type of text/*);
-* VIDEO if the file is associated with a video file type (MIME type of video/*);  
+* VIDEO if the file is associated with a video file type (MIME type of video/*);
 * DOCUMENTATION if the file serves as documentation;
 * SPDX if the file is an SPDX document;
 * OTHER if the file doesn't fit into the above categories (generated artifacts, data files, etc.)
@@ -121,7 +121,7 @@ Example:
         <fileType rdf:resource="fileType_binary" />
     </File>
 
-Example: (where file2  is a README.TXT)
+Example: (where file2 is a README.TXT)
 
     <File rdf:about="file2">
         <fileType rdf:resource="fhttp://spdx.org/rdf/terms#ileType_text" />
@@ -172,7 +172,7 @@ Example:
 
 ## 4.5 Concluded License
 
-**4.5.1** Purpose: This field contains the license the SPDX file creator has concluded as governing the file or alternative values if the governing license cannot be determined.  
+**4.5.1** Purpose: This field contains the license the SPDX file creator has concluded as governing the file or alternative values if the governing license cannot be determined.
 
 The options to populate this field are limited to:
 
@@ -309,7 +309,7 @@ Example:
         <licenseComments>
             The concluded license was taken from the package level that the file
             was included in. This information was found in the COPYING.txt file
-            in the xyz directory. This package has been shipped in source and binary form.  
+            in the xyz directory. This package has been shipped in source and binary form.
         </licenseComments>
     </File>
 
@@ -381,7 +381,7 @@ Example:
         </artifactOf>
     </File>
 
-##4.10 Artifact of Project Homepage (deprecated)
+## 4.10 Artifact of Project Homepage (deprecated)
 
 **4.10.1** Purpose: To indicate the location of the project from which the file has been derived.
 
@@ -411,7 +411,7 @@ Example:
         </artifactOf>
     </File>
 
-##4.11 Artifact of Project Uniform Resource Identifier (deprecated)
+## 4.11 Artifact of Project Uniform Resource Identifier (deprecated)
 
 **4.11.1** Purpose: To provide a linkage to the project resource in the DOAP document and permit interoperability between the different formats supported.
 
@@ -438,9 +438,9 @@ Example:
     </File>
     <!-- Note: within the DOAP file at http://subversion.apache.org/doap.rdf  
     the value "http://subversion.apache.org/" is the URI of the describes
-    resource of type doap:Project  -->
+    resource of type doap:Project -->
 
-##4.12 File Comment
+## 4.12 File Comment
 
 **4.12.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the file.
 
@@ -470,7 +470,7 @@ Example:
         </rdfs:comment>
     </File>
 
-##4.13 File Notice
+## 4.13 File Notice
 
 **4.13.1** Purpose: This field provides a place for the SPDX file creator to record license notices or other such related notices found in the file. This may or may not include copyright statements.
 
