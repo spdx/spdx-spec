@@ -17,6 +17,7 @@ const buildDir = './build/',
     documentName = 'spdx-specification',
     git = require('gulp-git'),
     gulp = require('gulp-help')(require('gulp'), { hideEmpty: true, hideDepsMessage: true }),
+    filter = require('gulp-filter');
     gulpLoadPlugins = require('gulp-load-plugins'),
     prettify = require('gulp-jsbeautifier'),
     shell = require('gulp-shell'),
@@ -93,36 +94,56 @@ gulp.task('git-hash', false, (cb) => {
 // Generates HTML version of Gitbook in the buildDir directory
 // and removes unneeded files
 gulp.task('html', 'Generates HTML website in ' + buildDir, ['clean-build-html','build-html', 'git-hash'], (cb) => {
-    // Copy files to buildDir we do not want to alter seperately
-    gulp.src([
-            './_book/gitbook/**/*',
-            './_book/img/**/*',
-            './_book/LICENSE',
-        ], { base: './_book' })
-        .pipe(gulp.dest(buildDir + 'html/'));
+    // Create filter instance inside task function
+    const excludeFilter = filter([
+        '**', 
+        '!*/gitbook/**/*',
+        '!*/img/**/*', 
+        '!*/LICENSE'
+    ], {restore: true}),
+    htmlFilter = filter('**/*.html', {restore: true});
     
     // Copy files to buildDir whilst doing that beautify them
     gulp.src([
             './_book/chapters/**/*',
+            './_book/gitbook/**/*',
+            './_book/img/**/*',
+            './_book/LICENSE',
             './_book/styles/**/*',
             './_book/index.html',
             './_book/search_index.json'
         ], { base: './_book' })
-        // FIXME Using Cheerio breaks GitBook page JS so disabled below code
+        // Filter a subset of the files
+        .pipe(excludeFilter)
+        .pipe(htmlFilter)
+        // Modify only the HTML files
         .pipe(cheerio(function ($, file) {
-          // Each file will be run through cheerio and each corresponding `$` will be passed here. 
+          // Each file will be run through cheerio and each corresponding `$` will be passed here.
           // `file` is the gulp file object 
-          if (file.history[0].endsWith(".html")) {
-              // Insert Dublin Core Metadata tags for traceability
-              $('meta[name="author"]')
-              .append('\n<meta name="DC.source" content="https://github.com/spdx/spdx-spec">')
-              .append('\n<meta name="DC.identifier" content="#' + gitHash + '">')
-              .append('\n<meta name="DC.date.created" content="' + (new Date).toISOString() + '">')
-              .append('\n<meta name="DC.rights" content="SPDX-License-Identifier: CC-BY-3.0">');
+              
+          // Insert Dublin Core Metadata tags for traceability
+          $('meta[name="author"]')
+          .append('\n<meta name="DC.source" content="https://github.com/spdx/spdx-spec">')
+          .append('\n<meta name="DC.identifier" content="#' + gitHash + '">')
+          .append('\n<meta name="DC.date.created" content="' + (new Date).toISOString() + '">')
+          .append('\n<meta name="DC.rights" content="SPDX-License-Identifier: CC-BY-3.0">');
+          
+          // Insert SPDX logo
+          if (file.history[0].endsWith("index.html")) {
+              $('.book-summary ul.summary li a.gitbook-link')
+              .prepend('\n<div class="spdx-logo"><img src="./img/logo-spdx-250.png"/></div>')
+          } else {
+              $('.book-summary ul.summary li a.gitbook-link')
+              .prepend('\n<div class="spdx-logo"><img src="../img/logo-spdx-250.png"/></div>')
           }
         }))
+        // Bring back the previously filtered out non-HTML files
+        .pipe(htmlFilter.restore)
+        // Beautify the HTML, CSS and JS files
         .pipe(prettify())
         .pipe(removeEmptyLines())
+        // Bring back the previously filtered out files (optional)
+        .pipe(excludeFilter.restore)
         .pipe(gulp.dest(buildDir + 'html/'))
         .on('end', () => {
             console.log("Completed building HTML files from source MarkDown");
