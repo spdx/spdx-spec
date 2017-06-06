@@ -93,36 +93,40 @@ gulp.task('git-hash', false, (cb) => {
 // Generates HTML version of Gitbook in the buildDir directory
 // and removes unneeded files
 gulp.task('html', 'Generates HTML website in ' + buildDir, ['clean-build-html','build-html', 'git-hash'], (cb) => {
+    // Copy files to buildDir we do not want to alter seperately
+    gulp.src([
+            './_book/gitbook/**/*',
+            './_book/LICENSE',
+        ], { base: './_book' })
+        .pipe(gulp.dest(buildDir + 'html/'));
+    
+    // Copy files to buildDir whilst doing that beautify them
     gulp.src([
             './_book/chapters/**/*',
-            './_book/gitbook/**/*',
             './_book/img/**/*',
             './_book/styles/**/*',
             './_book/index.html',
-            './_book/LICENSE',
             './_book/search_index.json'
         ], { base: './_book' })
         // FIXME Using Cheerio breaks GitBook page JS so disabled below code
-        /*
         .pipe(cheerio(function ($, file) {
           // Each file will be run through cheerio and each corresponding `$` will be passed here. 
           // `file` is the gulp file object 
-          if (file.history[0].includes("chapters")) {
+          if (file.history[0].endsWith(".html")) {
               // Insert Dublin Core Metadata tags for traceability
-              $('link[rel="next"]')
+              $('meta[name="author"]')
               .append('\n<meta name="DC.source" content="https://github.com/spdx/spdx-spec">')
               .append('\n<meta name="DC.identifier" content="#' + gitHash + '">')
               .append('\n<meta name="DC.date.created" content="' + (new Date).toISOString() + '">')
               .append('\n<meta name="DC.rights" content="SPDX-License-Identifier: CC-BY-3.0">');
           }
         }))
-        */
         .pipe(prettify())
         .pipe(removeEmptyLines())
         .pipe(gulp.dest(buildDir + 'html/'))
         .on('end', () => {
             console.log("Completed building HTML files from source MarkDown");
-            del('./_book2').then(cb());
+            del('./_book').then(cb());
         })
 });
 
