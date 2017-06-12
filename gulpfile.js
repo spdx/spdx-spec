@@ -22,11 +22,12 @@ const buildDir = './build/',
     prettify = require('gulp-jsbeautifier'),
     shell = require('gulp-shell'),
     removeEmptyLines = require('gulp-remove-empty-lines'),
+    webServer = require('gulp-server-livereload'),
     $ = gulpLoadPlugins();
 var gitHash;
 
 // Build each versions e.g. HTML, PDF, etc.
-gulp.task('all', 'Generates all documument versions', ['html', 'pdf', 'epub', 'mobi']);
+gulp.task('all', 'Generate all documument versions.', ['html', 'pdf', 'epub', 'mobi']);
 
 // Executes shell to build ePub output of GitBook
 gulp.task('build-epub', false, shell.task([
@@ -72,7 +73,7 @@ gulp.task('clean-build-pdf', false, (cb) => {
 gulp.task('default', false, ['help']);
 
 // Generates ePub version of Gitbook in the buildDir directory
-gulp.task('epub', 'Generates ePUB of the SPDX specification Gitbook in ' + buildDir, ['clean-build-epub','build-epub'], function (cb) {
+gulp.task('epub', 'Generate ePUB in ' + buildDir, ['clean-build-epub','build-epub'], function (cb) {
     return gulp.src('./' + documentName + '.epub')
     .pipe(gulp.dest(buildDir))
     .on('end', () => {
@@ -93,7 +94,7 @@ gulp.task('git-hash', false, (cb) => {
 
 // Generates HTML version of Gitbook in the buildDir directory
 // and removes unneeded files
-gulp.task('html', 'Generates HTML website in ' + buildDir, ['clean-build-html','build-html', 'git-hash'], (cb) => {
+gulp.task('html', 'Generate HTML website in ' + buildDir, ['clean-build-html','build-html', 'git-hash'], (cb) => {
     // Create filter instance inside task function
     const excludeFilter = filter([
         '**', 
@@ -117,7 +118,7 @@ gulp.task('html', 'Generates HTML website in ' + buildDir, ['clean-build-html','
         .pipe(excludeFilter)
         .pipe(htmlFilter)
         // Modify only the HTML files
-        .pipe(cheerio(function ($, file) {
+        .pipe(cheerio(($, file) => {
           // Each file will be run through cheerio and each corresponding `$` will be passed here.
           // `file` is the gulp file object 
               
@@ -152,7 +153,7 @@ gulp.task('html', 'Generates HTML website in ' + buildDir, ['clean-build-html','
 });
 
 // Generates Mobipocket version of Gitbook in the buildDir directory
-gulp.task('mobi', 'Generates Mobipocket of the SPDX specification Gitbook in ' + buildDir, ['clean-build-mobi','build-mobi'], (cb) => {
+gulp.task('mobi', 'Generate Mobipocket in ' + buildDir, ['clean-build-mobi','build-mobi'], (cb) => {
     return gulp.src('./' + documentName + '.mobi')
     .pipe(gulp.dest(buildDir))
     .on('end', () => {
@@ -164,7 +165,7 @@ gulp.task('mobi', 'Generates Mobipocket of the SPDX specification Gitbook in ' +
 });
 
 // Generates PDF version of Gitbook in the buildDir directory
-gulp.task('pdf', 'Generates PDF of the SPDX specification Gitbook in ' + buildDir, ['clean-build-pdf','build-pdf'], (cb) => {
+gulp.task('pdf', 'Generate PDF in ' + buildDir, ['clean-build-pdf','build-pdf'], (cb) => {
     return gulp.src('./' + documentName + '.pdf')
         .pipe(gulp.dest(buildDir))
         .on('end', () => {
@@ -176,7 +177,7 @@ gulp.task('pdf', 'Generates PDF of the SPDX specification Gitbook in ' + buildDi
 });
 
 // Publish the build HTML version of GitBook to GitHub Pages
-gulp.task('publish', ['git-hash', 'html'], () => {
+gulp.task('publish', 'Publish HTML to GitHub pages.', ['git-hash', 'html'], () => {
     console.log('Publishing HTML #' + gitHash + ' to Github GH Pages');
     return gulp.src(buildDir + 'html/**/*')
         .pipe($.ghPages({
@@ -184,4 +185,22 @@ gulp.task('publish', ['git-hash', 'html'], () => {
             branch: 'gh-pages',
             message: "Update based on #" + gitHash
         }));
+});
+
+// Helper function to monitor MarkDown Files for
+// change. On change rebuild HTML version of GitBook
+gulp.task('watch', () => {
+    gulp.watch('./chapters/*.md', ['html']);
+    gulp.watch('./*.md', ['html']);
+});
+
+// Executes local webserver to host HTML version of GitBook
+// Rebuilds all HTML automatically on change of MarkDown file
+gulp.task('webserver', 'Open a web browser to webserver and will rebuild HTML on file change.', ['html', 'watch'], () => {
+  gulp.src(buildDir + 'html/').pipe(webServer({
+    host: '127.0.0.1',
+    port:'9090',
+    livereload: false,
+    open: true
+  }));
 });
