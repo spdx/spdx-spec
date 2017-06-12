@@ -1,51 +1,40 @@
 # The Software Package Data Exchange (SPDX​®​) ​Specification
 
-[![Build Status](https://travis-ci.org/tsteenbe/specification.svg?branch=master)](https://travis-ci.org/tsteenbe/specification)
+[![Build Status](https://travis-ci.org/tsteenbe/spdx-spec.svg?branch=master)](https://travis-ci.org/tsteenbe/spdx-spec)
 
 The Software Package Data Exchange® (SPDX®) specification is a standard format for communicating the components, licenses and copyrights associated with software packages.
 
 The SPDX standard helps facilitate compliance with free and open source software licenses by standardizing the way license information is shared across the software supply chain. SPDX reduces redundant work by providing a common format for companies and communities to share important data about software licenses and copyrights, thereby streamlining and improving compliance.
 
-The master branch of this repository holds under active development version of the specification in [MarkDown](https://github.com/tsteenbe/specification/tree/master/chapters) of which [HTML](https://tsteenbe.github.io/specification/) version is build on every commit. See for official [releases of the specification](https://spdx.org/specifications) or additional information also the [SPDX website](https://spdx.org).
+This repository holds under active development version of the specification as:
+
+* [MarkDown](https://github.com/tsteenbe/spdx-spec/tree/master/chapters) (master branch)
+* [HTML](https://tsteenbe.github.io/spdx-spec/) (gh-pages branch, build on every commit to master branch)
+
+See for the official [releases of the specification](https://spdx.org/specifications) or additional information also the [SPDX website](https://spdx.org).
 
 # Building the specification
 
-The SPDX specification is written in MarkDown and HTML, PDF, ePUB, Mobipocket version can be generated using [GitBook](https://www.gitbook.com/).
-Note that for generating eBooks and PDF you have to install Callibre using these [instructions](https://toolchain.gitbook.com/ebook.html).
-
-    # Install via npm document build toochain 
-    $ npm install -g gitbook-cli
-    
-    # Install all dependencies (GitBook + plugins, etc)
-    $ npm install
-
-    # Generate static HTML website in ./_book
-    $ gitbook build
-
-    # Generate a PDF document 
-    $ gitbook pdf ./ ./spdx-specification.pdf
-
-    # Generate an ePUB document
-    $ gitbook epub ./ ./spdx-specification.epub
-
-    # Generate a Mobipocket document
-    $ gitbook mobi ./ ./spdx-specification.mobi
-
-Or alternatively you can also use [Gulp](https://gulpjs.com) and then the commands are
+The SPDX specification is written in MarkDown and HTML, PDF, ePUB, Mobipocket versions can be generated using [Gulp](https://gulpjs.com) and [GitBook](https://www.gitbook.com/). Note in order to generate PDF, ePUB, Mobipocket you have to install Callibre using these [instructions](https://toolchain.gitbook.com/ebook.html).
 
     # Install via npm document build toochain 
     $ npm install -g gitbook-cli gulp
     
     # Install all dependencies (GitBook + plugins, build tools, etc)
     $ npm install
-
+    
+    # Commands to build or publish the specification
+    $ gulp
+    
     Usage
       gulp [TASK] [OPTIONS...]
 
     Available tasks
-      all      Generates all document versions
-      epub     Generates ePUB of the SPDX specification Gitbook in ./build/
-      help     Display this help text.
-      html     Generates HTML website in ./build/
-      mobi     Generates Mobipocket of the SPDX specification Gitbook in ./build/
-      pdf      Generates PDF of the SPDX specification Gitbook in ./build/
+      all        Generate all documument versions.
+      epub       Generate ePUB in ./build/
+      help       Display this help text.
+      html       Generate HTML website in ./build/
+      mobi       Generate Mobipocket in ./build/
+      pdf        Generate PDF in ./build/
+      publish    Publish HTML to GitHub pages.
+      webserver  Open a web browser to webserver and will rebuild HTML on file change.
