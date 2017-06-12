@@ -130,13 +130,8 @@ gulp.task('html', 'Generate HTML website in ' + buildDir, ['clean-build-html','b
           .append('\n<meta name="DC.rights" content="SPDX-License-Identifier: CC-BY-3.0">');
           
           // Insert SPDX logo
-          if (file.history[0].endsWith("index.html")) {
-              $('.book-summary ul.summary li a.gitbook-link')
-              .prepend('\n<div class="spdx-logo"><img src="./img/logo-spdx-250.png"/></div>')
-          } else {
-              $('.book-summary ul.summary li a.gitbook-link')
-              .prepend('\n<div class="spdx-logo"><img src="../img/logo-spdx-250.png"/></div>')
-          }
+          $('.book-summary ul.summary li a.gitbook-link')
+          .parent().prepend('\n<a class="logo" href="https://spdx.org" target="_blank"><span class="logo"/></a>')
         }))
         // Bring back the previously filtered out non-HTML files
         .pipe(htmlFilter.restore)
