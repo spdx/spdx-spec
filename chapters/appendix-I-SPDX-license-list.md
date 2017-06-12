@@ -236,7 +236,7 @@ The following table contains the full names and short identifiers for the SPDX L
 | Netscape Public License v1.1                                   | [NPL-1.1][]                              | Y    |
 | Non-Profit Open Software License 3.0                           | [NPOSL-3.0][]                            | Y    |
 | NRL License                                                    | [NRL][]                                  |      |
-| NTP License                                                    | [NTP ][]                                 | Y    |
+| NTP License                                                    | [NTP][]                                  | Y    |
 | Nunit License                                                  | [Nunit][]                                |      |
 | Open CASCADE Technology Public License                         | [OCCT-PL][]                              |      |
 | OCLC Research Public License 2.0                               | [OCLC-2.0][]                             | Y    |
@@ -377,7 +377,7 @@ The following table contains the full names and short identifiers for the SPDX L
 |-----------------------------------------------------------------|----------------------------------------|
 | eCos license version 2.0                                        | [eCos-2.0][]                           |
 | GNU General Public License v1.0 or later                        | [GPL-1.0+][]                           |
-| GNU General Public License v2.0 or later                        | [[GPL-2.0+][]                          |
+| GNU General Public License v2.0 or later                        | [GPL-2.0+][]                           |
 | GNU General Public License v2.0 w/Autoconf exception            | [GPL-2.0-with-autoconf-exception][]    |
 | GNU General Public License v2.0 w/Bison exception               | [GPL-2.0-with-bison-exception][]       |
 | GNU General Public License v2.0 w/Classpath exception           | [GPL-2.0-with-classpath-exception][]   |
