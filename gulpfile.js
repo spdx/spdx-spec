@@ -1,6 +1,8 @@
 /* Small script to automate common tasks 
  * such as building and publishing the GitBook
  *
+ * Script licensed under SPDX-License-Identifier: MIT
+ *
  * Prerequisites:
  * npm install -g gitbook-cli gulp
  *
@@ -11,7 +13,7 @@
  * Type 'gulp' to get available build and publish options
  */
 
-const buildDir = './build/',
+const outputDir = './dist/',
     cheerio = require('gulp-cheerio'),
     del = require('del'),
     documentName = 'spdx-specification',
@@ -51,31 +53,31 @@ gulp.task('build-pdf', false, shell.task([
 
 // Cleans ePUB build directory
 gulp.task('clean-build-epub', false, (cb) => {
-    return del([ buildDir + '*.epub']);
+    return del([ outputDir + '*.epub']);
 });
 
 // Cleans HTML build directory
 gulp.task('clean-build-html', false, (cb) => {
-    del([ buildDir + 'html/**/*']).then(cb());
+    del([ outputDir + 'html/**/*']).then(cb());
 });
 
 // Cleans Mobi build directory
 gulp.task('clean-build-mobi', false, (cb) => {
-    del([ buildDir + '*.mobi']).then(cb());
+    del([ outputDir + '*.mobi']).then(cb());
 });
 
 // Cleans PDF directory
 gulp.task('clean-build-pdf', false, (cb) => {
-    del([ buildDir + '*.pdf']).then(cb());
+    del([ outputDir + '*.pdf']).then(cb());
 });
 
 // Executes if user only executes 'gulp' command
 gulp.task('default', false, ['help']);
 
-// Generates ePub version of Gitbook in the buildDir directory
-gulp.task('epub', 'Generate ePUB in ' + buildDir, ['clean-build-epub','build-epub'], function (cb) {
+// Generates ePub version of Gitbook in the outputDir directory
+gulp.task('epub', 'Generate ePUB in ' + outputDir, ['clean-build-epub','build-epub'], function (cb) {
     return gulp.src('./' + documentName + '.epub')
-    .pipe(gulp.dest(buildDir))
+    .pipe(gulp.dest(outputDir))
     .on('end', () => {
         console.log("Completed building the ePub document from source MarkDown");
         del([
@@ -92,9 +94,9 @@ gulp.task('git-hash', false, (cb) => {
    });
 });
 
-// Generates HTML version of Gitbook in the buildDir directory
+// Generates HTML version of Gitbook in the outputDir directory
 // and removes unneeded files
-gulp.task('html', 'Generate HTML website in ' + buildDir, ['clean-build-html','build-html', 'git-hash'], (cb) => {
+gulp.task('html', 'Generate HTML website in ' + outputDir, ['clean-build-html','build-html', 'git-hash'], (cb) => {
     // Create filter instance inside task function
     const excludeFilter = filter([
         '**', 
@@ -104,7 +106,7 @@ gulp.task('html', 'Generate HTML website in ' + buildDir, ['clean-build-html','b
     ], {restore: true}),
     htmlFilter = filter('**/*.html', {restore: true});
     
-    // Copy files to buildDir whilst doing that beautify them
+    // Copy files to outputDir whilst doing that beautify them
     gulp.src([
             './_book/chapters/**/*',
             './_book/gitbook/**/*',
@@ -140,17 +142,17 @@ gulp.task('html', 'Generate HTML website in ' + buildDir, ['clean-build-html','b
         .pipe(removeEmptyLines())
         // Bring back the previously filtered out files (optional)
         .pipe(excludeFilter.restore)
-        .pipe(gulp.dest(buildDir + 'html/'))
+        .pipe(gulp.dest(outputDir + 'html/'))
         .on('end', () => {
             console.log("Completed building HTML files from source MarkDown");
             del('./_book').then(cb());
         })
 });
 
-// Generates Mobipocket version of Gitbook in the buildDir directory
-gulp.task('mobi', 'Generate Mobipocket in ' + buildDir, ['clean-build-mobi','build-mobi'], (cb) => {
+// Generates Mobipocket version of Gitbook in the outputDir directory
+gulp.task('mobi', 'Generate Mobipocket in ' + outputDir, ['clean-build-mobi','build-mobi'], (cb) => {
     return gulp.src('./' + documentName + '.mobi')
-    .pipe(gulp.dest(buildDir))
+    .pipe(gulp.dest(outputDir))
     .on('end', () => {
         console.log("Completed building the Mobi document from source MarkDown");
         del([
@@ -159,10 +161,10 @@ gulp.task('mobi', 'Generate Mobipocket in ' + buildDir, ['clean-build-mobi','bui
     })
 });
 
-// Generates PDF version of Gitbook in the buildDir directory
-gulp.task('pdf', 'Generate PDF in ' + buildDir, ['clean-build-pdf','build-pdf'], (cb) => {
+// Generates PDF version of Gitbook in the outputDir directory
+gulp.task('pdf', 'Generate PDF in ' + outputDir, ['clean-build-pdf','build-pdf'], (cb) => {
     return gulp.src('./' + documentName + '.pdf')
-        .pipe(gulp.dest(buildDir))
+        .pipe(gulp.dest(outputDir))
         .on('end', () => {
             console.log("Completed building the PDF document from source MarkDown");
             del([
@@ -174,7 +176,7 @@ gulp.task('pdf', 'Generate PDF in ' + buildDir, ['clean-build-pdf','build-pdf'],
 // Publish the build HTML version of GitBook to GitHub Pages
 gulp.task('publish', 'Publish HTML to GitHub pages.', ['git-hash', 'html'], () => {
     console.log('Publishing HTML #' + gitHash + ' to Github GH Pages');
-    return gulp.src(buildDir + 'html/**/*')
+    return gulp.src(outputDir + 'html/**/*')
         .pipe($.ghPages({
             origin: 'origin',
             branch: 'gh-pages',
@@ -192,7 +194,7 @@ gulp.task('watch', () => {
 // Executes local webserver to host HTML version of GitBook
 // Rebuilds all HTML automatically on change of MarkDown file
 gulp.task('webserver', 'Open a web browser to webserver and will rebuild HTML on file change.', ['html', 'watch'], () => {
-  gulp.src(buildDir + 'html/').pipe(webServer({
+  gulp.src(outputDir + 'html/').pipe(webServer({
     host: '127.0.0.1',
     port:'9090',
     livereload: false,

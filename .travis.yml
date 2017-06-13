@@ -2,15 +2,26 @@
 language: node_js
 node_js:
   - "7"
-before_script:
-  - npm install -g gulp gitbook-cli
-script: gulp
-# Build all versions
-after_script:
-  - gulp all
-cache:
-  directories:
-    - "node_modules"
+
+dist: trusty
+sudo: required
+
+# https://docs.travis-ci.com/user/installing-dependencies/
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y calibre xvfb
+
+install:
+  - npm install -g gitbook-cli
+  - npm install -g gulp
+  - npm install
+  - gitbook fetch
+  - gitbook install
+
+script:
+  - xvfb-run gulp all
+  - xvfb-run sh ./.travis/deploy.sh
+
 # By default, the gh-pages branch is not built unless added to the whitelist.
 branches:
   only:
