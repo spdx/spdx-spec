@@ -17,7 +17,7 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]
     exit 0
 else
     # Only proceed if key for decrypting deployment SSH keys is set
-    if env | grep ^encrypted_a15e84b7ea16_key= > /dev/null; then
+    if env | grep ^encrypted_0222e5876250_key= > /dev/null; then
         echo "Deploying to GitHub pages"
     
         # Set Git committer, email and remote server
