@@ -1,0 +1,414 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>1 Rationale &#xB7; Software&#xA0;Package&#xA0;Data&#xA0;Exchange&#xA0;(SPDX&#x200B;&#xAE;&#x200B;)&#xA0;&#x200B;Specification</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="generator" content="GitBook 3.2.2">
+    <meta name="author" content="Linux Foundation and its Contributors">
+    <meta name="DC.source" content="https://github.com/spdx/spdx-spec">
+    <meta name="DC.identifier" content="#098a746">
+    <meta name="DC.date.created" content="2017-07-03T19:36:51.731Z">
+    <meta name="DC.rights" content="SPDX-License-Identifier: CC-BY-3.0">
+    <link rel="stylesheet" href="../gitbook/style.css">
+    <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+    <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+    <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+    <link rel="stylesheet" href="../styles/website.css">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+    <link rel="next" href="2-document-creation-information.html">
+    <link rel="prev" href="../">
+</head>
+<body>
+    <div class="book">
+        <div class="book-summary">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav role="navigation">
+                <ul class="summary">
+                    <li class="chapter " data-level="1.1" data-path="../">
+                        <a href="../">
+                    Copyright
+                </a>
+                    </li>
+                    <li class="chapter active" data-level="1.2" data-path="1-rationale.html">
+                        <a href="1-rationale.html">
+                    1 Rationale
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.3" data-path="2-document-creation-information.html">
+                        <a href="2-document-creation-information.html">
+                    2 Document Creation Information
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.4" data-path="3-package-information.html">
+                        <a href="3-package-information.html">
+                    3 Package Information
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.5" data-path="4-file-information.html">
+                        <a href="4-file-information.html">
+                    4 File Information
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.6" data-path="5-snippet-information.html">
+                        <a href="5-snippet-information.html">
+                    5 Snippet Information
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.7" data-path="6-other-licensing-information-detected.html">
+                        <a href="6-other-licensing-information-detected.html">
+                    6 Other Licensing Information Detected
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.8" data-path="7-relationships-between-SPDX-elements.html">
+                        <a href="7-relationships-between-SPDX-elements.html">
+                    7 Relationships between SPDX Elements
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.9" data-path="8-annotations.html">
+                        <a href="8-annotations.html">
+                    8 Annotations
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.10" data-path="9-review-information-deprecated.html">
+                        <a href="9-review-information-deprecated.html">
+                    9 Review Information (deprecated)
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.11" data-path="appendix-I-SPDX-license-list.html">
+                        <a href="appendix-I-SPDX-license-list.html">
+                    Appendix I: SPDX License List
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.12" data-path="appendix-II-license-matching-guidelines-and-templates.html">
+                        <a href="appendix-II-license-matching-guidelines-and-templates.html">
+                    Appendix II: License Matching Guidelines and Templates
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.13" data-path="appendix-III-RDF-data-model-implementation-and-identifier-syntax.html">
+                        <a href="appendix-III-RDF-data-model-implementation-and-identifier-syntax.html">
+                    Appendix III: RDF Data Model Implementation and Identifier Syntax
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.14" data-path="appendix-IV-SPDX-license-expressions.html">
+                        <a href="appendix-IV-SPDX-license-expressions.html">
+                    Appendix IV: SPDX License Expressions
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.15" data-path="appendix-V-using-SPDX-short-identifiers-in-source-files.html">
+                        <a href="appendix-V-using-SPDX-short-identifiers-in-source-files.html">
+                    Appendix V: Using SPDX short identifiers in Source Files
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.16" data-path="appendix-VI-external-repository-identifiers.html">
+                        <a href="appendix-VI-external-repository-identifiers.html">
+                    Appendix VI: External Repository Identifiers
+                </a>
+                    </li>
+                    <li class="chapter " data-level="1.17" data-path="appendix-VII-creative-commons-attribution-license-3.0-unported.html">
+                        <a href="appendix-VII-creative-commons-attribution-license-3.0-unported.html">
+                    Appendix VII: Creative Commons Attribution License 3.0 Unported
+                </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="logo" href="https://spdx.org" target="_blank"><span class="logo"></span></a>
+                        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="book-body">
+            <div class="body-inner">
+                <div class="book-header" role="navigation">
+                    <!-- Title -->
+                    <h1>
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                        <a href="..">1 Rationale</a>
+                    </h1>
+                </div>
+                <div class="page-wrapper" tabindex="-1" role="main">
+                    <div class="page-inner">
+                        <div id="book-search-results">
+                            <div class="search-noresults">
+                                <section class="normal markdown-section">
+                                    <h1 id="1-rationale">1 Rationale</h1>
+                                    <h2 id="11-charter">1.1 Charter</h2>
+                                    <p>To create a set of data exchange standards that enable companies and organizations to share license and component information (metadata) for software packages and related content with the aim of facilitating license
+                                        and other policy compliance.</p>
+                                    <h2 id="12-definition">1.2 Definition</h2>
+                                    <p>The Software Package Data Exchange (SPDX&#xAE;) specification is a standard format for communicating the components, licenses, and copyrights associated with software packages. An SPDX file is associated with a particular
+                                        software package or set of packages and contains information about it in the SPDX format.</p>
+                                    <h2 id="13-why-is-a-common-format-for-data-exchange-needed">1.3 Why is a common format for data exchange needed?</h2>
+                                    <p>Companies and organizations (collectively &#x201C;Organizations&#x201D;) are widely using and reusing open source and other software packages. Compliance with the associated licenses requires a set of analysis activities
+                                        and due diligence that each Organization performs independently, which may include a manual and/or automated scan of software and identification of associated licenses followed by manual verification. Software development
+                                        teams across the globe use the same open source packages, but little infrastructure exists to facilitate collaboration on the analysis or share the results of these analysis activities. As a result, many groups
+                                        are performing the same work leading to duplicated efforts and redundant information. The SPDX working group seeks to create a data exchange format so that information about software packages and related content
+                                        may be collected and shared in a common format with the goal of saving time and improving data accuracy.</p>
+                                    <h2 id="14-what-does-this-specification-cover">1.4 What does this specification cover?</h2>
+                                    <p><strong>1.4.1</strong> SPDX Document Creation Information: Meta data to associate analysis results with a specific version of the SPDX file and license for use, and provide information on how, when, and by whom the
+                                        SPDX file was created.</p>
+                                    <p><strong>1.4.2</strong> Package Information: Facts that are common properties of the entire package.</p>
+                                    <p><strong>1.4.3</strong> File Information: Facts that are specific to each file included in the package.</p>
+                                    <p><strong>1.4.4</strong> Snippet Information: Facts that are specific to only a part of a file.</p>
+                                    <p><strong>1.4.5</strong> Other Licensing Information Detected: A way to capture information about and refer to licenses that are not on the SPDX License List.</p>
+                                    <p><strong>1.4.6</strong> Relationships Between SPDX Elements: Information on how Documents, Packages &amp; Files relate to each other.</p>
+                                    <p><strong>1.4.7</strong> Annotations: Information about when and by whom the SPDX file was reviewed</p>
+                                    <p><img src="../img/spdx-2.1-document.png" alt="Overview of SPDX 2.1 document contents"></p>
+                                    <h2 id="15-what-is-not-covered-in-the-specification">1.5 What is not covered in the specification?</h2>
+                                    <p><strong>1.5.1</strong> Information that cannot be derived from an inspection (whether manual or using automated tools) of the package to be analyzed.</p>
+                                    <p><strong>1.5.2</strong> How the data stored in an SPDX file is used by the recipient.</p>
+                                    <p><strong>1.5.3</strong> Any identification of any patent(s) which may or may not relate to the package.</p>
+                                    <p><strong>1.5.4</strong> Legal interpretation of the licenses or any compliance actions that have been or may need to be taken.</p>
+                                    <p><strong>1.5.5</strong> Examples may contain &#x201C;...&#x201D; which indicate detailed text specific to the SPDX Document</p>
+                                    <h2 id="16-format-requirements">1.6 Format Requirements</h2>
+                                    <p><strong>1.6.1</strong> Must be in a human readable form.</p>
+                                    <p><strong>1.6.2</strong> Must be in a syntax that a software tool can read and write.</p>
+                                    <p><strong>1.6.3</strong> Must be suitable to be checked for syntactic correctness independent of how it was generated (human or tool).</p>
+                                    <p><strong>1.6.4</strong> The SPDX file character set must support UTF-8 encoding.</p>
+                                    <p><strong>1.6.5</strong> Must permit automated specification syntax validation.</p>
+                                    <p><strong>1.6.6</strong> Resource Description Framework (RDF) can be used to represent this information, as can an annotated tag value flat text file.</p>
+                                    <p><strong>1.6.7</strong> Interoperability with an annotate Tag:value format and the RDF format will be preserved.</p>
+                                    <p><strong>1.6.8</strong> Tags and RDF properties are case sensitive.</p>
+                                    <p><strong>1.6.9</strong> Should be easy to recognize in a file system without opening the file. A suggested naming convention is to use *.spdx (for tag-value format) and *-spdx.rdf for RDF format.</p>
+                                    <p><strong>1.6.10</strong> The convention in this specification is for the RDF examples to use <code>rdf:about=&quot;...&quot;</code> to represent that a proper Universal Resource Indicator (URI) should be present.</p>
+                                    <h2 id="17-conformance">1.7 Conformance</h2>
+                                    <p><strong>1.7.1</strong> A file can be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the SPDX Trademark Page).</p>
+                                    <p><strong>1.7.2</strong> The official copyright notice to be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.1 is:</p>
+                                    <p>&quot;Official SPDX&#xAE; Specification 2.1 Copyright &#xA9; 2010-2016 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved.&quot;</p>
+                                    <p><strong>1.7.3</strong> The official copyright notice to be used with any non-verbatim reproduction and/or distribution of this SPDX Specification, including without limitation any partial use or combining this SPDX
+                                        Specification with another work, is:</p>
+                                    <p>&quot;This is not an official SPDX Specification. Portions herein have been reproduced from SPDX&#xAE; Specification 2.1 found at spdx.org. These portions are Copyright &#xA9; 2010-2016 Linux Foundation and its Contributors,
+                                        and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors.&quot;</p>
+                                    <h2 id="18-differences-from-spdx-specification-20">1.8 Differences from SPDX Specification 2.0</h2>
+                                    <p><strong>1.8.1</strong> Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in. The use of snippets is completely optional and it is not manditory
+                                        for snippets to be identified. See <a href="5-snippet-information.html">section 5 Snippet Information</a> for further details on the fields available to describe snippets.</p>
+                                    <p><strong>1.8.2</strong> External Packages can now be refered to in SPDX documents. When there is no SPDX file information available to document the content of these external packages, then the filesAnnalyzed attribute
+                                        on a package should be set to false. See <a href="FIXME">section 3.8</a> Files Analyzed for more information.</p>
+                                    <p><strong>1.8.3</strong> Packages are now able to associate with an &#x201C;External Reference&#x201D; which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers,
+                                        or downloadable content believed to be relevant to the Package. See: section <a href="FIXME">3.21 External Reference</a>, <a href="FIXME">3.22 External Reference Comment</a> and <a href="appendix-VI-external-repository-identifiers.html">Appendix VI: External Repository Identifiers</a>                                        for more information.</p>
+                                    <p><strong>1.8.4</strong> The &#x201C;Artifact of Project&#x201D; fields at the file level are now deprecated, as they can be replaced by a relationship to the more descriptive External Packages.</p>
+                                    <p><strong>1.8.5</strong> A new appendix &#x201C;Using SPDX short identifiers in Source Files&#x201D; has been added to document the best practices to refer to the licenses in the SPDX license list that have emerged from
+                                        the development community. See <a href="appendix-V-using-SPDX-short-identifiers-in-source-files.html">Appendix V: Using SPDX short identifiers in Source Files</a> for more information.</p>
+                                    <p><strong>1.8.6</strong> Miscellaneous bug fixes as reported on the mailing list and reported in bugs.linuxfoundation.org (search for SPDX specification).</p>
+                                </section>
+                            </div>
+                            <div class="search-results">
+                                <div class="has-results">
+                                    <h1 class="search-results-title"><span class="search-results-count"></span> results matching &quot;<span class="search-query"></span>&quot;</h1>
+                                    <ul class="search-results-list"></ul>
+                                </div>
+                                <div class="no-results">
+                                    <h1 class="search-results-title">No results matching &quot;<span class="search-query"></span>&quot;</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="../" class="navigation navigation-prev " aria-label="Previous page: Copyright">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            <a href="2-document-creation-information.html" class="navigation navigation-next " aria-label="Next page: 2 Document Creation Information">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+        </div>
+        <script>
+            var gitbook = gitbook || [];
+            gitbook.push(function() {
+                gitbook.page.hasChanged({
+                    "page": {
+                        "title": "1 Rationale",
+                        "level": "1.2",
+                        "depth": 1,
+                        "next": {
+                            "title": "2 Document Creation Information",
+                            "level": "1.3",
+                            "depth": 1,
+                            "path": "chapters/2-document-creation-information.md",
+                            "ref": "./chapters/2-document-creation-information.md",
+                            "articles": []
+                        },
+                        "previous": {
+                            "title": "Copyright",
+                            "level": "1.1",
+                            "depth": 1,
+                            "path": "CONTRIBUTORS.md",
+                            "ref": "CONTRIBUTORS.md",
+                            "articles": []
+                        },
+                        "dir": "ltr"
+                    },
+                    "config": {
+                        "plugins": ["-sharing", "regexplace"],
+                        "license": "CC-BY-3.0",
+                        "styles": {
+                            "ebook": "styles/ebook.css",
+                            "pdf": "styles/pdf.css",
+                            "website": "styles/website.css"
+                        },
+                        "pluginsConfig": {
+                            "regexplace": {
+                                "substitutes": [{
+                                    "pattern": "<!-- pagebreak -->",
+                                    "flags": "g",
+                                    "substitute": "<div class=\"page-break\"></div>"
+                                }, {
+                                    "pattern": "<!-- clear -->",
+                                    "flags": "g",
+                                    "substitute": "<div class=\"clear\"></div>"
+                                }, {
+                                    "pattern": "<!-- nopb -->",
+                                    "flags": "g",
+                                    "substitute": "<div class=\"nopb\">"
+                                }, {
+                                    "pattern": "<!-- endnopb -->",
+                                    "flags": "g",
+                                    "substitute": "</div>"
+                                }, {
+                                    "pattern": "<!-- note -->",
+                                    "flags": "g",
+                                    "substitute": "<div class=\"note\">"
+                                }, {
+                                    "pattern": "<!-- endnote -->",
+                                    "flags": "g",
+                                    "substitute": "</div>"
+                                }, {
+                                    "pattern": "!\\[(.*?)\\]\\((.*?)(?:\\s+\"(.*)\")?\\){0,}{caption=1([^\\}]*)}",
+                                    "flags": "gmi",
+                                    "substitute": "<figure id=\"fig_PAGE_LEVEL_._INDEX_\"><img $3 alt=\"$1\" title=\"$1\" href=\"$2\"><figcaption></figcaption></figure>",
+                                    "decode": true
+                                }, {
+                                    "pattern": "<img ([^>]*) {0,}/{0,}> {0,}{caption=1([^\\}]*)}",
+                                    "flags": "g",
+                                    "substitute": "<figure id=\"fig_PAGE_LEVEL_._INDEX_\"><img $2 $1><figcaption></figcaption></figure>",
+                                    "decode": true
+                                }, {
+                                    "pattern": "<img (.*)alt=\"([^\"]*)\"(.*) {0,1}/{0,1}><figcaption></figcaption>",
+                                    "flags": "g",
+                                    "substitute": "<img$1alt=\"$2\"$3><figcaption><span>Figure _INDEX_</span>: $2</figcaption>",
+                                    "store": {
+                                        "substitute": "<a href=\"_PAGE_PATH_#fig_PAGE_LEVEL_._INDEX_\">Pic. _PAGE_LEVEL_._INDEX_</a> <span>$2</span>",
+                                        "variable_name": "pictures"
+                                    }
+                                }, {
+                                    "pattern": "<p><img(.+?){style (.+?)}</p>",
+                                    "flags": "g",
+                                    "substitute": "<p style=\"$2\"><img$1</p>",
+                                    "decode": true
+                                }]
+                            },
+                            "": [{
+                                "pattern": "<!-- pagewrapper -->",
+                                "flags": "g",
+                                "substitute": "<div id=\"_PAGE_PATH_\">"
+                            }, {
+                                "pattern": "<!-- endpagewrapper -->",
+                                "flags": "g",
+                                "substitute": "</div>"
+                            }],
+                            "highlight": {},
+                            "search": {},
+                            "lunr": {
+                                "maxIndexSize": 1000000,
+                                "ignoreSpecialCharacters": false
+                            },
+                            "fontsettings": {
+                                "theme": "white",
+                                "family": "sans",
+                                "size": 2
+                            },
+                            "theme-default": {
+                                "styles": {
+                                    "website": "styles/website.css",
+                                    "pdf": "styles/pdf.css",
+                                    "epub": "styles/epub.css",
+                                    "mobi": "styles/mobi.css",
+                                    "ebook": "styles/ebook.css",
+                                    "print": "styles/print.css"
+                                },
+                                "showLevel": false
+                            }
+                        },
+                        "copyright": "&copy; 2010 - 2016 Linux Foundation and its Contributors",
+                        "theme": "default",
+                        "keywords": "SPDX, Software Package Data Exchange, SPDX-License-Identifier, specification, licenses, license, id, identifiers, oss, open source, software",
+                        "author": "Linux Foundation and its Contributors",
+                        "pdf": {
+                            "pageBreaksBefore": "/",
+                            "paper-size": "a4",
+                            "toc": true,
+                            "paperSize": "a4",
+                            "margin": {
+                                "right": 62,
+                                "left": 62,
+                                "top": 56,
+                                "bottom": 56
+                            },
+                            "fontSize": 10,
+                            "fontFamily": "Arial",
+                            "chapterMark": "pagebreak",
+                            "pageNumbers": true
+                        },
+                        "structure": {
+                            "langs": "LANGS.md",
+                            "readme": "CONTRIBUTORS.md",
+                            "glossary": "GLOSSARY.md",
+                            "summary": "SUMMARY.md"
+                        },
+                        "variables": {
+                            "hideHeaderOnPages": [1],
+                            "hideFooterOnPages": [1, 3],
+                            "document": {
+                                "type": "​Specification",
+                                "version": "2.1"
+                            },
+                            "strings": {
+                                "license": "Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved.",
+                                "version": "Version"
+                            },
+                            "pictures": []
+                        },
+                        "title": "Software Package Data Exchange (SPDX​®​) ​Specification",
+                        "language": "en",
+                        "website": "http://spdx.org",
+                        "gitbook": "3.2.2",
+                        "description": "The Software Package Data Exchange® (SPDX®) specification is a standard format for communicating the components, licenses and copyrights associated with software packages."
+                    },
+                    "file": {
+                        "path": "chapters/1-rationale.md",
+                        "mtime": "2017-07-03T19:33:24.228Z",
+                        "type": "markdown"
+                    },
+                    "gitbook": {
+                        "version": "3.2.2",
+                        "time": "2017-07-03T19:36:47.825Z"
+                    },
+                    "basePath": "..",
+                    "book": {
+                        "language": ""
+                    }
+                });
+            });
+        </script>
+    </div>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+    <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+    <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+    <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+    <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+</body>
+</html>
