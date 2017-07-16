@@ -4,7 +4,7 @@
 When `<category>` = “SECURITY”:
 ***
 
-## \<type> cpe22Type  
+## \<type> cpe22Type <a name="cpe22"></a>
 
 ### \<locator> Information
 
@@ -21,7 +21,7 @@ External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 Documentation: [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
 
 
-## \<type> cpe23Type
+## \<type> cpe23Type <a name="cpe23"></a>
 
 ### \<locator> Information
 
@@ -49,7 +49,7 @@ Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-
 When <category> = “PACKAGE_MANAGER”:
 ***
 
-## \<type> maven-central
+## \<type> maven-central <a name="maven"></a>
 
 ### \<locator> Information
 
@@ -66,7 +66,7 @@ External Reference Site: [http://repo1.maven.org/maven2/](http://repo1.maven.org
 
 Documentation: [https://maven.apache.org](https://maven.apache.org)
 
-## \<type> npm 
+## \<type> npm <a name="npm"></a>
 
 ### \<locator> Information
 
@@ -83,7 +83,7 @@ External Reference Site: [https://www.npmjs.com/](https://www.npmjs.com/)
 
 Documentation: [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
 
-## \<type> nuget 
+## \<type> nuget <a name="nuget"></a>
 
 ### \<locator> Information
 
@@ -100,7 +100,7 @@ External Reference Site: [https://www.nuget.org/](https://www.nuget.org/)
 
 Documentation: [https://docs.nuget.org/](https://docs.nuget.org/)
 
-## \<type> bower
+## \<type> bower <a name="bower"></a>
 
 ### \<locator> Information
 
@@ -121,7 +121,7 @@ Documentation: [http://bower.io/docs/api/#install](http://bower.io/docs/api/#ins
 When <category> = “OTHER”:
 ***
 
-## \<type> [idstring]
+## \<type> [idstring] <a name="idstring"></a>
 
 ### \<locator> Information
 

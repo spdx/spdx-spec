@@ -1,6 +1,6 @@
 # 7 Relationships between SPDX Elements
 
-## 7.1 Relationship
+## 7.1 Relationship <a name="7.1"></a>
  
 **7.1.1** Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. The relationships between two elements that are supported are:
 
@@ -47,7 +47,7 @@
 
     [“DocumentRef-”[idstring]”:”]SPDXID <relationship> [“DocumentRef-”[idstring]”:”]SPDXID
 
-where DocumentRef-[idstring]: is an optional reference to an external SPDX document as described in section 2.6 
+where DocumentRef-[idstring]: is an optional reference to an external SPDX document as described in [section 2.6](2-document-creation-information.md#2.6)
 
 where SPDXID is a string containing letters, numbers, “.”,“-”. as described in sections (2.3, 3.2, 4.2).
 
@@ -84,7 +84,7 @@ Examples:
 
     </SpdxElement>
 
-## 7.2 Relationship Comment
+## 7.2 Relationship Comment <a name="7.2"></a>
 
 **7.2.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the relationship.
 

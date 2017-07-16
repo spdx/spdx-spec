@@ -15,7 +15,7 @@ Annotations and Relationships for the package may appear after the Package Infor
 
 Fields:
 
-## 3.1 Package Name
+## 3.1 Package Name <a name="3.1"></a>
 
 **3.1.1** Purpose: Identify the full name of the package as given by Package Originator.
 
@@ -39,7 +39,7 @@ Example:
         <name>glibc</name>
     </Package>
 
-## 3.2 Package SPDX Identifier
+## 3.2 Package SPDX Identifier <a name="3.2"></a>
 
 **3.2.1** Purpose: Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
 
@@ -61,7 +61,7 @@ Example:
 
     [SPDX DocumentNamespace]#[SPDX Identifier] 
 
-See section 2.5 for the definition of the SPDX Document Namespace and section 2.3 for the definition of the SPDX Identifier
+See [section 2.5](2-document-creation-information.md#2.5) for the definition of the SPDX Document Namespace and [section 2.3](2-document-creation-information.md#2.3) for the definition of the SPDX Identifier
 
 Example using xml:base: 
 
@@ -77,7 +77,7 @@ Example using document URI:
         ...
     </Package>
 
-## 3.3 Package Version
+## 3.3 Package Version <a name="3.3"></a>
 
 **3.3.1** Purpose: Identify the version of the package.
 
@@ -103,7 +103,7 @@ Example:
         ...
     </Package>
 
-## 3.4  Package File Name
+## 3.4 Package File Name <a name="3.4"></a>
 
 **3.4.1** Purpose: Provide the actual file name of the package, or path of the directory being treated as a package. This may include the packaging and compression methods used as part of the file name, if appropriate.
 
@@ -141,7 +141,7 @@ Example (subdirectory being treated as a package):
        ...
     </Package>
 
-## 3.5 Package Supplier
+## 3.5 Package Supplier <a name="3.5"></a>
 
 **3.5.1** Purpose: Identify the actual distribution source for the package/directory identified in the SPDX file. This may or may not be different from the originating distribution source for the package. The name of the Package Supplier must be an organization or recognized author and not a web site. For example, Sourceforge is a host website, not a supplier, the supplier for http://sourceforge.net/projects/bridge/ is "The Linux Foundation."
 
@@ -175,7 +175,7 @@ Example:
         ...
     </Package>
 
-## 3.6 Package Originator
+## 3.6 Package Originator <a name="3.6"></a>
 
 **3.6.1** Purpose: If the package identified in the SPDX file originated from a different person or organization than identified as Package Supplier (see section 3.5 above), this field identifies from where or whom the package originally came. In some cases a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX file identifies the package glibc and Red Hat as the Package Supplier, but Free Software Foundation is the Package Originator.
 
@@ -207,7 +207,7 @@ Example:
         <originator>Organization: ExampleCodeInspect (contact@example.com)</originator>
     </Package>
 
-## 3.7 Package Download Location
+## 3.7 Package Download Location <a name="3.7"></a>
 
 **3.7.1** Purpose: This section identifies the download Universal Resource Locator (URL), or a specific location within a version control system (VCS) for the package at the time that the SPDX file was created.
 
@@ -412,7 +412,7 @@ Example:
         <downloadLocation rdf:resource="http://spdx.org/rdf/terms#none"/>
     </Package>
 
-## 3.8 Files Analyzed
+## 3.8 Files Analyzed <a name="3.8"></a>
 
 **3.8.1** Purpose: Indicates whether the file content of this package has been available for or subjected to analysis when creating the SPDX document. If “false” indicates packages that represent metadata or URI references to a project, product, artifact, distribution or a component. If set to “false”, the package must not contain any files.
 
@@ -421,7 +421,7 @@ Example:
 Some examples:
 
 A bundle of external products: Package A can be metadata about Packages and their dependencies. It may also be a loosely organized manifest of references to Packages involved in a product or project. Build or execution may transitively discover more Packages and dependencies. All of these referenced Packages can have their own SPDX Documents. In this case, Package A may be defined with its File Analyzed attribute set to “false”. Package A includes External Document References to SPDX documents containing Packages referenced in all the available relationships. The Relationships section then relates the SPDX documents and contained SPDX elements with appropriate semantics per the dependencies in the scope of Package A.
-Package relation to external product: Package A can have a STATIC_LINK relationship to Package B, but the binary representation of Package B is furnished by the build process and thus not contained in the file list of Package A. In this case, Package B needs to be defined with its Files Analyzed attribute set to false and all the other attributes subject to the subsequently defined constraints. Then, the relationship between Package A and Package B can be documented as described in Section 6.
+Package relation to external product: Package A can have a STATIC_LINK relationship to Package B, but the binary representation of Package B is furnished by the build process and thus not contained in the file list of Package A. In this case, Package B needs to be defined with its Files Analyzed attribute set to false and all the other attributes subject to the subsequently defined constraints. Then, the relationship between Package A and Package B can be documented as described in [Section 7](7-relationships-between-SPDX-elements.md).
 File derived from external product: Package A contains multiple files derived from an outside project. Rather than use the artifactOf* attributes (Sections 4.9-4.11) to describe the relation of these files to their project, the outside project can be represented by another package, Package B, whose FilesAnalyzed attribute is set to “false”. Each of the binary files can then have a relationship to package B (Section 6). This allows the outside project to be represented by a single SPDX identifier (the identifier of Package B). It also allows the relationship(s) between the outside project and each of the files be represented in much more detail.
 
 **3.8.3** Cardinality: Optional, one. (If omitted, the default value of “true” is assumed).
@@ -444,7 +444,7 @@ Example:
         ...
     </Package>
 
-## 3.9 Package Verification Code
+## 3.9 Package Verification Code <a name="3.9"></a>
 
 **3.9.1** Purpose: This field provides an independently reproducible mechanism identifying specific contents of a package based on the actual files (except the SPDX file itself, if it is included in the package) that make up each package and that correlates to the data in this SPDX file. This identifier enables a recipient to determine if any file in the original package (that the analysis was done on) has been changed and permits inclusion of an SPDX file as part of a package.
 
@@ -496,7 +496,7 @@ Example:
         </packageVerificationCode>
     </Package>
 
-## 3.10 Package Checksum
+## 3.10 Package Checksum <a name="3.10"></a>
 
 **3.10.1** Purpose: This field provides an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX file. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX file is to be included in a package, this value should not be calculated. The SHA-1 algorithm will be used to provide the checksum by default. 
 
@@ -545,7 +545,7 @@ Example:
         </checksum>
     </Package>
 
-## 3.11 Package Home Page
+## 3.11 Package Home Page <a name="3.11"></a>
 
 **3.11.1** Purpose: This field provides a place for the SPDX file creator to record a web site that serves as the package's home page. This link can also be used to reference further information about the package referenced by the SPDX file creator.
 
@@ -575,7 +575,7 @@ Example:
     <Package rdf:about="...">
         <doap:homepage >http://ftp.gnu.org/gnu/glibc/</doap:homepage>    </Package>
 
-## 3.12 Source Information
+## 3.12 Source Information <a name="3.12"></a>
 
 **3.12.1** Purpose: This field provides a place for the SPDX file creator to record any relevant background information or additional comments about the origin of the package. For example, this field might include comments indicating whether the package was pulled from a source code management system or has been repackaged.
 
@@ -603,7 +603,7 @@ Example:
         ...
     </Package>
 
-## 3.13 Concluded License
+## 3.13 Concluded License <a name="3.13"></a>
 
 **3.13.1** Purpose: This field contains the license the SPDX file creator has concluded as governing the package or alternative values, if the governing license cannot be determined.
 
@@ -618,7 +618,7 @@ NOASSERTION if:
 (ii) the SPDX file creator has made no attempt to determine this field; or
 (iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the Declared License, a written explanation should be provided in the Comments on License field (section 3.15). With respect to NOASSERTION, a written explanation in the Comments on License field (section 3.15) is preferred.
+If the Concluded License is not the same as the Declared License, a written explanation should be provided in the Comments on License field [(section 3.16)](#3.16). With respect to NOASSERTION, a written explanation in the Comments on License field [(section 3.16)](#3.16) is preferred.
 
 **3.13.2** Intent: Here, the intent is for the SPDX file creator to analyze the license information in package, and other objective information, e.g., COPYING file, together with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the package.
 
@@ -663,7 +663,7 @@ Example:
         ...
     </Package>
 
-## 3.14 All Licenses Information from Files
+## 3.14 All Licenses Information from Files <a name="3.14"></a>
 
 **3.14.1** Purpose: This field is to contain a list of all licenses found in the package. The relationship between licenses (i.e., conjunctive, disjunctive) is not specified in this field – it is simply a listing of all licenses found.
 
@@ -693,7 +693,7 @@ where:
 
   “DocumentRef-”[idstring] is an optional reference to an external SPDX
 
-document as described in section 2.6
+document as described in [section 2.6](2-document-creation-information.md#2.6)
 
   [idstring] is a unique string containing letters, numbers, “.”, or “-”
 
@@ -719,7 +719,7 @@ Example:
         ...
     </Package>
 
-## 3.15 Declared License
+## 3.15 Declared License <a name="3.15"></a>
 
 **3.15.1** Purpose: This field lists the licenses that have been declared by the authors of the package. Any license information that does not originate from the package authors, e.g. license information from a third party repository, should not be included in this field.
 
@@ -731,7 +731,7 @@ NOASSERTION if:
 (i) the SPDX file creator has made no attempt to determine this field; or
 (ii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-**3.15.2** Intent: This is simply the license identified in text in one or more files (for example COPYING file) in the source code package. This field is not intended to capture license information obtained from an external source, such as the package website. Such information can be included in Concluded License (section 3.12). This field may have multiple Declared Licenses, if multiple licenses are declared at the package level.
+**3.15.2** Intent: This is simply the license identified in text in one or more files (for example COPYING file) in the source code package. This field is not intended to capture license information obtained from an external source, such as the package website. Such information can be included in Concluded License [(section 3.13)](#3.13). This field may have multiple Declared Licenses, if multiple licenses are declared at the package level.
 
 **3.15.3** Cardinality: Mandatory, one.
 
@@ -775,7 +775,7 @@ Example:
         ...
     </Package>
 
-## 3.16 Comments on License
+## 3.16 Comments on License <a name="3.16"></a>
 
 **3.16.1** Purpose: This field provides a place for the SPDX file creator to record any relevant background information or analysis that went in to arriving at the Concluded License for a package. If the Concluded License does not match the Declared License or License Information from Files, this should be explained by the SPDX file creator. Its is also preferable to include an explanation here when the Concluded License is NOASSERTION.
 
@@ -810,7 +810,7 @@ Example:
         ...
     </Package>
 
-## 3.17 Copyright Text
+## 3.17 Copyright Text <a name="3.17"></a>
 
 **3.17.1** Purpose: Identify the copyright holders of the package, as well as any dates present. This will be a free form text field extracted from package information files. The options to populate this field are limited to:
 
@@ -846,7 +846,7 @@ Example:
         ...
     </Package>
 
-## 3.18 Package Summary Description
+## 3.18 Package Summary Description <a name="3.18"></a>
 
 **3.18.1** Purpose: This field is a short description of the package.
 
@@ -874,7 +874,7 @@ Example:
         ...
     </Package>
 
-## 3.19 Package Detailed Description
+## 3.19 Package Detailed Description <a name="3.19"></a>
 
 **3.19.1** Purpose: This field is a more detailed description of the package. It may also be extracted from the packages itself.
 
@@ -908,7 +908,7 @@ Example:
         ...
     </Package>
 
-## 3.20 Package Comment
+## 3.20 Package Comment <a name="3.20"></a>
 
 **3.20.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the package being described.
 
@@ -938,7 +938,7 @@ Example:
         ...
     </Package>
 
-## 3.21 External Reference 
+## 3.21 External Reference <a name="3.21"></a>
 
 **3.21.1** Purpose: An External Reference allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package.
 
@@ -994,9 +994,9 @@ Example  (for a not ‘listed’ location):
         ...
     </spdx:package>
 
-The referenceType value for a non-listed location consists of the SPDX document namespace (per section 2.5) followed by a “#” and the category as defined in 3.21.4.
+The referenceType value for a non-listed location consists of the SPDX document namespace (per [section 2.5](2-document-creation-information.md#2.5)) followed by a “#” and the category as defined in 3.21.4.
 
-## 3.22 External Reference Comment
+## 3.22 External Reference Comment <a name="3.22"></a>
  
 **3.22.1** Purpose: To provide human-readable information about the purpose and target of the reference.
 

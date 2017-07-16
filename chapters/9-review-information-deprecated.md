@@ -6,7 +6,7 @@ Review information can be added after the initial SPDX file has been created. Th
 
 Fields:
 
-## 9.1 Reviewer (deprecated)
+## 9.1 Reviewer (deprecated) <a name="9.1"></a>
 
 This field has been deprecated since SPDX 2.0.
 
@@ -36,7 +36,7 @@ Example:
         <reviewer> Person: Jane Doe () </reviewer>
     </Review>
 
-# 9.2 Review Date (deprecated)
+# 9.2 Review Date (deprecated) <a name="9.2"></a>
 
 This field has been deprecated since SPDX 2.0.
 
@@ -73,7 +73,7 @@ Example:
         <reviewDate> 2010-01-29T18:30:22Z </reviewDate>
     </Review>
 
-## 9.3 Review Comment (deprecated)
+## 9.3 Review Comment (deprecated) <a name="9.3"></a>
 
 This field is deprecated since SPDX 2.0.
 

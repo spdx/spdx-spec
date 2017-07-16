@@ -14,7 +14,7 @@ The SPDX License List is a list of commonly found licenses and exceptions used f
 
 The following table contains the full names and short identifiers for the SPDX License List, v2.5 which was released July 2016. For the full and most up-to-date version of the SPDX License List as well as other related information, please see [http://spdx.org/licenses/](http://spdx.org/licenses/)
 
-## I.1 Licenses with Short Identifiers
+## I.1 Licenses with Short Identifiers <a name="I.1"></a>
 
 | Full Name of License                                           | Short Identifier                         | OSI? |
 |----------------------------------------------------------------|------------------------------------------|------|
@@ -341,7 +341,7 @@ The following table contains the full names and short identifiers for the SPDX L
 | Zope Public License 2.0                                        | [ZPL-2.0][]                              | Y    |
 | Zope Public License 2.1                                        | [ZPL-2.1][]                              |      |
 
-## I.2 Exceptions List
+## I.2 Exceptions List <a name="I.2"></a>
 
 | Full Name of Exception                | SPDX LicenseException         |
 |---------------------------------------|-------------------------------|
@@ -371,7 +371,7 @@ The following table contains the full names and short identifiers for the SPDX L
 | U-Boot exception 2.0                  | [u-boot-exception-2.0][]      |
 | WxWindows Library Exception 3.1       | [WxWindows-exception-3.1][]   |
 
-## I.3 Deprecated Licenses
+## I.3 Deprecated Licenses <a name="I.3"></a>
 
 | Full Name of License                                            | Deprecated SPDX License Identifier     |
 |-----------------------------------------------------------------|----------------------------------------|

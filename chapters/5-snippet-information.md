@@ -11,7 +11,7 @@ Presence of a new file or package section signals the end of the set of snippets
 The first field to start off the description of a Snippet must be the Snippet Identifier in tag:value format.
 Annotations on the Snippet and Relationships from the Snippet may appear after the Snippet Information, before the next file or Package section.
 
-## 5.1 Snippet SPDX Identifier
+## 5.1 Snippet SPDX Identifier <a name="5.1"></a>
 
 **5.1.1** Purpose: Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
 
@@ -45,7 +45,7 @@ Example using document URI:
         ...
     </Snippet>
 
-## 5.2  Snippet from File SPDX Identifier
+## 5.2 Snippet from File SPDX Identifier <a name="5.2"></a>
 
 **5.2.1** Purpose: Uniquely identify the file in an SPDX document which this snippet is associated with.
 
@@ -57,7 +57,7 @@ Example using document URI:
 
 where DocumentRef-[idstring]: is an optional reference to an external
 
-SPDX document as described in section 2.6
+SPDX document as described in [section 2.6](2-document-creation-information.md#2.6)
 
 where SPDXID is a string containing letters, numbers, “.”,“-”. as
 
@@ -89,7 +89,7 @@ Example (snippet from a File in an External SPDX Doc):
         ...
     </Snippet>
 
-## 5.3 Snippet Byte Range
+## 5.3 Snippet Byte Range <a name="5.3"></a>
 
 **5.3.1** Purpose: This field defines the byte range in the original host file (in X.2) that the snippet information applies to.
 
@@ -143,7 +143,7 @@ Example:
         </range>
     </Snippet>
 
-## 5.4 Snippet Line Range
+## 5.4 Snippet Line Range <a name="5.4"></a>
 
 **5.4.1** Purpose: This optional field defines the line range in the original host file (in X.2) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.
 
@@ -195,7 +195,7 @@ xmlns:ptr=http://www.w3.org/2009/pointers#
         </range>
     </Snippet>
 
-## 5.5 Snippet Concluded License
+## 5.5 Snippet Concluded License <a name="5.5"></a>
 
 **5.5.1** Purpose: This field contains the license the SPDX file creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:
 
@@ -254,7 +254,7 @@ Example:
         </licenseConcluded>
     </Snippet>
 
-## 5.6 License Information in Snippet
+## 5.6 License Information in Snippet <a name="5.6"></a>
 
 **5.6.1** Purpose: This field contains the license information actually found in the snippet, if any. Any license information not actually in the snippet itself, e.g., header of the file the snippet belongs in, “COPYING.txt” file in a top level directory, should not be reflected in this field.
 
@@ -289,7 +289,7 @@ as defined in Appendix IV.
 
 “DocumentRef-”[idstring]: is an optional reference to an external SPDX
 
-document as described in section 2.6
+document as described in [section 2.6](2-document-creation-information.md#2.6)
 
 [idstring] is a unique string containing letters, numbers, “.” or “-”
 
@@ -310,7 +310,7 @@ Example:
         <licenseInfoInSnippet rdf:resource="#LicenseRef-2" />
     </Snippet>
 
-## 5.7 Snippet Comments on License
+## 5.7 Snippet Comments on License <a name="5.7"></a>
 
 **5.7.1** Purpose: This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a snippet.
 
@@ -343,7 +343,7 @@ Example:
         ...
     </Snippet>
 
-## 5.8 Snippet Copyright Text
+## 5.8 Snippet Copyright Text <a name="5.8"></a>
 
 **5.8.1** Purpose: Identify the copyright holder of the snippet, as well as any dates present. This will be a free form text field, ideally extracted from the actual snippet.  The options to populate this field are limited to:
 
@@ -377,7 +377,7 @@ Example:
         ...
     </Snippet>
 
-## 5.9 Snippet Comment
+## 5.9 Snippet Comment <a name="5.9"></a>
 
 **5.9.1** Purpose: This field provides a place for the SPDX document creator to record any general comments about the snippet.
 
@@ -410,8 +410,8 @@ Example:
         ...
     </Snippet>
 
-## 5.10 Snippet Name
- 
+## 5.10 Snippet Name <a name="5.10"></a>
+
 **5.10.1** Purpose: Identify a specific snippet in a human convenient manner.
 
 **5.10.2** Intent: To aid in identifying a snippet under discussion that may be used in multiple locations, and for consistency with the ability to refer to any copyrightable SPDX Element by name.

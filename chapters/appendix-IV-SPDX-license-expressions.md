@@ -41,7 +41,7 @@ A valid \<license-expression> string consists of either:
 
 There MUST NOT be whitespace between a license-id and any following "+". This supports easy parsing and backwards compatibility. There MUST be whitespace on either side of the operator "WITH". There MUST be whitespace and/or parentheses on either side of the operators "AND" and "OR".
 
-## Simple License Expressions
+## Simple License Expressions <a name="simple-expr"></a>
 
 A simple `<license-expression>` is composed one of the following:
 
@@ -57,7 +57,7 @@ Some examples:
 
     DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
 
-## Composite License Expressions
+## Composite License Expressions <a name="composite-expr"></a>
 
 More expressive composite license expressions can be constructed using "OR", "AND", and "WITH" operators similar to constructing mathematical expressions using arithmetic operators. For the Tag:value format, any license expression that consists of more than one license identifier and/or LicenseRef, should be encapsulated by parentheses: "( )". This has been specified to facilitate expression parsing. Nested parentheses can also be used to specify an order of precedence which is discussed in more detail in subsection (4).
 
@@ -93,7 +93,7 @@ For example, when the Bison exception is to be applied to GPL-2.0+, the expressi
 
     (GPL-2.0+ WITH Bison-exception-2.2)
 
-The current set of valid exceptions can be found in Appendix I, section 2. For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single \<license-ref> to represent the entire license terms (including the exception).
+The current set of valid exceptions can be found in [Appendix I, section 2](appendix-I-SPDX-license-list.md#I.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single \<license-ref> to represent the entire license terms (including the exception).
 
 ### 4) Order of Precedence and Parentheses
 
@@ -120,7 +120,7 @@ For instance, the following expression:
 
 states the OR operator should be applied before the AND operator. That is, one should first select between the LGPL-2.1+ or the BSD-3-Clause license before applying the MIT license.
 
-### 5) License Expressions in RDF
+### 5) License Expressions in RDF <a name="rdf-expr"></a>
 
 A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet>` element, with an spdx:member property for each element in the conjunctive license. Two or more members are required.
 

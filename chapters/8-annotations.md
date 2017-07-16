@@ -1,6 +1,6 @@
 # 8 Annotations
 
-## 8.1 Annotator
+## 8.1 Annotator <a name="8.1"></a>
 
 **8.1.1** Purpose: This field identifies the person, organization or tool that has commented on a file, package, or the entire document.
 
@@ -28,7 +28,7 @@ Example:
         <annotator> Person: Jane Doe () </annotator>
     </Annotations>
 
-## 8.2 Annotation Date
+## 8.2 Annotation Date <a name="8.2"></a>
 
 **8.2.1** Purpose: Identify when the comment was made. This is to be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.
 
@@ -63,7 +63,7 @@ Example:
         <annotationDate> 2010-01-29T18:30:22Z </annotation Date>
     </Annotation>
 
-## 8.3 Annotation Type
+## 8.3 Annotation Type <a name="8.3"></a>
 
 **8.3.1** Purpose: This field describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be REVIEW. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of OTHER.
 
@@ -87,7 +87,7 @@ Example:
         <spdx:annotationType rdf:resource="http://spdx.org/rdf/terms#annotationType_other"/>
     </Annotation>
 
-## 8.4 SPDX Identifier Reference
+## 8.4 SPDX Identifier Reference <a name="8.4"></a>
 
 **8.4.1** Purpose: Uniquely identify the element in an SPDX document which is being referenced. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
 
@@ -124,7 +124,7 @@ For RDF, the annotations are a property of the SPDX element it is annotationg.
         </annotation>
     </SpdxElement rdf:about=”#SPDXRef-45”>
 
-## 8.5 Annotation Comment
+## 8.5 Annotation Comment <a name="8.5"></a>
 
 **8.5.1** Purpose: This optional free form text field permits the annotator to provide commentary on the analysis.
 

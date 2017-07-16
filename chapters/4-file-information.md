@@ -14,7 +14,7 @@ Annotations on the file and Relationships from the file may appear after the fil
 
 When implementing file information in RDF, the spdx:hasFile property is used to associate the package with the file.
 
-## 4.1 File Name
+## 4.1 File Name <a name="4.1"></a>
 
 **4.1.1** Purpose: Identify the full path and filename that corresponds to the file information in this section.
 
@@ -41,7 +41,7 @@ Example:
         ...
     </File>
 
-## 4.2 File SPDX Identifier
+## 4.2 File SPDX Identifier <a name="4.2"></a>
 
 **4.2.1** Purpose: Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
 
@@ -75,7 +75,7 @@ Example using document URI:
         ...
     </File>
 
-## 4.3 File Type
+## 4.3 File Type <a name="4.3"></a>
 
 **4.3.1** Purpose: This field provides information about the type of file identified. File Type is intrinsic to the file, independent of how the file is being used. A file may have more than one file type assigned to it, however the options to populate this field are limited to:
 
@@ -128,7 +128,7 @@ Example: (where file2 is a README.TXT)
         <fileType rdf:resource="fhttp://spdx.org/rdf/terms#ileType_documentation" />
     </File>
 
-## 4.4 File Checksum
+## 4.4 File Checksum <a name="4.4"></a>
  
 
 **4.4.1** Purpose: Provide a unique identifier to match analysis information on each specific file in a package.
@@ -170,7 +170,7 @@ Example:
         </checksum>
     </File>
 
-## 4.5 Concluded License
+## 4.5 Concluded License <a name="4.5"></a>
 
 **4.5.1** Purpose: This field contains the license the SPDX file creator has concluded as governing the file or alternative values if the governing license cannot be determined.
 
@@ -186,9 +186,9 @@ NOASSERTION, if:
 
 (iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (section 4.7). With respect to NOASSERTION, a written explanation in the Comments on License field (section 4.7) is preferred.
+If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (section 4.7). With respect to NOASSERTION, a written explanation in the Comments on License field [(section 4.7)](#4.7) is preferred.
 
-**4.5.2** Intent: Here, the intent is for the SPDX file creator to analyze the License Information in file (section 4.6) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
+**4.5.2** Intent: Here, the intent is for the SPDX file creator to analyze the License Information in file [(section 4.6)](#4.6) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
 
 **4.5.3** Cardinality: Mandatory, one.
 
@@ -227,7 +227,7 @@ Example:
         </licenseConcluded>
     </File>
 
-## 4.6 License Information in File
+## 4.6 License Information in File <a name="4.6"></a>
 
 **4.6.1** Purpose: This field contains the license information actually found in the file, if any. This information is most commonly found in the header of the file, although it may be in other areas of the actual file. Any license information not actually in the file, e.g., “COPYING.txt” file in a top level directory, should not be reflected in this field.
 
@@ -262,7 +262,7 @@ as defined in Appendix IV.
 
 “DocumentRef-”[idstring]: is an optional reference to an external SPDX
 
-document as described in section 2.6
+document as described in [section 2.6](2-document-creation-information.md#2.6)
 
 [idstring] is a unique string containing letters, numbers, “.” or “-”
 
@@ -282,7 +282,7 @@ Example:
         <licenseInfoInFile rdf:resource="#LicenseRef-2" />
     </File>
 
-## 4.7 Comments on License
+## 4.7 Comments on License <a name="4.7"></a>
 
 **4.7.1** Purpose: This field provides a place for the SPDX file creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a file. If the Concluded License does not match the License Information in File, this should be explained by the SPDX file creator. It is also preferable to include an explanation here when the Concluded License is NOASSERTION.
 
@@ -313,7 +313,7 @@ Example:
         </licenseComments>
     </File>
 
-## 4.8 Copyright Text
+## 4.8 Copyright Text <a name="4.8"></a>
 
 **4.8.1** Purpose: Identify the copyright holder of the file, as well as any dates present. This will be a freeform text field extracted from the actual file.
 
@@ -351,7 +351,7 @@ Example:
         </copyrightText>
     </File>
 
-##4.9 Artifact of Project Name (deprecated)
+##4.9 Artifact of Project Name (deprecated) <a name="4.9"></a>
 
 **4.9.1** Purpose: To indicate that a file has been derived from a specific project.
 
@@ -381,7 +381,7 @@ Example:
         </artifactOf>
     </File>
 
-## 4.10 Artifact of Project Homepage (deprecated)
+## 4.10 Artifact of Project Homepage (deprecated) <a name="4.10"></a>
 
 **4.10.1** Purpose: To indicate the location of the project from which the file has been derived.
 
@@ -411,7 +411,7 @@ Example:
         </artifactOf>
     </File>
 
-## 4.11 Artifact of Project Uniform Resource Identifier (deprecated)
+## 4.11 Artifact of Project Uniform Resource Identifier (deprecated) <a name="4.11"></a>
 
 **4.11.1** Purpose: To provide a linkage to the project resource in the DOAP document and permit interoperability between the different formats supported.
 
@@ -440,7 +440,7 @@ Example:
     the value "http://subversion.apache.org/" is the URI of the describes
     resource of type doap:Project -->
 
-## 4.12 File Comment
+## 4.12 File Comment <a name="4.12"></a>
 
 **4.12.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the file.
 
@@ -470,7 +470,7 @@ Example:
         </rdfs:comment>
     </File>
 
-## 4.13 File Notice
+## 4.13 File Notice <a name="4.13"></a>
 
 **4.13.1** Purpose: This field provides a place for the SPDX file creator to record license notices or other such related notices found in the file. This may or may not include copyright statements.
 
@@ -498,7 +498,7 @@ Example:
         </noticeText>
     </File>
 
-## 4.14 File Contributor
+## 4.14 File Contributor <a name="4.14"></a>
 
 **4.14.1** Purpose: This field provides a place for the SPDX file creator to record file contributors. Contributors could include names of copyright holders and/or authors who may not be copyright holders, yet contributed to the file content.
 
@@ -528,9 +528,9 @@ Example:
         <fileContributor> IBM Corporation </fileContributor>
     </File>
 
-## 4.15 File Dependencies (deprecated)
+## 4.15 File Dependencies (deprecated) <a name="4.15"></a>
 
-This field is deprecated since SPDX 2.0 in favor of using Section 7 which provides more granularity about relationships.
+This field is deprecated since SPDX 2.0 in favor of using [Section 7](7-relationships-between-SPDX-elements.md) which provides more granularity about relationships.
 
 **4.15.1** Purpose: The field provides a place for the SPDX file creator to record a list of other files (referenceable within this SPDX file) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files may not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or may be needed as part of the file distribution obligation.
 

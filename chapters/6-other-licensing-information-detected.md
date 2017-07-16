@@ -6,7 +6,7 @@ One instance should be created for every unique license or licensing information
 
 Fields:
 
-## 6.1 License Identifier
+## 6.1 License Identifier <a name="6.1"></a>
 
 **6.1.1** Purpose: Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (sections 3 and 4, respectively).
 
@@ -33,14 +33,14 @@ Examples:
 Examples:
 
     <ExtractedLicensingInfo rdf:about="licenseRef-1">
-     <licenseId>LicenseRef-1</licenseId>
+       <licenseId>LicenseRef-1</licenseId>
     </ExtractedLicensingInfo>
 
     <ExtractedLicensingInfo rdf:about="licenseRef-Beerware-4.2">
-      <licenseId>LicenseRef-Beerware-4.2</licenseId>
+        <licenseId>LicenseRef-Beerware-4.2</licenseId>
     </ExtractedLicensingInfo>
 
-# 6.2 Extracted Text
+# 6.2 Extracted Text <a name="6.2"></a>
 
 **6.2.1** Purpose: Provide a copy of the actual text of the license reference extracted from the package or file that is associated with the License Identifier to aid in future analysis.
 
@@ -78,7 +78,7 @@ Example 2 (if indeed full text of license present in File):
         <extractedText>""THE WHISKEY-WARE LICENSE": whiskeyfan@example.com wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a bottle of whiskey in return.</extractedText>
     </ExtractedLicensingInfo>
 
-# 6.3 License Name
+# 6.3 License Name <a name="6.3"></a>
 
 **6.3.1** Purpose: Provide a common name of the license that is not on the SPDX list.
 
@@ -101,11 +101,11 @@ Example:
 Example:  
 
     <ExtractedLicensingInfo rdf:about="licenseRef-Whiskey-Ware">
-      <name>Whiskey-Ware License </name>        
+       <name>Whiskey-Ware License </name>
     </ExtractedLicensingInfo>
 
  
-# 6.4 License Cross Reference
+# 6.4 License Cross Reference <a name="6.4"></a>
  
 **6.4.1** Purpose: Provide a pointer to the official source of a license that is not included in the SPDX License List, that is referenced by the License Identifier.
 
@@ -126,10 +126,10 @@ Example:
 Example:
 
     <ExtractedLicensingInfo rdf:about="licenseRef-1">
-      <rdfs:seeAlso>http://people.freebsd.org/~phk/</rdfs:seeAlso>
+        <rdfs:seeAlso>http://people.freebsd.org/~phk/</rdfs:seeAlso>
     </ExtractedLicensingInfo>
 
-# 6.5 License Comment
+# 6.5 License Comment <a name="6.5"></a>
  
 **6.5.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the license.
 
@@ -152,5 +152,5 @@ Example:
 Example: 
 
     <ExtractedLicensingInfo rdf:about="licenseRef-1">
-      <rdfs:comment> The Whiskey-Ware License has a couple of other standard variants.</rdfs:comment>
+        <rdfs:comment> The Whiskey-Ware License has a couple of other standard variants.</rdfs:comment>
     </ExtractedLicensingInfo>

@@ -6,7 +6,7 @@ Cardinality: Mandatory, one.
 
 Fields:
 
-## 2.1 SPDX Version
+## 2.1 SPDX Version <a name="2.1"></a>
 
 **2.1.1** Purpose: Provide a reference number that can be used to understand how to parse and interpret the rest of the file. It will enable both future changes to the specification and to support backward compatibility. The version number consists of a major and minor version indicator. The major field will be incremented when incompatible changes between versions are made (one or more sections are created, modified or deleted). The minor field will be incremented when backwards compatible changes are made.
 
@@ -34,7 +34,7 @@ Example:
        <specVersion>SPDX-2.1</specVersion>
     </SpdxDocument>
 
-## 2.2 Data License  
+## 2.2 Data License <a name="2.2"></a>
 
 **2.2.1** Purpose: Compliance with the SPDX specification includes populating the SPDX fields therein with data related to such fields ("SPDX-Metadata"). The SPDX specification contains numerous fields where an SPDX document creator may provide relevant explanatory text in SPDX-Metadata.
 Without opining on the lawfulness of "database rights" (in jurisdictions where applicable), such explanatory text is copyrightable subject matter in most Berne Convention countries.
@@ -60,7 +60,7 @@ Example:
       <dataLicense rdf:resource="http://spdx.org/licenses/CC0-1.0" />
     </SpdxDocument>
 
-## 2.3 SPDX Identifier
+## 2.3 SPDX Identifier <a name="2.3"></a>
 
 **2.3.1** Purpose: Identify the current SPDX document which may be referenced in relationships by other files, packages internally and documents externally. To reference another SPDX document in total, this identifier should be used with the external document identifier preceding it. See the “Relationships between SPDX Elements” section for examples.
 
@@ -84,7 +84,7 @@ Example:
     ...
     </spdx:SpdxDocument>
 
-## 2.4 Document Name
+## 2.4 Document Name <a name="2.4"></a>
 
 **2.4.1** Purpose: Identify name of this document as designated by creator.
 
@@ -114,7 +114,7 @@ Example:
       <name>ubuntu-14.04</name>
     </SpdxDocument>
 
-## 2.5 SPDX Document Namespace 
+## 2.5 SPDX Document Namespace <a name="2.5"></a>
 
 **2.5.1** Purpose: Provide an SPDX document specific namespace as a unique absolute [Uniform Resource Identifier][URI] (URI) as specified in [RFC-3986][rfc3986], with the exception of the ‘#’ delimiter. The SPDX Document URI cannot contain a URI "part" (e.g. the "#" character), since the ‘#’ is used in SPDX element URIs (packages, files, snippets, etc) to separate the document namespace from the element’s SPDX identifier. Additionally, a scheme (e.g. “https:”) is required.
 
@@ -124,7 +124,7 @@ The URI must be unique for the SPDX document including the specific version of t
 
 * `CreatorWebsite` is a website hosted by the creator of the document. (e.g. an SPDX document provided by SPDX would be spdx.org)
 * `PathToSpdx` is a path to where SPDX documents are stored on the website (e.g. /spdx/spdxdocs)
-* `DocumentName` is a name given to the SPDX Document itself, typically the (set of) package name(s) followed by the version. (see section 2.4).
+* `DocumentName` is a name given to the SPDX Document itself, typically the (set of) package name(s) followed by the version. [(see section 2.4)](#2.4).
 * `UUID` is a [universally unique identifier][URI]. The UUID could be a version 4 random UUID which can be generated from the [Online UUID Generator][uuid-gen] or a version 5 UUID generated from a sha1 checksum known to be unique for this specific SPDX document version.
 * If the creator does not own their own website, a default SPDX CreatorWebsite and PathToSpdx can be used 'spdx.org/spdxdocs'. Note that the SPDX documents are not currently stored or accessible on this website. The URI is only used to create a unique ID following the above conventions.
 
@@ -157,7 +157,7 @@ Example:
         <rdfs:comment>This document was created using SPDX 2.0 using licenses from the web site.</rdfs:comment>
     </SpdxDocument>
 
-## 2.6 External Document References
+## 2.6 External Document References <a name="2.6"></a>
  
 **2.6.1** Purpose: Identify any external SPDX documents referenced within this SPDX document.
 
@@ -172,11 +172,11 @@ where
   [idstring] is a unique string containing letters, numbers, “.”, “-” or “+”.
   [SPDX Document URI] is the unique ID for the external document
 
-as defined in section 2.5 of that referenced document,
+as defined in [section 2.5](#2.5) of that referenced document,
 
   [Checksum] is a checksum of the external document following the checksum
 
-format defined in section 3.9.
+format defined in [section 3.9](3-package-information.md#3.9).
 
 **2.6.5** Tag: `ExternalDocumentRef:`
 
@@ -209,7 +209,7 @@ Example:
 
 Notes: in RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired.
 
-## 2.7 License List Version
+## 2.7 License List Version <a name="2.7"></a>
 
 **2.7.1** Purpose: An optional field for creators of the SPDX file to provide the version of the SPDX License List used when the SPDX file was created.
 
@@ -238,7 +238,7 @@ Example:
         <licenseListVersion>2.0</licenseListVersion>
     </CreationInfo>
 
-## 2.8 Creator
+## 2.8 Creator <a name="2.8"></a>
 
 **2.8.1** Purpose: Identify who (or what, in the case of a tool) created the SPDX file. If the SPDX file was created by an individual, indicate the person's name. If the SPDX file was created on behalf of a company or organization, indicate the entity name. If the SPDX file was created using a software tool, indicate the name and version for that tool. If multiple participants or tools were involved, use multiple instances of this field. Person name or organization name may be designated as “anonymous” if appropriate.
 
@@ -270,7 +270,7 @@ Example:
         <creator> Tool: LicenseFind-1.0 </creator>
     </CreationInfo>
 
-## 2.9 Created
+## 2.9 Created <a name="2.9"></a>
 
 **2.9.1** Purpose: Identify when the SPDX file was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in section 7, which involves the addition of information during a subsequent review.
 
@@ -305,7 +305,7 @@ Example:
         <created> 2010-01-29T18:30:22Z </created>
     </CreationInfo>
 
-## 2.10 Creator Comment
+## 2.10 Creator Comment <a name="2.10"></a>
  
 **2.10.1** Purpose: An optional field for creators of the SPDX file to provide general comments about the creation of the SPDX file or any other relevant comment not included in the other fields.
 
@@ -333,7 +333,7 @@ Example:
         and manual analysis by several authors of the code.</rdfs:comment>
     </CreationInfo>
 
-## 2.11 Document Comment
+## 2.11 Document Comment <a name="2.11"></a>
 
 **2.11.1** Purpose: An optional field for creators of the SPDX file content to provide comments to the consumers of the SPDX document.
 
