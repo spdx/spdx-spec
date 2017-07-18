@@ -22,7 +22,7 @@ N is minor version number.
 
 **2.1.5** Tag: `SPDXVersion:`
 
-Example: 
+Example:
 
     SPDXVersion: SPDX-2.1
 
@@ -48,7 +48,7 @@ By using the SPDX specification, or any portion hereof, you hereby agree that an
 
 **2.2.5** Tag: `DataLicense:`
 
-Example: 
+Example:
 
     DataLicense: CC0-1.0
 
@@ -72,7 +72,7 @@ Example:
 
 **2.3.5** Tag: `SPDXID:`
 
-Example: 
+Example:
 
     SPDXID: SPDXRef-DOCUMENT
 
@@ -96,7 +96,7 @@ Example:
 
 **2.4.5** Tag: `DocumentName:`
 
-Example: 
+Example:
 
     DocumentName: glibc-v2.3
 
@@ -158,7 +158,7 @@ Example:
     </SpdxDocument>
 
 ## 2.6 External Document References <a name="2.6"></a>
- 
+
 **2.6.1** Purpose: Identify any external SPDX documents referenced within this SPDX document.
 
 **2.6.2** Intent: SPDX elements within this document may be related to other SPDX elements referenced from external SPDX documents. An SPDX element could be a snippet, file, package, license reference or SPDX document.
@@ -180,11 +180,11 @@ format defined in [section 3.9](3-package-information.md#3.9).
 
 **2.6.5** Tag: `ExternalDocumentRef:`
 
-Example: 
+Example:
 
     ExternalDocumentRef:DocumentRef-spdx-tool-1.2 http://spdx.org/spdxdocs/spdx-tools- v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301 SHA1: d6a770ba38583ed4bb4525bd96e50461655d2759
 
-**2.6.6** RDF: property `spdx:externalDocumentRef` in class `spdx:Document range ExternalDocumentRef`. 
+**2.6.6** RDF: property `spdx:externalDocumentRef` in class `spdx:Document range ExternalDocumentRef`.
 
 The ExternalDocumentRef contains two properties:
 
@@ -306,7 +306,7 @@ Example:
     </CreationInfo>
 
 ## 2.10 Creator Comment <a name="2.10"></a>
- 
+
 **2.10.1** Purpose: An optional field for creators of the SPDX file to provide general comments about the creation of the SPDX file or any other relevant comment not included in the other fields.
 
 **2.10.2** Intent: Here, the intent is to provide recipients of the SPDX file with comments by the creator of the SPDX file.
@@ -329,7 +329,7 @@ Example:
 Example:
 
     <CreationInfo>
-        <rdfs:comment>This SPDX file was created by a combination of using a free tool, as indicated above, 
+        <rdfs:comment>This SPDX file was created by a combination of using a free tool, as indicated above,
         and manual analysis by several authors of the code.</rdfs:comment>
     </CreationInfo>
 

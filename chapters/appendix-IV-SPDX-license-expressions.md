@@ -4,7 +4,7 @@
 
 Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0 OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1 AND BSD-3-Clause).
 
-SPDX License Expressions provides a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-{idString}; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., AND, OR, WITH and +). We provide the definition of what constitutes a valid an SPDX License Expression in this section. 
+SPDX License Expressions provides a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-{idString}; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., AND, OR, WITH and +). We provide the definition of what constitutes a valid an SPDX License Expression in this section.
 
 The exact syntax of license expressions is described below in [ABNF](http://tools.ietf.org/html/rfc5234).
 
@@ -31,7 +31,7 @@ simple-expression "WITH" license-exception-id /
 
 license-expression = 1*1(simple-expression / compound-expression)
 
-In the following sections we describe in more detail \<license-expression> construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern day software. 
+In the following sections we describe in more detail \<license-expression> construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern day software.
 
 A valid \<license-expression> string consists of either:
 
@@ -47,7 +47,7 @@ A simple `<license-expression>` is composed one of the following:
 
 * An SPDX License List Short Form Identifier. For example: GPL-2.0
 * An SPDX License List Short Form Identifier with a unary"+" operator suffix to represent the current version of the license or any later version. For example: GPL-2.0+
-* A SPDX user defined license reference: ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring) 
+* A SPDX user defined license reference: ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
 
 Some examples:
 
@@ -63,13 +63,13 @@ More expressive composite license expressions can be constructed using "OR", "AN
 
 ### 1) Disjunctive "OR" Operator
 
-If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new lincense expression, where both the left and right operands are valid license expression values. 
+If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new lincense expression, where both the left and right operands are valid license expression values.
 
 For example, when given a choice between the LGPL-2.1 or MIT licenses, a valid expression would be:
 
     (LGPL-2.1 OR MIT)
 
-An example representing a choice between three different licenses would be:  
+An example representing a choice between three different licenses would be:
 
 (LGPL-2.1 OR MIT OR BSD-3-Clause)
 
@@ -108,7 +108,7 @@ where a lower order operator is applied before a higher order operator.
 
 For example, the following expression:
 
-    LGPL-2.1 OR BSD-3-Clause AND MIT 
+    LGPL-2.1 OR BSD-3-Clause AND MIT
 
 represents a license choice between either LGPL-2.1 and the expression BSD-3-Clause AND MIT because the AND operator takes precedence over (is applied before) the OR operator.
 
@@ -129,13 +129,13 @@ A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet
         <spdx:ExtractedLicensingInfo rdf:about="http://example.org#LicenseRef-EternalSurrender">
             <spdx:extractedText>
                 In exchange for using this software, you agree to give its author all your worldly possessions.
-                You will not hold the author liable for all the damage this software will inevitably cause not only 
+                You will not hold the author liable for all the damage this software will inevitably cause not only
                 to your person and property, but to the entire fabric of the cosmos.
             </spdx:extractedText>
             <spdx:licenseId>LicenseRef-EternalSurrender</spdx:licenseId>
         </spdx:ExtractedLicensingInfo>
     </spdx:ConjunctiveLicenseSet>
-    
+
 A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet>` element, with an spdx:member property for each element in the disjunctive license. Two or more members are required.
 
     <spdx:DisjunctiveLicenseSet>
@@ -144,7 +144,7 @@ A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet
             <spdx:ExtractedLicensingInfo rdf:about="http://example.org#LicenseRef-EternalSurrender">
                 <spdx:extractedText>
                     In exchange for using this software, you agree to give its author all your worldly possessions.
-                    You will not hold the author liable for all the damage this software will inevitably cause 
+                    You will not hold the author liable for all the damage this software will inevitably cause
                     not only to your person and property, but to the entire fabric of the cosmos.
                 </spdx:extractedText>
                 <spdx:licenseId>LicenseRef-EternalSurrender</spdx:licenseId>
@@ -166,7 +166,7 @@ A License Exception can be expressed in RDF via a \<spdx:LicenseException> eleme
             <rdfs:seeAlso>http://dilbert.com/strip/1997-01-15</rdfs:seeAlso>
             <spdx:example>So this one time, I had a license exception…</spdx:example>
             <spdx:licenseExceptionText>
-                A user of this software may decline to follow any subset of the terms of this license upon 
+                A user of this software may decline to follow any subset of the terms of this license upon
                 finding any or all such terms unfavorable.
             </spdx:licenseExceptionText>
             <spdx:name>&quot;But I Don&apos;t Want To&quot; Exception</spdx:name>

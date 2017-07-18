@@ -28,7 +28,7 @@ In general, every filename is preceded with a “./”, see [http://www.ietf.org
 
 **4.1.5** Tag: `FileName:`
 
-Example: 
+Example:
 
     FileName: ./package/foo.c
 
@@ -55,13 +55,13 @@ where [idstring] is a unique string containing letters, numbers, “.”,“-”
 
 **4.2.5** Tag: `SPDXID:`
 
-Example: 
+Example:
 
     SPDXID: SPDXRef-1
 
 **4.2.6** RDF: The URI for the element will follow the form: [SpdxDocumentURI]#SPDXRef-[idstring] where [SpdxDocumentURI] is the URI for the SPDX Document containing the element.
 
-Example using xml:base: 
+Example using xml:base:
 
     <rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B"
         ...
@@ -129,7 +129,7 @@ Example: (where file2 is a README.TXT)
     </File>
 
 ## 4.4 File Checksum <a name="4.4"></a>
- 
+
 
 **4.4.1** Purpose: Provide a unique identifier to match analysis information on each specific file in a package.
 
@@ -200,7 +200,7 @@ where:
 
 **4.5.5** Tag: `LicenseConcluded:`
 
-Example: 
+Example:
 
     LicenseConcluded: LGPL-2.0
 
@@ -343,7 +343,7 @@ Example:
 
 **4.8.6** RDF: property `spdx:copyrightText` in class `spdx:File`
 
-Example: 
+Example:
 
     <File rdf:about="...">
         <copyrightText>
@@ -436,7 +436,7 @@ Example:
     <File>
         <artifactOf rdf:resource="http://subversion.apache.org/" />
     </File>
-    <!-- Note: within the DOAP file at http://subversion.apache.org/doap.rdf  
+    <!-- Note: within the DOAP file at http://subversion.apache.org/doap.rdf
     the value "http://subversion.apache.org/" is the URI of the describes
     resource of type doap:Project -->
 
@@ -466,7 +466,7 @@ Example:
 
     <File rdf:about="...">
         <rdfs:comment>
-            This file appears in other packages, such as Foo and Ufoo.  
+            This file appears in other packages, such as Foo and Ufoo.
         </rdfs:comment>
     </File>
 
@@ -514,7 +514,7 @@ In Tag:value format single line per contributor.
 
 Example:
 
-    FileContributor: Modified by Paul Mundt lethal@linux-sh.org 
+    FileContributor: Modified by Paul Mundt lethal@linux-sh.org
     FileContributor: The Regents of the University of California
     FileContributor: IBM Corporation
 

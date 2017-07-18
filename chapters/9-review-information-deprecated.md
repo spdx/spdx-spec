@@ -92,7 +92,7 @@ In Tag:value format multiple lines are delimited by `<text> .. </text>`.
 Example:
 
     ReviewComment: <text>All of the licenses seen in the file, are matching what was seen during manual inspection.
-    There are some terms that can influence the concluded license, and some alternatives may be possible, 
+    There are some terms that can influence the concluded license, and some alternatives may be possible,
     but the concluded license is one of the options.</text>
 
 **9.3.6** RDF: property `rdfs:comment` in class `spdx:Review`
@@ -101,6 +101,6 @@ Example:
 
     <Review>
         <rdfs:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
-        There are some terms that can influence the concluded license, and some alternatives may be possible, 
+        There are some terms that can influence the concluded license, and some alternatives may be possible,
         but the concluded license is one of the options.</rdfs:comment>
     </Review>

@@ -10,8 +10,8 @@
 
 **8.1.4** Data Format: single line of text with the following keywords.
 
-    ”Person: person name” and optional  “(email)”  
-    "Organization: organization” and optional “(email)”  
+    ”Person: person name” and optional  “(email)”
+    "Organization: organization” and optional “(email)”
     "Tool: tool identifier - version”
 
 **8.1.5**  Tag: `Annotator:`
@@ -104,7 +104,7 @@ SPDXID is a unique string containing letters, numbers, “.”,“-” as descri
 
 **8.4.5** Tag: `SPDXREF:`
 
-Example: 
+Example:
 
     SPDXREF: SPDXRef-45
 
@@ -141,7 +141,7 @@ In Tag:value format multiple lines are delimited by `<text> .. </text>`.
 Example:
 
     AnnotationComment: <text>All of the licenses seen in the file, are matching what was seen during manual inspection.
-    There are some terms that can influence the concluded license, and some alternatives may be possible, 
+    There are some terms that can influence the concluded license, and some alternatives may be possible,
     but the concluded license is one of the options.</text>
 
 **8.5.6** RDF: property `rdfs:comment` in class `spdx:Annotation`
@@ -150,7 +150,7 @@ Example:
 
     <Annotation>
         <rdfs:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
-        There are some terms that can influence the concluded license, and some alternatives may be possible, 
+        There are some terms that can influence the concluded license, and some alternatives may be possible,
         but the concluded license is one of the options.
         </rdfs:comment>
     </Annotation>

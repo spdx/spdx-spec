@@ -27,13 +27,13 @@ Fields:
 
 **3.1.5** Tag: `PackageName:`
 
-Example: 
+Example:
 
     PackageName: glibc
 
 **3.1.6** RDF: property `spdx:name` in class `spdx:Package`
 
-Example: 
+Example:
 
     <Package rdf:about="...">
         <name>glibc</name>
@@ -53,17 +53,17 @@ where [idstring] is a unique string containing letters, numbers, “.”,“-”
 
 **3.2.5** Tag: `SPDXID:`
 
-Example: 
+Example:
 
     SPDXID: SPDXRef-1
 
 **3.2.6** RDF: The URI for the element will follow the form:
 
-    [SPDX DocumentNamespace]#[SPDX Identifier] 
+    [SPDX DocumentNamespace]#[SPDX Identifier]
 
 See [section 2.5](2-document-creation-information.md#2.5) for the definition of the SPDX Document Namespace and [section 2.3](2-document-creation-information.md#2.3) for the definition of the SPDX Identifier
 
-Example using xml:base: 
+Example using xml:base:
 
     <rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B">
         ...
@@ -89,13 +89,13 @@ Example using document URI:
 
 **3.3.5**  Tag: `PackageVersion:`
 
-Example: 
+Example:
 
     PackageVersion: 2.11.1
 
 **3.3.6** RDF: property `spdx:versionInfo` in class `spdx:Package`
 
-Example: 
+Example:
 
     <Package rdf:about="...">
         ...
@@ -125,7 +125,7 @@ Example (subdirectory being treated as a package):
 
 **3.4.6**  RDF: property `spdx:packageFileName` in class `spdx:Package`
 
-Example: 
+Example:
 
     <Package rdf:about="...">
         ...
@@ -156,12 +156,12 @@ Use NOASSERTION if:
 
 **3.5.4** Data Format: single line of text with the following keywords | “NOASSERTION”
 
-    "Person:" person name and optional "("email")" 
-    "Organization:" organization name and optional "("email")" 
+    "Person:" person name and optional "("email")"
+    "Organization:" organization name and optional "("email")"
 
 **3.5.5** Tag: `PackageSupplier:`
 
-Example: 
+Example:
 
     PackageSupplier: Person: Jane Doe (jane.doe@example.com)
 
@@ -190,7 +190,7 @@ Use NOASSERTION if:
 
 **3.6.4** Data Format: single line of text with the following keywords | “NOASSERTION”
 
-    "Person:" person name and optional "("email")" 
+    "Person:" person name and optional "("email")"
     "Organization:" organization name and optional "("email")"
 
 **3.6.5** Tag: `PackageOriginator:`
@@ -255,35 +255,35 @@ SPDX supports git, git+git, git+https git+http and git+ssh transports. git and g
 Here are the supported forms:
 
     PackageDownloadLocation: git://git.myproject.org/MyProject
-    
+
     PackageDownloadLocation: git+https://git.myproject.org/MyProject.git
-    
+
     PackageDownloadLocation: git+http://git.myproject.org/MyProject
-    
+
     PackageDownloadLocation: git+ssh://git.myproject.org/MyProject.git
-    
+
     PackageDownloadLocation: git+git://git.myproject.org/MyProject
-    
+
     PackageDownloadLocation: git+git@git.myproject.org:MyProject
 
 To specify a sub-path to a file or directory inside a repository use the "#" delimiter:
 
     PackageDownloadLocation: git://git.myproject.org/MyProject#src/somefile.c
-    
+
     PackageDownloadLocation: git+https://git.myproject.org/MyProject#src/Class.java
 
 To specify branch names, a commit hash or a tag name, use the "@" delimiter:
 
     PackageDownloadLocation: git://git.myproject.org/MyProject.git@master
-    
+
     PackageDownloadLocation: git+https://git.myproject.org/MyProject.git@v1.0
-    
+
     PackageDownloadLocation: git://git.myproject.org/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709
 
 Sub-paths and branch names or commit hash can be combined too:
 
     PackageDownloadLocation: git+https://git.myproject.org/MyProject.git@master#/src/MyClass.cpp
-    
+
     PackageDownloadLocation: git+https://git.myproject.org/MyProject@da39a3ee5e6b4b0d3255bfef95601890afd80709#lib/variable.rb
 
 Example for Mercurial:
@@ -293,31 +293,31 @@ SPDX supported schemes are: hg+http, hg+https, hg+static-http and hg+ssh.
 The supported forms are:
 
     PackageDownloadLocation: hg+http://hg.myproject.org/MyProject
-    
+
     PackageDownloadLocation: hg+https://hg.myproject.org/MyProject
-    
+
     PackageDownloadLocation: hg+ssh://hg.myproject.org/MyProject
 
 To specify a sub-path to a file or directory inside a repository use the "#" delimiter:
 
     PackageDownloadLocation: hg+https://hg.myproject.org/MyProject#src/somefile.c
-    
+
     PackageDownloadLocation: hg+https://hg.myproject.org/MyProject#src/Class.java
 
 To pass branch names, a commit hash, a tag name or a local branch name use the "@" delimiter:
 
     PackageDownloadLocation: hg+https://hg.myproject.org/MyProject@da39a3ee5e6b
-    
+
     PackageDownloadLocation: hg+https://hg.myproject.org/MyProject@2019
-    
+
     PackageDownloadLocation: hg+https://hg.myproject.org/MyProject@v1.0
-    
+
     PackageDownloadLocation: hg+https://hg.myproject.org/MyProject@special_feature
 
 Sub-paths and branch names or commit hash can be combined too:
 
     PackageDownloadLocation: hg+https://hg.myproject.org/MyProject@master#/src/MyClass.cpp
-    
+
     PackageDownloadLocation: hg+https://hg.myproject.org/MyProject@da39a3ee5e6b#lib/variable.rb
 
 Example for Subversion:
@@ -327,23 +327,23 @@ SPDX supports the URL schemes svn, svn+svn, svn+http, svn+https, svn+ssh. svn an
 The supported forms are:
 
     PackageDownloadLocation: svn://svn.myproject.org/svn/MyProject
-    
+
     PackageDownloadLocation: svn+svn://svn.myproject.org/svn/MyProject
-    
+
     PackageDownloadLocation: svn+http://svn.myproject.org/svn/MyProject/trunk
-    
+
     PackageDownloadLocation: svn+https://svn.myproject.org/svn/MyProject/trunk
 
 To specify a sub-path to a file or directory inside a repository use the "#" delimiter:
 
     PackageDownloadLocation: svn+https://svn.myproject.org/MyProject#src/somefile.c
-    
+
     PackageDownloadLocation: svn+https://svn.myproject.org/MyProject#src/Class.java
 
 This support is less important for SVN since the URL path can also contain sub-paths; this two forms are equivalent:
 
     PackageDownloadLocation: svn+https://svn.myproject.org/MyProject/trunk#src/somefile.c
-    
+
     PackageDownloadLocation: svn+https://svn.myproject.org/MyProject/trunk/src/somefile.c
 
 You can specify a revision using the "@" delimiter:
@@ -353,7 +353,7 @@ You can specify a revision using the "@" delimiter:
 Sub-paths and revisions can be combined too:
 
     PackageDownloadLocation: svn+https://svn.myproject.org/MyProject@123#/src/MyClass.cpp
-    
+
     PackageDownloadLocation: svn+https://svn.myproject.org/MyProject/trunk@1234#lib/variable/variable.rb
 
 Example for Bazaar:
@@ -363,27 +363,27 @@ SPDX supports Bazaar using the bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp a
 The supported forms are:
 
     PackageDownloadLocation: bzr+https://bzr.myproject.org/MyProject/trunk
-    
+
     PackageDownloadLocation: bzr+http://bzr.myproject.org/MyProject/trunk
-    
+
     PackageDownloadLocation: bzr+sftp://myproject.org/MyProject/trunk
-    
+
     PackageDownloadLocation: bzr+ssh://myproject.org/MyProject/trunk
-    
+
     PackageDownloadLocation: bzr+ftp://myproject.org/MyProject/trunk
-    
+
     PackageDownloadLocation: bzr+lp:MyProject
 
 To specify a sub-path to a file or directory inside a repository use the "#" delimiter:
 
     PackageDownloadLocation: bzr+https://bzr.myproject.org/MyProject/trunk#src/somefile.c
-    
+
     PackageDownloadLocation: bzr+https://bzr.myproject.org/MyProject/trunk#src/Class.java
 
 You can specify a revision or tag using the "@" delimiter:
 
     PackageDownloadLocation: bzr+https://bzr.myproject.org/MyProject/trunk@2019
-    
+
     PackageDownloadLocation: bzr+http://bzr.myproject.org/MyProject/trunk@v1.0
 
 Sub-paths and revisions can be combined too:
@@ -458,7 +458,7 @@ Example:
     filelist = templist = “”
     for all files in the package {
         if file is an “excludes” file, skip it /* exclude SPDX analysis file(s) */
-        
+
             append templist with “SHA1(file)/n”
         }
     sort templist in ascending order by SHA1 value
@@ -481,7 +481,7 @@ Example:
 
 **3.9.7** RDF: `spdx:packageVerificationCodeValue`, `spdx:packageVerificationCodeExcludedFile` in class `spdx:PackageVerificationCode`
 
-Example: 
+Example:
 
     <Package rdf:about="...">
         <packageVerificationCode>
@@ -498,7 +498,7 @@ Example:
 
 ## 3.10 Package Checksum <a name="3.10"></a>
 
-**3.10.1** Purpose: This field provides an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX file. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX file is to be included in a package, this value should not be calculated. The SHA-1 algorithm will be used to provide the checksum by default. 
+**3.10.1** Purpose: This field provides an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX file. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX file is to be included in a package, this value should not be calculated. The SHA-1 algorithm will be used to provide the checksum by default.
 
 **3.10.2** Intent: Here, by providing a unique identifier of the package, confusion over which version or modification of a specific package the SPDX file references should be eliminated.
 
@@ -520,7 +520,7 @@ Example:
 
 **3.10.7** RDF: properties `spdx:algorithm`, `spdx:checksumValue` in class `spdx:checksum`
 
-Example: 
+Example:
 
     <Package rdf:about="...">
         <checksum>
@@ -570,7 +570,7 @@ Example:
 
 **3.11.6** RDF: property `doap:homepage` in class `spdx:Package`
 
-Example: 
+Example:
 
     <Package rdf:about="...">
         <doap:homepage >http://ftp.gnu.org/gnu/glibc/</doap:homepage>    </Package>
@@ -589,13 +589,13 @@ In Tag:value format this is delimited by `<text> .. </text>`.
 
 **3.12.5** Tag: `PackageSourceInfo:`
 
-Example: 
+Example:
 
     PackageSourceInfo: <text>uses glibc-2_11-branch from git://sourceware.org/git/glibc.git.</text>
 
 **3.12.6** RDF: `spdx:sourceInfo`
 
-Example: 
+Example:
 
     <Package rdf:about="...">
         ...
@@ -743,7 +743,7 @@ where:
 
 **3.15.5** Tag: `PackageLicenseDeclared:`
 
-Example: 
+Example:
 
     PackageLicenseDeclared: LGPL-2.0
 
@@ -832,13 +832,13 @@ NOASSERTION, if
 
 In Tag:value format multiple lines are delimited by `<text> .. </text>`.
 
-Example: 
+Example:
 
     PackageCopyrightText: <text>Copyright 2008-2010 John Smith</text>
 
 **3.17.6** RDF: property `spdx:copyrightText` in class `spdx:Package`
 
-Example: 
+Example:
 
     <Package rdf:about="...">
         ...
@@ -890,8 +890,8 @@ In Tag:value format multiple lines are delimited by `<text> .. </text>`.
 
 Example:
 
-    PackageDescription: <text>The GNU C Library defines functions that are specified by the ISO C standard, 
-    as well as additional features specific to POSIX and other derivatives of the Unix operating system, 
+    PackageDescription: <text>The GNU C Library defines functions that are specified by the ISO C standard,
+    as well as additional features specific to POSIX and other derivatives of the Unix operating system,
     and extensions specific to GNU systems.</text>
 
 3.19.6  RDF:  property `spdx:description` in class `spdx:Package`
@@ -997,7 +997,7 @@ Example  (for a not ‘listed’ location):
 The referenceType value for a non-listed location consists of the SPDX document namespace (per [section 2.5](2-document-creation-information.md#2.5)) followed by a “#” and the category as defined in 3.21.4.
 
 ## 3.22 External Reference Comment <a name="3.22"></a>
- 
+
 **3.22.1** Purpose: To provide human-readable information about the purpose and target of the reference.
 
 **3.22.2** Intent: To inform a human consumer why the reference exists, what kind of information, content or metadata can be extracted. The target’s relationship to artifactOf values of files in the package may need to be explained here. If the reference is BINARY, its relationship to PackageDownloadLocation may need to be explained. If the reference is SOURCE, its relationship to PackageDownloadLocation and SourceInformation may need to be explained.

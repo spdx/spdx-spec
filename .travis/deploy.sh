@@ -19,21 +19,21 @@ else
     # Only proceed if key for decrypting deployment SSH keys is set
     if env | grep ^encrypted_0222e5876250_key= > /dev/null; then
         echo "Deploying to GitHub pages"
-    
+
         # Set Git committer, email and remote server
         git config user.name "Travis CI"
         git config user.email "notifications@travis-ci.org"
         git remote set-url origin $SSH_REPO
-    
+
         # Decrypt private key
         openssl aes-256-cbc -K $encrypted_0222e5876250_key -iv $encrypted_0222e5876250_iv -in $TRAVIS_BUILD_DIR/.travis/deploy-key.enc -out $TRAVIS_BUILD_DIR/.travis/deploy-key -d
-    
+
         # Set file permissions so SSH accepts private key
         chmod 600 $TRAVIS_BUILD_DIR/.travis/deploy-key
 
         # Start the ssh agent
         eval "$(ssh-agent -s)"
-    
+
         # Add key to SSH
         ssh-add $TRAVIS_BUILD_DIR/.travis/deploy-key
 
