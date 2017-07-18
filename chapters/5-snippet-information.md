@@ -25,11 +25,11 @@ where [idstring] is a unique string containing letters, numbers, “.”,“-”
 
 **5.1.5** Tag: `SnippetSPDXID:`
 
-Example: 
+Example:
 
     SnippetSPDXID: SPDXRef-1
 
-**5.1.6** RDF: The URI for the element will follow the form: [SpdxDocumentURI]#SPDXRef-[idstring] where [SpdxDocumentURI] is the URI for the SPDX Document containing the element. 
+**5.1.6** RDF: The URI for the element will follow the form: [SpdxDocumentURI]#SPDXRef-[idstring] where [SpdxDocumentURI] is the URI for the SPDX Document containing the element.
 
 Example using xml:base:
 
@@ -65,24 +65,24 @@ described in sections (2.3, 3.2, 4.2).
 
 **5.2.5** Tag: `SnippetFromFileSPDXID:`
 
-Example (snippet from a File in local SPDX Doc): 
+Example (snippet from a File in local SPDX Doc):
 
     SnippetFromFileSPDXID: SPDXRef-filecontainingsnippet
 
-Example (snippet from a File in an External SPDX Doc): 
+Example (snippet from a File in an External SPDX Doc):
 
     SnippetFromFileSPDXID: DocumentRef-ExternalDoc1:SPDXRef-filecontainingsnippet
 
 **5.2.6** RDF: property `spdx:snippetFromFile` in class `spdx:Snippet`
 
-Example (snippet from a File in local SPDX Doc): 
+Example (snippet from a File in local SPDX Doc):
 
     <Snippet “rdf:ID=”SPDXRef-1”>
         <snippetFromFile rdf:about=”#SPDXRef-filecontainingsnippet”>
             ...
         </Snippet>
 
-Example (snippet from a File in an External SPDX Doc): 
+Example (snippet from a File in an External SPDX Doc):
 
     <Snippet “rdf:ID=”SPDXRef-1”>
         <snippetFromFile rdf:about=”http://foo.org/ExternalDocument1#SPDXRef-filecontainingsnippet”>
@@ -155,7 +155,7 @@ Example:
 
 where:
 
-number1 is greater than or equal to 1 and less than or equal to number2, 
+number1 is greater than or equal to 1 and less than or equal to number2,
 AND number2 is less than or equal to the total number of lines in file.
 
 **5.4.5** Tag: `SnippetLineRange:`
@@ -225,11 +225,11 @@ where:
 
 **5.5.5** Tag: `SnippetLicenseConcluded:`
 
-Example: 
+Example:
 
     SnippetLicenseConcluded: GPL-2.0
 
-Example: 
+Example:
 
     SnippetLicenseConcluded: (LGPL-2.0 OR LicenseRef-2)
 
@@ -326,7 +326,7 @@ In Tag:value format multiple lines are delimited by <text> .. </text>.
 
 Example:
 
-    SnippetLicenseComments: <text>The concluded license was taken from package xyz, from which the snippet was copied into the current file. 
+    SnippetLicenseComments: <text>The concluded license was taken from package xyz, from which the snippet was copied into the current file.
     The concluded license information was found in the COPYING.txt file in package xyz.</text>
 
 **5.7.6 ** RDF: property `spdx:licenseComments` in class `spdx:Snippet`
@@ -367,7 +367,7 @@ Example:
 
 **5.8.6** RDF: property `spdx:copyrightText` in class `spdx:Snippet`
 
-Example: 
+Example:
 
     <Snippet rdf:about="...">
         ...
@@ -393,7 +393,7 @@ In Tag:value format multiple lines are delimited by <text> .. </text>.
 
 Example:
 
-    SnippetComment: <text>This snippet was identified as significant and highlighted in this Apache-2.0 file, 
+    SnippetComment: <text>This snippet was identified as significant and highlighted in this Apache-2.0 file,
     when a commercial scanner identified it as being derived from file foo.c in package xyz which is licensed under GPL-2.0.</text>
 
 **5.9.6** RDF: property `rdfs:comment` in class `spdx:Snippet`
@@ -422,7 +422,7 @@ Example:
 
 **5.10.5** Tag: `SnippetName:`
 
-Example: 
+Example:
 
     SnippetName: from linux kernel
 

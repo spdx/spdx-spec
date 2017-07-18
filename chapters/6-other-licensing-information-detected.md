@@ -92,21 +92,21 @@ Use NOASSERTION If there is no common name or it is not known.
 
 **6.3.5** Tag: `LicenseName:`
 
-Example:  
+Example:
 
     LicenseName: Whiskey-Ware License
 
 **6.3.6** RDF: property `spdx:licenseName` in class `spdx:ExtractedLicensingInfo`
 
-Example:  
+Example:
 
     <ExtractedLicensingInfo rdf:about="licenseRef-Whiskey-Ware">
        <name>Whiskey-Ware License </name>
     </ExtractedLicensingInfo>
 
- 
+
 # 6.4 License Cross Reference <a name="6.4"></a>
- 
+
 **6.4.1** Purpose: Provide a pointer to the official source of a license that is not included in the SPDX License List, that is referenced by the License Identifier.
 
 **6.4.2** Intent: Canonical source for a license currently not on the SPDX License List.
@@ -130,7 +130,7 @@ Example:
     </ExtractedLicensingInfo>
 
 # 6.5 License Comment <a name="6.5"></a>
- 
+
 **6.5.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the license.
 
 **6.5.2** Intent: Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of a license, or addition cross references.
@@ -149,7 +149,7 @@ Example:
 
 **6.5.6** RDF: property `rdfs:comment` in class `spdx:ExtractedLicensingInfo`
 
-Example: 
+Example:
 
     <ExtractedLicensingInfo rdf:about="licenseRef-1">
         <rdfs:comment> The Whiskey-Ware License has a couple of other standard variants.</rdfs:comment>

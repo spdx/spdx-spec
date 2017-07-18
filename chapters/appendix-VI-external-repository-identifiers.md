@@ -12,7 +12,7 @@ Locator Format:
 
     "[c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\._\-~%]*){0,6}"
 
-Contextual Example: 
+Contextual Example:
 
     cpe:/o:canonical:ubuntu_linux:10.04:-:lts
 
@@ -25,7 +25,7 @@ Documentation: [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://c
 
 ### \<locator> Information
 
-Locator Format: 
+Locator Format:
 
     "cpe:2\.3:[aho\*\­]
     (:(((\?*|\*?)([a­zA­Z0­9\­\._]|(\\[\\\*\?!
@@ -37,14 +37,14 @@ Locator Format:
     "#$$%&'\(\)\+,/:;<=>@\[\]\^`\{\|}~])
     )+(\?*|\*?))|[\*\­])){4}"
 
-Contextual Example: 
+Contextual Example:
 
     cpe:2.3:o:canonical:ubuntu_linux:10.04:­:lts:*:*:*:*:*
 
 External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 
 Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf](http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf)
- 
+
 ***
 When <category> = “PACKAGE_MANAGER”:
 ***

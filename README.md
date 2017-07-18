@@ -21,9 +21,9 @@ You have to [Node.js](https://nodejs.org) installed on your machine. If you don'
 
 The OpenChain specification is written in MarkDown and HTML, PDF, ePUB, Mobipocket versions can be generated using [Gulp](https://gulpjs.com) and [GitBook](https://www.gitbook.com/). Note in order to generate PDF, ePUB, Mobipocket you have to install Callibre using these [instructions](https://toolchain.gitbook.com/ebook.html).
 
-    # Install via npm document build toochain 
+    # Install via npm document build toochain
     $ npm install -g gitbook-cli gulp
-    
+
     # Install all dependencies (GitBook + plugins, build tools, etc)
     $ npm install
 
@@ -31,7 +31,7 @@ The OpenChain specification is written in MarkDown and HTML, PDF, ePUB, Mobipock
 
     # Commands to build or publish the specification
     $ gulp
-    
+
     Usage
       gulp [TASK] [OPTIONS...]
 

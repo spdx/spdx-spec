@@ -1,4 +1,4 @@
-/* Small script to automate common tasks 
+/* Small script to automate common tasks
  * such as building and publishing the GitBook
  *
  * Script licensed under SPDX-License-Identifier: MIT
@@ -6,7 +6,7 @@
  * Prerequisites:
  * npm install -g gitbook-cli gulp
  *
- * Note that for generating ePub, Mobi and PDF 
+ * Note that for generating ePub, Mobi and PDF
  * you have to install Callibre using these instructions
  * found at https://toolchain.gitbook.com/ebook.html
  *
@@ -99,13 +99,13 @@ gulp.task('git-hash', false, (cb) => {
 gulp.task('html', 'Generate HTML website in ' + outputDir, ['clean-build-html','build-html', 'git-hash'], (cb) => {
     // Create filter instance inside task function
     const excludeFilter = filter([
-        '**', 
+        '**',
         '!*/gitbook/**/*',
-        '!*/img/**/*', 
+        '!*/img/**/*',
         '!*/LICENSE'
     ], {restore: true}),
     htmlFilter = filter('**/*.html', {restore: true});
-    
+
     // Copy files to outputDir whilst doing that beautify them
     gulp.src([
             './_book/chapters/**/*',
@@ -122,15 +122,15 @@ gulp.task('html', 'Generate HTML website in ' + outputDir, ['clean-build-html','
         // Modify only the HTML files
         .pipe(cheerio(($, file) => {
           // Each file will be run through cheerio and each corresponding `$` will be passed here.
-          // `file` is the gulp file object 
-              
+          // `file` is the gulp file object
+
           // Insert Dublin Core Metadata tags for traceability
           $('meta[name="author"]')
           .append('\n<meta name="DC.source" content="https://github.com/spdx/spdx-spec">')
           .append('\n<meta name="DC.identifier" content="#' + gitHash + '">')
           .append('\n<meta name="DC.date.created" content="' + (new Date).toISOString() + '">')
           .append('\n<meta name="DC.rights" content="SPDX-License-Identifier: CC-BY-3.0">');
-          
+
           // Insert SPDX logo
           $('.book-summary ul.summary li a.gitbook-link')
           .parent().prepend('\n<a class="logo" href="https://spdx.org" target="_blank"><span class="logo"/></a>')
