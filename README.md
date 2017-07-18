@@ -1,4 +1,4 @@
-# The Software Package Data Exchange (SPDX​®​) ​Specification
+# The Software Package Data Exchange (SPDX®) Specification
 
 [![Build Status](https://travis-ci.org/spdx/spdx-spec.svg?branch=master)](https://travis-ci.org/spdx/spdx-spec)
 

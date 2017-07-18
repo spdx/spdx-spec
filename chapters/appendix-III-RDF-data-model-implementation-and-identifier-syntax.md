@@ -7,7 +7,7 @@ See: [http://spdx.org/rdf/ontology/spdx-2-1](http://spdx.org/rdf/ontology/spdx-2
 Version: 2.1
 
 ![SPDX 2.1 RD Ontology](../img/spdx-2.1-rdf-ontology.png)
-​
+
 Licensed under the [Creative Commons Attribution License 3.0 Unported](http://creativecommons.org/licenses/by/3.0/).
 
 ## Agent and Tool Identifiers

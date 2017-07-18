@@ -1,4 +1,4 @@
-# The Software Package Data Exchange (SPDX​®​) ​Specification Version 2.1
+# The Software Package Data Exchange (SPDX®) Specification Version 2.1
 
 Copyright © 2010-2016 Linux Foundation and its Contributors. This work is licensed under the Creative Commons Attribution License 3.0 Unported (CC-BY-3.0) reproduced in its entirety in Appendix V herein. All other rights are expressly reserved.
 
