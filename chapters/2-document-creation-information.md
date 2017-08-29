@@ -34,6 +34,10 @@ Example:
        <specVersion>SPDX-2.1</specVersion>
     </SpdxDocument>
 
+This specification uses the prefix `rdf:` to refer to the [RDF/XML][rdf] namespace:
+
+    http://www.w3.org/1999/02/22-rdf-syntax-ns#
+
 ## 2.2 Data License <a name="2.2"></a>
 
 **2.2.1** Purpose: Compliance with the SPDX specification includes populating the SPDX fields therein with data related to such fields ("SPDX-Metadata"). The SPDX specification contains numerous fields where an SPDX document creator may provide relevant explanatory text in SPDX-Metadata.
@@ -156,6 +160,10 @@ Example:
     <SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">
         <rdfs:comment>This document was created using SPDX 2.0 using licenses from the web site.</rdfs:comment>
     </SpdxDocument>
+
+This specification uses the prefix `rdfs:` to refer to the [RDF Schema][rdf-schema] namespace:
+
+    http://www.w3.org/2000/01/rdf-schema#
 
 ## 2.6 External Document References <a name="2.6"></a>
 
@@ -359,3 +367,6 @@ Example:
           This document was created using SPDX 2.0, version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.
         </rdfs:comment>
     </SpdxDocument>
+
+[rdf]: https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/
+[rdf-schema]: https://www.w3.org/TR/2014/REC-rdf-schema-20140225/
