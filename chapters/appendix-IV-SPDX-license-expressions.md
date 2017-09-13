@@ -1,142 +1,159 @@
-# SPDX License Expressions
+# Appendix IV: SPDX License Expressions
 
-## Overview
+## IV.1 Overview <a name="IV.1"></a>
 
-Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0 OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1 AND BSD-3-Clause).
+Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., `GPL-2.0 OR BSD-3-Clause`). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., `LGPL-2.1 AND BSD-3-Clause`).
 
-SPDX License Expressions provides a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-`[idString]`; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., `AND`, `OR`, `WITH` and `+`). We provide the definition of what constitutes a valid an SPDX License Expression in this section.
+SPDX License Expressions allow accurate representations of the licensing terms typically found in open source software. A license expression could be a single license identifier found on the [SPDX License List](appendix-I-SPDX-license-list.md); a user defined license reference denoted by the `LicenseRef-[idString]`; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (`AND`, `OR`, `WITH` and `+`).  We provide the definition of what constitutes a valid an SPDX License Expression in this section.
 
-The exact syntax of license expressions is described below in [ABNF](http://tools.ietf.org/html/rfc5234).
+## IV.2 Syntax <a name="IV.2"></a>
 
-idstring = 1*(ALPHA / DIGIT / "-" / "." )
+The exact syntax of license expressions is described below in [ABNF][rfc5234].  `ALPHA`, `DIGIT`, and `WSP` are from the [ABNF core rules][rfc5234-aB].
 
-license-id = \<short form license identifier in [Appendix I.1](./appendix-I-SPDX-license-list.md)>
+```
+idstring                       = 1*(ALPHA / DIGIT / "-" / "." )
+license-id                     = <short form license identifier>
+license-exception-id           = <short form license exception identifier>
+license-ref                    = ["DocumentRef-" idstring ":"] "LicenseRef-" idstring
+license                        = license-id / license-ref
+space                          = 1*WSP
+simple-expression              = license ["+"] [space "WITH" space license-exception-id]
+binary-expression-operator     = "AND" / "OR"
+license-expression             = simple-expression
+                               / license-expression space binary-expression-operator space license-expression
+                               / "(" license-expression ")"
+                               / space license-expression
+                               / license-expression space
+enclosed-license-expression    = [space] simple-expression [space]
+                               / [space] "(" [space] license-expression [space] ")" [space]
+```
 
-license-exception-id = \<short form license exception identifier in [Appendix I.2](appendix-II-license-matching-guidelines-and-templates.md)>
+Where:
 
-license-ref = ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
+* Short form license identifiers are drawn from sections [I.1](appendix-I-SPDX-license-list.md#I.1) and [I.3](appendix-I-SPDX-license-list.md#I.3).
+* Short form license exception identifiers are drawn from [section I.2](appendix-I-SPDX-license-list.md#I.2).
 
-simple-expression = license-id / license-id"+" / license-ref
+License expressions are case sensitive, and license expressions must use the canonical case for all components.
+However, the SPDX Licence List commits to [never contain identifiers which differ only in case but have different semantics][list-case-commitment].
+Similarly, SPDX License Expressions will never contain operators or other local components which differ only in case but have different semantics.
+Tools are encouraged, but not required, to take advantage of those commitments and support parsing license expressions which alter the canonical casing of any expression components.
 
-compound-expression = 1*1(simple-expression /
+When a particular rule is not referenced, “SPDX License Expressions” means the more general `license-expression`.
+Consumers that need the more limited `enclosed-license-expression` (which may be easier to parse depending on the surrounding context) SHOULD say so explicitly.
 
+Tag:value authors SHOULD use `enclosed-license-expression` instead of the more general `license-expression`.
 
-simple-expression "WITH" license-exception-id /
+### IV.2.1 The `+` Operator <a name="IV.2.1"></a>
 
-  compound-expression "AND" compound-expression /
+The unary `+` suffix operator represents the given version of the license or any later version.
 
-  compound-expression "OR" compound-expression ) /
+For example, a grant like:
 
-  "(" compound-expression ")" )
+> This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
-license-expression = 1*1(simple-expression / compound-expression)
+could be be represented as `GPL-2.0+`, although that form has been deprecated in favor of `GPL-2.0-or-later`.
 
-In the following sections we describe in more detail `<license-expression>` construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern day software.
+The set of alternatives may depend on the specific license text.  For example, `AGPL-1.0+` (and its successor `AGPL-1.0-or-later`) invokes the “any later version” condition from §9 of the [`AGPL-1.0`][AGPL-1.0], allowing you to redistribute and/or modify it under the terms of the [AGPL-2.0][] (a later version published by Affero) or under the terms of the [`GPL-3.0-or-later`][GPL-3.0-or-later] (specifically allowed via the AGPL-1.0's §9).
 
-A valid `<license-expression>` string consists of either:
+### IV.2.2 Exception `WITH` Operator <a name="IV.2.2"></a>
 
-(i) a simple license expression, such as a single license identifier; or
+Sometimes a set of license terms apply except under special circumstances.  In this case, use the binary `WITH` operator to construct a new simple expression to represent the exception situation.  A valid `simple-expression` is where the left operand is a `license` value (with an optional `+` suffix) and the right operand is a `license-exception-id` that represents the exception terms.
 
-(ii) a more complex expression constructed by combining smaller valid expressions using Boolean license operators.
+For example, when the Bison exception is applied to `GPL-2.0-or-later`, the `simple-expression` would be:
 
-There MUST NOT be whitespace between a license-id and any following `+`. This supports easy parsing and backwards compatibility. There MUST be whitespace on either side of the operator "WITH". There MUST be whitespace and/or parentheses on either side of the operators `AND` and `OR`.
+    GPL-2.0-or-later WITH Bison-exception-2.2
 
-## Simple License Expressions <a name="simple-expr"></a>
+The current set of valid exceptions can be found in [Appendix I, section 2](appendix-I-SPDX-license-list.md#I.2).  For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses).  If the applicable exception is not found on the SPDX License Exception List, then use a single `license-ref` to represent the entire license terms (including the exception).
 
-A simple `<license-expression>` is composed one of the following:
+### IV.2.3 Conjunctive `AND` Operator <a name="IV.2.3"></a>
 
-* An SPDX License List Short Form Identifier. For example: GPL-2.0
-* An SPDX License List Short Form Identifier with a unary"+" operator suffix to represent the current version of the license or any later version. For example: GPL-2.0+
-* A SPDX user defined license reference: ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
+If required to simultaneously comply with two or more licenses, use the conjunctive binary `AND` operator to construct a new license expression, where both the left and right operands are valid `license-expression` values.
 
-Some examples:
+For example, when one is required to comply with both the `LGPL-2.1` or `MIT` licenses, a valid `license-expression` would be:
 
-    LicenseRef-23
-
-    LicenseRef-MIT-Style-1
-
-    DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
-
-## Composite License Expressions <a name="composite-expr"></a>
-
-More expressive composite license expressions can be constructed using "OR", "AND", and "WITH" operators similar to constructing mathematical expressions using arithmetic operators. For the `tag:value` format, any license expression that consists of more than one license identifier and/or LicenseRef, should be encapsulated by parentheses: "( )". This has been specified to facilitate expression parsing. Nested parentheses can also be used to specify an order of precedence which is discussed in more detail in subsection (4).
-
-### 1) Disjunctive "OR" Operator
-
-If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new lincense expression, where both the left and right operands are valid license expression values.
-
-For example, when given a choice between the LGPL-2.1 or MIT licenses, a valid expression would be:
-
-    (LGPL-2.1 OR MIT)
-
-An example representing a choice between three different licenses would be:
-
-(LGPL-2.1 OR MIT OR BSD-3-Clause)
-
-### 2) Conjunctive "AND" Operator
-
-If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are a valid license expression values.
-
-For example, when one is required to comply with both the LGPL-2.1 or MIT licenses, a valid expression would be:
-
-    (LGPL-2.1 AND MIT)
+    LGPL-2.1 AND MIT
 
 An example where all three different licenses apply would be:
 
-    (LGPL-2.1 AND MIT AND BSD-2-Clause)
+    LGPL-2.1 AND MIT AND BSD-2-Clause
 
-### 3) Exception "WITH" Operator
+### IV.2.4 Disjunctive `OR` Operator <a name="IV.2.4"></a>
 
-Sometimes a set of license terms apply except under special circumstances. In this case, use the binary "WITH" operator to construct a new license expression to represent the special exception situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<license-exception-id>` that represents the special exception terms.
+If presented with a choice between two or more licenses, use the disjunctive binary `OR` license operator to construct a new license expression, where both the left and right operands are valid `license-expression` values.
 
-For example, when the Bison exception is to be applied to GPL-2.0+, the expression would be:
+For example, when given a choice between the `LGPL-2.1` or `MIT` licenses, a valid `license-expression` would be:
 
-    (GPL-2.0+ WITH Bison-exception-2.2)
+    LGPL-2.1 OR MIT
 
-The current set of valid exceptions can be found in [Appendix I, section 2](appendix-I-SPDX-license-list.md#I.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single `<license-ref>` to represent the entire license terms (including the exception).
+An example representing a choice between three different licenses would be:
 
-### 4) Order of Precedence and Parentheses
+    LGPL-2.1 OR MIT OR BSD-3-Clause
 
-The order of application of the operators in an expression matters (similar to mathematical operators). The default operator order of precedence of a `<license-expression>` a is:
+### IV.2.5 Grouping <a name="IV.2.5"></a>
 
+Parentheses (`()`) can be used to specify an explicit grouping to override [operator precedence](#IV.2.6).  This is similar to the use of parentheses in algebraic expressions like `(5+7)/2`.
+
+For instance, the following expression:
+
+    MIT AND (LGPL-2.1-or-later OR BSD-3-Clause)
+
+represents a license requring both `MIT` and the expression `LGPL-2.1-or-later OR BSD-3-Clause`, because the parenthesis require the enclosed expression take precedence over (is applied before) the `AND` operator.
+
+### IV.2.6 Operator Precedence <a name="IV.2.6"></a>
+
+The operators described above have the following precedence, from highest (binding tightest) at the top, to lowest (loosest) at the bottom:
+
+    Grouping
     +
     WITH
     AND
     OR
 
-where a lower order operator is applied before a higher order operator.
-
 For example, the following expression:
 
     LGPL-2.1 OR BSD-3-Clause AND MIT
 
-represents a license choice between either LGPL-2.1 and the expression BSD-3-Clause AND MIT because the AND operator takes precedence over (is applied before) the OR operator.
+represents a license choice between either `LGPL-2.1` and the expression `BSD-3-Clause AND MIT` because the `AND` operator takes precedence over (is applied before) the `OR` operator.
 
-When required to express an order of precedence that is different from the default order a `<license-expression>` can be encapsulated in pairs of parentheses: ( ), to indicate that the operators found inside the parentheses takes precedence over operators outside. This is also similar to the use of parentheses in an algebraic expression e.g., (5+7)/2.
+## IV.3 License Expressions in XML <a name="IV.3"></a>
 
-For instance, the following expression:
+### IV.3.1 The `+` Operator <a name="IV.3.1"></a>
 
-    (MIT AND (LGPL-2.1+ OR BSD-3-Clause))
+The [`+` operator](#IV.2.1) can be expressed in XML via an `<spdx:OrLaterOperator>` element, with a single `<spdx:member`> child for the license preceeding the `+` operator.
 
-states the OR operator should be applied before the AND operator. That is, one should first select between the LGPL-2.1+ or the BSD-3-Clause license before applying the MIT license.
+    <spdx:OrLaterOperator>
+        <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0"/>
+    </spdx:OrLaterOperator>
 
-### 5) License Expressions in RDF <a name="rdf-expr"></a>
+### IV.3.2 Exception `WITH` Operator <a name="IV.3.2"></a>
 
-A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet>` element, with an spdx:member property for each element in the conjunctive license. Two or more members are required.
+The [`WITH` operator](#IV.2.2) can be expressed in XML via a `<spdx:WithExceptionOperator>` element, with an `<spdx:member>` property for the license and an `<spdx:licenseException>` property for the exception.
+
+    <spdx:WithExceptionOperator>
+        <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0"/>
+        <spdx:licenseException rdf:resource="https://spdx.org/licenses/FLTK-exception.html">
+    </spdx:WithExceptionOperator>
+
+### IV.3.3 Conjunctive `AND` Operator <a name="IV.3.3"></a>
+
+A [conjunctive license](#IV.2.3) can be expressed in XML via an `<spdx:ConjunctiveLicenseSet>` element, with an `<spdx:member>` child for each element in the conjunctive license.  Two or more members are required.
 
     <spdx:ConjunctiveLicenseSet>
         <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0"/>
-        <spdx:ExtractedLicensingInfo rdf:about="http://example.org#LicenseRef-EternalSurrender">
-            <spdx:extractedText>
-                In exchange for using this software, you agree to give its author all your worldly possessions.
-                You will not hold the author liable for all the damage this software will inevitably cause not only
-                to your person and property, but to the entire fabric of the cosmos.
-            </spdx:extractedText>
-            <spdx:licenseId>LicenseRef-EternalSurrender</spdx:licenseId>
-        </spdx:ExtractedLicensingInfo>
+            <spdx:ExtractedLicensingInfo rdf:about="http://example.org#LicenseRef-EternalSurrender">
+                <spdx:extractedText>
+                    In exchange for using this software, you agree to give its author all your worldly possessions.
+                    You will not hold the author liable for all the damage this software will inevitably cause not only
+                    to your person and property, but to the entire fabric of the cosmos.
+                </spdx:extractedText>
+                <spdx:licenseId>LicenseRef-EternalSurrender</spdx:licenseId>
+            </spdx:ExtractedLicensingInfo>
+        </spdx:member>
     </spdx:ConjunctiveLicenseSet>
 
-A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet>` element, with an spdx:member property for each element in the disjunctive license. Two or more members are required.
+### IV.3.4 Disjunctive `OR` Operator <a name="IV.3.4"></a>
+
+A [disjunctive license](#IV.2.4) can be expressed in XML via an `<spdx:DisjunctiveLicenseSet>` element, with an `<spdx:member>` child for each element in the disjunctive license.  Two or more members are required.
 
     <spdx:DisjunctiveLicenseSet>
         <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0"/>
@@ -152,24 +169,11 @@ A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet
         </spdx:member>
     </spdx:DisjunctiveLicenseSet>
 
-A License Exception can be expressed in RDF via a `<spdx:LicenseException>` element. This element has the following attributes:
-
-* Comment - An `rdfs:comment` element describing the nature of the exception.
-* See Also (optional)- An `rdfs:seeAlso` element referencing external sources of information on the exception.
-* Example - Text describing examples of this exception.
-* Name - The full human readable name of the item.
-* License Exception ID: The identifier of an exception in the SPDX License List to which the exception applies.
-* License Exception Text: Full text of the license exception.
-
-        <rdf:Description rdf:about="http://example.org#SPDXRef-ButIdDontWantToException">
-            <rdfs:comment>This exception may be invalid in some jurisdictions.</rdfs:comment>
-            <rdfs:seeAlso>http://dilbert.com/strip/1997-01-15</rdfs:seeAlso>
-            <spdx:example>So this one time, I had a license exception…</spdx:example>
-            <spdx:licenseExceptionText>
-                A user of this software may decline to follow any subset of the terms of this license upon
-                finding any or all such terms unfavorable.
-            </spdx:licenseExceptionText>
-            <spdx:name>&quot;But I Don&apos;t Want To&quot; Exception</spdx:name>
-            <spdx:licenseExceptionId>SPDXRef-ButIdDontWantToException</spdx:licenseExceptionId>
-            <rdf:type rdf:resource="http://spdx.org/rdf/terms#LicenseException"/>
-        </rdf:Description>
+[AGPL-1.0]: https://spdx.org/licenses/AGPL-1.0.html
+[AGPL-2.0]: http://www.affero.org/agpl2.html
+[GPL-3.0]: https://spdx.org/licenses/GPL-3.0-or-later.html
+[list-case-commitment]: https://github.com/spdx/license-list-XML/pull/651#FIXME:get-this-released
+[rdfs:comment]: https://www.w3.org/TR/2014/REC-rdf-schema-20140225/#ch_comment
+[rdfs:seeAlso]: https://www.w3.org/TR/2014/REC-rdf-schema-20140225/#ch_seealso
+[rfc5234]: http://tools.ietf.org/html/rfc5234
+[rfc5234-aB]: https://tools.ietf.org/html/rfc5234#appendix-B
