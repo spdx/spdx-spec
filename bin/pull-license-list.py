@@ -12,7 +12,12 @@ import itertools
 import json
 import os.path
 import re
+import sys
 import urllib.request
+
+
+if sys.version_info < (3, 6):
+    raise RuntimeError('this script requires Python 3.6+')
 
 
 VERSION_REGEXP = re.compile(
@@ -22,9 +27,7 @@ VERSION_REGEXP = re.compile(
 
 def get_json(url):
     with urllib.request.urlopen(url=url) as response:
-        charset = response.headers.get_content_charset('UTF-8')
-        reader = codecs.getreader(charset)
-        return json.load(reader(response))
+        return json.load(body)
 
 
 def format_table(headers, rows):
