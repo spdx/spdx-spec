@@ -12,7 +12,7 @@ RDFa Access: The template text for the license can be accessed using the RDF tag
 
 A template is composed of text with zero or more rules embedded in it.
 
-A rule is a variable section of a license wrapped between double angle brackets “<<>>” and is composed of 4 fields. Each field is separated with a semi-colon “;”. Rules cannot be embedded within other rules. Rule fields begin with a case sensitive tag followed by an equal sign “=”.
+A rule is a variable section of a license wrapped between double angle brackets “<<>>” and is composed of 4 fields. Each field is separated with a semi-colon “;”. Rules can be embedded only inside rules with a rule type of optional.  Rule fields begin with a case sensitive tag followed by an equal sign “=”.
 
 Rule fields:
 
