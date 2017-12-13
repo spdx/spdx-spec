@@ -946,55 +946,58 @@ Example:
 
 **3.21.3** Cardinality: Optional (one or many)
 
-**3.21.4** Data Format: `<category> <type> <locator>`
+**3.21.4** Data Format: `<category> <URI>` <a name="3.21.4"></a>
 
-where:
+In Tag:value format, values must match the following [ABNF][rfc5234].
+`ALPHA` and `DIGIT` are from the [ABNF core rules][rfc5234-aB].
+`URI` is from [RFC 3986][rfc3986-s3].
+`space` is from [Appendix IV](appendix-IV-SPDX-license-expressions.md#overview).
 
-`<category>` is “SECURITY” | “PACKAGE-MANAGER” | “OTHER”
+```
+external-reference          = external-reference-category space URI
+external-reference-category = 1*(ALPHA / DIGIT / "-" / "_")
+```
 
-`<type>` is an [idstring] that is defined in Appendix.
+`external-reference-category` values are case-sensitive.
 
-`<locator>` is the unique string with no spaces necessary to access the package-specific information, metadata, or content within the target location. The format of the locator is subject to constraints defined by the `<type>`.
+The following `external-reference-category` values are defined by this specification:
+
+* `SECURITY`: References that help find security issues with the package (e.g. [common vulnerabilities and exposures (CVE)][cve]).
+* `PACKAGE-MANAGER`: References that help install the package via a package manager (e.g. with [Apache Maven][maven]).
+
+SPDX authors can use additional category values as they see fit, although they should define the category using [an external reference comment](#3.22).
+Authors are encouraged to submit these additional categories to this specification for standardization.
 
 **3.21.5** Tag: `ExternalRef:`
 
 Example:
 
-    ExternalRef: SECURITY cpe23Type cpe:2.3:a:pivotal_software:spring_framework:4.1.0:*:*:*:*:*:*:*
+    ExternalRef: SECURITY cpe:2.3:a:pivotal_software:spring_framework:4.1.0:*:*:*:*:*:*:*
 
-    ExternalRef: OTHER LocationRef-acmeforge acmecorp/acmenator/4.1.3-alpha
+    ExternalRef: PACKAGE-MANAGER https://repo1.maven.org/maven2/org/apache/commons/commons-text/1.2/
 
-**3.21.6** RDF: property `target` in class `spdx:ExternalRef`
+**3.21.6** XML: `spdx:ExternalRef`
 
-Example (for a ‘listed’ location):
+External references can be expressed in XML via an `<spdx:ExternalRef>` element, with `<spdx:referenceCategory>` and `<spdx:referenceURI>` child elements.
+
+The `external-reference-category` values from [section 3.21.4](#3.21.4) map to `rdf:resource` values with the pattern:
+
+    http://spdx.org/rdf/terms#referenceCategory_{external-reference-category}
+
+Categories which are not defined in this specification should not use URIs with an `spdx.org` authority.
+
+For example:
 
     <spdx:Package  rdf:about="...">
         ...
         <spdx:externalRef>
             <spdx:ExternalRef>
-                <spdx:referenceCategory rdf:resouce=”http://spdx.org/rdf/terms#referenceCategory_packageManager” />
-                <spdx:referenceType rdf:resource=”http://spdx.org/rdf/refeferences/maven-central” />
-                <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1</spdx:referenceLocator>
+                <spdx:referenceCategory rdf:resouce="http://spdx.org/rdf/terms#referenceCategory_PACKAGE-MANAGER" />
+                <spdx:referenceURI>https://repo1.maven.org/maven2/org/apache/commons/commons-text/1.2/</spdx:referenceURI>
             </spdx:ExternalRef>
         </spdx:externalRef>
         ...
     </spdx:package>
-
-Example  (for a not ‘listed’ location):
-
-    <spdx:Package rdf:about="...">
-        ...
-        <spdx:externalRef>
-            <spdx:ExternalRef>
-                <spdx:referenceCategory rdf:resource="http://spdx.org/rdf/terms#referenceCategory_other" />
-                <spdx:referenceType rdf:resource=”http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...LocationRef-acmeforge” />
-                <spdx:referenceLocator>acmecorp/acmenator/4.1.3-alpha</spdx:referenceLocator>
-            </spdx:ExternalRef>
-        </spdx:externalRef>
-        ...
-    </spdx:package>
-
-The referenceType value for a non-listed location consists of the SPDX document namespace (per [section 2.5](2-document-creation-information.md#2.5)) followed by a “#” and the category as defined in 3.21.4.
 
 ## 3.22 External Reference Comment <a name="3.22"></a>
 
@@ -1018,21 +1021,26 @@ Example:
     security vulnerabilities (CVEs) which affect Vendor Product Version
     acmecorp:acmenator:6.6.6.</text>
 
-**3.22.6** RDF: Property `rdfs:comment` in class `spdx:ExternalRef`
+**3.22.6** XML: `rdfs:comment` in class `spdx:ExternalRef`
 
     <spdx:Package rdf:about="...">
         ...
         <spdx:externalRef>
             <spdx:ExternalRef>
-                <spdx:referenceCategory rdf:resouce=”http://spdx.org/rdf/terms#referenceCategory_packageManager” />
-                <spdx:referenceType rdf:resource=”http://spdx.org/rdf/refeferences/maven-central” />
-                <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1</spdx:referenceLocator>
+                <spdx:referenceCategory rdf:resouce="http://spdx.org/rdf/terms#referenceCategory_SECURITY" />
+                <spdx:referenceURI>cpe:2.3:a:pivotal_software:spring_framework:4.1.0:*:*:*:*:*:*:*</spdx:referenceURI>
                 <rdfs:comment>
                     NIST National Vulnerability Database (NVD) describes
                     security vulnerabilities (CVEs) which affect Vendor Product Version
-                    acmecorp:acmenator:6.6.6
+                    pivotal_software:spring_framework:4.1.0.
                 </rdfs:comment>
             </spdx:ExternalRef>
         </spdx:externalRef>
         ...
     </spdx:package>
+
+[cve]: https://cve.mitre.org/
+[maven]: https://maven.apache.org/
+[rfc3986-s3]: https://tools.ietf.org/html/rfc3986#section-3
+[rfc5234]: https://tools.ietf.org/html/rfc5234
+[rfc5234-aB]: https://tools.ietf.org/html/rfc5234#appendix-B
