@@ -327,7 +327,7 @@ NOASSERTION, if
 
 (ii) the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).
 
-**4.8.2** Intent: Record any copyright notice for the package.
+**4.8.2** Intent: Record any copyright notice for the file.
 
 **4.8.3** Cardinality: Mandatory, one.
 
