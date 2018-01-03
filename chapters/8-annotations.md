@@ -114,15 +114,19 @@ Example:
 
 **8.4.6** RDF:
 
-For RDF, the annotations are a property of the SPDX element it is annotationg.
+For RDF, the annotations may be a property of the SPDX element it is annotating.
 
-    <SpdxElement rdf:about=”#SPDXRef-45”>
-        <annotation>
-            <Annotation>
-                ...
-            </Annotation>
-        </annotation>
-    </SpdxElement rdf:about=”#SPDXRef-45”>
+    <SpdxElement rdf:about="#SPDXRef-45">
+        <Annotation>
+            ...
+        </Annotation>
+    </SpdxElement rdf:about="#SPDXRef-45">
+
+Alternatively, they may contain an `rdf:about` attribute with an SPDXID.
+
+    <Annotation rfd:about="#SPDXRef-45">
+        ...
+    </Annotation>
 
 ## 8.5 Annotation Comment <a name="8.5"></a>
 
