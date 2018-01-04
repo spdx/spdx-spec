@@ -16,4 +16,5 @@
 * [Appendix IV: SPDX License Expressions](./chapters/appendix-IV-SPDX-license-expressions.md)
 * [Appendix V: Using SPDX short identifiers in Source Files](./chapters/appendix-V-using-SPDX-short-identifiers-in-source-files.md)
 * [Appendix VI: External Repository Identifiers](./chapters/appendix-VI-external-repository-identifiers.md)
-* [Appendix VII: Creative Commons Attribution License 3.0 Unported](./chapters/appendix-VII-creative-commons-attribution-license-3.0-unported.md)
+* [Appendix VII: Version-Control URIs](./chapters/appendix-VII-version-control-uris.md)
+* [Appendix VIII: Creative Commons Attribution License 3.0 Unported](./chapters/appendix-VIII-creative-commons-attribution-license-3.0-unported.md)
