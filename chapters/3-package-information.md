@@ -211,36 +211,27 @@ Example:
 
 **3.7.1** Purpose: This section identifies the download Universal Resource Locator (URL), or a specific location within a version control system (VCS) for the package at the time that the SPDX file was created.
 
-Use NONE if there is no download location whatsoever.
+**3.7.2** Intent: The download location is useful metadata.
 
-Use NOASSERTION if:
+**3.7.3** Cardinality: Optional, one or many.
+
+**3.7.4** Data Format: uniform resource locator | VCS location | `NONE` | `NOASSERTION`
+
+Use `NONE` if there is no download location whatsoever.
+
+Leave this property unset if:
+
 (i) the SPDX file creator has attempted to but cannot reach a reasonable objective determination;
 (ii) the SPDX file creator has made no attempt to determine this field; or
 (iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-**3.7.2** Intent: Here, where and how to download the exact package being referenced is critical verification and tracking data.
+The deprecated `NOASSERTION` value has the same semantics as leaving the property unset.
 
-**3.7.3** Cardinality: Mandatory, one.
-
-**3.7.4** Data Format: uniform resource locator | VCS location | “NONE” | “NOASSERTION”
-
-For version-controlled files, the VCS location syntax is similar to a URL and has the:
-
-    <vcs_tool>+<transport>://<host_name>[/<path_to_repository>][@<revision_tag_or_branch>][#<sub_path>]
-
-This VCS location compact notation (inspired and mostly adopted from https://pip.pypa.io/en/latest/reference/pip_install.html#vcs-support as of 20150220)  supports referencing locations in version control systems such as Git, Mercurial, Subversion and Bazaar, and specifies the type of VCS tool using url prefixes: “git+”, “hg+”, “bzr+”, “svn+” and specific transport schemes such as SSH or HTTPS.
-
-Specifying sub-paths, branch names, a commit hash, a revision or a tag name is recommended, and supported using the "@"delimiter for commits and the "#" delimiter for sub-paths.
-
-Using user names and password in the host_name is not supported and should be considered as an error. User access control to URLs or VCS repositories must be handled outside of an SPDX document.
-
-In VCS location compact notations, the trailing slashes in `<host_name>`, `<path_to_repository>` are not significant. Leading and trailing slashes in `<sub_path>` are not significant.
+For version-control systems without [a registered URI scheme][iana-schemes], the version-control URI syntax defined in [appendix VII](appendix-VII-version-control-uris.md) may be used.
 
 **3.7.5** Tag: `PackageDownloadLocation:`
 
-Examples if ambiguous:
-
-    PackageDownloadLocation: NOASSERTION
+Example for no no download location:
 
     PackageDownloadLocation: NONE
 
@@ -248,164 +239,12 @@ Example for a plain URL:
 
     PackageDownloadLocation: http://ftp.gnu.org/gnu/glibc/glibc-ports-2.15.tar.gz
 
-Example for Git:
-
-SPDX supports git, git+git, git+https git+http and git+ssh transports. git and git+git are equivalent.
-
-Here are the supported forms:
-
-    PackageDownloadLocation: git://git.myproject.org/MyProject
-    
-    PackageDownloadLocation: git+https://git.myproject.org/MyProject.git
-    
-    PackageDownloadLocation: git+http://git.myproject.org/MyProject
-    
-    PackageDownloadLocation: git+ssh://git.myproject.org/MyProject.git
-    
-    PackageDownloadLocation: git+git://git.myproject.org/MyProject
-    
-    PackageDownloadLocation: git+git@git.myproject.org:MyProject
-
-To specify a sub-path to a file or directory inside a repository use the "#" delimiter:
-
-    PackageDownloadLocation: git://git.myproject.org/MyProject#src/somefile.c
-    
-    PackageDownloadLocation: git+https://git.myproject.org/MyProject#src/Class.java
-
-To specify branch names, a commit hash or a tag name, use the "@" delimiter:
-
-    PackageDownloadLocation: git://git.myproject.org/MyProject.git@master
-    
-    PackageDownloadLocation: git+https://git.myproject.org/MyProject.git@v1.0
-    
-    PackageDownloadLocation: git://git.myproject.org/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709
-
-Sub-paths and branch names or commit hash can be combined too:
-
-    PackageDownloadLocation: git+https://git.myproject.org/MyProject.git@master#/src/MyClass.cpp
-    
-    PackageDownloadLocation: git+https://git.myproject.org/MyProject@da39a3ee5e6b4b0d3255bfef95601890afd80709#lib/variable.rb
-
-Example for Mercurial:
-
-SPDX supported schemes are: hg+http, hg+https, hg+static-http and hg+ssh.
-
-The supported forms are:
-
-    PackageDownloadLocation: hg+http://hg.myproject.org/MyProject
-    
-    PackageDownloadLocation: hg+https://hg.myproject.org/MyProject
-    
-    PackageDownloadLocation: hg+ssh://hg.myproject.org/MyProject
-
-To specify a sub-path to a file or directory inside a repository use the "#" delimiter:
-
-    PackageDownloadLocation: hg+https://hg.myproject.org/MyProject#src/somefile.c
-    
-    PackageDownloadLocation: hg+https://hg.myproject.org/MyProject#src/Class.java
-
-To pass branch names, a commit hash, a tag name or a local branch name use the "@" delimiter:
-
-    PackageDownloadLocation: hg+https://hg.myproject.org/MyProject@da39a3ee5e6b
-    
-    PackageDownloadLocation: hg+https://hg.myproject.org/MyProject@2019
-    
-    PackageDownloadLocation: hg+https://hg.myproject.org/MyProject@v1.0
-    
-    PackageDownloadLocation: hg+https://hg.myproject.org/MyProject@special_feature
-
-Sub-paths and branch names or commit hash can be combined too:
-
-    PackageDownloadLocation: hg+https://hg.myproject.org/MyProject@master#/src/MyClass.cpp
-    
-    PackageDownloadLocation: hg+https://hg.myproject.org/MyProject@da39a3ee5e6b#lib/variable.rb
-
-Example for Subversion:
-
-SPDX supports the URL schemes svn, svn+svn, svn+http, svn+https, svn+ssh. svn and svn+svn are equivalent.
-
-The supported forms are:
-
-    PackageDownloadLocation: svn://svn.myproject.org/svn/MyProject
-    
-    PackageDownloadLocation: svn+svn://svn.myproject.org/svn/MyProject
-    
-    PackageDownloadLocation: svn+http://svn.myproject.org/svn/MyProject/trunk
-    
-    PackageDownloadLocation: svn+https://svn.myproject.org/svn/MyProject/trunk
-
-To specify a sub-path to a file or directory inside a repository use the "#" delimiter:
-
-    PackageDownloadLocation: svn+https://svn.myproject.org/MyProject#src/somefile.c
-    
-    PackageDownloadLocation: svn+https://svn.myproject.org/MyProject#src/Class.java
-
-This support is less important for SVN since the URL path can also contain sub-paths; this two forms are equivalent:
-
-    PackageDownloadLocation: svn+https://svn.myproject.org/MyProject/trunk#src/somefile.c
-    
-    PackageDownloadLocation: svn+https://svn.myproject.org/MyProject/trunk/src/somefile.c
-
-You can specify a revision using the "@" delimiter:
-
-    PackageDownloadLocation: svn+https://svn.myproject.org/svn/MyProject/trunk@2019
-
-Sub-paths and revisions can be combined too:
-
-    PackageDownloadLocation: svn+https://svn.myproject.org/MyProject@123#/src/MyClass.cpp
-    
-    PackageDownloadLocation: svn+https://svn.myproject.org/MyProject/trunk@1234#lib/variable/variable.rb
-
-Example for Bazaar:
-
-SPDX supports Bazaar using the bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp and bzr+lp schemes.
-
-The supported forms are:
-
-    PackageDownloadLocation: bzr+https://bzr.myproject.org/MyProject/trunk
-    
-    PackageDownloadLocation: bzr+http://bzr.myproject.org/MyProject/trunk
-    
-    PackageDownloadLocation: bzr+sftp://myproject.org/MyProject/trunk
-    
-    PackageDownloadLocation: bzr+ssh://myproject.org/MyProject/trunk
-    
-    PackageDownloadLocation: bzr+ftp://myproject.org/MyProject/trunk
-    
-    PackageDownloadLocation: bzr+lp:MyProject
-
-To specify a sub-path to a file or directory inside a repository use the "#" delimiter:
-
-    PackageDownloadLocation: bzr+https://bzr.myproject.org/MyProject/trunk#src/somefile.c
-    
-    PackageDownloadLocation: bzr+https://bzr.myproject.org/MyProject/trunk#src/Class.java
-
-You can specify a revision or tag using the "@" delimiter:
-
-    PackageDownloadLocation: bzr+https://bzr.myproject.org/MyProject/trunk@2019
-    
-    PackageDownloadLocation: bzr+http://bzr.myproject.org/MyProject/trunk@v1.0
-
-Sub-paths and revisions can be combined too:
-
-    PackageDownloadLocation: bzr+https://bzr.myproject.org/MyProject/trunk@2019#src/somefile.c
-
 **3.7.6** RDF: property `spdx:downloadLocation` in class `spdx:Package`
 
 Example:
 
     <Package rdf:about="...">
         <downloadLocation>http://ftp.gnu.org/gnu/glibc/glibc-ports-2.15.tar.gz</downloadLocation>
-    </Package>
-
-    <Package rdf:about="...">
-        <downloadLocation>
-            git+https://git.myproject.org/MyProject.git@v10.0#src/lib.c
-        </downloadLocation>
-    </Package>
-
-    <Package rdf:about="...">
-        <downloadLocation rdf:resource="http://spdx.org/rdf/terms#noassertion"/>
     </Package>
 
     <Package rdf:about="...">
@@ -1036,3 +875,5 @@ Example:
         </spdx:externalRef>
         ...
     </spdx:package>
+
+[iana-schemes]: https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml
