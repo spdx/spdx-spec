@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>Appendix IV: SPDX License Expressions &#xB7; Software&#xA0;Package&#xA0;Data&#xA0;Exchange&#xA0;(SPDX&#x200B;&#xAE;&#x200B;)&#xA0;&#x200B;Specification</title>
+    <title>Appendix IV: SPDX License Expressions &#xB7; Software Package Data Exchange (SPDX&#xAE;) Specification</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="generator" content="GitBook 3.2.2">
     <meta name="author" content="Linux Foundation and its Contributors">
     <meta name="DC.source" content="https://github.com/spdx/spdx-spec">
-    <meta name="DC.identifier" content="#cfa1b9d">
-    <meta name="DC.date.created" content="2017-07-16T18:52:50.601Z">
+    <meta name="DC.identifier" content="#f8aae70">
+    <meta name="DC.date.created" content="2018-01-21T16:05:48.800Z">
     <meta name="DC.rights" content="SPDX-License-Identifier: CC-BY-3.0">
     <link rel="stylesheet" href="../gitbook/style.css">
     <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
@@ -150,8 +150,7 @@
                                         different source files each governed by different licenses (e.g., LGPL-2.1 AND BSD-3-Clause).</p>
                                     <p>SPDX License Expressions provides a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single
                                         license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-{idString}; a license identifier combined with an SPDX exception; or some combination of license identifiers,
-                                        license references and exceptions constructed using a small set of defined operators (e.g., AND, OR, WITH and +). We provide the definition of what constitutes a valid an SPDX License Expression in this section.
-                                        </p>
+                                        license references and exceptions constructed using a small set of defined operators (e.g., AND, OR, WITH and +). We provide the definition of what constitutes a valid an SPDX License Expression in this section.</p>
                                     <p>The exact syntax of license expressions is described below in <a href="http://tools.ietf.org/html/rfc5234" target="_blank">ABNF</a>.</p>
                                     <p>idstring = 1*(ALPHA / DIGIT / &quot;-&quot; / &quot;.&quot; )</p>
                                     <p>license-id = \
@@ -169,7 +168,7 @@
                                     <p> &quot;(&quot; compound-expression &quot;)&quot; )</p>
                                     <p>license-expression = 1*1(simple-expression / compound-expression)</p>
                                     <p>In the following sections we describe in more detail \
-                                        <license-expression> construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern day software. </license-expression>
+                                        <license-expression> construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern day software.</license-expression>
                                     </p>
                                     <p>A valid \
                                         <license-expression> string consists of either:</license-expression>
@@ -183,7 +182,7 @@
                                     <ul>
                                         <li>An SPDX License List Short Form Identifier. For example: GPL-2.0</li>
                                         <li>An SPDX License List Short Form Identifier with a unary&quot;+&quot; operator suffix to represent the current version of the license or any later version. For example: GPL-2.0+</li>
-                                        <li>A SPDX user defined license reference: [&quot;DocumentRef-&quot;1*(idstring)&quot;:&quot;]&quot;LicenseRef-&quot;1*(idstring) </li>
+                                        <li>A SPDX user defined license reference: [&quot;DocumentRef-&quot;1*(idstring)&quot;:&quot;]&quot;LicenseRef-&quot;1*(idstring)</li>
                                     </ul>
                                     <p>Some examples:</p>
                                     <pre><code>LicenseRef-23
@@ -196,11 +195,11 @@ DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
                                         parsing. Nested parentheses can also be used to specify an order of precedence which is discussed in more detail in subsection (4).</p>
                                     <h3 id="1-disjunctive-or-operator">1) Disjunctive &quot;OR&quot; Operator</h3>
                                     <p>If presented with a choice between two or more licenses, use the disjunctive binary &quot;OR&quot; operator to construct a new lincense expression, where both the left and right operands are valid license expression
-                                        values. </p>
+                                        values.</p>
                                     <p>For example, when given a choice between the LGPL-2.1 or MIT licenses, a valid expression would be:</p>
                                     <pre><code>(LGPL-2.1 OR MIT)
 </code></pre>
-                                    <p>An example representing a choice between three different licenses would be: </p>
+                                    <p>An example representing a choice between three different licenses would be:</p>
                                     <p>(LGPL-2.1 OR MIT OR BSD-3-Clause)</p>
                                     <h3 id="2-conjunctive-and-operator">2) Conjunctive &quot;AND&quot; Operator</h3>
                                     <p>If required to simultaneously comply with two or more licenses, use the conjunctive binary &quot;AND&quot; operator to construct a new license expression, where both the left and right operands are a valid license expression
@@ -238,7 +237,7 @@ OR
 </code></pre>
                                     <p>where a lower order operator is applied before a higher order operator.</p>
                                     <p>For example, the following expression:</p>
-                                    <pre><code>LGPL-2.1 OR BSD-3-Clause AND MIT 
+                                    <pre><code>LGPL-2.1 OR BSD-3-Clause AND MIT
 </code></pre>
                                     <p>represents a license choice between either LGPL-2.1 and the expression BSD-3-Clause AND MIT because the AND operator takes precedence over (is applied before) the OR operator.</p>
                                     <p>When required to express an order of precedence that is different from the default order a \
@@ -256,7 +255,7 @@ OR
     &lt;spdx:ExtractedLicensingInfo rdf:about=&quot;http://example.org#LicenseRef-EternalSurrender&quot;&gt;
         &lt;spdx:extractedText&gt;
             In exchange for using this software, you agree to give its author all your worldly possessions.
-            You will not hold the author liable for all the damage this software will inevitably cause not only 
+            You will not hold the author liable for all the damage this software will inevitably cause not only
             to your person and property, but to the entire fabric of the cosmos.
         &lt;/spdx:extractedText&gt;
         &lt;spdx:licenseId&gt;LicenseRef-EternalSurrender&lt;/spdx:licenseId&gt;
@@ -270,7 +269,7 @@ OR
         &lt;spdx:ExtractedLicensingInfo rdf:about=&quot;http://example.org#LicenseRef-EternalSurrender&quot;&gt;
             &lt;spdx:extractedText&gt;
                 In exchange for using this software, you agree to give its author all your worldly possessions.
-                You will not hold the author liable for all the damage this software will inevitably cause 
+                You will not hold the author liable for all the damage this software will inevitably cause
                 not only to your person and property, but to the entire fabric of the cosmos.
             &lt;/spdx:extractedText&gt;
             &lt;spdx:licenseId&gt;LicenseRef-EternalSurrender&lt;/spdx:licenseId&gt;
@@ -294,7 +293,7 @@ OR
       &lt;rdfs:seeAlso&gt;http://dilbert.com/strip/1997-01-15&lt;/rdfs:seeAlso&gt;
       &lt;spdx:example&gt;So this one time, I had a license exception&#x2026;&lt;/spdx:example&gt;
       &lt;spdx:licenseExceptionText&gt;
-          A user of this software may decline to follow any subset of the terms of this license upon 
+          A user of this software may decline to follow any subset of the terms of this license upon
           finding any or all such terms unfavorable.
       &lt;/spdx:licenseExceptionText&gt;
       &lt;spdx:name&gt;&amp;quot;But I Don&amp;apos;t Want To&amp;quot; Exception&lt;/spdx:name&gt;
@@ -473,7 +472,7 @@ OR
                             "hideHeaderOnPages": [1],
                             "hideFooterOnPages": [1, 3],
                             "document": {
-                                "type": "​Specification",
+                                "type": "Specification",
                                 "version": "2.1"
                             },
                             "strings": {
@@ -482,7 +481,7 @@ OR
                             },
                             "pictures": []
                         },
-                        "title": "Software Package Data Exchange (SPDX​®​) ​Specification",
+                        "title": "Software Package Data Exchange (SPDX®) Specification",
                         "language": "en",
                         "website": "http://spdx.org",
                         "gitbook": "3.2.2",
@@ -490,12 +489,12 @@ OR
                     },
                     "file": {
                         "path": "chapters/appendix-IV-SPDX-license-expressions.md",
-                        "mtime": "2017-07-16T18:48:51.865Z",
+                        "mtime": "2018-01-21T16:02:17.146Z",
                         "type": "markdown"
                     },
                     "gitbook": {
                         "version": "3.2.2",
-                        "time": "2017-07-16T18:52:44.900Z"
+                        "time": "2018-01-21T16:05:43.426Z"
                     },
                     "basePath": "..",
                     "book": {
