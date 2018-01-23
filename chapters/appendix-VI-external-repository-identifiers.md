@@ -46,7 +46,7 @@ External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf](http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf)
 
 ***
-When <category> = “PACKAGE_MANAGER”:
+When <category> = “PACKAGE-MANAGER”:
 ***
 
 ## \<type> maven-central <a name="maven"></a>
