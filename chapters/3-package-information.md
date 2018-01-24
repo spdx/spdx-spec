@@ -465,15 +465,17 @@ Example:
 
 **3.9.4** Algorithm:
 
-    verificationcode = 0
-    filelist = templist = ""
+    hashes = []  /* initialize to an empty array */
     for all files in the package {
-        if file is an 'excludes' file, skip it /* exclude SPDX analysis file(s) */
-            append templist with "SHA1(read(file))/n"
+        if file is in "excludes" {
+            continue  /* exclude SPDX analysis file(s), etc. */
         }
-    sort templist in ascending order by SHA1 value
-    filelist = templist with "/n"s removed. /* ordered sequence of SHA1 values with no separators */
-    verificationcode = SHA1(filelist)
+        content = read(file)
+        append SHA1(content) to hashes
+    }
+    sortedHashes = sort values in hashes in ascending order
+    sortedHash = concatenated values from sortedHashes
+    verificationCode = SHA1(sortedHash)
 
 Where:
 
