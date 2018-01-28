@@ -124,8 +124,8 @@ Example:
 Example: (where file2 is a README.TXT)
 
     <File rdf:about="file2">
-        <fileType rdf:resource="fhttp://spdx.org/rdf/terms#ileType_text" />
-        <fileType rdf:resource="fhttp://spdx.org/rdf/terms#ileType_documentation" />
+        <fileType rdf:resource="http://spdx.org/rdf/terms#fileType_text" />
+        <fileType rdf:resource="http://spdx.org/rdf/terms#fileType_documentation" />
     </File>
 
 ## 4.4 File Checksum <a name="4.4"></a>
