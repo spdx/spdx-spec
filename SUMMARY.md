@@ -15,5 +15,4 @@
 * [Appendix III: RDF Data Model Implementation and Identifier Syntax](./chapters/appendix-III-RDF-data-model-implementation-and-identifier-syntax.md)
 * [Appendix IV: SPDX License Expressions](./chapters/appendix-IV-SPDX-license-expressions.md)
 * [Appendix V: Using SPDX short identifiers in Source Files](./chapters/appendix-V-using-SPDX-short-identifiers-in-source-files.md)
-* [Appendix VI: External Repository Identifiers](./chapters/appendix-VI-external-repository-identifiers.md)
-* [Appendix VII: Creative Commons Attribution License 3.0 Unported](./chapters/appendix-VII-creative-commons-attribution-license-3.0-unported.md)
+* [Appendix VI: Creative Commons Attribution License 3.0 Unported](./chapters/appendix-VI-creative-commons-attribution-license-3.0-unported.md)

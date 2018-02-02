@@ -82,7 +82,9 @@ Companies and organizations (collectively “Organizations”) are widely using 
 
 **1.8.2** External Packages can now be refered to in SPDX documents. When there is no SPDX file information available to document the content of these external packages, then the `filesAnalyzed` attribute on a package should be set to false. See [section 3.8](3-package-information.md#3.8) Files Analyzed for more information.
 
-**1.8.3** Packages are now able to associate with an “External Reference” which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package. See: section [3.21 External Reference](3-package-information.md#3.21), [3.22 External Reference Comment](3-package-information.md#3.22) and [Appendix VI: External Repository Identifiers](./appendix-VI-external-repository-identifiers.md) for more information.
+**1.8.3** Packages are now able to associate with an “External Reference” which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package.
+See section [3.21 External Reference](3-package-information.md#3.21) and [3.22 External Reference Comment](3-package-information.md#3.22).
+There used to be an appendix about External Repository Identifiers, but that was never clearly referenced, and the appendix was dropped in version 2.2.
 
 **1.8.4** The “Artifact of Project” fields at the file level are now deprecated, as they can be replaced by a relationship to the more descriptive External Packages.
 
