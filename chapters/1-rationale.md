@@ -40,7 +40,7 @@ Companies and organizations (collectively “Organizations”) are widely using 
 
 **1.5.4** Legal interpretation of the licenses or any compliance actions that have been or may need to be taken.
 
-**1.5.5** Examples may contain “...” which indicate detailed text specific to the SPDX Document
+**1.5.5** Examples may contain `...` which indicate detailed text specific to the SPDX Document
 
 ## 1.6 Format Requirements <a name="1.6"></a>
 
@@ -88,4 +88,4 @@ Companies and organizations (collectively “Organizations”) are widely using 
 
 **1.8.5** A new appendix “Using SPDX short identifiers in Source Files” has been added to document the best practices to refer to the licenses in the SPDX license list that have emerged from the development community. See [Appendix V: Using SPDX short identifiers in Source Files](./appendix-V-using-SPDX-short-identifiers-in-source-files.md) for more information.
 
-**1.8.6** Miscellaneous bug fixes as reported on the mailing list and reported in bugs.linuxfoundation.org (search for SPDX specification).
+**1.8.6** Miscellaneous bug fixes as reported on the mailing list and reported as issues on the [spdx-spec GitHub repository](https://github.com/spdx/spdx-spec).
