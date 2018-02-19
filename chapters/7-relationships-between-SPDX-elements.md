@@ -41,17 +41,17 @@
 
 **7.1.3** Cardinality: Optional*, multiple.
 
-\* see DESCRIBES relationship for one mandatory case.
+\* see `DESCRIBES` relationship for one mandatory case.
 
 **7.1.4** Data Format:
 
-    [“DocumentRef-”[idstring]”:”]SPDXID <relationship> [“DocumentRef-”[idstring]”:”]SPDXID
+    ["DocumentRef-"[idstring]":"]SPDXID <relationship> ["DocumentRef-"[idstring]":"]SPDXID
 
-where DocumentRef-[idstring]: is an optional reference to an external SPDX document as described in [section 2.6](2-document-creation-information.md#2.6)
+where `DocumentRef-[idstring]:` is an optional reference to an external SPDX document as described in [section 2.6](2-document-creation-information.md#2.6)
 
-where SPDXID is a string containing letters, numbers, “.”,“-”. as described in sections (2.3, 3.2, 4.2).
+where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in sections (2.3, 3.2, 4.2).
 
-where `<relationship>` is one of the documented relationship types in table 6.1.1.
+where `<relationship>` is one of the documented relationship types in table 7.1.1.
 
 **7.1.5** Tag: `Relationship:`
 
@@ -65,7 +65,7 @@ Examples:
 
     RelationshipComment: This current document is an amendment of the SPDXA document.
 
-**7.1.6** RDF: property `relationship` in any SpdxElement
+**7.1.6** RDF: Property `relationship` in any SpdxElement
 
 Examples:
 
@@ -92,19 +92,19 @@ Examples:
 
 **7.2.3** Cardinality: Optional, one.
 
-**7.2.4** Data Format: free form text that can span multiple lines, refers only to the immediately preceding relationship.
+**7.2.4** Data Format: Free form text that can span multiple lines, refers only to the immediately preceding relationship.
 
 **7.2.5** Tag: `RelationshipComment:`
 
-In Tag:value format multiple lines are delimited by `<text> .. </text>`.
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
-A RelationshipComment: must be the line immediately after a “Relationship:”
+A `RelationshipComment:` must be the line immediately after a “Relationship:”
 
 Example:
 
     RelationshipComment: <text>The package foo.tgz is a pre-requisite for building executable bar.</text>
 
-**7.2.6** RDF: property `rdfs:comment` in class `spdx:Relationship`
+**7.2.6** RDF: Property `rdfs:comment` in class `spdx:Relationship`
 
 Example:
 

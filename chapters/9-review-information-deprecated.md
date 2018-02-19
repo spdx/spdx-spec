@@ -16,7 +16,7 @@ This field has been deprecated since SPDX 2.0.
 
 **9.1.3** Cardinality: Optional, one.
 
-**9.1.4** Data Format: single line of text with the following keywords.
+**9.1.4** Data Format: Single line of text with the following keywords.
 
     ”Person: person name” and optional “(email)”
     "Organization: organization” and optional “(email)”
@@ -28,7 +28,7 @@ Example:
 
     Reviewer: Person: Jane Doe ()
 
-**9.1.6** RDF: property spdx:reviewer in class spdx:Review
+**9.1.6** RDF: Property `spdx:reviewer` in class `spdx:Review`
 
 Example:
 
@@ -42,22 +42,22 @@ This field has been deprecated since SPDX 2.0.
 
 **9.2.1** Purpose: Identify when the review was done. This is to be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.
 
-**9.2.2** Intent: Here, the ReviewDate can serve as a verification as to when the actual review was done.
+**9.2.2** Intent: Here, the `ReviewDate` can serve as a verification as to when the actual review was done.
 
 **9.2.3**  Cardinality: Conditional (Mandatory, one), if there is a Reviewer.
 
-**9.2.4** Data Format: YYYY-MM-DDThh:mm:ssZ
+**9.2.4** Data Format: `YYYY-MM-DDThh:mm:ssZ`
 
 where:
 
-* YYYY is year
-* MM is month with leading zero
-* DD is day with leading zero
-* T is delimiter for time
-* hh is hours with leading zero in 24 hour time
-* mm is minutes with leading zero
-* ss is seconds with leading zero
-* Z is universal time indicator
+* `YYYY` is year
+* `MM` is month with leading zero
+* `DD` is day with leading zero
+* `T` is delimiter for time
+* `hh` is hours with leading zero in 24 hour time
+* `mm` is minutes with leading zero
+* `ss` is seconds with leading zero
+* `Z` is universal time indicator
 
 **9.2.5** Tag: `ReviewDate:`
 
@@ -65,7 +65,7 @@ Example:
 
     ReviewDate: 2010-01-29T18:30:22Z
 
-**9.2.6** RDF: property spdx:reviewDate in class spdx:Review
+**9.2.6** RDF: Property `spdx:reviewDate` in class `spdx:Review`
 
 Example:
 
@@ -83,11 +83,11 @@ This field is deprecated since SPDX 2.0.
 
 **9.3.3** Cardinality: Optional, one.
 
-**9.3.4** Data Format: free form text that can span multiple lines.
+**9.3.4** Data Format: Free form text that can span multiple lines.
 
 **9.3.5** Tag: `ReviewComment:`
 
-In Tag:value format multiple lines are delimited by `<text> .. </text>`.
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example:
 
@@ -95,7 +95,7 @@ Example:
     There are some terms that can influence the concluded license, and some alternatives may be possible,
     but the concluded license is one of the options.</text>
 
-**9.3.6** RDF: property `rdfs:comment` in class `spdx:Review`
+**9.3.6** RDF: Property `rdfs:comment` in class `spdx:Review`
 
 Example:
 

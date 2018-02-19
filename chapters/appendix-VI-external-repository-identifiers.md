@@ -1,12 +1,12 @@
 # Appendix VI: External Repository Identifiers
 
 ***
-When `<category>` = “SECURITY”:
+When `<category>` = `SECURITY`:
 ***
 
-## \<type> cpe22Type <a name="cpe22"></a>
+## `<type>` cpe22Type <a name="cpe22"></a>
 
-### \<locator> Information
+### `<locator>` Information
 
 Locator Format:
 
@@ -21,9 +21,9 @@ External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 Documentation: [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
 
 
-## \<type> cpe23Type <a name="cpe23"></a>
+## `<type>` cpe23Type <a name="cpe23"></a>
 
-### \<locator> Information
+### `<locator>` Information
 
 Locator Format:
 
@@ -46,12 +46,12 @@ External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf](http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf)
 
 ***
-When <category> = “PACKAGE-MANAGER”:
+When <category> = `PACKAGE-MANAGER`:
 ***
 
-## \<type> maven-central <a name="maven"></a>
+## `<type>` maven-central <a name="maven"></a>
 
-### \<locator> Information
+### `<locator>` Information
 
 Locator Format:
 
@@ -66,9 +66,9 @@ External Reference Site: [http://repo1.maven.org/maven2/](http://repo1.maven.org
 
 Documentation: [https://maven.apache.org](https://maven.apache.org)
 
-## \<type> npm <a name="npm"></a>
+## `<type>` npm <a name="npm"></a>
 
-### \<locator> Information
+### `<locator>` Information
 
 Locator Format:
 
@@ -83,9 +83,9 @@ External Reference Site: [https://www.npmjs.com/](https://www.npmjs.com/)
 
 Documentation: [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
 
-## \<type> nuget <a name="nuget"></a>
+## `<type>` nuget <a name="nuget"></a>
 
-### \<locator> Information
+### `<locator>` Information
 
 Locator Format:
 
@@ -100,9 +100,9 @@ External Reference Site: [https://www.nuget.org/](https://www.nuget.org/)
 
 Documentation: [https://docs.nuget.org/](https://docs.nuget.org/)
 
-## \<type> bower <a name="bower"></a>
+## `<type>` bower <a name="bower"></a>
 
-### \<locator> Information
+### `<locator>` Information
 
 Locator Format:
 
@@ -118,11 +118,11 @@ External Reference Site: [http://bower.io/](http://bower.io/)
 Documentation: [http://bower.io/docs/api/#install](http://bower.io/docs/api/#install)
 
 ***
-When <category> = “OTHER”:
+When <category> = `OTHER`:
 ***
 
-## \<type> [idstring] <a name="idstring"></a>
+## `<type>` [idstring] <a name="idstring"></a>
 
-### \<locator> Information
+### `<locator>` Information
 
-no spaces, but anything else goes
+No spaces, but anything else goes

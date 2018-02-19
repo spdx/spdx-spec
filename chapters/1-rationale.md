@@ -56,7 +56,7 @@ Companies and organizations (collectively “Organizations”) are widely using 
 
 **1.6.6** Resource Description Framework (RDF) can be used to represent this information, as can an annotated tag value flat text file.
 
-**1.6.7** Interoperability with an annotate Tag:value format and the RDF format will be preserved.
+**1.6.7** Interoperability with an annotate `tag:value` format and the RDF format will be preserved.
 
 **1.6.8** Tags and RDF properties are case sensitive.
 

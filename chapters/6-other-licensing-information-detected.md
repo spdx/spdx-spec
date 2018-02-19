@@ -1,6 +1,6 @@
 # 6 Other Licensing Information Detected
 
-This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list see: http://spdx.org/licenses/. The SPDX License List can also be found here in Appendix I.
+This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list see: http://spdx.org/licenses/. The SPDX License List can also be found here in [Appendix I](appendix-I-SPDX-license-list.md).
 
 One instance should be created for every unique license or licensing information reference detected in package that does not match one of the licenses on the SPDX License List. Each license instance should have the following fields.
 
@@ -8,17 +8,17 @@ Fields:
 
 ## 6.1 License Identifier <a name="6.1"></a>
 
-**6.1.1** Purpose: Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (sections 3 and 4, respectively).
+**6.1.1** Purpose: Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (sections [3](3-package-information.md) and [4](4-file-information.md), respectively).
 
-**6.1.2** Intent: Create a human readable short form license identifier for a license not on the SPDX License List. This identifier should be unique within the SPDX file. In previous versions of SPDX, the references were required to be sequential numbers, but as of  version 1.2, creators may specify references that are easier for humans to remember and mentally map.
+**6.1.2** Intent: Create a human readable short form license identifier for a license not on the SPDX License List. This identifier should be unique within the SPDX file. In previous versions of SPDX, the references were required to be sequential numbers, but as of version 1.2, creators may specify references that are easier for humans to remember and mentally map.
 
 **6.1.3** Cardinality: Conditional (mandatory, one) if license is not on SPDX License List.
 
-**6.1.4** Data Format: "LicenseRef-"[idstring]
+**6.1.4** Data Format: `LicenseRef-[idstring]`
 
 where
 
-[idstring] is a unique string containing letters, numbers, “.” or “-”.
+[idstring] is a unique string containing letters, numbers, `.` and/or `-`.
 
 **6.1.5** Tag: `LicenseID:`
 
@@ -28,7 +28,7 @@ Examples:
 
     LicenseID: LicenseRef-Beerware-4.2
 
-**6.1.6** RDF: property `spdx:licenseID` in class `spdx:ExtractedLicensingInfo`
+**6.1.6** RDF: Property `spdx:licenseID` in class `spdx:ExtractedLicensingInfo`
 
 Examples:
 
@@ -48,11 +48,11 @@ Examples:
 
 **6.2.3** Cardinality: Conditional (Mandatory, one) if there is a License Identifier assigned.
 
-**6.2.4** Data Format: free form text field that may span multiple lines.
+**6.2.4** Data Format: Free form text field that may span multiple lines.
 
 **6.2.5** Tag: `ExtractedText:`
 
-In Tag:value format multiple lines are delimited by `<text> .. </text>`.
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example 1 (if only short reference to license present in File):
 
@@ -62,7 +62,7 @@ Example 2 (if indeed full text of license present in File):
 
     ExtractedText: <text>"THE WHISKEY-WARE LICENSE": whiskeyfan@example.com wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a bottle of whiskey in return </text>
 
-**6.2.6** RDF: property `spdx:extractedText` in class `spdx:ExtractedLicensingInfo`
+**6.2.6** RDF: Property `spdx:extractedText` in class `spdx:ExtractedLicensingInfo`
 
 Example 1 (if only short reference to license present in File):
 
@@ -82,13 +82,13 @@ Example 2 (if indeed full text of license present in File):
 
 **6.3.1** Purpose: Provide a common name of the license that is not on the SPDX list.
 
-Use NOASSERTION If there is no common name or it is not known.
+Use `NOASSERTION` If there is no common name or it is not known.
 
 **6.3.2** Intent: Provides a human readable name suitable for use as a title or label of the license when showing compact lists of licenses from the SPDX data to humans.
 
 **6.3.3** Cardinality: Conditional (mandatory, one) if license is not on SPDX License List.
 
-**6.3.4** Data Format: single line of text | “NOASSERTION”.
+**6.3.4** Data Format: Single line of text | `NOASSERTION`.
 
 **6.3.5** Tag: `LicenseName:`
 
@@ -96,7 +96,7 @@ Example:
 
     LicenseName: Whiskey-Ware License
 
-**6.3.6** RDF: property `spdx:licenseName` in class `spdx:ExtractedLicensingInfo`
+**6.3.6** RDF: Property `spdx:licenseName` in class `spdx:ExtractedLicensingInfo`
 
 Example:
 
@@ -113,7 +113,7 @@ Example:
 
 **6.4.3** Cardinality: Conditional (optional, one or more) if license is not on SPDX License List.
 
-**6.4.4** Data Format: uniform resource locator
+**6.4.4** Data Format: Uniform Resource Locator
 
 **6.4.5** Tag: `LicenseCrossReference:`
 
@@ -121,7 +121,7 @@ Example:
 
     LicenseCrossReference: http://people.freebsd.org/~phk/
 
-**6.4.6** RDF: property `rdfs:seeAlso` in class `spdx:ExtractedLicensingInfo`
+**6.4.6** RDF: Property `rdfs:seeAlso` in class `spdx:ExtractedLicensingInfo`
 
 Example:
 
@@ -137,17 +137,17 @@ Example:
 
 **6.5.3** Cardinality: Optional, one.
 
-**6.5.4** Data Format: free form text that can span multiple lines
+**6.5.4** Data Format: Free form text that can span multiple lines
 
 **6.5.5** Tag: `LicenseComment:`
 
-In Tag:value format multiple lines are delimited by `<text> .. </text>`.
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example:
 
     LicenseComment: <text>The Whiskey-Ware License has a couple of other standard variants.</text>
 
-**6.5.6** RDF: property `rdfs:comment` in class `spdx:ExtractedLicensingInfo`
+**6.5.6** RDF: Property `rdfs:comment` in class `spdx:ExtractedLicensingInfo`
 
 Example:
 

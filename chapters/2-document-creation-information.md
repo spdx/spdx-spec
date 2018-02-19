@@ -14,11 +14,11 @@ Fields:
 
 **2.1.3** Cardinality: Mandatory, one.
 
-**2.1.4** Data Format: “SPDX-M.N” where:
+**2.1.4** Data Format: `SPDX-M.N` where:
 
-M is major version number
+`M` is major version number
 
-N is minor version number.
+`N` is minor version number.
 
 **2.1.5** Tag: `SPDXVersion:`
 
@@ -40,11 +40,11 @@ Example:
 Without opining on the lawfulness of "database rights" (in jurisdictions where applicable), such explanatory text is copyrightable subject matter in most Berne Convention countries.
 By using the SPDX specification, or any portion hereof, you hereby agree that any copyright rights (as determined by your jurisdiction) in any SPDX-Metadata, including without limitation explanatory text, shall be subject to the terms of the Creative Commons CC0 1.0 Universal license.  For SPDX-Metadata not containing any copyright rights, you hereby agree and acknowledge that the SPDX-Metadata is provided to you "as-is" and without any representations or warranties of any kind concerning the SPDX-Metadata, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non-infringement, or the absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.
 
-**2.2.2*** Intent: This is to alleviate any concern that content (the data or database) in an SPDX file is subject to any form of intellectual property right that could restrict the re-use of the information or the creation of another SPDX file for the same project(s). This approach avoids intellectual property and related restrictions over the SPDX file, however individuals can still contract with each other to restrict release of specific collections of SPDX files (which map to software bill of materials) and the identification of the supplier of SPDX files.
+**2.2.2** Intent: This is to alleviate any concern that content (the data or database) in an SPDX file is subject to any form of intellectual property right that could restrict the re-use of the information or the creation of another SPDX file for the same project(s). This approach avoids intellectual property and related restrictions over the SPDX file, however individuals can still contract with each other to restrict release of specific collections of SPDX files (which map to software bill of materials) and the identification of the supplier of SPDX files.
 
 **2.2.3** Cardinality: Mandatory, one.
 
-**2.2.4** Data Format:  “CC0-1.0”
+**2.2.4** Data Format: `CC0-1.0`
 
 **2.2.5** Tag: `DataLicense:`
 
@@ -52,7 +52,7 @@ Example:
 
     DataLicense: CC0-1.0
 
-**2.2.6** RDF: spdx:dataLicense
+**2.2.6** RDF: `spdx:dataLicense`
 
 Example:
 
@@ -68,7 +68,7 @@ Example:
 
 **2.3.3** Cardinality: Mandatory, one.
 
-**2.3.4** DataFormat: “SPDXRef-DOCUMENT”
+**2.3.4** DataFormat: `SPDXRef-DOCUMENT`
 
 **2.3.5** Tag: `SPDXID:`
 
@@ -78,7 +78,7 @@ Example:
 
 **2.3.6** RDF: The URI for the document is the document namespace appended by
 
-“#SPDXRef-DOCUMENT”
+`#SPDXRef-DOCUMENT`
 
     <spdx:SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-example-444504E0-4F89-41D3-9A0C-0305E82C33...">
     ...
@@ -92,7 +92,7 @@ Example:
 
 **2.4.3** Cardinality: Mandatory, one.
 
-**2.4.4** DataFormat: single line of text.
+**2.4.4** DataFormat: Single line of text.
 
 **2.4.5** Tag: `DocumentName:`
 
@@ -102,7 +102,7 @@ Example:
 
     DocumentName: ubuntu-14.04
 
-**2.4.6** RDF: property `spdx:name` in class `Document`
+**2.4.6** RDF: Property `spdx:name` in class `Document`
 
 Example:
 
@@ -120,13 +120,13 @@ Example:
 
 The URI must be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI.
 
-**2.5.2** Intent: The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See section 2.6 for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
+**2.5.2** Intent: The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See [section 2.6](#2.6) for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
 
 * `CreatorWebsite` is a website hosted by the creator of the document. (e.g. an SPDX document provided by SPDX would be spdx.org)
 * `PathToSpdx` is a path to where SPDX documents are stored on the website (e.g. /spdx/spdxdocs)
 * `DocumentName` is a name given to the SPDX Document itself, typically the (set of) package name(s) followed by the version. [(see section 2.4)](#2.4).
 * `UUID` is a [universally unique identifier][URI]. The UUID could be a version 4 random UUID which can be generated from the [Online UUID Generator][uuid-gen] or a version 5 UUID generated from a sha1 checksum known to be unique for this specific SPDX document version.
-* If the creator does not own their own website, a default SPDX CreatorWebsite and PathToSpdx can be used 'spdx.org/spdxdocs'. Note that the SPDX documents are not currently stored or accessible on this website. The URI is only used to create a unique ID following the above conventions.
+* If the creator does not own their own website, a default SPDX CreatorWebsite and PathToSpdx can be used `spdx.org/spdxdocs`. Note that the SPDX documents are not currently stored or accessible on this website. The URI is only used to create a unique ID following the above conventions.
 
 Note that the URI does not have to be accessible. It is only intended to provide a unique ID. In many cases, the URI will point to a web accessible document, but this should not be assumed to be the case.
 
@@ -136,10 +136,10 @@ Note that the URI does not have to be accessible. It is only intended to provide
 
 **2.5.3** Cardinality: Mandatory, one.
 
-**2.5.4** Data Format: unique absolute Uniform Resource Identifier (URI) as specified in RFC-3986, with the following exceptions:
+**2.5.4** Data Format: unique absolute Uniform Resource Identifier (URI) as specified in [RFC-3986](https://tools.ietf.org/html/rfc3986), with the following exceptions:
 
-The SPDX Document URI cannot contain a URI "part" (e.g. the "#" delimiter), since the "#" is used to uniquely identify SPDX element identifiers.
-The URI must contain a scheme (e.g. “https:”).
+The SPDX Document URI cannot contain a URI "part" (e.g. the `#` delimiter), since the `#` is used to uniquely identify SPDX element identifiers.
+The URI must contain a scheme (e.g. `https:`).
 
 The URI must be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI.
 
@@ -165,16 +165,16 @@ Example:
 
 **2.6.3** Cardinality: Optional, one or many.
 
-**2.6.4** Data Format: `DocumentRef-[idstring] [SPDX Document URI] [Checksum]`
+**2.6.4** Data Format: "DocumentRef-"`[idstring]` `[SPDX Document URI]` `[Checksum]`
 
 where
 
-  [idstring] is a unique string containing letters, numbers, “.”, “-” or “+”.
-  [SPDX Document URI] is the unique ID for the external document
+  `[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.
+  `[SPDX Document URI]` is the unique ID for the external document
 
 as defined in [section 2.5](#2.5) of that referenced document,
 
-  [Checksum] is a checksum of the external document following the checksum
+  `[Checksum]` is a checksum of the external document following the checksum
 
 format defined in [section 3.9](3-package-information.md#3.9).
 
@@ -184,7 +184,7 @@ Example:
 
     ExternalDocumentRef:DocumentRef-spdx-tool-1.2 http://spdx.org/spdxdocs/spdx-tools- v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301 SHA1: d6a770ba38583ed4bb4525bd96e50461655d2759
 
-**2.6.6** RDF: property `spdx:externalDocumentRef` in class `spdx:Document range ExternalDocumentRef`.
+**2.6.6** RDF: Property `spdx:externalDocumentRef` in class `spdx:Document range ExternalDocumentRef`.
 
 The ExternalDocumentRef contains two properties:
 
@@ -217,12 +217,12 @@ Notes: in RDF, a namespace can be created for the external document reference if
 
 **2.7.3** Cardinality: Optional, one.
 
-**2.7.4** Data Format: “M.N”
+**2.7.4** Data Format: `M.N`
 
 where:
 
-M is major version number
-N is minor version number.
+`M` is major version number
+`N` is minor version number.
 
 **2.7.5** Tag: `LicenseListVersion:`
 
@@ -230,7 +230,7 @@ Example:
 
     LicenseListVersion: 2.0
 
-**2.7.6** RDF: property `licenseListVersion` in class `spdx:CreationInfo`
+**2.7.6** RDF: Property `licenseListVersion` in class `spdx:CreationInfo`
 
 Example:
 
@@ -246,7 +246,7 @@ Example:
 
 **2.8.3** Cardinality: Mandatory, one or many.
 
-**2.8.4** Data Format: single line of text with the following keywords:
+**2.8.4** Data Format: Single line of text with the following keywords:
 
     ”Person: person name” and optional “(email)”
     "Organization: organization” and optional “(email)”
@@ -260,7 +260,7 @@ Example:
     Creator: Organization: ExampleCodeInspect ()
     Creator: Tool: LicenseFind-1.0
 
-**2.8.6** RDF: property `spdx:creator` in class `spdx:CreationInfo`
+**2.8.6** RDF: Property `spdx:creator` in class `spdx:CreationInfo`
 
 Example:
 
@@ -278,18 +278,18 @@ Example:
 
 **2.9.3** Cardinality: Mandatory, one.
 
-**2.9.4** Data Format: YYYY-MM-DDThh:mm:ssZ
+**2.9.4** Data Format: `YYYY-MM-DDThh:mm:ssZ`
 
 where:
 
-* YYYY is year
-* MM is month with leading zero
-* DD is day with leading zero
-* T is delimiter for time
-* hh is hours with leading zero in 24 hour time
-* mm is minutes with leading zero
-* ss is seconds with leading zero
-* Z is universal time indicator
+* `YYYY` is year
+* `MM` is month with leading zero
+* `DD` is day with leading zero
+* `T` is delimiter for time
+* `hh` is hours with leading zero in 24 hour time
+* `mm` is minutes with leading zero
+* `ss` is seconds with leading zero
+* `Z` is universal time indicator
 
 **2.9.5** Tag: `Created:`
 
@@ -297,7 +297,7 @@ Example:
 
     Created: 2010-01-29T18:30:22Z
 
-**2.9.6** RDF: property `spdx:created` in class `spdx:CreationInfo`
+**2.9.6** RDF: Property `spdx:created` in class `spdx:CreationInfo`
 
 Example:
 
@@ -313,9 +313,9 @@ Example:
 
 **2.10.3** Cardinality: Optional, one.
 
-**2.10.4** Data Format: free form text that can span multiple lines.
+**2.10.4** Data Format: Free form text that can span multiple lines.
 
-In Tag:value format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`.
+In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`.
 
 **2.10.5** Tag: `CreatorComment:`
 
@@ -324,7 +324,7 @@ Example:
     CreatorComment: <text>This SPDX file was created by a combination of using a free tool,
     as indicated above, and manual analysis by several authors of the code.</text>
 
-**2.10.6** RDF: property `rdfs:comment` in class `spdx:CreationInfo`
+**2.10.6** RDF: Property `rdfs:comment` in class `spdx:CreationInfo`
 
 Example:
 
@@ -341,7 +341,7 @@ Example:
 
 **2.11.3** Cardinality: Optional, one.
 
-**2.11.4** Data Format: free form text that can span multiple lines. In Tag:value format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`.
+**2.11.4** Data Format: Free form text that can span multiple lines. In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`.
 
 **2.11.5** Tag: `DocumentComment:`
 
@@ -350,7 +350,7 @@ Example:
     DocumentComment: <text>This document was created using SPDX 2.0,
     version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.</text>
 
-**2.11.6**  RDF: property `rdfs:comment` in class `SpdxDocument`
+**2.11.6**  RDF: Property `rdfs:comment` in class `SpdxDocument`
 
 Example:
 

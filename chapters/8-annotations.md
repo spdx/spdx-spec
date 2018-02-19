@@ -8,7 +8,7 @@
 
 **8.1.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
 
-**8.1.4** Data Format: single line of text with the following keywords.
+**8.1.4** Data Format: Single line of text with the following keywords.
 
     ”Person: person name” and optional  “(email)”
     "Organization: organization” and optional “(email)”
@@ -20,7 +20,7 @@ Example:
 
     Annotator: Person: Jane Doe ()
 
-**8.1.6** RDF: property spdx:annotator in class spdx:Annotation
+**8.1.6** RDF: Property `spdx:annotator` in class `spdx:Annotation`
 
 Example:
 
@@ -36,18 +36,18 @@ Example:
 
 **8.2.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
 
-**8.2.4** Data Format: YYYY-MM-DDThh:mm:ssZ
+**8.2.4** Data Format: `YYYY-MM-DDThh:mm:ssZ`
 
 where:
 
-* YYYY is year
-* MM is month with leading zero
-* DD is day with leading zero
-* T is delimiter for time
-* hh is hours with leading zero in 24 hour time
-* mm is minutes with leading zero
-* ss is seconds with leading zero
-* Z is universal time indicator
+* `YYYY` is year
+* `MM` is month with leading zero
+* `DD` is day with leading zero
+* `T` is delimiter for time
+* `hh` is hours with leading zero in 24 hour time
+* `mm` is minutes with leading zero
+* `ss` is seconds with leading zero
+* `Z` is universal time indicator
 
 **8.2.5** Tag: `AnnotationDate:`
 
@@ -55,7 +55,7 @@ Example:
 
     AnnotationDate: 2010-01-29T18:30:22Z
 
-**8.2.6** RDF: property spdx:annotationDate in class spdx:Annotation
+**8.2.6** RDF: Property spdx:annotationDate in class spdx:Annotation
 
 Example:
 
@@ -65,13 +65,13 @@ Example:
 
 ## 8.3 Annotation Type <a name="8.3"></a>
 
-**8.3.1** Purpose: This field describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be REVIEW. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of OTHER.
+**8.3.1** Purpose: This field describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be `REVIEW`. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of `OTHER`.
 
 **8.3.2** Intent: This allows the type of annotation to be recorded.
 
 **8.3.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
 
-**8.3.4** Data Format: “REVIEW” | “OTHER”
+**8.3.4** Data Format: `REVIEW` | `OTHER`
 
 **8.3.5** Tag: `AnnotationType:`
 
@@ -79,7 +79,7 @@ Example:
 
     AnnotationType: REVIEW
 
-**8.3.6** RDF: property `rdfs:comment` in class spdx:Annotation
+**8.3.6** RDF: Property `rdfs:comment` in class `spdx:Annotation`
 
 Example:
 
@@ -95,12 +95,12 @@ Example:
 
 **8.4.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
 
-**8.4.4** DataFormat: [“DocumentRef-”[idstring]”:”]SPDXID
+**8.4.4** DataFormat: `[DocumentRef-[idstring]:]SPDXID`
 
 where:
 
-[“DocumentRef-”[idstring]”:”] is an optional reference to an external SPDX document as described in section 2.6
-SPDXID is a unique string containing letters, numbers, “.”,“-” as described in Sections 2.3, 3.2 and 4.2.
+["DocumentRef-"[idstring]":"] is an optional reference to an external SPDX document as described in section 2.6
+`SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in Sections 2.3, 3.2 and 4.2.
 
 **8.4.5** Tag: `SPDXREF:`
 
@@ -132,11 +132,11 @@ For RDF, the annotations are a property of the SPDX element it is annotationg.
 
 **8.5.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
 
-**8.5.4** Data Format: free form text that can span multiple lines.
+**8.5.4** Data Format: Free form text that can span multiple lines.
 
 **8.5.5** Tag: `AnnotationComment:`
 
-In Tag:value format multiple lines are delimited by `<text> .. </text>`.
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example:
 
@@ -144,7 +144,7 @@ Example:
     There are some terms that can influence the concluded license, and some alternatives may be possible,
     but the concluded license is one of the options.</text>
 
-**8.5.6** RDF: property `rdfs:comment` in class `spdx:Annotation`
+**8.5.6** RDF: Property `rdfs:comment` in class `spdx:Annotation`
 
 Example:
 

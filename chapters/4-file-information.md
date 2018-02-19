@@ -2,17 +2,17 @@
 
 One instance of the File Information is required for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
-When implementing tag:value format, the positioning of File elements is syntactically significant:
+When implementing `tag:value` format, the positioning of File elements is syntactically significant:
 
 Files are assumed to be associated with the Package Information that immediately precedes it, if a package exists.
 Presence of a new Package Information signals the end of the set of files associated with the preceding package, unless an explicit Relationship is used.
 If a package contains files, the File Information section must follow its Package Information section.
 If a File is not part of any package, it must precede any Package Information section reference in the SPDX document.
-The first field to start off the description of a File must be the File Name in tag:value format.
+The first field to start off the description of a File must be the File Name in `tag:value` format.
 File information is associated with the File Name that precedes it.
 Annotations on the file and Relationships from the file may appear after the file information, before the next file or Package Information section.
 
-When implementing file information in RDF, the spdx:hasFile property is used to associate the package with the file.
+When implementing file information in RDF, the `spdx:hasFile` property is used to associate the package with the file.
 
 ## 4.1 File Name <a name="4.1"></a>
 
@@ -24,7 +24,7 @@ When implementing file information in RDF, the spdx:hasFile property is used to 
 
 **4.1.4** Data Format: A relative filename with the root of the package archive or directory.
 
-In general, every filename is preceded with a “./”, see [http://www.ietf.org/rfc/rfc3986.txt](http://www.ietf.org/rfc/rfc3986.txt) for syntax.
+In general, every filename is preceded with a `./`, see [http://www.ietf.org/rfc/rfc3986.txt](http://www.ietf.org/rfc/rfc3986.txt) for syntax.
 
 **4.1.5** Tag: `FileName:`
 
@@ -32,7 +32,7 @@ Example:
 
     FileName: ./package/foo.c
 
-**4.1.6** RDF: property spdx:fileName in class spdx:File
+**4.1.6** RDF: Property `spdx:fileName` in class `spdx:File`
 
 Example:
 
@@ -51,7 +51,7 @@ Example:
 
 **4.2.4** DataFormat: `SPDXRef-[idstring]`
 
-where [idstring] is a unique string containing letters, numbers, “.”,“-”.
+where `[idstring]` is a unique string containing letters, numbers, `.` and/or `-`.
 
 **4.2.5** Tag: `SPDXID:`
 
@@ -61,7 +61,7 @@ Example:
 
 **4.2.6** RDF: The URI for the element will follow the form: [SpdxDocumentURI]#SPDXRef-[idstring] where [SpdxDocumentURI] is the URI for the SPDX Document containing the element.
 
-Example using xml:base:
+Example using `xml:base:`
 
     <rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B"
         ...
@@ -79,23 +79,23 @@ Example using document URI:
 
 **4.3.1** Purpose: This field provides information about the type of file identified. File Type is intrinsic to the file, independent of how the file is being used. A file may have more than one file type assigned to it, however the options to populate this field are limited to:
 
-* SOURCE if the file is human readable source code (.c, .html, etc.);
-* BINARY if the file is a compiled object, target image or binary executable (.o, .a, etc.);
-* ARCHIVE if the file represents an archive (.tar, .jar, etc.);
-* APPLICATION if the file is associated with a specific application type (MIME type of application/*);
-* AUDIO if the file is associated with an audio file (MIME type of audio/* , e.g. .mp3);
-* IMAGE if the file is associated with an picture image file (MIME type of image/*, e.g., .jpg, .gif);
-* TEXT if the file is human readable text file (MIME type of text/*);
-* VIDEO if the file is associated with a video file type (MIME type of video/*);
-* DOCUMENTATION if the file serves as documentation;
-* SPDX if the file is an SPDX document;
-* OTHER if the file doesn't fit into the above categories (generated artifacts, data files, etc.)
+* `SOURCE` if the file is human readable source code (.c, .html, etc.);
+* `BINARY` if the file is a compiled object, target image or binary executable (.o, .a, etc.);
+* `ARCHIVE` if the file represents an archive (.tar, .jar, etc.);
+* `APPLICATION` if the file is associated with a specific application type (MIME type of application/*);
+* `AUDIO` if the file is associated with an audio file (MIME type of audio/* , e.g. .mp3);
+* `IMAGE` if the file is associated with an picture image file (MIME type of image/*, e.g., .jpg, .gif);
+* `TEXT` if the file is human readable text file (MIME type of text/*);
+* `VIDEO` if the file is associated with a video file type (MIME type of video/*);
+* `DOCUMENTATION` if the file serves as documentation;
+* `SPDX` if the file is an SPDX document;
+* `OTHER` if the file doesn't fit into the above categories (generated artifacts, data files, etc.)
 
 **4.3.2** Intent: Here, this field is a reasonable estimation of the file type, from a developer perspective.
 
 **4.3.3** Cardinality: Optional, multiple.
 
-**4.3.4** Data Format: “SOURCE” | “BINARY” | “ARCHIVE” | “APPLICATION” | “AUDIO” | “IMAGE” | “TEXT” | “VIDEO” | “DOCUMENTATION” | “SPDX” | “OTHER”
+**4.3.4** Data Format: `SOURCE` | `BINARY` | `ARCHIVE` | `APPLICATION` | `AUDIO` | `IMAGE` | `TEXT` | `VIDEO` | `DOCUMENTATION` | `SPDX` | `OTHER`
 
 **4.3.5** Tag: `FileType:`
 
@@ -103,7 +103,7 @@ Example:
 
     FileType: BINARY
 
-Example: (for a README.TXT)
+Example: (for a `README.TXT`)
 
     FileType: TEXT
     FileType: DOCUMENTATION
@@ -113,7 +113,7 @@ Example (foo.exe)
     FileType: BINARY
     FileType: APPLICATION
 
-**4.3.6** RDF: property `spdx:fileType` in class `spdx:File`
+**4.3.6** RDF: Property `spdx:fileType` in class `spdx:File`
 
 Example:
 
@@ -121,7 +121,7 @@ Example:
         <fileType rdf:resource="fileType_binary" />
     </File>
 
-Example: (where file2 is a README.TXT)
+Example: (where file2 is a `README.TXT`)
 
     <File rdf:about="file2">
         <fileType rdf:resource="http://spdx.org/rdf/terms#fileType_text" />
@@ -139,7 +139,7 @@ Example: (where file2 is a README.TXT)
 
 **4.4.4** Algorithm: SHA1() is to be used on the file. Other algorithms that can be provided optionally include SHA256(), MD5().
 
-**4.4.5** Data Format: In Tag:Value there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF must also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160 bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected.
+**4.4.5** Data Format: In `tag:value` there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF must also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160 bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected.
 
 **4.4.6** Tag: `FileChecksum:`
 
@@ -149,7 +149,7 @@ Example:
 
     FileChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 
-**4.4.7** RDF: property `spdx:Checksum` in class `spdx:File`
+**4.4.7** RDF: Property `spdx:Checksum` in class `spdx:File`
 
 Example:
 
@@ -176,9 +176,11 @@ Example:
 
 The options to populate this field are limited to:
 
-A valid SPDX License Expression as defined in Appendix IV;
-NONE, if the SPDX file creator concludes there is no license available for this file; or
-NOASSERTION, if:
+A valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md);
+
+`NONE`, if the SPDX file creator concludes there is no license available for this file; or
+
+`NOASSERTION`, if:
 
 (i) the SPDX file creator has attempted to, but cannot reach a reasonable objective determination;
 
@@ -186,17 +188,17 @@ NOASSERTION, if:
 
 (iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (section 4.7). With respect to NOASSERTION, a written explanation in the Comments on License field [(section 4.7)](#4.7) is preferred.
+If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field [(section 4.7)](#4.7). With respect to `NOASSERTION`, a written explanation in the Comments on License field [(section 4.7)](#4.7) is preferred.
 
 **4.5.2** Intent: Here, the intent is for the SPDX file creator to analyze the License Information in file [(section 4.6)](#4.6) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
 
 **4.5.3** Cardinality: Mandatory, one.
 
-**4.5.4** Data Format: \<SPDX License Expression> | “NONE” | “NOASSERTION”
+**4.5.4** Data Format: `<SPDX License Expression>` | `NONE` | `NOASSERTION`
 
 where:
 
-\<SPDX License Expression> is a valid SPDX License Expression as defined in Appendix IV.
+`<SPDX License Expression>` is a valid SPDX License Expression as defined in Appendix IV.
 
 **4.5.5** Tag: `LicenseConcluded:`
 
@@ -208,7 +210,7 @@ Example:
 
     LicenseConcluded: (LGPL-2.0 OR LicenseRef-2)
 
-**4.5.6** RDF: property `spdx:licenseConcluded` in class `spdx:File`
+**4.5.6** RDF: Property `spdx:licenseConcluded` in class `spdx:File`
 
 Example:
 
@@ -234,9 +236,11 @@ Example:
 The options to populate this field are limited to:
 
 The SPDX License List short form identifier, if the license is on the SPDX License List;
-A reference to the license, denoted by LicenseRef-[idstring], if the license is not on the SPDX License List;
-NONE, if the file contains no license information whatsoever; or
-NOASSERTION, if:
+A reference to the license, denoted by `LicenseRef-[idstring]`, if the license is not on the SPDX License List;
+
+`NONE`, if the file contains no license information whatsoever; or
+
+`NOASSERTION`, if:
 
 (i) the SPDX file creator has made no attempt to determine this field; or
 
@@ -248,23 +252,23 @@ If license information for more than one license is contained in the file or if 
 
 **4.6.3** Cardinality: Mandatory, one or many.
 
-**4.6.4** Data Format: \<SPDX License Expression\> |
+**4.6.4** Data Format: `<SPDX License Expression>` |
 
- [“DocumentRef-”[idstring]”:”]"LicenseRef"-[idstring] |
+ ["DocumentRef-"[idstring]":"]"LicenseRef-"[idstring] |
 
- | “NONE” | “NOASSERTION”
+ | `NONE` | `NOASSERTION`
 
 where:
 
-\<SPDX License Expression> is a valid SPDX License Expression
+`<SPDX License Expression>` is a valid SPDX License Expression
 
-as defined in Appendix IV.
+as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md).
 
-“DocumentRef-”[idstring]: is an optional reference to an external SPDX
+`DocumentRef-[idstring]`: is an optional reference to an external SPDX
 
 document as described in [section 2.6](2-document-creation-information.md#2.6)
 
-[idstring] is a unique string containing letters, numbers, “.” or “-”
+`[idstring]` is a unique string containing letters, numbers, `.` and/or `-`
 
 **4.6.5** Tag: `LicenseInfoInFile:`
 
@@ -273,7 +277,7 @@ Example:
     LicenseInfoInFile: GPL-2.0
     LicenseInfoInFile: LicenseRef-2
 
-**4.6.6** RDF: property `spdx:licenseInfoInFile` in class `spdx:File`
+**4.6.6** RDF: Property `spdx:licenseInfoInFile` in class `spdx:File`
 
 Example:
 
@@ -284,24 +288,24 @@ Example:
 
 ## 4.7 Comments on License <a name="4.7"></a>
 
-**4.7.1** Purpose: This field provides a place for the SPDX file creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a file. If the Concluded License does not match the License Information in File, this should be explained by the SPDX file creator. It is also preferable to include an explanation here when the Concluded License is NOASSERTION.
+**4.7.1** Purpose: This field provides a place for the SPDX file creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a file. If the Concluded License does not match the License Information in File, this should be explained by the SPDX file creator. It is also preferable to include an explanation here when the Concluded License is `NOASSERTION`.
 
-**4.7.2** Intent: Here, the intent is to provide the recipient of the SPDX file with a detailed explanation of how the Concluded License was determined if it does not match the License Information in File, is marked NOASSERTION, or other helpful information relevant to determining the license of the file.
+**4.7.2** Intent: Here, the intent is to provide the recipient of the SPDX file with a detailed explanation of how the Concluded License was determined if it does not match the License Information in File, is marked `NOASSERTION`, or other helpful information relevant to determining the license of the file.
 
 **4.7.3** Cardinality: Optional, one.
 
-**4.7.4** Data Format: free form text that can span multiple lines
+**4.7.4** Data Format: Free form text that can span multiple lines
 
 **4.7.5** Tag: `LicenseComments:`
 
-In Tag:value format multiple lines are delimited by <text> .. </text>.
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example:
 
     LicenseComments: <text>The concluded license was taken from the package level that the file was included in.
     This information was found in the COPYING.txt file in the xyz directory.</text>
 
-**4.7.6** RDF: property `spdx:licenseComments` in class `spdx:File`
+**4.7.6** RDF: Property `spdx:licenseComments` in class `spdx:File`
 
 Example:
 
@@ -320,8 +324,10 @@ Example:
 The options to populate this field are limited to:
 
 Any text relating to a copyright notice, even if not complete;
-NONE, if the file contains no copyright information whatsoever; or
-NOASSERTION, if
+
+`NONE`, if the file contains no copyright information whatsoever; or
+
+`NOASSERTION`, if
 
 (i) the SPDX document creator has made no attempt to determine this field; or
 
@@ -331,17 +337,17 @@ NOASSERTION, if
 
 **4.8.3** Cardinality: Mandatory, one.
 
-**4.8.4** Data Format: free form text that can span multiple lines | "NONE" | “NOASSERTION”
+**4.8.4** Data Format: Free form text that can span multiple lines | `NONE` | `NOASSERTION`
 
 **4.8.5** Tag: `FileCopyrightText:`
 
-In Tag:value format multiple lines are delimited by <text> .. </text>.
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example:
 
     FileCopyrightText: <text> Copyright 2008-2010 John Smith </text>
 
-**4.8.6** RDF: property `spdx:copyrightText` in class `spdx:File`
+**4.8.6** RDF: Property `spdx:copyrightText` in class `spdx:File`
 
 Example:
 
@@ -361,7 +367,7 @@ If the project is described in another SPDX Document, then Relationship should b
 
 **4.9.3** Cardinality: Optional, one or many.
 
-**4.9.4** Data Format: single line of text. In Tag:value format the ArtifactOfProjectName must precede any optional ArtifactOf optional properties (e.g. ArtifactOfHomePage and ArtifactOfURI).
+**4.9.4** Data Format: Single line of text. In `tag:value` format the ArtifactOfProjectName must precede any optional ArtifactOf optional properties (e.g. ArtifactOfHomePage and ArtifactOfURI).
 
 **4.9.5** Tag: `ArtifactOfProjectName:`
 
@@ -369,7 +375,7 @@ Example:
 
     ArtifactOfProjectName: Jena
 
-**4.9.6** RDF: property `spdx:artifactOf/doap:Project/doap:name`
+**4.9.6** RDF: Property `spdx:artifactOf/doap:Project/doap:name`
 
 Example:
 
@@ -389,9 +395,9 @@ Example:
 
 **4.10.3** Cardinality: Optional, one or many.
 
-**4.10.4** Data Format: uniform resource locator | “UNKNOWN”.
+**4.10.4** Data Format: Uniform Resource Locator | `UNKNOWN`.
 
-In Tag:value format all optional ArtifactOf fields must follow immediately below the ArtifactOfProjectName.
+In `tag:value` format all optional `ArtifactOf` fields must follow immediately below the ArtifactOfProjectName.
 
 **4.10.5** Tag: `ArtifactOfProjectHomePage:`
 
@@ -419,9 +425,9 @@ Example:
 
 **4.11.3** Cardinality: Optional, one or many.
 
-**4.11.4** Data Format: uniform resource identifier.
+**4.11.4** Data Format: Uniform Resource Identifier.
 
-In Tag:value format all optional ArtifactOf fields must follow immediately below the ArtifactOfProjectName.
+In `tag:value` format all optional ArtifactOf fields must follow immediately below the ArtifactOfProjectName.
 
 **4.11.5** Tag: `ArtifactOfProjectURI:`
 
@@ -448,11 +454,11 @@ Example:
 
 **4.12.3** Cardinality: Optional, one.
 
-**4.12.4** Data Format: free form text that can span multiple lines
+**4.12.4** Data Format: Free form text that can span multiple lines
 
 **4.12.5** Tag: `FileComment:`
 
-In Tag:value format multiple lines are delimited by <text> .. </text>.
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example:
 
@@ -460,7 +466,7 @@ Example:
     This file appears in other packages, such as Foo and Ufoo.
     </text>
 
-**4.12.6** RDF: property `rdfs:comments` in class `spdx:File`
+**4.12.6** RDF: Property `rdfs:comments` in class `spdx:File`
 
 Example:
 
@@ -478,17 +484,17 @@ Example:
 
 **4.13.3** Cardinality: Optional, one.
 
-**4.13.4** Data Format: free form text that can span multiple lines
+**4.13.4** Data Format: Free form text that can span multiple lines
 
 **4.13.5** Tag: `FileNotice:`
 
-In Tag:value format multiple lines are delimited by <text> .. </text>.
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example:
 
     FileNotice: <text>This file is licensed under GPL.</text>
 
-**4.13.6** RDF: property `noticeText` in class `spdx:File`
+**4.13.6** RDF: Property `noticeText` in class `spdx:File`
 
 Example:
 
@@ -506,11 +512,11 @@ Example:
 
 **4.14.3** Cardinality: Optional, one or many.
 
-**4.14.4** Data Format: free form text on a single line.
+**4.14.4** Data Format: Free form text on a single line.
 
 **4.14.5** Tag: `FileContributor:`
 
-In Tag:value format single line per contributor.
+In `tag:value` format single line per contributor.
 
 Example:
 
@@ -518,7 +524,7 @@ Example:
     FileContributor: The Regents of the University of California
     FileContributor: IBM Corporation
 
-**4.14.6** RDF: property `fileContributor` in class `spdx:File`
+**4.14.6** RDF: Property `fileContributor` in class `spdx:File`
 
 Example:
 
@@ -538,7 +544,7 @@ This field is deprecated since SPDX 2.0 in favor of using [Section 7](7-relation
 
 **4.15.3** Cardinality: Optional, one or many.
 
-**4.15.4** Data Format: Reference to the file within the SPDX document. For the Tag:value format, this will be the filename. For the RDF format, it will be a reference to the actual file node.
+**4.15.4** Data Format: Reference to the file within the SPDX document. For the `tag:value` format, this will be the filename. For the RDF format, it will be a reference to the actual file node.
 
 **4.15.5** Tag: `FileDependency:`
 
@@ -548,7 +554,7 @@ Example:
     FileDependency:./busybox-1.20.2/shell/match.c
     FileDependency:./busybox-1.20.2/shell/ash.c
 
-**4.15.6** RDF: property `spdx:fileDependency` in class `spdx:File`
+**4.15.6** RDF: Property `spdx:fileDependency` in class `spdx:File`
 
 Example:
 
