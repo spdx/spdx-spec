@@ -10,7 +10,7 @@ The SPDX License List is a list of commonly found licenses and exceptions used f
 
 [exceptions]: https://spdx.org/licenses/exceptions-index.html
 [matching]: https://spdx.org/spdx-license-list/matching-guidelines
-[master-files]: https://github.com/spdx/license-list
+[master-files]: https://github.com/spdx/license-list-XML
 [new-license]: https://spdx.org/spdx-license-list/request-new-license
 
 The following table contains the full names and short identifiers for the SPDX License List, v2.5 which was released July 2016. For the full and most up-to-date version of the SPDX License List as well as other related information, please see [http://spdx.org/licenses/](http://spdx.org/licenses/)
