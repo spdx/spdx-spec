@@ -4,7 +4,7 @@ The [SPDX License List Matching Guidelines](http://spdx.org/spdx-license-list/ma
 
 ## SPDX License List Template Access
 
-The master files for the SPDX License List includes a spreadsheet listing all the licenses, deprecated licenses, and license exceptions; and the text for each license in a .txt file. These files are available in a [Git repository](http://git.spdx.org/?p=license-list.git%3Ba=summary). Text that can be considered replaceable or omitable for matching purposes is indicated in the .txt file with markup as per the description below.
+The master files for the SPDX License List includes a spreadsheet listing all the licenses, deprecated licenses, and license exceptions; and the text for each license in a .txt file. These files are available in a [Git repository](https://github.com/spdx/license-list). Text that can be considered replaceable or omitable for matching purposes is indicated in the .txt file with markup as per the description below.
 
 RDFa Access: The template text for the license can be accessed using the RDF tag licenseTemplate on the web page containing the license.
 

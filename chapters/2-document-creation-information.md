@@ -272,7 +272,7 @@ Example:
 
 ## 2.9 Created <a name="2.9"></a>
 
-**2.9.1** Purpose: Identify when the SPDX file was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in section 7, which involves the addition of information during a subsequent review.
+**2.9.1** Purpose: Identify when the SPDX file was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in [section 8](8-annotations.md), which involves the addition of information during a subsequent review.
 
 **2.9.2** Intent: Here, the time stamp can serve as an indication as to whether the analysis needs to be updated.
 
