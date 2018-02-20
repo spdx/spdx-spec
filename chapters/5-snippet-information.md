@@ -91,7 +91,7 @@ Example (snippet from a File in an External SPDX Doc):
 
 ## 5.3 Snippet Byte Range <a name="5.3"></a>
 
-**5.3.1** Purpose: This field defines the byte range in the original host file (in X.2) that the snippet information applies to.
+**5.3.1** Purpose: This field defines the byte range in the original host file (in [5.2](#5.2)) that the snippet information applies to.
 
 **5.3.2** Intent: A range of bytes is independent of various formatting concerns, and the most accurate way of referring to the differences. The choice was made to start the numbering of the byte range at 1 to be consistent with the W3C pointer method vocabulary (see http://www.w3.org/TR/Pointers-in-RDF10/).
 
@@ -145,7 +145,7 @@ Example:
 
 ## 5.4 Snippet Line Range <a name="5.4"></a>
 
-**5.4.1** Purpose: This optional field defines the line range in the original host file (in X.2) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.
+**5.4.1** Purpose: This optional field defines the line range in the original host file (in [5.2](#5.2)) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.
 
 **5.4.2** Intent: A range of lines is a convenient reference for those files where there is a known line delimiter. The choice was made to start the numbering of the lines at 1 to be consistent with the W3C pointer method vocabulary (see http://www.w3.org/TR/Pointers-in-RDF10/).
 
@@ -213,7 +213,7 @@ A valid SPDX License Expression as defined in Appendix IV.
 
 (iv) the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (section X.5). With respect to `NOASSERTION`, a written explanation in the Comments on License field (section X.7) is preferred.
+If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([section 5.7](#5.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([section 5.7](#5.7)) is preferred.
 
 **5.5.2** Intent: Here, the intent is for the SPDX document creator to reconcile the license information known about the snippet,  what license information is in the file itself and other objective information for a package, along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the snippet.
 
