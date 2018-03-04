@@ -76,7 +76,7 @@ Examples:
                     <spdx:SpdxElement rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...
                     </spdx:relatedSpdxElement>
 
-                    <relationshipType>http://spdx.org/rdf/terms#relationshipType_contains</relationshipType>
+                    <relationshipType>spdx:relationshipType_contains</relationshipType>
                 </Relationship>
             </relationship>
 
@@ -104,14 +104,14 @@ Example:
 
     RelationshipComment: <text>The package foo.tgz is a pre-requisite for building executable bar.</text>
 
-**7.2.6** RDF: Property `rdfs:comment` in class `spdx:Relationship`
+**7.2.6** RDF: Property `spdx:comment` in class `spdx:Relationship`
 
 Example:
 
     <Relationship rdf:about="...">
-        <rdfs:comment>
+        <spdx:comment>
             The package foo.tgz is a pre-requisite for building executable bar.
-        </rdfs:comment>
+        </spdx:comment>
 
         ...
 

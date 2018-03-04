@@ -402,17 +402,17 @@ Example:
     SnippetComment: <text>This snippet was identified as significant and highlighted in this Apache-2.0 file,
     when a commercial scanner identified it as being derived from file foo.c in package xyz which is licensed under GPL-2.0.</text>
 
-**5.9.6** RDF: Property `rdfs:comment` in class `spdx:Snippet`
+**5.9.6** RDF: Property `spdx:comment` in class `spdx:Snippet`
 
 Example:
 
     <Snippet rdf:about="...">
         ...
-        <rdfs:comment>
+        <spdx:comment>
             This snippet was identified as significant and highlighted in this Apache-2.0
             file, when a commercial scanner identified it as being derived from file foo.c
             in package xyz which is licensed under GPL-2.0.
-        </rdfs:comment>
+        </spdx:comment>
         ...
     </Snippet>
 

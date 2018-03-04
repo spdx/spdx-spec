@@ -124,8 +124,8 @@ Example:
 Example: (where file2 is a `README.TXT`)
 
     <File rdf:about="file2">
-        <fileType rdf:resource="http://spdx.org/rdf/terms#fileType_text" />
-        <fileType rdf:resource="http://spdx.org/rdf/terms#fileType_documentation" />
+        <fileType rdf:resource="spdx:fileType_text" />
+        <fileType rdf:resource="spdx:fileType_documentation" />
     </File>
 
 ## 4.4 File Checksum <a name="4.4"></a>
@@ -156,14 +156,14 @@ Example:
     <File rdf:about="...">
         <checksum>
             <Checksum>
-                <algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_sha1"/>
+                <algorithm rdf:resource="spdx:checksumAlgorithm_sha1"/>
                 <checksumValue>d6a770ba38583ed4bb4525bd96e50461655d2758
                 </checksumValue>
             </Checksum>
         </checksum>
         <checksum>
             <Checksum>
-                <algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_md5"/>
+                <algorithm rdf:resource="spdx:checksumAlgorithm_md5"/>
                 <checksumValue> 624c1abb3664f4b35547e7c73864ad24
                 </checksumValue>
             </Checksum>
@@ -466,14 +466,14 @@ Example:
     This file appears in other packages, such as Foo and Ufoo.
     </text>
 
-**4.12.6** RDF: Property `rdfs:comments` in class `spdx:File`
+**4.12.6** RDF: Property `spdx:comments` in class `spdx:File`
 
 Example:
 
     <File rdf:about="...">
-        <rdfs:comment>
+        <spdx:comment>
             This file appears in other packages, such as Foo and Ufoo.
-        </rdfs:comment>
+        </spdx:comment>
     </File>
 
 ## 4.13 File Notice <a name="4.13"></a>

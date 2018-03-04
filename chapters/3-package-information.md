@@ -405,11 +405,11 @@ Example:
     </Package>
 
     <Package rdf:about="...">
-        <downloadLocation rdf:resource="http://spdx.org/rdf/terms#noassertion"/>
+        <downloadLocation rdf:resource="spdx:noassertion"/>
     </Package>
 
     <Package rdf:about="...">
-        <downloadLocation rdf:resource="http://spdx.org/rdf/terms#none"/>
+        <downloadLocation rdf:resource="spdx:none"/>
     </Package>
 
 ## 3.8 Files Analyzed <a name="3.8"></a>
@@ -525,13 +525,13 @@ Example:
     <Package rdf:about="...">
         <checksum>
             <Checksum>
-                <algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_sha1"/>
+                <algorithm rdf:resource="spdx:checksumAlgorithm_sha1"/>
                 <checksumValue>85ed0817af83a24ad8da68c2b5094de69833983c</checksumValue>
             </Checksum>
         </checksum>
         <checksum>
             <Checksum>
-                <algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_sha256"/>
+                <algorithm rdf:resource="spdx:checksumAlgorithm_sha256"/>
                 <checksumValue>
                     11b6d3ee554eedf79299905a98f9b9a04e498210b59f15094c916c91d150efcd
                 </checksumValue>
@@ -539,7 +539,7 @@ Example:
         </checksum>
         <checksum>
             <Checksum>
-                <algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_md5"/>
+                <algorithm rdf:resource="spdx:checksumAlgorithm_md5"/>
                 <checksumValue>624c1abb3664f4b35547e7c73864ad24</checksumValue>
             </Checksum>
         </checksum>
@@ -926,15 +926,15 @@ Example:
 
     PackageComment: <text>The package includes several sub-packages; see Relationship information.</text>
 
-**3.20.6** RDF: property `rdfs:comment` in class `spdx:Package`
+**3.20.6** RDF: property `spdx:comment` in class `spdx:Package`
 
 Example:
 
     <Package rdf:about="...">
         ...
-        <rdfs:comment>
+        <spdx:comment>
             The package includes several sub-packages; see Relationship information.
-        </rdfs:comment>
+        </spdx:comment>
         ...
     </Package>
 
@@ -972,7 +972,7 @@ Example (for a ‘listed’ location):
         ...
         <spdx:externalRef>
             <spdx:ExternalRef>
-                <spdx:referenceCategory rdf:resouce=”http://spdx.org/rdf/terms#referenceCategory_packageManager” />
+                <spdx:referenceCategory rdf:resouce=”spdx:referenceCategory_packageManager” />
                 <spdx:referenceType rdf:resource=”http://spdx.org/rdf/refeferences/maven-central” />
                 <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1</spdx:referenceLocator>
             </spdx:ExternalRef>
@@ -986,7 +986,7 @@ Example  (for a not ‘listed’ location):
         ...
         <spdx:externalRef>
             <spdx:ExternalRef>
-                <spdx:referenceCategory rdf:resource="http://spdx.org/rdf/terms#referenceCategory_other" />
+                <spdx:referenceCategory rdf:resource="spdx:referenceCategory_other" />
                 <spdx:referenceType rdf:resource=”http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...LocationRef-acmeforge” />
                 <spdx:referenceLocator>acmecorp/acmenator/4.1.3-alpha</spdx:referenceLocator>
             </spdx:ExternalRef>
@@ -1018,20 +1018,20 @@ Example:
     security vulnerabilities (CVEs) which affect Vendor Product Version
     acmecorp:acmenator:6.6.6.</text>
 
-**3.22.6** RDF: Property `rdfs:comment` in class `spdx:ExternalRef`
+**3.22.6** RDF: Property `spdx:comment` in class `spdx:ExternalRef`
 
     <spdx:Package rdf:about="...">
         ...
         <spdx:externalRef>
             <spdx:ExternalRef>
-                <spdx:referenceCategory rdf:resouce=”http://spdx.org/rdf/terms#referenceCategory_packageManager” />
+                <spdx:referenceCategory rdf:resouce=”spdx:referenceCategory_packageManager” />
                 <spdx:referenceType rdf:resource=”http://spdx.org/rdf/refeferences/maven-central” />
                 <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1</spdx:referenceLocator>
-                <rdfs:comment>
+                <spdx:comment>
                     NIST National Vulnerability Database (NVD) describes
                     security vulnerabilities (CVEs) which affect Vendor Product Version
                     acmecorp:acmenator:6.6.6
-                </rdfs:comment>
+                </spdx:comment>
             </spdx:ExternalRef>
         </spdx:externalRef>
         ...

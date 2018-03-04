@@ -147,10 +147,10 @@ Example:
 
     LicenseComment: <text>The Whiskey-Ware License has a couple of other standard variants.</text>
 
-**6.5.6** RDF: Property `rdfs:comment` in class `spdx:ExtractedLicensingInfo`
+**6.5.6** RDF: Property `spdx:comment` in class `spdx:ExtractedLicensingInfo`
 
 Example:
 
     <ExtractedLicensingInfo rdf:about="licenseRef-1">
-        <rdfs:comment> The Whiskey-Ware License has a couple of other standard variants.</rdfs:comment>
+        <spdx:comment> The Whiskey-Ware License has a couple of other standard variants.</spdx:comment>
     </ExtractedLicensingInfo>

@@ -95,12 +95,12 @@ Example:
     There are some terms that can influence the concluded license, and some alternatives may be possible,
     but the concluded license is one of the options.</text>
 
-**9.3.6** RDF: Property `rdfs:comment` in class `spdx:Review`
+**9.3.6** RDF: Property `spdx:comment` in class `spdx:Review`
 
 Example:
 
     <Review>
-        <rdfs:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
+        <spdx:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
         There are some terms that can influence the concluded license, and some alternatives may be possible,
-        but the concluded license is one of the options.</rdfs:comment>
+        but the concluded license is one of the options.</spdx:comment>
     </Review>
