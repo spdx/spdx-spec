@@ -466,14 +466,14 @@ Example:
     This file appears in other packages, such as Foo and Ufoo.
     </text>
 
-**4.12.6** RDF: Property `spdx:comments` in class `spdx:File`
+**4.12.6** RDF: Property `rdfs:comments` in class `spdx:File`
 
 Example:
 
     <File rdf:about="...">
-        <spdx:comment>
+        <rdfs:comment>
             This file appears in other packages, such as Foo and Ufoo.
-        </spdx:comment>
+        </rdfs:comment>
     </File>
 
 ## 4.13 File Notice <a name="4.13"></a>

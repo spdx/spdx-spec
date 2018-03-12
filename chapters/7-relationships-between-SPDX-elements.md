@@ -104,14 +104,14 @@ Example:
 
     RelationshipComment: <text>The package foo.tgz is a pre-requisite for building executable bar.</text>
 
-**7.2.6** RDF: Property `spdx:comment` in class `spdx:Relationship`
+**7.2.6** RDF: Property `rdfs:comment` in class `spdx:Relationship`
 
 Example:
 
     <Relationship rdf:about="...">
-        <spdx:comment>
+        <rdfs:comment>
             The package foo.tgz is a pre-requisite for building executable bar.
-        </spdx:comment>
+        </rdfs:comment>
 
         ...
 

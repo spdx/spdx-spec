@@ -154,7 +154,7 @@ Example:
 Example:
 
     <SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">
-        <spdx:comment>This document was created using SPDX 2.0 using licenses from the web site.</spdx:comment>
+        <rdfs:comment>This document was created using SPDX 2.0 using licenses from the web site.</rdfs:comment>
     </SpdxDocument>
 
 ## 2.6 External Document References <a name="2.6"></a>
@@ -315,7 +315,7 @@ Example:
 
 **2.10.4** Data Format: Free form text that can span multiple lines.
 
-In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<spdx:comment>`.
+In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`.
 
 **2.10.5** Tag: `CreatorComment:`
 
@@ -324,13 +324,13 @@ Example:
     CreatorComment: <text>This SPDX file was created by a combination of using a free tool,
     as indicated above, and manual analysis by several authors of the code.</text>
 
-**2.10.6** RDF: Property `spdx:comment` in class `spdx:CreationInfo`
+**2.10.6** RDF: Property `rdfs:comment` in class `spdx:CreationInfo`
 
 Example:
 
     <CreationInfo>
-        <spdx:comment>This SPDX file was created by a combination of using a free tool, as indicated above,
-        and manual analysis by several authors of the code.</spdx:comment>
+        <rdfs:comment>This SPDX file was created by a combination of using a free tool, as indicated above,
+        and manual analysis by several authors of the code.</rdfs:comment>
     </CreationInfo>
 
 ## 2.11 Document Comment <a name="2.11"></a>
@@ -341,7 +341,7 @@ Example:
 
 **2.11.3** Cardinality: Optional, one.
 
-**2.11.4** Data Format: Free form text that can span multiple lines. In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<spdx:comment>`.
+**2.11.4** Data Format: Free form text that can span multiple lines. In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`.
 
 **2.11.5** Tag: `DocumentComment:`
 
@@ -350,12 +350,12 @@ Example:
     DocumentComment: <text>This document was created using SPDX 2.0,
     version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.</text>
 
-**2.11.6**  RDF: Property `spdx:comment` in class `SpdxDocument`
+**2.11.6**  RDF: Property `rdfs:comment` in class `SpdxDocument`
 
 Example:
 
     <SpdxDocument rdf:about="...">
-        <spdx:comment>
+        <rdfs:comment>
           This document was created using SPDX 2.0, version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.
-        </spdx:comment>
+        </rdfs:comment>
     </SpdxDocument>

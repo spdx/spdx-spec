@@ -926,15 +926,15 @@ Example:
 
     PackageComment: <text>The package includes several sub-packages; see Relationship information.</text>
 
-**3.20.6** RDF: property `spdx:comment` in class `spdx:Package`
+**3.20.6** RDF: property `rdfs:comment` in class `spdx:Package`
 
 Example:
 
     <Package rdf:about="...">
         ...
-        <spdx:comment>
+        <rdfs:comment>
             The package includes several sub-packages; see Relationship information.
-        </spdx:comment>
+        </rdfs:comment>
         ...
     </Package>
 
@@ -1018,7 +1018,7 @@ Example:
     security vulnerabilities (CVEs) which affect Vendor Product Version
     acmecorp:acmenator:6.6.6.</text>
 
-**3.22.6** RDF: Property `spdx:comment` in class `spdx:ExternalRef`
+**3.22.6** RDF: Property `rdfs:comment` in class `spdx:ExternalRef`
 
     <spdx:Package rdf:about="...">
         ...
@@ -1027,11 +1027,11 @@ Example:
                 <spdx:referenceCategory rdf:resouce=”spdx:referenceCategory_packageManager” />
                 <spdx:referenceType rdf:resource=”http://spdx.org/rdf/refeferences/maven-central” />
                 <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1</spdx:referenceLocator>
-                <spdx:comment>
+                <rdfs:comment>
                     NIST National Vulnerability Database (NVD) describes
                     security vulnerabilities (CVEs) which affect Vendor Product Version
                     acmecorp:acmenator:6.6.6
-                </spdx:comment>
+                </rdfs:comment>
             </spdx:ExternalRef>
         </spdx:externalRef>
         ...

@@ -79,7 +79,7 @@ Example:
 
     AnnotationType: REVIEW
 
-**8.3.6** RDF: Property `spdx:comment` in class `spdx:Annotation`
+**8.3.6** RDF: Property `rdfs:comment` in class `spdx:Annotation`
 
 Example:
 
@@ -144,13 +144,13 @@ Example:
     There are some terms that can influence the concluded license, and some alternatives may be possible,
     but the concluded license is one of the options.</text>
 
-**8.5.6** RDF: Property `spdx:comment` in class `spdx:Annotation`
+**8.5.6** RDF: Property `rdfs:comment` in class `spdx:Annotation`
 
 Example:
 
     <Annotation>
-        <spdx:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
+        <rdfs:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
         There are some terms that can influence the concluded license, and some alternatives may be possible,
         but the concluded license is one of the options.
-        </spdx:comment>
+        </rdfs:comment>
     </Annotation>
