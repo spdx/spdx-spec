@@ -19,7 +19,7 @@ See for the official [releases of the specification](https://spdx.org/specificat
 
 You have to [Node.js](https://nodejs.org) installed on your machine. If you don't have it yet installed please follow these [installation instrucions](https://nodejs.org/en/download/package-manager/).
 
-The OpenChain specification is written in MarkDown and HTML, PDF, ePUB, Mobipocket versions can be generated using [Gulp](https://gulpjs.com) and [GitBook](https://www.gitbook.com/). Note in order to generate PDF, ePUB, Mobipocket you have to install Callibre using these [instructions](https://toolchain.gitbook.com/ebook.html).
+The SPDX specification is written in MarkDown and HTML, PDF, ePUB, Mobipocket versions can be generated using [Gulp](https://gulpjs.com) and [GitBook](https://www.gitbook.com/). Note in order to generate PDF, ePUB, Mobipocket you have to install Callibre using these [instructions](https://toolchain.gitbook.com/ebook.html).
 
     # Install via npm document build toochain
     $ npm install -g gitbook-cli gulp
