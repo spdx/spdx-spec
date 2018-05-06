@@ -49,7 +49,7 @@ Example:
 
 **4.2.3** Cardinality: Mandatory, one.
 
-**4.2.4** DataFormat: `SPDXRef-[idstring]`
+**4.2.4** DataFormat: "SPDXRef-"`[idstring]`
 
 where `[idstring]` is a unique string containing letters, numbers, `.` and/or `-`.
 
@@ -236,7 +236,7 @@ Example:
 The options to populate this field are limited to:
 
 The SPDX License List short form identifier, if the license is on the SPDX License List;
-A reference to the license, denoted by `LicenseRef-[idstring]`, if the license is not on the SPDX License List;
+A reference to the license, denoted by LicenseRef-`[idstring]`, if the license is not on the SPDX License List;
 
 `NONE`, if the file contains no license information whatsoever; or
 
@@ -254,7 +254,7 @@ If license information for more than one license is contained in the file or if 
 
 **4.6.4** Data Format: `<SPDX License Expression>` |
 
- ["DocumentRef-"[idstring]":"]"LicenseRef-"[idstring] |
+ ["DocumentRef-"`[idstring]`":"]"LicenseRef-"`[idstring]` |
 
  | `NONE` | `NOASSERTION`
 
@@ -264,7 +264,7 @@ where:
 
 as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md).
 
-`DocumentRef-[idstring]`: is an optional reference to an external SPDX
+"DocumentRef-"`[idstring]`: is an optional reference to an external SPDX
 
 document as described in [section 2.6](2-document-creation-information.md#2.6)
 

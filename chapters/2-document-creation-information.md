@@ -165,16 +165,16 @@ Example:
 
 **2.6.3** Cardinality: Optional, one or many.
 
-**2.6.4** Data Format: "DocumentRef-"`[idstring]` `[SPDX Document URI]` `[Checksum]`
+**2.6.4** Data Format: DocumentRef-`[idstring]` `[SPDX Document URI]` `[Checksum]`
 
 where
 
-  `[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.
-  `[SPDX Document URI]` is the unique ID for the external document
+`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.
+`[SPDX Document URI]` is the unique ID for the external document
 
 as defined in [section 2.5](#2.5) of that referenced document,
 
-  `[Checksum]` is a checksum of the external document following the checksum
+`[Checksum]` is a checksum of the external document following the checksum
 
 format defined in [section 3.9](3-package-information.md#3.9).
 

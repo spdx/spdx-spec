@@ -14,11 +14,11 @@ Fields:
 
 **6.1.3** Cardinality: Conditional (mandatory, one) if license is not on SPDX License List.
 
-**6.1.4** Data Format: `LicenseRef-[idstring]`
+**6.1.4** Data Format: "LicenseRef-"`[idstring]`
 
 where
 
-[idstring] is a unique string containing letters, numbers, `.` and/or `-`.
+`[idstring]` is a unique string containing letters, numbers, `.` and/or `-`.
 
 **6.1.5** Tag: `LicenseID:`
 

@@ -47,7 +47,7 @@ Example:
 
 **3.2.3** Cardinality: Mandatory, one.
 
-**3.2.4** Data Format: `SPDXRef-[idstring]`
+**3.2.4** Data Format: "SPDXRef-"`[idstring]`
 
 where `[idstring]` is a unique string containing letters, numbers, `.`, and/or `-`.
 
@@ -699,13 +699,13 @@ The options to populate this field are limited to:
 **3.14.3** Cardinality: Mandatory, one or many if [`FilesAnalyzed`](#3.8) is `true` or omitted, zero (must be omitted) if `FilesAnalyzed` is `false`.
 
 **3.14.4** Data Format: [`<shortIdentifier>`](appendix-I-SPDX-license-list.md#I.1) |
-  `[DocumentRef-<idstring>:]LicenseRef-<idstring>` |
+  ["DocumentRef-"`[idstring]`:]"LicenseRef-"`[idstring]` |
   `NONE` | `NOASSERTION`
 
 where:
 
-* `DocumentRef-<idstring>` is an optional reference to an external SPDX document as described in [section 2.6](2-document-creation-information.md#2.6).
-* `<idstring>` is a unique string containing letters, numbers, `.`, or `-`.
+* "DocumentRef-"`[idstring]` is an optional reference to an external SPDX document as described in [section 2.6](2-document-creation-information.md#2.6).
+* `[idstring]` is a unique string containing letters, numbers, `.`, or `-`.
 
 **3.14.5** Tag: `PackageLicenseInfoFromFiles:`
 
