@@ -28,7 +28,7 @@ Companies and organizations (collectively “Organizations”) are widely using 
 
 **1.4.7** Annotations: Information about when and by whom the SPDX file was reviewed
 
-![Overview of SPDX 2.1 document contents](../img/spdx-2.1-document.png)
+![Overview of SPDX 2.1 document contents](img/spdx-2.1-document.png)
 
 ## 1.5 What is not covered in the specification? <a name="1.5"></a>
 
