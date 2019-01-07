@@ -70,7 +70,7 @@ Companies and organizations (collectively “Organizations”) are widely using 
 
 **1.7.2** The official copyright notice to be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.1.1 is:
 
-"Official SPDX® Specification 2.1.1 Copyright © 2010-2018 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
+"Official SPDX® Specification 2.1.1 Copyright © 2010-2019 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
 
 **1.7.3** The official copyright notice to be used with any non-verbatim reproduction and/or distribution of this SPDX Specification, including without limitation any partial use or combining this SPDX Specification with another work, is:
 
