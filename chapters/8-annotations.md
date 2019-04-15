@@ -26,7 +26,7 @@ Example:
 
     <Annotation>
         <annotator> Person: Jane Doe () </annotator>
-    </Annotations>
+    </Annotation>
 
 ## 8.2 Annotation Date <a name="8.2"></a>
 
