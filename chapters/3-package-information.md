@@ -509,7 +509,7 @@ Example:
 
 ## 3.10 Package Checksum <a name="3.10"></a>
 
-**3.10.1** Purpose: Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX file. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX file is to be included in a package, this value should not be calculated. The [SHA-1][] algorithm will be used to provide the checksum by default.
+**3.10.1** Purpose: Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX file. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX file is to be included in a package, this value should not be calculated. The [SHA-1][] algorithm will be used to provide the checksum by default. 
 
 **3.10.2** Intent: Eliminate confusion over which version or modification of a specific package the SPDX file references by providing a unique identifier of the package.
 
@@ -983,7 +983,7 @@ Example (for a listed location):
         ...
         <spdx:externalRef>
             <spdx:ExternalRef>
-                <spdx:referenceCategory rdf:resource="http://spdx.org/rdf/terms#referenceCategory_packageManager" />
+                <spdx:referenceCategory rdf:resouce="http://spdx.org/rdf/terms#referenceCategory_packageManager" />
                 <spdx:referenceType rdf:resource="http://spdx.org/rdf/refeferences/maven-central" />
                 <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1</spdx:referenceLocator>
             </spdx:ExternalRef>
@@ -1035,7 +1035,7 @@ Example:
         ...
         <spdx:externalRef>
             <spdx:ExternalRef>
-                <spdx:referenceCategory rdf:resource="http://spdx.org/rdf/terms#referenceCategory_packageManager" />
+                <spdx:referenceCategory rdf:resouce="http://spdx.org/rdf/terms#referenceCategory_packageManager" />
                 <spdx:referenceType rdf:resource="http://spdx.org/rdf/refeferences/maven-central" />
                 <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1</spdx:referenceLocator>
                 <rdfs:comment>
