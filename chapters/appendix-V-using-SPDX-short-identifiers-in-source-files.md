@@ -42,7 +42,6 @@ Multiple licenses can be represented using a SPDX license expression as defined 
 1. When there is a choice between licenses ("disjunctive license"), they should be separated with "OR". If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new license expression.
 2. Similarly when multiple licenses need to be simultaneously applied ("conjunctive license"), they should be separated with "AND". If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression.
 3. In some cases, a set of license terms apply except under special circumstances, in this case, use the "WITH" operator followed by one of the [recognized exception identifiers](https://spdx.org/licenses/exceptions-index.html).
-4. Sometimes a set of license terms apply except under special circumstances. In this case, use the binary "WITH" operator to construct a new license expression to represent the special exception situation.
 
 Examples:
 
