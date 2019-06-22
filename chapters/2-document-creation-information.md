@@ -1,3 +1,7 @@
+---
+header-left: "Header"
+footer-left: "Footer"
+...
 # 2 Document Creation Information
 
 One instance is required for each SPDX file produced.  It provides the necessary information for forward and backward compatibility for processing tools.
@@ -60,7 +64,7 @@ Example:
       <dataLicense rdf:resource="http://spdx.org/licenses/CC0-1.0" />
     </SpdxDocument>
 
-## 2.3 SPDX Identifier <a name="2.3"></a>
+## 2.3 SPDX Identifier <a name="2.3"></a>{#section2.3}
 
 **2.3.1** Purpose: Identify the current SPDX document which may be referenced in relationships by other files, packages internally and documents externally. To reference another SPDX document in total, this identifier should be used with the external document identifier preceding it. See the “Relationships between SPDX Elements” section for examples.
 
@@ -84,7 +88,7 @@ Example:
     ...
     </spdx:SpdxDocument>
 
-## 2.4 Document Name <a name="2.4"></a>
+## 2.4 Document Name <a name="2.5"></a>{#section2.4}
 
 **2.4.1** Purpose: Identify name of this document as designated by creator.
 
@@ -114,17 +118,17 @@ Example:
       <name>ubuntu-14.04</name>
     </SpdxDocument>
 
-## 2.5 SPDX Document Namespace <a name="2.5"></a>
+## 2.5 SPDX Document Namespace <a name="2.5"></a>{#section2.5}
 
 **2.5.1** Purpose: Provide an SPDX document specific namespace as a unique absolute [Uniform Resource Identifier][URI] (URI) as specified in [RFC-3986][rfc3986], with the exception of the ‘#’ delimiter. The SPDX Document URI cannot contain a URI "part" (e.g. the "#" character), since the ‘#’ is used in SPDX element URIs (packages, files, snippets, etc) to separate the document namespace from the element’s SPDX identifier. Additionally, a scheme (e.g. “https:”) is required.
 
 The URI must be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI.
 
-**2.5.2** Intent: The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See [section 2.6](#2.6) for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
+**2.5.2** Intent: The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See [section 2.6](#section2.6) for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
 
 * `CreatorWebsite` is a website hosted by the creator of the document. (e.g. an SPDX document provided by SPDX would be spdx.org)
 * `PathToSpdx` is a path to where SPDX documents are stored on the website (e.g. /spdx/spdxdocs)
-* `DocumentName` is a name given to the SPDX Document itself, typically the (set of) package name(s) followed by the version. [(see section 2.4)](#2.4).
+* `DocumentName` is a name given to the SPDX Document itself, typically the (set of) package name(s) followed by the version. [see section 2.4](#section2.4).
 * `UUID` is a [universally unique identifier][URI]. The UUID could be a version 4 random UUID which can be generated from the [Online UUID Generator][uuid-gen] or a version 5 UUID generated from a sha1 checksum known to be unique for this specific SPDX document version.
 * If the creator does not own their own website, a default SPDX CreatorWebsite and PathToSpdx can be used `spdx.org/spdxdocs`. Note that the SPDX documents are not currently stored or accessible on this website. The URI is only used to create a unique ID following the above conventions.
 
@@ -157,7 +161,7 @@ Example:
         <rdfs:comment>This document was created using SPDX 2.0 using licenses from the web site.</rdfs:comment>
     </SpdxDocument>
 
-## 2.6 External Document References <a name="2.6"></a>
+## 2.6 External Document References <a name="2.6"></a>{#section2.6}
 
 **2.6.1** Purpose: Identify any external SPDX documents referenced within this SPDX document.
 
@@ -172,11 +176,11 @@ where
 `[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.
 `[SPDX Document URI]` is the unique ID for the external document
 
-as defined in [section 2.5](#2.5) of that referenced document,
+as defined in [section 2.5](#section2.5) of that referenced document,
 
 `[Checksum]` is a checksum of the external document following the checksum
 
-format defined in [section 3.9](3-package-information.md#3.9).
+format defined in [section 3.9](#section3.9).
 
 **2.6.5** Tag: `ExternalDocumentRef:`
 
@@ -272,7 +276,7 @@ Example:
 
 ## 2.9 Created <a name="2.9"></a>
 
-**2.9.1** Purpose: Identify when the SPDX file was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in [section 8](8-annotations.md), which involves the addition of information during a subsequent review.
+**2.9.1** Purpose: Identify when the SPDX file was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in [section 8](#Annotations), which involves the addition of information during a subsequent review.
 
 **2.9.2** Intent: Here, the time stamp can serve as an indication as to whether the analysis needs to be updated.
 

@@ -1,6 +1,10 @@
+---
+header-left: "Header"
+footer-left: "Footer"
+...
 # 9 Review Information (deprecated)
 
-The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information should use an Annotation (as described in [section 8](./8-annotations.md)) with an annotation type of `annotationType_review`.
+The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information should use an Annotation (as described in [section 8](#Annotations)) with an annotation type of `annotationType_review`.
 
 Review information can be added after the initial SPDX file has been created. The set of fields are optional and multiple instances can be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date should not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
 
@@ -36,7 +40,7 @@ Example:
         <reviewer> Person: Jane Doe () </reviewer>
     </Review>
 
-# 9.2 Review Date (deprecated) <a name="9.2"></a>
+## 9.2 Review Date (deprecated) <a name="9.2"></a>
 
 This field has been deprecated since SPDX 2.0.
 

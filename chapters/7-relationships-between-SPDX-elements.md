@@ -1,4 +1,8 @@
-# 7 Relationships between SPDX Elements
+---
+header-left: "Header"
+footer-left: "Footer"
+...
+# 7 Relationships between SPDX Elements{#Relationships-between-SPDX-Elements}
 
 ## 7.1 Relationship <a name="7.1"></a>
 
@@ -47,7 +51,7 @@
 
     ["DocumentRef-"[idstring]":"]SPDXID <relationship> ["DocumentRef-"[idstring]":"]SPDXID
 
-where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [section 2.6](2-document-creation-information.md#2.6)
+where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [section 2.6](section#2.6)
 
 where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in sections (2.3, 3.2, 4.2).
 

@@ -1,4 +1,8 @@
-# Appendix V: Using SPDX short identifiers in Source Files
+---
+header-left: "Header"
+footer-left: "Footer"
+...
+# Appendix V: Using SPDX short identifiers in Source Files{#Appendix-V}
 
 Identifying the license for open source software is critical for both reporting purposes and license compliance. However, determining the license can sometimes be difficult due to a lack of information or ambiguous information. Even when licensing information is present, a lack of consistent notation can make automating the task of license detection very difficult, thus requiring vast amounts of human effort.
 
@@ -50,6 +54,6 @@ Examples:
     SPDX-License-Identifier: (LGPL-2.1 AND BSD-2-CLAUSE)
     SPDX-License-Identifier: (GPL-2.0+ WITH Bison-exception-2.2)
 
-Please see [Appendix IV of SPDX 2.1 Specification](./appendix-IV-SPDX-license-expressions.md) for more examples and details of the license expression specific syntax.
+Please see [Appendix IV of SPDX 2.1 Specification](#SPDX-License-Expressions) for more examples and details of the license expression specific syntax.
 
 If you can’t express the license(s) as an expression using identifiers from the SPDX list, it is probably best to just put the text of your license header in the file (if there is a standard header), or refer to a neutral site URL where the text can be found. To request a license be added to the SPDX License List, please follow the process described here: [http://spdx.org/spdx-license-list/request-new-license-or-exception](http://spdx.org/spdx-license-list/request-new-license-or-exception).

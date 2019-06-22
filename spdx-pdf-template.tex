@@ -98,6 +98,7 @@ $else$
 \usepackage{setspace}
 \setstretch{1.2}
 $endif$
+\usepackage[T1]{fontenc}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
@@ -200,36 +201,21 @@ $if(verbatim-in-note)$
 \usepackage{fancyvrb}
 $endif$
 \usepackage{xcolor}
-\definecolor{default-linkcolor}{HTML}{A50000}
+\definecolor{default-linkcolor}{HTML}{123F66}
 \definecolor{default-filecolor}{HTML}{A50000}
 \definecolor{default-citecolor}{HTML}{4077C0}
 \definecolor{default-urlcolor}{HTML}{4077C0}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-$if(title-meta)$
-  pdftitle={$title-meta$},
-$endif$
-$if(author-meta)$
-  pdfauthor={$author-meta$},
-$endif$
-$if(subject)$
-  pdfsubject={$subject$},
-$endif$
-$if(keywords)$
-  pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
-$endif$
-$if(colorlinks)$
-  colorlinks=true,
-  linkcolor=$if(linkcolor)$$linkcolor$$else$default-linkcolor$endif$,
-  filecolor=$if(filecolor)$$filecolor$$else$default-filecolor$endif$,
-  citecolor=$if(citecolor)$$citecolor$$else$default-citecolor$endif$,
-  urlcolor=$if(urlcolor)$$urlcolor$$else$default-urlcolor$endif$,
-$else$
-  hidelinks,
-$endif$
-  breaklinks=true,
-  pdfcreator={LaTeX via pandoc with the Eisvogel template}}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage[setpagesize=false,unicode=true,xetex]{hyperref}}
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={$author-meta$},
+            pdftitle={$title-meta$},
+            colorlinks=true,
+            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$blue$endif$,
+            pdfborder={0 0 0}}
 \urlstyle{same} % disable monospaced font for URLs
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allow verbatim text in footnotes
@@ -317,7 +303,9 @@ $if(block-headings)$
 \ifx\paragraph\undefined\else
   \let\oldparagraph\paragraph
   \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
+\fi\fancyhead[CE]{\leftmark}
+\fancyhead[CO]{\leftmark}
+
 \ifx\subparagraph\undefined\else
   \let\oldsubparagraph\subparagraph
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
@@ -410,6 +398,35 @@ $if(logo)$
 $endif$
 $endif$
 
+%%
+%% added
+%%
+
+%
+% language specification
+%
+% If no language is specified, use English as the default main document language.
+%
+$if(lang)$$else$
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=english]{babel}
+$if(babel-newcommands)$
+  $babel-newcommands$
+$endif$
+\else
+  $if(mainfont)$
+  $else$
+ 
+  \renewcommand*\familydefault{\sfdefault}
+  $endif$
+  % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+$for(polyglossia-otherlangs)$
+  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
+$endfor$
+\fi
+$endif$
 
 %
 % for the background color of the title page
@@ -457,23 +474,9 @@ $endif$
 $if(mainfont)$
 $else$
 \usepackage[default]{sourcesanspro}
-\usepackage{sourcecodepro}
-
-\ifxetex
-\makeatletter
-\defaultfontfeatures[\ttfamily]
-  { Numbers   = \sourcecodepro@figurestyle,
-    Scale     = \SourceCodePro@scale,
-    Extension = .otf }
-\setmonofont
-  [ UprightFont    = *-\sourcecodepro@regstyle,
-    ItalicFont     = *-\sourcecodepro@regstyle It,
-    BoldFont       = *-\sourcecodepro@boldstyle,
-    BoldItalicFont = *-\sourcecodepro@boldstyle It ]
-  {SourceCodePro}
-\makeatother
-\fi
+\usepackage{inconsolata}
 $endif$
+
 
 %
 % heading color
@@ -542,7 +545,7 @@ $if(listings)$
 %
 % listing colors
 %
-\definecolor{listing-background}{HTML}{F7F7F7}
+\definecolor{listing-background}{HTML}{F7F7F7 }
 \definecolor{listing-rule}{HTML}{B3B2B3}
 \definecolor{listing-numbers}{HTML}{B3B2B3}
 \definecolor{listing-text-color}{HTML}{000000}
@@ -552,29 +555,29 @@ $if(listings)$
 \definecolor{listing-comment}{HTML}{8E8E8E}
 \definecolor{listing-javadoc-comment}{HTML}{006CA9}
 
-\lstdefinestyle{eisvogel_listing_style}{
-  language         = java,
+\lstdefinestyle{listing_style}{
+  language         = python,
 $if(listings-disable-line-numbers)$
-  xleftmargin      = 0.6em,
-  framexleftmargin = 0.4em,
+  xleftmargin      = \parindent,
+  framexleftmargin = \parindent,
 $else$
   numbers          = left,
   xleftmargin      = 2.7em,
   framexleftmargin = 2.5em,
 $endif$
   backgroundcolor  = \color{listing-background},
-  basicstyle       = \color{listing-text-color}\small\ttfamily{}\linespread{1.15}, % print whole listing small
-  breaklines       = true,
+  basicstyle       = \footnotesize,
+  % print whole listing small
+  breaklines       = true,  
+  belowcaptionskip = 1\baselineskip,
+  keepspaces       = true,
+  columns          = flexible,
   frame            = single,
   framesep         = 0.19em,
   rulecolor        = \color{listing-rule},
   frameround       = ffff,
   tabsize          = 4,
   numberstyle      = \color{listing-numbers},
-  aboveskip        = -0.7em,
-  belowskip        = 0.1em,
-  abovecaptionskip = 0em,
-  belowcaptionskip = 1em,
   keywordstyle     = \color{listing-keyword}\bfseries,
   classoffset      = 0,
   sensitive        = true,
@@ -600,7 +603,7 @@ $endif$
   {…}{{\ldots}}1 {≥}{{>=}}1 {≤}{{<=}}1 {„}{{\glqq}}1 {“}{{\grqq}}1
   {”}{{''}}1
 }
-\lstset{style=eisvogel_listing_style}
+\lstset{style=listing_style}
 
 \lstdefinelanguage{XML}{
   morestring      = [b]",
@@ -623,7 +626,7 @@ $if(disable-header-and-footer)$
 $else$
 \usepackage{fancyhdr}
 
-\fancypagestyle{eisvogel-header-footer}{
+\fancypagestyle{header-footer}{
   \fancyhead{}
   \fancyfoot{}
   \lhead[$if(header-right)$$header-right$$else$$date$$endif$]{$if(header-left)$$header-left$$else$$title$$endif$}
@@ -635,7 +638,14 @@ $else$
   \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0.4pt}
 }
-\pagestyle{eisvogel-header-footer}
+\pagestyle{header-footer}
+\fancyhead[CE]{\leftmark}
+\fancyhead[CO]{\leftmark}
+\fancyhead[RO]{\thepage}
+\fancyfoot[CE]{\leftmark} 
+\fancyfoot[CO]{\leftmark} 
+\fancyfoot[RO]{\thepage} 
+
 $endif$
 
 %%
@@ -734,7 +744,8 @@ $else$
 $if(colorlinks)$
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
 $endif$
-\setcounter{tocdepth}{$if(toc-depth)$$toc-depth$$else$3$endif$}
+\setcounter{tocdepth}{1}
+\renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
 \thispagestyle{empty}
 \cleardoublepage

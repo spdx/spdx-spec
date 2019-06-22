@@ -1,4 +1,8 @@
-# Appendix II: License Matching Guidelines and Templates
+---
+header-left: "Header"
+footer-left: "Footer"
+...
+# Appendix II: License Matching Guidelines and Templates{#Appendix-II-License-Matching-Guidelines-and-Templates}
 
 The [SPDX License List Matching Guidelines](http://spdx.org/spdx-license-list/matching-guidelines) provide guidelines to be used for the purposes of matching licenses and license exceptions against those found on the SPDX License List. There is no intent here to make a judgment or interpretation, but merely to ensure that when one SPDX creator identifies a license as “BSD 3-clause,” for example, it is indeed the same license as what someone else identifies as “BSD 3-clause” and the same license as what is listed on the SPDX License List. Examples of how to apply some of the matching guidelines to a license or exception are provided via templates. Templates are comprised of technical markup within the master license text file to provide further or specific guidance to SPDX document creators or tool makers. Not all licenses or exceptions will have templates with markups.
 

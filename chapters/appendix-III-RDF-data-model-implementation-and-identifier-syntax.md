@@ -1,3 +1,7 @@
+---
+header-left: "Header"
+footer-left: "Footer"
+...
 # Appendix III: RDF Data Model Implementation and Identifier Syntax
 
 SPDX ® Vocabulary Specification

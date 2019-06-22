@@ -1,4 +1,8 @@
-# Appendix VI: External Repository Identifiers
+---
+header-left: "Header"
+footer-left: "Footer"
+...
+# Appendix VI: External Repository Identifiers{#Appendix-VI}
 
 ***
 When `<category>` = `SECURITY`:

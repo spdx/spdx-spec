@@ -1,4 +1,8 @@
-# 4 File Information
+---
+header-left: "Header"
+footer-left: "Footer"
+...
+# 4 File Information{#File-Information}
 
 One instance of the File Information is required for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
@@ -14,7 +18,7 @@ Annotations on the file and Relationships from the file may appear after the fil
 
 When implementing file information in RDF, the `spdx:hasFile` property is used to associate the package with the file.
 
-## 4.1 File Name <a name="4.1"></a>
+## 4.1 File Name <a name="4.1"></a>{#section4.1}
 
 **4.1.1** Purpose: Identify the full path and filename that corresponds to the file information in this section.
 
@@ -176,7 +180,7 @@ Example:
 
 The options to populate this field are limited to:
 
-A valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md);
+A valid SPDX License Expression as defined in [Appendix IV](#SPDX-License-Expressions);
 
 `NONE`, if the SPDX file creator concludes there is no license available for this file; or
 
@@ -188,9 +192,9 @@ A valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-lic
 
 (iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field [(section 4.7)](#4.7). With respect to `NOASSERTION`, a written explanation in the Comments on License field [(section 4.7)](#4.7) is preferred.
+If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field [(section 4.7)](#section4.7). With respect to `NOASSERTION`, a written explanation in the Comments on License field [(section 4.7)](#section4.7) is preferred.
 
-**4.5.2** Intent: Here, the intent is for the SPDX file creator to analyze the License Information in file [(section 4.6)](#4.6) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
+**4.5.2** Intent: Here, the intent is for the SPDX file creator to analyze the License Information in file [(section 4.6)](#section4.6) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
 
 **4.5.3** Cardinality: Mandatory, one.
 
@@ -229,7 +233,7 @@ Example:
         </licenseConcluded>
     </File>
 
-## 4.6 License Information in File <a name="4.6"></a>
+## 4.6 License Information in File <a name="4.6"></a>{#section.4.6}
 
 **4.6.1** Purpose: This field contains the license information actually found in the file, if any. This information is most commonly found in the header of the file, although it may be in other areas of the actual file. Any license information not actually in the file, e.g., “COPYING.txt” file in a top level directory, should not be reflected in this field.
 
@@ -262,11 +266,11 @@ where:
 
 `<SPDX License Expression>` is a valid SPDX License Expression
 
-as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md).
+as defined in [Appendix IV](#File-Information).
 
 "DocumentRef-"`[idstring]`: is an optional reference to an external SPDX
 
-document as described in [section 2.6](2-document-creation-information.md#2.6)
+document as described in [section 2.6](section#2.6)
 
 `[idstring]` is a unique string containing letters, numbers, `.` and/or `-`
 
@@ -286,7 +290,7 @@ Example:
         <licenseInfoInFile rdf:resource="#LicenseRef-2" />
     </File>
 
-## 4.7 Comments on License <a name="4.7"></a>
+## 4.7 Comments on License <a name="4.7"></a>{#section4.7}
 
 **4.7.1** Purpose: This field provides a place for the SPDX file creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a file. If the Concluded License does not match the License Information in File, this should be explained by the SPDX file creator. It is also preferable to include an explanation here when the Concluded License is `NOASSERTION`.
 
@@ -536,7 +540,7 @@ Example:
 
 ## 4.15 File Dependencies (deprecated) <a name="4.15"></a>
 
-This field is deprecated since SPDX 2.0 in favor of using [Section 7](7-relationships-between-SPDX-elements.md) which provides more granularity about relationships.
+This field is deprecated since SPDX 2.0 in favor of using [Section 7](#Relationships-between-SPDX-Elements) which provides more granularity about relationships.
 
 **4.15.1** Purpose: The field provides a place for the SPDX file creator to record a list of other files (referenceable within this SPDX file) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files may not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or may be needed as part of the file distribution obligation.
 
