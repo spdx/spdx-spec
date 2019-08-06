@@ -26,7 +26,7 @@ In the Package Information, Package SPDX Identifier and Files Analyzed are used 
 
 File Analyzed must be set to "false", when SPDX Lite is used.
 
-Comment on License can be used to describe additional explanation, such as compiling option. License may change with a different compiling option. 
+Package Comment can be used to describe additional explanation, such as compiling option, where a license may change with a different compiling option. 
 
 Other information (License Identifier, Extracted Text, License Name and License Comment) is used for exchanging license information.
 
@@ -53,6 +53,7 @@ Other information (License Identifier, Extracted Text, License Name and License 
 |L2.9	 |3.15 | Declared License       | 
 |L2.10 |3.16 | Comments on License    | 
 |L2.11 |3.17 | Copyright Text         | 
+|L2.12 |3.20 | Package Comment        | 
 |L3.1	 |6.1	 | License Identifier     | 
 |L3.2	 |6.2	 | Extracted Text         | 
 |L3.3	 |6.3	 | License Name           | 
