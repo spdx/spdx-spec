@@ -151,7 +151,7 @@ Column 1 | Column 2
 39. Wilfull | 39. Wilful
 40. Noncommercial | 40. Non-commercial
 41. Percent | 41. Per cent
-42. Copyright holde | 42. Copyright owner
+42. Copyright holder | 42. Copyright owner
 
 # 9 Copyright Symbol
 
