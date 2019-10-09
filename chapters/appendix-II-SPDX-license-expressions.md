@@ -10,9 +10,9 @@ The exact syntax of license expressions is described below in [ABNF](http://tool
 
 idstring = 1*(ALPHA / DIGIT / "-" / "." )
 
-license-id = \<short form license identifier in [Appendix I.1](./appendix-I-SPDX-license-list.md)>
+license-id = \<short form license identifier in [SPDX License List](https://spdx.org/licenses/)>
 
-license-exception-id = \<short form license exception identifier in [Appendix I.2](appendix-II-license-matching-guidelines-and-templates.md)>
+license-exception-id = \<short form license exception identifier in [SPDX License Exceptions](https://spdx.org/licenses/exceptions-index.html)>
 
 license-ref = ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
 
@@ -93,7 +93,7 @@ For example, when the Bison exception is to be applied to GPL-2.0+, the expressi
 
     (GPL-2.0+ WITH Bison-exception-2.2)
 
-The current set of valid exceptions can be found in [Appendix I, section 2](appendix-I-SPDX-license-list.md#I.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single `<license-ref>` to represent the entire license terms (including the exception).
+The current set of valid exceptions can be found in [SPDX License Exception List](https://spdx.org/licenses/exceptions-index.html). If the applicable exception is not found on the SPDX License Exception List, then use a single `<license-ref>` to represent the entire license terms (including the exception).
 
 ### 4) Order of Precedence and Parentheses
 

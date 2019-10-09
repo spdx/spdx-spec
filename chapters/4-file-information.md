@@ -176,7 +176,7 @@ Example:
 
 The options to populate this field are limited to:
 
-A valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md);
+A valid SPDX License Expression as defined in [Appendix II](appendix-II-SPDX-license-expressions.md);
 
 `NONE`, if the SPDX file creator concludes there is no license available for this file; or
 
@@ -198,7 +198,7 @@ If the Concluded License is not the same as the License Information in File, a w
 
 where:
 
-`<SPDX License Expression>` is a valid SPDX License Expression as defined in Appendix IV.
+`<SPDX License Expression>` is a valid SPDX License Expression as defined in [Appendix II](appendix-II-SPDX-license-expressions.md).
 
 **4.5.5** Tag: `LicenseConcluded:`
 
@@ -262,7 +262,7 @@ where:
 
 `<SPDX License Expression>` is a valid SPDX License Expression
 
-as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md).
+as defined in [Appendix II](appendix-II-SPDX-license-expressions.md).
 
 "DocumentRef-"`[idstring]`: is an optional reference to an external SPDX
 

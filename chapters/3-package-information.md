@@ -624,7 +624,7 @@ Example:
 
 The options to populate this field are limited to:
 
-* A valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md);
+* A valid SPDX License Expression as defined in [Appendix II](appendix-II-SPDX-license-expressions.md);
 * `NONE`, if the SPDX file creator concludes there is no license available for this package; or
 * `NOASSERTION` if:
 
@@ -644,7 +644,7 @@ If the Concluded License is not the same as the [Declared License](#3.15), a wri
 
 where:
 
-`<SPDX License Expression>` is a valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md).
+`<SPDX License Expression>` is a valid SPDX License Expression as defined in [Appendix II](appendix-II-SPDX-license-expressions.md).
 
 **3.13.5** Tag: `PackageLicenseConcluded:`
 
@@ -698,7 +698,7 @@ The options to populate this field are limited to:
 
 **3.14.3** Cardinality: Mandatory, one or many if [`FilesAnalyzed`](#3.8) is `true` or omitted, zero (must be omitted) if `FilesAnalyzed` is `false`.
 
-**3.14.4** Data Format: [`<shortIdentifier>`](appendix-I-SPDX-license-list.md#I.1) |
+**3.14.4** Data Format: [`<shortIdentifier>`](https://spdx.org/licenses/) |
   ["DocumentRef-"`[idstring]`:]"LicenseRef-"`[idstring]` |
   `NONE` | `NOASSERTION`
 
@@ -735,7 +735,7 @@ Example:
 
 The options to populate this field are limited to:
 
-* A valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md);
+* A valid SPDX License Expression as defined in [Appendix II](appendix-II-SPDX-license-expressions.md);
 * `NONE`, if the package contains no license information whatsoever; or
 * `NOASSERTION` if:
 
@@ -751,7 +751,7 @@ The options to populate this field are limited to:
 
 where:
 
-* `<SPDX License Expression>` is a valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md).
+* `<SPDX License Expression>` is a valid SPDX License Expression as defined in [Appendix II](appendix-II-SPDX-license-expressions.md).
 
 **3.15.5** Tag: `PackageLicenseDeclared:`
 
@@ -963,7 +963,7 @@ Example:
 where:
 
 * `<category>` is `SECURITY` | `PACKAGE-MANAGER` | `OTHER`
-* `<type>` is one of the types listed in [Appendix VI](appendix-VI-external-repository-identifiers.md).
+* `<type>` is one of the types listed in [Appendix III](appendix-III-external-repository-identifiers.md).
 
 `<locator>` is the unique string with no spaces necessary to access the package-specific information, metadata, or content within the target location. The format of the locator is subject to constraints defined by the `<type>`.
 

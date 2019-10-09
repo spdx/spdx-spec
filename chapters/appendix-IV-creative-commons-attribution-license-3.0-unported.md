@@ -1,4 +1,4 @@
-# Appendix VII: Creative Commons Attribution License 3.0 Unported
+# Appendix IV: Creative Commons Attribution License 3.0 Unported
 
 **License**
 

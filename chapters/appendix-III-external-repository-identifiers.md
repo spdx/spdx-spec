@@ -1,4 +1,4 @@
-# Appendix VI: External Repository Identifiers
+# Appendix III: External Repository Identifiers
 
 ***
 When `<category>` = `SECURITY`:

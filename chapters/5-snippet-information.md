@@ -199,7 +199,7 @@ Example:
 
 **5.5.1** Purpose: This field contains the license the SPDX file creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:
 
-A valid SPDX License Expression as defined in Appendix IV.
+A valid SPDX License Expression as defined in [Appendix II](appendix-II-SPDX-license-expressions.md).
 
 `NONE` should be used if there is no licensing information from which to conclude a license for the snippet.
 
@@ -223,7 +223,7 @@ If the Concluded License is not the same as the License Information in File, a w
 
 where:
 
-`<SPDX License Expression>` is a valid SPDX License Expression as defined in Appendix IV.
+`<SPDX License Expression>` is a valid SPDX License Expression as defined in [Appendix II](appendix-II-SPDX-license-expressions.md).
 
 **5.5.5** Tag: `SnippetLicenseConcluded:`
 
@@ -289,7 +289,7 @@ where:
 
 `<SPDX License Expression>` is a valid SPDX License Expression
 
-as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md).
+as defined in [Appendix II](appendix-II-SPDX-license-expressions.md).
 
 "DocumentRef-"`[idstring]`: is an optional reference to an external SPDX
 
