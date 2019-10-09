@@ -1,6 +1,6 @@
 # 6 Other Licensing Information Detected
 
-This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list see: http://spdx.org/licenses/. The SPDX License List can also be found here in [Appendix I](appendix-I-SPDX-license-list.md).
+This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list see: http://spdx.org/licenses/.
 
 One instance should be created for every unique license or licensing information reference detected in package that does not match one of the licenses on the SPDX License List. Each license instance should have the following fields.
 
