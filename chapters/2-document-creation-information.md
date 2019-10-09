@@ -24,14 +24,14 @@ Fields:
 
 Example:
 
-    SPDXVersion: SPDX-2.1
+    SPDXVersion: SPDX-3.0-DRAFT
 
 **2.1.6** RDF: `spdx:specVersion`
 
 Example:
 
     <SpdxDocument rdf:about="...">
-       <specVersion>SPDX-2.1</specVersion>
+       <specVersion>SPDX-3.0-DRAFT</specVersion>
     </SpdxDocument>
 
 ## 2.2 Data License <a name="2.2"></a>

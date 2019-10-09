@@ -2,11 +2,11 @@
 
 SPDX ® Vocabulary Specification
 
-See: [http://spdx.org/rdf/ontology/spdx-2-1](http://spdx.org/rdf/ontology/spdx-2-1)
+See: [http://spdx.org/rdf/ontology/spdx-3-0-DRAFT](http://spdx.org/rdf/ontology/spdx-3-0-DRAFT)
 
-Version: 2.1
+Version: 3.0-DRAFT
 
-![SPDX 2.1 RD Ontology](img/spdx-2.1-rdf-ontology.png)
+![SPDX 3.0-DRAFT RDF Ontology](img/spdx-3.0-DRAFT-rdf-ontology.png)
 
 Licensed under the [Creative Commons Attribution License 3.0 Unported](http://creativecommons.org/licenses/by/3.0/).
 

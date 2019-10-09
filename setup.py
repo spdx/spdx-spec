@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name = "spdx_specification",
-    version = "2.1.1",
+    version = "3.0-DRAFT",
     author = "Linux Foundation and its Contributors",
     author_email = "opensource@steenbe.nl",
     description = ("The Software Package Data Exchange® (SPDX®) specification is a standard format for communicating the components, licenses and copyrights associated with software packages."),
