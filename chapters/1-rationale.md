@@ -68,13 +68,13 @@ Companies and organizations (collectively “Organizations”) are widely using 
 
 **1.7.1** A file can be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the SPDX Trademark Page).
 
-**1.7.2** The official copyright notice to be used with any verbatim reproduction and/or distribution of this SPDX Specification 3.0 is:
+**1.7.2** The official copyright notice to be used with any verbatim reproduction and/or distribution of this SPDX Specification 3.0-DRAFT is:
 
-"Official SPDX® Specification 3.0 Copyright © 2010-2018 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
+"Official SPDX® Specification 3.0-DRAFT Copyright © 2010-2019 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
 
 **1.7.3** The official copyright notice to be used with any non-verbatim reproduction and/or distribution of this SPDX Specification, including without limitation any partial use or combining this SPDX Specification with another work, is:
 
-"This is not an official SPDX Specification. Portions herein have been reproduced from SPDX® Specification 3.0 found at spdx.org. These portions are Copyright © 2010-2018 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
+"This is not an official SPDX Specification. Portions herein have been reproduced from SPDX® Specification 3.0-DRAFT found at spdx.org. These portions are Copyright © 2010-2019 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
 
 ## 1.8 Differences from SPDX Specification 2.0 <a name="1.8"></a>
 
