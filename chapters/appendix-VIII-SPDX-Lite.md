@@ -2,13 +2,13 @@
 
 ## 1. Explanation of SPDX Lite 
 
-The SPDX Lite defines the subset of the SPDX specification, from the point of view of use cases in industries. The SPDX Lite aims at the balance between the SPDX standard and actual workflows in industries. 
+The SPDX Lite defines the subset of the SPDX specification, from the point of view of use cases in some industries. The SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries. 
 
 The SPDX Lite is the subset of the SPDX specification. The SPDX Lite consists of mandatory part of the Document Creation and Package Information and other basic information. 
 
-The mandatory part of the Package information in the SDPX Lite is basic but indispensable for complying with licenses. It is easy to understand licensing information by reading an SPDX Lite file. It is easy to create manually an SPDX Lite file by anyone who does not have enough knowledge about licensing infomation, so that tools are not necessarily required to create an SPDX Lite file. 
+The mandatory part of the Package information in the SPDX Lite is basic but useful for complying with licenses. It is easy to understand licensing information by reading an SPDX Lite file. It is easy to create manually an SPDX Lite file by anyone who does not have enough knowledge about licensing infomation, so that tools are not necessarily required to create an SPDX Lite file. 
 
-The SPDX Lite has the affinity with SPDX tools due to its containing the mandatory part of the Document Creation and Package Information in the SDPX Lite. 
+The SPDX Lite has the affinity with SPDX tools due to its containing the mandatory part of the Document Creation and Package Information in the SPDX Lite. 
 
 An SPDX Lite file can be used parallel with an SPDX file in software supply chains. 
 
@@ -18,7 +18,7 @@ An SPDX Lite file can be used parallel with an SPDX file in software supply chai
 The SPDX Lite is the subset of the SPDX specification. The SPDX Lite consists of mandatory part of the Document Creation and Package Information and other basic information. Cardinality of each item is not changed.
 
 
-The mandatory part of the Document Creation (those are SPDX Version, Data License, SDPX Idetifier, Document Name, SPDX Document Namespace, Creator and Created) is used for keeping the compatibility with SPDX.
+The mandatory part of the Document Creation (those are SPDX Version, Data License, SPDX Idetifier, Document Name, SPDX Document Namespace, Creator and Created) is used for keeping the compatibility with SPDX.
 
 The main part of the Package Information (those are Package Name,  Package Version, Package File Name, Package Download Location,  Package Home Page, Concluded License, Declared License, Comments on License and Copyright Text) is used for exchanging license information.
 
