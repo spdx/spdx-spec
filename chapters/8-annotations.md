@@ -79,7 +79,7 @@ Example:
 
     AnnotationType: REVIEW
 
-**8.3.6** RDF: Property `rdfs:comment` in class `spdx:Annotation`
+**8.3.6** RDF: property `annotationType` in class `spdx:Annotation`
 
 Example:
 
