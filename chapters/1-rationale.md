@@ -2,7 +2,7 @@
 
 ## 1.1 Charter <a name="1.1"></a>
 
-To create a set of data exchange standards that enable companies and organizations to share license and component information (metadata) for software packages and related content with the aim of facilitating license and other policy compliance.
+To create a set of data exchange standards that enable companies and organizations to share human-readable and machine-processable software package metadata to facilitate software supply chain processes.
 
 ## 1.2 Definition <a name="1.2"></a>
 
