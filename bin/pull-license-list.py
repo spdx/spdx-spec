@@ -26,7 +26,7 @@ VERSION_REGEXP = re.compile(
 
 
 def get_json(url):
-    with urllib.request.urlopen(url=url) as response:
+    with urllib.request.urlopen(url=url) as body:
         return json.load(body)
 
 
