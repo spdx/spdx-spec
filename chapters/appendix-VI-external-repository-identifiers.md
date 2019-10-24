@@ -117,53 +117,21 @@ External Reference Site: [http://bower.io/](http://bower.io/)
 
 Documentation: [http://bower.io/docs/api/#install](http://bower.io/docs/api/#install)
 
-***
-When <category> = `CONTAINER-IMAGE`:
-***
-
-## `<type>` Dockerhub <a name="dockerhub"></a>
+## `<type>` purl <a name="purl"></a>
 
 ### `<locator>` Information
 
 Locator Format:
 
-    repo:tag
-    ^[^:]+:[^:]+$
-
-    repo@digest_type:digest
-    ^[^@]+@[^:]+$
+        scheme:type/namespace/name@version?qualifiers#subpath
 
 Contextual Example:
 
-    debian:buster
+        pkg:docker/debian@sha256:2f04d3d33b6027bb74ecc81397abe780649ec89f1a2af18d7022737d0482cefe
 
-    debian@sha256:2f04d3d33b6027bb74ecc81397abe780649ec89f1a2af18d7022737d0482cefe
+External Reference Site: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
 
-External Reference Site: [https://hub.docker.com](https://hub.docker.com)
-
-Documentation: [https://docs.docker.com/](https://docs.docker.com/)
-
-## `<type>` Google Container Registry <a name="gcr"></a>
-
-### `<locator>` Information
-
-Locator Format:
-
-    domain/repo:tag
-    ^[^\/]+\/^[^:]+:[^:]+$
-
-    domain/repo@digest_type:digest
-    ^[^\/]+\/^[^@]+@[^:]+$
-
-Contextual Example:
-
-    gcr.io/distroless/static:latest
-
-    gcr.io/distroless/static@sha256:9b60270ec0991bc4f14bda475e8cae75594d8197d0ae58576ace84694aa75d7a
-
-External Reference Site: [https://cloud.google.com/container-registry/](https://cloud.google.com/container-registry/)
-
-Documentation: [https://cloud.google.com/docs/](https://cloud.google.com/docs/)
+Documentation: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
 
 ***
 When <category> = `OTHER`:
