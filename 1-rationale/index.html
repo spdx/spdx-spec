@@ -72,11 +72,13 @@
         
             <li><a class="toctree-l3" href="#15-what-is-not-covered-in-the-specification">1.5 What is not covered in the specification? </a></li>
         
-            <li><a class="toctree-l3" href="#16-format-requirements">1.6 Format Requirements </a></li>
+            <li><a class="toctree-l3" href="#16-what-does-package-mean-in-the-context-of-spdx">1.6 What does "Package" mean in the context of SPDX? </a></li>
         
-            <li><a class="toctree-l3" href="#17-conformance">1.7 Conformance </a></li>
+            <li><a class="toctree-l3" href="#17-format-requirements">1.7 Format Requirements </a></li>
         
-            <li><a class="toctree-l3" href="#18-differences-from-spdx-specification-20">1.8 Differences from SPDX Specification 2.0 </a></li>
+            <li><a class="toctree-l3" href="#18-conformance">1.8 Conformance </a></li>
+        
+            <li><a class="toctree-l3" href="#19-differences-from-spdx-specification-20">1.9 Differences from SPDX Specification 2.0 </a></li>
         
         </ul>
     
@@ -193,7 +195,7 @@
               
                 <h1 id="1-rationale">1 Rationale</h1>
 <h2 id="11-charter">1.1 Charter <a name="1.1"></a></h2>
-<p>To create a set of data exchange standards that enable companies and organizations to share license and component information (metadata) for software packages and related content with the aim of facilitating license and other policy compliance.</p>
+<p>To create a set of data exchange standards that enable companies and organizations to share human-readable and machine-processable software package metadata to facilitate software supply chain processes.</p>
 <h2 id="12-definition">1.2 Definition <a name="1.2"></a></h2>
 <p>The Software Package Data Exchange (SPDX®) specification is a standard format for communicating the components, licenses, and copyrights associated with software packages. An SPDX file is associated with a particular software package or set of packages and contains information about it in the SPDX format.</p>
 <h2 id="13-why-is-a-common-format-for-data-exchange-needed">1.3 Why is a common format for data exchange needed? <a name="1.3"></a></h2>
@@ -213,30 +215,41 @@
 <p><strong>1.5.3</strong> Any identification of any patent(s) which may or may not relate to the package.</p>
 <p><strong>1.5.4</strong> Legal interpretation of the licenses or any compliance actions that have been or may need to be taken.</p>
 <p><strong>1.5.5</strong> Examples may contain <code>...</code> which indicate detailed text specific to the SPDX Document</p>
-<h2 id="16-format-requirements">1.6 Format Requirements <a name="1.6"></a></h2>
-<p><strong>1.6.1</strong> Must be in a human readable form.</p>
-<p><strong>1.6.2</strong> Must be in a syntax that a software tool can read and write.</p>
-<p><strong>1.6.3</strong> Must be suitable to be checked for syntactic correctness independent of how it was generated (human or tool).</p>
-<p><strong>1.6.4</strong> The SPDX file character set must support UTF-8 encoding.</p>
-<p><strong>1.6.5</strong> Must permit automated specification syntax validation.</p>
-<p><strong>1.6.6</strong> Resource Description Framework (RDF) can be used to represent this information, as can an annotated tag value flat text file.</p>
-<p><strong>1.6.7</strong> Interoperability with an annotate <code>tag:value</code> format and the RDF format will be preserved.</p>
-<p><strong>1.6.8</strong> Tags and RDF properties are case sensitive.</p>
-<p><strong>1.6.9</strong> Should be easy to recognize in a file system without opening the file. A suggested naming convention is to use *.spdx (for <code>tag:value</code> format) and *-spdx.rdf for RDF format.</p>
-<p><strong>1.6.10</strong> The convention in this specification is for the RDF examples to use <code>rdf:about="..."</code> to represent that a proper Universal Resource Indicator (URI) should be present.</p>
-<h2 id="17-conformance">1.7 Conformance <a name="1.7"></a></h2>
-<p><strong>1.7.1</strong> A file can be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the SPDX Trademark Page).</p>
-<p><strong>1.7.2</strong> The official copyright notice to be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.1.1 is:</p>
+<h2 id="16-what-does-package-mean-in-the-context-of-spdx">1.6 What does "Package" mean in the context of SPDX? <a name="1.6"></a></h2>
+<p>In SPDX, a 'Package' refers to any unit of content that can be associated with a distribution of software. Typically, a Package is composed of one or more files. An SPDX document may, but is not required to, provide details about the individual files comprising a Package (see the "File Information" details in section 4).</p>
+<p>Any of the following non-limiting examples may be (but are not required to be) represented in SPDX as a Package:
+* a tarball, zip file or other archive
+* a directory or subdirectory
+* a separately-distributed piece of software which another Package or File uses or depends upon (e.g., a Python package, a Golang module, ...)
+* a container image, and/or each image layer within a container image
+* a collection of one or more sub-packages
+* a Git repository snapshot from a particular point in time</p>
+<p>Note that some of these could be represented in SPDX as a File as well.</p>
+<p>In an SPDX document, Relationship elements can be used to indicate relationships between Packages, such as dependency relationships.</p>
+<h2 id="17-format-requirements">1.7 Format Requirements <a name="1.7"></a></h2>
+<p><strong>1.7.1</strong> Must be in a human readable form.</p>
+<p><strong>1.7.2</strong> Must be in a syntax that a software tool can read and write.</p>
+<p><strong>1.7.3</strong> Must be suitable to be checked for syntactic correctness independent of how it was generated (human or tool).</p>
+<p><strong>1.7.4</strong> The SPDX file character set must support UTF-8 encoding.</p>
+<p><strong>1.7.5</strong> Must permit automated specification syntax validation.</p>
+<p><strong>1.7.6</strong> Resource Description Framework (RDF) can be used to represent this information, as can an annotated tag value flat text file.</p>
+<p><strong>1.7.7</strong> Interoperability with an annotate <code>tag:value</code> format and the RDF format will be preserved.</p>
+<p><strong>1.7.8</strong> Tags and RDF properties are case sensitive.</p>
+<p><strong>1.7.9</strong> Should be easy to recognize in a file system without opening the file. A suggested naming convention is to use *.spdx (for <code>tag:value</code> format) and *-spdx.rdf for RDF format.</p>
+<p><strong>1.7.10</strong> The convention in this specification is for the RDF examples to use <code>rdf:about="..."</code> to represent that a proper Universal Resource Indicator (URI) should be present.</p>
+<h2 id="18-conformance">1.8 Conformance <a name="1.8"></a></h2>
+<p><strong>1.8.1</strong> A file can be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the SPDX Trademark Page).</p>
+<p><strong>1.8.2</strong> The official copyright notice to be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.1.1 is:</p>
 <p>"Official SPDX® Specification 2.1.1 Copyright © 2010-2018 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."</p>
-<p><strong>1.7.3</strong> The official copyright notice to be used with any non-verbatim reproduction and/or distribution of this SPDX Specification, including without limitation any partial use or combining this SPDX Specification with another work, is:</p>
+<p><strong>1.8.3</strong> The official copyright notice to be used with any non-verbatim reproduction and/or distribution of this SPDX Specification, including without limitation any partial use or combining this SPDX Specification with another work, is:</p>
 <p>"This is not an official SPDX Specification. Portions herein have been reproduced from SPDX® Specification 2.1.1 found at spdx.org. These portions are Copyright © 2010-2018 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."</p>
-<h2 id="18-differences-from-spdx-specification-20">1.8 Differences from SPDX Specification 2.0 <a name="1.8"></a></h2>
-<p><strong>1.8.1</strong> Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in. The use of snippets is completely optional and it is not manditory for snippets to be identified. See <a href="../5-snippet-information/">section 5 Snippet Information</a> for further details on the fields available to describe snippets.</p>
-<p><strong>1.8.2</strong> External Packages can now be refered to in SPDX documents. When there is no SPDX file information available to document the content of these external packages, then the <code>filesAnalyzed</code> attribute on a package should be set to false. See <a href="../3-package-information/#3.8">section 3.8</a> Files Analyzed for more information.</p>
-<p><strong>1.8.3</strong> Packages are now able to associate with an “External Reference” which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package. See: section <a href="../3-package-information/#3.21">3.21 External Reference</a>, <a href="../3-package-information/#3.22">3.22 External Reference Comment</a> and <a href="../appendix-VI-external-repository-identifiers/">Appendix VI: External Repository Identifiers</a> for more information.</p>
-<p><strong>1.8.4</strong> The “Artifact of Project” fields at the file level are now deprecated, as they can be replaced by a relationship to the more descriptive External Packages.</p>
-<p><strong>1.8.5</strong> A new appendix “Using SPDX short identifiers in Source Files” has been added to document the best practices to refer to the licenses in the SPDX license list that have emerged from the development community. See <a href="../appendix-V-using-SPDX-short-identifiers-in-source-files/">Appendix V: Using SPDX short identifiers in Source Files</a> for more information.</p>
-<p><strong>1.8.6</strong> Miscellaneous bug fixes as reported on the mailing list and reported as issues on the <a href="https://github.com/spdx/spdx-spec">spdx-spec GitHub repository</a>.</p>
+<h2 id="19-differences-from-spdx-specification-20">1.9 Differences from SPDX Specification 2.0 <a name="1.9"></a></h2>
+<p><strong>1.9.1</strong> Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in. The use of snippets is completely optional and it is not manditory for snippets to be identified. See <a href="../5-snippet-information/">section 5 Snippet Information</a> for further details on the fields available to describe snippets.</p>
+<p><strong>1.9.2</strong> External Packages can now be refered to in SPDX documents. When there is no SPDX file information available to document the content of these external packages, then the <code>filesAnalyzed</code> attribute on a package should be set to false. See <a href="../3-package-information/#3.8">section 3.8</a> Files Analyzed for more information.</p>
+<p><strong>1.9.3</strong> Packages are now able to associate with an “External Reference” which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package. See: section <a href="../3-package-information/#3.21">3.21 External Reference</a>, <a href="../3-package-information/#3.22">3.22 External Reference Comment</a> and <a href="../appendix-VI-external-repository-identifiers/">Appendix VI: External Repository Identifiers</a> for more information.</p>
+<p><strong>1.9.4</strong> The “Artifact of Project” fields at the file level are now deprecated, as they can be replaced by a relationship to the more descriptive External Packages.</p>
+<p><strong>1.9.5</strong> A new appendix “Using SPDX short identifiers in Source Files” has been added to document the best practices to refer to the licenses in the SPDX license list that have emerged from the development community. See <a href="../appendix-V-using-SPDX-short-identifiers-in-source-files/">Appendix V: Using SPDX short identifiers in Source Files</a> for more information.</p>
+<p><strong>1.9.6</strong> Miscellaneous bug fixes as reported on the mailing list and reported as issues on the <a href="https://github.com/spdx/spdx-spec">spdx-spec GitHub repository</a>.</p>
               
             </div>
           </div>
