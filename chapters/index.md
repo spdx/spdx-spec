@@ -1,4 +1,4 @@
-# The Software Package Data Exchange (SPDX®) Specification Version 2.1.1
+# The Software Package Data Exchange (SPDX®) Specification Version 2.2-DRAFT
 
 Copyright © 2010-2019 Linux Foundation and its Contributors.
 This work is licensed under the Creative Commons Attribution License 3.0 Unported (CC-BY-3.0) reproduced in its entirety in [Appendix VII](appendix-VII-creative-commons-attribution-license-3.0-unported.md) herein. All other rights are expressly reserved.
@@ -22,6 +22,7 @@ Esteban Rockett,
 Gary O'Neall,
 Guillaume Rousseau,
 Hassib Khanafer,
+Hiroyuki Fukuchi,
 Jack Manbeck,
 Jaime Garcia,
 Jeff Luszcz,
@@ -42,6 +43,7 @@ Martin von Willebrand,
 Matt Germonprez,
 Michael J. Herzog,
 Michel Ruffin,
+Nisha Kumar,
 Nuno Brito,
 Oliver Fendt,
 Paul Madick,
@@ -60,6 +62,7 @@ Scott Lamons,
 Scott Sterling,
 Shane Coughlan,
 Steve Cropper,
+Steve Winslow,
 Stuart Hughes,
 Thomas F. Incorvia,
 Thomas Steenbergen,
