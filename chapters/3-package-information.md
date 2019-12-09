@@ -416,11 +416,11 @@ Example:
     </Package>
 
     <Package rdf:about="...">
-        <downloadLocation rdf:resource="http://spdx.org/rdf/terms#noassertion"/>
+        <downloadLocation rdf:resource="spdx:noassertion"/>
     </Package>
 
     <Package rdf:about="...">
-        <downloadLocation rdf:resource="http://spdx.org/rdf/terms#none"/>
+        <downloadLocation rdf:resource="spdx:none"/>
     </Package>
 
 ## 3.8 Files Analyzed <a name="3.8"></a>
@@ -536,13 +536,13 @@ Example:
     <Package rdf:about="...">
         <checksum>
             <Checksum>
-                <algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_sha1"/>
+                <algorithm rdf:resource="spdx:checksumAlgorithm_sha1"/>
                 <checksumValue>85ed0817af83a24ad8da68c2b5094de69833983c</checksumValue>
             </Checksum>
         </checksum>
         <checksum>
             <Checksum>
-                <algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_sha256"/>
+                <algorithm rdf:resource="spdx:checksumAlgorithm_sha256"/>
                 <checksumValue>
                     11b6d3ee554eedf79299905a98f9b9a04e498210b59f15094c916c91d150efcd
                 </checksumValue>
@@ -550,7 +550,7 @@ Example:
         </checksum>
         <checksum>
             <Checksum>
-                <algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_md5"/>
+                <algorithm rdf:resource="spdx:checksumAlgorithm_md5"/>
                 <checksumValue>624c1abb3664f4b35547e7c73864ad24</checksumValue>
             </Checksum>
         </checksum>
@@ -983,7 +983,7 @@ Example (for a listed location):
         ...
         <spdx:externalRef>
             <spdx:ExternalRef>
-                <spdx:referenceCategory rdf:resource="http://spdx.org/rdf/terms#referenceCategory_packageManager" />
+                <spdx:referenceCategory rdf:resource="spdx:referenceCategory_packageManager" />
                 <spdx:referenceType rdf:resource="http://spdx.org/rdf/refeferences/maven-central" />
                 <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1</spdx:referenceLocator>
             </spdx:ExternalRef>
@@ -997,7 +997,7 @@ Example (for an unlisted location):
         ...
         <spdx:externalRef>
             <spdx:ExternalRef>
-                <spdx:referenceCategory rdf:resource="http://spdx.org/rdf/terms#referenceCategory_other" />
+                <spdx:referenceCategory rdf:resource="spdx:referenceCategory_other" />
                 <spdx:referenceType rdf:resource="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...LocationRef-acmeforge" />
                 <spdx:referenceLocator>acmecorp/acmenator/4.1.3-alpha</spdx:referenceLocator>
             </spdx:ExternalRef>
@@ -1035,7 +1035,7 @@ Example:
         ...
         <spdx:externalRef>
             <spdx:ExternalRef>
-                <spdx:referenceCategory rdf:resource="http://spdx.org/rdf/terms#referenceCategory_packageManager" />
+                <spdx:referenceCategory rdf:resource="spdx:referenceCategory_packageManager" />
                 <spdx:referenceType rdf:resource="http://spdx.org/rdf/refeferences/maven-central" />
                 <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1</spdx:referenceLocator>
                 <rdfs:comment>
