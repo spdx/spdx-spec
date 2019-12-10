@@ -10,6 +10,12 @@
 | DESCRIBED_BY           | Is to be used when SPDXRef-A is described by SPDXREF-Document                                         | The package ‘WildFly’ is described by SPDX document `Wildfly.spdx`. |
 | CONTAINS               | Is to be used when SPDXRef-A contains SPDXRef-B.                                                      | An ARCHIVE file `bar.tgz` contains a SOURCE file `foo.c`. |
 | CONTAINED_BY           | Is to be used when SPDXRef-A is contained by SPDXRef-B.                                               | A SOURCE file `foo.c` is contained by ARCHIVE file `bar.tgz` |
+| DEPENDENCY_OF          | Is to be used when SPDXRef-A is dependency of SPDXRef-B.                                              | A is explicitly stated as a dependency of B in a machine-readable file. Use when a package manager does not define scopes.|
+| BUILD\_DEPENDENCY_OF   | Is to be used when SPDXRef-A is a build dependency of SPDXRef-B.                                      | A is in the `compile` scope of B in a Maven project. |
+| DEV\_DEPENDENCY_OF     | Is to be used when SPDXRef-A is development dependency of SPDXRef-B.                                  | A is in the `devDependencies` scope of B in a Maven project. |
+| PROVIDED\_DEPENDENCY_OF| Is to be used when SPDXRef-A is a to be provided dependency of SPDXRef-B.                               | A is in the `provided` scope of B in a Maven project, indicating that the project expects it to be provided by for instance by the container or JDK. |
+| TEST\_DEPENDENCY_OF    | Is to be used when SPDXRef-A is test dependency of SPDXRef-B.                                         | A is in the `test` scope of B in a Maven project. |
+| RUNTIME\_DEPENDENCY_OF | Is to be used when SPDXRef-A is dependency required for during the execution of SPDXRef-B.            | A is in the `runtime` scope of B in a Maven project. |
 | EXAMPLE_OF             | Is to be used when SPDXRef-A is an example of SPDXRef-B.                                              | The file or snippet that illustrates how to use an application or library. |
 | GENERATES              | Is to be used when SPDXRef-A generates the SPDXRef-B.                                                 | A SOURCE file `makefile.mk` generates a BINARY file `a.out` |
 | GENERATED_FROM         | Is to be used when SPDXRef-A was generated from SPDXRef-B.                                            | A BINARY file `a.out` has been generated from a SOURCE file `makefile.mk`. A BINARY file `foolib.a` is generated from a SOURCE file `bar.c`. |
