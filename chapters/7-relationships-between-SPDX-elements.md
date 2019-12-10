@@ -10,6 +10,7 @@
 | DESCRIBED_BY           | Is to be used when SPDXRef-A is described by SPDXREF-Document                                         | The package ‘WildFly’ is described by SPDX document `Wildfly.spdx`. |
 | CONTAINS               | Is to be used when SPDXRef-A contains SPDXRef-B.                                                      | An ARCHIVE file `bar.tgz` contains a SOURCE file `foo.c`. |
 | CONTAINED_BY           | Is to be used when SPDXRef-A is contained by SPDXRef-B.                                               | A SOURCE file `foo.c` is contained by ARCHIVE file `bar.tgz` |
+| EXAMPLE_OF             | Is to be used when SPDXRef-A is an example of SPDXRef-B.                                              | The file or snippet that illustrates how to use an application or library. |
 | GENERATES              | Is to be used when SPDXRef-A generates the SPDXRef-B.                                                 | A SOURCE file `makefile.mk` generates a BINARY file `a.out` |
 | GENERATED_FROM         | Is to be used when SPDXRef-A was generated from SPDXRef-B.                                            | A BINARY file `a.out` has been generated from a SOURCE file `makefile.mk`. A BINARY file `foolib.a` is generated from a SOURCE file `bar.c`. |
 | ANCESTOR_OF            | Is to be used when SPDXRef-A is an ancestor (same lineage but pre-dates) SPDXRef-B                    | A SOURCE file `makefile.mk` is a version of the original ancestor SOURCE file ‘makefile2.mk’ |
@@ -28,6 +29,8 @@
 | DATA\_FILE_OF          | Is to be used when SPDXRef-A is a data file used in SPDXRef-B.                                        | An IMAGE file ‘kitty.jpg’ is a data file of an APPLICATION ‘hellokitty’. |
 | TEST\_CASE_OF          | Is to be used when SPDXRef-A is a test case used in testing SPDXRef-B.                                | A SOURCE file `testMyCode.java` is a unit test file used to test an APPLICATION MyPackage. |
 | BUILD\_TOOL_OF         | Is to be used when SPDXRef-A is used to to build SPDXRef-B.                                           | A SOURCE file `makefile.mk` is used to build an APPLICATION ‘zlib’. |
+| DEV\_TOOL_OF           | Is to be used when SPDXRef-A is used as a development tool for SPDXRef-B.                             | Any tool used for development such as a code debugger. |
+| TEST\_TOOL_OF          | Is to be used when SPDXRef-A is used as a test tool for SPDXRef-B.                                    | Any tool used to test the code sucha as ESlint. |
 | DOCUMENTATION_OF       | Is to be used when SPDXRef-A provides documentation of SPDXRef-B.                                     | A DOCUMENTATION file `readme.txt` documents the APPLICATION ‘zlib’. |
 | OPTIONAL\_COMPONENT_OF | Is to be used when SPDXRef-A is an optional component of SPDXRef-B.                                   | A SOURCE file `fool.c` (which is in the contributors directory) may or may not be included in the build of APPLICATION ‘atthebar’. |
 | METAFILE_OF            | Is to be used when SPDXRef-A is a metafile of SPDXRef-B.                                              | A SOURCE file `pom.xml` is a metafile of the APPLICATION ‘Apache Xerces’. |
