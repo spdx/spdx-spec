@@ -201,9 +201,8 @@ The ExternalDocumentRef contains two properties:
 
 Example:
 
-    <externalDocumentRef>
+    <externalDocumentRef rdf:ID="DocumentRef-spdx-tool-1.2">
         <ExternalDocumentRef>
-            <spdx:externalDocumentId>DocumentRef-spdx-tool-1.2</spdx:externalDocumentId>
             <spdxDocument rdf:about=”http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...” />
             <checksum>
                 <Checksum>
