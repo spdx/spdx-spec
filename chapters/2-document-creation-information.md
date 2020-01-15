@@ -24,14 +24,14 @@ Fields:
 
 Example:
 
-    SPDXVersion: SPDX-2.1
+    SPDXVersion: SPDX-2.2
 
 **2.1.6** RDF: `spdx:specVersion`
 
 Example:
 
     <SpdxDocument rdf:about="...">
-       <specVersion>SPDX-2.1</specVersion>
+       <specVersion>SPDX-2.2</specVersion>
     </SpdxDocument>
 
 This specification uses the prefix `rdf:` to refer to the [RDF/XML][rdf] namespace:
