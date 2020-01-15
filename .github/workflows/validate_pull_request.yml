@@ -1,0 +1,15 @@
+on: pull_request
+
+jobs:
+  validate:
+    name: Validate build
+    runs-on: ubuntu-latest
+    container: python:3
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+    - name: Install pre-requisites
+      run: pip install -r requirements.txt
+    - name: Build
+      run: mkdocs build -v --clean
