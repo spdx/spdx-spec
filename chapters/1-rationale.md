@@ -86,11 +86,11 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 **1.8.2** The official copyright notice to be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.2-DRAFT is:
 
-"Official SPDX® Specification 2.2 Copyright © 2010-2019 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
+"Official SPDX® Specification 2.2 Copyright © 2010-2020 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
 
 **1.8.3** The official copyright notice to be used with any non-verbatim reproduction and/or distribution of this SPDX Specification, including without limitation any partial use or combining this SPDX Specification with another work, is:
 
-"This is not an official SPDX Specification. Portions herein have been reproduced from SPDX® Specification 2.2 found at spdx.org. These portions are Copyright © 2010-2019 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
+"This is not an official SPDX Specification. Portions herein have been reproduced from SPDX® Specification 2.2 found at spdx.org. These portions are Copyright © 2010-2020 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
 
 ## 1.9 Differences from SPDX Specification 2.0 <a name="1.9"></a>
 
