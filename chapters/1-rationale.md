@@ -104,4 +104,6 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 **1.9.5** A new appendix “Using SPDX short identifiers in Source Files” has been added to document the best practices to refer to the licenses in the SPDX license list that have emerged from the development community. See [Appendix V: Using SPDX short identifiers in Source Files](./appendix-V-using-SPDX-short-identifiers-in-source-files.md) for more information.
 
-**1.9.6** Miscellaneous bug fixes as reported on the mailing list and reported as issues on the [spdx-spec GitHub repository](https://github.com/spdx/spdx-spec).
+**1.9.6** A new appendix "SPDX Lite" has been added to document a lightweight subset of the SPDX specification for scenarios where a full SPDX document is not required. See [Appendix VIII](appendix-VIII-SPDX-Lite.md) for more information.
+
+**1.9.7** Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the [spdx-spec GitHub repository](https://github.com/spdx/spdx-spec).
