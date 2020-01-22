@@ -76,7 +76,15 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 **1.7.8** Tags and RDF properties are case sensitive.
 
-**1.7.9** Should be easy to recognize in a file system without opening the file. A suggested naming convention is to use \*.spdx (for `tag:value` format) and \*-spdx.rdf for RDF format.
+**1.7.9** Should be easy to recognize in a file system without opening the file. A suggested naming convention is:
+
+| Format      | Extension   |
+| ----------- | ----------- |
+| `tag:value` | *.spdx      |
+| RDF         | *.spdx.rdf  |
+| JSON        | *.spdx.json |
+| XML         | *.spdx.xml  |
+| YAML        | *.spdx.yaml |
 
 **1.7.10** The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Universal Resource Indicator (URI) should be present.
 
