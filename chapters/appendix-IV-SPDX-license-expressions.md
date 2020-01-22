@@ -2,7 +2,7 @@
 
 ## Overview
 
-Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0 OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1 AND BSD-3-Clause).
+Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0-only OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1-only AND BSD-3-Clause).
 
 SPDX License Expressions provides a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-`[idString]`; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., `AND`, `OR`, `WITH` and `+`). We provide the definition of what constitutes a valid an SPDX License Expression in this section.
 
@@ -45,8 +45,8 @@ There MUST NOT be whitespace between a license-id and any following `+`. This su
 
 A simple `<license-expression>` is composed one of the following:
 
-* An SPDX License List Short Form Identifier. For example: GPL-2.0
-* An SPDX License List Short Form Identifier with a unary"+" operator suffix to represent the current version of the license or any later version. For example: GPL-2.0+
+* An SPDX License List Short Form Identifier. For example: GPL-2.0-only
+* An SPDX License List Short Form Identifier with a unary "+" operator suffix to represent the current version of the license or any later version. For example: GPL-2.0+
 * A SPDX user defined license reference: ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
 
 Some examples:
@@ -65,33 +65,33 @@ More expressive composite license expressions can be constructed using "OR", "AN
 
 If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new lincense expression, where both the left and right operands are valid license expression values.
 
-For example, when given a choice between the LGPL-2.1 or MIT licenses, a valid expression would be:
+For example, when given a choice between the LGPL-2.1-only or MIT licenses, a valid expression would be:
 
-    (LGPL-2.1 OR MIT)
+    (LGPL-2.1-only OR MIT)
 
 An example representing a choice between three different licenses would be:
 
-(LGPL-2.1 OR MIT OR BSD-3-Clause)
+(LGPL-2.1-only OR MIT OR BSD-3-Clause)
 
 ### 2) Conjunctive "AND" Operator
 
 If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are a valid license expression values.
 
-For example, when one is required to comply with both the LGPL-2.1 or MIT licenses, a valid expression would be:
+For example, when one is required to comply with both the LGPL-2.1-only or MIT licenses, a valid expression would be:
 
-    (LGPL-2.1 AND MIT)
+    (LGPL-2.1-only AND MIT)
 
 An example where all three different licenses apply would be:
 
-    (LGPL-2.1 AND MIT AND BSD-2-Clause)
+    (LGPL-2.1-only AND MIT AND BSD-2-Clause)
 
 ### 3) Exception "WITH" Operator
 
 Sometimes a set of license terms apply except under special circumstances. In this case, use the binary "WITH" operator to construct a new license expression to represent the special exception situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<license-exception-id>` that represents the special exception terms.
 
-For example, when the Bison exception is to be applied to GPL-2.0+, the expression would be:
+For example, when the Bison exception is to be applied to GPL-2.0-or-later, the expression would be:
 
-    (GPL-2.0+ WITH Bison-exception-2.2)
+    (GPL-2.0-or-later WITH Bison-exception-2.2)
 
 The current set of valid exceptions can be found in [Appendix I, section 2](appendix-I-SPDX-license-list.md#I.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single `<license-ref>` to represent the entire license terms (including the exception).
 
@@ -108,24 +108,24 @@ where a lower order operator is applied before a higher order operator.
 
 For example, the following expression:
 
-    LGPL-2.1 OR BSD-3-Clause AND MIT
+    LGPL-2.1-only OR BSD-3-Clause AND MIT
 
-represents a license choice between either LGPL-2.1 and the expression BSD-3-Clause AND MIT because the AND operator takes precedence over (is applied before) the OR operator.
+represents a license choice between either LGPL-2.1-only and the expression BSD-3-Clause AND MIT because the AND operator takes precedence over (is applied before) the OR operator.
 
 When required to express an order of precedence that is different from the default order a `<license-expression>` can be encapsulated in pairs of parentheses: ( ), to indicate that the operators found inside the parentheses takes precedence over operators outside. This is also similar to the use of parentheses in an algebraic expression e.g., (5+7)/2.
 
 For instance, the following expression:
 
-    (MIT AND (LGPL-2.1+ OR BSD-3-Clause))
+    (MIT AND (LGPL-2.1-or-later OR BSD-3-Clause))
 
-states the OR operator should be applied before the AND operator. That is, one should first select between the LGPL-2.1+ or the BSD-3-Clause license before applying the MIT license.
+states the OR operator should be applied before the AND operator. That is, one should first select between the LGPL-2.1-or-later or the BSD-3-Clause license before applying the MIT license.
 
 ### 5) License Expressions in RDF <a name="rdf-expr"></a>
 
 A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet>` element, with an spdx:member property for each element in the conjunctive license. Two or more members are required.
 
     <spdx:ConjunctiveLicenseSet>
-        <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0"/>
+        <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
         <spdx:ExtractedLicensingInfo rdf:about="http://example.org#LicenseRef-EternalSurrender">
             <spdx:extractedText>
                 In exchange for using this software, you agree to give its author all your worldly possessions.
@@ -139,7 +139,7 @@ A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet
 A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet>` element, with an spdx:member property for each element in the disjunctive license. Two or more members are required.
 
     <spdx:DisjunctiveLicenseSet>
-        <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0"/>
+        <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
         <spdx:member>
             <spdx:ExtractedLicensingInfo rdf:about="http://example.org#LicenseRef-EternalSurrender">
                 <spdx:extractedText>

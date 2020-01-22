@@ -229,11 +229,11 @@ where:
 
 Example:
 
-    SnippetLicenseConcluded: GPL-2.0
+    SnippetLicenseConcluded: GPL-2.0-only
 
 Example:
 
-    SnippetLicenseConcluded: (LGPL-2.0 OR LicenseRef-2)
+    SnippetLicenseConcluded: (LGPL-2.0-only OR LicenseRef-2)
 
 **5.5.6** RDF: Property `spdx:licenseConcluded` in class `spdx:Snippet`
 
@@ -241,7 +241,7 @@ Example:
 
     <Snippet rdf:about="...">
         ...
-        <licenseConcluded>GPL-2.0</licenseConcluded>
+        <licenseConcluded>GPL-2.0-only</licenseConcluded>
         ...
     </Snippet>
 
@@ -250,7 +250,7 @@ Example:
     <Snippet rdf:about="...">
         <licenseConcluded>
             <DisjunctiveLicenseSet>
-                <member rdf:resource="http://spdx.org/licenses/LGPL-2.0"/>
+                <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only"/>
                 <member rdf:resource="#LicenseRef-2"/>
             </DisjunctiveLicenseSet>
         </licenseConcluded>
@@ -301,7 +301,7 @@ document as described in [section 2.6](2-document-creation-information.md#2.6)
 
 Example:
 
-    LicenseInfoInSnippet: LGPL-2.0
+    LicenseInfoInSnippet: LGPL-2.0-only
 
     LicenseInfoInSnippet: LicenseRef-2
 
@@ -310,7 +310,7 @@ Example:
 Example:
 
     <Snippet rdf:about="...">
-        <licenseInfoInSnippet rdf:resource="http://spdx.org/licenses/GPL-2.0" />
+        <licenseInfoInSnippet rdf:resource="http://spdx.org/licenses/GPL-2.0-only" />
         <licenseInfoInSnippet rdf:resource="#LicenseRef-2" />
     </Snippet>
 

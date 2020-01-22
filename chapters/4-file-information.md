@@ -204,18 +204,18 @@ where:
 
 Example:
 
-    LicenseConcluded: LGPL-2.0
+    LicenseConcluded: LGPL-2.0-only
 
 Example:
 
-    LicenseConcluded: (LGPL-2.0 OR LicenseRef-2)
+    LicenseConcluded: (LGPL-2.0-only OR LicenseRef-2)
 
 **4.5.6** RDF: Property `spdx:licenseConcluded` in class `spdx:File`
 
 Example:
 
     <File rdf:about="file">
-        <licenseConcluded>LGPL-2.0</licenseConcluded>
+        <licenseConcluded>LGPL-2.0-only</licenseConcluded>
     </File>
 
 Example:
@@ -223,7 +223,7 @@ Example:
     <File rdf:about="...">
         <licenseConcluded>
             <DisjunctiveLicenseSet>
-                <member rdf:resource="http://spdx.org/licenses/LGPL-2.0"/>
+                <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only"/>
                 <member rdf:resource="#LicenseRef-2"/>
             </DisjunctiveLicenseSet>
         </licenseConcluded>
@@ -274,7 +274,7 @@ document as described in [section 2.6](2-document-creation-information.md#2.6)
 
 Example:
 
-    LicenseInfoInFile: GPL-2.0
+    LicenseInfoInFile: GPL-2.0-only
     LicenseInfoInFile: LicenseRef-2
 
 **4.6.6** RDF: Property `spdx:licenseInfoInFile` in class `spdx:File`
@@ -282,7 +282,7 @@ Example:
 Example:
 
     <File rdf:about="file1">
-        <licenseInfoInFile rdf:resource="http://spdx.org/licenses/GPL-2.0" />
+        <licenseInfoInFile rdf:resource="http://spdx.org/licenses/GPL-2.0-only" />
         <licenseInfoInFile rdf:resource="#LicenseRef-2" />
     </File>
 

@@ -650,11 +650,11 @@ where:
 
 Example:
 
-    PackageLicenseConcluded: LGPL-2.0
+    PackageLicenseConcluded: LGPL-2.0-only
 
 Example:
 
-    PackageLicenseConcluded: (LGPL-2.0 OR LicenseRef-3)
+    PackageLicenseConcluded: (LGPL-2.0-only OR LicenseRef-3)
 
 **3.13.6** RDF: property `spdx:licenseConcluded` in `class spdx:Package`
 
@@ -662,7 +662,7 @@ Example:
 
     <Package rdf:about="...">
         ...
-        <licenseConcluded rdf:resource="http://spdx.org/licenses/LGPL-2.0" />
+        <licenseConcluded rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
         ...
     </Package>
 
@@ -672,7 +672,7 @@ Example:
         ...
         <licenseConcluded>
              <DisjunctiveLicenseSet>
-                 <member rdf:resource="http://spdx.org/licenses/LGPL-2.0" />
+                 <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
                  <member rdf:resource="LicenseRef-3" />
             </DisjunctiveLicenseSet>
         </licenseConcluded>
@@ -711,7 +711,7 @@ where:
 
 Example:
 
-    PackageLicenseInfoFromFiles: GPL-2.0
+    PackageLicenseInfoFromFiles: GPL-2.0-only
 
     PackageLicenseInfoFromFiles: LicenseRef-1
 
@@ -723,7 +723,7 @@ Example:
 
     <Package rdf:about="...">
         ...
-        <licenseInfoFromFiles rdf:resource="https://spdx.org/licenses/GPL-2.0" />
+        <licenseInfoFromFiles rdf:resource="https://spdx.org/licenses/GPL-2.0-only" />
         <licenseInfoFromFiles rdf:resource="#LicenseRef-1" />
         <licenseInfoFromFiles rdf:resource="#LicenseRef-2" />
         ...
@@ -757,11 +757,11 @@ where:
 
 Example:
 
-    PackageLicenseDeclared: LGPL-2.0
+    PackageLicenseDeclared: LGPL-2.0-only
 
 Example:
 
-    PackageLicenseDeclared: (LGPL-2.0 AND LicenseRef-3)
+    PackageLicenseDeclared: (LGPL-2.0-only AND LicenseRef-3)
 
 **3.15.6** RDF: property `spdx:licenseDeclared` in class `spdx:Package`
 
@@ -769,7 +769,7 @@ Example:
 
     <Package rdf:about="...">
         ...
-        <licenseDeclared rdf:resource="http://spdx.org/licenses/LGPL-2.0" />
+        <licenseDeclared rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
         ...
     </Package>
 
@@ -780,7 +780,7 @@ Example:
         ...
          <licenseDeclared>
              <ConjunctiveLicenseSet>
-                 <member rdf:resource="http://spdx.org/licenses/LGPL-2.0" />
+                 <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
                  <member rdf:resource="#LicenseRef-3" />
              </ConjunctiveLicenseSet>
         </licenseDeclared>
