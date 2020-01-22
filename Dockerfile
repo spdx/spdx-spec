@@ -1,4 +1,4 @@
-FROM python
+FROM python:2
 RUN mkdir /home/spdx/
 WORKDIR /home/spdx/
 COPY . /home/spdx/
