@@ -45,9 +45,10 @@ Multiple licenses can be represented using a SPDX license expression as defined 
 
 Examples:
 
-    SPDX-License-Identifier: (GPL-2.0 OR MIT)
-    SPDX-License-Identifier: (LGPL-2.1 AND BSD-2-CLAUSE)
-    SPDX-License-Identifier: (GPL-2.0+ WITH Bison-exception-2.2)
+    SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+    SPDX-License-Identifier: (LGPL-2.1-only AND BSD-2-Clause)
+    SPDX-License-Identifier: (GPL-2.0-or-later WITH Bison-exception-2.2)
+    
 
 Please see [Appendix IV of SPDX 2.2 Specification](./appendix-IV-SPDX-license-expressions.md) for more examples and details of the license expression specific syntax.
 
