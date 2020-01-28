@@ -36,6 +36,7 @@
 | TEST\_CASE_OF          | Is to be used when SPDXRef-A is a test case used in testing SPDXRef-B.                                | A SOURCE file `testMyCode.java` is a unit test file used to test an APPLICATION MyPackage. |
 | BUILD\_TOOL_OF         | Is to be used when SPDXRef-A is used to to build SPDXRef-B.                                           | A SOURCE file `makefile.mk` is used to build an APPLICATION ‘zlib’. |
 | DEV\_TOOL_OF           | Is to be used when SPDXRef-A is used as a development tool for SPDXRef-B.                             | Any tool used for development such as a code debugger. |
+| TEST\_OF               | Is to be used when SPDXRef-A is used for testing SPDXRef-B.                                           | Generic relationship for cases where it's clear that something is used for testing but unclear whether it's TEST\_CASE_OF or TEST\_TOOL_OF. |
 | TEST\_TOOL_OF          | Is to be used when SPDXRef-A is used as a test tool for SPDXRef-B.                                    | Any tool used to test the code sucha as ESlint. |
 | DOCUMENTATION_OF       | Is to be used when SPDXRef-A provides documentation of SPDXRef-B.                                     | A DOCUMENTATION file `readme.txt` documents the APPLICATION ‘zlib’. |
 | OPTIONAL\_COMPONENT_OF | Is to be used when SPDXRef-A is an optional component of SPDXRef-B.                                   | A SOURCE file `fool.c` (which is in the contributors directory) may or may not be included in the build of APPLICATION ‘atthebar’. |
