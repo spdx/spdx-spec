@@ -84,7 +84,7 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 | RDF         | *.spdx.rdf  |
 | JSON        | *.spdx.json |
 | XML         | *.spdx.xml  |
-| YAML        | *.spdx.yaml |
+| YAML        | *.spdx.yaml or *.spdx.yml |
 
 **1.7.10** The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Universal Resource Indicator (URI) should be present.
 
