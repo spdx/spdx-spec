@@ -593,5 +593,6 @@ Example:
 [rfc3986]: https://tools.ietf.org/html/rfc3986
 [SHA-1]: https://tools.ietf.org/html/rfc3174
 [SHA-224]: https://en.wikipedia.org/wiki/SHA-2
+[SHA-256]: https://tools.ietf.org/html/rfc6234
 [SHA-384]: https://en.wikipedia.org/wiki/SHA-2
 [SHA-512]: https://en.wikipedia.org/wiki/SHA-2
