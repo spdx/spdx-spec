@@ -1,7 +1,7 @@
 # 2 Base Profile
 The Base Profile provides the core functionality for describing artifacts and the relationships between them.
 
-## 2.1 Overview
+## Overview
 
 ### Entities
 | Entity | Parent | Required | Cardinality |
@@ -14,7 +14,7 @@ The Base Profile provides the core functionality for describing artifacts and th
 | [Relationship](#relationship) | [Document Root](#document-root) | No | 0..* |
 | [Annotation](#annotation) | [Document Root](#document-root) | No | 0..* |
 
-## 2.2 Document Root
+## Document Root
 Some of the supported formats require the document to have a root entity.
 
 ### Examples
@@ -26,7 +26,7 @@ Some of the supported formats require the document to have a root entity.
 | Tag/Value | N/A |
 | RDF | `TODO` |
 
-## 2.3 Document Metadata
+## Document Metadata
 Information about the SPDX document itself.
 
 Provides necessary information to understand the provenance of the document and to enable forward and backward compatibility for processing tools.
