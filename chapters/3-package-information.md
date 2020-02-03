@@ -515,7 +515,7 @@ Example:
 
 **3.10.3** Cardinality: Optional, one or many.
 
-**3.10.4** Algorithms that can be used: [`SHA1`][SHA-1], [`SHA256`][SHA-256], [`MD5`][MD5]
+**3.10.4** Algorithms that can be used: [`SHA1`][SHA-1], [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6]
 
 **3.10.5** Data Format: There are three components, an algorithm identifier (e.g. `SHA1`), a colon separator `:`, and a bit value represented as lowercase hexadecimal digits (appropriate as output to the algorithm).
 
@@ -1054,12 +1054,18 @@ Example:
 [Git]: https://git-scm.com/
 [glibc]: https://www.gnu.org/software/libc/
 [LinuxFoundation]: https://www.linuxfoundation.org/
+[MD2]: https://tools.ietf.org/html/rfc1319
+[MD4]: https://tools.ietf.org/html/rfc1320
 [MD5]: https://tools.ietf.org/html/rfc1321
+[MD6]: https://groups.csail.mit.edu/cis/md6/
 [Mercurial]: https://www.mercurial-scm.org/
 [pip-vcs]: https://pip.pypa.io/en/latest/reference/pip_install.html#vcs-support
 [Red Hat]: https://www.redhat.com/
 [rfc3986]: https://tools.ietf.org/html/rfc3986
 [SHA-1]: https://tools.ietf.org/html/rfc3174
+[SHA-224]: https://en.wikipedia.org/wiki/SHA-2
+[SHA-384]: https://en.wikipedia.org/wiki/SHA-2
+[SHA-512]: https://en.wikipedia.org/wiki/SHA-2
 [SHA-256]: https://tools.ietf.org/html/rfc6234
 [SourceForge]: https://sourceforge.net/
 [Subversion]: https://subversion.apache.org/
