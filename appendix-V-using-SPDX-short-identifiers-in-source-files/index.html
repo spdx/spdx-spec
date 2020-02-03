@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Appendix V: Using SPDX short identifiers in Source Files - specification v2.1.1</title>
+  <title>Appendix V: Using SPDX short identifiers in Source Files - specification v2.2.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -36,7 +36,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> specification v2.1.1</a>
+        <a href=".." class="icon icon-home"> specification v2.2.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -129,9 +129,7 @@
         
             <li><a class="toctree-l3" href="#format-for-spdx-license-identifier">Format for SPDX-License-Identifier</a></li>
         
-            <li><a class="toctree-l3" href="#representing-single-license">Representing Single License</a></li>
-        
-            <li><a class="toctree-l3" href="#representing-multiple-licenses">Representing Multiple Licenses</a></li>
+            <li><a class="toctree-l3" href="#format-for-spdx-filecopyrightnotice">Format for SPDX-FileCopyrightNotice</a></li>
         
         </ul>
     
@@ -149,6 +147,11 @@
     <a class="" href="../appendix-VII-creative-commons-attribution-license-3.0-unported/">Appendix VII: Creative Commons Attribution License 3.0 Unported</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../appendix-VIII-SPDX-Lite/">Appendix VIII: SPDX Lite</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -159,7 +162,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">specification v2.1.1</a>
+        <a href="..">specification v2.2.0</a>
       </nav>
 
       
@@ -182,7 +185,7 @@
             <div class="section">
               
                 <h1 id="appendix-v-using-spdx-short-identifiers-in-source-files">Appendix V: Using SPDX short identifiers in Source Files</h1>
-<p>Identifying the license for open source software is critical for both reporting purposes and license compliance. However, determining the license can sometimes be difficult due to a lack of information or ambiguous information. Even when licensing information is present, a lack of consistent notation can make automating the task of license detection very difficult, thus requiring vast amounts of human effort.</p>
+<p>Identifying the license for open source software is critical for both reporting purposes and license compliance. However, determining the license and copyrights can sometimes be difficult due to a lack of information or ambiguous information. Even when licensing information is present, a lack of consistent notation can make automating the task of license detection very difficult, thus requiring vast amounts of human effort.</p>
 <p><a href="https://spdx.org/licenses/">Short identifiers</a> from the SPDX License List can be used to indicate license info at the file level. The advantages of doing this are numerous but include:</p>
 <ul>
 <li>It is precise.</li>
@@ -201,27 +204,36 @@
 <p>The SPDX License Identifier syntax may consist of a single license (represented by a short identifier from the <a href="https://spdx.org/licenses/">SPDX license list</a>) or a compound set of licenses (represented by joining together multiple licenses using the license expression syntax).</p>
 <p>The tag should appear on its own line in the source file, generally as part of a comment.</p>
 <p>SPDX-License-Identifier: <SPDX License Expression></p>
-<h2 id="representing-single-license">Representing Single License</h2>
+<h3 id="representing-single-license">Representing Single License</h3>
 <p>A single license is represented by using the short identifier from <a href="https://spdx.org/licenses/">SPDX license list</a>, optionally with a unary "+" operator following it to indicate "or later" versions may be applicable.</p>
 <p>Examples:</p>
 <pre><code>SPDX-License-Identifier: GPL-2.0+
 SPDX-License-Identifier: MIT
 </code></pre>
-<h2 id="representing-multiple-licenses">Representing Multiple Licenses</h2>
+<h3 id="representing-multiple-licenses">Representing Multiple Licenses</h3>
 <p>Multiple licenses can be represented using a SPDX license expression as defined in Appendix IV. A set of licenses must be enclosed in parentheses (this is a convention for SPDX expressions). As further described there:</p>
 <ol>
 <li>When there is a choice between licenses ("disjunctive license"), they should be separated with "OR". If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new license expression.</li>
 <li>Similarly when multiple licenses need to be simultaneously applied ("conjunctive license"), they should be separated with "AND". If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression.</li>
 <li>In some cases, a set of license terms apply except under special circumstances, in this case, use the "WITH" operator followed by one of the <a href="https://spdx.org/licenses/exceptions-index.html">recognized exception identifiers</a>.</li>
-<li>Sometimes a set of license terms apply except under special circumstances. In this case, use the binary "WITH" operator to construct a new license expression to represent the special exception situation.</li>
 </ol>
 <p>Examples:</p>
-<pre><code>SPDX-License-Identifier: (GPL-2.0 OR MIT)
-SPDX-License-Identifier: (LGPL-2.1 AND BSD-2-CLAUSE)
-SPDX-License-Identifier: (GPL-2.0+ WITH Bison-exception-2.2)
+<pre><code>SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+SPDX-License-Identifier: (LGPL-2.1-only AND BSD-2-Clause)
+SPDX-License-Identifier: (GPL-2.0-or-later WITH Bison-exception-2.2)
 </code></pre>
-<p>Please see <a href="../appendix-IV-SPDX-license-expressions/">Appendix IV of SPDX 2.1 Specification</a> for more examples and details of the license expression specific syntax.</p>
+<p>Please see <a href="../appendix-IV-SPDX-license-expressions/">Appendix IV of SPDX 2.2 Specification</a> for more examples and details of the license expression specific syntax.</p>
 <p>If you can’t express the license(s) as an expression using identifiers from the SPDX list, it is probably best to just put the text of your license header in the file (if there is a standard header), or refer to a neutral site URL where the text can be found. To request a license be added to the SPDX License List, please follow the process described here: <a href="http://spdx.org/spdx-license-list/request-new-license-or-exception">http://spdx.org/spdx-license-list/request-new-license-or-exception</a>.</p>
+<h2 id="format-for-spdx-filecopyrightnotice">Format for SPDX-FileCopyrightNotice</h2>
+<p>Some licenses require the identification of the copyright holders.   The natural language syntax can result in many false positives being picked up by source code scanning tools.  To be able to denote the copyright that tools should pick up for a file, the <a href="https://reuse.software/spec/">REUSE project</a> and SPDX community standardized on the identifier of SPDX-FileCopyrightNotice.   </p>
+<p>The SPDX-FileCopyrightNotice tag declares the copyright that the file is under and should be placed at or near the top of the file in a comment. To the extent that the file contains existing copyright notices, it is our recommendation that the tag be used to supplement not replace that information. Existing Copyright notices should <em>not</em> be removed from a file without the consent of the copyright holder. </p>
+<p>The tag should appear on its own line in the source file, generally as part of a comment.</p>
+<p>SPDX-FileCopyrightNotice: <Copyright Notice Information></p>
+<p>The copyright notice must have a copyright holder identified, which may be an individual, list of individuals, group, legal entity, or any other descriptor by which one can easily identify the copyright holder(s).    It may also contain a single year, or range of years.</p>
+<p>Examples of valid copyright notices:</p>
+<p>SPDX-FileCopyrightText: 2019 Jane Doe <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#97;&#110;&#101;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#106;&#97;&#110;&#101;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a>
+   SPDX-FileCopyrightText: 2019 Example Company
+   SPDX-FileCopyrightText: The Authors of </p>
               
             </div>
           </div>
@@ -242,7 +254,7 @@ SPDX-License-Identifier: (GPL-2.0+ WITH Bison-exception-2.2)
   <div role="contentinfo">
     <!-- Copyright etc -->
     
-      <p>Copyright &copy; 2010 - 2018 Linux Foundation and its Contributors.</p>
+      <p>Copyright &copy; 2010 - 2020 Linux Foundation and its Contributors.</p>
     
   </div>
 

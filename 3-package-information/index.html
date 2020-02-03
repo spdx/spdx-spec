@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>3 Package Information - specification v2.1.1</title>
+  <title>3 Package Information - specification v2.2.0</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -36,7 +36,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> specification v2.1.1</a>
+        <a href=".." class="icon icon-home"> specification v2.2.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -187,6 +187,11 @@
     <a class="" href="../appendix-VII-creative-commons-attribution-license-3.0-unported/">Appendix VII: Creative Commons Attribution License 3.0 Unported</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../appendix-VIII-SPDX-Lite/">Appendix VIII: SPDX Lite</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -197,7 +202,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">specification v2.1.1</a>
+        <a href="..">specification v2.2.0</a>
       </nav>
 
       
@@ -220,7 +225,7 @@
             <div class="section">
               
                 <h1 id="3-package-information">3 Package Information</h1>
-<p>One instance of the Package Information is required per package being described. A package can contain sub-packages, but the information in this section is a reference to the entire contents of the package listed. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.</p>
+<p>If you organize your SPDX information by grouping into packages, then one instance of the Package Information is required per package being described. A package can contain sub-packages, but the information in this section is a reference to the entire contents of the package listed. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.</p>
 <p>Cardinality: Optional, one or many.</p>
 <p>In <code>tag:value</code> format, the order in which package and files occur is syntactically significant.</p>
 <p>A new Package Information section is denoted by the <a href="#3.1">Package Name</a> field.
@@ -525,11 +530,11 @@ PackageDownloadLocation: bzr+http://bzr.myproject.org/MyProject/trunk@v1.0
 &lt;/Package&gt;
 
 &lt;Package rdf:about="..."&gt;
-    &lt;downloadLocation rdf:resource="http://spdx.org/rdf/terms#noassertion"/&gt;
+    &lt;downloadLocation rdf:resource="spdx:noassertion"/&gt;
 &lt;/Package&gt;
 
 &lt;Package rdf:about="..."&gt;
-    &lt;downloadLocation rdf:resource="http://spdx.org/rdf/terms#none"/&gt;
+    &lt;downloadLocation rdf:resource="spdx:none"/&gt;
 &lt;/Package&gt;
 </code></pre>
 <h2 id="38-files-analyzed">3.8 Files Analyzed <a name="3.8"></a></h2>
@@ -593,7 +598,7 @@ verificationcode = SHA1(filelist)
 &lt;/Package&gt;
 </code></pre>
 <h2 id="310-package-checksum">3.10 Package Checksum <a name="3.10"></a></h2>
-<p><strong>3.10.1</strong> Purpose: Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX file. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX file is to be included in a package, this value should not be calculated. The <a href="https://tools.ietf.org/html/rfc3174">SHA-1</a> algorithm will be used to provide the checksum by default. </p>
+<p><strong>3.10.1</strong> Purpose: Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX file. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX file is to be included in a package, this value should not be calculated. The <a href="https://tools.ietf.org/html/rfc3174">SHA-1</a> algorithm will be used to provide the checksum by default.</p>
 <p><strong>3.10.2</strong> Intent: Eliminate confusion over which version or modification of a specific package the SPDX file references by providing a unique identifier of the package.</p>
 <p><strong>3.10.3</strong> Cardinality: Optional, one or many.</p>
 <p><strong>3.10.4</strong> Algorithms that can be used: <a href="https://tools.ietf.org/html/rfc3174"><code>SHA1</code></a>, <a href="https://tools.ietf.org/html/rfc6234"><code>SHA256</code></a>, <a href="https://tools.ietf.org/html/rfc1321"><code>MD5</code></a></p>
@@ -611,13 +616,13 @@ PackageChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 <pre><code>&lt;Package rdf:about="..."&gt;
     &lt;checksum&gt;
         &lt;Checksum&gt;
-            &lt;algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_sha1"/&gt;
+            &lt;algorithm rdf:resource="spdx:checksumAlgorithm_sha1"/&gt;
             &lt;checksumValue&gt;85ed0817af83a24ad8da68c2b5094de69833983c&lt;/checksumValue&gt;
         &lt;/Checksum&gt;
     &lt;/checksum&gt;
     &lt;checksum&gt;
         &lt;Checksum&gt;
-            &lt;algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_sha256"/&gt;
+            &lt;algorithm rdf:resource="spdx:checksumAlgorithm_sha256"/&gt;
             &lt;checksumValue&gt;
                 11b6d3ee554eedf79299905a98f9b9a04e498210b59f15094c916c91d150efcd
             &lt;/checksumValue&gt;
@@ -625,7 +630,7 @@ PackageChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
     &lt;/checksum&gt;
     &lt;checksum&gt;
         &lt;Checksum&gt;
-            &lt;algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_md5"/&gt;
+            &lt;algorithm rdf:resource="spdx:checksumAlgorithm_md5"/&gt;
             &lt;checksumValue&gt;624c1abb3664f4b35547e7c73864ad24&lt;/checksumValue&gt;
         &lt;/Checksum&gt;
     &lt;/checksum&gt;
@@ -694,16 +699,16 @@ PackageChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 <p><code>&lt;SPDX License Expression&gt;</code> is a valid SPDX License Expression as defined in <a href="../appendix-IV-SPDX-license-expressions/">Appendix IV</a>.</p>
 <p><strong>3.13.5</strong> Tag: <code>PackageLicenseConcluded:</code></p>
 <p>Example:</p>
-<pre><code>PackageLicenseConcluded: LGPL-2.0
+<pre><code>PackageLicenseConcluded: LGPL-2.0-only
 </code></pre>
 <p>Example:</p>
-<pre><code>PackageLicenseConcluded: (LGPL-2.0 OR LicenseRef-3)
+<pre><code>PackageLicenseConcluded: (LGPL-2.0-only OR LicenseRef-3)
 </code></pre>
 <p><strong>3.13.6</strong> RDF: property <code>spdx:licenseConcluded</code> in <code>class spdx:Package</code></p>
 <p>Example:</p>
 <pre><code>&lt;Package rdf:about="..."&gt;
     ...
-    &lt;licenseConcluded rdf:resource="http://spdx.org/licenses/LGPL-2.0" /&gt;
+    &lt;licenseConcluded rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" /&gt;
     ...
 &lt;/Package&gt;
 </code></pre>
@@ -712,7 +717,7 @@ PackageChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
     ...
     &lt;licenseConcluded&gt;
          &lt;DisjunctiveLicenseSet&gt;
-             &lt;member rdf:resource="http://spdx.org/licenses/LGPL-2.0" /&gt;
+             &lt;member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" /&gt;
              &lt;member rdf:resource="LicenseRef-3" /&gt;
         &lt;/DisjunctiveLicenseSet&gt;
     &lt;/licenseConcluded&gt;
@@ -744,7 +749,7 @@ PackageChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 </ul>
 <p><strong>3.14.5</strong> Tag: <code>PackageLicenseInfoFromFiles:</code></p>
 <p>Example:</p>
-<pre><code>PackageLicenseInfoFromFiles: GPL-2.0
+<pre><code>PackageLicenseInfoFromFiles: GPL-2.0-only
 
 PackageLicenseInfoFromFiles: LicenseRef-1
 
@@ -754,7 +759,7 @@ PackageLicenseInfoFromFiles: LicenseRef-2
 <p>Example:</p>
 <pre><code>&lt;Package rdf:about="..."&gt;
     ...
-    &lt;licenseInfoFromFiles rdf:resource="https://spdx.org/licenses/GPL-2.0" /&gt;
+    &lt;licenseInfoFromFiles rdf:resource="https://spdx.org/licenses/GPL-2.0-only" /&gt;
     &lt;licenseInfoFromFiles rdf:resource="#LicenseRef-1" /&gt;
     &lt;licenseInfoFromFiles rdf:resource="#LicenseRef-2" /&gt;
     ...
@@ -781,16 +786,16 @@ PackageLicenseInfoFromFiles: LicenseRef-2
 </ul>
 <p><strong>3.15.5</strong> Tag: <code>PackageLicenseDeclared:</code></p>
 <p>Example:</p>
-<pre><code>PackageLicenseDeclared: LGPL-2.0
+<pre><code>PackageLicenseDeclared: LGPL-2.0-only
 </code></pre>
 <p>Example:</p>
-<pre><code>PackageLicenseDeclared: (LGPL-2.0 AND LicenseRef-3)
+<pre><code>PackageLicenseDeclared: (LGPL-2.0-only AND LicenseRef-3)
 </code></pre>
 <p><strong>3.15.6</strong> RDF: property <code>spdx:licenseDeclared</code> in class <code>spdx:Package</code></p>
 <p>Example:</p>
 <pre><code>&lt;Package rdf:about="..."&gt;
     ...
-    &lt;licenseDeclared rdf:resource="http://spdx.org/licenses/LGPL-2.0" /&gt;
+    &lt;licenseDeclared rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" /&gt;
     ...
 &lt;/Package&gt;
 </code></pre>
@@ -799,7 +804,7 @@ PackageLicenseInfoFromFiles: LicenseRef-2
     ...
      &lt;licenseDeclared&gt;
          &lt;ConjunctiveLicenseSet&gt;
-             &lt;member rdf:resource="http://spdx.org/licenses/LGPL-2.0" /&gt;
+             &lt;member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" /&gt;
              &lt;member rdf:resource="#LicenseRef-3" /&gt;
          &lt;/ConjunctiveLicenseSet&gt;
     &lt;/licenseDeclared&gt;
@@ -936,13 +941,13 @@ and extensions specific to GNU systems.&lt;/text&gt;
 
 ExternalRef: OTHER LocationRef-acmeforge acmecorp/acmenator/4.1.3-alpha
 </code></pre>
-<p><strong>3.21.6</strong> RDF: property <code>target</code> in class <code>spdx:ExternalRef</code> in class <code>spdx:Package</code></p>
+<p><strong>3.21.6</strong> RDF: property <code>externalRef</code> in class <code>spdx:Package</code> of type <code>spdx:ExternalRef</code> </p>
 <p>Example (for a listed location):</p>
 <pre><code>&lt;spdx:Package  rdf:about="..."&gt;
     ...
     &lt;spdx:externalRef&gt;
         &lt;spdx:ExternalRef&gt;
-            &lt;spdx:referenceCategory rdf:resouce="http://spdx.org/rdf/terms#referenceCategory_packageManager" /&gt;
+            &lt;spdx:referenceCategory rdf:resource="spdx:referenceCategory_packageManager" /&gt;
             &lt;spdx:referenceType rdf:resource="http://spdx.org/rdf/refeferences/maven-central" /&gt;
             &lt;spdx:referenceLocator&gt;org.apache.commons:commons-lang:3.2.1&lt;/spdx:referenceLocator&gt;
         &lt;/spdx:ExternalRef&gt;
@@ -955,7 +960,7 @@ ExternalRef: OTHER LocationRef-acmeforge acmecorp/acmenator/4.1.3-alpha
     ...
     &lt;spdx:externalRef&gt;
         &lt;spdx:ExternalRef&gt;
-            &lt;spdx:referenceCategory rdf:resource="http://spdx.org/rdf/terms#referenceCategory_other" /&gt;
+            &lt;spdx:referenceCategory rdf:resource="spdx:referenceCategory_other" /&gt;
             &lt;spdx:referenceType rdf:resource="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...LocationRef-acmeforge" /&gt;
             &lt;spdx:referenceLocator&gt;acmecorp/acmenator/4.1.3-alpha&lt;/spdx:referenceLocator&gt;
         &lt;/spdx:ExternalRef&gt;
@@ -977,12 +982,12 @@ ExternalRef: OTHER LocationRef-acmeforge acmecorp/acmenator/4.1.3-alpha
 security vulnerabilities (CVEs) which affect Vendor Product Version
 acmecorp:acmenator:6.6.6.&lt;/text&gt;
 </code></pre>
-<p><strong>3.22.6</strong> RDF: Property <code>rdfs:comment</code> in class <code>spdx:ExternalRef</code> in class <code>spdx:Package</code></p>
+<p><strong>3.22.6</strong> RDF: Property <code>rdfs:comment</code> in class <code>spdx:ExternalRef</code></p>
 <pre><code>&lt;spdx:Package rdf:about="..."&gt;
     ...
     &lt;spdx:externalRef&gt;
         &lt;spdx:ExternalRef&gt;
-            &lt;spdx:referenceCategory rdf:resouce="http://spdx.org/rdf/terms#referenceCategory_packageManager" /&gt;
+            &lt;spdx:referenceCategory rdf:resource="spdx:referenceCategory_packageManager" /&gt;
             &lt;spdx:referenceType rdf:resource="http://spdx.org/rdf/refeferences/maven-central" /&gt;
             &lt;spdx:referenceLocator&gt;org.apache.commons:commons-lang:3.2.1&lt;/spdx:referenceLocator&gt;
             &lt;rdfs:comment&gt;
@@ -1015,7 +1020,7 @@ acmecorp:acmenator:6.6.6.&lt;/text&gt;
   <div role="contentinfo">
     <!-- Copyright etc -->
     
-      <p>Copyright &copy; 2010 - 2018 Linux Foundation and its Contributors.</p>
+      <p>Copyright &copy; 2010 - 2020 Linux Foundation and its Contributors.</p>
     
   </div>
 
