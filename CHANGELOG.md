@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 * Added definitions for the `rdf:` and `rdf-schema:` namespaces.
 * Added clarification of the meaning of `Package` with an SPDX document.
 * Added [SPDX Lite](chapters/appendix-VIII-SPDX-Lite.md) which defines a minimal subset of SPDX for scenarios not requiring full SPDX documents.
+* Added [SPDX File Tags](chapters/appendix-IX-file-tags.md) which defines a mechanism to add file-specific information from SPDX-defined fields to source code files.
 
 See also the [SPDX specification 2.2 release announcement](TODO)
 
