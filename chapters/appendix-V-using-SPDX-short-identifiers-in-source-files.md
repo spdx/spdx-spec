@@ -24,7 +24,7 @@ The SPDX License Identifier syntax may consist of a single license (represented 
 
 The tag should appear on its own line in the source file, generally as part of a comment.
 
-SPDX-License-Identifier: <SPDX License Expression>
+SPDX-License-Identifier: \<SPDX License Expression\>
 
 ### Representing Single License
 
@@ -62,12 +62,12 @@ The SPDX-FileCopyrightNotice tag declares the copyright that the file is under a
 
 The tag should appear on its own line in the source file, generally as part of a comment.
 
-SPDX-FileCopyrightNotice: <Copyright Notice Information>
+SPDX-FileCopyrightNotice: \<Copyright Notice Information\>
 
-The copyright notice must have a copyright holder identified, which may be an individual, list of individuals, group, legal entity, or any other descriptor by which one can easily identify the copyright holder(s).    It may also contain a single year, or range of years.
+The Copyright Notice Information must have a copyright holder identified, which may be an individual, list of individuals, group, legal entity, or any other descriptor by which one can easily identify the copyright holder(s).    It may also contain a single year, or range of years.
 
 Examples of valid copyright notices:
 
-   SPDX-FileCopyrightText: 2019 Jane Doe <jane@example.com>
-   SPDX-FileCopyrightText: 2019 Example Company
-   SPDX-FileCopyrightText: The Authors of 
+    SPDX-FileCopyrightText: 2019 Jane Doe <jane@example.com>
+    SPDX-FileCopyrightText: 2019 Example Company
+    SPDX-FileCopyrightText: The Authors of 
