@@ -54,17 +54,17 @@ Please see [Appendix IV of SPDX 2.2 Specification](./appendix-IV-SPDX-license-ex
 
 If you can’t express the license(s) as an expression using identifiers from the SPDX list, it is probably best to just put the text of your license header in the file (if there is a standard header), or refer to a neutral site URL where the text can be found. To request a license be added to the SPDX License List, please follow the process described here: [http://spdx.org/spdx-license-list/request-new-license-or-exception](http://spdx.org/spdx-license-list/request-new-license-or-exception).
 
-## Format for SPDX-FileCopyrightNotice
+## Format for SPDX-FileCopyrightText
 
-Some licenses require the identification of the copyright holders.   The natural language syntax can result in many false positives being picked up by source code scanning tools.  To be able to denote the copyright that tools should pick up for a file, the [REUSE project](https://reuse.software/spec/) and SPDX community standardized on the identifier of SPDX-FileCopyrightNotice.   
+Some licenses require the identification of the copyright holders.   The natural language syntax can result in many false positives being picked up by source code scanning tools.  To be able to denote the copyright that tools should pick up for a file, the [REUSE project](https://reuse.software/spec/) and SPDX community standardized on the identifier of SPDX-FileCopyrightText.   
 
-The SPDX-FileCopyrightNotice tag declares the copyright that the file is under and should be placed at or near the top of the file in a comment. To the extent that the file contains existing copyright notices, it is our recommendation that the tag be used to supplement not replace that information. Existing Copyright notices should *not* be removed from a file without the consent of the copyright holder. 
+The SPDX-FileCopyrightText tag declares the copyright that the file is under and should be placed at or near the top of the file in a comment. To the extent that the file contains existing copyright notices, it is our recommendation that the tag be used to supplement not replace that information. Existing Copyright notices should *not* be removed from a file without the consent of the copyright holder. 
 
 The tag should appear on its own line in the source file, generally as part of a comment.
 
-SPDX-FileCopyrightNotice: \<Copyright Notice Information\>
+SPDX-FileCopyrightText: \<Copyright Text Information\>
 
-The Copyright Notice Information must have a copyright holder identified, which may be an individual, list of individuals, group, legal entity, or any other descriptor by which one can easily identify the copyright holder(s).    It may also contain a single year, or range of years.
+The Copyright Text Information must have a copyright holder identified, which may be an individual, list of individuals, group, legal entity, or any other descriptor by which one can easily identify the copyright holder(s).    It may also contain a single year, or range of years.
 
 Examples of valid copyright notices:
 
