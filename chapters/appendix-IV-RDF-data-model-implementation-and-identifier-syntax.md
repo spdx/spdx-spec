@@ -1,4 +1,4 @@
-# Appendix I: RDF Data Model Implementation and Identifier Syntax
+# Appendix IV: RDF Data Model Implementation and Identifier Syntax
 
 SPDX ® Vocabulary Specification
 
