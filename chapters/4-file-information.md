@@ -135,9 +135,9 @@ Example: (where file2 is a `README.TXT`)
 
 **4.4.2** Intent: Here, by providing a unique identifier of each file, confusion over which version/modification of a specific file should be eliminated.
 
-**4.4.3** Cardinality: Mandatory, one SHA1, others may be optionally provided.
+**4.4.3** Cardinality: Mandatory, one [`SHA1`][SHA-1], others may be optionally provided.
 
-**4.4.4** Algorithm: SHA1() is to be used on the file. Other algorithms that can be provided optionally include SHA256(), MD5().
+**4.4.4** Algorithm: [`SHA1`][SHA-1]is to be used on the file. Other algorithms that can be provided optionally include [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6]
 
 **4.4.5** Data Format: In `tag:value` there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF must also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160 bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected.
 
@@ -576,3 +576,22 @@ Example:
         <fileDependency rdf:nodeID="A1"/>
         <fileDependency rdf:nodeID="A2"/>
     </File>
+
+
+[Bazaar]: http://bazaar.canonical.com/
+[FSF]: http://www.fsf.org/
+[Git]: https://git-scm.com/
+[glibc]: https://www.gnu.org/software/libc/
+[LinuxFoundation]: https://www.linuxfoundation.org/
+[MD2]: https://tools.ietf.org/html/rfc1319
+[MD4]: https://tools.ietf.org/html/rfc1320
+[MD5]: https://tools.ietf.org/html/rfc1321
+[MD6]: https://groups.csail.mit.edu/cis/md6/
+[Mercurial]: https://www.mercurial-scm.org/
+[pip-vcs]: https://pip.pypa.io/en/latest/reference/pip_install.html#vcs-support
+[Red Hat]: https://www.redhat.com/
+[rfc3986]: https://tools.ietf.org/html/rfc3986
+[SHA-1]: https://tools.ietf.org/html/rfc3174
+[SHA-224]: https://en.wikipedia.org/wiki/SHA-2
+[SHA-384]: https://en.wikipedia.org/wiki/SHA-2
+[SHA-512]: https://en.wikipedia.org/wiki/SHA-2
