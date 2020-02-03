@@ -32,7 +32,7 @@ A single license is represented by using the short identifier from [SPDX license
 
 Examples:
 
-    SPDX-License-Identifier: GPL-2.0+
+    SPDX-License-Identifier: GPL-2.0-or-later
     SPDX-License-Identifier: MIT
 
 ### Representing Multiple Licenses
@@ -70,4 +70,4 @@ Examples of valid copyright notices:
 
     SPDX-FileCopyrightText: 2019 Jane Doe <jane@example.com>
     SPDX-FileCopyrightText: 2019 Example Company
-    SPDX-FileCopyrightText: The Authors of 
+    SPDX-FileCopyrightText: The Authors of Sample Project
