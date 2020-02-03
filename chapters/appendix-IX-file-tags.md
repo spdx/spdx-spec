@@ -8,7 +8,7 @@ The SPDX specification defines various other fields in the [File Information](./
 
 ## Format
 
-An SPDX file tag consists of a single line, generally as part of a comment, in the following format:
+An SPDX file tag consists of a single line, generally as part of a comment near the top of the file, in the following format:
 
     SPDX-tagname: <value>
 
