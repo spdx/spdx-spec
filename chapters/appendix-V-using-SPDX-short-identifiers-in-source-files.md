@@ -1,6 +1,6 @@
 # Appendix V: Using SPDX short identifiers in Source Files
 
-Identifying the license for open source software is critical for both reporting purposes and license compliance. However, determining the license can sometimes be difficult due to a lack of information or ambiguous information. Even when licensing information is present, a lack of consistent notation can make automating the task of license detection very difficult, thus requiring vast amounts of human effort.
+Identifying the license for open source software is critical for both reporting purposes and license compliance. However, determining the license and copyrights can sometimes be difficult due to a lack of information or ambiguous information. Even when licensing information is present, a lack of consistent notation can make automating the task of license detection very difficult, thus requiring vast amounts of human effort.
 
 [Short identifiers](https://spdx.org/licenses/) from the SPDX License List can be used to indicate license info at the file level. The advantages of doing this are numerous but include:
 
@@ -26,7 +26,7 @@ The tag should appear on its own line in the source file, generally as part of a
 
 SPDX-License-Identifier: <SPDX License Expression>
 
-## Representing Single License
+### Representing Single License
 
 A single license is represented by using the short identifier from [SPDX license list](https://spdx.org/licenses/), optionally with a unary "+" operator following it to indicate "or later" versions may be applicable.
 
@@ -35,7 +35,7 @@ Examples:
     SPDX-License-Identifier: GPL-2.0+
     SPDX-License-Identifier: MIT
 
-## Representing Multiple Licenses
+### Representing Multiple Licenses
 
 Multiple licenses can be represented using a SPDX license expression as defined in Appendix IV. A set of licenses must be enclosed in parentheses (this is a convention for SPDX expressions). As further described there:
 
@@ -53,3 +53,21 @@ Examples:
 Please see [Appendix IV of SPDX 2.2 Specification](./appendix-IV-SPDX-license-expressions.md) for more examples and details of the license expression specific syntax.
 
 If you can’t express the license(s) as an expression using identifiers from the SPDX list, it is probably best to just put the text of your license header in the file (if there is a standard header), or refer to a neutral site URL where the text can be found. To request a license be added to the SPDX License List, please follow the process described here: [http://spdx.org/spdx-license-list/request-new-license-or-exception](http://spdx.org/spdx-license-list/request-new-license-or-exception).
+
+## Format for SPDX-FileCopyrightNotice
+
+Some licenses require the identification of the copyright holders.   The natural language syntax can result in many false positives being picked up by source code scanning tools.  To be able to denote the copyright that tools should pick up for a file, the [REUSE project](https://reuse.software/spec/) and SPDX community standardized on the identifier of SPDX-FileCopyrightNotice.   
+
+The SPDX-FileCopyrightNotice tag declares the copyright that the file is under and should be placed at or near the top of the file in a comment. To the extent that the file contains existing copyright notices, it is our recommendation that the tag be used to supplement not replace that information. Existing Copyright notices should *not* be removed from a file without the consent of the copyright holder. 
+
+The tag should appear on its own line in the source file, generally as part of a comment.
+
+SPDX-FileCopyrightNotice: <Copyright Notice Information>
+
+The copyright notice must have a copyright holder identified, which may be an individual, list of individuals, group, legal entity, or any other descriptor by which one can easily identify the copyright holder(s).    It may also contain a single year, or range of years.
+
+Examples of valid copyright notices:
+
+   SPDX-FileCopyrightText: 2019 Jane Doe <jane@example.com>
+   SPDX-FileCopyrightText: 2019 Example Company
+   SPDX-FileCopyrightText: The Authors of 
