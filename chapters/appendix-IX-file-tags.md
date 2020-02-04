@@ -38,7 +38,7 @@ File contributors (see section 4.14):
 
 SPDX file tags of a particular type may appear one or multiple times in a file, depending on the corresponding cardinality defined for that field in the File Information section of the SPDX specification.
 
-Version 3.0 of the [REUSE Software guidelines](https://reuse.software/spec/) implement this format, via a recommendation to use the tag `SPDX-FileCopyrightText:` to include copyright notices as part of a file's comment headers.
+Version 3.0 of the [REUSE Software guidelines](https://reuse.software/spec/) implements this format, via a recommendation to use the tag `SPDX-FileCopyrightText:` to include copyright notices as part of a file's comment headers.
 
 ## Caveats
 
