@@ -2,7 +2,7 @@
 
 The [SPDX License List Matching Guidelines](https://spdx.org/spdx-license-list/matching-guidelines) provide guidelines to be used for the purposes of matching licenses and license exceptions against those included on the SPDX License List. There is no intent here to make a judgment or interpretation, but merely to ensure that when one SPDX user identifies a license as "BSD-3-Clause," for example, it is indeed the same license as what someone else identifies as "BSD-3-Clause" and the same license as what is listed on the SPDX License List. Examples of how to apply some of the matching guidelines to a license or exception are provided via templates.  Templates are comprised of technical markup within the master license text file to provide further or specific guidance to SPDX document creators or tool makers.  Not all licenses or exceptions will have templates.
 
-# SPDX License List Matching Guidelines, v2.0
+# SPDX License List Matching Guidelines, v2.1
 
 # 1 How These Guidelines Are Applied
 
@@ -106,52 +106,7 @@ English uses different spelling for some words. By identifying the spelling vari
 
 ### 8.1.1 Guideline
 
-The words in the following columns are considered equivalent and interchangeable. Templates do not include markup for this guideline.
-
-Column 1 | Column 2
--------- | --------
-1. Acknowledgement | 1. Acknowledgment
-2. Analog | 2. Analogue
-3. Analyze | 3. Analyse
-4. Artifact | 4. Artefact
-5. Authorization | 5. Authorisation
-6. Authorized | 6. Authorised
-7. Caliber | 7. Calibre
-8. Canceled | 8. Cancelled
-9. Capitalizations | 9. Capitalisations
-10. Catalog | 10. Catalogue
-11. Categorize | 11. Categorise
-12. Center | 12. Centre
-13. Emphasized | 13. Emphasised
-14. Favor | 14. Favour
-15. Favorite | 15. Favourite
-16. Fulfill | 16. Fulfil
-17. Fulfillment | 17. Fulfilment
-18. Initialize | 18. Initialise
-19. Judgement | 19. Judgment
-20. Labeling | 20. Labelling
-21. Labor | 21. Labour
-22. License | 22. Licence
-23. Maximize | 23. Maximise
-24. Modeled | 24. Modelled
-25. Modeling | 25. Modelling
-26. Offense | 26. Offence
-27. Optimize | 27. Optimise
-28. Organization | 28. Organisation
-29. Organize | 29. Organise
-30. Practice | 30. Practise
-31. Program | 31. Programme
-32. Realize | 32. Realise
-33. Recognize | 33. Recognise
-34. Signaling | 34. Signalling
-35. Sublicense | 35. Sub-license
-36. Sub-license | 36. Sub license
-37. Utilization | 37. Utilisation
-38. While | 38. Whilst
-39. Wilfull | 39. Wilful
-40. Noncommercial | 40. Non-commercial
-41. Percent | 41. Per cent
-42. Copyright holder | 42. Copyright owner
+The words in each line of the text file available at https://github.com/spdx/license-list-XML/blob/master/equivalentwords.txt are considered equivalent and interchangeable. Templates do not include markup for this guideline.
 
 # 9 Copyright Symbol
 
@@ -193,6 +148,15 @@ To avoid a license mismatch merely because extraneous text that appears at the e
 
 Ignore any text that occurs after the obvious end of the license and does not include substantive text of the license, for example: text that occurs after a statement such as, "END OF TERMS AND CONDITIONS," or an exhibit or appendix that includes an example or instructions on to how to apply the license to your code. Do not apply this guideline or ignore text that is comprised of additional license terms (e.g., permitted additional terms under GPL-3.0, section 7). Templates do not include markup for this guideline.
 
+# 13 HTTP Protocol
+
+## 13.1 Purpose
+
+To avoid a license mismatch due to a difference in a hyperlink protocol (e.g. http vs. https).
+
+### 13.1.1 Guideline
+
+HTTP:// and HTTPS:// should be considered equivalent. Templates may or may not include markup for this guideline.
 
 # SPDX License List Template Access
 
