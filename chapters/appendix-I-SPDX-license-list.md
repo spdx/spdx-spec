@@ -13,7 +13,7 @@ The SPDX License List is a list of commonly found licenses and exceptions used f
 [master-files]: https://github.com/spdx/license-list-XML
 [new-license]: https://github.com/spdx/license-list-XML/blob/master/CONTRIBUTING.md
 
-The following table contains the full names and short identifiers for the SPDX License List, v3.7 which was released 2019-10-22. For the full and most up-to-date version of the SPDX License List as well as other related information, please see [http://spdx.org/licenses/](http://spdx.org/licenses/)
+The following table contains the full names and short identifiers for the SPDX License List, v3.8 which was released 2020-02-09. For the full and most up-to-date version of the SPDX License List as well as other related information, please see [http://spdx.org/licenses/](http://spdx.org/licenses/)
 
 ## I.1 Licenses with Short Identifiers <a name="I.1"></a>
 
@@ -220,6 +220,7 @@ The following table contains the full names and short identifiers for the SPDX L
 | Lesser General Public License For Linguistic Resources                       | [LGPLLR](https://spdx.org/licenses/LGPLLR.html)                                                             |      |
 | libpng License                                                               | [Libpng](https://spdx.org/licenses/Libpng.html)                                                             |      |
 | PNG Reference Library version 2                                              | [libpng-2.0](https://spdx.org/licenses/libpng-2.0.html)                                                     |      |
+| libselinux public domain notice                                              | [libselinux-1.0](https://spdx.org/licenses/libselinux-1.0.html)                                             |      |
 | libtiff License                                                              | [libtiff](https://spdx.org/licenses/libtiff.html)                                                           |      |
 | Licence Libre du Québec – Permissive version 1.1                             | [LiLiQ-P-1.1](https://spdx.org/licenses/LiLiQ-P-1.1.html)                                                   | Y    |
 | Licence Libre du Québec – Réciprocité version 1.1                            | [LiLiQ-R-1.1](https://spdx.org/licenses/LiLiQ-R-1.1.html)                                                   | Y    |
@@ -235,7 +236,7 @@ The following table contains the full names and short identifiers for the SPDX L
 | MakeIndex License                                                            | [MakeIndex](https://spdx.org/licenses/MakeIndex.html)                                                       |      |
 | The MirOS Licence                                                            | [MirOS](https://spdx.org/licenses/MirOS.html)                                                               | Y    |
 | MIT License                                                                  | [MIT](https://spdx.org/licenses/MIT.html)                                                                   | Y    |
-| MIT No Attribution                                                           | [MIT-0](https://spdx.org/licenses/MIT-0.html)                                                               | Y    |
+| MIT No Attribution                                                           | [MIT-0](https://spdx.org/licenses/MIT-0.html)                                                               |      |
 | Enlightenment License (e16)                                                  | [MIT-advertising](https://spdx.org/licenses/MIT-advertising.html)                                           |      |
 | CMU License                                                                  | [MIT-CMU](https://spdx.org/licenses/MIT-CMU.html)                                                           |      |
 | enna License                                                                 | [MIT-enna](https://spdx.org/licenses/MIT-enna.html)                                                         |      |
@@ -271,12 +272,17 @@ The following table contains the full names and short identifiers for the SPDX L
 | Non-Profit Open Software License 3.0                                         | [NPOSL-3.0](https://spdx.org/licenses/NPOSL-3.0.html)                                                       | Y    |
 | NRL License                                                                  | [NRL](https://spdx.org/licenses/NRL.html)                                                                   |      |
 | NTP License                                                                  | [NTP](https://spdx.org/licenses/NTP.html)                                                                   | Y    |
+| NTP No Attribution                                                           | [NTP-0](https://spdx.org/licenses/NTP-0.html)                                                               |      |
 | Open CASCADE Technology Public License                                       | [OCCT-PL](https://spdx.org/licenses/OCCT-PL.html)                                                           |      |
 | OCLC Research Public License 2.0                                             | [OCLC-2.0](https://spdx.org/licenses/OCLC-2.0.html)                                                         | Y    |
 | ODC Open Database License v1.0                                               | [ODbL-1.0](https://spdx.org/licenses/ODbL-1.0.html)                                                         |      |
 | Open Data Commons Attribution License v1.0                                   | [ODC-By-1.0](https://spdx.org/licenses/ODC-By-1.0.html)                                                     |      |
 | SIL Open Font License 1.0                                                    | [OFL-1.0](https://spdx.org/licenses/OFL-1.0.html)                                                           |      |
+| SIL Open Font License 1.0 with no Reserved Font Name                         | [OFL-1.0-no-RFN](https://spdx.org/licenses/OFL-1.0-no-RFN.html)                                             |      |
+| SIL Open Font License 1.0 with Reserved Font Name                            | [OFL-1.0-RFN](https://spdx.org/licenses/OFL-1.0-RFN.html)                                                   |      |
 | SIL Open Font License 1.1                                                    | [OFL-1.1](https://spdx.org/licenses/OFL-1.1.html)                                                           | Y    |
+| SIL Open Font License 1.1 with no Reserved Font Name                         | [OFL-1.1-no-RFN](https://spdx.org/licenses/OFL-1.1-no-RFN.html)                                             | Y    |
+| SIL Open Font License 1.1 with Reserved Font Name                            | [OFL-1.1-RFN](https://spdx.org/licenses/OFL-1.1-RFN.html)                                                   | Y    |
 | Open Government Licence - Canada                                             | [OGL-Canada-2.0](https://spdx.org/licenses/OGL-Canada-2.0.html)                                             |      |
 | Open Government Licence v1.0                                                 | [OGL-UK-1.0](https://spdx.org/licenses/OGL-UK-1.0.html)                                                     |      |
 | Open Government Licence v2.0                                                 | [OGL-UK-2.0](https://spdx.org/licenses/OGL-UK-2.0.html)                                                     |      |
@@ -313,6 +319,7 @@ The following table contains the full names and short identifiers for the SPDX L
 | PHP License v3.01                                                            | [PHP-3.01](https://spdx.org/licenses/PHP-3.01.html)                                                         |      |
 | Plexus Classworlds License                                                   | [Plexus](https://spdx.org/licenses/Plexus.html)                                                             |      |
 | PostgreSQL License                                                           | [PostgreSQL](https://spdx.org/licenses/PostgreSQL.html)                                                     | Y    |
+| Python Software Foundation License 2.0                                       | [PSF-2.0](https://spdx.org/licenses/PSF-2.0.html)                                                           |      |
 | psfrag License                                                               | [psfrag](https://spdx.org/licenses/psfrag.html)                                                             |      |
 | psutils License                                                              | [psutils](https://spdx.org/licenses/psutils.html)                                                           |      |
 | Python License 2.0                                                           | [Python-2.0](https://spdx.org/licenses/Python-2.0.html)                                                     | Y    |
@@ -396,43 +403,45 @@ The following table contains the full names and short identifiers for the SPDX L
 
 ## I.2 Exceptions List <a name="I.2"></a>
 
-| Full Name of Exception                | SPDX License Exception                                                                                |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------|
-| 389 Directory Server Exception        | [389-exception](https://spdx.org/licenses/389-exception.html)                                         |
-| Autoconf exception 2.0                | [Autoconf-exception-2.0](https://spdx.org/licenses/Autoconf-exception-2.0.html)                       |
-| Autoconf exception 3.0                | [Autoconf-exception-3.0](https://spdx.org/licenses/Autoconf-exception-3.0.html)                       |
-| Bison exception 2.2                   | [Bison-exception-2.2](https://spdx.org/licenses/Bison-exception-2.2.html)                             |
-| Bootloader Distribution Exception     | [Bootloader-exception](https://spdx.org/licenses/Bootloader-exception.html)                           |
-| Classpath exception 2.0               | [Classpath-exception-2.0](https://spdx.org/licenses/Classpath-exception-2.0.html)                     |
-| CLISP exception 2.0                   | [CLISP-exception-2.0](https://spdx.org/licenses/CLISP-exception-2.0.html)                             |
-| DigiRule FOSS License Exception       | [DigiRule-FOSS-exception](https://spdx.org/licenses/DigiRule-FOSS-exception.html)                     |
-| eCos exception 2.0                    | [eCos-exception-2.0](https://spdx.org/licenses/eCos-exception-2.0.html)                               |
-| Fawkes Runtime Exception              | [Fawkes-Runtime-exception](https://spdx.org/licenses/Fawkes-Runtime-exception.html)                   |
-| FLTK exception                        | [FLTK-exception](https://spdx.org/licenses/FLTK-exception.html)                                       |
-| Font exception 2.0                    | [Font-exception-2.0](https://spdx.org/licenses/Font-exception-2.0.html)                               |
-| FreeRTOS Exception 2.0                | [freertos-exception-2.0](https://spdx.org/licenses/freertos-exception-2.0.html)                       |
-| GCC Runtime Library exception 2.0     | [GCC-exception-2.0](https://spdx.org/licenses/GCC-exception-2.0.html)                                 |
-| GCC Runtime Library exception 3.1     | [GCC-exception-3.1](https://spdx.org/licenses/GCC-exception-3.1.html)                                 |
-| GNU JavaMail exception                | [gnu-javamail-exception](https://spdx.org/licenses/gnu-javamail-exception.html)                       |
-| GPL Cooperation Commitment 1.0        | [GPL-CC-1.0](https://spdx.org/licenses/GPL-CC-1.0.html)                                               |
-| i2p GPL+Java Exception                | [i2p-gpl-java-exception](https://spdx.org/licenses/i2p-gpl-java-exception.html)                       |
-| Libtool Exception                     | [Libtool-exception](https://spdx.org/licenses/Libtool-exception.html)                                 |
-| Linux Syscall Note                    | [Linux-syscall-note](https://spdx.org/licenses/Linux-syscall-note.html)                               |
-| LLVM Exception                        | [LLVM-exception](https://spdx.org/licenses/LLVM-exception.html)                                       |
-| LZMA exception                        | [LZMA-exception](https://spdx.org/licenses/LZMA-exception.html)                                       |
-| Macros and Inline Functions Exception | [mif-exception](https://spdx.org/licenses/mif-exception.html)                                         |
-| OCaml LGPL Linking Exception          | [OCaml-LGPL-linking-exception](https://spdx.org/licenses/OCaml-LGPL-linking-exception.html)           |
-| Open CASCADE Exception 1.0            | [OCCT-exception-1.0](https://spdx.org/licenses/OCCT-exception-1.0.html)                               |
-| OpenJDK Assembly exception 1.0        | [OpenJDK-assembly-exception-1.0](https://spdx.org/licenses/OpenJDK-assembly-exception-1.0.html)       |
-| OpenVPN OpenSSL Exception             | [openvpn-openssl-exception](https://spdx.org/licenses/openvpn-openssl-exception.html)                 |
-| PS/PDF font exception (2017-08-17)    | [PS-or-PDF-font-exception-20170817](https://spdx.org/licenses/PS-or-PDF-font-exception-20170817.html) |
-| Qt GPL exception 1.0                  | [Qt-GPL-exception-1.0](https://spdx.org/licenses/Qt-GPL-exception-1.0.html)                           |
-| Qt LGPL exception 1.1                 | [Qt-LGPL-exception-1.1](https://spdx.org/licenses/Qt-LGPL-exception-1.1.html)                         |
-| Qwt exception 1.0                     | [Qwt-exception-1.0](https://spdx.org/licenses/Qwt-exception-1.0.html)                                 |
-| Swift Exception                       | [Swift-exception](https://spdx.org/licenses/Swift-exception.html)                                     |
-| U-Boot exception 2.0                  | [u-boot-exception-2.0](https://spdx.org/licenses/u-boot-exception-2.0.html)                           |
-| Universal FOSS Exception, Version 1.0 | [Universal-FOSS-exception-1.0](https://spdx.org/licenses/Universal-FOSS-exception-1.0.html)           |
-| WxWindows Library Exception 3.1       | [WxWindows-exception-3.1](https://spdx.org/licenses/WxWindows-exception-3.1.html)                     |
+| Full Name of Exception                                | SPDX License Exception                                                                                |
+|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| 389 Directory Server Exception                        | [389-exception](https://spdx.org/licenses/389-exception.html)                                         |
+| Autoconf exception 2.0                                | [Autoconf-exception-2.0](https://spdx.org/licenses/Autoconf-exception-2.0.html)                       |
+| Autoconf exception 3.0                                | [Autoconf-exception-3.0](https://spdx.org/licenses/Autoconf-exception-3.0.html)                       |
+| Bison exception 2.2                                   | [Bison-exception-2.2](https://spdx.org/licenses/Bison-exception-2.2.html)                             |
+| Bootloader Distribution Exception                     | [Bootloader-exception](https://spdx.org/licenses/Bootloader-exception.html)                           |
+| Classpath exception 2.0                               | [Classpath-exception-2.0](https://spdx.org/licenses/Classpath-exception-2.0.html)                     |
+| CLISP exception 2.0                                   | [CLISP-exception-2.0](https://spdx.org/licenses/CLISP-exception-2.0.html)                             |
+| DigiRule FOSS License Exception                       | [DigiRule-FOSS-exception](https://spdx.org/licenses/DigiRule-FOSS-exception.html)                     |
+| eCos exception 2.0                                    | [eCos-exception-2.0](https://spdx.org/licenses/eCos-exception-2.0.html)                               |
+| Fawkes Runtime Exception                              | [Fawkes-Runtime-exception](https://spdx.org/licenses/Fawkes-Runtime-exception.html)                   |
+| FLTK exception                                        | [FLTK-exception](https://spdx.org/licenses/FLTK-exception.html)                                       |
+| Font exception 2.0                                    | [Font-exception-2.0](https://spdx.org/licenses/Font-exception-2.0.html)                               |
+| FreeRTOS Exception 2.0                                | [freertos-exception-2.0](https://spdx.org/licenses/freertos-exception-2.0.html)                       |
+| GCC Runtime Library exception 2.0                     | [GCC-exception-2.0](https://spdx.org/licenses/GCC-exception-2.0.html)                                 |
+| GCC Runtime Library exception 3.1                     | [GCC-exception-3.1](https://spdx.org/licenses/GCC-exception-3.1.html)                                 |
+| GNU JavaMail exception                                | [gnu-javamail-exception](https://spdx.org/licenses/gnu-javamail-exception.html)                       |
+| GPL-3.0 Linking Exception                             | [GPL-3.0-linking-exception](https://spdx.org/licenses/GPL-3.0-linking-exception.html)                 |
+| GPL-3.0 Linking Exception (with Corresponding Source) | [GPL-3.0-linking-source-exception](https://spdx.org/licenses/GPL-3.0-linking-source-exception.html)   |
+| GPL Cooperation Commitment 1.0                        | [GPL-CC-1.0](https://spdx.org/licenses/GPL-CC-1.0.html)                                               |
+| i2p GPL+Java Exception                                | [i2p-gpl-java-exception](https://spdx.org/licenses/i2p-gpl-java-exception.html)                       |
+| Libtool Exception                                     | [Libtool-exception](https://spdx.org/licenses/Libtool-exception.html)                                 |
+| Linux Syscall Note                                    | [Linux-syscall-note](https://spdx.org/licenses/Linux-syscall-note.html)                               |
+| LLVM Exception                                        | [LLVM-exception](https://spdx.org/licenses/LLVM-exception.html)                                       |
+| LZMA exception                                        | [LZMA-exception](https://spdx.org/licenses/LZMA-exception.html)                                       |
+| Macros and Inline Functions Exception                 | [mif-exception](https://spdx.org/licenses/mif-exception.html)                                         |
+| OCaml LGPL Linking Exception                          | [OCaml-LGPL-linking-exception](https://spdx.org/licenses/OCaml-LGPL-linking-exception.html)           |
+| Open CASCADE Exception 1.0                            | [OCCT-exception-1.0](https://spdx.org/licenses/OCCT-exception-1.0.html)                               |
+| OpenJDK Assembly exception 1.0                        | [OpenJDK-assembly-exception-1.0](https://spdx.org/licenses/OpenJDK-assembly-exception-1.0.html)       |
+| OpenVPN OpenSSL Exception                             | [openvpn-openssl-exception](https://spdx.org/licenses/openvpn-openssl-exception.html)                 |
+| PS/PDF font exception (2017-08-17)                    | [PS-or-PDF-font-exception-20170817](https://spdx.org/licenses/PS-or-PDF-font-exception-20170817.html) |
+| Qt GPL exception 1.0                                  | [Qt-GPL-exception-1.0](https://spdx.org/licenses/Qt-GPL-exception-1.0.html)                           |
+| Qt LGPL exception 1.1                                 | [Qt-LGPL-exception-1.1](https://spdx.org/licenses/Qt-LGPL-exception-1.1.html)                         |
+| Qwt exception 1.0                                     | [Qwt-exception-1.0](https://spdx.org/licenses/Qwt-exception-1.0.html)                                 |
+| Swift Exception                                       | [Swift-exception](https://spdx.org/licenses/Swift-exception.html)                                     |
+| U-Boot exception 2.0                                  | [u-boot-exception-2.0](https://spdx.org/licenses/u-boot-exception-2.0.html)                           |
+| Universal FOSS Exception, Version 1.0                 | [Universal-FOSS-exception-1.0](https://spdx.org/licenses/Universal-FOSS-exception-1.0.html)           |
+| WxWindows Library Exception 3.1                       | [WxWindows-exception-3.1](https://spdx.org/licenses/WxWindows-exception-3.1.html)                     |
 
 ## I.3 Deprecated Licenses <a name="I.3"></a>
 
