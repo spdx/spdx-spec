@@ -534,19 +534,59 @@ Example:
         <fileContributor> IBM Corporation </fileContributor>
     </File>
 
-## 4.15 File Dependencies (deprecated) <a name="4.15"></a>
+## 4.15 File Attribution Text <a name="4.15"></a>
 
-This field is deprecated since SPDX 2.0 in favor of using [Section 7](7-relationships-between-SPDX-elements.md) which provides more granularity about relationships.
+**4.15.1** Purpose: This field provides a place for the SPDX data creator to record all attributions found in the file that are required to be communicated. These typically include copyright statement(s), license text, and a disclaimer.
 
-**4.15.1** Purpose: The field provides a place for the SPDX file creator to record a list of other files (referenceable within this SPDX file) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files may not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or may be needed as part of the file distribution obligation.
-
-**4.15.2** Intent: Here, the intent is to provide the recipient of the SPDX file with file dependency information based on the build system that created the file. These other files may impact the licensing of the file and/or may be required to satisfy the distribution obligation of the file (e.g., source files subject to a copyleft license).
+**4.15.2** Intent: The intent is to provide the recipient of the SPDX file with all the legally required attributions in the file, therefore complying with the license obligations.
 
 **4.15.3** Cardinality: Optional, one or many.
 
-**4.15.4** Data Format: Reference to the file within the SPDX document. For the `tag:value` format, this will be the filename. For the RDF format, it will be a reference to the actual file node.
+**4.15.4** Data Format: free form text that can (and usually will) span multiple lines.  
 
-**4.15.5** Tag: `FileDependency:`
+**4.15.5** Tag: `AttributionText:`
+
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
+
+Example: 
+
+    AttributionText: <text>
+    #   Copyright (C) 2004 Free Software Foundation, Inc.
+    #   Written by Scott James Remnant, 2004
+    #
+    # This file is free software; the Free Software Foundation gives
+    # unlimited permission to copy and/or distribute it, with or without
+    # modifications, as long as this notice is preserved.
+    </text>
+
+**4.15.6** RDF: property 'attributionText' in class 'spdx:File'
+
+Example:
+
+    <File rdf:about="...">
+           	<attributionText>
+    #   Copyright (C) 2004 Free Software Foundation, Inc.
+    #   Written by Scott James Remnant, 2004
+    #
+    # This file is free software; the Free Software Foundation gives
+    # unlimited permission to copy and/or distribute it, with or without
+    # modifications, as long as this notice is preserved.
+           	</attributionText>
+    </File>
+
+## 4.16 File Dependencies (deprecated) <a name="4.16"></a>
+
+This field is deprecated since SPDX 2.0 in favor of using [Section 7](7-relationships-between-SPDX-elements.md) which provides more granularity about relationships.
+
+**4.16.1** Purpose: The field provides a place for the SPDX file creator to record a list of other files (referenceable within this SPDX file) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files may not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or may be needed as part of the file distribution obligation.
+
+**4.16.2** Intent: Here, the intent is to provide the recipient of the SPDX file with file dependency information based on the build system that created the file. These other files may impact the licensing of the file and/or may be required to satisfy the distribution obligation of the file (e.g., source files subject to a copyleft license).
+
+**4.16.3** Cardinality: Optional, one or many.
+
+**4.16.4** Data Format: Reference to the file within the SPDX document. For the `tag:value` format, this will be the filename. For the RDF format, it will be a reference to the actual file node.
+
+**4.16.5** Tag: `FileDependency:`
 
 Example:
 
@@ -554,7 +594,7 @@ Example:
     FileDependency:./busybox-1.20.2/shell/match.c
     FileDependency:./busybox-1.20.2/shell/ash.c
 
-**4.15.6** RDF: Property `spdx:fileDependency` in class `spdx:File`
+**4.16.6** RDF: Property `spdx:fileDependency` in class `spdx:File`
 
 Example:
 
