@@ -53,3 +53,9 @@ Examples:
 Please see [Appendix IV of SPDX 2.2 Specification](./appendix-IV-SPDX-license-expressions.md) for more examples and details of the license expression specific syntax.
 
 If you can’t express the license(s) as an expression using identifiers from the SPDX list, it is probably best to just put the text of your license header in the file (if there is a standard header), or refer to a neutral site URL where the text can be found. To request a license be added to the SPDX License List, please follow the process described here: [http://spdx.org/spdx-license-list/request-new-license-or-exception](http://spdx.org/spdx-license-list/request-new-license-or-exception).
+
+Alternatively, you can use a `LicenseRef-` custom license identifier to refer to a license that is not on the SPDX License List, such as the following:
+
+    SPDX-License-Identifier: LicenseRef-my-special-license
+
+The `LicenseRef-` format is defined in [Appendix IV of the SPDX 2.2 Specification](./appendix-IV-SPDX-license-expressions.md). When using a custom `LicenseRef-` identifier, you will also need to provide a way for others to determine what license text corresponds to it. [Version 3.0 of the REUSE Software Specification](https://reuse.software/spec/) provides a standardized format that can optionally be used for providing the corresponding license text for these identifiers.
