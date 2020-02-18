@@ -1,4 +1,4 @@
-# Appendix V: Using SPDX short identifiers in Source Files
+# Appendix V: Using SPDX License List Short Identifiers in Source Files
 
 Identifying the license for open source software is critical for both reporting purposes and license compliance. However, determining the license can sometimes be difficult due to a lack of information or ambiguous information. Even when licensing information is present, a lack of consistent notation can make automating the task of license detection very difficult, thus requiring vast amounts of human effort.
 
