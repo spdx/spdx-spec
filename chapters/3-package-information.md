@@ -1047,6 +1047,38 @@ Example:
         </spdx:externalRef>
         ...
     </spdx:package>
+    
+## 3.23 Package Attribution Text <a name="3.23"></a>
+
+**4.15.1** Purpose: This field provides a place for the SPDX data creator to record all attributions at the package level that are required to be communicated. These typically include copyright statement(s), license text, and a disclaimer.
+
+**4.15.2** Intent: The intent is to provide the recipient of the SPDX file with all the legally required attributions at a package level, therefore complying with the license obligations.
+
+**4.15.3** Cardinality: Optional, one or many.
+
+**4.15.4** Data Format: free form text that can (and usually will) span multiple lines.  
+
+**4.15.5** Tag: `AttributionText:`
+
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
+
+Example: 
+
+    AttributionText: <text>
+All advertising materials mentioning features or use of this software must display the
+following acknowledgement:  This product includes software developed by the AT&T.
+    </text>
+
+**4.15.6** RDF: property 'attributionText' in class 'spdx:Package'
+
+Example:
+
+    <Package rdf:about="...">
+           	<attributionText>
+All advertising materials mentioning features or use of this software must display the
+following acknowledgement:  This product includes software developed by the AT&T.
+           	</attributionText>
+    </Package>
 
 
 [Bazaar]: http://bazaar.canonical.com/
