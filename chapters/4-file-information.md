@@ -536,27 +536,23 @@ Example:
 
 ## 4.15 File Attribution Text <a name="4.15"></a>
 
-**4.15.1** Purpose: This field provides a place for the SPDX data creator to record all attributions found in the file that are required to be communicated. These typically include copyright statement(s), license text, and a disclaimer.
+**4.15.1** Purpose: This field provides a place for the SPDX data creator to record, at the file level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the file's actual complete license text (see `LicenseConcluded` and `LicenseInfoInFile`), and may or may not include copyright notices (see also `FileCopyrightText`). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.
 
-**4.15.2** Intent: The intent is to provide the recipient of the SPDX file with all the legally required attributions in the file, therefore complying with the license obligations.
+**4.15.2** Intent: The intent is to provide the recipient of the SPDX file with acknowledgement content at a file level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator may or may not explain elsewhere how they intend for this field to be used.
 
 **4.15.3** Cardinality: Optional, one or many.
 
-**4.15.4** Data Format: free form text that can (and usually will) span multiple lines.  
+**4.15.4** Data Format: free form text that can span multiple lines.
 
-**4.15.5** Tag: `AttributionText:`
+**4.15.5** Tag: `FileAttributionText:`
 
 In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example: 
 
-    AttributionText: <text>
-    #   Copyright (C) 2004 Free Software Foundation, Inc.
-    #   Written by Scott James Remnant, 2004
-    #
-    # This file is free software; the Free Software Foundation gives
-    # unlimited permission to copy and/or distribute it, with or without
-    # modifications, as long as this notice is preserved.
+    FileAttributionText: <text>
+    All advertising materials mentioning features or use of this software must display the
+    following acknowledgement:  This product includes software developed by the AT&T.
     </text>
 
 **4.15.6** RDF: property 'attributionText' in class 'spdx:File'
@@ -565,12 +561,8 @@ Example:
 
     <File rdf:about="...">
            	<attributionText>
-    #   Copyright (C) 2004 Free Software Foundation, Inc.
-    #   Written by Scott James Remnant, 2004
-    #
-    # This file is free software; the Free Software Foundation gives
-    # unlimited permission to copy and/or distribute it, with or without
-    # modifications, as long as this notice is preserved.
+                All advertising materials mentioning features or use of this software must display the
+                following acknowledgement:  This product includes software developed by the AT&T.
            	</attributionText>
     </File>
 
