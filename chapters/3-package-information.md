@@ -1047,6 +1047,38 @@ Example:
         </spdx:externalRef>
         ...
     </spdx:package>
+    
+## 3.23 Package Attribution Text <a name="3.23"></a>
+
+**3.23.1** Purpose: This field provides a place for the SPDX data creator to record, at the package level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the package's actual complete license text (see `PackageLicenseConcluded`, `PackageLicenseDeclared` and `PackageLicenseInfoFromFiles`), and may or may not include copyright notices (see also `PackageCopyrightText`). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.
+
+**3.23.2** Intent: The intent is to provide the recipient of the SPDX file with acknowledgement content at a package level, to assist redistributors of the package with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator may or may not explain elsewhere how they intend for this field to be used.
+
+**3.23.3** Cardinality: Optional, one or many.
+
+**3.23.4** Data Format: free form text that can span multiple lines.
+
+**3.23.5** Tag: `PackageAttributionText:`
+
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
+
+Example: 
+
+    PackageAttributionText: <text>
+    All advertising materials mentioning features or use of this software must display the
+    following acknowledgement:  This product includes software developed by the AT&T.
+    </text>
+
+**3.23.6** RDF: property 'attributionText' in class 'spdx:Package'
+
+Example:
+
+    <Package rdf:about="...">
+           	<attributionText>
+                All advertising materials mentioning features or use of this software must display the
+                following acknowledgement:  This product includes software developed by the AT&T.
+           	</attributionText>
+    </Package>
 
 
 [Bazaar]: http://bazaar.canonical.com/
