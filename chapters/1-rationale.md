@@ -116,6 +116,6 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 **1.9.7** A new appendix "SPDX Lite" has been added to document a lightweight subset of the SPDX specification for scenarios where a full SPDX document is not required. See [Appendix VIII](appendix-VIII-SPDX-Lite.md) for more information.
 
-**1.9.8** A new appendix "Custom License Namespaces" has been added to document a format for custom license identifiers, using the existing `LicenseRef-` prefix, for optional use with licenses that are not on the SPDX License List but where stable license identifiers are desirable.
+**1.9.8** A new appendix "Custom License Namespaces" has been added to document two formats for custom license identifiers, using the existing `LicenseRef-` prefix, for optional use with licenses that are not on the SPDX License List but where stable license identifiers are desirable.
 
 **1.9.9** Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the [spdx-spec GitHub repository](https://github.com/spdx/spdx-spec).

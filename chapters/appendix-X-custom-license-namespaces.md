@@ -12,18 +12,18 @@ Subsequently, interest has been expressed in being able to use stable identifier
 
 ## Brief overview
 
-This appendix defines a format and mechanism for using the existing `LicenseRef-` format in a manner that enables stable identifier usage. Under this system:
+This appendix defines two formats and mechanisms for using the existing `LicenseRef-` format in a manner that enables stable identifier usage. Under this system:
 
-1. each license "namespace" consists of a standard order DNS name (such as `example.com`) that is under the control of the namespace maintainer's organization;
-2. the namespace maintainer creates an SPDX document defining license texts and corresponding identifiers with the DNS name included, as described below, and publishes it publicly at a URL under the namespace domain;
+1. each license "namespace" consists of either a standard order DNS name (such as `example.com`) or an organization name (such as `ExampleCorp`) that is under the control of the namespace maintainer's organization;
+2. the namespace maintainer creates an SPDX document defining license texts and corresponding identifiers with the DNS name or organization name included, as described below, and publishes it publicly at a URL under the namespace domain;
 3. the namespace and the SPDX document URL is registered with the SPDX project; and
 4. identifiers in the format described below can then be used by anyone, as long as they are defined in the SPDX document available at the registered URL.
 
-## Format
+## Format 1: DNS name
 
-For purposes of this appendix, a valid "namespace" is a standard order DNS name, such as `example.com`. Each custom license identifier under this namespace consists of the following, in order:
+For purposes of this appendix, a valid "namespace" using the DNS name format is a standard order DNS name, such as `example.com`. The DNS name, when represented here, can only use characters permitted by the license expression syntax (e.g., letters, digits, "-" and ".". It should not contain a period followed by a hyphen, as that denotes the end of the namespace. Each custom license identifier under this namespace consists of the following, in order:
 1. the prefix `LicenseRef-`
-2. the namespace, preceded by a period, and followed by a period and hyphen (e.g., `.example.com.-`)
+2. the namespace, preceded by a **period**, and followed by a **period and hyphen** (e.g., `.example.com.-`)
 3. any other characters permitted by the license expression syntax (e.g., letters, digits, "-" and ".")
 
 For example, for the `example.com` namespace, the following could be valid identifiers:
@@ -31,11 +31,23 @@ For example, for the `example.com` namespace, the following could be valid ident
 * `LicenseRef-.example.com.-EULA-v3.1`
 * `LicenseRef-.example.com.-anything`
 
+## Format 2: Organization name
+
+For purposes of this appendix, a valid "namespace" using the organization name format is the organization's name, such as `ExampleCorp`. The organization name, when represented here, can only use characters permitted by the license expression syntax (e.g., letters, digits, "-" and ".". It should not contain a double hyphen, as that denotes the end of the namespace. Each custom license identifier under this namespace consists of the following, in order:
+1. the prefix `LicenseRef-`
+2. the namespace, preceded by **two hyphens**, and followed by **two hyphens** (e.g., `--ExampleCorp--`)
+3. any other characters permitted by the license expression syntax (e.g., letters, digits, "-" and ".")
+
+For example, for the `ExampleCorp` namespace, the following could be valid identifiers:
+* `LicenseRef--ExampleCorp--XYZ-1.0`
+* `LicenseRef--ExampleCorp--EULA-v3.1`
+* `LicenseRef--ExampleCorp--anything`
+
 ## Prerequisites
 
 There are two required prerequisites before using the custom license namespace format.
 
-First, the creator of the identifiers must create an SPDX document that defines the custom identifiers and their corresponding license texts. This should be done using [Other Licensing Information](./6-other-licensing-information-detected.md) sections. The defined identifiers should be in the format described above. Namespace maintainers may update this document from time to time in order to add new identifiers, but they must not modify or remove previously-published identifiers.
+First, the creator of the identifiers must create an SPDX document that defines the custom identifiers and their corresponding license texts. This should be done using [Other Licensing Information](./6-other-licensing-information-detected.md) sections. The defined identifiers should be in the applicable format described above. Namespace maintainers may update this document from time to time in order to add new identifiers, but they must not modify or remove previously-published identifiers. The SPDX document should not define any licenses with identifiers other than those in its own namespace.
 
 Second, the URL for the namespace's definition document must be registered with the SPDX project. The purpose for this is to ensure that consumers of the namespaced license identifiers are able to find the document defining the license text corresponding to those identifiers. This registration should occur using a mechanism to be provided by the SPDX project and made publicly available, which may consist of pull requests to a public repository or another custom tool for this purpose.
 
