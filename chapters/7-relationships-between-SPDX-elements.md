@@ -10,6 +10,7 @@
 | DESCRIBED_BY           | Is to be used when SPDXRef-A is described by SPDXREF-Document                                         | The package ‘WildFly’ is described by SPDX document `Wildfly.spdx`. |
 | CONTAINS               | Is to be used when SPDXRef-A contains SPDXRef-B.                                                      | An ARCHIVE file `bar.tgz` contains a SOURCE file `foo.c`. |
 | CONTAINED_BY           | Is to be used when SPDXRef-A is contained by SPDXRef-B.                                               | A SOURCE file `foo.c` is contained by ARCHIVE file `bar.tgz` |
+| DEPENDENCY_MANIFEST_OF | Is to be used when SPDXRef-A is a manifest file that lists a set of dependencies for SPDXRef-B        | A file `package.json` is the dependency manifest of a package `foo`. Note that only one manifest should be used to define the same dependency graph. | 
 | DEPENDENCY_OF          | Is to be used when SPDXRef-A is dependency of SPDXRef-B.                                              | A is explicitly stated as a dependency of B in a machine-readable file. Use when a package manager does not define scopes.|
 | BUILD\_DEPENDENCY_OF   | Is to be used when SPDXRef-A is a build dependency of SPDXRef-B.                                      | A is in the `compile` scope of B in a Maven project. |
 | DEV\_DEPENDENCY_OF     | Is to be used when SPDXRef-A is development dependency of SPDXRef-B.                                  | A is in the `devDependencies` scope of B in a Maven project. |
