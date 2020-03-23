@@ -1,12 +1,61 @@
 # 2 Base Profile
-The Base Profile provides the core functionality for describing artifacts and the relationships between them.
+## 2.1 Overview
+The Base Profile provides the core entities for describing artifacts and the relationships between them.
 
-## Overview
+{% dot base_profile_overview.svg
+      digraph G {
+        node [
+                fontname = "Helvetica Neue"
+                fontsize = 10
+                shape = "record"
+        ]
 
-### Entities
+        edge [
+                fontname = "Helvetica Neue"
+                fontsize = 10
+        ]
+
+        DocumentRoot [
+          label = "{Document Root}"
+        ]
+
+        DocumentMetadata [
+          label = "{Document Metadata|+ spdxVersion : string\l+ dataLicense : SPDXExpression\l+ SPDXID : string\l+ documentNamespace : string\l+ documentName : string\l+ created : DateTime\l+ creators : Identity[]\l|}"
+        ]
+
+        Identity [
+        ]
+
+        Person [
+        ]
+
+        Organization [
+        ]
+
+        Person -> Identity
+        Organization -> Identity
+
+        Artifact []
+
+        Package []
+
+        File []
+
+        Snippet []
+
+        Package -> Artifact
+        File -> Artifact
+        Snippet -> Artifact
+
+        Relationship []
+
+        Annotation []
+      }
+%}
+
+### 2.1.1 Entities
 | Entity | Parent | Required | Cardinality |
 | ------ | ------ | -------- | ----------- |
-| [Document Root](#document-root) | N/A | Yes | 1..1 |
 | [Document Metadata](#document-metadata) | [Document Root](#document-root) | Yes | 1..1 |
 | [Package](#package) | [Document Root](#document-root) | No | 0..* |
 | [External Artifact](#external-artifact) | [Document Root](#document-root) | No | 0..* |
@@ -14,30 +63,30 @@ The Base Profile provides the core functionality for describing artifacts and th
 | [Relationship](#relationship) | [Document Root](#document-root) | No | 0..* |
 | [Annotation](#annotation) | [Document Root](#document-root) | No | 0..* |
 
-## Document Root
-Some of the supported formats require the document to have a root entity.
-
-### Examples
-| Format | Example |
-| -------- | ------- |
-| YAML | N/A |
-| JSON | N/A |
-| XML | `TODO` |
-| Tag/Value | N/A |
-| RDF | `TODO` |
-
-## Document Metadata
+## 2.2 Document Metadata
+### 2.2.1 Summary
 Information about the SPDX document itself.
 
-Provides necessary information to understand the provenance of the document and to enable forward and backward compatibility for processing tools.
-
-### Metadata
+### 2.2.2 Metadata
 | Attribute   | Value |
 | ----------- | ----- |
 | Required    | Yes   |
 | Cardinality | 1..1  |
 
-### Examples
+### 2.2.3 Description
+Provides necessary information to understand the provenance of the document and to enable forward and backward compatibility for processing tools.
+
+| Field | Required | Cardinality |
+| ----- | -------- | ----------- |
+| [SPDX Version](#spdx-version) | Yes | 1..1 |
+| [Data License](#data-license) | Yes | 1..1 |
+| [SPDX Identifier](#spdx-identifier) | Yes | 1..1 |
+| [SPDX Document Namespace](#spdx-document-namespace) | Yes | 1..1 |
+| [Document Name](#document-name) | Yes | 1..1 |
+| [Created](#created) | Yes | 1..1 |
+| [Creators](#creators) | Yes | 1..1 |
+
+### 2.2.4 Examples
 ```yaml
 documentMetadata:
   spdxVersion: SPDX-3.0
@@ -53,27 +102,12 @@ identities:
     name: William Bartholomew
     email: iamwillbar@github.com
 ```
-
-### Fields
-
-| Field | Required | Cardinality |
-| ----- | -------- | ----------- |
-| [SPDX Version](#spdx-version) | Yes | 1..1 |
-| [Data License](#data-license) | Yes | 1..1 |
-| [SPDX Identifier](#spdx-identifier) | Yes | 1..1 |
-| [SPDX Document Namespace](#spdx-document-namespace) | Yes | 1..1 |
-| [Document Name](#document-name) | Yes | 1..1 |
-| [Created](#created) | Yes | 1..1 |
-| [Creators](#creators) | Yes | 1..1 |
-
-#### SPDX Version
+### 2.2.4 Fields
+#### 2.2.4.1 SPDX Version
+##### 2.2.4.1.1 Summary
 Version of the SPDX Specification that the document complies with.
 
-Enables tools and humans to understand how to process the document and to support backward and forward compatibility.
-
-The version number consists of a major and a minor portion. The major portion will be incremented when incompatible changes are made to the specification, and the minor field will be incremented when backwards compatible changes are made.
-
-##### Metadata
+##### 2.2.4.1.2 Metadata
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -81,7 +115,10 @@ The version number consists of a major and a minor portion. The major portion wi
 | Data Type | string |
 | Format | `SPDX-M.N` where:<br>* `M` is major version number<br>* `N` is minor version number. |
 
-##### Examples
+##### 2.2.4.1.3 Description
+Provide a reference number that can be used to understand how to parse and interpret the rest of the file. It will enable both future changes to the specification and to support backward compatibility. The version number consists of a major and minor version indicator. The major field will be incremented when incompatible changes between versions are made (one or more sections are created, modified or deleted). The minor field will be incremented when backwards compatible changes are made.
+
+##### 2.2.4.1.4 Examples
 | Format | Example |
 | -------- | ------- |
 | YAML | `spdxVersion: SPDX-3.0` |
@@ -90,10 +127,11 @@ The version number consists of a major and a minor portion. The major portion wi
 | Tag/Value | `SPDXVersion: SPDX-3.0` |
 | RDF | `<specVersion>SPDX-3.0</specVersion>` |
 
-#### Data License
+#### 2.2.4.2 Data License
+##### 2.2.4.2.1 Summary
 License that the contents of the document is available under.
 
-##### Metadata
+##### 2.2.4.2.2 Metadata
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -101,7 +139,12 @@ License that the contents of the document is available under.
 | Data Type | string |
 | Format | `CC0-1.0` |
 
-##### Examples
+##### 2.2.4.2.3 Description
+Compliance with the SPDX specification includes populating the SPDX fields therein with data related to such fields ("SPDX-Metadata"). The SPDX specification contains numerous fields where an SPDX document creator may provide relevant explanatory text in SPDX-Metadata. Without opining on the lawfulness of "database rights" (in jurisdictions where applicable), such explanatory text is copyrightable subject matter in most Berne Convention countries. By using the SPDX specification, or any portion hereof, you hereby agree that any copyright rights (as determined by your jurisdiction) in any SPDX-Metadata, including without limitation explanatory text, shall be subject to the terms of the Creative Commons CC0 1.0 Universal license. For SPDX-Metadata not containing any copyright rights, you hereby agree and acknowledge that the SPDX-Metadata is provided to you "as-is" and without any representations or warranties of any kind concerning the SPDX-Metadata, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non-infringement, or the absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.
+
+This is to alleviate any concern that content (the data or database) in an SPDX file is subject to any form of intellectual property right that could restrict the re-use of the information or the creation of another SPDX file for the same project(s). This approach avoids intellectual property and related restrictions over the SPDX file, however individuals can still contract with each other to restrict release of specific collections of SPDX files (which map to software bill of materials) and the identification of the supplier of SPDX files.
+
+##### 2.2.4.2.4 Examples
 | Format | Example |
 | -------- | ------- |
 | YAML | `dataLicense: CC0-1.0` |
@@ -110,12 +153,11 @@ License that the contents of the document is available under.
 | Tag/Value | `DataLicense: CC0-1.0` |
 | RDF | `<dataLicense>CC0-1.0</dataLicense>` |
 
-#### SPDX Identifier
-Identifies the current SPDX document so that it may be referenced in relationships from within the current document or from external documents. 
+#### 2.2.4.3 SPDX Identifier
+##### 2.2.4.3.1 Summary
+Identifies the current SPDX document so that it may be referenced in [relationships](#relationship) from within the current document or from external documents. 
 
-See [Relationship](#relationship) for more information.
-
-##### Metadata
+##### 2.2.4.3.2 Metadata
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -123,7 +165,10 @@ See [Relationship](#relationship) for more information.
 | Data Type | string |
 | Format | `SPDXRef-DOCUMENT` |
 
-##### Examples
+##### 2.2.4.3.3 Description
+Identify the current SPDX document which may be referenced in relationships by other files, packages internally and documents externally. To reference another SPDX document in total, this identifier should be used with the external document identifier preceding it. See [Relationship](#relationship) for more information.
+
+##### 2.2.4.3.4 Examples
 | Format | Example |
 | -------- | ------- |
 | YAML | `SPDXID: SPDXRef-DOCUMENT` |
@@ -132,21 +177,61 @@ See [Relationship](#relationship) for more information.
 | Tag/Value | `SPDXID: SPDXRef-DOCUMENT` |
 | RDF | `<SPDXID>SPDXRef-DOCUMENT</SPDXID>` |
 
-#### SPDX Document Namespace
+#### 2.2.4.4 SPDX Document Namespace
+##### 2.2.4.4.1 Summary
+Provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document.
 
-#### Document Name
-Human friendly name for the SPDX document as designed by the creator.
-
-Provides an easier way for humans to refer to the document rather than the [SPDX Document Namespace](#spdx-document-namespace), although there are no guarantees of uniqueness.
-
-##### Metadata
+##### 2.2.4.4.2 Metadata
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Data Type | string |
+| Data Type | URI |
+| Format | Unique absolute Uniform Resource Identifier (URI) as specified in [RFC-3986][rfc3986], with the exception of the `#` delimiter. |
 
-##### Examples
+##### 2.2.4.4.3 Description
+The SPDX Document URI cannot contain a URI "part" (e.g. the "#" character), since the ‘#’ is used in SPDX element URIs (packages, files, snippets, etc) to separate the document namespace from the element’s SPDX identifier. Additionally, a scheme (e.g. “https:”) is required.
+
+The URI must be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI.
+
+The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See [section 2.6](#2.6) for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `https://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
+
+* `CreatorWebsite` is a website hosted by the creator of the document. (e.g. an SPDX document provided by SPDX would be spdx.org)
+* `PathToSpdx` is a path to where SPDX documents are stored on the website (e.g. /spdx/spdxdocs)
+* `DocumentName` is a name given to the SPDX Document itself, typically the (set of) package name(s) followed by the version. [(see section 2.4)](#2.4).
+* `UUID` is a [universally unique identifier][URI]. The UUID could be a version 4 random UUID which can be generated from the [Online UUID Generator][uuid-gen] or a version 5 UUID generated from a sha1 checksum known to be unique for this specific SPDX document version.
+* If the creator does not own their own website, a default SPDX CreatorWebsite and PathToSpdx can be used `spdx.org/spdxdocs`. Note that the SPDX documents are not currently stored or accessible on this website. The URI is only used to create a unique ID following the above conventions.
+
+Note that the URI does not have to be accessible. It is only intended to provide a unique ID. In many cases, the URI will point to a web accessible document, but this should not be assumed to be the case.
+
+[URI]: https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
+[rfc3986]: https://tools.ietf.org/html/rfc3986
+[uuid-gen]: https://www.uuidgenerator.net/
+
+##### 2.2.4.4.4 Examples
+| Format | Example |
+| -------- | ------- |
+| YAML | `documentNamespace: http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...` |
+| JSON | `"documentNamespace": "http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..."` |
+| XML | `<spdx:documentNamespace>http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...</spdx:documentNamespace>` |
+| Tag/Value | `DocumentNamespace: http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...` |
+| RDF | `<SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">...</SpdxDocument` |
+
+#### 2.2.4.5 Document Name
+##### 2.2.4.5.1 Summary
+Human friendly name for the SPDX document as designed by the creator.
+
+##### 2.2.4.5.2 Metadata
+| Attribute | Value |
+| --------- | ----- |
+| Required | Yes |
+| Cardinality | 1..1 |
+| Data Type | string (single line) |
+
+##### 2.2.4.5.3 Description
+Provides an easier way for humans to refer to the document rather than the [SPDX Document Namespace](#spdx-document-namespace), although there are no guarantees of uniqueness.
+
+##### 2.2.4.5.4 Examples
 | Format | Example |
 | -------- | ------- |
 | YAML | `name: glibc-v2.3` |
@@ -155,10 +240,11 @@ Provides an easier way for humans to refer to the document rather than the [SPDX
 | Tag/Value | `name: glibc-v2.3` |
 | RDF | `<name>glibc-v2.3</name>` |
 
-### Created
+#### 2.2.4.6 Created
+##### 2.2.4.6.1 Summary
 When the SPDX document was originally created.
 
-##### Metadata
+##### 2.2.4.6.2 Metadata
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -166,26 +252,32 @@ When the SPDX document was originally created.
 | Data Type | string |
 | Format | The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard.<br><br>`YYYY-MM-DDThh:mm:ssZ` where:<br>* `YYYY` is year<br>* `MM` is month with leading zero<br>* `DD` is day with leading zero<br>* `T` is delimiter for time<br>* `hh` is hours with leading zero in 24 hour time<br>* `mm` is minutes with leading zero<br>* `ss` is seconds with leading zero<br>* `Z` is universal time indicator |
 
-##### Examples
+##### 2.2.4.6.3 Description
+The time stamp can serve as an indication as to whether the analysis needs to be updated.
+
+##### 2.2.4.6.4 Examples
 | Format | Example |
 | -------- | ------- |
-| YAML | `created: 2019-12-19T14:34:00Z` |
-| JSON | `"name": "2019-12-19T14:34:00Z"` |
-| XML | `<spdx:created>2019-12-19T14:34:00Z</spdx:created>` |
-| Tag/Value | `created: 2019-12-19T14:34:00Z` |
-| RDF | `<created>2019-12-19T14:34:00Z</created>` |
+| YAML | `created: 22010-01-29T18:30:22Z` |
+| JSON | `"created": "2010-01-29T18:30:22Z"` |
+| XML | `<spdx:created>2010-01-29T18:30:22Z</spdx:created>` |
+| Tag/Value | `Created: 2010-01-29T18:30:22Z` |
+| RDF | `<spdx:created>2010-01-29T18:30:22Z</spdx:created>` |
 
-### Creators
+#### 2.2.4.7 Creators
+##### 2.2.4.7.1 Summary
 Who (or what, in the case of a tool) created the SPDX document.
 
-##### Metadata
+##### 2.2.4.7.2 Metadata
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..* |
 | Data Type | [Identity](#identity) |
 
-##### Examples
+##### 2.2.4.7.3 Description
+
+##### 2.2.4.7.4 Examples
 | Format | Example |
 | -------- | ------- |
 | YAML | <pre>creators:<br>- person:<br>    name: William Bartholomew<br>    email: iamwillbar@github.com<br>- organization:<br>    name: GitHub</pre>|
@@ -194,7 +286,20 @@ Who (or what, in the case of a tool) created the SPDX document.
 | Tag/Value | TODO |
 | RDF | TODO |
 
-## 2.4 Artifact
+#### 2.2.4.8 External Document References
+##### 2.2.4.8.1 Summary
+##### 2.2.4.8.2 Metadata
+##### 2.2.4.8.3 Description
+##### 2.2.4.8.4 Examples
+| Format | Example |
+| -------- | ------- |
+| YAML | TODO|
+| JSON | TODO |
+| XML | TODO |
+| Tag/Value | TODO |
+| RDF | TODO |
+
+## 2.3 Artifact
 `Artifact` is an abstract concept that can refer to a [Package](#package), [File](#file), or [Snippet](#snippet). Any of these can be used where an `Artifact` is required.
 
 ### Fields
@@ -224,7 +329,7 @@ Who (or what, in the case of a tool) created the SPDX document.
 | Field | Required | Cardinality |
 | ----- | -------- | ----------- |
 
-## 2.5 Identity
+## 2.4 Identity
 Identity is an abstract concept that can refer to a [Person](#person), [Organization](#organization), or [Tool](#tool). Any of these can be used where an `Identity` is required.
 
 ### Person
@@ -253,7 +358,7 @@ Represents an organization.
 ##### Tool Name
 ##### Tool Version
 
-## 2.6 Relationship
+## 2.5 Relationship
 Establishes a relationship between `Artifact`s either in the same SPDX document or in different SPDX documents.
 
 ### Fields
@@ -270,7 +375,7 @@ Establishes a relationship between `Artifact`s either in the same SPDX document 
 ### Relationship Type
 <!-- TODO: Is the reverse direction implied or should it be declared explicitly? -->
 
-## 2.7 Annotation
+## 2.6 Annotation
 
 ### Fields
 | Field | Required | Cardinality |
