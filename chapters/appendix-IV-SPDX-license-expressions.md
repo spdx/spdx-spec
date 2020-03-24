@@ -41,6 +41,14 @@ A valid `<license-expression>` string consists of either:
 
 There MUST NOT be whitespace between a license-id and any following `+`. This supports easy parsing and backwards compatibility. There MUST be whitespace on either side of the operator "WITH". There MUST be whitespace and/or parentheses on either side of the operators `AND` and `OR`.
 
+## Case sensitivity <a name="case-sensitivity"></a>
+
+License expression operators (`AND`, `OR` and `WITH`) should be matched in a *case-sensitive* manner.
+
+License identifiers used in SPDX documents or source code files should be matched in a *case-insensitive* manner. In other words, `MIT`, `Mit` and `mIt` should all be treated as the same identifier and referring to the same license.
+
+However, please be aware that it is often important to match with the case of the canonical license identifier on the [SPDX License List](https://spdx.org/licenses). This is because the canonical identifier's case is used in the URL of the license's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.
+
 ## Simple License Expressions <a name="simple-expr"></a>
 
 A simple `<license-expression>` is composed one of the following:
