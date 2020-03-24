@@ -116,4 +116,6 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 **1.9.7** A new appendix "SPDX Lite" has been added to document a lightweight subset of the SPDX specification for scenarios where a full SPDX document is not required. See [Appendix VIII](appendix-VIII-SPDX-Lite.md) for more information.
 
-**1.9.8** Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the [spdx-spec GitHub repository](https://github.com/spdx/spdx-spec).
+**1.9.8** Additional relationship options have been added to enable expression of different forms of dependencies between SPDX elements.   As well, NONE and NOASSERTION keywords are now permitted to be used with relationships to indicated what is unknown.
+
+**1.9.9** Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the [spdx-spec GitHub repository](https://github.com/spdx/spdx-spec).
