@@ -2,7 +2,13 @@
 
 ## 7.1 Relationship <a name="7.1"></a>
 
-**7.1.1** Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. The relationships between two elements that are supported are:
+**7.1.1** Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. 
+
+In cases where there are "known unknowns", the use of the keyword "NOASSERTION" can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX elements (package/file/snippet) are connected by relationships or not.  ie. There could be some, but the author is not asserting one way or another.  
+
+Similarly, the use of the keywords "NONE" can be used to indicate that an SPDX element (package/file/snippet) has no other elements connected by some relationship to it.
+
+The relationships between two SPDX elements that are supported are:
 
 | Relationship           | Description | Example |
 |------------------------|-------------|---------|
