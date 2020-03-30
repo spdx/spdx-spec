@@ -76,7 +76,7 @@ where `<relationship>` is one of the documented relationship types in table 7.1.
 
 where `NONE` can be used to explicitly indicate there are NO other relationships.
 
-where `NOASSERTION` can be used to explicitly indicate its not clear if there are relationships that may apply or not.
+where `NOASSERTION` can be used to explicitly indicate it is not clear if there are relationships that may apply or not.
 
 **7.1.5** Tag: `Relationship:`
 
@@ -92,11 +92,11 @@ Examples:
     
     Relationship: SPDXRef-CarolCompression DEPENDS_ON NONE
     
-    RelationshipComment: The package CarolCompression can be treated as a root with no dependencies.
+    RelationshipComment: The package CarolCompression can be considered as a root with no dependencies.
     
-    Relationship: SPDXRef-BobBrowser DEPENDS_ON NOASSERTION
+    Relationship: SPDXRef-BobBrowser CONTAINS NOASSERTION
     
-    RelationshipComment: The package BobBrowser may have other packages required as dependencies, but the author has insufficient information to threat this as other than unknown at this point in time.
+    RelationshipComment: The package BobBrowser may have other packages embedded in it, but the author has insufficient information to treat this as other than unknown at this point in time.
 
 **7.1.6** RDF: Property `relationship` in any SpdxElement
 
