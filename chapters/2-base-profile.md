@@ -15,44 +15,42 @@ The Base Profile provides the core entities for describing artifacts and the rel
                 fontsize = 10
         ]
 
-        DocumentRoot [
-          label = "{Document Root}"
-        ]
-
-        DocumentMetadata [
-          label = "{Document Metadata|+ spdxVersion : string\l+ dataLicense : SPDXExpression\l+ SPDXID : string\l+ documentNamespace : string\l+ documentName : string\l+ created : DateTime\l+ creators : Identity[]\l|}"
-        ]
-
-        Identity [
-        ]
-
-        Person [
-        ]
-
-        Organization [
-        ]
-
-        Person -> Identity
-        Organization -> Identity
-
+        DocumentMetadata [href="#22-document-metadata"]
+        Identity [href="#24-identity"]
+        Person []
+        Organization []
+        Tool []
         Artifact []
-
         Package []
-
         File []
-
         Snippet []
-
-        Package -> Artifact
-        File -> Artifact
-        Snippet -> Artifact
-
         Relationship []
-
         Annotation []
+
+        edge [
+                arrowtail = "empty"
+                dir="back"
+        ]
+        Identity -> Person
+        Identity -> Organization
+        Identity -> Tool
+        Artifact -> Package
+        Artifact -> File
+        Artifact -> Snippet
+
+        edge [
+                arrowtail = "odiamond"
+                dir="back"
+        ]
+        SpdxDocument -> DocumentMetadata [headlabel = "1..1"]
+        SpdxDocument -> Identity [headlabel = "1..*"]
+        SpdxDocument -> Artifact [headlabel = "0..*"]
+        SpdxDocument -> Relationship [headlabel = "0..*"]
+        SpdxDocument -> Annotation [headlabel = "0..*"]
       }
 %}
 
+<!--
 ### 2.1.1 Entities
 | Entity | Parent | Required | Cardinality |
 | ------ | ------ | -------- | ----------- |
@@ -62,11 +60,28 @@ The Base Profile provides the core entities for describing artifacts and the rel
 | [Identity](#identity) | [Document Root](#document-root) | Yes | 1..* |
 | [Relationship](#relationship) | [Document Root](#document-root) | No | 0..* |
 | [Annotation](#annotation) | [Document Root](#document-root) | No | 0..* |
+-->
 
 ## 2.2 Document Metadata
 ### 2.2.1 Summary
 Information about the SPDX document itself.
 
+{% dot base_profile_document_metadata.svg
+      digraph G {
+        node [
+                fontname = "Helvetica Neue"
+                fontsize = 10
+                shape = "record"
+        ]
+
+        edge [
+                fontname = "Helvetica Neue"
+                fontsize = 10
+        ]
+
+        DocumentMetadata [label = "{DocumentMetadata|+ spdxVersion : string\l+ dataLicense : SPDXExpression\l+ SPDXID : string\l+ documentNamespace : string\l+ documentName : string\l+ created : DateTime\l+ creators : Identity[1..*]\l+ externalDocumentReferences : ExternalDocumentReference[0..*]\l|}"]
+      }
+%}
 ### 2.2.2 Metadata
 | Attribute   | Value |
 | ----------- | ----- |
@@ -76,6 +91,7 @@ Information about the SPDX document itself.
 ### 2.2.3 Description
 Provides necessary information to understand the provenance of the document and to enable forward and backward compatibility for processing tools.
 
+<!--
 | Field | Required | Cardinality |
 | ----- | -------- | ----------- |
 | [SPDX Version](#spdx-version) | Yes | 1..1 |
@@ -85,6 +101,7 @@ Provides necessary information to understand the provenance of the document and 
 | [Document Name](#document-name) | Yes | 1..1 |
 | [Created](#created) | Yes | 1..1 |
 | [Creators](#creators) | Yes | 1..1 |
+-->
 
 ### 2.2.4 Examples
 ```yaml
@@ -307,58 +324,58 @@ Who (or what, in the case of a tool) created the SPDX document.
 | Field | Required | Cardinality |
 | ----- | -------- | ----------- |
 
-### Package
+## 2.4 Package
+
+### Fields
+
+| Field | Required | Cardinality |
+| ----- | -------- | ----------- |
+
+## 2.5 File
 
 #### Fields
 
 | Field | Required | Cardinality |
 | ----- | -------- | ----------- |
 
-### File
 
-#### Fields
+## 2.6 Snippet
 
-| Field | Required | Cardinality |
-| ----- | -------- | ----------- |
-
-
-### Snippet
-
-#### Fields
+### Fields
 
 | Field | Required | Cardinality |
 | ----- | -------- | ----------- |
 
-## 2.4 Identity
+## 2.7 Identity
 Identity is an abstract concept that can refer to a [Person](#person), [Organization](#organization), or [Tool](#tool). Any of these can be used where an `Identity` is required.
 
-### Person
+## 2.8 Person
 Represents a natural person.
 
-#### Fields
+### Fields
 | Field | Required | Cardinality |
 | ----- | -------- | ----------- |
 | [Person Name](#person-name) | Yes | 1..1 |
 
-##### Person Name
+#### Person Name
 
-### Organization
+## 2.9 Organization
 Represents an organization.
 
 
 
-### Tool
+## 2.10 Tool
 
-#### Fields
+### Fields
 | Field | Required | Cardinality |
 | ----- | -------- | ----------- |
 | [Tool Name](#tool-name) | Yes | 1..1 |
 | [Tool Version](#tool-version) | Yes | 1..1 |
 
-##### Tool Name
-##### Tool Version
+#### Tool Name
+#### Tool Version
 
-## 2.5 Relationship
+## 2.11 Relationship
 Establishes a relationship between `Artifact`s either in the same SPDX document or in different SPDX documents.
 
 ### Fields
@@ -375,7 +392,7 @@ Establishes a relationship between `Artifact`s either in the same SPDX document 
 ### Relationship Type
 <!-- TODO: Is the reverse direction implied or should it be declared explicitly? -->
 
-## 2.6 Annotation
+## 2.12 Annotation
 
 ### Fields
 | Field | Required | Cardinality |
