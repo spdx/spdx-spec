@@ -37,17 +37,18 @@ Examples:
 
 ## Representing Multiple Licenses
 
-Multiple licenses can be represented using a SPDX license expression as defined in Appendix IV. A set of licenses must be enclosed in parentheses (this is a convention for SPDX expressions). As further described there:
+Multiple licenses can be represented using a SPDX license expression as defined in Appendix IV. A set of licenses may optionally be enclosed in parentheses, but are not required to be enclosed. As further described there:
 
 1. When there is a choice between licenses ("disjunctive license"), they should be separated with "OR". If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new license expression.
 2. Similarly when multiple licenses need to be simultaneously applied ("conjunctive license"), they should be separated with "AND". If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression.
 3. In some cases, a set of license terms apply except under special circumstances, in this case, use the "WITH" operator followed by one of the [recognized exception identifiers](https://spdx.org/licenses/exceptions-index.html).
+4. The expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.
 
 Examples:
 
-    SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-    SPDX-License-Identifier: (LGPL-2.1-only AND BSD-2-Clause)
-    SPDX-License-Identifier: (GPL-2.0-or-later WITH Bison-exception-2.2)
+    SPDX-License-Identifier: GPL-2.0-only OR MIT
+    SPDX-License-Identifier: LGPL-2.1-only AND BSD-2-Clause
+    SPDX-License-Identifier: GPL-2.0-or-later WITH Bison-exception-2.2
     
 
 Please see [Appendix IV of SPDX 2.2 Specification](./appendix-IV-SPDX-license-expressions.md) for more examples and details of the license expression specific syntax.
