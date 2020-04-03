@@ -13,19 +13,20 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="../css/style.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "4 File Information";
     var mkdocs_page_input_path = "4-file-information.md";
-    var mkdocs_page_url = "/4-file-information/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -39,7 +40,7 @@
         <a href=".." class="icon icon-home"> specification v2.2.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -105,7 +106,9 @@
         
             <li><a class="toctree-l3" href="#414-file-contributor">4.14 File Contributor </a></li>
         
-            <li><a class="toctree-l3" href="#415-file-dependencies-deprecated">4.15 File Dependencies (deprecated) </a></li>
+            <li><a class="toctree-l3" href="#415-file-attribution-text">4.15 File Attribution Text </a></li>
+        
+            <li><a class="toctree-l3" href="#416-file-dependencies-deprecated">4.16 File Dependencies (deprecated) </a></li>
         
         </ul>
     
@@ -572,19 +575,41 @@ FileContributor: IBM Corporation
     &lt;fileContributor&gt; IBM Corporation &lt;/fileContributor&gt;
 &lt;/File&gt;
 </code></pre>
-<h2 id="415-file-dependencies-deprecated">4.15 File Dependencies (deprecated) <a name="4.15"></a></h2>
-<p>This field is deprecated since SPDX 2.0 in favor of using <a href="../7-relationships-between-SPDX-elements/">Section 7</a> which provides more granularity about relationships.</p>
-<p><strong>4.15.1</strong> Purpose: The field provides a place for the SPDX file creator to record a list of other files (referenceable within this SPDX file) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files may not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or may be needed as part of the file distribution obligation.</p>
-<p><strong>4.15.2</strong> Intent: Here, the intent is to provide the recipient of the SPDX file with file dependency information based on the build system that created the file. These other files may impact the licensing of the file and/or may be required to satisfy the distribution obligation of the file (e.g., source files subject to a copyleft license).</p>
+<h2 id="415-file-attribution-text">4.15 File Attribution Text <a name="4.15"></a></h2>
+<p><strong>4.15.1</strong> Purpose: This field provides a place for the SPDX data creator to record, at the file level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the file's actual complete license text (see <code>LicenseConcluded</code> and <code>LicenseInfoInFile</code>), and may or may not include copyright notices (see also <code>FileCopyrightText</code>). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.</p>
+<p><strong>4.15.2</strong> Intent: The intent is to provide the recipient of the SPDX file with acknowledgement content at a file level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator may or may not explain elsewhere how they intend for this field to be used.</p>
 <p><strong>4.15.3</strong> Cardinality: Optional, one or many.</p>
-<p><strong>4.15.4</strong> Data Format: Reference to the file within the SPDX document. For the <code>tag:value</code> format, this will be the filename. For the RDF format, it will be a reference to the actual file node.</p>
-<p><strong>4.15.5</strong> Tag: <code>FileDependency:</code></p>
+<p><strong>4.15.4</strong> Data Format: free form text that can span multiple lines.</p>
+<p><strong>4.15.5</strong> Tag: <code>FileAttributionText:</code></p>
+<p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
+<p>Example: </p>
+<pre><code>FileAttributionText: &lt;text&gt;
+All advertising materials mentioning features or use of this software must display the
+following acknowledgement:  This product includes software developed by the AT&amp;T.
+&lt;/text&gt;
+</code></pre>
+<p><strong>4.15.6</strong> RDF: property 'attributionText' in class 'spdx:File'</p>
+<p>Example:</p>
+<pre><code>&lt;File rdf:about="..."&gt;
+        &lt;attributionText&gt;
+            All advertising materials mentioning features or use of this software must display the
+            following acknowledgement:  This product includes software developed by the AT&amp;T.
+        &lt;/attributionText&gt;
+&lt;/File&gt;
+</code></pre>
+<h2 id="416-file-dependencies-deprecated">4.16 File Dependencies (deprecated) <a name="4.16"></a></h2>
+<p>This field is deprecated since SPDX 2.0 in favor of using <a href="../7-relationships-between-SPDX-elements/">Section 7</a> which provides more granularity about relationships.</p>
+<p><strong>4.16.1</strong> Purpose: The field provides a place for the SPDX file creator to record a list of other files (referenceable within this SPDX file) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files may not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or may be needed as part of the file distribution obligation.</p>
+<p><strong>4.16.2</strong> Intent: Here, the intent is to provide the recipient of the SPDX file with file dependency information based on the build system that created the file. These other files may impact the licensing of the file and/or may be required to satisfy the distribution obligation of the file (e.g., source files subject to a copyleft license).</p>
+<p><strong>4.16.3</strong> Cardinality: Optional, one or many.</p>
+<p><strong>4.16.4</strong> Data Format: Reference to the file within the SPDX document. For the <code>tag:value</code> format, this will be the filename. For the RDF format, it will be a reference to the actual file node.</p>
+<p><strong>4.16.5</strong> Tag: <code>FileDependency:</code></p>
 <p>Example:</p>
 <pre><code>FileDependency:./busybox-1.20.2/shell/match.h
 FileDependency:./busybox-1.20.2/shell/match.c
 FileDependency:./busybox-1.20.2/shell/ash.c
 </code></pre>
-<p><strong>4.15.6</strong> RDF: Property <code>spdx:fileDependency</code> in class <code>spdx:File</code></p>
+<p><strong>4.16.6</strong> RDF: Property <code>spdx:fileDependency</code> in class <code>spdx:File</code></p>
 <p>Example:</p>
 <pre><code>&lt;File rdf:nodeID="A0"&gt;
     &lt;fileName&gt;./package/source1.java&lt;/fileName&gt;
@@ -651,9 +676,8 @@ FileDependency:./busybox-1.20.2/shell/ash.c
     </span>
 </div>
     <script>var base_url = '..';</script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/require.js"></script>
-      <script src="../search/search.js"></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>

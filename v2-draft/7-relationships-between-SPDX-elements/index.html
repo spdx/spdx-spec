@@ -13,19 +13,20 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="../css/style.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "7 Relationships between SPDX Elements";
     var mkdocs_page_input_path = "7-relationships-between-SPDX-elements.md";
-    var mkdocs_page_url = "/7-relationships-between-SPDX-elements/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -39,7 +40,7 @@
         <a href=".." class="icon icon-home"> specification v2.2.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -191,7 +192,11 @@
               
                 <h1 id="7-relationships-between-spdx-elements">7 Relationships between SPDX Elements</h1>
 <h2 id="71-relationship">7.1 Relationship <a name="7.1"></a></h2>
-<p><strong>7.1.1</strong> Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. The relationships between two elements that are supported are:</p>
+<p><strong>7.1.1</strong> Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. </p>
+<p>In cases where there are "known unknowns", the use of the keyword <code>NOASSERTION</code> can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX elements (package/file/snippet) are connected by relationships or not.  ie. There could be some, but the author is not asserting one way or another.  </p>
+<p>Similarly, the use of the keywords <code>NONE</code> can be used to indicate that an SPDX element (package/file/snippet) has no other elements connected by some relationship to it.</p>
+<p>The use of <code>NOASSERTION</code>or <code>NONE</code> is not mandatory for any relationship. If no relationship of a particular type is specified, then the document author is not presumed to be asserting whether or not there are relationships of that type. If some relationships of a particular type are specified, then the document author is not presumed to be asserting whether there are more possible relationships of that type.</p>
+<p>The relationships between two SPDX elements that are supported are:</p>
 <table>
 <thead>
 <tr>
@@ -222,9 +227,19 @@
 <td>A SOURCE file <code>foo.c</code> is contained by ARCHIVE file <code>bar.tgz</code></td>
 </tr>
 <tr>
+<td>DEPENDS_ON</td>
+<td>Is to be used when SPDXRef-A depends on SPDXRef-B.</td>
+<td>Package A depends on the presence of package B in order to build and run</td>
+</tr>
+<tr>
 <td>DEPENDENCY_OF</td>
 <td>Is to be used when SPDXRef-A is dependency of SPDXRef-B.</td>
 <td>A is explicitly stated as a dependency of B in a machine-readable file. Use when a package manager does not define scopes.</td>
+</tr>
+<tr>
+<td>DEPENDENCY_MANIFEST_OF</td>
+<td>Is to be used when SPDXRef-A is a manifest file that lists a set of dependencies for SPDXRef-B</td>
+<td>A file <code>package.json</code> is the dependency manifest of a package <code>foo</code>. Note that only one manifest should be used to define the same dependency graph.</td>
 </tr>
 <tr>
 <td>BUILD_DEPENDENCY_OF</td>
@@ -235,6 +250,11 @@
 <td>DEV_DEPENDENCY_OF</td>
 <td>Is to be used when SPDXRef-A is development dependency of SPDXRef-B.</td>
 <td>A is in the <code>devDependencies</code> scope of B in a Maven project.</td>
+</tr>
+<tr>
+<td>OPTIONAL_DEPENDENCY_OF</td>
+<td>Is to be used when SPDXRef-A is an optional dependency of SPDXRef-B.</td>
+<td>Use when building the code will proceed even if a dependency cannot be found, fails to install, or is only installed on a specific platform. For example A is in the <code>optionalDependencies</code> scope of npm project B.</td>
 </tr>
 <tr>
 <td>PROVIDED_DEPENDENCY_OF</td>
@@ -407,11 +427,13 @@
 <p><strong>7.1.3</strong> Cardinality: Optional*, multiple.</p>
 <p>* see <code>DESCRIBES</code> relationship for one mandatory case.</p>
 <p><strong>7.1.4</strong> Data Format:</p>
-<pre><code>["DocumentRef-"[idstring]":"]SPDXID &lt;relationship&gt; ["DocumentRef-"[idstring]":"]SPDXID
+<pre><code>["DocumentRef-"[idstring]":"]SPDXID &lt;relationship&gt; ["DocumentRef-"[idstring]":"]SPDXID | `NONE` | `NOASSERTION`
 </code></pre>
 <p>where "DocumentRef-"<code>[idstring]</code>":" is an optional reference to an external SPDX document as described in <a href="../2-document-creation-information/#2.6">section 2.6</a></p>
 <p>where <code>SPDXID</code> is a string containing letters, numbers, <code>.</code> and/or <code>-</code>. as described in sections (2.3, 3.2, 4.2).</p>
 <p>where <code>&lt;relationship&gt;</code> is one of the documented relationship types in table 7.1.1.</p>
+<p>where <code>NONE</code> can be used to explicitly indicate there are NO other relationships.</p>
+<p>where <code>NOASSERTION</code> can be used to explicitly indicate it is not clear if there are relationships that may apply or not.</p>
 <p><strong>7.1.5</strong> Tag: <code>Relationship:</code></p>
 <p>Examples:</p>
 <pre><code>Relationship: SPDXRef-grep CONTAINS SPDXRef-make
@@ -421,6 +443,14 @@ RelationshipComment: Package grep contains file make
 Relationship: SPDXRef-DOCUMENT AMENDS DocumentRef-SPDXA:SPDXRef-DOCUMENT
 
 RelationshipComment: This current document is an amendment of the SPDXA document.
+
+Relationship: SPDXRef-CarolCompression DEPENDS_ON NONE
+
+RelationshipComment: The package CarolCompression can be considered as a root with no dependencies.
+
+Relationship: SPDXRef-BobBrowser CONTAINS NOASSERTION
+
+RelationshipComment: The package BobBrowser may have other packages embedded in it, but the author has insufficient information to treat this as other than unknown at this point in time.
 </code></pre>
 <p><strong>7.1.6</strong> RDF: Property <code>relationship</code> in any SpdxElement</p>
 <p>Examples:</p>
@@ -507,9 +537,8 @@ RelationshipComment: This current document is an amendment of the SPDXA document
     </span>
 </div>
     <script>var base_url = '..';</script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/require.js"></script>
-      <script src="../search/search.js"></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>
