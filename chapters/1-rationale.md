@@ -6,19 +6,19 @@ To create a set of data exchange standards that enable companies and organizatio
 
 ## 1.2 Definition <a name="1.2"></a>
 
-The Software Package Data Exchange (SPDX®) specification is a standard format for communicating the components, licenses, and copyrights associated with software packages. An SPDX file is associated with a particular software package or set of packages and contains information about it in the SPDX format.
+The Software Package Data Exchange (SPDX®) specification is a standard format for communicating the component and metadata information associated with software packages. An SPDX file can be associated with a set of software packages, set of files or snippets and contains information about the software in the SPDX format described in this specification.
 
 ## 1.3 Why is a common format for data exchange needed? <a name="1.3"></a>
 
-Companies and organizations (collectively “Organizations”) are widely using and reusing open source and other software packages. Compliance with the associated licenses requires a set of analysis activities and due diligence that each Organization performs independently, which may include a manual and/or automated scan of software and identification of associated licenses followed by manual verification. Software development teams across the globe use the same open source packages, but little infrastructure exists to facilitate collaboration on the analysis or share the results of these analysis activities. As a result, many groups are performing the same work leading to duplicated efforts and redundant information. The SPDX working group seeks to create a data exchange format so that information about software packages and related content may be collected and shared in a common format with the goal of saving time and improving data accuracy.
+Companies and organizations (collectively “Organizations”) are widely using and reusing open source and other software packages.  Accurate identification of software is key for many supply chain processes.  Vulnerability remediation starts with knowing the details of which version of software is in use on a system. Compliance with the associated licenses requires a set of analysis activities and due diligence that each Organization performs independently, which may include a manual and/or automated scan of software and identification of associated licenses followed by manual verification. Software development teams across the globe use the same open source packages, but little infrastructure exists to facilitate collaboration on the analysis or share the results of these analysis activities. As a result, many groups are performing the same work leading to duplicated efforts and redundant information. The SPDX working group seeks to create a data exchange format so that information about software packages and related content may be collected and shared in a common format with the goal of saving time and improving data accuracy.
 
 ## 1.4 What does this specification cover? <a name="1.4"></a>
 
 **1.4.1** SPDX Document Creation Information: Meta data to associate analysis results with a specific version of the SPDX file and license for use, and provide information on how, when, and by whom the SPDX file was created.
 
-**1.4.2** Package Information: Facts that are common properties of the entire package.
+**1.4.2** Package Information: Facts that are common properties of an entire package.
 
-**1.4.3** File Information: Facts that are specific to each file included in the package.
+**1.4.3** File Information: Facts that are specific to files which may be included in packages.
 
 **1.4.4** Snippet Information: Facts that are specific to only a part of a file.
 
@@ -70,11 +70,17 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 **1.7.5** Must permit automated specification syntax validation.
 
-**1.7.6** Resource Description Framework (RDF) can be used to represent this information, as can an annotated tag value flat text file.
+**1.7.6** Multiple file formats can be used to represent the information being exchanged.   Current supported formats include:
+* YAML 1.2  see: https://yaml.org/spec/1.2/spec.html
+* JavaScript Object Notation (JSON) see: ECMA-404(https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
+* Extensible Markup Language (XML) see: https://www.w3.org/TR/2008/REC-xml-20081126/
+* Resource Description Framework (RDF also referred to as RDF/XML) see: https://www.w3.org/TR/rdf-syntax-grammar/
+* `tag:value` flat text file as described in this specification
+* .xls spreadsheets
 
-**1.7.7** Interoperability with an annotate `tag:value` format and the RDF format will be preserved.
+**1.7.7** Interoperability between all the supported file formats will be preserved.
 
-**1.7.8** Tags and RDF properties are case sensitive.
+**1.7.8** Tags and format properties are case sensitive.
 
 **1.7.9** Should be easy to recognize in a file system without opening the file. A suggested naming convention is:
 
@@ -90,7 +96,7 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 ## 1.8 Conformance <a name="1.8"></a>
 
-**1.8.1** A file can be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the SPDX Trademark Page).
+**1.8.1** A file can be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the SPDX Trademark Page on the spdx.org web site).
 
 **1.8.2** The official copyright notice to be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.2-DRAFT is:
 
@@ -100,20 +106,14 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX® Specification 2.2 found at spdx.org. These portions are Copyright © 2010-2020 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
 
-## 1.9 Differences from SPDX Specification 2.0 <a name="1.9"></a>
+## 1.9 Differences from SPDX Specification 2.1 <a name="1.9"></a>
 
-**1.9.1** Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in. The use of snippets is completely optional and it is not manditory for snippets to be identified. See [section 5 Snippet Information](./5-snippet-information.md) for further details on the fields available to describe snippets.
+**1.9.1** JSON, YAML, and XML have been added as officially supported file formats.
 
-**1.9.2** External Packages can now be refered to in SPDX documents. When there is no SPDX file information available to document the content of these external packages, then the `filesAnalyzed` attribute on a package should be set to false. See [section 3.8](3-package-information.md#3.8) Files Analyzed for more information.
+**1.9.2** A new appendix "SPDX File Tags" has been added to describe a method that developers can use to document other SPDX file-specific information (such as copyright notices, file type, etc.) in a standardized and easily machine-readable manner. See [Appendix IX](appendix-IX-file-tags.md) for more information.
 
-**1.9.3** Packages are now able to associate with an “External Reference” which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package. See: section [3.21 External Reference](3-package-information.md#3.21), [3.22 External Reference Comment](3-package-information.md#3.22) and [Appendix VI: External Repository Identifiers](./appendix-VI-external-repository-identifiers.md) for more information.
+**1.9.3** A new appendix "SPDX Lite" has been added to document a lightweight subset of the SPDX specification for scenarios where a full SPDX document is not required. See [Appendix VIII](appendix-VIII-SPDX-Lite.md) for more information.
 
-**1.9.4** The “Artifact of Project” fields at the file level are now deprecated, as they can be replaced by a relationship to the more descriptive External Packages.
+**1.9.4** Additional relationship options have been added to enable expression of different forms of dependencies between SPDX elements.   As well, NONE and NOASSERTION keywords are now permitted to be used with relationships to indicated what is unknown.
 
-**1.9.5** A new appendix “Using SPDX short identifiers in Source Files” has been added to document the best practices to refer to the licenses in the SPDX license list that have emerged from the development community. See [Appendix V: Using SPDX short identifiers in Source Files](./appendix-V-using-SPDX-short-identifiers-in-source-files.md) for more information.
-
-**1.9.6** A new appendix "SPDX File Tags" has been added to describe a method that developers can use to document other SPDX file-specific information (such as copyright notices, file type, etc.) in a standardized and easily machine-readable manner. See [Appendix IX](appendix-IX-file-tags.md) for more information.
-
-**1.9.7** A new appendix "SPDX Lite" has been added to document a lightweight subset of the SPDX specification for scenarios where a full SPDX document is not required. See [Appendix VIII](appendix-VIII-SPDX-Lite.md) for more information.
-
-**1.9.8** Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the [spdx-spec GitHub repository](https://github.com/spdx/spdx-spec).
+**1.9.5** Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the [spdx-spec GitHub repository](https://github.com/spdx/spdx-spec).

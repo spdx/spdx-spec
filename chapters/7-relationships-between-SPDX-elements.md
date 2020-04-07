@@ -2,7 +2,15 @@
 
 ## 7.1 Relationship <a name="7.1"></a>
 
-**7.1.1** Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. The relationships between two elements that are supported are:
+**7.1.1** Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. 
+
+In cases where there are "known unknowns", the use of the keyword `NOASSERTION` can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX elements (package/file/snippet) are connected by relationships or not.  ie. There could be some, but the author is not asserting one way or another.  
+
+Similarly, the use of the keywords `NONE` can be used to indicate that an SPDX element (package/file/snippet) has no other elements connected by some relationship to it.
+
+The use of `NOASSERTION`or `NONE` is not mandatory for any relationship. If no relationship of a particular type is specified, then the document author is not presumed to be asserting whether or not there are relationships of that type. If some relationships of a particular type are specified, then the document author is not presumed to be asserting whether there are more possible relationships of that type.
+
+The relationships between two SPDX elements that are supported are:
 
 | Relationship           | Description | Example |
 |------------------------|-------------|---------|
@@ -10,8 +18,9 @@
 | DESCRIBED_BY           | Is to be used when SPDXRef-A is described by SPDXREF-Document                                         | The package ‘WildFly’ is described by SPDX document `Wildfly.spdx`. |
 | CONTAINS               | Is to be used when SPDXRef-A contains SPDXRef-B.                                                      | An ARCHIVE file `bar.tgz` contains a SOURCE file `foo.c`. |
 | CONTAINED_BY           | Is to be used when SPDXRef-A is contained by SPDXRef-B.                                               | A SOURCE file `foo.c` is contained by ARCHIVE file `bar.tgz` |
-| DEPENDENCY_MANIFEST_OF | Is to be used when SPDXRef-A is a manifest file that lists a set of dependencies for SPDXRef-B        | A file `package.json` is the dependency manifest of a package `foo`. Note that only one manifest should be used to define the same dependency graph. | 
+| DEPENDS_ON             | Is to be used when SPDXRef-A depends on SPDXRef-B. | Package A depends on the presence of package B in order to build and run |
 | DEPENDENCY_OF          | Is to be used when SPDXRef-A is dependency of SPDXRef-B.                                              | A is explicitly stated as a dependency of B in a machine-readable file. Use when a package manager does not define scopes.|
+| DEPENDENCY_MANIFEST_OF | Is to be used when SPDXRef-A is a manifest file that lists a set of dependencies for SPDXRef-B        | A file `package.json` is the dependency manifest of a package `foo`. Note that only one manifest should be used to define the same dependency graph. | 
 | BUILD\_DEPENDENCY_OF   | Is to be used when SPDXRef-A is a build dependency of SPDXRef-B.                                      | A is in the `compile` scope of B in a Maven project. |
 | DEV\_DEPENDENCY_OF     | Is to be used when SPDXRef-A is development dependency of SPDXRef-B.                                  | A is in the `devDependencies` scope of B in a Maven project. |
 | OPTIONAL\_DEPENDENCY_OF| Is to be used when SPDXRef-A is an optional dependency of SPDXRef-B.                                  | Use when building the code will proceed even if a dependency cannot be found, fails to install, or is only installed on a specific platform. For example A is in the `optionalDependencies` scope of npm project B. |
@@ -57,13 +66,17 @@
 
 **7.1.4** Data Format:
 
-    ["DocumentRef-"[idstring]":"]SPDXID <relationship> ["DocumentRef-"[idstring]":"]SPDXID
+    ["DocumentRef-"[idstring]":"]SPDXID <relationship> ["DocumentRef-"[idstring]":"]SPDXID | `NONE` | `NOASSERTION`
 
 where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [section 2.6](2-document-creation-information.md#2.6)
 
 where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in sections (2.3, 3.2, 4.2).
 
 where `<relationship>` is one of the documented relationship types in table 7.1.1.
+
+where `NONE` can be used to explicitly indicate there are NO other relationships.
+
+where `NOASSERTION` can be used to explicitly indicate it is not clear if there are relationships that may apply or not.
 
 **7.1.5** Tag: `Relationship:`
 
@@ -76,6 +89,14 @@ Examples:
     Relationship: SPDXRef-DOCUMENT AMENDS DocumentRef-SPDXA:SPDXRef-DOCUMENT
 
     RelationshipComment: This current document is an amendment of the SPDXA document.
+    
+    Relationship: SPDXRef-CarolCompression DEPENDS_ON NONE
+    
+    RelationshipComment: The package CarolCompression can be considered as a root with no dependencies.
+    
+    Relationship: SPDXRef-BobBrowser CONTAINS NOASSERTION
+    
+    RelationshipComment: The package BobBrowser may have other packages embedded in it, but the author has insufficient information to treat this as other than unknown at this point in time.
 
 **7.1.6** RDF: Property `relationship` in any SpdxElement
 
