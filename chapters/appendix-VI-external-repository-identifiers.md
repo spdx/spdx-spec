@@ -1,12 +1,10 @@
 # Appendix VI: External Repository Identifiers
 
-***
-When `<category>` = `SECURITY`:
-***
+## When `<category>` = `SECURITY`:
 
-## `<type>` cpe22Type <a name="cpe22"></a>
+### `<type>` cpe22Type <a name="cpe22"></a>
 
-### `<locator>` Information
+#### `<locator>` Information
 
 Locator Format:
 
@@ -21,9 +19,9 @@ External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 Documentation: [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
 
 
-## `<type>` cpe23Type <a name="cpe23"></a>
+### `<type>` cpe23Type <a name="cpe23"></a>
 
-### `<locator>` Information
+#### `<locator>` Information
 
 Locator Format:
 
@@ -45,13 +43,12 @@ External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 
 Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf](http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf)
 
-***
-When <category> = `PACKAGE-MANAGER`:
-***
 
-## `<type>` maven-central <a name="maven"></a>
+## When `<category>` = `PACKAGE-MANAGER`:
 
-### `<locator>` Information
+### `<type>` maven-central <a name="maven"></a>
+
+#### `<locator>` Information
 
 Locator Format:
 
@@ -66,9 +63,9 @@ External Reference Site: [http://repo1.maven.org/maven2/](http://repo1.maven.org
 
 Documentation: [https://maven.apache.org](https://maven.apache.org)
 
-## `<type>` npm <a name="npm"></a>
+### `<type>` npm <a name="npm"></a>
 
-### `<locator>` Information
+#### `<locator>` Information
 
 Locator Format:
 
@@ -83,9 +80,9 @@ External Reference Site: [https://www.npmjs.com/](https://www.npmjs.com/)
 
 Documentation: [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
 
-## `<type>` nuget <a name="nuget"></a>
+### `<type>` nuget <a name="nuget"></a>
 
-### `<locator>` Information
+#### `<locator>` Information
 
 Locator Format:
 
@@ -100,9 +97,9 @@ External Reference Site: [https://www.nuget.org/](https://www.nuget.org/)
 
 Documentation: [https://docs.nuget.org/](https://docs.nuget.org/)
 
-## `<type>` bower <a name="bower"></a>
+### `<type>` bower <a name="bower"></a>
 
-### `<locator>` Information
+#### `<locator>` Information
 
 Locator Format:
 
@@ -117,9 +114,9 @@ External Reference Site: [http://bower.io/](http://bower.io/)
 
 Documentation: [http://bower.io/docs/api/#install](http://bower.io/docs/api/#install)
 
-## `<type>` purl <a name="purl"></a>
+### `<type>` purl <a name="purl"></a>
 
-### `<locator>` Information
+#### `<locator>` Information
 
 Locator Format:
 
@@ -133,12 +130,51 @@ External Reference Site: [https://github.com/package-url/purl-spec](https://gith
 
 Documentation: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
 
-***
-When <category> = `OTHER`:
-***
 
-## `<type>` [idstring] <a name="idstring"></a>
+## When `<category>` = `PERSISTENT-ID`:
 
-### `<locator>` Information
+### `<type>` swh <a name="swh"></a>
+
+#### `<locator>` Information
+
+These point to objects present in the Software Heritage archive by the means of persistent identifiers
+that are guaranteed to remain stable (persistent) over time.
+Their syntax is described below.
+Note that they are identifiers and not URLs.
+
+A persistent identifier can point to any software artifact (or “object”)
+available in the Software Heritage archive.
+Objects come in different types, and most notably:
+
+* contents
+* directories
+* revisions
+* releases
+* snapshots
+
+Grammar for locator format:
+
+    <locator> ::= "swh" ":" <scheme_version> ":" <object_type> ":" <object_id> ;
+    <scheme_version> ::= "1" ;
+    <object_type> ::= "cnt" | "dir" | "rev" | "rel" | "snp" ;
+    <object_id> ::= 40 * <hex_digit> ;  *intrinsic object id, as hex-encoded SHA1*
+    <hex_digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "a" | "b" | "c" | "d" | "e" | "f" ;
+
+Examples:
+
+* `swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2` points to the content of a file containing the full text of the GPL3 license
+* `swh:1:dir:d198bc9d7a6bcf6db04f476d29314f157507d505` points to a directory containing the source code of the Darktable photography application as it was at some point on 4 May 2017
+* `swh:1:rev:309cf2674ee7a0749978cf8265ab91a60aea0f7d` points to a commit in the development history of Darktable, dated 16 January 2017, that added undo/redo supports for masks
+* `swh:1:rel:22ece559cc7cc2364edc5e5593d63ae8bd229f9f` points to Darktable release 2.3.0, dated 24 December 2016
+* `swh:1:snp:c7c108084bc0bf3d81436bf980b46e98bd338453` points to a snapshot of the entire Darktable Git repository taken on 4 May 2017 from GitHub
+
+External documentation: [Sofware Heritage](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
+
+
+## When `<category>` = `OTHER`:
+
+### `<type>` [idstring] <a name="idstring"></a>
+
+#### `<locator>` Information
 
 No spaces, but anything else goes
