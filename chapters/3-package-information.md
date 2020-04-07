@@ -962,7 +962,7 @@ Example:
 
 where:
 
-* `<category>` is `SECURITY` | `PACKAGE-MANAGER` | `OTHER`
+* `<category>` is `SECURITY` | `PACKAGE-MANAGER` | `PERSISTENT-ID` | `OTHER`
 * `<type>` is one of the types listed in [Appendix VI](appendix-VI-external-repository-identifiers.md).
 
 `<locator>` is the unique string with no spaces necessary to access the package-specific information, metadata, or content within the target location. The format of the locator is subject to constraints defined by the `<type>`.
@@ -972,6 +972,8 @@ where:
 Example:
 
     ExternalRef: SECURITY cpe23Type cpe:2.3:a:pivotal_software:spring_framework:4.1.0:*:*:*:*:*:*:*
+
+    ExternalRef: PERSISTENT-ID swh swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2
 
     ExternalRef: OTHER LocationRef-acmeforge acmecorp/acmenator/4.1.3-alpha
 
