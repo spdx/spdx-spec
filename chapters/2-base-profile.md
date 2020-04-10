@@ -79,7 +79,7 @@ Information about the SPDX document itself.
                 fontsize = 10
         ]
 
-        DocumentMetadata [label = "{DocumentMetadata|+ spdxVersion : string\l+ dataLicense : SPDXExpression\l+ SPDXID : string\l+ documentNamespace : string\l+ documentName : string\l+ created : DateTime\l+ creators : Identity[1..*]\l+ externalDocumentReferences : ExternalDocumentReference[0..*]\l|}"]
+        DocumentMetadata [label = "{DocumentMetadata|+ spdxVersion : string\l+ dataLicense : SPDXExpression\l+ spdxID : SPDXREF-DOC\l+ documentNamespace : string\l+ documentName : string\l+ created : DateTime\l+ creators : Identity[1..*]\l+ externalDocumentReferences : ExternalDocumentReference[0..*]\l|}"]
       }
 %}
 ### 2.2.2 Metadata
