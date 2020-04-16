@@ -110,7 +110,7 @@ In addition to the supported formats, the following format is in development wit
 
 ## 1.9 Differences from SPDX Specification 2.1 <a name="1.9"></a>
 
-**1.9.1** JSON, YAML, and XML have been added as officially supported file formats.
+**1.9.1** JSON, YAML, and a development version of XML have been added as supported file formats.
 
 **1.9.2** A new appendix "SPDX File Tags" has been added to describe a method that developers can use to document other SPDX file-specific information (such as copyright notices, file type, etc.) in a standardized and easily machine-readable manner. See [Appendix IX](appendix-IX-file-tags.md) for more information.
 
