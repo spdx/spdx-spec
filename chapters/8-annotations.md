@@ -10,9 +10,9 @@
 
 **8.1.4** Data Format: Single line of text with the following keywords.
 
-    ”Person: person name” and optional  “(email)”
-    "Organization: organization” and optional “(email)”
-    "Tool: tool identifier - version”
+    "Person: person name" and optional  "(email)"
+    "Organization: organization" and optional "(email)"
+    "Tool: tool identifier - version"
 
 **8.1.5**  Tag: `Annotator:`
 
@@ -95,7 +95,7 @@ Example:
 
 **8.4.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
 
-**8.4.4** DataFormat: `[DocumentRef-[idstring]:]SPDXID`
+**8.4.4** Data Format: `[DocumentRef-[idstring]:]SPDXID`
 
 where:
 
@@ -116,13 +116,13 @@ Example:
 
 For RDF, the annotations are a property of the SPDX element it is annotationg.
 
-    <SpdxElement rdf:about=”#SPDXRef-45”>
+    <SpdxElement rdf:about="#SPDXRef-45">
         <annotation>
             <Annotation>
                 ...
             </Annotation>
         </annotation>
-    </SpdxElement rdf:about=”#SPDXRef-45”>
+    </SpdxElement rdf:about="#SPDXRef-45">
 
 ## 8.5 Annotation Comment <a name="8.5"></a>
 

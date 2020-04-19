@@ -14,7 +14,7 @@ Identifying the license for open source software is critical for both reporting 
 * An SPDX short identifier is immutable.
 * Easy lookups and cross-references to the SPDX License List website.
 
-To the extent that a source file contains existing copyright and license information, it is the SPDX project’s recommendation that SPDX short identifiers be used to supplement, not replace that information. When there is a standard header provided by the license author, it is recommended to use such standard header (alone or in combination with the SPDX short identifier). If using SPDX short identifiers in individual files, it is recommended to reproduce the full license in the projects LICENSE file and indicate that SPDX short identifiers are being used to refer to it. For links to projects illustrating these scenarios, see [the examples on the SPDX WIKI page about Meta_Tags](https://wiki.spdx.org/view/Technical_Team/SPDX_Meta_Tags#Examples).
+To the extent that a source file contains existing copyright and license information, it is the SPDX project’s recommendation that SPDX short identifiers be used to supplement, not replace that information. When there is a standard header provided by the license author, it is recommended to use such standard header (alone or in combination with the SPDX short identifier). If using SPDX short identifiers in individual files, it is recommended to reproduce the full license in the projects LICENSE file and indicate that SPDX short identifiers are being used to refer to it. For links to projects illustrating these scenarios, see [https://spdx.org/ids-where](https://spdx.org/ids-where).
 
 ## Format for SPDX-License-Identifier
 
@@ -24,7 +24,7 @@ The SPDX License Identifier syntax may consist of a single license (represented 
 
 The tag should appear on its own line in the source file, generally as part of a comment.
 
-SPDX-License-Identifier: <SPDX License Expression>
+SPDX-License-Identifier: \<SPDX License Expression\>
 
 ## Representing Single License
 
@@ -32,7 +32,7 @@ A single license is represented by using the short identifier from [SPDX license
 
 Examples:
 
-    SPDX-License-Identifier: GPL-2.0+
+    SPDX-License-Identifier: CDDL-1.0+
     SPDX-License-Identifier: MIT
 
 ## Representing Multiple Licenses

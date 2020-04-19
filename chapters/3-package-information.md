@@ -6,12 +6,12 @@ Cardinality: Optional, one or many.
 
 In `tag:value` format, the order in which package and files occur is syntactically significant.
 
-A new Package Information section is denoted by the [Package Name](#3.1) field.
-All Package Information fields must be grouped together before the start of a [Files section](4-file-information.md), if file(s) are present.
-All files contained in a package must immediately follow the applicable Package Information.
-A new Package Information section (via Package Name) denotes the start of another package.
-Sub-packages should not be nested inside a Package Information section, but should be separate and should use a Relationship to clarify.
-Annotations and Relationships for the package may appear after the Package Information before any file information.
+* A new Package Information section is denoted by the [Package Name](#3.1) field.
+* All Package Information fields must be grouped together before the start of a [Files section](4-file-information.md), if file(s) are present.
+* All files contained in a package must immediately follow the applicable Package Information.
+* A new Package Information section (via Package Name) denotes the start of another package.
+* Sub-packages should not be nested inside a Package Information section, but should be separate and should use a Relationship to clarify.
+* Annotations and Relationships for the package may appear after the Package Information before any file information.
 
 Fields:
 
@@ -181,7 +181,7 @@ Example:
 
 ## 3.6 Package Originator <a name="3.6"></a>
 
-**3.6.1** Purpose: If the package identified in the SPDX file originated from a different person or organization than identified as Package Supplier (see [section 3.5](#3.5) above), this field identifies from where or whom the package originally came. In some cases a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX file identifies the package [glibc][] and [Red Hat][RedHat] as the Package Supplier, but the [Free Software Foundation][FSF] is the Package Originator.
+**3.6.1** Purpose: If the package identified in the SPDX file originated from a different person or organization than identified as Package Supplier (see [section 3.5](#3.5) above), this field identifies from where or whom the package originally came. In some cases a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX file identifies the package [glibc][] and [Red Hat][] as the Package Supplier, but the [Free Software Foundation][FSF] is the Package Originator.
 
 Use `NOASSERTION` if:
 
@@ -431,9 +431,9 @@ Example:
 
 Some examples:
 
-A bundle of external products: Package A can be metadata about Packages and their dependencies. It may also be a loosely organized manifest of references to Packages involved in a product or project. Build or execution may transitively discover more Packages and dependencies. All of these referenced Packages can have their own SPDX Documents. In this case, Package A may be defined with its File Analyzed attribute set to `false`. Package A includes External Document References to SPDX documents containing Packages referenced in all the available relationships. The Relationships section then relates the SPDX documents and contained SPDX elements with appropriate semantics per the dependencies in the scope of Package A.
-Package relation to external product: Package A can have a STATIC_LINK relationship to Package B, but the binary representation of Package B is furnished by the build process and thus not contained in the file list of Package A. In this case, Package B needs to be defined with its Files Analyzed attribute set to false and all the other attributes subject to the subsequently defined constraints. Then, the relationship between Package A and Package B can be documented as described in [Section 7](7-relationships-between-SPDX-elements.md).
-File derived from external product: Package A contains multiple files derived from an outside project. Rather than use the `artifactOf*` attributes (Sections 4.9-4.11) to describe the relation of these files to their project, the outside project can be represented by another package, Package B, whose [`FilesAnalyzed`](#3.8) attribute is set to `false`. Each of the binary files can then have a relationship to package B (Section 6). This allows the outside project to be represented by a single SPDX identifier (the identifier of Package B). It also allows the relationship(s) between the outside project and each of the files be represented in much more detail.
+1. **A bundle of external products**: Package A can be metadata about Packages and their dependencies. It may also be a loosely organized manifest of references to Packages involved in a product or project. Build or execution may transitively discover more Packages and dependencies. All of these referenced Packages can have their own SPDX Documents. In this case, Package A may be defined with its File Analyzed attribute set to `false`. Package A includes External Document References to SPDX documents containing Packages referenced in all the available relationships. The Relationships section then relates the SPDX documents and contained SPDX elements with appropriate semantics per the dependencies in the scope of Package A.
+2. **Package relation to external product**: Package A can have a STATIC_LINK relationship to Package B, but the binary representation of Package B is furnished by the build process and thus not contained in the file list of Package A. In this case, Package B needs to be defined with its Files Analyzed attribute set to false and all the other attributes subject to the subsequently defined constraints. Then, the relationship between Package A and Package B can be documented as described in [Section 7](7-relationships-between-SPDX-elements.md).
+3. **File derived from external product**: Package A contains multiple files derived from an outside project. Rather than use the `artifactOf*` attributes (Sections 4.9-4.11) to describe the relation of these files to their project, the outside project can be represented by another package, Package B, whose [`FilesAnalyzed`](#3.8) attribute is set to `false`. Each of the binary files can then have a relationship to package B (Section 6). This allows the outside project to be represented by a single SPDX identifier (the identifier of Package B). It also allows the relationship(s) between the outside project and each of the files be represented in much more detail.
 
 **3.8.3** Cardinality: Optional, one.  If omitted, the default value of `true` is assumed.
 
@@ -466,11 +466,11 @@ Example:
 **3.9.4** Algorithm:
 
     verificationcode = 0
-    filelist = templist = “”
+    filelist = templist = ""
     for all files in the package {
-        if file is an “excludes” file, skip it /* exclude SPDX analysis file(s) */
+        if file is an "excludes" file, skip it /* exclude SPDX analysis file(s) */
 
-            append templist with “SHA1(file)/n”
+            append templist with "SHA1(file)/n"
         }
     sort templist in ascending order by SHA1 value
     filelist = templist with "/n"s removed. /* ordered sequence of SHA1 values with no separators */
@@ -906,7 +906,7 @@ Example:
     as well as additional features specific to POSIX and other derivatives of the Unix operating system,
     and extensions specific to GNU systems.</text>
 
-3.19.6  RDF:  property `spdx:description` in class `spdx:Package`
+**3.19.6** RDF: property `spdx:description` in class `spdx:Package`
 
 Example:
 
@@ -1015,7 +1015,7 @@ The referenceType value for a non-listed location consists of the SPDX document 
 
 **3.22.2** Intent: To inform a human consumer why the reference exists, what kind of information, content or metadata can be extracted. The target's relationship to artifactOf values of files in the package may need to be explained here. If the reference is BINARY, its relationship to PackageDownloadLocation may need to be explained. If the reference is SOURCE, its relationship to PackageDownloadLocation and SourceInformation may need to be explained.
 
-**3.22.3** Cardinality: Conditional (Optional, one) for each [External Reference][#3.21).
+**3.22.3** Cardinality: Conditional (Optional, one) for each [External Reference](#3.21).
 
 **3.22.4** Data format: Free form text that can span multiple lines.
 
@@ -1071,7 +1071,7 @@ Example:
     following acknowledgement:  This product includes software developed by the AT&T.
     </text>
 
-**3.23.6** RDF: property 'attributionText' in class 'spdx:Package'
+**3.23.6** RDF: property `attributionText` in class `spdx:Package`
 
 Example:
 
