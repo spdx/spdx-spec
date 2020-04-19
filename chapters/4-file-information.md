@@ -4,13 +4,13 @@ One instance of the File Information is required for each file in the software p
 
 When implementing `tag:value` format, the positioning of File elements is syntactically significant:
 
-Files are assumed to be associated with the Package Information that immediately precedes it, if a package exists.
-Presence of a new Package Information signals the end of the set of files associated with the preceding package, unless an explicit Relationship is used.
-If a package contains files, the File Information section must follow its Package Information section.
-If a File is not part of any package, it must precede any Package Information section reference in the SPDX document.
-The first field to start off the description of a File must be the File Name in `tag:value` format.
-File information is associated with the File Name that precedes it.
-Annotations on the file and Relationships from the file may appear after the file information, before the next file or Package Information section.
+* Files are assumed to be associated with the Package Information that immediately precedes it, if a package exists.
+* Presence of a new Package Information signals the end of the set of files associated with the preceding package, unless an explicit Relationship is used.
+* If a package contains files, the File Information section must follow its Package Information section.
+* If a File is not part of any package, it must precede any Package Information section reference in the SPDX document.
+* The first field to start off the description of a File must be the File Name in `tag:value` format.
+* File information is associated with the File Name that precedes it.
+* Annotations on the file and Relationships from the file may appear after the file information, before the next file or Package Information section.
 
 When implementing file information in RDF, the `spdx:hasFile` property is used to associate the package with the file.
 
@@ -49,7 +49,7 @@ Example:
 
 **4.2.3** Cardinality: Mandatory, one.
 
-**4.2.4** DataFormat: "SPDXRef-"`[idstring]`
+**4.2.4** Data Format: "SPDXRef-"`[idstring]`
 
 where `[idstring]` is a unique string containing letters, numbers, `.` and/or `-`.
 
@@ -65,7 +65,7 @@ Example using `xml:base:`
 
     <rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B"
         ...
-        <File rdf:ID=”SPDXRef-1”>
+        <File rdf:ID="SPDXRef-1">
             ...
         </File>
 
@@ -190,7 +190,7 @@ A valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-lic
 
 If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field [(section 4.7)](#4.7). With respect to `NOASSERTION`, a written explanation in the Comments on License field [(section 4.7)](#4.7) is preferred.
 
-**4.5.2** Intent: Here, the intent is for the SPDX file creator to analyze the License Information in file [(section 4.6)](#4.6) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
+**4.5.2** Intent: Here, the intent is for the SPDX file creator to analyze the License Information in File [(section 4.6)](#4.6) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
 
 **4.5.3** Cardinality: Mandatory, one.
 
@@ -555,7 +555,7 @@ Example:
     following acknowledgement:  This product includes software developed by the AT&T.
     </text>
 
-**4.15.6** RDF: property 'attributionText' in class 'spdx:File'
+**4.15.6** RDF: property `attributionText` in class `spdx:File`
 
 Example:
 

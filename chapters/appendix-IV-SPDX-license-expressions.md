@@ -55,8 +55,8 @@ However, please be aware that it is often important to match with the case of th
 
 A simple `<license-expression>` is composed one of the following:
 
-* An SPDX License List Short Form Identifier. For example: GPL-2.0-only
-* An SPDX License List Short Form Identifier with a unary "+" operator suffix to represent the current version of the license or any later version. For example: GPL-2.0+
+* An SPDX License List Short Form Identifier. For example: CDDL-1.0
+* An SPDX License List Short Form Identifier with a unary "+" operator suffix to represent the current version of the license or any later version. For example: CDDL-1.0+
 * A SPDX user defined license reference: ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
 
 Some examples:

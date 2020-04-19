@@ -4,7 +4,7 @@ The SPDX License List is a list of commonly found licenses and exceptions used f
 
 * [License Exceptions][exceptions]: The list of commonly found exceptions to open source licenses, which can be used with the License Expression operator, "WITH" to create a license with an exception.
 * [Master Files][master-files]: The HTML pages you see here are generated from the master files for the SPDX License List. The master files include a spreadsheet listing all the licenses, deprecated licenses, and license exceptions; and the text for each license in a .txt file. These files are available in a Git repository.
-* Overview: For general information about the SPDX License List, including principles for inclusion of a license and an explanation of the fields contained on the list.
+* [Overview][overview]: For general information about the SPDX License List, including principles for inclusion of a license and an explanation of the fields contained on the list.
 * [Matching Guidelines][matching]: Guidelines for what constitutes a license match to the SPDX License List. For licenses that include markup, the license text on the HTML pages here will display omitable text in blue and replaceable text in red (see Guideline #2 for more information).
 * [Request New License][new-license]: For instructions on how to propose additional licenses or license exceptions be added to the SPDX License List.
 
@@ -12,6 +12,7 @@ The SPDX License List is a list of commonly found licenses and exceptions used f
 [matching]: https://spdx.org/spdx-license-list/matching-guidelines
 [master-files]: https://github.com/spdx/license-list-XML
 [new-license]: https://github.com/spdx/license-list-XML/blob/master/CONTRIBUTING.md
+[overview]: https://spdx.org/spdx-license-list/license-list-overview
 
 The following table contains the full names and short identifiers for the SPDX License List, v3.8 which was released 2020-02-09. For the full and most up-to-date version of the SPDX License List as well as other related information, please see [http://spdx.org/licenses/](http://spdx.org/licenses/)
 

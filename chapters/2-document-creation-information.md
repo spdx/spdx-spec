@@ -72,7 +72,7 @@ Example:
 
 **2.3.3** Cardinality: Mandatory, one.
 
-**2.3.4** DataFormat: `SPDXRef-DOCUMENT`
+**2.3.4** Data Format: `SPDXRef-DOCUMENT`
 
 **2.3.5** Tag: `SPDXID:`
 
@@ -96,7 +96,7 @@ Example:
 
 **2.4.3** Cardinality: Mandatory, one.
 
-**2.4.4** DataFormat: Single line of text.
+**2.4.4** Data Format: Single line of text.
 
 **2.4.5** Tag: `DocumentName:`
 
@@ -203,7 +203,7 @@ Example:
 
     <externalDocumentRef rdf:ID="DocumentRef-spdx-tool-1.2">
         <ExternalDocumentRef>
-            <spdxDocument rdf:about=”http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...” />
+            <spdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..." />
             <checksum>
                 <Checksum>
                     <algorithm rdf:resource="checksumAlgorithm_sha1"/>
@@ -255,9 +255,9 @@ Example:
 
 **2.8.4** Data Format: Single line of text with the following keywords:
 
-    ”Person: person name” and optional “(email)”
-    "Organization: organization” and optional “(email)”
-    "Tool: toolidentifier-version”
+    "Person: person name" and optional "(email)"
+    "Organization: organization" and optional "(email)"
+    "Tool: toolidentifier-version"
 
 **2.8.5** Tag: `Creator:`
 

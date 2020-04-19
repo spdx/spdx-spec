@@ -6,10 +6,10 @@ Each instance of Snippet Information needs to be associated with a specific File
 
 When implementing `tag:value` format, the positioning of Snippet elements is syntactically significant:
 
-If a File contains Snippets, the Snippet Information section should follow a related File Information section (if it exists in the document).
-Presence of a new file or package section signals the end of the set of snippets associated with the original file, unless an explicit Relationship is used.
-The first field to start off the description of a Snippet must be the Snippet Identifier in `tag:value` format.
-Annotations on the Snippet and Relationships from the Snippet may appear after the Snippet Information, before the next file or Package section.
+* If a File contains Snippets, the Snippet Information section should follow a related File Information section (if it exists in the document).
+* Presence of a new file or package section signals the end of the set of snippets associated with the original file, unless an explicit Relationship is used.
+* The first field to start off the description of a Snippet must be the Snippet Identifier in `tag:value` format.
+* Annotations on the Snippet and Relationships from the Snippet may appear after the Snippet Information, before the next file or Package section.
 
 ## 5.1 Snippet SPDX Identifier <a name="5.1"></a>
 
@@ -19,7 +19,7 @@ Annotations on the Snippet and Relationships from the Snippet may appear after t
 
 **5.1.3** Cardinality: Mandatory, one.
 
-**5.1.4** DataFormat: `SPDXRef-[idstring]`
+**5.1.4** Data Format: `SPDXRef-[idstring]`
 
 where `[idstring]` is a unique string containing letters, numbers, `.` and/or `-`.
 
@@ -35,7 +35,7 @@ Example using xml:base:
 
     <rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B"
         ...
-        <Snippet rdf:ID=”SPDXRef-1”>
+        <Snippet rdf:ID="SPDXRef-1">
             ...
         </Snippet>
 
@@ -53,15 +53,11 @@ Example using document URI:
 
 **5.2.3** Cardinality: Mandatory, one.
 
-**5.2.4** DataFormat: ["DocumentRef-"[idstring]":"] SPDXID
+**5.2.4** Data Format: ["DocumentRef-"[idstring]":"] SPDXID
 
-where `DocumentRef-[idstring]`: is an optional reference to an external
+where `DocumentRef-[idstring]`: is an optional reference to an external SPDX document as described in [section 2.6](2-document-creation-information.md#2.6)
 
-SPDX document as described in [section 2.6](2-document-creation-information.md#2.6)
-
-where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as
-
-described in sections (2.3, 3.2, 4.2).
+where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in sections (2.3, 3.2, 4.2).
 
 **5.2.5** Tag: `SnippetFromFileSPDXID:`
 
@@ -77,15 +73,15 @@ Example (snippet from a File in an External SPDX Doc):
 
 Example (snippet from a File in local SPDX Doc):
 
-    <Snippet “rdf:ID=”SPDXRef-1”>
-        <snippetFromFile rdf:about=”#SPDXRef-filecontainingsnippet”>
+    <Snippet rdf:ID="SPDXRef-1">
+        <snippetFromFile rdf:about="#SPDXRef-filecontainingsnippet">
             ...
         </Snippet>
 
 Example (snippet from a File in an External SPDX Doc):
 
-    <Snippet “rdf:ID=”SPDXRef-1”>
-        <snippetFromFile rdf:about=”http://foo.org/ExternalDocument1#SPDXRef-filecontainingsnippet”>
+    <Snippet rdf:ID="SPDXRef-1">
+        <snippetFromFile rdf:about="http://foo.org/ExternalDocument1#SPDXRef-filecontainingsnippet">
         ...
     </Snippet>
 
@@ -93,7 +89,7 @@ Example (snippet from a File in an External SPDX Doc):
 
 **5.3.1** Purpose: This field defines the byte range in the original host file (in [5.2](#5.2)) that the snippet information applies to.
 
-**5.3.2** Intent: A range of bytes is independent of various formatting concerns, and the most accurate way of referring to the differences. The choice was made to start the numbering of the byte range at 1 to be consistent with the W3C pointer method vocabulary (see http://www.w3.org/TR/Pointers-in-RDF10/).
+**5.3.2** Intent: A range of bytes is independent of various formatting concerns, and the most accurate way of referring to the differences. The choice was made to start the numbering of the byte range at 1 to be consistent with the W3C pointer method vocabulary (see [http://www.w3.org/TR/Pointers-in-RDF10/](http://www.w3.org/TR/Pointers-in-RDF10/)).
 
 **5.3.3** Cardinality: Mandatory, one.
 
@@ -147,7 +143,7 @@ Example:
 
 **5.4.1** Purpose: This optional field defines the line range in the original host file (in [5.2](#5.2)) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.
 
-**5.4.2** Intent: A range of lines is a convenient reference for those files where there is a known line delimiter. The choice was made to start the numbering of the lines at 1 to be consistent with the W3C pointer method vocabulary (see http://www.w3.org/TR/Pointers-in-RDF10/).
+**5.4.2** Intent: A range of lines is a convenient reference for those files where there is a known line delimiter. The choice was made to start the numbering of the lines at 1 to be consistent with the W3C pointer method vocabulary (see [http://www.w3.org/TR/Pointers-in-RDF10/](http://www.w3.org/TR/Pointers-in-RDF10/)).
 
 **5.4.3** Cardinality: Optional, one.
 
@@ -164,7 +160,7 @@ Example:
 
     SnippetLineRange: 5:23
 
-**5.4.6** RDF: properties `spdx:byteRange` in class `spdx:Snippet`. The RDF uses the W3C proposed pointer method vocabulary (see http://www.w3.org/TR/Pointers-in-RDF10/)
+**5.4.6** RDF: properties `spdx:byteRange` in class `spdx:Snippet`. The RDF uses the W3C proposed pointer method vocabulary (see [http://www.w3.org/TR/Pointers-in-RDF10/](http://www.w3.org/TR/Pointers-in-RDF10/))
 
 Supported classes from the pointer method vocabulary are `StartEndPointer` and `LineCharPointer`. Supported properties from the pointer method vocabulary include:
 
@@ -337,7 +333,7 @@ Example:
 
 Example:
 
-    <Snippet rdf:about="...”>
+    <Snippet rdf:about="...">
         ...
         <licenseComments>
             The concluded license was taken from package xyz, from which the snippet
@@ -432,7 +428,7 @@ Example:
 
     SnippetName: from linux kernel
 
-5.10.6 RDF: Property `spdx:snippetName` in class `spdx:Snippet`
+**5.10.6** RDF: Property `spdx:snippetName` in class `spdx:Snippet`
 
 Example:
 

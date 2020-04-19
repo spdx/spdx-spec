@@ -14,7 +14,7 @@ Companies and organizations (collectively “Organizations”) are widely using 
 
 ## 1.4 What does this specification cover? <a name="1.4"></a>
 
-**1.4.1** SPDX Document Creation Information: Meta data to associate analysis results with a specific version of the SPDX file and license for use, and provide information on how, when, and by whom the SPDX file was created.
+**1.4.1** SPDX Document Creation Information: Metadata to associate analysis results with a specific version of the SPDX file and license for use, and provide information on how, when, and by whom the SPDX file was created.
 
 **1.4.2** Package Information: Facts that are common properties of an entire package.
 
@@ -88,11 +88,11 @@ In addition to the supported formats, the following format is in development wit
 
 | Format      | Extension   |
 | ----------- | ----------- |
-| `tag:value` | *.spdx      |
+| tag:value   | *.spdx      |
 | RDF         | *.spdx.rdf  |
 | JSON        | *.spdx.json |
 | XML         | *.spdx.xml  |
-| YAML        | *.spdx.yaml or *.spdx.yml |
+| YAML        | \*.spdx.yaml or \*.spdx.yml |
 
 **1.7.10** The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Universal Resource Indicator (URI) should be present.
 
@@ -116,6 +116,6 @@ In addition to the supported formats, the following format is in development wit
 
 **1.9.3** A new appendix "SPDX Lite" has been added to document a lightweight subset of the SPDX specification for scenarios where a full SPDX document is not required. See [Appendix VIII](appendix-VIII-SPDX-Lite.md) for more information.
 
-**1.9.4** Additional relationship options have been added to enable expression of different forms of dependencies between SPDX elements.   As well, NONE and NOASSERTION keywords are now permitted to be used with relationships to indicated what is unknown.
+**1.9.4** Additional relationship options have been added to enable expression of different forms of dependencies between SPDX elements. As well, NONE and NOASSERTION keywords are now permitted to be used with relationships to indicate what is unknown.
 
 **1.9.5** Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the [spdx-spec GitHub repository](https://github.com/spdx/spdx-spec).
