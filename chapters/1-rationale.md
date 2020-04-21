@@ -47,6 +47,7 @@ Companies and organizations (collectively “Organizations”) are widely using 
 In SPDX, a 'Package' refers to any unit of content that can be associated with a distribution of software. Typically, a Package is composed of one or more files. An SPDX document may, but is not required to, provide details about the individual files comprising a Package (see the "File Information" details in section 4).
 
 Any of the following non-limiting examples may be (but are not required to be) represented in SPDX as a Package:
+
 * a tarball, zip file or other archive
 * a directory or subdirectory
 * a separately-distributed piece of software which another Package or File uses or depends upon (e.g., a Python package, a Golang module, ...)
