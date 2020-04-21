@@ -357,7 +357,7 @@ Example:
         </copyrightText>
     </File>
 
-##4.9 Artifact of Project Name (deprecated) <a name="4.9"></a>
+## 4.9 Artifact of Project Name (deprecated) <a name="4.9"></a>
 
 **4.9.1** Purpose: To indicate that a file has been derived from a specific project.
 
