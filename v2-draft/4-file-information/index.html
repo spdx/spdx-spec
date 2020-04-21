@@ -193,13 +193,15 @@
                 <h1 id="4-file-information">4 File Information</h1>
 <p>One instance of the File Information is required for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.</p>
 <p>When implementing <code>tag:value</code> format, the positioning of File elements is syntactically significant:</p>
-<p>Files are assumed to be associated with the Package Information that immediately precedes it, if a package exists.
-Presence of a new Package Information signals the end of the set of files associated with the preceding package, unless an explicit Relationship is used.
-If a package contains files, the File Information section must follow its Package Information section.
-If a File is not part of any package, it must precede any Package Information section reference in the SPDX document.
-The first field to start off the description of a File must be the File Name in <code>tag:value</code> format.
-File information is associated with the File Name that precedes it.
-Annotations on the file and Relationships from the file may appear after the file information, before the next file or Package Information section.</p>
+<ul>
+<li>Files are assumed to be associated with the Package Information that immediately precedes it, if a package exists.</li>
+<li>Presence of a new Package Information signals the end of the set of files associated with the preceding package, unless an explicit Relationship is used.</li>
+<li>If a package contains files, the File Information section must follow its Package Information section.</li>
+<li>If a File is not part of any package, it must precede any Package Information section reference in the SPDX document.</li>
+<li>The first field to start off the description of a File must be the File Name in <code>tag:value</code> format.</li>
+<li>File information is associated with the File Name that precedes it.</li>
+<li>Annotations on the file and Relationships from the file may appear after the file information, before the next file or Package Information section.</li>
+</ul>
 <p>When implementing file information in RDF, the <code>spdx:hasFile</code> property is used to associate the package with the file.</p>
 <h2 id="41-file-name">4.1 File Name <a name="4.1"></a></h2>
 <p><strong>4.1.1</strong> Purpose: Identify the full path and filename that corresponds to the file information in this section.</p>
@@ -222,7 +224,7 @@ Annotations on the file and Relationships from the file may appear after the fil
 <p><strong>4.2.1</strong> Purpose: Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier.</p>
 <p><strong>4.2.2</strong> Intent: There may be several versions of the same file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.</p>
 <p><strong>4.2.3</strong> Cardinality: Mandatory, one.</p>
-<p><strong>4.2.4</strong> DataFormat: "SPDXRef-"<code>[idstring]</code></p>
+<p><strong>4.2.4</strong> Data Format: "SPDXRef-"<code>[idstring]</code></p>
 <p>where <code>[idstring]</code> is a unique string containing letters, numbers, <code>.</code> and/or <code>-</code>.</p>
 <p><strong>4.2.5</strong> Tag: <code>SPDXID:</code></p>
 <p>Example:</p>
@@ -232,7 +234,7 @@ Annotations on the file and Relationships from the file may appear after the fil
 <p>Example using <code>xml:base:</code></p>
 <pre><code>&lt;rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B"
     ...
-    &lt;File rdf:ID=”SPDXRef-1”&gt;
+    &lt;File rdf:ID="SPDXRef-1"&gt;
         ...
     &lt;/File&gt;
 </code></pre>
@@ -324,7 +326,7 @@ FileChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 <p>(ii) the SPDX file creator has made no attempt to determine this field; or</p>
 <p>(iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).</p>
 <p>If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field <a href="#4.7">(section 4.7)</a>. With respect to <code>NOASSERTION</code>, a written explanation in the Comments on License field <a href="#4.7">(section 4.7)</a> is preferred.</p>
-<p><strong>4.5.2</strong> Intent: Here, the intent is for the SPDX file creator to analyze the License Information in file <a href="#4.6">(section 4.6)</a> and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.</p>
+<p><strong>4.5.2</strong> Intent: Here, the intent is for the SPDX file creator to analyze the License Information in File <a href="#4.6">(section 4.6)</a> and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.</p>
 <p><strong>4.5.3</strong> Cardinality: Mandatory, one.</p>
 <p><strong>4.5.4</strong> Data Format: <code>&lt;SPDX License Expression&gt;</code> | <code>NONE</code> | <code>NOASSERTION</code></p>
 <p>where:</p>
@@ -560,7 +562,7 @@ All advertising materials mentioning features or use of this software must displ
 following acknowledgement:  This product includes software developed by the AT&amp;T.
 &lt;/text&gt;
 </code></pre>
-<p><strong>4.15.6</strong> RDF: property 'attributionText' in class 'spdx:File'</p>
+<p><strong>4.15.6</strong> RDF: property <code>attributionText</code> in class <code>spdx:File</code></p>
 <p>Example:</p>
 <pre><code>&lt;File rdf:about="..."&gt;
         &lt;attributionText&gt;

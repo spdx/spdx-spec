@@ -208,12 +208,14 @@
 <p>If you organize your SPDX information by grouping into packages, then one instance of the Package Information is required per package being described. A package can contain sub-packages, but the information in this section is a reference to the entire contents of the package listed. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.</p>
 <p>Cardinality: Optional, one or many.</p>
 <p>In <code>tag:value</code> format, the order in which package and files occur is syntactically significant.</p>
-<p>A new Package Information section is denoted by the <a href="#3.1">Package Name</a> field.
-All Package Information fields must be grouped together before the start of a <a href="../4-file-information/">Files section</a>, if file(s) are present.
-All files contained in a package must immediately follow the applicable Package Information.
-A new Package Information section (via Package Name) denotes the start of another package.
-Sub-packages should not be nested inside a Package Information section, but should be separate and should use a Relationship to clarify.
-Annotations and Relationships for the package may appear after the Package Information before any file information.</p>
+<ul>
+<li>A new Package Information section is denoted by the <a href="#3.1">Package Name</a> field.</li>
+<li>All Package Information fields must be grouped together before the start of a <a href="../4-file-information/">Files section</a>, if file(s) are present.</li>
+<li>All files contained in a package must immediately follow the applicable Package Information.</li>
+<li>A new Package Information section (via Package Name) denotes the start of another package.</li>
+<li>Sub-packages should not be nested inside a Package Information section, but should be separate and should use a Relationship to clarify.</li>
+<li>Annotations and Relationships for the package may appear after the Package Information before any file information.</li>
+</ul>
 <p>Fields:</p>
 <h2 id="31-package-name">3.1 Package Name <a name="3.1"></a></h2>
 <p><strong>3.1.1</strong> Purpose: Identify the full name of the package as given by the <a href="#3.6">Package Originator</a>.</p>
@@ -327,7 +329,7 @@ Annotations and Relationships for the package may appear after the Package Infor
 &lt;/Package&gt;
 </code></pre>
 <h2 id="36-package-originator">3.6 Package Originator <a name="3.6"></a></h2>
-<p><strong>3.6.1</strong> Purpose: If the package identified in the SPDX file originated from a different person or organization than identified as Package Supplier (see <a href="#3.5">section 3.5</a> above), this field identifies from where or whom the package originally came. In some cases a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX file identifies the package <a href="https://www.gnu.org/software/libc/">glibc</a> and <a href="https://www.redhat.com/">Red Hat</a>[RedHat] as the Package Supplier, but the <a href="http://www.fsf.org/">Free Software Foundation</a> is the Package Originator.</p>
+<p><strong>3.6.1</strong> Purpose: If the package identified in the SPDX file originated from a different person or organization than identified as Package Supplier (see <a href="#3.5">section 3.5</a> above), this field identifies from where or whom the package originally came. In some cases a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX file identifies the package <a href="https://www.gnu.org/software/libc/">glibc</a> and <a href="https://www.redhat.com/">Red Hat</a> as the Package Supplier, but the <a href="http://www.fsf.org/">Free Software Foundation</a> is the Package Originator.</p>
 <p>Use <code>NOASSERTION</code> if:</p>
 <p>(i) the SPDX file creator has attempted to but cannot reach a reasonable objective determination;</p>
 <p>(ii) the SPDX file creator has made no attempt to determine this field; or</p>
@@ -521,9 +523,11 @@ PackageDownloadLocation: bzr+http://bzr.myproject.org/MyProject/trunk@v1.0
 <p><strong>3.8.1</strong> Purpose: Indicates whether the file content of this package has been available for or subjected to analysis when creating the SPDX document. If <code>false</code>, indicates packages that represent metadata or URI references to a project, product, artifact, distribution or a component. If <code>false</code>, the package must not contain any files.</p>
 <p><strong>3.8.2</strong> Intent: A package can refer to a project, product, artifact, distribution or a component that is external to the SPDX document.</p>
 <p>Some examples:</p>
-<p>A bundle of external products: Package A can be metadata about Packages and their dependencies. It may also be a loosely organized manifest of references to Packages involved in a product or project. Build or execution may transitively discover more Packages and dependencies. All of these referenced Packages can have their own SPDX Documents. In this case, Package A may be defined with its File Analyzed attribute set to <code>false</code>. Package A includes External Document References to SPDX documents containing Packages referenced in all the available relationships. The Relationships section then relates the SPDX documents and contained SPDX elements with appropriate semantics per the dependencies in the scope of Package A.
-Package relation to external product: Package A can have a STATIC_LINK relationship to Package B, but the binary representation of Package B is furnished by the build process and thus not contained in the file list of Package A. In this case, Package B needs to be defined with its Files Analyzed attribute set to false and all the other attributes subject to the subsequently defined constraints. Then, the relationship between Package A and Package B can be documented as described in <a href="../7-relationships-between-SPDX-elements/">Section 7</a>.
-File derived from external product: Package A contains multiple files derived from an outside project. Rather than use the <code>artifactOf*</code> attributes (Sections 4.9-4.11) to describe the relation of these files to their project, the outside project can be represented by another package, Package B, whose <a href="#3.8"><code>FilesAnalyzed</code></a> attribute is set to <code>false</code>. Each of the binary files can then have a relationship to package B (Section 6). This allows the outside project to be represented by a single SPDX identifier (the identifier of Package B). It also allows the relationship(s) between the outside project and each of the files be represented in much more detail.</p>
+<ol>
+<li><strong>A bundle of external products</strong>: Package A can be metadata about Packages and their dependencies. It may also be a loosely organized manifest of references to Packages involved in a product or project. Build or execution may transitively discover more Packages and dependencies. All of these referenced Packages can have their own SPDX Documents. In this case, Package A may be defined with its File Analyzed attribute set to <code>false</code>. Package A includes External Document References to SPDX documents containing Packages referenced in all the available relationships. The Relationships section then relates the SPDX documents and contained SPDX elements with appropriate semantics per the dependencies in the scope of Package A.</li>
+<li><strong>Package relation to external product</strong>: Package A can have a STATIC_LINK relationship to Package B, but the binary representation of Package B is furnished by the build process and thus not contained in the file list of Package A. In this case, Package B needs to be defined with its Files Analyzed attribute set to false and all the other attributes subject to the subsequently defined constraints. Then, the relationship between Package A and Package B can be documented as described in <a href="../7-relationships-between-SPDX-elements/">Section 7</a>.</li>
+<li><strong>File derived from external product</strong>: Package A contains multiple files derived from an outside project. Rather than use the <code>artifactOf*</code> attributes (Sections 4.9-4.11) to describe the relation of these files to their project, the outside project can be represented by another package, Package B, whose <a href="#3.8"><code>FilesAnalyzed</code></a> attribute is set to <code>false</code>. Each of the binary files can then have a relationship to package B (Section 6). This allows the outside project to be represented by a single SPDX identifier (the identifier of Package B). It also allows the relationship(s) between the outside project and each of the files be represented in much more detail.</li>
+</ol>
 <p><strong>3.8.3</strong> Cardinality: Optional, one.  If omitted, the default value of <code>true</code> is assumed.</p>
 <p><strong>3.8.4</strong> Data Format: Boolean</p>
 <p><strong>3.8.5</strong> Tag: <code>FilesAnalyzed</code></p>
@@ -544,11 +548,11 @@ File derived from external product: Package A contains multiple files derived fr
 <p><strong>3.9.3</strong> Cardinality: Mandatory, one if <a href="#3.8"><code>FilesAnalyzed</code></a> is <code>true</code> or omitted, zero (must be omitted) if <code>FilesAnalyzed</code> is <code>false</code>.</p>
 <p><strong>3.9.4</strong> Algorithm:</p>
 <pre><code>verificationcode = 0
-filelist = templist = “”
+filelist = templist = ""
 for all files in the package {
-    if file is an “excludes” file, skip it /* exclude SPDX analysis file(s) */
+    if file is an "excludes" file, skip it /* exclude SPDX analysis file(s) */
 
-        append templist with “SHA1(file)/n”
+        append templist with "SHA1(file)/n"
     }
 sort templist in ascending order by SHA1 value
 filelist = templist with "/n"s removed. /* ordered sequence of SHA1 values with no separators */
@@ -872,7 +876,7 @@ The version of the project included here post-dates the license change.&lt;/text
 as well as additional features specific to POSIX and other derivatives of the Unix operating system,
 and extensions specific to GNU systems.&lt;/text&gt;
 </code></pre>
-<p>3.19.6  RDF:  property <code>spdx:description</code> in class <code>spdx:Package</code></p>
+<p><strong>3.19.6</strong> RDF: property <code>spdx:description</code> in class <code>spdx:Package</code></p>
 <p>Example:</p>
 <pre><code>&lt;Package rdf:about="..."&gt;
     ...
@@ -954,7 +958,7 @@ ExternalRef: OTHER LocationRef-acmeforge acmecorp/acmenator/4.1.3-alpha
 <h2 id="322-external-reference-comment">3.22 External Reference Comment <a name="3.22"></a></h2>
 <p><strong>3.22.1</strong> Purpose: To provide human-readable information about the purpose and target of the reference.</p>
 <p><strong>3.22.2</strong> Intent: To inform a human consumer why the reference exists, what kind of information, content or metadata can be extracted. The target's relationship to artifactOf values of files in the package may need to be explained here. If the reference is BINARY, its relationship to PackageDownloadLocation may need to be explained. If the reference is SOURCE, its relationship to PackageDownloadLocation and SourceInformation may need to be explained.</p>
-<p><strong>3.22.3</strong> Cardinality: Conditional (Optional, one) for each [External Reference][#3.21).</p>
+<p><strong>3.22.3</strong> Cardinality: Conditional (Optional, one) for each <a href="#3.21">External Reference</a>.</p>
 <p><strong>3.22.4</strong> Data format: Free form text that can span multiple lines.</p>
 <p>In <code>tag:value</code> format this is delimited by <code>&lt;text&gt;...&lt;/text&gt;</code> and is expected to follow an <a href="#3.21">External Reference</a> so that the association can be made.</p>
 <p>In RDF, it is delimited by <code>&lt;ExternalRefComment&gt;</code>.</p>
@@ -995,7 +999,7 @@ All advertising materials mentioning features or use of this software must displ
 following acknowledgement:  This product includes software developed by the AT&amp;T.
 &lt;/text&gt;
 </code></pre>
-<p><strong>3.23.6</strong> RDF: property 'attributionText' in class 'spdx:Package'</p>
+<p><strong>3.23.6</strong> RDF: property <code>attributionText</code> in class <code>spdx:Package</code></p>
 <p>Example:</p>
 <pre><code>&lt;Package rdf:about="..."&gt;
         &lt;attributionText&gt;
