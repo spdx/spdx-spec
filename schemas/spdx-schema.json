@@ -7,26 +7,6 @@
     "Document" : {
       "type" : "object",
       "properties" : {
-        "revieweds" : {
-          "description" : "Reviewed",
-          "type" : "array",
-          "items" : {
-            "type" : "object",
-            "properties" : {
-              "reviewer" : {
-                "description" : "The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.",
-                "type" : "string"
-              },
-              "comment" : {
-                "type" : "string"
-              },
-              "reviewDate" : {
-                "description" : "The date and time at which the SpdxDocument was reviewed. This value must be in UTC and have 'Z' as its timezone indicator.",
-                "type" : "string"
-              }
-            }
-          }
-        },
         "hasExtractedLicensingInfos" : {
           "description" : "Indicates that a particular ExtractedLicensingInfo was defined in the subject SpdxDocument.",
           "type" : "array",
@@ -56,6 +36,26 @@
               }
             },
             "description" : "An ExtractedLicensingInfo represents a license or licensing notice that was found in the package. Any license text that is recognized as a license may be represented as a License rather than an ExtractedLicensingInfo."
+          }
+        },
+        "revieweds" : {
+          "description" : "Reviewed",
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "reviewer" : {
+                "description" : "The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.",
+                "type" : "string"
+              },
+              "comment" : {
+                "type" : "string"
+              },
+              "reviewDate" : {
+                "description" : "The date and time at which the SpdxDocument was reviewed. This value must be in UTC and have 'Z' as its timezone indicator.",
+                "type" : "string"
+              }
+            }
           }
         },
         "name" : {
@@ -119,7 +119,7 @@
                   "algorithm" : {
                     "description" : "Identifies the algorithm used to produce the subject Checksum. Currently, SHA-1 is the only supported algorithm. It is anticipated that other algorithms will be supported at a later time.",
                     "type" : "string",
-                    "enum" : [ "SHA256", "SHA1", "MD5" ]
+                    "enum" : [ "SHA256", "SHA1", "SHA384", "MD2", "MD4", "SHA512", "MD6", "MD5", "SHA224" ]
                   },
                   "checksumValue" : {
                     "description" : "The checksumValue property provides a lower case hexidecimal encoded digest value produced using a specific algorithm.",
@@ -172,6 +172,14 @@
           "items" : {
             "type" : "object",
             "properties" : {
+              "attributionTexts" : {
+                "description" : "This field provides a place for the SPDX data creator to record acknowledgements that may be required to be communicated in some contexts. This is not meant to include theactual complete license text (see licenseConculded and licenseDeclared), and may or may not include copyright notices (see also copyrightText). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.",
+                "type" : "array",
+                "items" : {
+                  "description" : "This field provides a place for the SPDX data creator to record acknowledgements that may be required to be communicated in some contexts. This is not meant to include theactual complete license text (see licenseConculded and licenseDeclared), and may or may not include copyright notices (see also copyrightText). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.",
+                  "type" : "string"
+                }
+              },
               "annotations" : {
                 "description" : "Provide additional information about an SpdxElement.",
                 "type" : "array",
@@ -198,12 +206,31 @@
                   "description" : "An Annotation is a comment on an SpdxItem by an agent."
                 }
               },
+              "homepage" : {
+                "type" : "string"
+              },
               "supplier" : {
                 "description" : "The name and, optionally, contact information of the person or organization who was the immediate supplier of this package to the recipient. The supplier may be different than originator when the software has been repackaged. Values of this property must conform to the agent and tool syntax.",
                 "type" : "string"
               },
-              "homepage" : {
-                "type" : "string"
+              "checksums" : {
+                "description" : "The checksum property provides a mechanism that can be used to verify that the contents of a File or Package have not changed.",
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "algorithm" : {
+                      "description" : "Identifies the algorithm used to produce the subject Checksum. Currently, SHA-1 is the only supported algorithm. It is anticipated that other algorithms will be supported at a later time.",
+                      "type" : "string",
+                      "enum" : [ "SHA256", "SHA1", "SHA384", "MD2", "MD4", "SHA512", "MD6", "MD5", "SHA224" ]
+                    },
+                    "checksumValue" : {
+                      "description" : "The checksumValue property provides a lower case hexidecimal encoded digest value produced using a specific algorithm.",
+                      "type" : "string"
+                    }
+                  },
+                  "description" : "A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented."
+                }
               },
               "packageVerificationCode" : {
                 "type" : "object",
@@ -222,25 +249,6 @@
                   }
                 },
                 "description" : "A manifest based verification code (the algorithm is defined in section 4.7 of the full specification) of the SPDX Item. This allows consumers of this data and/or database to determine if an SPDX item they have in hand is identical to the SPDX item from which the data was produced. This algorithm works even if the SPDX document is included in the SPDX item."
-              },
-              "checksums" : {
-                "description" : "The checksum property provides a mechanism that can be used to verify that the contents of a File or Package have not changed.",
-                "type" : "array",
-                "items" : {
-                  "type" : "object",
-                  "properties" : {
-                    "algorithm" : {
-                      "description" : "Identifies the algorithm used to produce the subject Checksum. Currently, SHA-1 is the only supported algorithm. It is anticipated that other algorithms will be supported at a later time.",
-                      "type" : "string",
-                      "enum" : [ "SHA256", "SHA1", "MD5" ]
-                    },
-                    "checksumValue" : {
-                      "description" : "The checksumValue property provides a lower case hexidecimal encoded digest value produced using a specific algorithm.",
-                      "type" : "string"
-                    }
-                  },
-                  "description" : "A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented."
-                }
               },
               "downloadLocation" : {
                 "description" : "The URI at which this package is available for download. Private (i.e., not publicly reachable) URIs are acceptable as values of this property. The values http://spdx.org/rdf/terms#none and http://spdx.org/rdf/terms#noassertion may be used to specify that the package is not downloadable or that no attempt was made to determine its download location, respectively.",
@@ -350,6 +358,14 @@
                   "enum" : [ "OTHER", "DOCUMENTATION", "IMAGE", "VIDEO", "ARCHIVE", "SPDX", "APPLICATION", "SOURCE", "BINARY", "TEXT", "AUDIO" ]
                 }
               },
+              "attributionTexts" : {
+                "description" : "This field provides a place for the SPDX data creator to record acknowledgements that may be required to be communicated in some contexts. This is not meant to include theactual complete license text (see licenseConculded and licenseDeclared), and may or may not include copyright notices (see also copyrightText). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.",
+                "type" : "array",
+                "items" : {
+                  "description" : "This field provides a place for the SPDX data creator to record acknowledgements that may be required to be communicated in some contexts. This is not meant to include theactual complete license text (see licenseConculded and licenseDeclared), and may or may not include copyright notices (see also copyrightText). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.",
+                  "type" : "string"
+                }
+              },
               "annotations" : {
                 "description" : "Provide additional information about an SpdxElement.",
                 "type" : "array",
@@ -385,7 +401,7 @@
                     "algorithm" : {
                       "description" : "Identifies the algorithm used to produce the subject Checksum. Currently, SHA-1 is the only supported algorithm. It is anticipated that other algorithms will be supported at a later time.",
                       "type" : "string",
-                      "enum" : [ "SHA256", "SHA1", "MD5" ]
+                      "enum" : [ "SHA256", "SHA1", "SHA384", "MD2", "MD4", "SHA512", "MD6", "MD5", "SHA224" ]
                     },
                     "checksumValue" : {
                       "description" : "The checksumValue property provides a lower case hexidecimal encoded digest value produced using a specific algorithm.",
@@ -412,12 +428,12 @@
                 "description" : "The licenseComments property allows the preparer of the SPDX document to describe why the licensing in spdx:licenseConcluded was chosen.",
                 "type" : "string"
               },
-              "name" : {
-                "description" : "Identify name of this SpdxElement.",
-                "type" : "string"
-              },
               "fileName" : {
                 "description" : "The name of the file relative to the root of the package.",
+                "type" : "string"
+              },
+              "name" : {
+                "description" : "Identify name of this SpdxElement.",
                 "type" : "string"
               },
               "comment" : {
@@ -501,6 +517,14 @@
                 "description" : "The licenseComments property allows the preparer of the SPDX document to describe why the licensing in spdx:licenseConcluded was chosen.",
                 "type" : "string"
               },
+              "attributionTexts" : {
+                "description" : "This field provides a place for the SPDX data creator to record acknowledgements that may be required to be communicated in some contexts. This is not meant to include theactual complete license text (see licenseConculded and licenseDeclared), and may or may not include copyright notices (see also copyrightText). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.",
+                "type" : "array",
+                "items" : {
+                  "description" : "This field provides a place for the SPDX data creator to record acknowledgements that may be required to be communicated in some contexts. This is not meant to include theactual complete license text (see licenseConculded and licenseDeclared), and may or may not include copyright notices (see also copyrightText). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.",
+                  "type" : "string"
+                }
+              },
               "name" : {
                 "description" : "Identify name of this SpdxElement.",
                 "type" : "string"
@@ -575,7 +599,7 @@
               "relationshipType" : {
                 "description" : "Describes the type of relationship between two SPDX elements.",
                 "type" : "string",
-                "enum" : [ "VARIANT_OF", "PATCH_FOR", "COPY_OF", "CONTAINED_BY", "DATA_FILE_OF", "OPTIONAL_COMPONENT_OF", "ANCESTOR_OF", "GENERATES", "CONTAINS", "FILE_ADDED", "DESCRIBES", "PREREQUISITE_FOR", "HAS_PREREQUISITE", "DYNAMIC_LINK", "DESCRIBED_BY", "METAFILE_OF", "PATCH_APPLIED", "FILE_MODIFIED", "DISTRIBUTION_ARTIFACT", "DOCUMENTATION_OF", "GENERATED_FROM", "STATIC_LINK", "OTHER", "BUILD_TOOL_OF", "TEST_CASE_OF", "FILE_DELETED", "DESCENDANT_OF", "PACKAGE_OF", "EXPANDED_FROM_ARCHIVE" ]
+                "enum" : [ "VARIANT_OF", "COPY_OF", "PATCH_FOR", "TEST_DEPENDENCY_OF", "CONTAINED_BY", "DATA_FILE_OF", "OPTIONAL_COMPONENT_OF", "NOASSERTION", "ANCESTOR_OF", "GENERATES", "CONTAINS", "OPTIONAL_DEPENDENCY_OF", "FILE_ADDED", "DEV_DEPENDENCY_OF", "DEPENDENCY_OF", "BUILD_DEPENDENCY_OF", "DESCRIBES", "PREREQUISITE_FOR", "HAS_PREREQUISITE", "PROVIDED_DEPENDENCY_OF", "NONE", "DYNAMIC_LINK", "DESCRIBED_BY", "METAFILE_OF", "DEPENDENCY_MANIFEST_OF", "PATCH_APPLIED", "RUNTIME_DEPENDENCY_OF", "TEST_OF", "TEST_TOOL_OF", "DEPENDS_ON", "FILE_MODIFIED", "DISTRIBUTION_ARTIFACT", "DOCUMENTATION_OF", "GENERATED_FROM", "STATIC_LINK", "OTHER", "BUILD_TOOL_OF", "TEST_CASE_OF", "PACKAGE_OF", "DESCENDANT_OF", "FILE_DELETED", "EXPANDED_FROM_ARCHIVE", "DEV_TOOL_OF", "EXAMPLE_OF" ]
               },
               "relatedSpdxElement" : {
                 "description" : "SPDX ID for SpdxElement.  A related SpdxElement.",
