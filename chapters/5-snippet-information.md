@@ -111,10 +111,10 @@ Example:
 
 Supported classes from the pointer method vocabulary are StartEndPointer and ByteOffsetPointer. Supported properties from the pointer method vocabulary include:
 
-* startPointer
-* endPointer
-* reference
-* offset
+* `startPointer`
+* `endPointer`
+* `reference`
+* `offset`
 
 Example:
 
