@@ -435,3 +435,35 @@ Example:
     <Snippet rdf:about="...">
         <name>from linux kernel</name>
     </Snippet>
+
+## 5.11 Snippet Attribution Text <a name="5.11"></a>
+
+**5.11.1** Purpose: This field provides a place for the SPDX data creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see `LicenseConcluded` and `LicenseInfoInSnippet`), and may or may not include copyright notices (see also `SnippetCopyrightText`). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.
+
+**5.11.2** Intent: The intent is to provide the recipient of the SPDX file with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator may or may not explain elsewhere how they intend for this field to be used.
+
+**5.11.3** Cardinality: Optional, one or many.
+
+**5.11.4** Data Format: free form text that can span multiple lines.
+
+**5.11.5** Tag: `SnippetAttributionText:`
+
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
+
+Example: 
+
+    SnippetAttributionText: <text>
+    All advertising materials mentioning features or use of this software must display the
+    following acknowledgement:  This product includes software developed by the AT&T.
+    </text>
+
+**5.11.6** RDF: property `attributionText` in class `spdx:Snippet`
+
+Example:
+
+    <Snippet rdf:about="...">
+           	<attributionText>
+                All advertising materials mentioning features or use of this software must display the
+                following acknowledgement:  This product includes software developed by the AT&T.
+           	</attributionText>
+    </Snippet>
