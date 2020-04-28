@@ -65,11 +65,12 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 **1.7.2** Must be in a syntax that a software tool can read and write.
 
-**1.7.3** Must be suitable to be checked for syntactic correctness automaticallyindependent of how it was generated (human or tool).
+**1.7.3** Must be suitable to be checked for syntactic correctness automatically, independent of how it was generated (human or tool).
 
 **1.7.4** The SPDX file character set must support UTF-8 encoding.
 
 **1.7.5** Multiple file formats can be used to represent the information being exchanged.   Current supported formats include:
+
 * YAML 1.2  see: https://yaml.org/spec/1.2/spec.html
 * JavaScript Object Notation (JSON) see: ECMA-404(https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
     * The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/schemas/spdx-schema.json)
