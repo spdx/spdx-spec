@@ -555,7 +555,7 @@ Example:
     following acknowledgement:  This product includes software developed by the AT&T.
     </text>
 
-**4.15.6** RDF: property `attributionText` in class `spdx:File`
+**4.15.6** RDF: property `spdx:attributionText` in class `spdx:File`
 
 Example:
 
