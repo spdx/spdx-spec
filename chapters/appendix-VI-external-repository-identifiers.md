@@ -1,10 +1,23 @@
 # Appendix VI: External Repository Identifiers
 
-## When `<category>` = `SECURITY`:
+This specification allows external resources
+to be referenced from SPDX documents.
+The identifiers are a combination of a category, a type and a locator.
 
-### `<type>` cpe22Type <a name="cpe22"></a>
+There are currently four defined categories:
 
-#### `<locator>` Information
+* Security
+* Package-Manager
+* Persistent-Id
+* Other
+
+The following sections provide details on the available types
+and the locator formats for each of the categories.
+
+
+## Security
+
+### cpe22Type <a name="cpe22"></a>
 
 Locator Format:
 
@@ -19,9 +32,7 @@ External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 Documentation: [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
 
 
-### `<type>` cpe23Type <a name="cpe23"></a>
-
-#### `<locator>` Information
+### cpe23Type <a name="cpe23"></a>
 
 Locator Format:
 
@@ -44,11 +55,9 @@ External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf](http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf)
 
 
-## When `<category>` = `PACKAGE-MANAGER`:
+##  Package-Manager
 
-### `<type>` maven-central <a name="maven"></a>
-
-#### `<locator>` Information
+### maven-central <a name="maven"></a>
 
 Locator Format:
 
@@ -63,9 +72,7 @@ External Reference Site: [http://repo1.maven.org/maven2/](http://repo1.maven.org
 
 Documentation: [https://maven.apache.org](https://maven.apache.org)
 
-### `<type>` npm <a name="npm"></a>
-
-#### `<locator>` Information
+### npm <a name="npm"></a>
 
 Locator Format:
 
@@ -80,9 +87,7 @@ External Reference Site: [https://www.npmjs.com/](https://www.npmjs.com/)
 
 Documentation: [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
 
-### `<type>` nuget <a name="nuget"></a>
-
-#### `<locator>` Information
+### nuget <a name="nuget"></a>
 
 Locator Format:
 
@@ -97,9 +102,7 @@ External Reference Site: [https://www.nuget.org/](https://www.nuget.org/)
 
 Documentation: [https://docs.nuget.org/](https://docs.nuget.org/)
 
-### `<type>` bower <a name="bower"></a>
-
-#### `<locator>` Information
+### bower <a name="bower"></a>
 
 Locator Format:
 
@@ -114,9 +117,7 @@ External Reference Site: [http://bower.io/](http://bower.io/)
 
 Documentation: [http://bower.io/docs/api/#install](http://bower.io/docs/api/#install)
 
-### `<type>` purl <a name="purl"></a>
-
-#### `<locator>` Information
+### purl <a name="purl"></a>
 
 Locator Format:
 
@@ -131,11 +132,9 @@ External Reference Site: [https://github.com/package-url/purl-spec](https://gith
 Documentation: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
 
 
-## When `<category>` = `PERSISTENT-ID`:
+##  Persistent-Id
 
-### `<type>` swh <a name="swh"></a>
-
-#### `<locator>` Information
+### swh <a name="swh"></a>
 
 These point to objects present in the Software Heritage archive by the means of persistent identifiers
 that are guaranteed to remain stable (persistent) over time.
@@ -170,11 +169,11 @@ Examples:
 
 External documentation: [Sofware Heritage](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
 
+##  Other
 
-## When `<category>` = `OTHER`:
+### [idstring] <a name="idstring"></a>
 
-### `<type>` [idstring] <a name="idstring"></a>
-
-#### `<locator>` Information
+Locator Format:
 
 No spaces, but anything else goes
+
