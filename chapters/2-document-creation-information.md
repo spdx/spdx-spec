@@ -212,7 +212,7 @@ as defined in [section 2.5](#2.5) of that referenced document,
 
 `[Checksum]` is a checksum of the external document following the checksum
 
-format defined in [section 3.9](3-package-information.md#3.9).
+format defined in [section 4.4](4-file-information#4.4).
 
 **2.6.5** Tag: `ExternalDocumentRef:`
 
