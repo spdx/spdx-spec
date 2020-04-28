@@ -61,11 +61,13 @@ A simple `<license-expression>` is composed one of the following:
 
 Some examples:
 
-    LicenseRef-23
+```text
+LicenseRef-23
 
-    LicenseRef-MIT-Style-1
+LicenseRef-MIT-Style-1
 
-    DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
+DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
+```
 
 ## Composite License Expressions <a name="composite-expr"></a>
 
@@ -81,11 +83,15 @@ If presented with a choice between two or more licenses, use the disjunctive bin
 
 For example, when given a choice between the LGPL-2.1-only or MIT licenses, a valid expression would be:
 
-    LGPL-2.1-only OR MIT
+```text
+LGPL-2.1-only OR MIT
+```
 
 An example representing a choice between three different licenses would be:
 
-    LGPL-2.1-only OR MIT OR BSD-3-Clause
+```text
+LGPL-2.1-only OR MIT OR BSD-3-Clause
+```
 
 ### 2) Conjunctive "AND" Operator
 
@@ -93,11 +99,15 @@ If required to simultaneously comply with two or more licenses, use the conjunct
 
 For example, when one is required to comply with both the LGPL-2.1-only or MIT licenses, a valid expression would be:
 
-    LGPL-2.1-only AND MIT
+```text
+LGPL-2.1-only AND MIT
+```
 
 An example where all three different licenses apply would be:
 
-    LGPL-2.1-only AND MIT AND BSD-2-Clause
+```text
+LGPL-2.1-only AND MIT AND BSD-2-Clause
+```
 
 ### 3) Exception "WITH" Operator
 
@@ -105,7 +115,9 @@ Sometimes a set of license terms apply except under special circumstances. In th
 
 For example, when the Bison exception is to be applied to GPL-2.0-or-later, the expression would be:
 
-    GPL-2.0-or-later WITH Bison-exception-2.2
+```text
+GPL-2.0-or-later WITH Bison-exception-2.2
+```
 
 The current set of valid exceptions can be found in [Appendix I, section 2](appendix-I-SPDX-license-list.md#I.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single `<license-ref>` to represent the entire license terms (including the exception).
 
@@ -113,16 +125,20 @@ The current set of valid exceptions can be found in [Appendix I, section 2](appe
 
 The order of application of the operators in an expression matters (similar to mathematical operators). The default operator order of precedence of a `<license-expression>` a is:
 
-    +
-    WITH
-    AND
-    OR
+```text
++
+WITH
+AND
+OR
+```
 
 where a lower order operator is applied before a higher order operator.
 
 For example, the following expression:
 
-    LGPL-2.1-only OR BSD-3-Clause AND MIT
+```text
+LGPL-2.1-only OR BSD-3-Clause AND MIT
+```
 
 represents a license choice between either LGPL-2.1-only and the expression BSD-3-Clause AND MIT because the AND operator takes precedence over (is applied before) the OR operator.
 
@@ -130,7 +146,9 @@ When required to express an order of precedence that is different from the defau
 
 For instance, the following expression:
 
-    MIT AND (LGPL-2.1-or-later OR BSD-3-Clause)
+```text
+MIT AND (LGPL-2.1-or-later OR BSD-3-Clause)
+```
 
 states the OR operator should be applied before the AND operator. That is, one should first select between the LGPL-2.1-or-later or the BSD-3-Clause license before applying the MIT license.
 
@@ -138,33 +156,37 @@ states the OR operator should be applied before the AND operator. That is, one s
 
 A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet>` element, with an spdx:member property for each element in the conjunctive license. Two or more members are required.
 
-    <spdx:ConjunctiveLicenseSet>
-        <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
-        <spdx:ExtractedLicensingInfo rdf:about="http://example.org#LicenseRef-EternalSurrender">
-            <spdx:extractedText>
-                In exchange for using this software, you agree to give its author all your worldly possessions.
-                You will not hold the author liable for all the damage this software will inevitably cause not only
-                to your person and property, but to the entire fabric of the cosmos.
-            </spdx:extractedText>
-            <spdx:licenseId>LicenseRef-EternalSurrender</spdx:licenseId>
-        </spdx:ExtractedLicensingInfo>
-    </spdx:ConjunctiveLicenseSet>
+```text
+<spdx:ConjunctiveLicenseSet>
+    <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
+    <spdx:ExtractedLicensingInfo rdf:about="http://example.org#LicenseRef-EternalSurrender">
+        <spdx:extractedText>
+            In exchange for using this software, you agree to give its author all your worldly possessions.
+            You will not hold the author liable for all the damage this software will inevitably cause not only
+            to your person and property, but to the entire fabric of the cosmos.
+        </spdx:extractedText>
+        <spdx:licenseId>LicenseRef-EternalSurrender</spdx:licenseId>
+    </spdx:ExtractedLicensingInfo>
+</spdx:ConjunctiveLicenseSet>
+```
 
 A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet>` element, with an spdx:member property for each element in the disjunctive license. Two or more members are required.
 
-    <spdx:DisjunctiveLicenseSet>
-        <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
-        <spdx:member>
-            <spdx:ExtractedLicensingInfo rdf:about="http://example.org#LicenseRef-EternalSurrender">
-                <spdx:extractedText>
-                    In exchange for using this software, you agree to give its author all your worldly possessions.
-                    You will not hold the author liable for all the damage this software will inevitably cause
-                    not only to your person and property, but to the entire fabric of the cosmos.
-                </spdx:extractedText>
-                <spdx:licenseId>LicenseRef-EternalSurrender</spdx:licenseId>
-            </spdx:ExtractedLicensingInfo>
-        </spdx:member>
-    </spdx:DisjunctiveLicenseSet>
+```text
+<spdx:DisjunctiveLicenseSet>
+    <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
+    <spdx:member>
+        <spdx:ExtractedLicensingInfo rdf:about="http://example.org#LicenseRef-EternalSurrender">
+            <spdx:extractedText>
+                In exchange for using this software, you agree to give its author all your worldly possessions.
+                You will not hold the author liable for all the damage this software will inevitably cause
+                not only to your person and property, but to the entire fabric of the cosmos.
+            </spdx:extractedText>
+            <spdx:licenseId>LicenseRef-EternalSurrender</spdx:licenseId>
+        </spdx:ExtractedLicensingInfo>
+    </spdx:member>
+</spdx:DisjunctiveLicenseSet>
+```
 
 A License Exception can be expressed in RDF via a `<spdx:LicenseException>` element. This element has the following attributes:
 
@@ -175,15 +197,17 @@ A License Exception can be expressed in RDF via a `<spdx:LicenseException>` elem
 * License Exception ID: The identifier of an exception in the SPDX License List to which the exception applies.
 * License Exception Text: Full text of the license exception.
 
-        <rdf:Description rdf:about="http://example.org#SPDXRef-ButIdDontWantToException">
-            <rdfs:comment>This exception may be invalid in some jurisdictions.</rdfs:comment>
-            <rdfs:seeAlso>http://dilbert.com/strip/1997-01-15</rdfs:seeAlso>
-            <spdx:example>So this one time, I had a license exception…</spdx:example>
-            <spdx:licenseExceptionText>
-                A user of this software may decline to follow any subset of the terms of this license upon
-                finding any or all such terms unfavorable.
-            </spdx:licenseExceptionText>
-            <spdx:name>&quot;But I Don&apos;t Want To&quot; Exception</spdx:name>
-            <spdx:licenseExceptionId>SPDXRef-ButIdDontWantToException</spdx:licenseExceptionId>
-            <rdf:type rdf:resource="http://spdx.org/rdf/terms#LicenseException"/>
-        </rdf:Description>
+```text
+<rdf:Description rdf:about="http://example.org#SPDXRef-ButIdDontWantToException">
+    <rdfs:comment>This exception may be invalid in some jurisdictions.</rdfs:comment>
+    <rdfs:seeAlso>http://dilbert.com/strip/1997-01-15</rdfs:seeAlso>
+    <spdx:example>So this one time, I had a license exception…</spdx:example>
+    <spdx:licenseExceptionText>
+        A user of this software may decline to follow any subset of the terms of this license upon
+        finding any or all such terms unfavorable.
+    </spdx:licenseExceptionText>
+    <spdx:name>&quot;But I Don&apos;t Want To&quot; Exception</spdx:name>
+    <spdx:licenseExceptionId>SPDXRef-ButIdDontWantToException</spdx:licenseExceptionId>
+    <rdf:type rdf:resource="http://spdx.org/rdf/terms#LicenseException"/>
+</rdf:Description>
+```

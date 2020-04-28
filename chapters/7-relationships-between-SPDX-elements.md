@@ -66,7 +66,9 @@ The relationships between two SPDX elements that are supported are:
 
 **7.1.4** Data Format:
 
-    ["DocumentRef-"[idstring]":"]SPDXID <relationship> ["DocumentRef-"[idstring]":"]SPDXID | `NONE` | `NOASSERTION`
+```text
+["DocumentRef-"[idstring]":"]SPDXID <relationship> ["DocumentRef-"[idstring]":"]SPDXID | `NONE` | `NOASSERTION`
+```
 
 where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [section 2.6](2-document-creation-information.md#2.6)
 
@@ -82,40 +84,58 @@ where `NOASSERTION` can be used to explicitly indicate it is not clear if there 
 
 Examples:
 
-    Relationship: SPDXRef-grep CONTAINS SPDXRef-make
+```text
+Relationship: SPDXRef-grep CONTAINS SPDXRef-make
+```
 
-    RelationshipComment: Package grep contains file make
+```text
+RelationshipComment: Package grep contains file make
+```
 
-    Relationship: SPDXRef-DOCUMENT AMENDS DocumentRef-SPDXA:SPDXRef-DOCUMENT
+```text
+Relationship: SPDXRef-DOCUMENT AMENDS DocumentRef-SPDXA:SPDXRef-DOCUMENT
+```
 
-    RelationshipComment: This current document is an amendment of the SPDXA document.
-    
-    Relationship: SPDXRef-CarolCompression DEPENDS_ON NONE
-    
-    RelationshipComment: The package CarolCompression can be considered as a root with no dependencies.
-    
-    Relationship: SPDXRef-BobBrowser CONTAINS NOASSERTION
-    
-    RelationshipComment: The package BobBrowser may have other packages embedded in it, but the author has insufficient information to treat this as other than unknown at this point in time.
+```text
+RelationshipComment: This current document is an amendment of the SPDXA document.
+```
+
+```text
+Relationship: SPDXRef-CarolCompression DEPENDS_ON NONE
+```
+
+```text
+RelationshipComment: The package CarolCompression can be considered as a root with no dependencies.
+```
+
+```text
+Relationship: SPDXRef-BobBrowser CONTAINS NOASSERTION
+```
+
+```text
+RelationshipComment: The package BobBrowser may have other packages embedded in it, but the author has insufficient information to treat this as other than unknown at this point in time.
+```
 
 **7.1.6** RDF: Property `relationship` in any SpdxElement
 
 Examples:
 
-    <SpdxElement rdf:about="#SPDXRef-45">
-        <relationship>
-            <Relationship>
-                <spdx:relatedSpdxElement>
-                    <spdx:SpdxElement rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...
-                    </spdx:relatedSpdxElement>
+```text
+<SpdxElement rdf:about="#SPDXRef-45">
+    <relationship>
+        <Relationship>
+            <spdx:relatedSpdxElement>
+                <spdx:SpdxElement rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...
+                </spdx:relatedSpdxElement>
 
-                    <relationshipType>http://spdx.org/rdf/terms#relationshipType_contains</relationshipType>
-                </Relationship>
-            </relationship>
+                <relationshipType>http://spdx.org/rdf/terms#relationshipType_contains</relationshipType>
+        </Relationship>
+    </relationship>
 
-        ...
+    ...
 
-    </SpdxElement>
+</SpdxElement>
+```
 
 ## 7.2 Relationship Comment <a name="7.2"></a>
 
@@ -135,17 +155,21 @@ A `RelationshipComment:` must be the line immediately after a â€œRelationship:â€
 
 Example:
 
-    RelationshipComment: <text>The package foo.tgz is a pre-requisite for building executable bar.</text>
+```text
+RelationshipComment: <text>The package foo.tgz is a pre-requisite for building executable bar.</text>
+```
 
 **7.2.6** RDF: Property `rdfs:comment` in class `spdx:Relationship`
 
 Example:
 
-    <Relationship rdf:about="...">
-        <rdfs:comment>
-            The package foo.tgz is a pre-requisite for building executable bar.
-        </rdfs:comment>
+```text
+<Relationship rdf:about="...">
+    <rdfs:comment>
+        The package foo.tgz is a pre-requisite for building executable bar.
+    </rdfs:comment>
 
-        ...
+    ...
 
-    </Relationship>
+</Relationship>
+```

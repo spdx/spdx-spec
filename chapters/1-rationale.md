@@ -71,12 +71,12 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 **1.7.5** Multiple file formats can be used to represent the information being exchanged.   Current supported formats include:
 
-* YAML 1.2  see: https://yaml.org/spec/1.2/spec.html
-* JavaScript Object Notation (JSON) see: ECMA-404(https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
+* **YAML 1.2** see: <https://yaml.org/spec/1.2/spec.html>
+* **JavaScript Object Notation** (JSON) see: [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
     * The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/schemas/spdx-schema.json)
-* Resource Description Framework (RDF also referred to as RDF/XML) see: https://www.w3.org/TR/rdf-syntax-grammar/
-* `tag:value` flat text file as described in this specification
-* .xls spreadsheets
+* **Resource Description Framework** (RDF also referred to as RDF/XML) see: <https://www.w3.org/TR/rdf-syntax-grammar/>
+* **tag:value** flat text file as described in this specification
+* **.xls** spreadsheets
 
 In addition to the supported formats, the following format is in development with a plan to complete the specification by SPDX 3.0:
 * Extensible Markup Language (XML) see: https://www.w3.org/TR/2008/REC-xml-20081126/

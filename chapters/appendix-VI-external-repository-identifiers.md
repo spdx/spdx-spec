@@ -14,59 +14,68 @@ There are currently four defined categories:
 The following sections provide details on the available types
 and the locator formats for each of the categories.
 
-
 ## Security
 
 ### cpe22Type <a name="cpe22"></a>
 
 Locator Format:
 
-    "[c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\._\-~%]*){0,6}"
+```text
+"[c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\._\-~%]*){0,6}"
+```
 
 Contextual Example:
 
-    cpe:/o:canonical:ubuntu_linux:10.04:-:lts
+```text
+cpe:/o:canonical:ubuntu_linux:10.04:-:lts
+```
 
 External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 
 Documentation: [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
 
-
 ### cpe23Type <a name="cpe23"></a>
 
 Locator Format:
 
-    "cpe:2\.3:[aho\*\­]
-    (:(((\?*|\*?)([a­zA­Z0­9\­\._]|(\\[\\\*\?!
-    "#$$%&'\(\)\+,/:;<=>@\[\]\^`\{\|}~])
-    )+(\?*|\*?))|[\*\­])){5}
-    (:(([a­zA­Z]{2,3}(­([a­zA­Z]{2}|[0­9]{3
-    }))?)|[\*\­]))
-    (:(((\?*|\*?)([a­zA­Z0­9\­\._]|(\\[\\\*\?!
-    "#$$%&'\(\)\+,/:;<=>@\[\]\^`\{\|}~])
-    )+(\?*|\*?))|[\*\­])){4}"
+```text
+"cpe:2\.3:[aho\*\­]
+(:(((\?*|\*?)([a­zA­Z0­9\­\._]|(\\[\\\*\?!
+"#$$%&'\(\)\+,/:;<=>@\[\]\^`\{\|}~])
+)+(\?*|\*?))|[\*\­])){5}
+(:(([a­zA­Z]{2,3}(­([a­zA­Z]{2}|[0­9]{3
+}))?)|[\*\­]))
+(:(((\?*|\*?)([a­zA­Z0­9\­\._]|(\\[\\\*\?!
+"#$$%&'\(\)\+,/:;<=>@\[\]\^`\{\|}~])
+)+(\?*|\*?))|[\*\­])){4}"
+```
 
 Contextual Example:
 
-    cpe:2.3:o:canonical:ubuntu_linux:10.04:­:lts:*:*:*:*:*
+```text
+cpe:2.3:o:canonical:ubuntu_linux:10.04:­:lts:*:*:*:*:*
+```
 
 External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 
 Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf](http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf)
 
-
-##  Package-Manager
+## Package-Manager
 
 ### maven-central <a name="maven"></a>
 
 Locator Format:
 
-    group:artifact[:version]
-    ^[^:]+:[^:]+(:[^:]+)?$
+```text
+group:artifact[:version]
+^[^:]+:[^:]+(:[^:]+)?$
+```
 
 Contextual Example:
 
-    org.apache.tomcat:tomcat:9.0.0.M4
+```text
+org.apache.tomcat:tomcat:9.0.0.M4
+```
 
 External Reference Site: [http://repo1.maven.org/maven2/](http://repo1.maven.org/maven2/)
 
@@ -76,12 +85,16 @@ Documentation: [https://maven.apache.org](https://maven.apache.org)
 
 Locator Format:
 
-    package@version
-    ^[^@]+@[^@]+$
+```text
+package@version
+^[^@]+@[^@]+$
+```
 
 Contextual Example:
 
-    http-server@0.3.0
+```text
+http-server@0.3.0
+```
 
 External Reference Site: [https://www.npmjs.com/](https://www.npmjs.com/)
 
@@ -91,12 +104,16 @@ Documentation: [https://docs.npmjs.com/files/package.json](https://docs.npmjs.co
 
 Locator Format:
 
-    package/version
-    ^[^\/]+\/[^\/]+$
+```text
+package/version
+^[^\/]+\/[^\/]+$
+```
 
 Contextual Example:
 
-    Microsoft.AspNet.MVC/5.0.0
+```text
+Microsoft.AspNet.MVC/5.0.0
+```
 
 External Reference Site: [https://www.nuget.org/](https://www.nuget.org/)
 
@@ -106,12 +123,16 @@ Documentation: [https://docs.nuget.org/](https://docs.nuget.org/)
 
 Locator Format:
 
-        package#version
-        ^[^#]+#[^#]+$
+```text
+package#version
+^[^#]+#[^#]+$
+```
 
 Contextual Example:
 
-        modernizr#2.6.2
+```text
+modernizr#2.6.2
+```
 
 External Reference Site: [http://bower.io/](http://bower.io/)
 
@@ -121,18 +142,21 @@ Documentation: [http://bower.io/docs/api/#install](http://bower.io/docs/api/#ins
 
 Locator Format:
 
-        scheme:type/namespace/name@version?qualifiers#subpath
+```text
+scheme:type/namespace/name@version?qualifiers#subpath
+```
 
 Contextual Example:
 
-        pkg:docker/debian@sha256:2f04d3d33b6027bb74ecc81397abe780649ec89f1a2af18d7022737d0482cefe
+```text
+pkg:docker/debian@sha256:2f04d3d33b6027bb74ecc81397abe780649ec89f1a2af18d7022737d0482cefe
+```
 
 External Reference Site: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
 
 Documentation: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
 
-
-##  Persistent-Id
+## Persistent-Id
 
 ### swh <a name="swh"></a>
 
@@ -153,11 +177,13 @@ Objects come in different types, and most notably:
 
 Grammar for locator format:
 
-    <locator> ::= "swh" ":" <scheme_version> ":" <object_type> ":" <object_id> ;
-    <scheme_version> ::= "1" ;
-    <object_type> ::= "cnt" | "dir" | "rev" | "rel" | "snp" ;
-    <object_id> ::= 40 * <hex_digit> ;  *intrinsic object id, as hex-encoded SHA1*
-    <hex_digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "a" | "b" | "c" | "d" | "e" | "f" ;
+```text
+<locator> ::= "swh" ":" <scheme_version> ":" <object_type> ":" <object_id> ;
+<scheme_version> ::= "1" ;
+<object_type> ::= "cnt" | "dir" | "rev" | "rel" | "snp" ;
+<object_id> ::= 40 * <hex_digit> ;  *intrinsic object id, as hex-encoded SHA1*
+<hex_digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "a" | "b" | "c" | "d" | "e" | "f" ;
+```
 
 Examples:
 
@@ -169,11 +195,10 @@ Examples:
 
 External documentation: [Sofware Heritage](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
 
-##  Other
+## Other
 
 ### [idstring] <a name="idstring"></a>
 
 Locator Format:
 
 No spaces, but anything else goes
-

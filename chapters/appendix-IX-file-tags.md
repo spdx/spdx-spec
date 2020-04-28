@@ -12,7 +12,9 @@ This appendix describes a mechanism, similar to `SPDX-License-Identifier`, for d
 
 An SPDX file tag consists of a single line, generally as part of a comment near the top of the file, in the following format:
 
-    SPDX-tagname: <value>
+```text
+SPDX-tagname: <value>
+```
 
 where _tagname_ is replaced by the 'tag' defined for tag-value SPDX documents for that field, according to the [File Information](./4-file-information.md) section of the SPDX specification. The meaning and semantics of any SPDX file tag are intended to be identical to those described in the File Information section of the SPDX specification.
 
@@ -20,21 +22,27 @@ Examples:
 
 File type (see section 4.3):
 
-    SPDX-FileType: SOURCE
-    SPDX-FileType: DOCUMENTATION
-    SPDX-FileType: TEXT
+```text
+SPDX-FileType: SOURCE
+SPDX-FileType: DOCUMENTATION
+SPDX-FileType: TEXT
+```
 
 Copyright text (see section 4.8):
 
-    SPDX-FileCopyrightText: 2019 Jane Doe <jane@example.com>
-    SPDX-FileCopyrightText: Copyright 2008-2010 John Smith
-    SPDX-FileCopyrightText: Copyright Example Company
-    SPDX-FileCopyrightText: Copyright contributors to the Foo project.
+```text
+SPDX-FileCopyrightText: 2019 Jane Doe <jane@example.com>
+SPDX-FileCopyrightText: Copyright 2008-2010 John Smith
+SPDX-FileCopyrightText: Copyright Example Company
+SPDX-FileCopyrightText: Copyright contributors to the Foo project.
+```
 
 File contributors (see section 4.14):
 
-    SPDX-FileContributor: Modified by Jane Doe
-    SPDX-FileContributor: The Regents of the University of California
+```text
+SPDX-FileContributor: Modified by Jane Doe
+SPDX-FileContributor: The Regents of the University of California
+```
 
 SPDX file tags of a particular type may appear one or multiple times in a file, depending on the corresponding cardinality defined for that field in the File Information section of the SPDX specification.
 
