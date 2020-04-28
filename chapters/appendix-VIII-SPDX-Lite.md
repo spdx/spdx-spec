@@ -29,7 +29,6 @@ Package Comment can be used to describe additional details, such as compiling op
 
 The Other License information section (License Identifier, Extracted Text, License Name and License Comment) is used for exchanging license information for licenses that are not on the [SPDX License List](https://spdx.org/licenses).
 
-
 ## Table of SPDX Lite Fields
 
 | # | corresponding SPDX section no. | Field Name |
@@ -37,7 +36,7 @@ The Other License information section (License Identifier, Extracted Text, Licen
 |L1.1  |2.1  | SPDX Version              |
 |L1.2  |2.2  | Data License              |
 |L1.3  |2.3  | SPDX Identifier           |
-|L1.4  |2.4	 | Document Name	         |
+|L1.4  |2.4	 | Document Name	           |
 |L1.5  |2.5	 | SPDX Document Namespace   |
 |L1.6  |2.8	 | Creator	                 |
 |L1.7  |2.9  | Created                   |

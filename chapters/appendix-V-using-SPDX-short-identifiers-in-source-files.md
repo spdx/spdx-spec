@@ -32,8 +32,10 @@ A single license is represented by using the short identifier from [SPDX license
 
 Examples:
 
-    SPDX-License-Identifier: CDDL-1.0+
-    SPDX-License-Identifier: MIT
+```text
+SPDX-License-Identifier: CDDL-1.0+
+SPDX-License-Identifier: MIT
+```
 
 ## Representing Multiple Licenses
 
@@ -46,10 +48,11 @@ Multiple licenses can be represented using a SPDX license expression as defined 
 
 Examples:
 
-    SPDX-License-Identifier: GPL-2.0-only OR MIT
-    SPDX-License-Identifier: LGPL-2.1-only AND BSD-2-Clause
-    SPDX-License-Identifier: GPL-2.0-or-later WITH Bison-exception-2.2
-    
+```text
+SPDX-License-Identifier: GPL-2.0-only OR MIT
+SPDX-License-Identifier: LGPL-2.1-only AND BSD-2-Clause
+SPDX-License-Identifier: GPL-2.0-or-later WITH Bison-exception-2.2
+```
 
 Please see [Appendix IV of SPDX 2.2 Specification](./appendix-IV-SPDX-license-expressions.md) for more examples and details of the license expression specific syntax.
 
@@ -57,6 +60,8 @@ If you can’t express the license(s) as an expression using identifiers from th
 
 Alternatively, you can use a `LicenseRef-` custom license identifier to refer to a license that is not on the SPDX License List, such as the following:
 
-    SPDX-License-Identifier: LicenseRef-my-special-license
+```text
+SPDX-License-Identifier: LicenseRef-my-special-license
+```
 
 The `LicenseRef-` format is defined in [Appendix IV of the SPDX 2.2 Specification](./appendix-IV-SPDX-license-expressions.md). When using a custom `LicenseRef-` identifier, you will also need to provide a way for others to determine what license text corresponds to it. [Version 3.0 of the REUSE Software Specification](https://reuse.software/spec/) provides a standardized format that can optionally be used for providing the corresponding license text for these identifiers.

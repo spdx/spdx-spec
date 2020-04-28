@@ -24,21 +24,29 @@ where
 
 Examples:
 
-    LicenseID: LicenseRef-1
+```text
+LicenseID: LicenseRef-1
+```
 
-    LicenseID: LicenseRef-Beerware-4.2
+```text
+LicenseID: LicenseRef-Beerware-4.2
+```
 
 **6.1.6** RDF: Property `spdx:licenseID` in class `spdx:ExtractedLicensingInfo`
 
 Examples:
 
-    <ExtractedLicensingInfo rdf:about="licenseRef-1">
-       <licenseId>LicenseRef-1</licenseId>
-    </ExtractedLicensingInfo>
+```text
+<ExtractedLicensingInfo rdf:about="licenseRef-1">
+   <licenseId>LicenseRef-1</licenseId>
+</ExtractedLicensingInfo>
+```
 
-    <ExtractedLicensingInfo rdf:about="licenseRef-Beerware-4.2">
-        <licenseId>LicenseRef-Beerware-4.2</licenseId>
-    </ExtractedLicensingInfo>
+```text
+<ExtractedLicensingInfo rdf:about="licenseRef-Beerware-4.2">
+    <licenseId>LicenseRef-Beerware-4.2</licenseId>
+</ExtractedLicensingInfo>
+```
 
 ## 6.2 Extracted Text <a name="6.2"></a>
 
@@ -56,27 +64,35 @@ In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example 1 (if only short reference to license present in File):
 
-    ExtractedText: <text>This software is licensed under the Beer License.</text>
+```text
+ExtractedText: <text>This software is licensed under the Beer License.</text>
+```
 
 Example 2 (if indeed full text of license present in File):
 
-    ExtractedText: <text>"THE WHISKEY-WARE LICENSE": whiskeyfan@example.com wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a bottle of whiskey in return </text>
+```text
+ExtractedText: <text>"THE WHISKEY-WARE LICENSE": whiskeyfan@example.com wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a bottle of whiskey in return </text>
+```
 
 **6.2.6** RDF: Property `spdx:extractedText` in class `spdx:ExtractedLicensingInfo`
 
 Example 1 (if only short reference to license present in File):
 
-    <ExtractedLicensingInfo rdf:about="licenseRef-Whiskeyware">
-        <licenseId>LicenseRef-Whiskeyware</licenseId>
-        <extractedText>This software is licensed under the WHISKEY-WARE LICENSE.</extractedText>
-    </ExtractedLicensingInfo>
+```text
+<ExtractedLicensingInfo rdf:about="licenseRef-Whiskeyware">
+    <licenseId>LicenseRef-Whiskeyware</licenseId>
+    <extractedText>This software is licensed under the WHISKEY-WARE LICENSE.</extractedText>
+</ExtractedLicensingInfo>
+```
 
 Example 2 (if indeed full text of license present in File):
 
-    <ExtractedLicensingInfo rdf:about="licenseRef-Whiskeyware">
-        <licenseId>LicenseRef-Whiskeyware</licenseId>
-        <extractedText>""THE WHISKEY-WARE LICENSE": whiskeyfan@example.com wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a bottle of whiskey in return.</extractedText>
-    </ExtractedLicensingInfo>
+```text
+<ExtractedLicensingInfo rdf:about="licenseRef-Whiskeyware">
+    <licenseId>LicenseRef-Whiskeyware</licenseId>
+    <extractedText>""THE WHISKEY-WARE LICENSE": whiskeyfan@example.com wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a bottle of whiskey in return.</extractedText>
+</ExtractedLicensingInfo>
+```
 
 ## 6.3 License Name <a name="6.3"></a>
 
@@ -94,16 +110,19 @@ Use `NOASSERTION` If there is no common name or it is not known.
 
 Example:
 
-    LicenseName: Whiskey-Ware License
+```text
+LicenseName: Whiskey-Ware License
+```
 
 **6.3.6** RDF: Property `spdx:licenseName` in class `spdx:ExtractedLicensingInfo`
 
 Example:
 
-    <ExtractedLicensingInfo rdf:about="licenseRef-Whiskey-Ware">
-       <name>Whiskey-Ware License </name>
-    </ExtractedLicensingInfo>
-
+```text
+<ExtractedLicensingInfo rdf:about="licenseRef-Whiskey-Ware">
+   <name>Whiskey-Ware License </name>
+</ExtractedLicensingInfo>
+```
 
 ## 6.4 License Cross Reference <a name="6.4"></a>
 
@@ -119,15 +138,19 @@ Example:
 
 Example:
 
-    LicenseCrossReference: http://people.freebsd.org/~phk/
+```text
+LicenseCrossReference: http://people.freebsd.org/~phk/
+```
 
 **6.4.6** RDF: Property `rdfs:seeAlso` in class `spdx:ExtractedLicensingInfo`
 
 Example:
 
-    <ExtractedLicensingInfo rdf:about="licenseRef-1">
-        <rdfs:seeAlso>http://people.freebsd.org/~phk/</rdfs:seeAlso>
-    </ExtractedLicensingInfo>
+```text
+<ExtractedLicensingInfo rdf:about="licenseRef-1">
+    <rdfs:seeAlso>http://people.freebsd.org/~phk/</rdfs:seeAlso>
+</ExtractedLicensingInfo>
+```
 
 ## 6.5 License Comment <a name="6.5"></a>
 
@@ -145,12 +168,16 @@ In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example:
 
-    LicenseComment: <text>The Whiskey-Ware License has a couple of other standard variants.</text>
+```text
+LicenseComment: <text>The Whiskey-Ware License has a couple of other standard variants.</text>
+```
 
 **6.5.6** RDF: Property `rdfs:comment` in class `spdx:ExtractedLicensingInfo`
 
 Example:
 
-    <ExtractedLicensingInfo rdf:about="licenseRef-1">
-        <rdfs:comment> The Whiskey-Ware License has a couple of other standard variants.</rdfs:comment>
-    </ExtractedLicensingInfo>
+```text
+<ExtractedLicensingInfo rdf:about="licenseRef-1">
+    <rdfs:comment> The Whiskey-Ware License has a couple of other standard variants.</rdfs:comment>
+</ExtractedLicensingInfo>
+```

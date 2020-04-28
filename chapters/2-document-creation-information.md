@@ -24,19 +24,25 @@ Fields:
 
 Example:
 
-    SPDXVersion: SPDX-2.2
+```text
+SPDXVersion: SPDX-2.2
+```
 
 **2.1.6** RDF: `spdx:specVersion`
 
 Example:
 
-    <SpdxDocument rdf:about="...">
-       <specVersion>SPDX-2.2</specVersion>
-    </SpdxDocument>
+```text
+<SpdxDocument rdf:about="...">
+   <specVersion>SPDX-2.2</specVersion>
+</SpdxDocument>
+```
 
 This specification uses the prefix `rdf:` to refer to the [RDF/XML][rdf] namespace:
 
-    http://www.w3.org/1999/02/22-rdf-syntax-ns#
+```text
+http://www.w3.org/1999/02/22-rdf-syntax-ns#
+```
 
 ## 2.2 Data License <a name="2.2"></a>
 
@@ -54,15 +60,19 @@ By using the SPDX specification, or any portion hereof, you hereby agree that an
 
 Example:
 
-    DataLicense: CC0-1.0
+```text
+DataLicense: CC0-1.0
+```
 
 **2.2.6** RDF: `spdx:dataLicense`
 
 Example:
 
-    <SpdxDocument rdf:about="...">
-      <dataLicense rdf:resource="http://spdx.org/licenses/CC0-1.0" />
-    </SpdxDocument>
+```text
+<SpdxDocument rdf:about="...">
+  <dataLicense rdf:resource="http://spdx.org/licenses/CC0-1.0" />
+</SpdxDocument>
+```
 
 ## 2.3 SPDX Identifier <a name="2.3"></a>
 
@@ -78,15 +88,19 @@ Example:
 
 Example:
 
-    SPDXID: SPDXRef-DOCUMENT
+```text
+SPDXID: SPDXRef-DOCUMENT
+```
 
 **2.3.6** RDF: The URI for the document is the document namespace appended by
 
 `#SPDXRef-DOCUMENT`
 
-    <spdx:SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-example-444504E0-4F89-41D3-9A0C-0305E82C33...">
-    ...
-    </spdx:SpdxDocument>
+```text
+<spdx:SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-example-444504E0-4F89-41D3-9A0C-0305E82C33...">
+...
+</spdx:SpdxDocument>
+```
 
 ## 2.4 Document Name <a name="2.4"></a>
 
@@ -102,21 +116,29 @@ Example:
 
 Example:
 
-    DocumentName: glibc-v2.3
+```text
+DocumentName: glibc-v2.3
+```
 
-    DocumentName: ubuntu-14.04
+```text
+DocumentName: ubuntu-14.04
+```
 
 **2.4.6** RDF: Property `spdx:name` in class `Document`
 
 Example:
 
-    <SpdxDocument rdf:about="...">
-      <name>glibc-v2.3</name>
-    </SpdxDocument>
+```text
+<SpdxDocument rdf:about="...">
+  <name>glibc-v2.3</name>
+</SpdxDocument>
+```
 
-    <SpdxDocument rdf:about="...">
-      <name>ubuntu-14.04</name>
-    </SpdxDocument>
+```text
+<SpdxDocument rdf:about="...">
+  <name>ubuntu-14.04</name>
+</SpdxDocument>
+```
 
 ## 2.5 SPDX Document Namespace <a name="2.5"></a>
 
@@ -151,19 +173,25 @@ The URI must be unique for the SPDX document including the specific version of t
 
 Example:
 
-    DocumentNamespace: http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...
+```text
+DocumentNamespace: http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...
+```
 
 **2.5.6** RDF: The unique ID is the URI for the SPDX document
 
 Example:
 
-    <SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">
-        <rdfs:comment>This document was created using SPDX 2.0 using licenses from the web site.</rdfs:comment>
-    </SpdxDocument>
+```text
+<SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">
+    <rdfs:comment>This document was created using SPDX 2.0 using licenses from the web site.</rdfs:comment>
+</SpdxDocument>
+```
 
 This specification uses the prefix `rdfs:` to refer to the [RDF Schema][rdf-schema] namespace:
 
-    http://www.w3.org/2000/01/rdf-schema#
+```text
+http://www.w3.org/2000/01/rdf-schema#
+```
 
 ## 2.6 External Document References <a name="2.6"></a>
 
@@ -190,7 +218,9 @@ format defined in [section 3.9](3-package-information.md#3.9).
 
 Example:
 
-    ExternalDocumentRef:DocumentRef-spdx-tool-1.2 http://spdx.org/spdxdocs/spdx-tools- v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301 SHA1: d6a770ba38583ed4bb4525bd96e50461655d2759
+```text
+ExternalDocumentRef:DocumentRef-spdx-tool-1.2 http://spdx.org/spdxdocs/spdx-tools- v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301 SHA1: d6a770ba38583ed4bb4525bd96e50461655d2759
+```
 
 **2.6.6** RDF: Property `spdx:externalDocumentRef` in class `spdx:Document range ExternalDocumentRef`.
 
@@ -201,18 +231,20 @@ The ExternalDocumentRef contains two properties:
 
 Example:
 
-    <externalDocumentRef rdf:ID="DocumentRef-spdx-tool-1.2">
-        <ExternalDocumentRef>
-            <spdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..." />
-            <checksum>
-                <Checksum>
-                    <algorithm rdf:resource="checksumAlgorithm_sha1"/>
-                    <checksumValue>d6a770ba38583ed4bb4525bd96e50461655d2758
-                    </checksumValue>
-                </Checksum>
-            </checksum>
-        </ExternalDocumentRef>
-    </externalDocumentRef>
+```text
+<externalDocumentRef rdf:ID="DocumentRef-spdx-tool-1.2">
+    <ExternalDocumentRef>
+        <spdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..." />
+        <checksum>
+            <Checksum>
+                <algorithm rdf:resource="checksumAlgorithm_sha1"/>
+                <checksumValue>d6a770ba38583ed4bb4525bd96e50461655d2758
+                </checksumValue>
+            </Checksum>
+        </checksum>
+    </ExternalDocumentRef>
+</externalDocumentRef>
+```
 
 Notes: in RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired.
 
@@ -235,15 +267,19 @@ where:
 
 Example:
 
-    LicenseListVersion: 2.0
+```text
+LicenseListVersion: 2.0
+```
 
 **2.7.6** RDF: Property `licenseListVersion` in class `spdx:CreationInfo`
 
 Example:
 
-    <CreationInfo>
-        <licenseListVersion>2.0</licenseListVersion>
-    </CreationInfo>
+```text
+<CreationInfo>
+    <licenseListVersion>2.0</licenseListVersion>
+</CreationInfo>
+```
 
 ## 2.8 Creator <a name="2.8"></a>
 
@@ -255,27 +291,33 @@ Example:
 
 **2.8.4** Data Format: Single line of text with the following keywords:
 
-    "Person: person name" and optional "(email)"
-    "Organization: organization" and optional "(email)"
-    "Tool: toolidentifier-version"
+```text
+"Person: person name" and optional "(email)"
+"Organization: organization" and optional "(email)"
+"Tool: toolidentifier-version"
+```
 
 **2.8.5** Tag: `Creator:`
 
 Example:
 
-    Creator: Person: Jane Doe ()
-    Creator: Organization: ExampleCodeInspect ()
-    Creator: Tool: LicenseFind-1.0
+```text
+Creator: Person: Jane Doe ()
+Creator: Organization: ExampleCodeInspect ()
+Creator: Tool: LicenseFind-1.0
+```
 
 **2.8.6** RDF: Property `spdx:creator` in class `spdx:CreationInfo`
 
 Example:
 
-    <CreationInfo>
-        <creator> Person: Jane Doe () </creator>
-        <creator> Organization: ExampleCodeInspect () </creator>
-        <creator> Tool: LicenseFind-1.0 </creator>
-    </CreationInfo>
+```text
+<CreationInfo>
+    <creator> Person: Jane Doe () </creator>
+    <creator> Organization: ExampleCodeInspect () </creator>
+    <creator> Tool: LicenseFind-1.0 </creator>
+</CreationInfo>
+```
 
 ## 2.9 Created <a name="2.9"></a>
 
@@ -302,15 +344,19 @@ where:
 
 Example:
 
-    Created: 2010-01-29T18:30:22Z
+```text
+Created: 2010-01-29T18:30:22Z
+```
 
 **2.9.6** RDF: Property `spdx:created` in class `spdx:CreationInfo`
 
 Example:
 
-    <CreationInfo>
-        <created> 2010-01-29T18:30:22Z </created>
-    </CreationInfo>
+```text
+<CreationInfo>
+    <created> 2010-01-29T18:30:22Z </created>
+</CreationInfo>
+```
 
 ## 2.10 Creator Comment <a name="2.10"></a>
 
@@ -328,17 +374,21 @@ In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is de
 
 Example:
 
-    CreatorComment: <text>This SPDX file was created by a combination of using a free tool,
-    as indicated above, and manual analysis by several authors of the code.</text>
+```text
+CreatorComment: <text>This SPDX file was created by a combination of using a free tool,
+as indicated above, and manual analysis by several authors of the code.</text>
+```
 
 **2.10.6** RDF: Property `rdfs:comment` in class `spdx:CreationInfo`
 
 Example:
 
-    <CreationInfo>
-        <rdfs:comment>This SPDX file was created by a combination of using a free tool, as indicated above,
-        and manual analysis by several authors of the code.</rdfs:comment>
-    </CreationInfo>
+```text
+<CreationInfo>
+    <rdfs:comment>This SPDX file was created by a combination of using a free tool, as indicated above,
+    and manual analysis by several authors of the code.</rdfs:comment>
+</CreationInfo>
+```
 
 ## 2.11 Document Comment <a name="2.11"></a>
 
@@ -354,18 +404,22 @@ Example:
 
 Example:
 
-    DocumentComment: <text>This document was created using SPDX 2.0,
-    version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.</text>
+```text
+DocumentComment: <text>This document was created using SPDX 2.0,
+version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.</text>
+```
 
 **2.11.6**  RDF: Property `rdfs:comment` in class `SpdxDocument`
 
 Example:
 
-    <SpdxDocument rdf:about="...">
-        <rdfs:comment>
-          This document was created using SPDX 2.0, version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.
-        </rdfs:comment>
-    </SpdxDocument>
+```text
+<SpdxDocument rdf:about="...">
+    <rdfs:comment>
+      This document was created using SPDX 2.0, version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.
+    </rdfs:comment>
+</SpdxDocument>
+```
 
 [rdf]: https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/
 [rdf-schema]: https://www.w3.org/TR/2014/REC-rdf-schema-20140225/
