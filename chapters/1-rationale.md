@@ -101,7 +101,7 @@ In addition to the supported formats, the following format is in development wit
 
 **1.8.1** A file can be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the SPDX Trademark Page on the spdx.org web site).
 
-**1.8.2** The official copyright notice to be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.2-DRAFT is:
+**1.8.2** The official copyright notice to be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.2 is:
 
 "Official SPDX® Specification 2.2 Copyright © 2010-2020 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
 
