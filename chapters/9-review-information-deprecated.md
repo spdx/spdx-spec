@@ -36,7 +36,7 @@ Example:
         <reviewer> Person: Jane Doe () </reviewer>
     </Review>
 
-# 9.2 Review Date (deprecated) <a name="9.2"></a>
+## 9.2 Review Date (deprecated) <a name="9.2"></a>
 
 This field has been deprecated since SPDX 2.0.
 
