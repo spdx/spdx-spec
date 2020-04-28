@@ -65,13 +65,11 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 **1.7.2** Must be in a syntax that a software tool can read and write.
 
-**1.7.3** Must be suitable to be checked for syntactic correctness independent of how it was generated (human or tool).
+**1.7.3** Must be suitable to be checked for syntactic correctness automaticallyindependent of how it was generated (human or tool).
 
 **1.7.4** The SPDX file character set must support UTF-8 encoding.
 
-**1.7.5** Must permit automated specification syntax validation.
-
-**1.7.6** Multiple file formats can be used to represent the information being exchanged.   Current supported formats include:
+**1.7.5** Multiple file formats can be used to represent the information being exchanged.   Current supported formats include:
 * YAML 1.2  see: https://yaml.org/spec/1.2/spec.html
 * JavaScript Object Notation (JSON) see: ECMA-404(https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
     * The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/schemas/spdx-schema.json)
@@ -82,11 +80,11 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 In addition to the supported formats, the following format is in development with a plan to complete the specification by SPDX 3.0:
 * Extensible Markup Language (XML) see: https://www.w3.org/TR/2008/REC-xml-20081126/
 
-**1.7.7** Interoperability between all the supported file formats will be preserved.
+**1.7.6** Interoperability between all the supported file formats will be preserved. SPDX defines how to validate a document in each supported format, and how to translate a valid document without loss to each other supported format.
 
-**1.7.8** Tags and format properties are case sensitive.
+**1.7.7** Tags and format properties are case sensitive.
 
-**1.7.9** Should be easy to recognize in a file system without opening the file. A suggested naming convention is:
+**1.7.8** Should be easy to recognize in a file system without opening the file. A suggested naming convention is:
 
 | Format      | Extension   |
 | ----------- | ----------- |
@@ -96,7 +94,7 @@ In addition to the supported formats, the following format is in development wit
 | XML         | *.spdx.xml  |
 | YAML        | \*.spdx.yaml or \*.spdx.yml |
 
-**1.7.10** The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Universal Resource Indicator (URI) should be present.
+**1.7.9** The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Universal Resource Indicator (URI) should be present.
 
 ## 1.8 Conformance <a name="1.8"></a>
 
