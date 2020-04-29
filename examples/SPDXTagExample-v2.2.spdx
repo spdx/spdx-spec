@@ -1,4 +1,4 @@
-SPDXVersion: SPDX-2.0
+SPDXVersion: SPDX-2.2
 DataLicense: CC0-1.0
 DocumentNamespace: http://spdx.org/spdxdocs/spdx-example-444504E0-4F89-41D3-9A0C-0305E82C3301
 DocumentName: SPDX-Tools-v2.0
@@ -15,34 +15,41 @@ Created: 2010-01-29T18:30:22Z
 CreatorComment: <text>This package has been shipped in source and binary form.
 The binaries were created with gcc 4.5.1 and expect to link to
 compatible system run time libraries.</text>
-LicenseListVersion: 1.19
+LicenseListVersion: 3.8
 ## Annotations
+Annotator: Person: Joe Reviewer
+AnnotationDate: 2010-02-10T00:00:00Z
+AnnotationComment: <text>This is just an example.  Some of the non-standard licenses look like they are actually BSD 3 clause licenses</text>
+AnnotationType: REVIEW
+SPDXREF: SPDXRef-DOCUMENT
 Annotator: Person: Jane Doe ()
 AnnotationDate: 2010-01-29T18:30:22Z
 AnnotationComment: <text>Document level annotation</text>
 AnnotationType: OTHER
 SPDXREF: SPDXRef-DOCUMENT
+Annotator: Person: Suzanne Reviewer
+AnnotationDate: 2011-03-13T00:00:00Z
+AnnotationComment: <text>Another example reviewer.</text>
+AnnotationType: REVIEW
+SPDXREF: SPDXRef-DOCUMENT
 ## Relationships
-Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-File
-Relationship: SPDXRef-DOCUMENT COPY_OF DocumentRef-spdx-tool-1.2:SPDXRef-ToolsElement
 Relationship: SPDXRef-DOCUMENT CONTAINS SPDXRef-Package
 Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-File
+Relationship: SPDXRef-DOCUMENT COPY_OF DocumentRef-spdx-tool-1.2:SPDXRef-ToolsElement
 
 FileName: ./package/foo.c
 SPDXID: SPDXRef-File
 FileComment: <text>The concluded license was taken from the package level that the file was included in.
 This information was found in the COPYING.txt file in the xyz directory.</text>
 FileType: SOURCE
-FileChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 FileChecksum: SHA1: d6a770ba38583ed4bb4525bd96e50461655d2758
+FileChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 LicenseConcluded: (LGPL-2.0-only OR LicenseRef-2)
 LicenseInfoInFile: LicenseRef-2
 LicenseInfoInFile: GPL-2.0-only
 LicenseComments: The concluded license was taken from the package level that the file was included in.
 FileCopyrightText: <text>Copyright 2008-2010 John Smith</text>
-ArtifactOfProjectName: Jena
-ArtifactOfProjectHomePage: http://www.openjena.org/
-ArtifactOfProjectURI: http://subversion.apache.org/doap.rdf
 FileNotice: <text>Copyright (c) 2001 Aaron Lehmann aaroni@vitelus.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the �Software�), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
@@ -58,6 +65,8 @@ AnnotationDate: 2011-01-29T18:30:22Z
 AnnotationComment: <text>File level annotation</text>
 AnnotationType: OTHER
 SPDXREF: SPDXRef-File
+## Relationships
+Relationship: SPDXRef-File GENERATED_FROM SPDXRef-fromDoap-0
 ## Package Information
 PackageName: glibc
 SPDXID: SPDXRef-Package
@@ -66,10 +75,10 @@ PackageFileName: glibc-2.11.1.tar.gz
 PackageSupplier: Person: Jane Doe (jane.doe@example.com)
 PackageOriginator: Organization: ExampleCodeInspect (contact@example.com)
 PackageDownloadLocation: http://ftp.gnu.org/gnu/glibc/glibc-ports-2.15.tar.gz
-PackageVerificationCode: d6a770ba38583ed4bb4525bd96e50461655d2758 (excludes: ./package.spdx)
+PackageVerificationCode: d6a770ba38583ed4bb4525bd96e50461655d2758(, excludes: ./package.spdx)
+PackageChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 PackageChecksum: SHA1: 85ed0817af83a24ad8da68c2b5094de69833983c
 PackageChecksum: SHA256: 11b6d3ee554eedf79299905a98f9b9a04e498210b59f15094c916c91d150efcd
-PackageChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 PackageHomePage: http://ftp.gnu.org/gnu/glibc
 PackageSourceInfo: <text>uses glibc-2_11-branch from git://sourceware.org/git/glibc.git.</text>
 PackageLicenseConcluded: (LicenseRef-3 OR LGPL-2.0-only)
@@ -82,10 +91,10 @@ PackageLicenseComments: <text>The license for this project changed with the rele
 PackageCopyrightText: <text>Copyright 2008-2010 John Smith</text>
 PackageSummary: <text>GNU C library.</text>
 PackageDescription: <text>The GNU C Library defines functions that are specified by the ISO C standard, as well as additional features specific to POSIX and other derivatives of the Unix operating system, and extensions specific to GNU systems.</text>
-## External references
-ExternalRef: SECURITY cpe23Type cpe:2.3:a:pivotal_software:spring_framework:4.1.0:*:*:*:*:*:*:*
-ExternalRef: OTHER LocationRef-acmeforge acmecorp/acmenator/4.1.3-alpha
+PackageAttributionText: <text>The GNU C Library is free software.  See the file COPYING.LIB for copying conditions, and LICENSES for notices about a few contributions that require these additional notices to be distributed.  License copyright years may be listed using range notation, e.g., 1996-2015, indicating that every year in the range, inclusive, is a copyrightable year that would otherwise be listed individually.</text>
+ExternalRef: OTHER #LocationRef-acmeforge acmecorp/acmenator/4.1.3-alpha
 ExternalRefComment: This is the external ref for Acme
+ExternalRef: SECURITY cpe23Type cpe:2.3:a:pivotal_software:spring_framework:4.1.0:*:*:*:*:*:*:*
 ## Annotations
 Annotator: Person: Package Commenter
 AnnotationDate: 2011-01-29T18:30:22Z
@@ -93,8 +102,8 @@ AnnotationComment: <text>Package level annotation</text>
 AnnotationType: OTHER
 SPDXREF: SPDXRef-Package
 ## Relationships
-Relationship: SPDXRef-Package CONTAINS SPDXRef-JenaLib
 Relationship: SPDXRef-Package DYNAMIC_LINK SPDXRef-Saxon
+Relationship: SPDXRef-Package CONTAINS SPDXRef-JenaLib
 
 ## File Information
 FileName: ./lib-source/commons-lang3-3.1-sources.jar
@@ -105,8 +114,6 @@ FileChecksum: SHA1: c2b4e1c67a2d28fced849ee1bb76e7391b93f125
 LicenseConcluded: Apache-2.0
 LicenseInfoInFile: Apache-2.0
 FileCopyrightText: <text>Copyright 2001-2011 The Apache Software Foundation</text>
-ArtifactOfProjectName: Apache Commons Lang
-ArtifactOfProjectHomePage: http://commons.apache.org/proper/commons-lang/
 FileNotice: <text>Apache Commons Lang
 Copyright 2001-2011 The Apache Software Foundation
 
@@ -116,6 +123,8 @@ The Apache Software Foundation (http://www.apache.org/).
 This product includes software from the Spring Framework,
 under the Apache License 2.0 (see: StringUtils.containsWhitespace())</text>
 FileContributor: Apache Software Foundation
+## Relationships
+Relationship: SPDXRef-CommonsLangSrc GENERATED_FROM SPDXRef-fromDoap-1
 
 FileName: ./lib-source/jena-2.6.3-sources.jar
 SPDXID: SPDXRef-JenaLib
@@ -126,13 +135,11 @@ LicenseConcluded: LicenseRef-1
 LicenseInfoInFile: LicenseRef-1
 LicenseComments: This license is used by Jena
 FileCopyrightText: <text>(c) Copyright 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Hewlett-Packard Development Company, LP</text>
-ArtifactOfProjectName: Jena
-ArtifactOfProjectHomePage: http://www.openjena.org/
 FileContributor: Hewlett Packard Inc.
 FileContributor: Apache Software Foundation
 FileDependency: ./lib-source/commons-lang3-3.1-sources.jar
 ## Relationships
-Relationship: SPDXRef-JenaLib DYNAMIC_LINK SPDXRef-Package
+Relationship: SPDXRef-JenaLib NOASSERTION SPDXRef-Package
 
 FileName: ./src/org/spdx/parser/DOAPProject.java
 SPDXID: SPDXRef-DoapSource
@@ -149,23 +156,18 @@ FileContributor: Protecode Inc.
 FileDependency: ./lib-source/jena-2.6.3-sources.jar
 FileDependency: ./lib-source/commons-lang3-3.1-sources.jar
 
-## Snippet
-SnippetSPDXID: SPDXRef-Snippet
-SnippetFromFileSPDXID: SPDXRef-DoapSource
-SnippetByteRange: 310:420
-SnippetLineRange: 5:23
-SnippetLicenseConcluded: GPL-2.0
-SnippetLicenseComments: <text>
-The concluded license was taken from package xyz, from which the snippet was copied into the current file. The concluded license information was found in the COPYING.txt file in package xyz.
-</text>
-SnippetCopyrightText: <text> Copyright 2008-2010 John Smith </text>
-SnippetComment: <text>
-This snippet was identified as significant and highlighted in this Apache-2.0 file, when a commercial scanner identified it as being derived from file foo.c in package xyz which is licensed under GPL-2.0.
-</text>
-SnippetName: from linux kernel
-LicenseInfoInSnippet: GPL-2.0-only
+## Package Information
+PackageName: Jena
+SPDXID: SPDXRef-fromDoap-0
+PackageComment: <text>This package was converted from a DOAP Project by the same name</text>
+PackageDownloadLocation: NOASSERTION
+PackageHomePage: http://www.openjena.org/
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: <text>NOASSERTION</text>
+FilesAnalyzed: false
 
-## Package Without Files
+## Package Information
 PackageName: Saxon
 SPDXID: SPDXRef-Saxon
 PackageVersion: 8.8
@@ -179,7 +181,79 @@ PackageLicenseComments: <text>Other versions available for a commercial license<
 PackageDescription: <text>The Saxon package is a collection of tools for processing XML documents.</text>
 FilesAnalyzed: false
 
+## Package Information
+PackageName: Apache Commons Lang
+SPDXID: SPDXRef-fromDoap-1
+PackageComment: <text>This package was converted from a DOAP Project by the same name</text>
+PackageDownloadLocation: NOASSERTION
+PackageHomePage: http://commons.apache.org/proper/commons-lang/
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: <text>NOASSERTION</text>
+FilesAnalyzed: false
+
+## Snippet Information
+SnippetSPDXID: SPDXRef-Snippet
+SnippetFromFileSPDXID: SPDXRef-DoapSource
+SnippetByteRange: 310:420
+SnippetLineRange: 5:23
+SnippetLicenseConcluded: GPL-2.0-only
+LicenseInfoInSnippet: GPL-2.0-only
+SnippetLicenseComments: The concluded license was taken from package xyz, from which the snippet was copied into the current file. The concluded license information was found in the COPYING.txt file in package xyz.
+SnippetCopyrightText: Copyright 2008-2010 John Smith
+SnippetComment: This snippet was identified as significant and highlighted in this Apache-2.0 file, when a commercial scanner identified it as being derived from file foo.c in package xyz which is licensed under GPL-2.0.
+SnippetName: from linux kernel
+
+
 ## License Information
+LicenseID: LicenseRef-1
+ExtractedText: <text>/*
+ * (c) Copyright 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Hewlett-Packard Development Company, LP
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. The name of the author may not be used to endorse or promote products
+ *    derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/</text>
+
+LicenseID: LicenseRef-2
+ExtractedText: <text>This package includes the GRDDL parser developed by Hewlett Packard under the following license:
+� Copyright 2007 Hewlett-Packard Development Company, LP
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: 
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. 
+The name of the author may not be used to endorse or promote products derived from this software without specific prior written permission. 
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</text>
+
+LicenseID: LicenseRef-Beerware-4.2
+ExtractedText: <text>"THE BEER-WARE LICENSE" (Revision 42):
+phk@FreeBSD.ORG wrote this file. As long as you retain this notice you
+can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a beer in return Poul-Henning Kamp  </
+LicenseName: Beer-Ware License (Version 42)
+LicenseCrossReference:  http://people.freebsd.org/~phk/
+LicenseComment: 
+The beerware license has a couple of other standard variants.</text>
+
 LicenseID: LicenseRef-3
 ExtractedText: <text>The CyberNeko Software License, Version 1.0
 
@@ -255,61 +329,4 @@ ExtractedText: <text>/*
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */</text>
-
-LicenseID: LicenseRef-Beerware-4.2
-ExtractedText: <text>"THE BEER-WARE LICENSE" (Revision 42):
-phk@FreeBSD.ORG wrote this file. As long as you retain this notice you
-can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a beer in return Poul-Henning Kamp  </
-LicenseName: Beer-Ware License (Version 42)
-LicenseCrossReference:  http://people.freebsd.org/~phk/
-LicenseComment: 
-The beerware license has a couple of other standard variants.</text>
-
-LicenseID: LicenseRef-1
-ExtractedText: <text>/*
- * (c) Copyright 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Hewlett-Packard Development Company, LP
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- * 3. The name of the author may not be used to endorse or promote products
- *    derived from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
- * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
- * IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
- * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
- * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
- * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/</text>
-
-LicenseID: LicenseRef-2
-ExtractedText: <text>This package includes the GRDDL parser developed by Hewlett Packard under the following license:
-� Copyright 2007 Hewlett-Packard Development Company, LP
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: 
-
-Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 
-Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. 
-The name of the author may not be used to endorse or promote products derived from this software without specific prior written permission. 
-THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</text>
-
-## Review Information
-Reviewer: Person: Suzanne Reviewer
-ReviewDate: 2011-03-13T00:00:00Z
-ReviewComment: <text>Another example reviewer.</text>
-
-Reviewer: Person: Joe Reviewer
-ReviewDate: 2010-02-10T00:00:00Z
-ReviewComment: <text>This is just an example.  Some of the non-standard licenses look like they are actually BSD 3 clause licenses</text>
 
