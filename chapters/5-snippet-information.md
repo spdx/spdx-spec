@@ -38,7 +38,7 @@ Example using xml:base:
 ```text
 <rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B"
     ...
-    <Snippet rdf:ID="SPDXRef-1">
+    <Snippet rdf:about="#SPDXRef-1">
         ...
     </Snippet>
 ```
@@ -46,7 +46,7 @@ Example using xml:base:
 Example using document URI:
 
 ```text
-<Snippet rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349...">
+<Snippet rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1">
     ...
 </Snippet>
 ```
@@ -123,7 +123,7 @@ Example:
 SnippetByteRange: 310:420
 ```
 
-**5.3.6** RDF: Property `spdx:byteRange` in class `spdx:Snippet`. The RDF uses the W3C proposed pointer method vocabulary (see [http://www.w3.org/TR/Pointers-in-RDF10/](http://www.w3.org/TR/Pointers-in-RDF10/)).
+**5.3.6** RDF: Property `spdx:Range` in class `spdx:Snippet`. The RDF uses the W3C proposed pointer method vocabulary (see [http://www.w3.org/TR/Pointers-in-RDF10/](http://www.w3.org/TR/Pointers-in-RDF10/)
 
 Supported classes from the pointer method vocabulary are `StartEndPointer` and `ByteOffsetPointer`. Supported properties from the pointer method vocabulary include:
 
@@ -184,7 +184,7 @@ Example:
 SnippetLineRange: 5:23
 ```
 
-**5.4.6** RDF: properties `spdx:byteRange` in class `spdx:Snippet`. The RDF uses the W3C proposed pointer method vocabulary (see <http://www.w3.org/TR/Pointers-in-RDF10/>).
+**5.4.6** RDF: properties `spdx:Range` in class `spdx:Snippet`. The RDF uses the W3C proposed pointer method vocabulary (see <http://www.w3.org/TR/Pointers-in-RDF10/>).
 
 Supported classes from the pointer method vocabulary are `StartEndPointer` and `LineCharPointer`. Supported properties from the pointer method vocabulary include:
 
@@ -480,7 +480,7 @@ Example:
 SnippetName: from Linux kernel
 ```
 
-**5.10.6** RDF: Property `spdx:snippetName` in class `spdx:Snippet`
+**5.10.6** RDF: Property `spdx:name` in class `spdx:Snippet`
 
 Example:
 

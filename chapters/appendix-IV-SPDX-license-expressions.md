@@ -188,14 +188,14 @@ A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet
 </spdx:DisjunctiveLicenseSet>
 ```
 
-A License Exception can be expressed in RDF via a `<spdx:LicenseException>` element. This element has the following attributes:
+A License Exception can be expressed in RDF via a `<spdx:LicenseException>` element. This element has the following unique mandatory (unless specified otherwise) attributes:
 
-* Comment - An `rdfs:comment` element describing the nature of the exception.
-* See Also (optional)- An `rdfs:seeAlso` element referencing external sources of information on the exception.
-* Example - Text describing examples of this exception.
-* Name - The full human readable name of the item.
-* License Exception ID: The identifier of an exception in the SPDX License List to which the exception applies.
-* License Exception Text: Full text of the license exception.
+* `comment` - An `rdfs:comment` element describing the nature of the exception.
+* `seeAlso` (optional, one or more)- An `rdfs:seeAlso` element referencing external sources of information on the exception.
+* `example` (optional) - Text describing examples of this exception.
+* `name` - The full human readable name of the item.
+* `licenseExceptionId` -  The identifier of an exception in the SPDX License List to which the exception applies.
+* `licenseExceptionText` - Full text of the license exception.
 
 ```text
 <rdf:Description rdf:about="http://example.org#SPDXRef-ButIdDontWantToException">

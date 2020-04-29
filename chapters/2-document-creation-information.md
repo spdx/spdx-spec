@@ -97,7 +97,7 @@ SPDXID: SPDXRef-DOCUMENT
 `#SPDXRef-DOCUMENT`
 
 ```text
-<spdx:SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-example-444504E0-4F89-41D3-9A0C-0305E82C33...">
+<spdx:SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-example-444504E0-4F89-41D3-9A0C-0305E82C33123#SPDXRef-DOCUMENT">
 ...
 </spdx:SpdxDocument>
 ```
@@ -124,7 +124,7 @@ DocumentName: glibc-v2.3
 DocumentName: ubuntu-14.04
 ```
 
-**2.4.6** RDF: Property `spdx:name` in class `Document`
+**2.4.6** RDF: Property `spdx:name` in class `spdx:SpdxDocument`
 
 Example:
 
@@ -222,7 +222,7 @@ Example:
 ExternalDocumentRef:DocumentRef-spdx-tool-1.2 http://spdx.org/spdxdocs/spdx-tools- v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301 SHA1: d6a770ba38583ed4bb4525bd96e50461655d2759
 ```
 
-**2.6.6** RDF: Property `spdx:externalDocumentRef` in class `spdx:Document range ExternalDocumentRef`.
+**2.6.6** RDF: Property `spdx:externalDocumentRef` in class `spdx:SpdxDocument range ExternalDocumentRef`.
 
 The ExternalDocumentRef contains two properties:
 

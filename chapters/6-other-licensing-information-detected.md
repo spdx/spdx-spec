@@ -114,7 +114,7 @@ Example:
 LicenseName: Whiskey-Ware License
 ```
 
-**6.3.6** RDF: Property `spdx:licenseName` in class `spdx:ExtractedLicensingInfo`
+**6.3.6** RDF: Property `spdx:name` in class `spdx:ExtractedLicensingInfo`
 
 Example:
 

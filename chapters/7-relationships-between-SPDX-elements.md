@@ -116,17 +116,17 @@ Relationship: SPDXRef-BobBrowser CONTAINS NOASSERTION
 RelationshipComment: The package BobBrowser may have other packages embedded in it, but the author has insufficient information to treat this as other than unknown at this point in time.
 ```
 
-**7.1.6** RDF: Property `relationship` in any SpdxElement
+**7.1.6** RDF: Property `spdx:relationship` in any `spdx:SpdxDocument`, `spdx:Package`, `spdx:File` or `spdx:Snippet`
 
 Examples:
 
 ```text
-<SpdxElement rdf:about="#SPDXRef-45">
+<File rdf:about="#SPDXRef-45">
     <relationship>
         <Relationship>
-            <spdx:relatedSpdxElement>
-                <spdx:SpdxElement rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...
-                </spdx:relatedSpdxElement>
+            <relatedSpdxElement>
+                <File rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..."
+                </relatedSpdxElement>
 
                 <relationshipType>http://spdx.org/rdf/terms#relationshipType_contains</relationshipType>
         </Relationship>
