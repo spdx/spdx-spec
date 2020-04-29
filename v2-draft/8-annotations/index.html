@@ -174,20 +174,23 @@
 <p><strong>8.1.2</strong> Intent: It may also be important for participants in the software supply chain to validate and add information on ambiguous files, and packages.</p>
 <p><strong>8.1.3</strong> Cardinality: Conditional (Mandatory, one), if there is an Annotation.</p>
 <p><strong>8.1.4</strong> Data Format: Single line of text with the following keywords.</p>
-<pre><code>"Person: person name" and optional  "(email)"
-"Organization: organization" and optional "(email)"
-"Tool: tool identifier - version"
-</code></pre>
+<pre class="codehilite"><code class="language-text">&quot;Person: person name&quot; and optional  &quot;(email)&quot;
+&quot;Organization: organization&quot; and optional &quot;(email)&quot;
+&quot;Tool: tool identifier - version&quot;</code></pre>
+
+
 <p><strong>8.1.5</strong>  Tag: <code>Annotator:</code></p>
 <p>Example:</p>
-<pre><code>Annotator: Person: Jane Doe ()
-</code></pre>
+<pre class="codehilite"><code class="language-text">Annotator: Person: Jane Doe ()</code></pre>
+
+
 <p><strong>8.1.6</strong> RDF: Property <code>spdx:annotator</code> in class <code>spdx:Annotation</code></p>
 <p>Example:</p>
-<pre><code>&lt;Annotation&gt;
+<pre class="codehilite"><code class="language-text">&lt;Annotation&gt;
     &lt;annotator&gt; Person: Jane Doe () &lt;/annotator&gt;
-&lt;/Annotation&gt;
-</code></pre>
+&lt;/Annotation&gt;</code></pre>
+
+
 <h2 id="82-annotation-date">8.2 Annotation Date <a name="8.2"></a></h2>
 <p><strong>8.2.1</strong> Purpose: Identify when the comment was made. This is to be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.</p>
 <p><strong>8.2.2</strong> Intent: Here, the Annotation Date can serve as a verification as to when the actual review was done.</p>
@@ -206,14 +209,16 @@
 </ul>
 <p><strong>8.2.5</strong> Tag: <code>AnnotationDate:</code></p>
 <p>Example:</p>
-<pre><code>AnnotationDate: 2010-01-29T18:30:22Z
-</code></pre>
-<p><strong>8.2.6</strong> RDF: Property spdx:annotationDate in class spdx:Annotation</p>
+<pre class="codehilite"><code class="language-text">AnnotationDate: 2010-01-29T18:30:22Z</code></pre>
+
+
+<p><strong>8.2.6</strong> RDF: Property <code>spdx:annotationDate</code> in class <code>spdx:Annotation</code></p>
 <p>Example:</p>
-<pre><code>&lt;/Annotation&gt;
+<pre class="codehilite"><code class="language-text">&lt;/Annotation&gt;
     &lt;annotationDate&gt; 2010-01-29T18:30:22Z &lt;/annotation Date&gt;
-&lt;/Annotation&gt;
-</code></pre>
+&lt;/Annotation&gt;</code></pre>
+
+
 <h2 id="83-annotation-type">8.3 Annotation Type <a name="8.3"></a></h2>
 <p><strong>8.3.1</strong> Purpose: This field describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be <code>REVIEW</code>. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of <code>OTHER</code>.</p>
 <p><strong>8.3.2</strong> Intent: This allows the type of annotation to be recorded.</p>
@@ -221,39 +226,44 @@
 <p><strong>8.3.4</strong> Data Format: <code>REVIEW</code> | <code>OTHER</code></p>
 <p><strong>8.3.5</strong> Tag: <code>AnnotationType:</code></p>
 <p>Example:</p>
-<pre><code>AnnotationType: REVIEW
-</code></pre>
+<pre class="codehilite"><code class="language-text">AnnotationType: REVIEW</code></pre>
+
+
 <p><strong>8.3.6</strong> RDF: property <code>annotationType</code> in class <code>spdx:Annotation</code></p>
 <p>Example:</p>
-<pre><code>&lt;Annotation&gt;
-    &lt;spdx:annotationType rdf:resource="http://spdx.org/rdf/terms#annotationType_other"/&gt;
-&lt;/Annotation&gt;
-</code></pre>
+<pre class="codehilite"><code class="language-text">&lt;Annotation&gt;
+    &lt;spdx:annotationType rdf:resource=&quot;http://spdx.org/rdf/terms#annotationType_other&quot;/&gt;
+&lt;/Annotation&gt;</code></pre>
+
+
 <h2 id="84-spdx-identifier-reference">8.4 SPDX Identifier Reference <a name="8.4"></a></h2>
 <p><strong>8.4.1</strong> Purpose: Uniquely identify the element in an SPDX document which is being referenced. These may be referenced internally and externally with the addition of the SPDX Document Identifier.</p>
 <p><strong>8.4.2</strong> Intent: There may be several versions of the same package or file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.</p>
 <p><strong>8.4.3</strong> Cardinality: Conditional (Mandatory, one), if there is an Annotation.</p>
 <p><strong>8.4.4</strong> Data Format: <code>[DocumentRef-[idstring]:]SPDXID</code></p>
 <p>where:</p>
-<p>["DocumentRef-"[idstring]":"] is an optional reference to an external SPDX document as described in section 2.6
+<p><code>["DocumentRef-"[idstring]":"]</code> is an optional reference to an external SPDX document as described in section 2.6
 <code>SPDXID</code> is a unique string containing letters, numbers, <code>.</code> and/or <code>-</code> as described in Sections 2.3, 3.2 and 4.2.</p>
 <p><strong>8.4.5</strong> Tag: <code>SPDXREF:</code></p>
 <p>Example:</p>
-<pre><code>SPDXREF: SPDXRef-45
-</code></pre>
+<pre class="codehilite"><code class="language-text">SPDXREF: SPDXRef-45</code></pre>
+
+
 <p>Example:</p>
-<pre><code>SPDXREF: DocumentRef-spdx-tool-1.2:SPDXRef-5
-</code></pre>
+<pre class="codehilite"><code class="language-text">SPDXREF: DocumentRef-spdx-tool-1.2:SPDXRef-5</code></pre>
+
+
 <p><strong>8.4.6</strong> RDF:</p>
 <p>For RDF, the annotations are a property of the SPDX element it is annotationg.</p>
-<pre><code>&lt;SpdxElement rdf:about="#SPDXRef-45"&gt;
+<pre class="codehilite"><code class="language-text">&lt;SpdxElement rdf:about=&quot;#SPDXRef-45&quot;&gt;
     &lt;annotation&gt;
         &lt;Annotation&gt;
             ...
         &lt;/Annotation&gt;
     &lt;/annotation&gt;
-&lt;/SpdxElement rdf:about="#SPDXRef-45"&gt;
-</code></pre>
+&lt;/SpdxElement rdf:about=&quot;#SPDXRef-45&quot;&gt;</code></pre>
+
+
 <h2 id="85-annotation-comment">8.5 Annotation Comment <a name="8.5"></a></h2>
 <p><strong>8.5.1</strong> Purpose: This required free form text field permits the annotator to provide commentary on the analysis.</p>
 <p><strong>8.5.2</strong> Intent: This allows the annonator to provide independent assessment and note any points where there is disagreement with the analysis.</p>
@@ -262,19 +272,19 @@
 <p><strong>8.5.5</strong> Tag: <code>AnnotationComment:</code></p>
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
 <p>Example:</p>
-<pre><code>AnnotationComment: &lt;text&gt;All of the licenses seen in the file, are matching what was seen during manual inspection.
+<pre class="codehilite"><code class="language-text">AnnotationComment: &lt;text&gt;All of the licenses seen in the file, are matching what was seen during manual inspection.
 There are some terms that can influence the concluded license, and some alternatives may be possible,
-but the concluded license is one of the options.&lt;/text&gt;
-</code></pre>
+but the concluded license is one of the options.&lt;/text&gt;</code></pre>
+
+
 <p><strong>8.5.6</strong> RDF: Property <code>rdfs:comment</code> in class <code>spdx:Annotation</code></p>
 <p>Example:</p>
-<pre><code>&lt;Annotation&gt;
+<pre class="codehilite"><code class="language-text">&lt;Annotation&gt;
     &lt;rdfs:comment&gt;All of the licenses seen in the file, are matching what was seen during manual inspection.
     There are some terms that can influence the concluded license, and some alternatives may be possible,
     but the concluded license is one of the options.
     &lt;/rdfs:comment&gt;
-&lt;/Annotation&gt;
-</code></pre>
+&lt;/Annotation&gt;</code></pre>
               
             </div>
           </div>
