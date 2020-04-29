@@ -21,7 +21,7 @@ and the locator formats for each of the categories.
 Locator Format:
 
 ```text
-"[c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\._\-~%]*){0,6}"
+[c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\._\-~%]*){0,6}
 ```
 
 Contextual Example:
@@ -39,7 +39,7 @@ Documentation: [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://c
 Locator Format:
 
 ```text
-"cpe:2\.3:[aho\*\­]
+cpe:2\.3:[aho\*\­]
 (:(((\?*|\*?)([a­zA­Z0­9\­\._]|(\\[\\\*\?!
 "#$$%&'\(\)\+,/:;<=>@\[\]\^`\{\|}~])
 )+(\?*|\*?))|[\*\­])){5}
@@ -47,7 +47,7 @@ Locator Format:
 }))?)|[\*\­]))
 (:(((\?*|\*?)([a­zA­Z0­9\­\._]|(\\[\\\*\?!
 "#$$%&'\(\)\+,/:;<=>@\[\]\^`\{\|}~])
-)+(\?*|\*?))|[\*\­])){4}"
+)+(\?*|\*?))|[\*\­])){4}
 ```
 
 Contextual Example:
