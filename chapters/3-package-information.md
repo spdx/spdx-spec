@@ -676,6 +676,7 @@ Example:
 ```text
 PackageChecksum: SHA1: 85ed0817af83a24ad8da68c2b5094de69833983c
 ```
+
 ```text
 PackageChecksum: SHA256: 11b6d3ee554eedf79299905a98f9b9a04e498210b59f15094c916c91d150efcd
 ```
@@ -1196,7 +1197,7 @@ ExternalRef: OTHER LocationRef-acmeforge acmecorp/acmenator/4.1.3-alpha
 Example (for a listed location):
 
 ```text
-<spdx:Package  rdf:about="...">
+<spdx:Package rdf:about="...">
     ...
     <spdx:externalRef>
         <spdx:ExternalRef>

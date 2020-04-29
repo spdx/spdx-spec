@@ -367,7 +367,7 @@ SnippetLicenseComments: <text>The concluded license was taken from package xyz, 
 The concluded license information was found in the COPYING.txt file in package xyz.</text>
 ```
 
-**5.7.6 ** RDF: Property `spdx:licenseComments` in class `spdx:Snippet`
+**5.7.6** RDF: Property `spdx:licenseComments` in class `spdx:Snippet`
 
 Example:
 
