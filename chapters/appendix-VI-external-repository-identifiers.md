@@ -160,7 +160,8 @@ Documentation: [https://github.com/package-url/purl-spec](https://github.com/pac
 
 ### swh <a name="swh"></a>
 
-These point to objects present in the Software Heritage archive by the means of persistent identifiers
+These point to objects present in the Software Heritage archive by the means of
+SoftWare Heritage persisten Identifiers (SWHID),
 that are guaranteed to remain stable (persistent) over time.
 Their syntax is described below.
 Note that they are identifiers and not URLs.
@@ -174,6 +175,8 @@ Objects come in different types, and most notably:
 * revisions
 * releases
 * snapshots
+
+The SWHID follow the `swh:` IANA-registered URI scheme.
 
 Grammar for locator format:
 
