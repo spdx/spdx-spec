@@ -79,6 +79,7 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 * **.xls** spreadsheets
 
 In addition to the supported formats, the following format is in development with a plan to complete the specification by SPDX 3.0:
+
 * Extensible Markup Language (XML) see: https://www.w3.org/TR/2008/REC-xml-20081126/
 
 **1.7.6** Interoperability between all the supported file formats will be preserved. SPDX defines how to validate a document in each supported format, and how to translate a valid document without loss to each other supported format.
