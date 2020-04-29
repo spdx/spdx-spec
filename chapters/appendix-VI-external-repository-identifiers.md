@@ -152,15 +152,14 @@ Contextual Example:
 pkg:docker/debian@sha256:2f04d3d33b6027bb74ecc81397abe780649ec89f1a2af18d7022737d0482cefe
 ```
 
-External Reference Site: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
-
-Documentation: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
+External Documentation: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
 
 ## Persistent-Id
 
 ### swh <a name="swh"></a>
 
-These point to objects present in the Software Heritage archive by the means of persistent identifiers
+These point to objects present in the Software Heritage archive by the means of persistent identifiers 
+(SoftWare Heritage persistent IDentifiers, or SWHIDs for short)
 that are guaranteed to remain stable (persistent) over time.
 Their syntax is described below.
 Note that they are identifiers and not URLs.
@@ -182,7 +181,8 @@ Grammar for locator format:
 <scheme_version> ::= "1" ;
 <object_type> ::= "cnt" | "dir" | "rev" | "rel" | "snp" ;
 <object_id> ::= 40 * <hex_digit> ;  *intrinsic object id, as hex-encoded SHA1*
-<hex_digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "a" | "b" | "c" | "d" | "e" | "f" ;
+<dec_digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<hex_digit> ::= <dec_digit> | "a" | "b" | "c" | "d" | "e" | "f" ;
 ```
 
 Examples:
@@ -193,7 +193,7 @@ Examples:
 * `swh:1:rel:22ece559cc7cc2364edc5e5593d63ae8bd229f9f` points to Darktable release 2.3.0, dated 24 December 2016
 * `swh:1:snp:c7c108084bc0bf3d81436bf980b46e98bd338453` points to a snapshot of the entire Darktable Git repository taken on 4 May 2017 from GitHub
 
-External documentation: [Sofware Heritage](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
+External Documentation: [Sofware Heritage Persistant Identifier - SWHID](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
 
 ## Other
 
