@@ -91,13 +91,13 @@ Example:
 AnnotationType: REVIEW
 ```
 
-**8.3.6** RDF: property `annotationType` in class `spdx:Annotation`
+**8.3.6** RDF: property `spdx:annotationType` in class `spdx:Annotation`
 
 Example:
 
 ```text
 <Annotation>
-    <spdx:annotationType rdf:resource="http://spdx.org/rdf/terms#annotationType_other"/>
+    <annotationType rdf:resource="http://spdx.org/rdf/terms#annotationType_other"/>
 </Annotation>
 ```
 
@@ -132,16 +132,16 @@ SPDXREF: DocumentRef-spdx-tool-1.2:SPDXRef-5
 
 **8.4.6** RDF:
 
-For RDF, the annotations are a property of the SPDX element it is annotationg.
+For RDF, the annotations are a property of the SPDX Document, Package, File, or Snippet they are annotationg.
 
 ```text
-<SpdxElement rdf:about="#SPDXRef-45">
+<File rdf:about="#SPDXRef-45">
     <annotation>
         <Annotation>
             ...
         </Annotation>
     </annotation>
-</SpdxElement rdf:about="#SPDXRef-45">
+</File>
 ```
 
 ## 8.5 Annotation Comment <a name="8.5"></a>

@@ -76,7 +76,7 @@ Example using `xml:base`:
 ```text
 <rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B">
     ...
-    <Package rdf:ID="SPDXRef-1">
+    <Package rdf:about="#SPDXRef-1">
     ...
     </Package>
 </rdf:RDF>
@@ -85,7 +85,7 @@ Example using `xml:base`:
 Example using document URI:
 
 ```text
-<Package rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B">
+<Package rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1">
     ...
 </Package>
 ```
@@ -993,8 +993,6 @@ Example:
 
 In `tag:value` format this is delimited by `<text>...</text>`.
 
-In RDF, it is delimited by `<licenseComment>`.
-
 **3.16.5** Tag: `PackageLicenseComments:`
 
 Example:
@@ -1244,8 +1242,6 @@ The referenceType value for a non-listed location consists of the SPDX document 
 **3.22.4** Data format: Free form text that can span multiple lines.
 
 In `tag:value` format this is delimited by `<text>...</text>` and is expected to follow an [External Reference](#3.21) so that the association can be made.
-
-In RDF, it is delimited by `<ExternalRefComment>`.
 
 **3.22.5** Tag: `ExternalRefComment:`
 

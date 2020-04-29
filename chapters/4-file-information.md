@@ -72,7 +72,7 @@ Example using `xml:base:`
 ```text
 <rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B"
     ...
-    <File rdf:ID="SPDXRef-1">
+    <File rdf:about="#SPDXRef-1">
         ...
     </File>
 ```
@@ -592,7 +592,7 @@ FileContributor: The Regents of the University of California
 FileContributor: IBM Corporation
 ```
 
-**4.14.6** RDF: Property `fileContributor` in class `spdx:File`
+**4.14.6** RDF: Property `spdx:fileContributor` in class `spdx:File`
 
 Example:
 
