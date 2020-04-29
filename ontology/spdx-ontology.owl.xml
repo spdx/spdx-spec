@@ -6,6 +6,7 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:doap="http://usefulinc.com/ns/doap#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://spdx.org/rdf/terms">
         <owl:versionIRI rdf:resource="http://spdx.org/rdf/terms/2.2"/>
@@ -48,6 +49,12 @@ Known issues:</rdfs:comment>
     <!-- http://www.w3.org/2002/07/owl#deprecatedProperty -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#deprecatedProperty"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#qualifiedCardinality -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#qualifiedCardinality"/>
     
 
 
@@ -438,7 +445,7 @@ Known issues:</rdfs:comment>
     <owl:ObjectProperty rdf:about="http://spdx.org/rdf/terms#packageVerificationCode">
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#Package"/>
         <rdfs:range rdf:resource="http://spdx.org/rdf/terms#PackageVerificationCode"/>
-        <rdfs:comment xml:lang="en">A manifest based verification code (the algorithm is defined in section 4.7 of the full specification) of the package. This allows consumers of this data and/or database to determine if a package they have in hand is identical to the package from which the data was produced. This algorithm works even if the SPDX document is included in the package.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A manifest based verification code (the algorithm is defined in section 3.9.4 of the full specification) of the package. This allows consumers of this data and/or database to determine if a package they have in hand is identical to the package from which the data was produced. This algorithm works even if the SPDX document is included in the package.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:ObjectProperty>
     
@@ -769,7 +776,6 @@ Known issues:</rdfs:comment>
     <!-- http://spdx.org/rdf/terms#attributionText -->
 
     <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#attributionText">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#SpdxItem"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">This field provides a place for the SPDX data creator to record acknowledgements that may be required to be communicated in some contexts. This is not meant to include theactual complete license text (see licenseConculded and licenseDeclared), and may or may not include copyright notices (see also copyrightText). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.</rdfs:comment>
@@ -1190,24 +1196,12 @@ Known issues:</rdfs:comment>
     
 
 
-    <!-- http://spdx.org/rdf/terms#spdxVersion -->
-
-    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#spdxVersion">
-        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#SpdxDocument"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">Provide a reference number that can be used to understand how to parse and interpret the rest of the file. It will enable both future changes to the specification and to support backward compatibility. The version number consists of a major and minor version indicator. The major field will be incremented when incompatible changes between versions are made (one or more sections are created, modified or deleted). The minor field will be incremented when backwards compatible changes are made.</rdfs:comment>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://spdx.org/rdf/terms#specVersion -->
 
     <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#specVersion">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#SpdxDocument"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <owl:deprecated>Deprecated  - use spdxVersion</owl:deprecated>
-        <ns:term_status xml:lang="en">stable</ns:term_status>
+        <rdfs:comment xml:lang="en">Provide a reference number that can be used to understand how to parse and interpret the rest of the file. It will enable both future changes to the specification and to support backward compatibility. The version number consists of a major and minor version indicator. The major field will be incremented when incompatible changes between versions are made (one or more sections are created, modified or deleted). The minor field will be incremented when backwards compatible changes are made.</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -1334,7 +1328,6 @@ Known issues:</rdfs:comment>
     <!-- http://spdx.org/rdf/terms#Annotation -->
 
     <owl:Class rdf:about="http://spdx.org/rdf/terms#Annotation">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#annotationType"/>
@@ -1989,7 +1982,6 @@ Known issues:</rdfs:comment>
     <!-- http://spdx.org/rdf/terms#Relationship -->
 
     <owl:Class rdf:about="http://spdx.org/rdf/terms#Relationship">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#relatedSpdxElement"/>
@@ -2039,14 +2031,14 @@ Known issues:</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#reviewer"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2101,7 +2093,7 @@ Known issues:</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#licenseInfoInSnippet"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
                 <owl:onClass rdf:resource="http://spdx.org/rdf/terms#AnyLicenseInfo"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2179,7 +2171,7 @@ Known issues:</rdfs:comment>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#spdxVersion"/>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#specVersion"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
@@ -2193,7 +2185,6 @@ Known issues:</rdfs:comment>
     <!-- http://spdx.org/rdf/terms#SpdxElement -->
 
     <owl:Class rdf:about="http://spdx.org/rdf/terms#SpdxElement">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#annotation"/>
@@ -2254,7 +2245,7 @@ Known issues:</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#licenseInfoFromFiles"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
                 <owl:onClass rdf:resource="http://spdx.org/rdf/terms#SimpleLicensingInfo"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2262,7 +2253,7 @@ Known issues:</rdfs:comment>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#attributionText"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2002/07/owl#rational"/>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3178,6 +3169,9 @@ IMAGE if the file is assoicated with an picture image file (MIME type of image/*
     <!-- http://spdx.org/rdf/terms#reviewed -->
 
     <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#reviewed"/>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
     
 
 

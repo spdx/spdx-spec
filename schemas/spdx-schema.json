@@ -65,6 +65,10 @@
         "comment" : {
           "type" : "string"
         },
+        "spdxVersion" : {
+          "description" : "Provide a reference number that can be used to understand how to parse and interpret the rest of the file. It will enable both future changes to the specification and to support backward compatibility. The version number consists of a major and minor version indicator. The major field will be incremented when incompatible changes between versions are made (one or more sections are created, modified or deleted). The minor field will be incremented when backwards compatible changes are made.",
+          "type" : "string"
+        },
         "annotations" : {
           "description" : "Provide additional information about an SpdxElement.",
           "type" : "array",
@@ -136,10 +140,6 @@
             "description" : "Information about an external SPDX document reference including the checksum. This allows for verification of the external references."
           }
         },
-        "spdxVersion" : {
-          "description" : "Provide a reference number that can be used to understand how to parse and interpret the rest of the file. It will enable both future changes to the specification and to support backward compatibility. The version number consists of a major and minor version indicator. The major field will be incremented when incompatible changes between versions are made (one or more sections are created, modified or deleted). The minor field will be incremented when backwards compatible changes are made.",
-          "type" : "string"
-        },
         "creationInfo" : {
           "type" : "object",
           "properties" : {
@@ -206,12 +206,30 @@
                   "description" : "An Annotation is a comment on an SpdxItem by an agent."
                 }
               },
-              "homepage" : {
-                "type" : "string"
-              },
               "supplier" : {
                 "description" : "The name and, optionally, contact information of the person or organization who was the immediate supplier of this package to the recipient. The supplier may be different than originator when the software has been repackaged. Values of this property must conform to the agent and tool syntax.",
                 "type" : "string"
+              },
+              "homepage" : {
+                "type" : "string"
+              },
+              "packageVerificationCode" : {
+                "type" : "object",
+                "properties" : {
+                  "packageVerificationCodeValue" : {
+                    "description" : "The actual package verification code as a hex encoded value.",
+                    "type" : "string"
+                  },
+                  "packageVerificationCodeExcludedFiles" : {
+                    "description" : "A file that was excluded when calculating the package verification code. This is usually a file containing SPDX data regarding the package. If a package contains more than one SPDX file all SPDX files must be excluded from the package verification code. If this is not done it would be impossible to correctly calculate the verification codes in both files.",
+                    "type" : "array",
+                    "items" : {
+                      "description" : "A file that was excluded when calculating the package verification code. This is usually a file containing SPDX data regarding the package. If a package contains more than one SPDX file all SPDX files must be excluded from the package verification code. If this is not done it would be impossible to correctly calculate the verification codes in both files.",
+                      "type" : "string"
+                    }
+                  }
+                },
+                "description" : "A manifest based verification code (the algorithm is defined in section 4.7 of the full specification) of the SPDX Item. This allows consumers of this data and/or database to determine if an SPDX item they have in hand is identical to the SPDX item from which the data was produced. This algorithm works even if the SPDX document is included in the SPDX item."
               },
               "checksums" : {
                 "description" : "The checksum property provides a mechanism that can be used to verify that the contents of a File or Package have not changed.",
@@ -231,24 +249,6 @@
                   },
                   "description" : "A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented."
                 }
-              },
-              "packageVerificationCode" : {
-                "type" : "object",
-                "properties" : {
-                  "packageVerificationCodeValue" : {
-                    "description" : "The actual package verification code as a hex encoded value.",
-                    "type" : "string"
-                  },
-                  "packageVerificationCodeExcludedFiles" : {
-                    "description" : "A file that was excluded when calculating the package verification code. This is usually a file containing SPDX data regarding the package. If a package contains more than one SPDX file all SPDX files must be excluded from the package verification code. If this is not done it would be impossible to correctly calculate the verification codes in both files.",
-                    "type" : "array",
-                    "items" : {
-                      "description" : "A file that was excluded when calculating the package verification code. This is usually a file containing SPDX data regarding the package. If a package contains more than one SPDX file all SPDX files must be excluded from the package verification code. If this is not done it would be impossible to correctly calculate the verification codes in both files.",
-                      "type" : "string"
-                    }
-                  }
-                },
-                "description" : "A manifest based verification code (the algorithm is defined in section 4.7 of the full specification) of the SPDX Item. This allows consumers of this data and/or database to determine if an SPDX item they have in hand is identical to the SPDX item from which the data was produced. This algorithm works even if the SPDX document is included in the SPDX item."
               },
               "downloadLocation" : {
                 "description" : "The URI at which this package is available for download. Private (i.e., not publicly reachable) URIs are acceptable as values of this property. The values http://spdx.org/rdf/terms#none and http://spdx.org/rdf/terms#noassertion may be used to specify that the package is not downloadable or that no attempt was made to determine its download location, respectively.",
@@ -319,18 +319,17 @@
                 "description" : "The base name of the package file name. For example, zlib-1.2.5.tar.gz.",
                 "type" : "string"
               },
+              "versionInfo" : {
+                "description" : "Provides an indication of the version of the package that is described by this SpdxDocument.",
+                "type" : "string"
+              },
               "licenseInfoFromFiles" : {
                 "description" : "The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.",
                 "type" : "array",
                 "items" : {
                   "description" : "License expression for licenseInfoFromFiles.  The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.",
                   "type" : "string"
-                },
-                "minItems" : 1
-              },
-              "versionInfo" : {
-                "description" : "Provides an indication of the version of the package that is described by this SpdxDocument.",
-                "type" : "string"
+                }
               },
               "sourceInfo" : {
                 "description" : "Allows the producer(s) of the SPDX document to describe how the package was acquired and/or changed from the original source.",
@@ -428,12 +427,12 @@
                 "description" : "The licenseComments property allows the preparer of the SPDX document to describe why the licensing in spdx:licenseConcluded was chosen.",
                 "type" : "string"
               },
-              "fileName" : {
-                "description" : "The name of the file relative to the root of the package.",
-                "type" : "string"
-              },
               "name" : {
                 "description" : "Identify name of this SpdxElement.",
+                "type" : "string"
+              },
+              "fileName" : {
+                "description" : "The name of the file relative to the root of the package.",
                 "type" : "string"
               },
               "comment" : {
@@ -466,8 +465,7 @@
                 "items" : {
                   "description" : "License expression for licenseInfoFromFiles.  The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.",
                   "type" : "string"
-                },
-                "minItems" : 1
+                }
               },
               "fileDependencies" : {
                 "type" : "array",
@@ -546,8 +544,7 @@
                 "items" : {
                   "description" : "License expression for licenseInfoInSnippet.  Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet.",
                   "type" : "string"
-                },
-                "minItems" : 1
+                }
               },
               "annotations" : {
                 "description" : "Provide additional information about an SpdxElement.",
@@ -581,8 +578,7 @@
                 "items" : {
                   "description" : "License expression for licenseInfoFromFiles.  The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.",
                   "type" : "string"
-                },
-                "minItems" : 1
+                }
               }
             }
           }
