@@ -268,7 +268,7 @@ where:
 Example:
 
 ```text
-LicenseListVersion: 2.0
+LicenseListVersion: 3.8
 ```
 
 **2.7.6** RDF: Property `licenseListVersion` in class `spdx:CreationInfo`
@@ -277,7 +277,7 @@ Example:
 
 ```text
 <CreationInfo>
-    <licenseListVersion>2.0</licenseListVersion>
+    <licenseListVersion>3.8</licenseListVersion>
 </CreationInfo>
 ```
 
