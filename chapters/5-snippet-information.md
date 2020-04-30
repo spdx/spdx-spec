@@ -528,4 +528,4 @@ Example:
 </Snippet>
 ```
 
-[pointers]: https://www.w3.org/WAI/ER/Pointers/WD-Pointers-20070222
+[pointers]: http://www.w3.org/TR/Pointers-in-RDF10/
