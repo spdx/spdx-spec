@@ -195,8 +195,6 @@ Supported classes from the pointer method vocabulary are `StartEndPointer` and `
 
 Example:
 
-`xmlns:ptr=http://www.w3.org/2009/pointers#`
-
 ```text
 <Snippet rdf:about="...">
     <range>
