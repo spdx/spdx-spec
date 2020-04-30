@@ -15,7 +15,7 @@ The relationships between two SPDX elements that are supported are:
 | Relationship           | Description | Example |
 |------------------------|-------------|---------|
 | DESCRIBES              | Is to be used when SPDXRef-DOCUMENT describes SPDXRef-A.                                              | An SPDX document `WildFly.spdx` describes package ‘WildFly’. Note this is a logical relationship to help organize related items within an SPDX document that is mandatory if more than one package or set of files (not in a package) is present. |
-| DESCRIBED_BY           | Is to be used when SPDXRef-A is described by SPDXREF-Document.                                        | The package ‘WildFly’ is described by SPDX document `Wildfly.spdx`. |
+| DESCRIBED_BY           | Is to be used when SPDXRef-A is described by SPDXREF-Document.                                        | The package ‘WildFly’ is described by SPDX document `WildFly.spdx`. |
 | CONTAINS               | Is to be used when SPDXRef-A contains SPDXRef-B.                                                      | An ARCHIVE file `bar.tgz` contains a SOURCE file `foo.c`. |
 | CONTAINED_BY           | Is to be used when SPDXRef-A is contained by SPDXRef-B.                                               | A SOURCE file `foo.c` is contained by ARCHIVE file `bar.tgz` |
 | DEPENDS_ON             | Is to be used when SPDXRef-A depends on SPDXRef-B.                                                    | Package A depends on the presence of package B in order to build and run |
