@@ -15,6 +15,13 @@ All notable changes to this project will be documented in this file.
 * Added [SPDX Lite](chapters/appendix-VIII-SPDX-Lite.md) which defines a minimal subset of SPDX for scenarios not requiring full SPDX documents.
 * Added [SPDX File Tags](chapters/appendix-IX-file-tags.md) which defines a mechanism to add file-specific information from SPDX-defined fields to source code files.
 * Added optional field to be able to convey attribution text information for packages & files.
+* Added support for `LicenseRef-` in [short form identifiers](chapters/appendix-V-using-SPDX-short-identifiers-in-source-files.md).
+* Added support for relationships to `NOASSERTION` or `NONE` as a way to indicate "known unknown" and "no dependencies" respectively.
+* Added YAML, JSON, and .xls as supported formats and XML as an in-development format.
+* Removed support for multi-line license expressions.
+* Added `swh` as an external reference to support linking to Software Heritage persistent identifiers.
+* Added clarification on the case sensitivity of license expressions.
+* Numerous formatting, gramatical, and spelling fixes.
 
 See also the [SPDX specification 2.2 release announcement](TODO)
 
