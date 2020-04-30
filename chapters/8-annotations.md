@@ -132,7 +132,7 @@ SPDXREF: DocumentRef-spdx-tool-1.2:SPDXRef-5
 
 **8.4.6** RDF:
 
-For RDF, the annotations are a property of the SPDX Document, Package, File, or Snippet they are annotationg.
+For RDF, the annotations are a property of the SPDX Document, Package, File, or Snippet they are annotating.
 
 ```text
 <File rdf:about="#SPDXRef-45">
