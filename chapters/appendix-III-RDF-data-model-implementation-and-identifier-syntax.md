@@ -13,7 +13,7 @@ Licensed under the [Creative Commons Attribution License 3.0 Unported](http://cr
 ## Agent and Tool Identifiers
 Fields that identify entities that have acted in relation to the SPDX file are single line of text which name the agent or
 tool and, optionally, provide contact information. For example, "Person: Jane Doe (jane.doe@example.com)",
-"Organization: ExampleCodeInspect (contact@example.com)" and "ool: LicenseFind - 1.0". The exact syntax of agent and tool identifications is described below in [ABNF](http://tools.ietf.org/html/rfc5234).
+"Organization: ExampleCodeInspect (contact@example.com)" and "Tool: LicenseFind - 1.0". The exact syntax of agent and tool identifications is described below in [ABNF](http://tools.ietf.org/html/rfc5234).
 
 ```text
 agent            = person / organization

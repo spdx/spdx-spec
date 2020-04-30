@@ -12,7 +12,7 @@ Identifying the license for open source software is critical for both reporting 
 * The license information travels with the file (as sometimes not entire projects are used or license files are removed).
 * It is a standard and can be universal. There is no need for variation.
 * An SPDX short identifier is immutable.
-* Easy lookups and cross-references to the SPDX License List website.
+* Easy look-ups and cross-references to the SPDX License List website.
 
 To the extent that a source file contains existing copyright and license information, it is the SPDX project’s recommendation that SPDX short identifiers be used to supplement, not replace that information. When there is a standard header provided by the license author, it is recommended to use such standard header (alone or in combination with the SPDX short identifier). If using SPDX short identifiers in individual files, it is recommended to reproduce the full license in the projects LICENSE file and indicate that SPDX short identifiers are being used to refer to it. For links to projects illustrating these scenarios, see [https://spdx.org/ids-where](https://spdx.org/ids-where).
 

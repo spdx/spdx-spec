@@ -297,7 +297,7 @@ A reference to the license, denoted by LicenseRef-`[idstring]`, if the license i
 
 (i) the SPDX snippet creator has made no attempt to determine this field; or
 
-(ii) the SPDX snipppet creator has intentionally provided no information (no meaning should be implied by doing so).
+(ii) the SPDX snippet creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If license information for more than one license is contained in the snippet or if the license information offers a choice of licenses, then each of the choices should be listed as a separate entry.
 
@@ -475,7 +475,7 @@ Example:
 Example:
 
 ```text
-SnippetName: from linux kernel
+SnippetName: from Linux kernel
 ```
 
 **5.10.6** RDF: Property `spdx:snippetName` in class `spdx:Snippet`
@@ -484,7 +484,7 @@ Example:
 
 ```text
 <Snippet rdf:about="...">
-    <name>from linux kernel</name>
+    <name>from Linux kernel</name>
 </Snippet>
 ```
 

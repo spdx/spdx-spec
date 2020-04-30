@@ -161,7 +161,7 @@ Documentation: [https://github.com/package-url/purl-spec](https://github.com/pac
 ### swh <a name="swh"></a>
 
 These point to objects present in the Software Heritage archive by the means of
-SoftWare Heritage persisten Identifiers (SWHID),
+SoftWare Heritage persistent Identifiers (SWHID),
 that are guaranteed to remain stable (persistent) over time.
 Their syntax is described below.
 Note that they are identifiers and not URLs.
@@ -196,7 +196,7 @@ Examples:
 * `swh:1:rel:22ece559cc7cc2364edc5e5593d63ae8bd229f9f` points to Darktable release 2.3.0, dated 24 December 2016
 * `swh:1:snp:c7c108084bc0bf3d81436bf980b46e98bd338453` points to a snapshot of the entire Darktable Git repository taken on 4 May 2017 from GitHub
 
-External documentation: [Sofware Heritage](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
+External documentation: [Software Heritage](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
 
 ## Other
 

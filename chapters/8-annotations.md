@@ -148,7 +148,7 @@ For RDF, the annotations are a property of the SPDX element it is annotationg.
 
 **8.5.1** Purpose: This required free form text field permits the annotator to provide commentary on the analysis.
 
-**8.5.2** Intent: This allows the annonator to provide independent assessment and note any points where there is disagreement with the analysis.
+**8.5.2** Intent: This allows the annotator to provide independent assessment and note any points where there is disagreement with the analysis.
 
 **8.5.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
 
