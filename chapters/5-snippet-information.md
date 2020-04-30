@@ -134,8 +134,6 @@ Supported classes from the pointer method vocabulary are `StartEndPointer` and `
 
 Example:
 
-`xmlns:ptr=http://www.w3.org/2009/pointers#`
-
 ```text
 <Snippet rdf:about="...">
     <range>
@@ -155,6 +153,12 @@ Example:
         </ptr: StartEndPointer>
     </range>
 </Snippet>
+```
+
+This specification uses the prefix `ptr:` to refer to the [W3C Pointers][pointers] namespace:
+
+```text
+xmlns:ptr=http://www.w3.org/2009/pointers#
 ```
 
 ## 5.4 Snippet Line Range <a name="5.4"></a>
@@ -523,3 +527,5 @@ Example:
     </attributionText>
 </Snippet>
 ```
+
+[pointers]: https://www.w3.org/WAI/ER/Pointers/WD-Pointers-20070222
