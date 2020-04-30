@@ -121,20 +121,20 @@ RelationshipComment: The package BobBrowser may have other packages embedded in 
 Examples:
 
 ```text
-<File rdf:about="#SPDXRef-45">
-    <relationship>
-        <Relationship>
-            <relatedSpdxElement>
-                <File rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..."
-                </relatedSpdxElement>
+<spdx:File rdf:about="#SPDXRef-45">
+    <spdx:relationship>
+        <spdx:Relationship>
+            <spdx:relatedSpdxElement>
+                <spdx:File rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..."
+                </spdx:relatedSpdxElement>
 
-                <relationshipType>http://spdx.org/rdf/terms#relationshipType_contains</relationshipType>
-        </Relationship>
-    </relationship>
+                <spdx:relationshipType>http://spdx.org/rdf/terms#relationshipType_contains</relationshipType>
+        </spdx:Relationship>
+    </spdx:relationship>
 
     ...
 
-</SpdxElement>
+</spdx:SpdxFile>
 ```
 
 ## 7.2 Relationship Comment <a name="7.2"></a>
@@ -164,12 +164,12 @@ RelationshipComment: <text>The package foo.tgz is a pre-requisite for building e
 Example:
 
 ```text
-<Relationship rdf:about="...">
+<spdx:Relationship rdf:about="...">
     <rdfs:comment>
         The package foo.tgz is a pre-requisite for building executable bar.
     </rdfs:comment>
 
     ...
 
-</Relationship>
+</spdx:Relationship>
 ```

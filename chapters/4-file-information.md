@@ -39,10 +39,10 @@ FileName: ./package/foo.c
 Example:
 
 ```text
-<File rdf:about="...">
-    <fileName>./package/foo.c</fileName>
+<spdx:File rdf:about="...">
+    <spdx:fileName>./package/foo.c</spdx:fileName>
     ...
-</File>
+</spdx:File>
 ```
 
 ## 4.2 File SPDX Identifier <a name="4.2"></a>
@@ -72,17 +72,17 @@ Example using `xml:base:`
 ```text
 <rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B"
     ...
-    <File rdf:about="#SPDXRef-1">
+    <spdx:File rdf:about="#SPDXRef-1">
         ...
-    </File>
+    </spdx:File>
 ```
 
 Example using document URI:
 
 ```text
-<File rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1">
+<spdx:File rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1">
     ...
-</File>
+</spdx:File>
 ```
 
 ## 4.3 File Type <a name="4.3"></a>
@@ -134,18 +134,18 @@ FileType: APPLICATION
 Example:
 
 ```text
-<File rdf:about="file1">
-    <fileType rdf:resource="fileType_binary" />
-</File>
+<spdx:File rdf:about="file1">
+    <spdx:fileType rdf:resource="fileType_binary" />
+</spdx:File>
 ```
 
 Example: (where file2 is a `README.TXT`)
 
 ```text
-<File rdf:about="file2">
-    <fileType rdf:resource="http://spdx.org/rdf/terms#fileType_text" />
-    <fileType rdf:resource="http://spdx.org/rdf/terms#fileType_documentation" />
-</File>
+<spdx:File rdf:about="file2">
+    <spdx:fileType rdf:resource="http://spdx.org/rdf/terms#fileType_text" />
+    <spdx:fileType rdf:resource="http://spdx.org/rdf/terms#fileType_documentation" />
+</spdx:File>
 ```
 
 ## 4.4 File Checksum <a name="4.4"></a>
@@ -178,22 +178,22 @@ FileChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 Example:
 
 ```text
-<File rdf:about="...">
-    <checksum>
-        <Checksum>
-            <algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_sha1"/>
-            <checksumValue>d6a770ba38583ed4bb4525bd96e50461655d2758
-            </checksumValue>
-        </Checksum>
-    </checksum>
-    <checksum>
-        <Checksum>
-            <algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_md5"/>
-            <checksumValue> 624c1abb3664f4b35547e7c73864ad24
-            </checksumValue>
-        </Checksum>
-    </checksum>
-</File>
+<spdx:File rdf:about="...">
+    <spdx:checksum>
+        <spdx:Checksum>
+            <spdx:algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_sha1"/>
+            <spdx:checksumValue>d6a770ba38583ed4bb4525bd96e50461655d2758
+            </spdx:checksumValue>
+        </spdx:Checksum>
+    </spdx:checksum>
+    <spdx:checksum>
+        <spdx:Checksum>
+            <spdx:algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_md5"/>
+            <spdx:checksumValue> 624c1abb3664f4b35547e7c73864ad24
+            </spdx:checksumValue>
+        </spdx:Checksum>
+    </spdx:checksum>
+</spdx:File>
 ```
 
 ## 4.5 Concluded License <a name="4.5"></a>
@@ -245,22 +245,22 @@ LicenseConcluded: (LGPL-2.0-only OR LicenseRef-2)
 Example:
 
 ```text
-<File rdf:about="file">
-    <licenseConcluded>LGPL-2.0-only</licenseConcluded>
-</File>
+<spdx:File rdf:about="file">
+    <spdx:licenseConcluded>LGPL-2.0-only</spdx:licenseConcluded>
+</spdx:File>
 ```
 
 Example:
 
 ```text
-<File rdf:about="...">
-    <licenseConcluded>
-        <DisjunctiveLicenseSet>
+<spdx:File rdf:about="...">
+    <spdx:licenseConcluded>
+        <spdx:DisjunctiveLicenseSet>
             <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only"/>
             <member rdf:resource="#LicenseRef-2"/>
-        </DisjunctiveLicenseSet>
-    </licenseConcluded>
-</File>
+        </spdx:DisjunctiveLicenseSet>
+    </spdx:licenseConcluded>
+</spdx:File>
 ```
 
 ## 4.6 License Information in File <a name="4.6"></a>
@@ -318,10 +318,10 @@ LicenseInfoInFile: LicenseRef-2
 Example:
 
 ```text
-<File rdf:about="file1">
-    <licenseInfoInFile rdf:resource="http://spdx.org/licenses/GPL-2.0-only" />
-    <licenseInfoInFile rdf:resource="#LicenseRef-2" />
-</File>
+<spdx:File rdf:about="file1">
+    <spdx:licenseInfoInFile rdf:resource="http://spdx.org/licenses/GPL-2.0-only" />
+    <spdx:licenseInfoInFile rdf:resource="#LicenseRef-2" />
+</spdx:File>
 ```
 
 ## 4.7 Comments on License <a name="4.7"></a>
@@ -350,13 +350,13 @@ This information was found in the COPYING.txt file in the xyz directory.</text>
 Example:
 
 ```text
-<File rdf:about="...">
-    <licenseComments>
+<spdx:File rdf:about="...">
+    <spdx:licenseComments>
         The concluded license was taken from the package level that the file
         was included in. This information was found in the COPYING.txt file
         in the xyz directory. This package has been shipped in source and binary form.
-    </licenseComments>
-</File>
+    </spdx:licenseComments>
+</spdx:File>
 ```
 
 ## 4.8 Copyright Text <a name="4.8"></a>
@@ -388,7 +388,7 @@ In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 Example:
 
 ```text
-FileCopyrightText: <text> Copyright 2008-2010 John Smith </text>
+FileCopyrightText: <text>Copyright 2008-2010 John Smith</text>
 ```
 
 **4.8.6** RDF: Property `spdx:copyrightText` in class `spdx:File`
@@ -396,11 +396,11 @@ FileCopyrightText: <text> Copyright 2008-2010 John Smith </text>
 Example:
 
 ```text
-<File rdf:about="...">
-    <copyrightText>
+<spdx:File rdf:about="...">
+    <spdx:copyrightText>
         Copyright 2008-2010 John Smith
-    </copyrightText>
-</File>
+    </spdx:copyrightText>
+</spdx:File>
 ```
 
 ## 4.9 Artifact of Project Name (deprecated) <a name="4.9"></a>
@@ -428,13 +428,13 @@ ArtifactOfProjectName: Jena
 Example:
 
 ```text
-<File>
-    <artifactOf>
+<spdx:File>
+    <spdx:artifactOf>
         <doap:Project>
             <doap:name>Jena</doap:name>
         </doap:Project>
-    </artifactOf>
-</File>
+    </spdx:artifactOf>
+</spdx:File>
 ```
 
 ## 4.10 Artifact of Project Homepage (deprecated) <a name="4.10"></a>
@@ -462,13 +462,13 @@ ArtifactOfProjectHomePage: http://www.openjena.org/
 Example:
 
 ```text
-<File>
-    <artifactOf>
+<spdx:File>
+    <spdx:artifactOf>
         <doap:Project>
             <doap:homepage >rttp://www.openjena.org/</doap:homepage>
         </doap:Project>
-    </artifactOf>
-</File>
+    </spdx:artifactOf>
+</spdx:File>
 ```
 
 ## 4.11 Artifact of Project Uniform Resource Identifier (deprecated) <a name="4.11"></a>
@@ -496,9 +496,9 @@ ArtifactOfProjectURI: http://subversion.apache.org/doap.rdf
 Example:
 
 ```text
-<File>
-    <artifactOf rdf:resource="http://subversion.apache.org/" />
-</File>
+<spdx:File>
+    <spdx:artifactOf rdf:resource="http://subversion.apache.org/" />
+</spdx:File>
 <!-- Note: within the DOAP file at http://subversion.apache.org/doap.rdf
 the value "http://subversion.apache.org/" is the URI of the describes
 resource of type doap:Project -->
@@ -531,11 +531,11 @@ This file appears in other packages, such as Foo and Ufoo.
 Example:
 
 ```text
-<File rdf:about="...">
+<spdx:File rdf:about="...">
     <rdfs:comment>
         This file appears in other packages, such as Foo and Ufoo.
     </rdfs:comment>
-</File>
+</spdx:File>
 ```
 
 ## 4.13 File Notice <a name="4.13"></a>
@@ -558,16 +558,16 @@ Example:
 FileNotice: <text>This file is licensed under GPL.</text>
 ```
 
-**4.13.6** RDF: Property `noticeText` in class `spdx:File`
+**4.13.6** RDF: Property `spdx:noticeText` in class `spdx:File`
 
 Example:
 
 ```text
-<File rdf:about="...">
-    <noticeText>
+<spdx:File rdf:about="...">
+    <spdx:noticeText>
         This file is licensed under GPL.
-    </noticeText>
-</File>
+    </spdx:noticeText>
+</spdx:File>
 ```
 
 ## 4.14 File Contributor <a name="4.14"></a>
@@ -597,11 +597,11 @@ FileContributor: IBM Corporation
 Example:
 
 ```text
-<File rdf:about="...">
-    <fileContributor> Modified by Paul Mundt lethal@linux-sh.org </fileContributor>
-    <fileContributor> The Regents of the University of California </fileContributor>
-    <fileContributor> IBM Corporation </fileContributor>
-</File>
+<spdx:File rdf:about="...">
+    <spdx:fileContributor> Modified by Paul Mundt lethal@linux-sh.org </spdx:fileContributor>
+    <spdx:fileContributor> The Regents of the University of California </spdx:fileContributor>
+    <spdx:fileContributor> IBM Corporation </spdx:fileContributor>
+</spdx:File>
 ```
 
 ## 4.15 File Attribution Text <a name="4.15"></a>
@@ -632,12 +632,12 @@ following acknowledgement:  This product includes software developed by the AT&T
 Example:
 
 ```text
-<File rdf:about="...">
-    <attributionText>
+<spdx:File rdf:about="...">
+    <spdx:attributionText>
         All advertising materials mentioning features or use of this software must display the
         following acknowledgement:  This product includes software developed by the AT&T.
-    </attributionText>
-</File>
+    </spdx:attributionText>
+</spdx:File>
 ```
 
 ## 4.16 File Dependencies (deprecated) <a name="4.16"></a>
@@ -667,30 +667,30 @@ FileDependency: ./busybox-1.20.2/shell/ash.c
 Example:
 
 ```text
-<File rdf:nodeID="A0">
-    <fileName>./package/source1.java</fileName>
-</File>
+<spdx:File rdf:nodeID="A0">
+    <spdx:fileName>./package/source1.java</spdx:fileName>
+</spdx:File>
 ```
 
 ```text
-<File rdf:nodeID="A1">
-    <fileName>./package/source2.java</fileName>
-</File>
+<spdx:File rdf:nodeID="A1">
+    <spdx:fileName>./package/source2.java</spdx:fileName>
+</spdx:File>
 ```
 
 ```text
-<File rdf:nodeID="A3">
-  <fileName>./package/source3.java</fileName>
-</File>
+<spdx:File rdf:nodeID="A3">
+  <spdx:fileName>./package/source3.java</spdx:fileName>
+</spdx:File>
 ```
 
 ```text
-<File rdf:about="...">
-    <fileName>./package/mylibrary.jar</fileName>
-    <fileDependency rdf:nodeID="A0"/>
-    <fileDependency rdf:nodeID="A1"/>
-    <fileDependency rdf:nodeID="A2"/>
-</File>
+<spdx:File rdf:about="...">
+    <spdx:fileName>./package/mylibrary.jar</spdx:fileName>
+    <spdx:fileDependency rdf:nodeID="A0"/>
+    <spdx:fileDependency rdf:nodeID="A1"/>
+    <spdx:fileDependency rdf:nodeID="A2"/>
+</spdx:File>
 ```
 
 [Bazaar]: http://bazaar.canonical.com/
