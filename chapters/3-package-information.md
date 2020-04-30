@@ -752,6 +752,11 @@ Example:
     <doap:homepage >http://ftp.gnu.org/gnu/glibc/</doap:homepage>    </Package>
 ```
 
+This specification uses the prefix `doap:` to refer to the [DOAP][doap] namespace:
+
+```text
+http://usefulinc.com/ns/doap#
+```
 ## 3.12 Source Information <a name="3.12"></a>
 
 **3.12.1** Purpose: Provide a place for the SPDX file creator to record any relevant background information or additional comments about the origin of the package. For example, this field might include comments indicating whether the package was pulled from a source code management system or has been repackaged.
@@ -1329,3 +1334,4 @@ Example:
 [SHA-512]: https://en.wikipedia.org/wiki/SHA-2
 [SourceForge]: https://sourceforge.net/
 [Subversion]: https://subversion.apache.org/
+[doap]: http://usefulinc.com/ns/doap
