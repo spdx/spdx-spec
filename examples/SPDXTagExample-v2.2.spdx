@@ -17,9 +17,9 @@ The binaries were created with gcc 4.5.1 and expect to link to
 compatible system run time libraries.</text>
 LicenseListVersion: 3.8
 ## Annotations
-Annotator: Person: Joe Reviewer
-AnnotationDate: 2010-02-10T00:00:00Z
-AnnotationComment: <text>This is just an example.  Some of the non-standard licenses look like they are actually BSD 3 clause licenses</text>
+Annotator: Person: Suzanne Reviewer
+AnnotationDate: 2011-03-13T00:00:00Z
+AnnotationComment: <text>Another example reviewer.</text>
 AnnotationType: REVIEW
 SPDXREF: SPDXRef-DOCUMENT
 Annotator: Person: Jane Doe ()
@@ -27,24 +27,24 @@ AnnotationDate: 2010-01-29T18:30:22Z
 AnnotationComment: <text>Document level annotation</text>
 AnnotationType: OTHER
 SPDXREF: SPDXRef-DOCUMENT
-Annotator: Person: Suzanne Reviewer
-AnnotationDate: 2011-03-13T00:00:00Z
-AnnotationComment: <text>Another example reviewer.</text>
+Annotator: Person: Joe Reviewer
+AnnotationDate: 2010-02-10T00:00:00Z
+AnnotationComment: <text>This is just an example.  Some of the non-standard licenses look like they are actually BSD 3 clause licenses</text>
 AnnotationType: REVIEW
 SPDXREF: SPDXRef-DOCUMENT
 ## Relationships
-Relationship: SPDXRef-DOCUMENT CONTAINS SPDXRef-Package
-Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package
-Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-File
 Relationship: SPDXRef-DOCUMENT COPY_OF DocumentRef-spdx-tool-1.2:SPDXRef-ToolsElement
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-Package
+Relationship: SPDXRef-DOCUMENT CONTAINS SPDXRef-Package
+Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-File
 
 FileName: ./package/foo.c
 SPDXID: SPDXRef-File
 FileComment: <text>The concluded license was taken from the package level that the file was included in.
 This information was found in the COPYING.txt file in the xyz directory.</text>
 FileType: SOURCE
-FileChecksum: SHA1: d6a770ba38583ed4bb4525bd96e50461655d2758
 FileChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
+FileChecksum: SHA1: d6a770ba38583ed4bb4525bd96e50461655d2758
 LicenseConcluded: (LGPL-2.0-only OR LicenseRef-2)
 LicenseInfoInFile: LicenseRef-2
 LicenseInfoInFile: GPL-2.0-only
@@ -76,8 +76,8 @@ PackageSupplier: Person: Jane Doe (jane.doe@example.com)
 PackageOriginator: Organization: ExampleCodeInspect (contact@example.com)
 PackageDownloadLocation: http://ftp.gnu.org/gnu/glibc/glibc-ports-2.15.tar.gz
 PackageVerificationCode: d6a770ba38583ed4bb4525bd96e50461655d2758(, excludes: ./package.spdx)
-PackageChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 PackageChecksum: SHA1: 85ed0817af83a24ad8da68c2b5094de69833983c
+PackageChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 PackageChecksum: SHA256: 11b6d3ee554eedf79299905a98f9b9a04e498210b59f15094c916c91d150efcd
 PackageHomePage: http://ftp.gnu.org/gnu/glibc
 PackageSourceInfo: <text>uses glibc-2_11-branch from git://sourceware.org/git/glibc.git.</text>
@@ -92,9 +92,9 @@ PackageCopyrightText: <text>Copyright 2008-2010 John Smith</text>
 PackageSummary: <text>GNU C library.</text>
 PackageDescription: <text>The GNU C Library defines functions that are specified by the ISO C standard, as well as additional features specific to POSIX and other derivatives of the Unix operating system, and extensions specific to GNU systems.</text>
 PackageAttributionText: <text>The GNU C Library is free software.  See the file COPYING.LIB for copying conditions, and LICENSES for notices about a few contributions that require these additional notices to be distributed.  License copyright years may be listed using range notation, e.g., 1996-2015, indicating that every year in the range, inclusive, is a copyrightable year that would otherwise be listed individually.</text>
+ExternalRef: SECURITY cpe23Type cpe:2.3:a:pivotal_software:spring_framework:4.1.0:*:*:*:*:*:*:*
 ExternalRef: OTHER #LocationRef-acmeforge acmecorp/acmenator/4.1.3-alpha
 ExternalRefComment: This is the external ref for Acme
-ExternalRef: SECURITY cpe23Type cpe:2.3:a:pivotal_software:spring_framework:4.1.0:*:*:*:*:*:*:*
 ## Annotations
 Annotator: Person: Package Commenter
 AnnotationDate: 2011-01-29T18:30:22Z
@@ -102,8 +102,8 @@ AnnotationComment: <text>Package level annotation</text>
 AnnotationType: OTHER
 SPDXREF: SPDXRef-Package
 ## Relationships
-Relationship: SPDXRef-Package DYNAMIC_LINK SPDXRef-Saxon
 Relationship: SPDXRef-Package CONTAINS SPDXRef-JenaLib
+Relationship: SPDXRef-Package DYNAMIC_LINK SPDXRef-Saxon
 
 ## File Information
 FileName: ./lib-source/commons-lang3-3.1-sources.jar
@@ -124,7 +124,7 @@ This product includes software from the Spring Framework,
 under the Apache License 2.0 (see: StringUtils.containsWhitespace())</text>
 FileContributor: Apache Software Foundation
 ## Relationships
-Relationship: SPDXRef-CommonsLangSrc GENERATED_FROM SPDXRef-fromDoap-1
+Relationship: SPDXRef-CommonsLangSrc GENERATED_FROM NOASSERTION
 
 FileName: ./lib-source/jena-2.6.3-sources.jar
 SPDXID: SPDXRef-JenaLib
@@ -139,7 +139,7 @@ FileContributor: Hewlett Packard Inc.
 FileContributor: Apache Software Foundation
 FileDependency: ./lib-source/commons-lang3-3.1-sources.jar
 ## Relationships
-Relationship: SPDXRef-JenaLib NOASSERTION SPDXRef-Package
+Relationship: SPDXRef-JenaLib CONTAINS SPDXRef-Package
 
 FileName: ./src/org/spdx/parser/DOAPProject.java
 SPDXID: SPDXRef-DoapSource
@@ -155,6 +155,17 @@ FileContributor: SPDX Technical Team Members
 FileContributor: Protecode Inc.
 FileDependency: ./lib-source/jena-2.6.3-sources.jar
 FileDependency: ./lib-source/commons-lang3-3.1-sources.jar
+
+## Package Information
+PackageName: Apache Commons Lang
+SPDXID: SPDXRef-fromDoap-1
+PackageComment: <text>This package was converted from a DOAP Project by the same name</text>
+PackageDownloadLocation: NOASSERTION
+PackageHomePage: http://commons.apache.org/proper/commons-lang/
+PackageLicenseConcluded: NOASSERTION
+PackageLicenseDeclared: NOASSERTION
+PackageCopyrightText: <text>NOASSERTION</text>
+FilesAnalyzed: false
 
 ## Package Information
 PackageName: Jena
@@ -179,17 +190,6 @@ PackageLicenseConcluded: MPL-1.0
 PackageLicenseDeclared: MPL-1.0
 PackageLicenseComments: <text>Other versions available for a commercial license</text>
 PackageDescription: <text>The Saxon package is a collection of tools for processing XML documents.</text>
-FilesAnalyzed: false
-
-## Package Information
-PackageName: Apache Commons Lang
-SPDXID: SPDXRef-fromDoap-1
-PackageComment: <text>This package was converted from a DOAP Project by the same name</text>
-PackageDownloadLocation: NOASSERTION
-PackageHomePage: http://commons.apache.org/proper/commons-lang/
-PackageLicenseConcluded: NOASSERTION
-PackageLicenseDeclared: NOASSERTION
-PackageCopyrightText: <text>NOASSERTION</text>
 FilesAnalyzed: false
 
 ## Snippet Information
