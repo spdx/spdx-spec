@@ -1,6 +1,6 @@
 # 9 Review Information (deprecated)
 
-The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information should use an Annotation (as described in [section 8](./8-annotations.md)) with an annotation type of `annotationType_review`.
+The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information should use an Annotation (as described in [section 8](./8-annotations.md)) with an annotation type of `REVIEW`.
 
 Review information can be added after the initial SPDX file has been created. The set of fields are optional and multiple instances can be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date should not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
 
@@ -18,25 +18,31 @@ This field has been deprecated since SPDX 2.0.
 
 **9.1.4** Data Format: Single line of text with the following keywords.
 
-    ”Person: person name” and optional “(email)”
-    "Organization: organization” and optional “(email)”
-    "Tool: tool identifier - version”
+```text
+"Person: person name" and optional "(email)"
+"Organization: organization" and optional "(email)"
+"Tool: tool identifier - version"
+```
 
 **9.1.5** Tag: `Reviewer:`
 
 Example:
 
-    Reviewer: Person: Jane Doe ()
+```text
+Reviewer: Person: Jane Doe ()
+```
 
 **9.1.6** RDF: Property `spdx:reviewer` in class `spdx:Review`
 
 Example:
 
-    <Review>
-        <reviewer> Person: Jane Doe () </reviewer>
-    </Review>
+```text
+<Review>
+    <reviewer> Person: Jane Doe () </reviewer>
+</Review>
+```
 
-# 9.2 Review Date (deprecated) <a name="9.2"></a>
+## 9.2 Review Date (deprecated) <a name="9.2"></a>
 
 This field has been deprecated since SPDX 2.0.
 
@@ -63,15 +69,19 @@ where:
 
 Example:
 
-    ReviewDate: 2010-01-29T18:30:22Z
+```text
+ReviewDate: 2010-01-29T18:30:22Z
+```
 
 **9.2.6** RDF: Property `spdx:reviewDate` in class `spdx:Review`
 
 Example:
 
-    <Review>
-        <reviewDate> 2010-01-29T18:30:22Z </reviewDate>
-    </Review>
+```text
+<Review>
+    <reviewDate> 2010-01-29T18:30:22Z </reviewDate>
+</Review>
+```
 
 ## 9.3 Review Comment (deprecated) <a name="9.3"></a>
 
@@ -91,16 +101,20 @@ In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example:
 
-    ReviewComment: <text>All of the licenses seen in the file, are matching what was seen during manual inspection.
-    There are some terms that can influence the concluded license, and some alternatives may be possible,
-    but the concluded license is one of the options.</text>
+```text
+ReviewComment: <text>All of the licenses seen in the file, are matching what was seen during manual inspection.
+There are some terms that can influence the concluded license, and some alternatives may be possible,
+but the concluded license is one of the options.</text>
+```
 
 **9.3.6** RDF: Property `rdfs:comment` in class `spdx:Review`
 
 Example:
 
-    <Review>
-        <rdfs:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
-        There are some terms that can influence the concluded license, and some alternatives may be possible,
-        but the concluded license is one of the options.</rdfs:comment>
-    </Review>
+```text
+<Review>
+    <rdfs:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
+    There are some terms that can influence the concluded license, and some alternatives may be possible,
+    but the concluded license is one of the options.</rdfs:comment>
+</Review>
+```

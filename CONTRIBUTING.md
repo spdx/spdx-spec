@@ -21,7 +21,7 @@ Git itself use this approach. When you merge something it will generate a commit
 
 ### Minor Changes
 Minor changes such as markup and typo fixes may be submitted directly to this repository (either as [issues][] or [pull-requests][]) without previous discussion.
-Please submit all minor changes against the `development/v2.2` branch which is the draft of the next version of the SPDX specification to be released.
+Please submit all minor changes against the `development/v2.2.1` branch which is the draft of the next version of the SPDX specification to be released.
 
 ### Major Changes
 Any change that break backwards compatibility or requires significant tooling changes is considered a major change.

@@ -10,23 +10,29 @@
 
 **8.1.4** Data Format: Single line of text with the following keywords.
 
-    ”Person: person name” and optional  “(email)”
-    "Organization: organization” and optional “(email)”
-    "Tool: tool identifier - version”
+```text
+"Person: person name" and optional  "(email)"
+"Organization: organization" and optional "(email)"
+"Tool: tool identifier - version"
+```
 
 **8.1.5**  Tag: `Annotator:`
 
 Example:
 
-    Annotator: Person: Jane Doe ()
+```text
+Annotator: Person: Jane Doe ()
+```
 
 **8.1.6** RDF: Property `spdx:annotator` in class `spdx:Annotation`
 
 Example:
 
-    <Annotation>
-        <annotator> Person: Jane Doe () </annotator>
-    </Annotations>
+```text
+<Annotation>
+    <annotator> Person: Jane Doe () </annotator>
+</Annotation>
+```
 
 ## 8.2 Annotation Date <a name="8.2"></a>
 
@@ -53,15 +59,19 @@ where:
 
 Example:
 
-    AnnotationDate: 2010-01-29T18:30:22Z
+```text
+AnnotationDate: 2010-01-29T18:30:22Z
+```
 
-**8.2.6** RDF: Property spdx:annotationDate in class spdx:Annotation
+**8.2.6** RDF: Property `spdx:annotationDate` in class `spdx:Annotation`
 
 Example:
 
-    </Annotation>
-        <annotationDate> 2010-01-29T18:30:22Z </annotation Date>
-    </Annotation>
+```text
+</Annotation>
+    <annotationDate> 2010-01-29T18:30:22Z </annotation Date>
+</Annotation>
+```
 
 ## 8.3 Annotation Type <a name="8.3"></a>
 
@@ -77,15 +87,19 @@ Example:
 
 Example:
 
-    AnnotationType: REVIEW
+```text
+AnnotationType: REVIEW
+```
 
-**8.3.6** RDF: property `annotationType` in class `spdx:Annotation`
+**8.3.6** RDF: property `spdx:annotationType` in class `spdx:Annotation`
 
 Example:
 
-    <Annotation>
-        <spdx:annotationType rdf:resource="http://spdx.org/rdf/terms#annotationType_other"/>
-    </Annotation>
+```text
+<Annotation>
+    <annotationType rdf:resource="http://spdx.org/rdf/terms#annotationType_other"/>
+</Annotation>
+```
 
 ## 8.4 SPDX Identifier Reference <a name="8.4"></a>
 
@@ -95,40 +109,46 @@ Example:
 
 **8.4.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
 
-**8.4.4** DataFormat: `[DocumentRef-[idstring]:]SPDXID`
+**8.4.4** Data Format: `[DocumentRef-[idstring]:]SPDXID`
 
 where:
 
-["DocumentRef-"[idstring]":"] is an optional reference to an external SPDX document as described in section 2.6
+`["DocumentRef-"[idstring]":"]` is an optional reference to an external SPDX document as described in section 2.6
 `SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in Sections 2.3, 3.2 and 4.2.
 
 **8.4.5** Tag: `SPDXREF:`
 
 Example:
 
-    SPDXREF: SPDXRef-45
+```text
+SPDXREF: SPDXRef-45
+```
 
 Example:
 
-    SPDXREF: DocumentRef-spdx-tool-1.2:SPDXRef-5
+```text
+SPDXREF: DocumentRef-spdx-tool-1.2:SPDXRef-5
+```
 
 **8.4.6** RDF:
 
-For RDF, the annotations are a property of the SPDX element it is annotationg.
+For RDF, the annotations are a property of the SPDX Document, Package, File, or Snippet they are annotating.
 
-    <SpdxElement rdf:about=”#SPDXRef-45”>
-        <annotation>
-            <Annotation>
-                ...
-            </Annotation>
-        </annotation>
-    </SpdxElement rdf:about=”#SPDXRef-45”>
+```text
+<File rdf:about="#SPDXRef-45">
+    <annotation>
+        <Annotation>
+            ...
+        </Annotation>
+    </annotation>
+</File>
+```
 
 ## 8.5 Annotation Comment <a name="8.5"></a>
 
-**8.5.1** Purpose: This optional free form text field permits the annotator to provide commentary on the analysis.
+**8.5.1** Purpose: This required free form text field permits the annotator to provide commentary on the analysis.
 
-**8.5.2** Intent: This allows the annonator to provide independent assessment and note any points where there is disagreement with the analysis.
+**8.5.2** Intent: This allows the annotator to provide independent assessment and note any points where there is disagreement with the analysis.
 
 **8.5.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
 
@@ -140,17 +160,21 @@ In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 Example:
 
-    AnnotationComment: <text>All of the licenses seen in the file, are matching what was seen during manual inspection.
-    There are some terms that can influence the concluded license, and some alternatives may be possible,
-    but the concluded license is one of the options.</text>
+```text
+AnnotationComment: <text>All of the licenses seen in the file, are matching what was seen during manual inspection.
+There are some terms that can influence the concluded license, and some alternatives may be possible,
+but the concluded license is one of the options.</text>
+```
 
 **8.5.6** RDF: Property `rdfs:comment` in class `spdx:Annotation`
 
 Example:
 
-    <Annotation>
-        <rdfs:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
-        There are some terms that can influence the concluded license, and some alternatives may be possible,
-        but the concluded license is one of the options.
-        </rdfs:comment>
-    </Annotation>
+```text
+<Annotation>
+    <rdfs:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
+    There are some terms that can influence the concluded license, and some alternatives may be possible,
+    but the concluded license is one of the options.
+    </rdfs:comment>
+</Annotation>
+```

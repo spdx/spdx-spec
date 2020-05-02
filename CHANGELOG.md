@@ -1,6 +1,30 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 2.2 (TODO)
+
+* Added more relationship types to [Relationships](chapters/7-relationships-between-SPDX-elements.md).
+* Updated [License Matching Guidelines](chapters/appendix-II-license-matching-guidelines-and-templates.md) to allow embedded rules within optional rules.
+* Updated [Charter](chapters/1-rationale.md) to broaden applicable scenarios for SPDX documents.
+* Updated [License List](chapters/appendix-I-SPDX-license-list.md) to v3.7.
+* Added support for [PURL](https://github.com/package-url/purl-spec) and container images to [External Repository Identifiers](chapters/appendix-VI-external-repository-identifiers.md).
+* Added the license matching guideline content to [Appendix II](chapters/appendix-II-license-matching-guidelines-and-templates.md).
+* Added sample documents (both for final and draft formats) under `examples/`.
+* Added definitions for the `rdf:` and `rdf-schema:` namespaces.
+* Added clarification of the meaning of `Package` with an SPDX document.
+* Added [SPDX Lite](chapters/appendix-VIII-SPDX-Lite.md) which defines a minimal subset of SPDX for scenarios not requiring full SPDX documents.
+* Added [SPDX File Tags](chapters/appendix-IX-file-tags.md) which defines a mechanism to add file-specific information from SPDX-defined fields to source code files.
+* Added optional field to be able to convey attribution text information for packages & files.
+* Added support for `LicenseRef-` in [short form identifiers](chapters/appendix-V-using-SPDX-short-identifiers-in-source-files.md).
+* Added support for relationships to `NOASSERTION` or `NONE` as a way to indicate "known unknown" and "no dependencies" respectively.
+* Added YAML, JSON, and .xls as supported formats and XML as an in-development format.
+* Removed support for multi-line license expressions.
+* Added `swh` as an external reference to support linking to Software Heritage persistent identifiers.
+* Added clarification on the case sensitivity of license expressions.
+* Numerous formatting, gramatical, and spelling fixes.
+
+See also the [SPDX specification 2.2 release announcement](TODO)
+
 ## 2.1 (2016-10-04)
 
 * Snippets allow a portion of a file to be identified as having different properties from the file it resides within. The use of snippets is completely optional, and it is not mandatory for snippets to be identified;
