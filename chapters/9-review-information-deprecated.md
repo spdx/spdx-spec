@@ -37,9 +37,9 @@ Reviewer: Person: Jane Doe ()
 Example:
 
 ```text
-<spdx:Review>
-    <spdx:reviewer> Person: Jane Doe () </spdx:reviewer>
-</spdx:Review>
+<Review>
+    <reviewer> Person: Jane Doe () </reviewer>
+</Review>
 ```
 
 ## 9.2 Review Date (deprecated) <a name="9.2"></a>
@@ -78,9 +78,9 @@ ReviewDate: 2010-01-29T18:30:22Z
 Example:
 
 ```text
-<spdx:Review>
-    <spdx:reviewDate> 2010-01-29T18:30:22Z </spdx:reviewDate>
-</spdx:Review>
+<Review>
+    <reviewDate> 2010-01-29T18:30:22Z </reviewDate>
+</Review>
 ```
 
 ## 9.3 Review Comment (deprecated) <a name="9.3"></a>
@@ -112,9 +112,9 @@ but the concluded license is one of the options.</text>
 Example:
 
 ```text
-<spdx:Review>
+<Review>
     <rdfs:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
     There are some terms that can influence the concluded license, and some alternatives may be possible,
     but the concluded license is one of the options.</rdfs:comment>
-</spdx:Review>
+</Review>
 ```

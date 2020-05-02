@@ -38,17 +38,17 @@ Example using xml:base:
 ```text
 <rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B"
     ...
-    <spdx:Snippet rdf:about="#SPDXRef-1">
+    <Snippet rdf:about="#SPDXRef-1">
         ...
-    </spdx:Snippet>
+    </Snippet>
 ```
 
 Example using document URI:
 
 ```text
-<spdx:Snippet rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1">
+<Snippet rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1">
     ...
-</spdx:Snippet>
+</Snippet>
 ```
 
 ## 5.2 Snippet from File SPDX Identifier <a name="5.2"></a>
@@ -84,19 +84,19 @@ SnippetFromFileSPDXID: DocumentRef-ExternalDoc1:SPDXRef-filecontainingsnippet
 Example (snippet from a File in local SPDX Doc):
 
 ```text
-<spdx:Snippet rdf:ID="SPDXRef-1">
-    <spdx:snippetFromFile rdf:about="#SPDXRef-filecontainingsnippet">
+<Snippet rdf:ID="SPDXRef-1">
+    <snippetFromFile rdf:about="#SPDXRef-filecontainingsnippet">
         ...
-    </spdx:Snippet>
+    </Snippet>
 ```
 
 Example (snippet from a File in an External SPDX Doc):
 
 ```text
-<spdx:Snippet rdf:ID="SPDXRef-1">
-    <spdx:snippetFromFile rdf:about="http://foo.org/ExternalDocument1#SPDXRef-filecontainingsnippet">
+<Snippet rdf:ID="SPDXRef-1">
+    <snippetFromFile rdf:about="http://foo.org/ExternalDocument1#SPDXRef-filecontainingsnippet">
     ...
-</spdx:Snippet>
+</Snippet>
 ```
 
 ## 5.3 Snippet Byte Range <a name="5.3"></a>
@@ -135,8 +135,8 @@ Supported classes from the pointer method vocabulary are `StartEndPointer` and `
 Example:
 
 ```text
-<spdx:Snippet rdf:about="...">
-    <spdx:range>
+<Snippet rdf:about="...">
+    <range>
         <ptr:StartEndPointer>
             <ptr:startPointer>
                 <ptr:ByteOffsetPointer>
@@ -151,8 +151,8 @@ Example:
                 </ptr:ByteOffsetPointer>
             </ptr:endPointer>
         </ptr: StartEndPointer>
-    </spdx:range>
-</spdx:Snippet>
+    </range>
+</Snippet>
 ```
 
 This specification uses the prefix `ptr:` to refer to the [W3C Pointers][pointers] namespace:
@@ -196,7 +196,7 @@ Supported classes from the pointer method vocabulary are `StartEndPointer` and `
 Example:
 
 ```text
-<spdx:Snippet rdf:about="...">
+<Snippet rdf:about="...">
     <range>
         <ptr:StartEndPointer>
             <ptr:startPointer>
@@ -212,7 +212,7 @@ Example:
             </ptr:LineCharPointer>
         </ptr: StartEndPointer>
     </range>
-</spdx:Snippet>
+</Snippet>
 ```
 
 ## 5.5 Snippet Concluded License <a name="5.5"></a>
@@ -264,24 +264,24 @@ SnippetLicenseConcluded: (LGPL-2.0-only OR LicenseRef-2)
 Example:
 
 ```text
-<spdx:Snippet rdf:about="...">
+<Snippet rdf:about="...">
     ...
-    <spdx:licenseConcluded>GPL-2.0-only</spdx:licenseConcluded>
+    <licenseConcluded>GPL-2.0-only</licenseConcluded>
     ...
-</spdx:Snippet>
+</Snippet>
 ```
 
 Example:
 
 ```text
-<spdx:Snippet rdf:about="...">
-    <spdx:licenseConcluded>
-        <spdx:DisjunctiveLicenseSet>
+<Snippet rdf:about="...">
+    <licenseConcluded>
+        <DisjunctiveLicenseSet>
             <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only"/>
             <member rdf:resource="#LicenseRef-2"/>
-        </spdx:DisjunctiveLicenseSet>
-    </spdx:licenseConcluded>
-</spdx:Snippet>
+        </DisjunctiveLicenseSet>
+    </licenseConcluded>
+</Snippet>
 ```
 
 ## 5.6 License Information in Snippet <a name="5.6"></a>
@@ -342,10 +342,10 @@ LicenseInfoInSnippet: LicenseRef-2
 Example:
 
 ```text
-<spdx:Snippet rdf:about="...">
-    <spdx:licenseInfoInSnippet rdf:resource="http://spdx.org/licenses/GPL-2.0-only" />
-    <spdx:licenseInfoInSnippet rdf:resource="#LicenseRef-2" />
-</spdx:Snippet>
+<Snippet rdf:about="...">
+    <licenseInfoInSnippet rdf:resource="http://spdx.org/licenses/GPL-2.0-only" />
+    <licenseInfoInSnippet rdf:resource="#LicenseRef-2" />
+</Snippet>
 ```
 
 ## 5.7 Snippet Comments on License <a name="5.7"></a>
@@ -374,15 +374,15 @@ The concluded license information was found in the COPYING.txt file in package x
 Example:
 
 ```text
-<spdx:Snippet rdf:about="...">
+<Snippet rdf:about="...">
     ...
-    <spdx:licenseComments>
+    <licenseComments>
         The concluded license was taken from package xyz, from which the snippet
         was copied into the current file. The concluded license information was found
         in the COPYING.txt file in package xyz.
-    </spdx:licenseComments>
+    </licenseComments>
     ...
-</spdx:Snippet>
+</Snippet>
 ```
 
 ## 5.8 Snippet Copyright Text <a name="5.8"></a>
@@ -416,13 +416,13 @@ SnippetCopyrightText: <text> Copyright 2008-2010 John Smith </text>
 Example:
 
 ```text
-<spdx:Snippet rdf:about="...">
+<Snippet rdf:about="...">
     ...
-    <spdx:copyrightText>
+    <copyrightText>
         Copyright 2008-2010 John Smith
-    </spdx:copyrightText>
+    </copyrightText>
     ...
-</spdx:Snippet>
+</Snippet>
 ```
 
 ## 5.9 Snippet Comment <a name="5.9"></a>
@@ -451,7 +451,7 @@ when a commercial scanner identified it as being derived from file foo.c in pack
 Example:
 
 ```text
-<spdx:Snippet rdf:about="...">
+<Snippet rdf:about="...">
     ...
     <rdfs:comment>
         This snippet was identified as significant and highlighted in this Apache-2.0
@@ -459,7 +459,7 @@ Example:
         in package xyz which is licensed under GPL-2.0.
     </rdfs:comment>
     ...
-</spdx:Snippet>
+</Snippet>
 ```
 
 ## 5.10 Snippet Name <a name="5.10"></a>
@@ -485,9 +485,9 @@ SnippetName: from Linux kernel
 Example:
 
 ```text
-<spdx:Snippet rdf:about="...">
-    <spdx:name>from Linux kernel</spdx:name>
-</spdx:Snippet>
+<Snippet rdf:about="...">
+    <name>from Linux kernel</name>
+</Snippet>
 ```
 
 ## 5.11 Snippet Attribution Text <a name="5.11"></a>
@@ -518,12 +518,12 @@ following acknowledgement:  This product includes software developed by the AT&T
 Example:
 
 ```text
-<spdx:Snippet rdf:about="...">
-    <spdx:attributionText>
+<Snippet rdf:about="...">
+    <attributionText>
         All advertising materials mentioning features or use of this software must display the
         following acknowledgement:  This product includes software developed by the AT&T.
-    </spdx:attributionText>
-</spdx:Snippet>
+    </attributionText>
+</Snippet>
 ```
 
 [pointers]: http://www.w3.org/TR/Pointers-in-RDF10/
