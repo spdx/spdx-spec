@@ -73,7 +73,7 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 * **YAML 1.2** see: <https://yaml.org/spec/1.2/spec.html>
 * **JavaScript Object Notation** (JSON) see: [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
-    * The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/schemas/spdx-schema.json)
+    * The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)
 * **Resource Description Framework** (RDF also referred to as RDF/XML) see: <https://www.w3.org/TR/rdf-syntax-grammar/>
 * **tag:value** flat text file as described in this specification
 * **.xls** spreadsheets
