@@ -69,7 +69,7 @@ Example:
 
 ```text
 </Annotation>
-    <spdx:annotationDate> 2010-01-29T18:30:22Z </spdx:annotationDate>
+    <annotationDate> 2010-01-29T18:30:22Z </annotation Date>
 </Annotation>
 ```
 
@@ -96,9 +96,9 @@ AnnotationType: REVIEW
 Example:
 
 ```text
-<spdx:Annotation>
-    <spdx:annotationType rdf:resource="http://spdx.org/rdf/terms#annotationType_other"/>
-</spdx:Annotation>
+<Annotation>
+    <annotationType rdf:resource="http://spdx.org/rdf/terms#annotationType_other"/>
+</Annotation>
 ```
 
 ## 8.4 SPDX Identifier Reference <a name="8.4"></a>
@@ -135,13 +135,13 @@ SPDXREF: DocumentRef-spdx-tool-1.2:SPDXRef-5
 For RDF, the annotations are a property of the SPDX Document, Package, File, or Snippet they are annotating.
 
 ```text
-<spdx:File rdf:about="#SPDXRef-45">
-    <spdx:annotation>
-        <spdx:Annotation>
+<File rdf:about="#SPDXRef-45">
+    <annotation>
+        <Annotation>
             ...
-        </spdx:Annotation>
-    </spdx:annotation>
-</spdx:File>
+        </Annotation>
+    </annotation>
+</File>
 ```
 
 ## 8.5 Annotation Comment <a name="8.5"></a>
@@ -171,10 +171,10 @@ but the concluded license is one of the options.</text>
 Example:
 
 ```text
-<spdx:Annotation>
+<Annotation>
     <rdfs:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
     There are some terms that can influence the concluded license, and some alternatives may be possible,
     but the concluded license is one of the options.
     </rdfs:comment>
-</spdx:Annotation>
+</Annotation>
 ```

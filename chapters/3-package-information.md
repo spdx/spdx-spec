@@ -38,9 +38,9 @@ PackageName: glibc
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
-    <spdx:name>glibc</spdx:name>
-</spdx:Package>
+<Package rdf:about="...">
+    <name>glibc</name>
+</Package>
 ```
 
 ## 3.2 Package SPDX Identifier <a name="3.2"></a>
@@ -76,18 +76,18 @@ Example using `xml:base`:
 ```text
 <rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B">
     ...
-    <spdx:Package rdf:about="#SPDXRef-1">
+    <Package rdf:about="#SPDXRef-1">
     ...
-    </spdx:Package>
+    </Package>
 </rdf:RDF>
 ```
 
 Example using document URI:
 
 ```text
-<spdx:Package rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1">
+<Package rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1">
     ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.3 Package Version <a name="3.3"></a>
@@ -113,11 +113,11 @@ PackageVersion: 2.11.1
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-    <spdx:versionInfo>2.11.1</spdx:versionInfo>
+    <versionInfo>2.11.1</versionInfo>
     ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.4 Package File Name <a name="3.4"></a>
@@ -149,21 +149,21 @@ PackageFileName: ./myrootdir/mysubdir1
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-    <spdx:packageFileName>glibc 2.11.1.tar.gz</spdx:packageFileName>
+    <packageFileName>glibc 2.11.1.tar.gz</packageFileName>
     ...
-</spdx:Package>
+</Package>
 ```
 
 Example (sub-directory being treated as a package):
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
    ...
-   <spdx:packageFileName>./myrootdir/mysubdir1</spdx:packageFileName>
+   <packageFileName>./myrootdir/mysubdir1</packageFileName>
    ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.5 Package Supplier <a name="3.5"></a>
@@ -200,11 +200,11 @@ PackageSupplier: Person: Jane Doe (jane.doe@example.com)
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-    <spdx:supplier>Person: Jane Doe (jane.doe@example.com)</spdx:supplier>
+    <supplier>Person: Jane Doe (jane.doe@example.com)</supplier>
     ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.6 Package Originator <a name="3.6"></a>
@@ -241,9 +241,9 @@ PackageOriginator: Organization: ExampleCodeInspect (contact@example.com)
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
-    <spdx:originator>Organization: ExampleCodeInspect (contact@example.com)</spdx:originator>
-</spdx:Package>
+<Package rdf:about="...">
+    <originator>Organization: ExampleCodeInspect (contact@example.com)</originator>
+</Package>
 ```
 
 ## 3.7 Package Download Location <a name="3.7"></a>
@@ -538,29 +538,29 @@ PackageDownloadLocation: bzr+https://bzr.myproject.org/MyProject/trunk@2019#src/
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
-    <spdx:downloadLocation>http://ftp.gnu.org/gnu/glibc/glibc-ports-2.15.tar.gz</spdx:downloadLocation>
-</spdx:Package>
+<Package rdf:about="...">
+    <downloadLocation>http://ftp.gnu.org/gnu/glibc/glibc-ports-2.15.tar.gz</downloadLocation>
+</Package>
 ```
 
 ```text
-<spdx:Package rdf:about="...">
-    <spdx:downloadLocation>
+<Package rdf:about="...">
+    <downloadLocation>
         git+https://git.myproject.org/MyProject.git@v10.0#src/lib.c
-    </spdx:downloadLocation>
-</spdx:Package>
+    </downloadLocation>
+</Package>
 ```
 
 ```text
-<spdx:Package rdf:about="...">
-    <spdx:downloadLocation rdf:resource="spdx:noassertion"/>
-</spdx:Package>
+<Package rdf:about="...">
+    <downloadLocation rdf:resource="spdx:noassertion"/>
+</Package>
 ```
 
 ```text
-<spdx:Package rdf:about="...">
-    <spdx:downloadLocation rdf:resource="spdx:none"/>
-</spdx:Package>
+<Package rdf:about="...">
+    <downloadLocation rdf:resource="spdx:none"/>
+</Package>
 ```
 
 ## 3.8 Files Analyzed <a name="3.8"></a>
@@ -592,11 +592,11 @@ FilesAnalyzed: false
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-    <spdx:filesAnalyzed>false</spdx:filesAnalyzed>
+    <filesAnalyzed>false</filesAnalyzed>
     ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.9 Package Verification Code <a name="3.9"></a>
@@ -643,18 +643,18 @@ PackageVerificationCode: d6a770ba38583ed4bb4525bd96e50461655d2758 (excludes: ./p
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
-    <spdx:packageVerificationCode>
-        <spdx:PackageVerificationCode>
-            <spdx:packageVerificationCodeValue>
+<Package rdf:about="...">
+    <packageVerificationCode>
+        <PackageVerificationCode>
+            <packageVerificationCodeValue>
                 d6a770ba38583ed4bb4525bd96e50461655d2758
-            </spdx:packageVerificationCodeValue>
-            <spdx:packageVerificationCodeExcludedFile>
+            </packageVerificationCodeValue>
+            <packageVerificationCodeExcludedFile>
                 ./package.spdx
-            </spdx:packageVerificationCodeExcludedFile>
-        </spdx:PackageVerificationCode>
-    </spdx:packageVerificationCode>
-</spdx:Package>
+            </packageVerificationCodeExcludedFile>
+        </PackageVerificationCode>
+    </packageVerificationCode>
+</Package>
 ```
 
 ## 3.10 Package Checksum <a name="3.10"></a>
@@ -690,28 +690,28 @@ PackageChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
-    <spdx:checksum>
-        <spdx:Checksum>
-            <spdx:algorithm rdf:resource="spdx:checksumAlgorithm_sha1"/>
-            <spdx:checksumValue>85ed0817af83a24ad8da68c2b5094de69833983c</spdx:checksumValue>
-        </spdx:Checksum>
-    </spdx:checksum>
-    <spdx:checksum>
-        <spdx:Checksum>
-            <spdx:algorithm rdf:resource="spdx:checksumAlgorithm_sha256"/>
-            <spdx:checksumValue>
+<Package rdf:about="...">
+    <checksum>
+        <Checksum>
+            <algorithm rdf:resource="spdx:checksumAlgorithm_sha1"/>
+            <checksumValue>85ed0817af83a24ad8da68c2b5094de69833983c</checksumValue>
+        </Checksum>
+    </checksum>
+    <checksum>
+        <Checksum>
+            <algorithm rdf:resource="spdx:checksumAlgorithm_sha256"/>
+            <checksumValue>
                 11b6d3ee554eedf79299905a98f9b9a04e498210b59f15094c916c91d150efcd
-            </spdx:checksumValue>
-        </spdx:Checksum>
-    </spdx:checksum>
-    <spdx:checksum>
-        <spdx:Checksum>
-            <spdx:algorithm rdf:resource="spdx:checksumAlgorithm_md5"/>
-            <spdx:checksumValue>624c1abb3664f4b35547e7c73864ad24</spdx:checksumValue>
-        </spdx:Checksum>
-    </spdx:checksum>
-</spdx:Package>
+            </checksumValue>
+        </Checksum>
+    </checksum>
+    <checksum>
+        <Checksum>
+            <algorithm rdf:resource="spdx:checksumAlgorithm_md5"/>
+            <checksumValue>624c1abb3664f4b35547e7c73864ad24</checksumValue>
+        </Checksum>
+    </checksum>
+</Package>
 ```
 
 ## 3.11 Package Home Page <a name="3.11"></a>
@@ -748,9 +748,8 @@ PackageHomePage: http://ftp.gnu.org/gnu/glibc
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
-    <doap:homepage >http://ftp.gnu.org/gnu/glibc/</doap:homepage>
-</spdx:Package>
+<Package rdf:about="...">
+    <doap:homepage >http://ftp.gnu.org/gnu/glibc/</doap:homepage>    </Package>
 ```
 
 This specification uses the prefix `doap:` to refer to the [DOAP][doap] namespace:
@@ -783,11 +782,11 @@ PackageSourceInfo: <text>uses glibc-2_11-branch from git://sourceware.org/git/gl
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-    <spdx:sourceInfo>uses glibc-2_11-branch from git://sourceware.org/git/glibc.git.</spdx:sourceInfo>
+    <sourceInfo>uses glibc-2_11-branch from git://sourceware.org/git/glibc.git.</sourceInfo>
     ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.13 Concluded License <a name="3.13"></a>
@@ -837,26 +836,26 @@ PackageLicenseConcluded: (LGPL-2.0-only OR LicenseRef-3)
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-    <spdx:licenseConcluded rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
+    <licenseConcluded rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
     ...
-</spdx:Package>
+</Package>
 ```
 
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-    <spdx:licenseConcluded>
-         <spdx:DisjunctiveLicenseSet>
+    <licenseConcluded>
+         <DisjunctiveLicenseSet>
              <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
              <member rdf:resource="LicenseRef-3" />
-        </spdx:DisjunctiveLicenseSet>
-    </spdx:licenseConcluded>
+        </DisjunctiveLicenseSet>
+    </licenseConcluded>
     ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.14 All Licenses Information from Files <a name="3.14"></a>
@@ -910,9 +909,9 @@ Example:
 ```text
 <Package rdf:about="...">
     ...
-    <spdx:licenseInfoFromFiles rdf:resource="https://spdx.org/licenses/GPL-2.0-only" />
-    <spdx:licenseInfoFromFiles rdf:resource="#LicenseRef-1" />
-    <spdx:licenseInfoFromFiles rdf:resource="#LicenseRef-2" />
+    <licenseInfoFromFiles rdf:resource="https://spdx.org/licenses/GPL-2.0-only" />
+    <licenseInfoFromFiles rdf:resource="#LicenseRef-1" />
+    <licenseInfoFromFiles rdf:resource="#LicenseRef-2" />
     ...
 </Package>
 ```
@@ -960,26 +959,26 @@ PackageLicenseDeclared: (LGPL-2.0-only AND LicenseRef-3)
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-    <spdx:licenseDeclared rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
+    <licenseDeclared rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
     ...
-</spdx:Package>
+</Package>
 ```
 
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-     <spdx:licenseDeclared>
-         <spdx:ConjunctiveLicenseSet>
+     <licenseDeclared>
+         <ConjunctiveLicenseSet>
              <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
              <member rdf:resource="#LicenseRef-3" />
-         </spdx:ConjunctiveLicenseSet>
-    </spdx:licenseDeclared>
+         </ConjunctiveLicenseSet>
+    </licenseDeclared>
     ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.16 Comments on License <a name="3.16"></a>
@@ -1008,15 +1007,15 @@ The version of the project included here post-dates the license change.</text>
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-    <spdx:licenseComments>
+    <licenseComments>
         This package has been shipped in source and binary form.
         The binaries were created with gcc 4.5.1 and expect to link to
         compatible system run time libraries.
-    </spdx:licenseComments>
+    </licenseComments>
     ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.17 Copyright Text <a name="3.17"></a>
@@ -1052,11 +1051,11 @@ PackageCopyrightText: <text>Copyright 2008-2010 John Smith</text>
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-    <spdx:copyrightText>Copyright 2008-2010 John Smith</spdx:copyrightText>
+    <copyrightText>Copyright 2008-2010 John Smith</copyrightText>
     ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.18 Package Summary Description <a name="3.18"></a>
@@ -1084,11 +1083,11 @@ PackageSummary: <text>GNU C library.</text>
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-    <spdx:summary>GNU C library.</spdx:summary>
+    <summary>GNU C library.</summary>
     ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.19 Package Detailed Description <a name="3.19"></a>
@@ -1118,15 +1117,15 @@ and extensions specific to GNU systems.</text>
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
-    <spdx:description>
+    <description>
         The GNU C Library defines functions that are specified by the
         ISO C standard, as well as additional features specific to POSIX and other
         derivatives of the Unix operating system, and extensions specific to GNU systems.
-    </spdx:description>
+    </description>
     ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.20 Package Comment <a name="3.20"></a>
@@ -1154,13 +1153,13 @@ PackageComment: <text>The package includes several sub-packages; see Relationshi
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
+<Package rdf:about="...">
     ...
     <rdfs:comment>
         The package includes several sub-packages; see Relationship information.
     </rdfs:comment>
     ...
-</spdx:Package>
+</Package>
 ```
 
 ## 3.21 External Reference <a name="3.21"></a>
@@ -1303,12 +1302,12 @@ following acknowledgement:  This product includes software developed by the AT&T
 Example:
 
 ```text
-<spdx:Package rdf:about="...">
-    <spdx:attributionText>
+<Package rdf:about="...">
+    <attributionText>
         All advertising materials mentioning features or use of this software must display the
         following acknowledgement:  This product includes software developed by the AT&T.
-    </spdx:attributionText>
-</spdx:Package>
+    </attributionText>
+</Package>
 ```
 
 [Bazaar]: http://bazaar.canonical.com/

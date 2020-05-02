@@ -37,15 +37,15 @@ LicenseID: LicenseRef-Beerware-4.2
 Examples:
 
 ```text
-<spdx:ExtractedLicensingInfo rdf:about="licenseRef-1">
-   <spdx:licenseId>LicenseRef-1</spdx:licenseId>
-</spdx:ExtractedLicensingInfo>
+<ExtractedLicensingInfo rdf:about="licenseRef-1">
+   <licenseId>LicenseRef-1</licenseId>
+</ExtractedLicensingInfo>
 ```
 
 ```text
-<spdx:ExtractedLicensingInfo rdf:about="licenseRef-Beerware-4.2">
-    <spdx:licenseId>LicenseRef-Beerware-4.2</spdx:licenseId>
-</spdx:ExtractedLicensingInfo>
+<ExtractedLicensingInfo rdf:about="licenseRef-Beerware-4.2">
+    <licenseId>LicenseRef-Beerware-4.2</licenseId>
+</ExtractedLicensingInfo>
 ```
 
 ## 6.2 Extracted Text <a name="6.2"></a>
@@ -79,19 +79,19 @@ ExtractedText: <text>"THE WHISKEY-WARE LICENSE": whiskeyfan@example.com wrote th
 Example 1 (if only short reference to license present in File):
 
 ```text
-<spdx:ExtractedLicensingInfo rdf:about="licenseRef-Whiskeyware">
-    <spdx:licenseId>LicenseRef-Whiskeyware</spdx:licenseId>
-    <spdx:extractedText>This software is licensed under the WHISKEY-WARE LICENSE.</spdx:extractedText>
-</spdx:ExtractedLicensingInfo>
+<ExtractedLicensingInfo rdf:about="licenseRef-Whiskeyware">
+    <licenseId>LicenseRef-Whiskeyware</licenseId>
+    <extractedText>This software is licensed under the WHISKEY-WARE LICENSE.</extractedText>
+</ExtractedLicensingInfo>
 ```
 
 Example 2 (if indeed full text of license present in File):
 
 ```text
-<spdx:ExtractedLicensingInfo rdf:about="licenseRef-Whiskeyware">
-    <spdx:licenseId>LicenseRef-Whiskeyware</spdx:licenseId>
-    <spdx:extractedText>""THE WHISKEY-WARE LICENSE": whiskeyfan@example.com wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a bottle of whiskey in return.</spdx:spdx:extractedText>
-</spdx:ExtractedLicensingInfo>
+<ExtractedLicensingInfo rdf:about="licenseRef-Whiskeyware">
+    <licenseId>LicenseRef-Whiskeyware</licenseId>
+    <extractedText>""THE WHISKEY-WARE LICENSE": whiskeyfan@example.com wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a bottle of whiskey in return.</extractedText>
+</ExtractedLicensingInfo>
 ```
 
 ## 6.3 License Name <a name="6.3"></a>
@@ -119,9 +119,9 @@ LicenseName: Whiskey-Ware License
 Example:
 
 ```text
-<spdx:ExtractedLicensingInfo rdf:about="licenseRef-Whiskey-Ware">
-   <spdx:name>Whiskey-Ware License </spdx:name>
-</spdx:ExtractedLicensingInfo>
+<ExtractedLicensingInfo rdf:about="licenseRef-Whiskey-Ware">
+   <name>Whiskey-Ware License </name>
+</ExtractedLicensingInfo>
 ```
 
 ## 6.4 License Cross Reference <a name="6.4"></a>
@@ -147,9 +147,9 @@ LicenseCrossReference: http://people.freebsd.org/~phk/
 Example:
 
 ```text
-<spdx:ExtractedLicensingInfo rdf:about="licenseRef-1">
+<ExtractedLicensingInfo rdf:about="licenseRef-1">
     <rdfs:seeAlso>http://people.freebsd.org/~phk/</rdfs:seeAlso>
-</spdx:ExtractedLicensingInfo>
+</ExtractedLicensingInfo>
 ```
 
 ## 6.5 License Comment <a name="6.5"></a>
@@ -177,7 +177,7 @@ LicenseComment: <text>The Whiskey-Ware License has a couple of other standard va
 Example:
 
 ```text
-<spdx:ExtractedLicensingInfo rdf:about="licenseRef-1">
+<ExtractedLicensingInfo rdf:about="licenseRef-1">
     <rdfs:comment> The Whiskey-Ware License has a couple of other standard variants.</rdfs:comment>
-</spdx:ExtractedLicensingInfo>
+</ExtractedLicensingInfo>
 ```
