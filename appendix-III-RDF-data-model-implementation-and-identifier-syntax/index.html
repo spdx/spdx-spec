@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Appendix III: RDF Data Model Implementation and Identifier Syntax - specification v2.1.1</title>
+  <title>Appendix III: RDF Data Model Implementation and Identifier Syntax - specification v2.2.0</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -39,7 +39,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> specification v2.1.1</a>
+        <a href=".." class="icon icon-home"> specification v2.2.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -120,6 +120,14 @@
                     <li class="toctree-l1"><a class="reference internal" href="../appendix-VII-creative-commons-attribution-license-3.0-unported/">Appendix VII: Creative Commons Attribution License 3.0 Unported</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../appendix-VIII-SPDX-Lite/">Appendix VIII: SPDX Lite</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../appendix-IX-file-tags/">Appendix IX: SPDX File Tags</a>
+                    </li>
+                </ul>
       </div>
     </div>
     </nav>
@@ -129,7 +137,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">specification v2.1.1</a>
+        <a href="..">specification v2.2.0</a>
       </nav>
 
       
@@ -154,43 +162,43 @@
               
                 <h1 id="appendix-iii-rdf-data-model-implementation-and-identifier-syntax">Appendix III: RDF Data Model Implementation and Identifier Syntax</h1>
 <p>SPDX ® Vocabulary Specification</p>
-<p>See: <a href="http://spdx.org/rdf/ontology/spdx-2-1">http://spdx.org/rdf/ontology/spdx-2-1</a></p>
-<p>Version: 2.1</p>
-<p><img alt="SPDX 2.1 RD Ontology" src="../img/spdx-2.1-rdf-ontology.png" /></p>
+<p>See: <a href="http://spdx.org/rdf/ontology/spdx-2-2">http://spdx.org/rdf/ontology/spdx-2-2</a></p>
+<p>Version: 2.2</p>
+<p><img alt="SPDX 2.2 RDF Ontology" src="../img/spdx-2.2-rdf-ontology.png" /></p>
 <p>Licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License 3.0 Unported</a>.</p>
 <h2 id="agent-and-tool-identifiers">Agent and Tool Identifiers</h2>
 <p>Fields that identify entities that have acted in relation to the SPDX file are single line of text which name the agent or
 tool and, optionally, provide contact information. For example, "Person: Jane Doe (jane.doe@example.com)",
-"Organization: ExampleCodeInspect (contact@example.com)" and "ool: LicenseFind - 1.0". The exact syntax of agent and tool identifications is described below in <a href="http://tools.ietf.org/html/rfc5234">ABNF</a>.</p>
-<pre><code>agent            = person / organization
+"Organization: ExampleCodeInspect (contact@example.com)" and "Tool: LicenseFind - 1.0". The exact syntax of agent and tool identifications is described below in <a href="http://tools.ietf.org/html/rfc5234">ABNF</a>.</p>
+<pre class="codehilite"><code class="language-text">agent            = person / organization
 
-tool             = "Tool: " name 0*1( " " DASH " " version)
+tool             = &quot;Tool: &quot; name 0*1( &quot; &quot; DASH &quot; &quot; version)
 
-person           = "Person: " name 0*1contact-info
+person           = &quot;Person: &quot; name 0*1contact-info
 
-organization     = "Organization: " name 0*1contact-info
+organization     = &quot;Organization: &quot; name 0*1contact-info
 
 name             = 1*( UNRESERVED ) / U+0022 1*( VCHAR-SANS-QUOTE ) U+0022
 
-contact-info     = " (" email-addr ")"
+contact-info     = &quot; (&quot; email-addr &quot;)&quot;
 
-email-addr       = local-name-atom *( "." local-name-atom ) "@" domain-name-atom 1*( "." domain-name-atom )
+email-addr       = local-name-atom *( &quot;.&quot; local-name-atom ) &quot;@&quot; domain-name-atom 1*( &quot;.&quot; domain-name-atom )
 
 version          = 1*VCHAR-SANS-QUOTE
 
 local-name-atom  = 1*( ALPHA / DIGIT /    ; Printable US-ASCII
-                       "!" / "#" /        ;  characters not including
-                       "$" / "%" /        ;  specials.
-                       "&amp;" / "'" /
-                       "*" / "+" /
-                       "-" / "/" /
-                       "=" / "?" /
-                       "^" / "_" /
-                       "`" / "{" /
-                       "|" / "}" /
-                       "~" )
+                       &quot;!&quot; / &quot;#&quot; /        ;  characters not including
+                       &quot;$&quot; / &quot;%&quot; /        ;  specials.
+                       &quot;&amp;&quot; / &quot;'&quot; /
+                       &quot;*&quot; / &quot;+&quot; /
+                       &quot;-&quot; / &quot;/&quot; /
+                       &quot;=&quot; / &quot;?&quot; /
+                       &quot;^&quot; / &quot;_&quot; /
+                       &quot;`&quot; / &quot;{&quot; /
+                       &quot;|&quot; / &quot;}&quot; /
+                       &quot;~&quot; )
 
-domain-name-atom = 1*( ALPHA / DIGIT / "-" )
+domain-name-atom = 1*( ALPHA / DIGIT / &quot;-&quot; )
 
 DASH             = U+2010 / U+2212 /   ; hyphen, minus, em dash and
                    U+2013 / U+2014     ;  en dash
@@ -206,8 +214,7 @@ UNRESERVED       = U+0020-U+0027 /     ; visible unicode characters
 
 VCHAR-SANS-QUOTE = U+0020-U+0021 /  ; visible unicode characters
                    U+0023-U+0080 /  ;  except quotation mark
-                   U+00a0-U+E01EF
-</code></pre>
+                   U+00a0-U+E01EF</code></pre>
               
             </div>
           </div>
@@ -228,7 +235,7 @@ VCHAR-SANS-QUOTE = U+0020-U+0021 /  ; visible unicode characters
   <div role="contentinfo">
     <!-- Copyright etc -->
     
-      <p>Copyright &copy; 2010 - 2018 Linux Foundation and its Contributors.</p>
+      <p>Copyright &copy; 2010 - 2020 Linux Foundation and its Contributors.</p>
     
   </div>
 

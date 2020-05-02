@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>9 Review Information (deprecated) - specification v2.2.0</title>
+  <title>Appendix VIII: SPDX Lite - specification v2.2.0</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "9 Review Information (deprecated)";
-    var mkdocs_page_input_path = "9-review-information-deprecated.md";
+    var mkdocs_page_name = "Appendix VIII: SPDX Lite";
+    var mkdocs_page_input_path = "appendix-VIII-SPDX-Lite.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -84,16 +84,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../8-annotations/">8 Annotations</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">9 Review Information (deprecated)</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#91-reviewer-deprecated">9.1 Reviewer (deprecated) </a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#92-review-date-deprecated">9.2 Review Date (deprecated) </a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#93-review-comment-deprecated">9.3 Review Comment (deprecated) </a>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../9-review-information-deprecated/">9 Review Information (deprecated)</a>
                     </li>
                 </ul>
                 <ul>
@@ -124,8 +116,16 @@
                     <li class="toctree-l1"><a class="reference internal" href="../appendix-VII-creative-commons-attribution-license-3.0-unported/">Appendix VII: Creative Commons Attribution License 3.0 Unported</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../appendix-VIII-SPDX-Lite/">Appendix VIII: SPDX Lite</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Appendix VIII: SPDX Lite</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-explanation-of-spdx-lite">1. Explanation of SPDX Lite</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-format-of-spdx-lite">2. Format of SPDX Lite</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#table-of-spdx-lite-fields">Table of SPDX Lite Fields</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -153,7 +153,7 @@
     
       
     
-    <li>9 Review Information (deprecated)</li>
+    <li>Appendix VIII: SPDX Lite</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -164,83 +164,148 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="9-review-information-deprecated">9 Review Information (deprecated)</h1>
-<p>The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information should use an Annotation (as described in <a href="../8-annotations/">section 8</a>) with an annotation type of <code>REVIEW</code>.</p>
-<p>Review information can be added after the initial SPDX file has been created. The set of fields are optional and multiple instances can be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date should not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.</p>
-<p>Fields:</p>
-<h2 id="91-reviewer-deprecated">9.1 Reviewer (deprecated) <a name="9.1"></a></h2>
-<p>This field has been deprecated since SPDX 2.0.</p>
-<p><strong>9.1.1</strong> Purpose: This field identifies the person, organization or tool that has reviewed the SPDX file. This field is optional and thus there is no requirement for any reviewer to add a set of review information to the file. This can be considered as an equivalent to “signed off” or “reviewed by.” Additional reviewers can be added after the original version of the SPDX file is created and be appended to the original file.</p>
-<p><strong>9.1.2</strong> Intent: Here, as time progresses certain reviewers will begin to gain credibility as reliable. This field intends to make such information transparent. It may also be important for participants in the software supply chain to validate whether upstream providers have reviewed the SPDX file.</p>
-<p><strong>9.1.3</strong> Cardinality: Optional, one.</p>
-<p><strong>9.1.4</strong> Data Format: Single line of text with the following keywords.</p>
-<pre class="codehilite"><code class="language-text">&quot;Person: person name&quot; and optional &quot;(email)&quot;
-&quot;Organization: organization&quot; and optional &quot;(email)&quot;
-&quot;Tool: tool identifier - version&quot;</code></pre>
-
-
-<p><strong>9.1.5</strong> Tag: <code>Reviewer:</code></p>
-<p>Example:</p>
-<pre class="codehilite"><code class="language-text">Reviewer: Person: Jane Doe ()</code></pre>
-
-
-<p><strong>9.1.6</strong> RDF: Property <code>spdx:reviewer</code> in class <code>spdx:Review</code></p>
-<p>Example:</p>
-<pre class="codehilite"><code class="language-text">&lt;Review&gt;
-    &lt;reviewer&gt; Person: Jane Doe () &lt;/reviewer&gt;
-&lt;/Review&gt;</code></pre>
-
-
-<h2 id="92-review-date-deprecated">9.2 Review Date (deprecated) <a name="9.2"></a></h2>
-<p>This field has been deprecated since SPDX 2.0.</p>
-<p><strong>9.2.1</strong> Purpose: Identify when the review was done. This is to be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.</p>
-<p><strong>9.2.2</strong> Intent: Here, the <code>ReviewDate</code> can serve as a verification as to when the actual review was done.</p>
-<p><strong>9.2.3</strong>  Cardinality: Conditional (Mandatory, one), if there is a Reviewer.</p>
-<p><strong>9.2.4</strong> Data Format: <code>YYYY-MM-DDThh:mm:ssZ</code></p>
-<p>where:</p>
-<ul>
-<li><code>YYYY</code> is year</li>
-<li><code>MM</code> is month with leading zero</li>
-<li><code>DD</code> is day with leading zero</li>
-<li><code>T</code> is delimiter for time</li>
-<li><code>hh</code> is hours with leading zero in 24 hour time</li>
-<li><code>mm</code> is minutes with leading zero</li>
-<li><code>ss</code> is seconds with leading zero</li>
-<li><code>Z</code> is universal time indicator</li>
-</ul>
-<p><strong>9.2.5</strong> Tag: <code>ReviewDate:</code></p>
-<p>Example:</p>
-<pre class="codehilite"><code class="language-text">ReviewDate: 2010-01-29T18:30:22Z</code></pre>
-
-
-<p><strong>9.2.6</strong> RDF: Property <code>spdx:reviewDate</code> in class <code>spdx:Review</code></p>
-<p>Example:</p>
-<pre class="codehilite"><code class="language-text">&lt;Review&gt;
-    &lt;reviewDate&gt; 2010-01-29T18:30:22Z &lt;/reviewDate&gt;
-&lt;/Review&gt;</code></pre>
-
-
-<h2 id="93-review-comment-deprecated">9.3 Review Comment (deprecated) <a name="9.3"></a></h2>
-<p>This field is deprecated since SPDX 2.0.</p>
-<p><strong>9.3.1</strong> Purpose: This optional free form text field permits the reviewer to provide commentary on the analysis.</p>
-<p><strong>9.3.2</strong> Intent: This allows the reviewer to provide independent assessment and note any points where there is disagreement with the analysis.</p>
-<p><strong>9.3.3</strong> Cardinality: Optional, one.</p>
-<p><strong>9.3.4</strong> Data Format: Free form text that can span multiple lines.</p>
-<p><strong>9.3.5</strong> Tag: <code>ReviewComment:</code></p>
-<p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
-<p>Example:</p>
-<pre class="codehilite"><code class="language-text">ReviewComment: &lt;text&gt;All of the licenses seen in the file, are matching what was seen during manual inspection.
-There are some terms that can influence the concluded license, and some alternatives may be possible,
-but the concluded license is one of the options.&lt;/text&gt;</code></pre>
-
-
-<p><strong>9.3.6</strong> RDF: Property <code>rdfs:comment</code> in class <code>spdx:Review</code></p>
-<p>Example:</p>
-<pre class="codehilite"><code class="language-text">&lt;Review&gt;
-    &lt;rdfs:comment&gt;All of the licenses seen in the file, are matching what was seen during manual inspection.
-    There are some terms that can influence the concluded license, and some alternatives may be possible,
-    but the concluded license is one of the options.&lt;/rdfs:comment&gt;
-&lt;/Review&gt;</code></pre>
+                <h1 id="appendix-viii-spdx-lite">Appendix VIII: SPDX Lite</h1>
+<h2 id="1-explanation-of-spdx-lite">1. Explanation of SPDX Lite</h2>
+<p>The SPDX Lite profile defines a subset of the SPDX specification, from the point of view of use cases in some industries. SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries.</p>
+<p>The SPDX Lite profile consists of mandatory fields from the Document Creation and Package Information sections and other basic information.</p>
+<p>The mandatory part of the Package information in SPDX Lite is basic but useful for complying with licenses. It is easy to understand licensing information by reading an SPDX Lite file. It is easy to create manually an SPDX Lite file by anyone who does not have enough knowledge about licensing information, so that tools are not necessarily required to create an SPDX Lite file.</p>
+<p>SPDX Lite has affinity with SPDX tools due to its containing the mandatory part of the Document Creation and Package Information in the SPDX Lite definition.</p>
+<p>An SPDX Lite document can be used in parallel with SPDX documents in software supply chains.</p>
+<h2 id="2-format-of-spdx-lite">2. Format of SPDX Lite</h2>
+<p>The SPDX Lite profile is a subset of the SPDX specification. SPDX Lite consists of mandatory fields of the Document Creation and Package Information sections and other basic information. Cardinality of each item is not changed.</p>
+<p>The mandatory part of the Document Creation section (which consists of SPDX Version, Data License, SPDX Identifier, Document Name, SPDX Document Namespace, Creator and Created) is used for keeping the compatibility with other SPDX documents.</p>
+<p>The main part of the Package Information (those are Package Name,  Package Version, Package File Name, Package Download Location,  Package Home Page, Concluded License, Declared License, Comments on License and Copyright Text) is used for exchanging license information.</p>
+<p>In the Package Information, Package SPDX Identifier and Files Analyzed are used for keeping compatibility with SPDX tools.</p>
+<p>Files Analyzed must be set to "false" when SPDX Lite is used.</p>
+<p>Package Comment can be used to describe additional details, such as compiling options, where a license may change with a different compiling option.</p>
+<p>The Other License information section (License Identifier, Extracted Text, License Name and License Comment) is used for exchanging license information for licenses that are not on the <a href="https://spdx.org/licenses">SPDX License List</a>.</p>
+<h2 id="table-of-spdx-lite-fields">Table of SPDX Lite Fields</h2>
+<table>
+<thead>
+<tr>
+<th align="left">#</th>
+<th align="left">corresponding SPDX section no.</th>
+<th align="left">Field Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">L1.1</td>
+<td align="left">2.1</td>
+<td align="left">SPDX Version</td>
+</tr>
+<tr>
+<td align="left">L1.2</td>
+<td align="left">2.2</td>
+<td align="left">Data License</td>
+</tr>
+<tr>
+<td align="left">L1.3</td>
+<td align="left">2.3</td>
+<td align="left">SPDX Identifier</td>
+</tr>
+<tr>
+<td align="left">L1.4</td>
+<td align="left">2.4</td>
+<td align="left">Document Name</td>
+</tr>
+<tr>
+<td align="left">L1.5</td>
+<td align="left">2.5</td>
+<td align="left">SPDX Document Namespace</td>
+</tr>
+<tr>
+<td align="left">L1.6</td>
+<td align="left">2.8</td>
+<td align="left">Creator</td>
+</tr>
+<tr>
+<td align="left">L1.7</td>
+<td align="left">2.9</td>
+<td align="left">Created</td>
+</tr>
+<tr>
+<td align="left">L2.1</td>
+<td align="left">3.1</td>
+<td align="left">Package Name</td>
+</tr>
+<tr>
+<td align="left">L2.2</td>
+<td align="left">3.2</td>
+<td align="left">Package SPDX Identifier</td>
+</tr>
+<tr>
+<td align="left">L2.3</td>
+<td align="left">3.3</td>
+<td align="left">Package Version</td>
+</tr>
+<tr>
+<td align="left">L2.4</td>
+<td align="left">3.4</td>
+<td align="left">Package File Name</td>
+</tr>
+<tr>
+<td align="left">L2.5</td>
+<td align="left">3.7</td>
+<td align="left">Package Download Location</td>
+</tr>
+<tr>
+<td align="left">L2.6</td>
+<td align="left">3.8</td>
+<td align="left">Files Analyzed</td>
+</tr>
+<tr>
+<td align="left">L2.7</td>
+<td align="left">3.11</td>
+<td align="left">Package Home Page</td>
+</tr>
+<tr>
+<td align="left">L2.8</td>
+<td align="left">3.13</td>
+<td align="left">Concluded License</td>
+</tr>
+<tr>
+<td align="left">L2.9</td>
+<td align="left">3.15</td>
+<td align="left">Declared License</td>
+</tr>
+<tr>
+<td align="left">L2.10</td>
+<td align="left">3.16</td>
+<td align="left">Comments on License</td>
+</tr>
+<tr>
+<td align="left">L2.11</td>
+<td align="left">3.17</td>
+<td align="left">Copyright Text</td>
+</tr>
+<tr>
+<td align="left">L2.12</td>
+<td align="left">3.20</td>
+<td align="left">Package Comment</td>
+</tr>
+<tr>
+<td align="left">L3.1</td>
+<td align="left">6.1</td>
+<td align="left">License Identifier</td>
+</tr>
+<tr>
+<td align="left">L3.2</td>
+<td align="left">6.2</td>
+<td align="left">Extracted Text</td>
+</tr>
+<tr>
+<td align="left">L3.3</td>
+<td align="left">6.3</td>
+<td align="left">License Name</td>
+</tr>
+<tr>
+<td align="left">L3.4</td>
+<td align="left">6.5</td>
+<td align="left">License Comment</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
@@ -248,10 +313,10 @@ but the concluded license is one of the options.&lt;/text&gt;</code></pre>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../appendix-I-SPDX-license-list/" class="btn btn-neutral float-right" title="Appendix I: SPDX License List">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../appendix-IX-file-tags/" class="btn btn-neutral float-right" title="Appendix IX: SPDX File Tags">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../8-annotations/" class="btn btn-neutral" title="8 Annotations"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../appendix-VII-creative-commons-attribution-license-3.0-unported/" class="btn btn-neutral" title="Appendix VII: Creative Commons Attribution License 3.0 Unported"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -279,10 +344,10 @@ but the concluded license is one of the options.&lt;/text&gt;</code></pre>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../8-annotations/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../appendix-VII-creative-commons-attribution-license-3.0-unported/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../appendix-I-SPDX-license-list/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../appendix-IX-file-tags/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>7 Relationships between SPDX Elements - specification v2.1.1</title>
+  <title>7 Relationships between SPDX Elements - specification v2.2.0</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -39,7 +39,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> specification v2.1.1</a>
+        <a href=".." class="icon icon-home"> specification v2.2.0</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -122,6 +122,14 @@
                     <li class="toctree-l1"><a class="reference internal" href="../appendix-VII-creative-commons-attribution-license-3.0-unported/">Appendix VII: Creative Commons Attribution License 3.0 Unported</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../appendix-VIII-SPDX-Lite/">Appendix VIII: SPDX Lite</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../appendix-IX-file-tags/">Appendix IX: SPDX File Tags</a>
+                    </li>
+                </ul>
       </div>
     </div>
     </nav>
@@ -131,7 +139,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">specification v2.1.1</a>
+        <a href="..">specification v2.2.0</a>
       </nav>
 
       
@@ -156,7 +164,11 @@
               
                 <h1 id="7-relationships-between-spdx-elements">7 Relationships between SPDX Elements</h1>
 <h2 id="71-relationship">7.1 Relationship <a name="7.1"></a></h2>
-<p><strong>7.1.1</strong> Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. The relationships between two elements that are supported are:</p>
+<p><strong>7.1.1</strong> Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. </p>
+<p>In cases where there are "known unknowns", the use of the keyword <code>NOASSERTION</code> can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX elements (package/file/snippet) are connected by relationships or not.  ie. There could be some, but the author is not asserting one way or another.  </p>
+<p>Similarly, the use of the keywords <code>NONE</code> can be used to indicate that an SPDX element (package/file/snippet) has no other elements connected by some relationship to it.</p>
+<p>The use of <code>NOASSERTION</code>or <code>NONE</code> is not mandatory for any relationship. If no relationship of a particular type is specified, then the document author is not presumed to be asserting whether or not there are relationships of that type. If some relationships of a particular type are specified, then the document author is not presumed to be asserting whether there are more possible relationships of that type.</p>
+<p>The relationships between two SPDX elements that are supported are:</p>
 <table>
 <thead>
 <tr>
@@ -168,13 +180,13 @@
 <tbody>
 <tr>
 <td>DESCRIBES</td>
-<td>Is to be used when SPDXRef-DOCUMENT describes SPDXRef-A</td>
+<td>Is to be used when SPDXRef-DOCUMENT describes SPDXRef-A.</td>
 <td>An SPDX document <code>WildFly.spdx</code> describes package ‘WildFly’. Note this is a logical relationship to help organize related items within an SPDX document that is mandatory if more than one package or set of files (not in a package) is present.</td>
 </tr>
 <tr>
 <td>DESCRIBED_BY</td>
-<td>Is to be used when SPDXRef-A is described by SPDXREF-Document</td>
-<td>The package ‘WildFly’ is described by SPDX document <code>Wildfly.spdx</code>.</td>
+<td>Is to be used when SPDXRef-A is described by SPDXREF-Document.</td>
+<td>The package ‘WildFly’ is described by SPDX document <code>WildFly.spdx</code>.</td>
 </tr>
 <tr>
 <td>CONTAINS</td>
@@ -187,8 +199,58 @@
 <td>A SOURCE file <code>foo.c</code> is contained by ARCHIVE file <code>bar.tgz</code></td>
 </tr>
 <tr>
+<td>DEPENDS_ON</td>
+<td>Is to be used when SPDXRef-A depends on SPDXRef-B.</td>
+<td>Package A depends on the presence of package B in order to build and run</td>
+</tr>
+<tr>
+<td>DEPENDENCY_OF</td>
+<td>Is to be used when SPDXRef-A is dependency of SPDXRef-B.</td>
+<td>A is explicitly stated as a dependency of B in a machine-readable file. Use when a package manager does not define scopes.</td>
+</tr>
+<tr>
+<td>DEPENDENCY_MANIFEST_OF</td>
+<td>Is to be used when SPDXRef-A is a manifest file that lists a set of dependencies for SPDXRef-B.</td>
+<td>A file <code>package.json</code> is the dependency manifest of a package <code>foo</code>. Note that only one manifest should be used to define the same dependency graph.</td>
+</tr>
+<tr>
+<td>BUILD_DEPENDENCY_OF</td>
+<td>Is to be used when SPDXRef-A is a build dependency of SPDXRef-B.</td>
+<td>A is in the <code>compile</code> scope of B in a Maven project.</td>
+</tr>
+<tr>
+<td>DEV_DEPENDENCY_OF</td>
+<td>Is to be used when SPDXRef-A is a development dependency of SPDXRef-B.</td>
+<td>A is in the <code>devDependencies</code> scope of B in a Maven project.</td>
+</tr>
+<tr>
+<td>OPTIONAL_DEPENDENCY_OF</td>
+<td>Is to be used when SPDXRef-A is an optional dependency of SPDXRef-B.</td>
+<td>Use when building the code will proceed even if a dependency cannot be found, fails to install, or is only installed on a specific platform. For example, A is in the <code>optionalDependencies</code> scope of npm project B.</td>
+</tr>
+<tr>
+<td>PROVIDED_DEPENDENCY_OF</td>
+<td>Is to be used when SPDXRef-A is a to be provided dependency of SPDXRef-B.</td>
+<td>A is in the <code>provided</code> scope of B in a Maven project, indicating that the project expects it to be provided, for instance, by the container or JDK.</td>
+</tr>
+<tr>
+<td>TEST_DEPENDENCY_OF</td>
+<td>Is to be used when SPDXRef-A is a test dependency of SPDXRef-B.</td>
+<td>A is in the <code>test</code> scope of B in a Maven project.</td>
+</tr>
+<tr>
+<td>RUNTIME_DEPENDENCY_OF</td>
+<td>Is to be used when SPDXRef-A is a dependency required for the execution of SPDXRef-B.</td>
+<td>A is in the <code>runtime</code> scope of B in a Maven project.</td>
+</tr>
+<tr>
+<td>EXAMPLE_OF</td>
+<td>Is to be used when SPDXRef-A is an example of SPDXRef-B.</td>
+<td>The file or snippet that illustrates how to use an application or library.</td>
+</tr>
+<tr>
 <td>GENERATES</td>
-<td>Is to be used when SPDXRef-A generates the SPDXRef-B.</td>
+<td>Is to be used when SPDXRef-A generates SPDXRef-B.</td>
 <td>A SOURCE file <code>makefile.mk</code> generates a BINARY file <code>a.out</code></td>
 </tr>
 <tr>
@@ -198,7 +260,7 @@
 </tr>
 <tr>
 <td>ANCESTOR_OF</td>
-<td>Is to be used when SPDXRef-A is an ancestor (same lineage but pre-dates) SPDXRef-B</td>
+<td>Is to be used when SPDXRef-A is an ancestor (same lineage but pre-dates) SPDXRef-B.</td>
 <td>A SOURCE file <code>makefile.mk</code> is a version of the original ancestor SOURCE file ‘makefile2.mk’</td>
 </tr>
 <tr>
@@ -233,12 +295,12 @@
 </tr>
 <tr>
 <td>FILE_ADDED</td>
-<td>Is to be used when SPDXRef-A is a file added to SPDXRef-B.</td>
+<td>Is to be used when SPDXRef-A is a file that was added to SPDXRef-B.</td>
 <td>A SOURCE file <code>foo.c</code> has been added to package ARCHIVE <code>bar.tgz</code>.</td>
 </tr>
 <tr>
 <td>FILE_DELETED</td>
-<td>Is to be used when SPDXRef-A is a file was deleted from to SPDXRef-B.</td>
+<td>Is to be used when SPDXRef-A is a file that was deleted from SPDXRef-B.</td>
 <td>A SOURCE file <code>foo.diff</code> has been deleted from package ARCHIVE <code>bar.tgz</code>.</td>
 </tr>
 <tr>
@@ -273,8 +335,23 @@
 </tr>
 <tr>
 <td>BUILD_TOOL_OF</td>
-<td>Is to be used when SPDXRef-A is used to to build SPDXRef-B.</td>
+<td>Is to be used when SPDXRef-A is used to build SPDXRef-B.</td>
 <td>A SOURCE file <code>makefile.mk</code> is used to build an APPLICATION ‘zlib’.</td>
+</tr>
+<tr>
+<td>DEV_TOOL_OF</td>
+<td>Is to be used when SPDXRef-A is used as a development tool for SPDXRef-B.</td>
+<td>Any tool used for development such as a code debugger.</td>
+</tr>
+<tr>
+<td>TEST_OF</td>
+<td>Is to be used when SPDXRef-A is used for testing SPDXRef-B.</td>
+<td>Generic relationship for cases where it's clear that something is used for testing but unclear whether it's TEST_CASE_OF or TEST_TOOL_OF.</td>
+</tr>
+<tr>
+<td>TEST_TOOL_OF</td>
+<td>Is to be used when SPDXRef-A is used as a test tool for SPDXRef-B.</td>
+<td>Any tool used to test the code such as ESlint.</td>
 </tr>
 <tr>
 <td>DOCUMENTATION_OF</td>
@@ -303,13 +380,13 @@
 </tr>
 <tr>
 <td>PREREQUISITE_FOR</td>
-<td>Is to be used when SPDXRef-A is a prerequisite for SPDXRef-B</td>
-<td>A library <code>bar.dll</code> is aprerequisite or dependency for APPLICATION <code>foo.exe</code></td>
+<td>Is to be used when SPDXRef-A is a prerequisite for SPDXRef-B.</td>
+<td>A library <code>bar.dll</code> is a prerequisite or dependency for APPLICATION <code>foo.exe</code></td>
 </tr>
 <tr>
 <td>HAS_PREREQUISITE</td>
-<td>Is to be used when SPDXRef-A has as a prerequisite SPDXRef-B</td>
-<td>An APPLICATION <code>foo.exe</code> has prerequisite or dependency of <code>bar.dll</code></td>
+<td>Is to be used when SPDXRef-A has as a prerequisite SPDXRef-B.</td>
+<td>An APPLICATION <code>foo.exe</code> has prerequisite or dependency on <code>bar.dll</code></td>
 </tr>
 <tr>
 <td>OTHER</td>
@@ -322,38 +399,58 @@
 <p><strong>7.1.3</strong> Cardinality: Optional*, multiple.</p>
 <p>* see <code>DESCRIBES</code> relationship for one mandatory case.</p>
 <p><strong>7.1.4</strong> Data Format:</p>
-<pre><code>["DocumentRef-"[idstring]":"]SPDXID &lt;relationship&gt; ["DocumentRef-"[idstring]":"]SPDXID
-</code></pre>
+<pre class="codehilite"><code class="language-text">[&quot;DocumentRef-&quot;[idstring]&quot;:&quot;]SPDXID &lt;relationship&gt; [&quot;DocumentRef-&quot;[idstring]&quot;:&quot;]SPDXID | `NONE` | `NOASSERTION`</code></pre>
+
+
 <p>where "DocumentRef-"<code>[idstring]</code>":" is an optional reference to an external SPDX document as described in <a href="../2-document-creation-information/#2.6">section 2.6</a></p>
 <p>where <code>SPDXID</code> is a string containing letters, numbers, <code>.</code> and/or <code>-</code>. as described in sections (2.3, 3.2, 4.2).</p>
 <p>where <code>&lt;relationship&gt;</code> is one of the documented relationship types in table 7.1.1.</p>
+<p>where <code>NONE</code> can be used to explicitly indicate there are NO other relationships.</p>
+<p>where <code>NOASSERTION</code> can be used to explicitly indicate it is not clear if there are relationships that may apply or not.</p>
 <p><strong>7.1.5</strong> Tag: <code>Relationship:</code></p>
 <p>Examples:</p>
-<pre><code>Relationship: SPDXRef-grep CONTAINS SPDXRef-make
+<pre class="codehilite"><code class="language-text">Relationship: SPDXRef-grep CONTAINS SPDXRef-make</code></pre>
 
-RelationshipComment: Package grep contains file make
 
-Relationship: SPDXRef-DOCUMENT AMENDS DocumentRef-SPDXA:SPDXRef-DOCUMENT
+<pre class="codehilite"><code class="language-text">RelationshipComment: Package grep contains file make</code></pre>
 
-RelationshipComment: This current document is an amendment of the SPDXA document.
-</code></pre>
-<p><strong>7.1.6</strong> RDF: Property <code>relationship</code> in any SpdxElement</p>
+
+<pre class="codehilite"><code class="language-text">Relationship: SPDXRef-DOCUMENT AMENDS DocumentRef-SPDXA:SPDXRef-DOCUMENT</code></pre>
+
+
+<pre class="codehilite"><code class="language-text">RelationshipComment: This current document is an amendment of the SPDXA document.</code></pre>
+
+
+<pre class="codehilite"><code class="language-text">Relationship: SPDXRef-CarolCompression DEPENDS_ON NONE</code></pre>
+
+
+<pre class="codehilite"><code class="language-text">RelationshipComment: The package CarolCompression can be considered as a root with no dependencies.</code></pre>
+
+
+<pre class="codehilite"><code class="language-text">Relationship: SPDXRef-BobBrowser CONTAINS NOASSERTION</code></pre>
+
+
+<pre class="codehilite"><code class="language-text">RelationshipComment: The package BobBrowser may have other packages embedded in it, but the author has insufficient information to treat this as other than unknown at this point in time.</code></pre>
+
+
+<p><strong>7.1.6</strong> RDF: Property <code>spdx:relationship</code> in any <code>spdx:SpdxDocument</code>, <code>spdx:Package</code>, <code>spdx:File</code> or <code>spdx:Snippet</code></p>
 <p>Examples:</p>
-<pre><code>&lt;SpdxElement rdf:about=”#SPDXRef-45”&gt;
+<pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;#SPDXRef-45&quot;&gt;
     &lt;relationship&gt;
         &lt;Relationship&gt;
-            &lt;spdx:relatedSpdxElement&gt;
-                &lt;spdx:SpdxElement rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...
-                &lt;/spdx:relatedSpdxElement&gt;
+            &lt;relatedSpdxElement&gt;
+                &lt;File rdf:about=&quot;http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...&quot;
+                &lt;/relatedSpdxElement&gt;
 
                 &lt;relationshipType&gt;http://spdx.org/rdf/terms#relationshipType_contains&lt;/relationshipType&gt;
-            &lt;/Relationship&gt;
-        &lt;/relationship&gt;
+        &lt;/Relationship&gt;
+    &lt;/relationship&gt;
 
     ...
 
-&lt;/SpdxElement&gt;
-</code></pre>
+&lt;/SpdxElement&gt;</code></pre>
+
+
 <h2 id="72-relationship-comment">7.2 Relationship Comment <a name="7.2"></a></h2>
 <p><strong>7.2.1</strong> Purpose: This field provides a place for the SPDX file creator to record any general comments about the relationship.</p>
 <p><strong>7.2.2</strong> Intent: Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of the relationship between two elements in an SPDX file.</p>
@@ -363,19 +460,19 @@ RelationshipComment: This current document is an amendment of the SPDXA document
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
 <p>A <code>RelationshipComment:</code> must be the line immediately after a “Relationship:”</p>
 <p>Example:</p>
-<pre><code>RelationshipComment: &lt;text&gt;The package foo.tgz is a pre-requisite for building executable bar.&lt;/text&gt;
-</code></pre>
+<pre class="codehilite"><code class="language-text">RelationshipComment: &lt;text&gt;The package foo.tgz is a pre-requisite for building executable bar.&lt;/text&gt;</code></pre>
+
+
 <p><strong>7.2.6</strong> RDF: Property <code>rdfs:comment</code> in class <code>spdx:Relationship</code></p>
 <p>Example:</p>
-<pre><code>&lt;Relationship rdf:about="..."&gt;
+<pre class="codehilite"><code class="language-text">&lt;Relationship rdf:about=&quot;...&quot;&gt;
     &lt;rdfs:comment&gt;
         The package foo.tgz is a pre-requisite for building executable bar.
     &lt;/rdfs:comment&gt;
 
     ...
 
-&lt;/Relationship&gt;
-</code></pre>
+&lt;/Relationship&gt;</code></pre>
               
             </div>
           </div>
@@ -396,7 +493,7 @@ RelationshipComment: This current document is an amendment of the SPDXA document
   <div role="contentinfo">
     <!-- Copyright etc -->
     
-      <p>Copyright &copy; 2010 - 2018 Linux Foundation and its Contributors.</p>
+      <p>Copyright &copy; 2010 - 2020 Linux Foundation and its Contributors.</p>
     
   </div>
 
