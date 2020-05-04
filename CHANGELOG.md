@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## 2.2 (TODO)
+## 2.2 (2020-05-02)
 
 * Added more relationship types to [Relationships](chapters/7-relationships-between-SPDX-elements.md).
 * Updated [License Matching Guidelines](chapters/appendix-II-license-matching-guidelines-and-templates.md) to allow embedded rules within optional rules.
