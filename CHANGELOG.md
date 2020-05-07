@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 * Added more relationship types to [Relationships](chapters/7-relationships-between-SPDX-elements.md).
 * Updated [License Matching Guidelines](chapters/appendix-II-license-matching-guidelines-and-templates.md) to allow embedded rules within optional rules.
 * Updated [Charter](chapters/1-rationale.md) to broaden applicable scenarios for SPDX documents.
-* Updated [License List](chapters/appendix-I-SPDX-license-list.md) to v3.7.
+* Updated [License List](chapters/appendix-I-SPDX-license-list.md) to v3.8.
 * Added support for [PURL](https://github.com/package-url/purl-spec) and container images to [External Repository Identifiers](chapters/appendix-VI-external-repository-identifiers.md).
 * Added the license matching guideline content to [Appendix II](chapters/appendix-II-license-matching-guidelines-and-templates.md).
 * Added sample documents (both for final and draft formats) under `examples/`.
