@@ -1,16 +1,10 @@
-# 2 Document Creation Information
+# Document creation information fields
 
-One instance is required for each SPDX file produced.  It provides the necessary information for forward and backward compatibility for processing tools.
+## D.1 SPDX version field <a name="2.1"></a>
 
-Cardinality: Mandatory, one.
+**2.1.1** Purpose: Provide a reference number that can be used to understand how to parse and interpret the rest of the file. It will enable both future changes to the specification and to support backward compatibility. The version number consists of a major and minor version indicator. The major field shall be incremented when incompatible changes between versions are made (one or more sections are created, modified or deleted). The minor field shall be incremented when backwards compatible changes are made.
 
-Fields:
-
-## 2.1 SPDX Version <a name="2.1"></a>
-
-**2.1.1** Purpose: Provide a reference number that can be used to understand how to parse and interpret the rest of the file. It will enable both future changes to the specification and to support backward compatibility. The version number consists of a major and minor version indicator. The major field will be incremented when incompatible changes between versions are made (one or more sections are created, modified or deleted). The minor field will be incremented when backwards compatible changes are made.
-
-**2.1.2** Intent: Here, parties exchanging information in accordance with SPDX specification need to provide 100% transparency as to which SPDX specification such information is conforming to.
+**2.1.2** Intent: Here, parties exchanging information in accordance with the SPDX specification need to provide 100% transparency as to which SPDX specification version such information is conforming to.
 
 **2.1.3** Cardinality: Mandatory, one.
 
@@ -44,11 +38,11 @@ This specification uses the prefix `rdf:` to refer to the [RDF/XML][rdf] namespa
 http://www.w3.org/1999/02/22-rdf-syntax-ns#
 ```
 
-## 2.2 Data License <a name="2.2"></a>
+## D.2 Data license field <a name="2.2"></a>
 
-**2.2.1** Purpose: Compliance with the SPDX specification includes populating the SPDX fields therein with data related to such fields ("SPDX-Metadata"). The SPDX specification contains numerous fields where an SPDX document creator may provide relevant explanatory text in SPDX-Metadata.
+**2.2.1** Purpose: Compliance with this document includes populating the SPDX fields therein with data related to such fields ("SPDX-Metadata"). This document contains numerous fields where an SPDX document creator may provide relevant explanatory text in SPDX-Metadata.
 Without opining on the lawfulness of "database rights" (in jurisdictions where applicable), such explanatory text is copyrightable subject matter in most Berne Convention countries.
-By using the SPDX specification, or any portion hereof, you hereby agree that any copyright rights (as determined by your jurisdiction) in any SPDX-Metadata, including without limitation explanatory text, shall be subject to the terms of the Creative Commons CC0 1.0 Universal license.  For SPDX-Metadata not containing any copyright rights, you hereby agree and acknowledge that the SPDX-Metadata is provided to you "as-is" and without any representations or warranties of any kind concerning the SPDX-Metadata, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non-infringement, or the absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.
+By using this document, or any portion hereof, you hereby agree that any copyright rights (as determined by your jurisdiction) in any SPDX-Metadata, including without limitation explanatory text, shall be subject to the terms of the Creative Commons CC0 1.0 Universal license.  For SPDX-Metadata not containing any copyright rights, you hereby agree and acknowledge that the SPDX-Metadata is provided to you "as-is" and without any representations or warranties of any kind concerning the SPDX-Metadata, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non-infringement, or the absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.
 
 **2.2.2** Intent: This is to alleviate any concern that content (the data or database) in an SPDX file is subject to any form of intellectual property right that could restrict the re-use of the information or the creation of another SPDX file for the same project(s). This approach avoids intellectual property and related restrictions over the SPDX file, however individuals can still contract with each other to restrict release of specific collections of SPDX files (which map to software bill of materials) and the identification of the supplier of SPDX files.
 
@@ -74,9 +68,9 @@ Example:
 </SpdxDocument>
 ```
 
-## 2.3 SPDX Identifier <a name="2.3"></a>
+## D.3 SPDX identifier field <a name="2.3"></a>
 
-**2.3.1** Purpose: Identify the current SPDX document which may be referenced in relationships by other files, packages internally and documents externally. To reference another SPDX document in total, this identifier should be used with the external document identifier preceding it. See the “Relationships between SPDX Elements” section for examples.
+**2.3.1** Purpose: Identify the current SPDX document which may be referenced in relationships by other files, packages internally and documents externally. To reference another SPDX document in total, this identifier should be used with the external document identifier preceding it. See [Clause R](7-relationships-between-SPDX-elements.md) for examples.
 
 **2.3.2** Intent:  Provide a way for the document to refer to itself in relationship to other elements.
 
@@ -102,7 +96,7 @@ SPDXID: SPDXRef-DOCUMENT
 </spdx:SpdxDocument>
 ```
 
-## 2.4 Document Name <a name="2.4"></a>
+## D.4 Document name field <a name="2.4"></a>
 
 **2.4.1** Purpose: Identify name of this document as designated by creator.
 
@@ -140,13 +134,13 @@ Example:
 </SpdxDocument>
 ```
 
-## 2.5 SPDX Document Namespace <a name="2.5"></a>
+## D.5 SPDX document namespace field <a name="2.5"></a>
 
-**2.5.1** Purpose: Provide an SPDX document specific namespace as a unique absolute [Uniform Resource Identifier][URI] (URI) as specified in [RFC-3986][rfc3986], with the exception of the ‘#’ delimiter. The SPDX Document URI cannot contain a URI "part" (e.g. the "#" character), since the ‘#’ is used in SPDX element URIs (packages, files, snippets, etc) to separate the document namespace from the element’s SPDX identifier. Additionally, a scheme (e.g. “https:”) is required.
+**2.5.1** Purpose: Provide an SPDX document-specific namespace as a unique absolute [Uniform Resource Identifier][URI] (URI) as specified in [RFC-3986][rfc3986], with the exception of the ‘#’ delimiter. The SPDX Document URI shall not contain a URI "part" (e.g. the "#" character), since the ‘#’ is used in SPDX element URIs (packages, files, snippets, etc) to separate the document namespace from the element’s SPDX identifier. Additionally, a scheme (e.g. “https:”) is required.
 
-The URI must be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI.
+The URI shall be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document shall be used. There may only be one URI for an SPDX document and only one SPDX document for a given URI.
 
-**2.5.2** Intent: The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See [section 2.6](#2.6) for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
+**2.5.2** Intent: The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See [section 2.6](#2.6) for a description on how external documents are referenced. Although it is not required, the URI may be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
 
 * `CreatorWebsite` is a website hosted by the creator of the document. (e.g. an SPDX document provided by SPDX would be spdx.org)
 * `PathToSpdx` is a path to where SPDX documents are stored on the website (e.g. /spdx/spdxdocs)
@@ -154,7 +148,7 @@ The URI must be unique for the SPDX document including the specific version of t
 * `UUID` is a [universally unique identifier][URI]. The UUID could be a version 4 random UUID which can be generated from the [Online UUID Generator][uuid-gen] or a version 5 UUID generated from a sha1 checksum known to be unique for this specific SPDX document version.
 * If the creator does not own their own website, a default SPDX CreatorWebsite and PathToSpdx can be used `spdx.org/spdxdocs`. Note that the SPDX documents are not currently stored or accessible on this website. The URI is only used to create a unique ID following the above conventions.
 
-Note that the URI does not have to be accessible. It is only intended to provide a unique ID. In many cases, the URI will point to a web accessible document, but this should not be assumed to be the case.
+NOTE The URI does not have to be accessible. It is only intended to provide a unique ID. In many cases, the URI will point to a web accessible document, but this should not be assumed to be the case.
 
 [URI]: https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
 [rfc3986]: https://tools.ietf.org/html/rfc3986
@@ -164,10 +158,10 @@ Note that the URI does not have to be accessible. It is only intended to provide
 
 **2.5.4** Data Format: unique absolute Uniform Resource Identifier (URI) as specified in [RFC-3986](https://tools.ietf.org/html/rfc3986), with the following exceptions:
 
-The SPDX Document URI cannot contain a URI "part" (e.g. the `#` delimiter), since the `#` is used to uniquely identify SPDX element identifiers.
-The URI must contain a scheme (e.g. `https:`).
+The SPDX Document URI shall not contain a URI "part" (e.g. the `#` delimiter), since the `#` is used to uniquely identify SPDX element identifiers.
+The URI shall contain a scheme (e.g. `https:`).
 
-The URI must be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI.
+The URI shall be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document shall be used. There may only be one URI for an SPDX document and only one SPDX document for a given URI.
 
 **2.5.5** Tag: `DocumentNamespace:`
 
@@ -193,7 +187,7 @@ This specification uses the prefix `rdfs:` to refer to the [RDF Schema][rdf-sche
 http://www.w3.org/2000/01/rdf-schema#
 ```
 
-## 2.6 External Document References <a name="2.6"></a>
+## D.6 External document references field <a name="2.6"></a>
 
 **2.6.1** Purpose: Identify any external SPDX documents referenced within this SPDX document.
 
@@ -246,13 +240,13 @@ Example:
 </externalDocumentRef>
 ```
 
-Notes: in RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired.
+NOTE In RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired.
 
-## 2.7 License List Version <a name="2.7"></a>
+## D.7 License list version field <a name="2.7"></a>
 
 **2.7.1** Purpose: An optional field for creators of the SPDX file to provide the version of the SPDX License List used when the SPDX file was created.
 
-**2.7.2** Intent: Recognizing that licenses are added to the SPDX License List with each subsequent version, the intent is to provide recipients of the SPDX file with the version of the SPDX License List used. This anticipates that in the future, an SPDX file may have used a version of the SPDX License List that is older than the then current one.
+**2.7.2** Intent: Recognizing that licenses are added to the SPDX License List with each subsequent version, the intent is to provide recipients of the SPDX file with the version of the SPDX License List used. This anticipates that in the future, an SPDX file might have used a version of the SPDX License List that is older than the then current one.
 
 **2.7.3** Cardinality: Optional, one.
 
@@ -281,7 +275,7 @@ Example:
 </CreationInfo>
 ```
 
-## 2.8 Creator <a name="2.8"></a>
+## D.8 Creator field <a name="2.8"></a>
 
 **2.8.1** Purpose: Identify who (or what, in the case of a tool) created the SPDX file. If the SPDX file was created by an individual, indicate the person's name. If the SPDX file was created on behalf of a company or organization, indicate the entity name. If the SPDX file was created using a software tool, indicate the name and version for that tool. If multiple participants or tools were involved, use multiple instances of this field. Person name or organization name may be designated as “anonymous” if appropriate.
 
@@ -319,9 +313,9 @@ Example:
 </CreationInfo>
 ```
 
-## 2.9 Created <a name="2.9"></a>
+## D.9 Created field <a name="2.9"></a>
 
-**2.9.1** Purpose: Identify when the SPDX file was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in [section 8](8-annotations.md), which involves the addition of information during a subsequent review.
+**2.9.1** Purpose: Identify when the SPDX file was originally created. The date shall be specified according to combined date and time in UTC format as specified in ISO 8601. This field is distinct from the fields in [section 8](8-annotations.md), which involves the addition of information during a subsequent review.
 
 **2.9.2** Intent: Here, the time stamp can serve as an indication as to whether the analysis needs to be updated.
 
@@ -358,7 +352,7 @@ Example:
 </CreationInfo>
 ```
 
-## 2.10 Creator Comment <a name="2.10"></a>
+## D.10 Creator comment field <a name="2.10"></a>
 
 **2.10.1** Purpose: An optional field for creators of the SPDX file to provide general comments about the creation of the SPDX file or any other relevant comment not included in the other fields.
 
@@ -366,7 +360,7 @@ Example:
 
 **2.10.3** Cardinality: Optional, one.
 
-**2.10.4** Data Format: Free form text that can span multiple lines.
+**2.10.4** Data Format: Free-form text that may span multiple lines.
 
 In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`.
 
@@ -390,7 +384,7 @@ Example:
 </CreationInfo>
 ```
 
-## 2.11 Document Comment <a name="2.11"></a>
+## D.11 Document comment field <a name="2.11"></a>
 
 **2.11.1** Purpose: An optional field for creators of the SPDX file content to provide comments to the consumers of the SPDX document.
 
@@ -398,7 +392,7 @@ Example:
 
 **2.11.3** Cardinality: Optional, one.
 
-**2.11.4** Data Format: Free form text that can span multiple lines. In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`.
+**2.11.4** Data Format: Free form text that may span multiple lines. In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`.
 
 **2.11.5** Tag: `DocumentComment:`
 
