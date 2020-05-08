@@ -2,21 +2,21 @@
 
 ## What this specification covers
 
-This document contains the specification for an SPDX document, which is made up of a set of **zero/one** or more Facts, instances of which contain information in the form of *fields*. The following subclause introduces the different kinds of Facts allowed. The fields for each kind of Fact are defined in the clause corresponding to that Fact.
+> correct the following zero/one statement
+
+This document contains the specification for an SPDX document, which is made up of a set of **zero/one** or more Facts, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of Facts allowed. The fields for each kind of Fact are defined in the clause corresponding to that Fact.
 
 ## Facts
 
-### **1.4.1** SPDX Document Creation Information Fact
-
-> For demonstation purposes, the hanging paragraph(s) from the beginning of Chapter 2 have been copied here and slightly edited.
+### **1.4.1** SPDX document creation information Fact
 
 An instance of this kind of Fact provides the necessary information for forward and backward compatibility for processing tools.
 
-One instance is required for each SPDX file produced. 
+One instance shall be present for each SPDX file produced. 
 
 Cardinality: Mandatory, one.
 
-See [Clause X](xxx.md) for details of the fields in this kind of Fact.
+See [Clause D](2-document-creation-information.md) for details of the fields in this kind of Fact.
 
 ### **1.4.2** Package Information Fact
 
