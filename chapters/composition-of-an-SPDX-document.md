@@ -55,9 +55,11 @@ Annotations and Relationships for the package may appear after the Package Infor
 
 [see Clause X](xxx.md) for details of the fields in this kind of Fact.
 
-### **1.4.6** Relationships Between SPDX Elements Fact
+### Relationships Between SPDX Elements Fact
 
-[see Clause X](xxx.md) for details of the fields in this kind of Fact.
+> ToDo: there was no intro text in Chapter 7 to move here, but, presumably, we should say something.
+
+See [Clause R](7-relationships-between-SPDX-elements.md) for details of the fields in this kind of Fact.
 
 ### **1.4.7** Annotations Fact
 
