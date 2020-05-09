@@ -1,17 +1,6 @@
-# 5 Snippet Information
+# Snippet information fields
 
-Snippets can optionally be used when a file is known to have some content that has been included from another original source. They are useful for denoting when part of a file may have been originally created under another license.
-
-Each instance of Snippet Information needs to be associated with a specific File in an SPDX Document.
-
-When implementing `tag:value` format, the positioning of Snippet elements is syntactically significant:
-
-* If a File contains Snippets, the Snippet Information section should follow a related File Information section (if it exists in the document).
-* Presence of a new file or package section signals the end of the set of snippets associated with the original file, unless an explicit Relationship is used.
-* The first field to start off the description of a Snippet must be the Snippet Identifier in `tag:value` format.
-* Annotations on the Snippet and Relationships from the Snippet may appear after the Snippet Information, before the next file or Package section.
-
-## 5.1 Snippet SPDX Identifier <a name="5.1"></a>
+## S.1 Snippet SPDX identifier field <a name="5.1"></a>
 
 **5.1.1** Purpose: Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
 
@@ -31,7 +20,7 @@ Example:
 SnippetSPDXID: SPDXRef-1
 ```
 
-**5.1.6** RDF: The URI for the element will follow the form: `[SpdxDocumentURI]#SPDXRef-[idstring]` where `[SpdxDocumentURI]` is the URI for the SPDX Document containing the element.
+**5.1.6** RDF: The URI for the element shall follow the form: `[SpdxDocumentURI]#SPDXRef-[idstring]` where `[SpdxDocumentURI]` is the URI for the SPDX Document containing the element.
 
 Example using xml:base:
 
@@ -51,7 +40,7 @@ Example using document URI:
 </Snippet>
 ```
 
-## 5.2 Snippet from File SPDX Identifier <a name="5.2"></a>
+## S.2 Snippet from file SPDX identifier field <a name="5.2"></a>
 
 **5.2.1** Purpose: Uniquely identify the file in an SPDX document which this snippet is associated with.
 
@@ -99,7 +88,7 @@ Example (snippet from a File in an External SPDX Doc):
 </Snippet>
 ```
 
-## 5.3 Snippet Byte Range <a name="5.3"></a>
+## S.3 Snippet byte range field <a name="5.3"></a>
 
 **5.3.1** Purpose: This field defines the byte range in the original host file (in [5.2](#5.2)) that the snippet information applies to.
 
@@ -161,7 +150,7 @@ This specification uses the prefix `ptr:` to refer to the [W3C Pointers][pointer
 xmlns:ptr=http://www.w3.org/2009/pointers#
 ```
 
-## 5.4 Snippet Line Range <a name="5.4"></a>
+## S.4 Snippet line range field <a name="5.4"></a>
 
 **5.4.1** Purpose: This optional field defines the line range in the original host file (in [5.2](#5.2)) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.
 
@@ -215,7 +204,7 @@ Example:
 </Snippet>
 ```
 
-## 5.5 Snippet Concluded License <a name="5.5"></a>
+## S.5 Snippet concluded license field <a name="5.5"></a>
 
 **5.5.1** Purpose: This field contains the license the SPDX file creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:
 
@@ -284,7 +273,7 @@ Example:
 </Snippet>
 ```
 
-## 5.6 License Information in Snippet <a name="5.6"></a>
+## S.6 License information in snippet field <a name="5.6"></a>
 
 **5.6.1** Purpose: This field contains the license information actually found in the snippet, if any. Any license information not actually in the snippet itself, e.g., header of the file the snippet belongs in, “COPYING.txt” file in a top level directory, should not be reflected in this field.
 
@@ -348,11 +337,11 @@ Example:
 </Snippet>
 ```
 
-## 5.7 Snippet Comments on License <a name="5.7"></a>
+## S.7 Snippet comments on license field <a name="5.7"></a>
 
 **5.7.1** Purpose: This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a snippet.
 
-**5.7.2** Intent: Here, the intent is to provide the recipient of the SPDX document with a detailed explanation of how the Concluded License was determined for a Snippet  if it does not match the License Information in File, is marked `NOASSERTION`, or other helpful information relevant to determining the license of the snippet in a file.
+**5.7.2** Intent: Here, the intent is to provide the recipient of the SPDX document with a detailed explanation of how the Concluded License was determined for a Snippet if it does not match the License Information in File, is marked `NOASSERTION`, or other helpful information relevant to determining the license of the snippet in a file.
 
 **5.7.3** Cardinality: Optional, one.
 
@@ -385,9 +374,9 @@ Example:
 </Snippet>
 ```
 
-## 5.8 Snippet Copyright Text <a name="5.8"></a>
+## S.8 Snippet copyright text field <a name="5.8"></a>
 
-**5.8.1** Purpose: Identify the copyright holder of the snippet, as well as any dates present. This will be a free form text field, ideally extracted from the actual snippet.  The options to populate this field are limited to:
+**5.8.1** Purpose: Identify the copyright holder of the snippet, as well as any dates present. This shall be a free form text field, ideally extracted from the actual snippet.  The options to populate this field are limited to:
 
 any text relating to a copyright notice, even if not complete;
 
@@ -425,7 +414,7 @@ Example:
 </Snippet>
 ```
 
-## 5.9 Snippet Comment <a name="5.9"></a>
+## S.9 Snippet comment field <a name="5.9"></a>
 
 **5.9.1** Purpose: This field provides a place for the SPDX document creator to record any general comments about the snippet.
 
@@ -462,11 +451,11 @@ Example:
 </Snippet>
 ```
 
-## 5.10 Snippet Name <a name="5.10"></a>
+## S.10 Snippet name field <a name="5.10"></a>
 
 **5.10.1** Purpose: Identify a specific snippet in a human convenient manner.
 
-**5.10.2** Intent: To aid in identifying a snippet under discussion that may be used in multiple locations, and for consistency with the ability to refer to any copyrightable SPDX Element by name.
+**5.10.2** Intent: To aid in identifying a snippet under discussion that might be used in multiple locations, and for consistency with the ability to refer to any copyrightable SPDX Element by name.
 
 **5.10.3** Cardinality: Optional, one.
 
@@ -490,11 +479,11 @@ Example:
 </Snippet>
 ```
 
-## 5.11 Snippet Attribution Text <a name="5.11"></a>
+## S.11 Snippet attribution text field <a name="5.11"></a>
 
-**5.11.1** Purpose: This field provides a place for the SPDX data creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see `SnippetLicenseConcluded` and `LicenseInfoInSnippet`), and may or may not include copyright notices (see also `SnippetCopyrightText`). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.
+**5.11.1** Purpose: This field provides a place for the SPDX data creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see `SnippetLicenseConcluded` and `LicenseInfoInSnippet`), and might or might not include copyright notices (see also `SnippetCopyrightText`). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce.
 
-**5.11.2** Intent: The intent is to provide the recipient of the SPDX file with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator may or may not explain elsewhere how they intend for this field to be used.
+**5.11.2** Intent: The intent is to provide the recipient of the SPDX file with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator might or might not explain elsewhere how they intend for this field to be used.
 
 **5.11.3** Cardinality: Optional, one or many.
 
