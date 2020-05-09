@@ -51,9 +51,13 @@ Annotations and Relationships for the package may appear after the Package Infor
 
 [see Clause X](xxx.md) for details of the fields in this kind of Fact.
 
-### **1.4.5** Other Licensing Information Detected Fact
+### Other licensing information detected
 
-[see Clause X](xxx.md) for details of the fields in this kind of Fact.
+This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list, see [https://spdx.org/licenses/](https://spdx.org/licenses/). The SPDX License List can also be found here in [Appendix I](appendix-I-SPDX-license-list.md).
+
+One instance shall be created for every unique license or licensing information reference detected in package that does not match one of the licenses on the SPDX License List. Each license instance should have the following fields.
+
+See [Clause L](6-other-licensing-information-detected.md) for details of the fields in this kind of Fact.
 
 ### **1.4.6** Relationships Between SPDX Elements Fact
 
