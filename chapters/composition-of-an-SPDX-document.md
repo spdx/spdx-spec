@@ -88,6 +88,14 @@ See [Clause R](7-relationships-between-SPDX-elements.md) for details of the fiel
 
 See [Clause A](8-annotations.md) for details of the fields in this kind of Fact.
 
+### Review information Fact
+
+The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information shall use an Annotation (as described in [section 8](./8-annotations.md)) with an annotation type of `REVIEW`.
+
+Review information may be added after the initial SPDX file has been created. The set of fields are optional and multiple instances may be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date shall not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
+
+See [Clause I](9-review-information-deprecated.md) for details of the fields in this kind of Fact.
+
 ## Fact organization
 
 Within an SPDX document, Facts may be organized, as follows:
