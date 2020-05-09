@@ -2,8 +2,6 @@
 
 ## What this specification covers
 
-> correct the following zero/one statement
-
 This document contains the specification for an SPDX document, which is made up of a set of **zero/one** or more Facts, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of Facts allowed. The fields for each kind of Fact are defined in the clause corresponding to that Fact.
 
 ## Facts
