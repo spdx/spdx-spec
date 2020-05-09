@@ -1,6 +1,6 @@
-# 7 Relationships between SPDX Elements
+# Relationships between SPDX elements fields
 
-## 7.1 Relationship <a name="7.1"></a>
+## R.1 Relationship field <a name="7.1"></a>
 
 **7.1.1** Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. 
 
@@ -137,7 +137,7 @@ Examples:
 </SpdxElement>
 ```
 
-## 7.2 Relationship Comment <a name="7.2"></a>
+## R.2 Relationship comment field <a name="7.2"></a>
 
 **7.2.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the relationship.
 
@@ -145,13 +145,13 @@ Examples:
 
 **7.2.3** Cardinality: Optional, one.
 
-**7.2.4** Data Format: Free form text that can span multiple lines, refers only to the immediately preceding relationship.
+**7.2.4** Data Format: Free form text that may span multiple lines, refers only to the immediately preceding relationship.
 
 **7.2.5** Tag: `RelationshipComment:`
 
 In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
-A `RelationshipComment:` must be the line immediately after a “Relationship:”
+A `RelationshipComment:` shall be the line immediately after a “Relationship:”
 
 Example:
 
