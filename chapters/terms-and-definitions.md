@@ -23,6 +23,10 @@ Fact type, an instance of which contains facts specific to files which may be in
 Fact type, an instance of which contains a way to capture information about and refer to licenses that are not on the SPDX license List.
 
 **3.[n]**  
+**package**  
+unit of content that can be associated with a distribution of software
+
+**3.[n]**  
 **package information Fact**  
 Fact type, an instance of which contains facts that are common properties of a package (including any sub-packages)
 
