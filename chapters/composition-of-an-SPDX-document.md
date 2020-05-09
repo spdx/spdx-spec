@@ -8,7 +8,7 @@ This document contains the specification for an SPDX document, which is made up 
 
 ## Facts
 
-### **1.4.1** SPDX document creation information Fact
+### SPDX document creation information Fact
 
 An instance of this kind of Fact provides the necessary information for forward and backward compatibility for processing tools.
 
