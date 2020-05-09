@@ -22,16 +22,42 @@ Each of these assertions can easily be understood as to whether a feature is req
 
 The data format specification and recommendations are subject to the following:
 
-* **1.6.1** Shall be in a human readable form.
-* **1.6.2** Shall be in a syntax that a software tool can read and write.
-* **1.6.3** Shall be suitable to be checked for syntactic correctness independent of how it was generated (human or tool).
-* **1.6.4** Shall support UTF-8 character encoding.
-* **1.6.5** Shall permit automated specification syntax validation.
-* **1.6.6** Shall be able to be represented using Resource Description Framework (RDF); shall also be able to be represented by an annotated tag value flat text file.
-* **1.6.7** Shall allow the preservation of interoperability with an annotate `tag:value` format and the RDF.
-* **1.6.8** Shall treat tags and RDF properties as being case sensitive.
-* **1.6.9** Should be easy to recognize in a file system without opening the representation file. (A suggested file-naming convention is to use \*.spdx (for `tag:value` format) and \*-spdx.rdf for RDF format.)
-* **1.6.10** The convention in this standard is for the RDF examples to use `rdf:about="..."` to represent that a proper Universal Resource Indicator (URI) should be present.
+ * **1.7.1** Shall be in a human readable form.
+
+* **1.7.2** Shall be in a syntax that a software tool can read and write.
+
+* **1.7.3** Shall be suitable to be checked for syntactic correctness automatically, independent of how it was generated (human or tool).
+
+* **1.7.4** The SPDX file character set shall support UTF-8 encoding.
+
+* **1.7.5** Multiple file formats may be used to represent the information being exchanged. Current supported formats include:
+
+  * **YAML 1.2** see: <https://yaml.org/spec/1.2/spec.html>
+  * **JavaScript Object Notation** (JSON) see: [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
+    * The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)
+  * **Resource Description Framework** (RDF also referred to as RDF/XML) see: <https://www.w3.org/TR/rdf-syntax-grammar/>
+  * **tag:value** flat text file as described in this specification
+  * **.xls** spreadsheets
+
+In addition to the supported formats, the following format is in development with a plan to complete the specification by SPDX 3.0:
+
+* **Extensible Markup Language** (XML) see: https://www.w3.org/TR/2008/REC-xml-20081126/
+
+* **1.7.6** Interoperability between all the supported file formats shall be preserved. SPDX defines how to validate a document in each supported format, and how to translate a valid document without loss to each other supported format.
+
+* **1.7.7** Tags and format properties are case sensitive.
+
+* **1.7.8** Should be easy to recognize in a file system without opening the file. A suggested naming convention is:
+
+| Format      | Extension   |
+| ----------- | ----------- |
+| tag:value   | \*.spdx      |
+| RDF         | \*.spdx.rdf  |
+| JSON        | \*.spdx.json |
+| XML         | \*.spdx.xml  |
+| YAML        | \*.spdx.yaml or \*.spdx.yml |
+
+* **1.7.9** The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Universal Resource Indicator (URI) should be present.
 
 ## ??? Heading TBD
 
