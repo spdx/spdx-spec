@@ -47,9 +47,20 @@ Annotations and Relationships for the package may appear after the Package Infor
 
 [see Clause X](xxx.md) for details of the fields in this kind of Fact.
 
-### **1.4.4** Snippet Information Fact
+### Snippet information Fact
 
-[see Clause X](xxx.md) for details of the fields in this kind of Fact.
+Snippets can optionally be used when a file is known to have some content that has been included from another original source. They are useful for denoting when part of a file may have been originally created under another license.
+
+Each instance of Snippet Information shall be associated with a specific File in an SPDX Document.
+
+When implementing `tag:value` format, the positioning of Snippet elements is syntactically significant:
+
+* If a File contains Snippets, the Snippet Information section shall follow a related File Information section (if it exists in the document).
+* Presence of a new file or package section signals the end of the set of snippets associated with the original file, unless an explicit Relationship is used.
+* The first field to start off the description of a Snippet shall be the Snippet Identifier in `tag:value` format.
+* Annotations on the Snippet and Relationships from the Snippet may appear after the Snippet Information, before the next file or Package section.
+
+See [Clause S](5-snippet-information.md) for details of the fields in this kind of Fact.
 
 ### **1.4.5** Other Licensing Information Detected Fact
 
