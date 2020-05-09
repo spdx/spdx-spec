@@ -1,3 +1,6 @@
+> **IMPORTANT** This Chapter is no longer part of the SPDX spec, so any changes to it will go unnoticed! As part of the conversion-to-ISO-format, its contents have been distributed throughout other clauses and annexes.
+
+
 # 1 Rationale
 
 ## 1.1 Charter <a name="1.1"></a>
