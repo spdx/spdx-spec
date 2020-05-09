@@ -43,9 +43,23 @@ Annotations and Relationships for the package may appear after the Package Infor
 
 [see Clause X](xxx.md) for details of the field in this kind of Fact.
 
-### **1.4.3** File Information Fact
+### File information Fact
 
-[see Clause X](xxx.md) for details of the fields in this kind of Fact.
+One instance of the File Information shall exist for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
+
+When implementing `tag:value` format, the positioning of File elements is syntactically significant:
+
+* Files are assumed to be associated with the Package Information that immediately precedes it, if a package exists.
+* Presence of a new Package Information signals the end of the set of files associated with the preceding package, unless an explicit Relationship is used.
+* If a package contains files, the File Information section shall follow its Package Information section.
+* If a File is not part of any package, it shall precede any Package Information section reference in the SPDX document.
+* The first field to start off the description of a File shall be the File Name in `tag:value` format.
+* File information is associated with the File Name that precedes it.
+* Annotations on the file and Relationships from the file may appear after the file information, before the next file or Package Information section.
+
+When implementing file information in RDF, the `spdx:hasFile` property is used to associate the package with the file.
+
+See [Clause F](4-file-information.md) for details of the fields in this kind of Fact.
 
 ### **1.4.4** Snippet Information Fact
 
