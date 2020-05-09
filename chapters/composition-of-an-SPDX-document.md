@@ -18,30 +18,22 @@ Cardinality: Mandatory, one.
 
 See [Clause X](xxx.md) for details of the fields in this kind of Fact.
 
-### **1.4.2** Package Information Fact
+### Package information Fact
 
-> For demonstation purposes, the hanging paragraph(s) from the beginning of Chapter 3 have been copied here and slightly edited.
-
-An instance of this kind of Fact describes ...
-
-One instance is required per package being described. A package may contain sub-packages, but the information in this section is a reference to the entire contents of the package listed. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
+If SPDX information is organized by grouping into packages, then one instance of the Package Information per package being described shall exist. A package may contain sub-packages, but the information in this section is a reference to the entire contents of the package listed. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
 Cardinality: Optional, one or many.
 
 In `tag:value` format, the order in which package and files occur is syntactically significant.
 
-A new Package Information section is denoted by the [Package Name](#3.1) field.
+* A new Package Information section is denoted by the [Package Name](#3.1) field.
+* All Package Information fields shall be grouped together before the start of a [Files section](4-file-information.md), if file(s) are present.
+* All files contained in a package shall immediately follow the applicable Package Information.
+* A new Package Information section (via Package Name) denotes the start of another package.
+* Sub-packages shall not be nested inside a Package Information section, but shall be separate and shall use a Relationship to clarify.
+* Annotations and Relationships for the package may appear after the Package Information before any file information.
 
-All Package Information fields shall be grouped together before the start of a [Files section](4-file-information.md), if file(s) are present.
-
-All files contained in a package shall immediately follow the applicable Package Information.
-
-A new Package Information section (via Package Name) denotes the start of another package.
-
-Sub-packages should not be nested inside a Package Information section, but should be separate and should use a Relationship to clarify.
-Annotations and Relationships for the package may appear after the Package Information before any file information.
-
-[see Clause X](xxx.md) for details of the field in this kind of Fact.
+See [Clause P](3-package-information.md) for details of the fields in this kind of Fact.
 
 ### **1.4.3** File Information Fact
 
