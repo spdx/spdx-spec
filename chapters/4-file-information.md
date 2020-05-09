@@ -1,20 +1,6 @@
-# 4 File Information
+# File information fields
 
-One instance of the File Information is required for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
-
-When implementing `tag:value` format, the positioning of File elements is syntactically significant:
-
-* Files are assumed to be associated with the Package Information that immediately precedes it, if a package exists.
-* Presence of a new Package Information signals the end of the set of files associated with the preceding package, unless an explicit Relationship is used.
-* If a package contains files, the File Information section must follow its Package Information section.
-* If a File is not part of any package, it must precede any Package Information section reference in the SPDX document.
-* The first field to start off the description of a File must be the File Name in `tag:value` format.
-* File information is associated with the File Name that precedes it.
-* Annotations on the file and Relationships from the file may appear after the file information, before the next file or Package Information section.
-
-When implementing file information in RDF, the `spdx:hasFile` property is used to associate the package with the file.
-
-## 4.1 File Name <a name="4.1"></a>
+## F.1 File name field <a name="4.1"></a>
 
 **4.1.1** Purpose: Identify the full path and filename that corresponds to the file information in this section.
 
@@ -45,9 +31,9 @@ Example:
 </File>
 ```
 
-## 4.2 File SPDX Identifier <a name="4.2"></a>
+## F.2 File SPDX identifier field <a name="4.2"></a>
 
-**4.2.1** Purpose: Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
+**4.2.1** Purpose: Uniquely identify any element in an SPDX document which might be referenced by other elements. These might be referenced internally and externally with the addition of the SPDX Document Identifier.
 
 **4.2.2** Intent: There may be several versions of the same file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
 
@@ -85,18 +71,18 @@ Example using document URI:
 </File>
 ```
 
-## 4.3 File Type <a name="4.3"></a>
+## F.3 File type field <a name="4.3"></a>
 
 **4.3.1** Purpose: This field provides information about the type of file identified. File Type is intrinsic to the file, independent of how the file is being used. A file may have more than one file type assigned to it, however the options to populate this field are limited to:
 
 * `SOURCE` if the file is human readable source code (.c, .html, etc.);
 * `BINARY` if the file is a compiled object, target image or binary executable (.o, .a, etc.);
 * `ARCHIVE` if the file represents an archive (.tar, .jar, etc.);
-* `APPLICATION` if the file is associated with a specific application type (MIME type of application/*);
+* `APPLICATION` if the file is associated with a specific application type (MIME type of application/\*);
 * `AUDIO` if the file is associated with an audio file (MIME type of audio/* , e.g. .mp3);
-* `IMAGE` if the file is associated with an picture image file (MIME type of image/*, e.g., .jpg, .gif);
-* `TEXT` if the file is human readable text file (MIME type of text/*);
-* `VIDEO` if the file is associated with a video file type (MIME type of video/*);
+* `IMAGE` if the file is associated with an picture image file (MIME type of image/\*, e.g., .jpg, .gif);
+* `TEXT` if the file is human readable text file (MIME type of text/\*);
+* `VIDEO` if the file is associated with a video file type (MIME type of video/\*);
 * `DOCUMENTATION` if the file serves as documentation;
 * `SPDX` if the file is an SPDX document;
 * `OTHER` if the file doesn't fit into the above categories (generated artifacts, data files, etc.)
@@ -148,8 +134,7 @@ Example: (where file2 is a `README.TXT`)
 </File>
 ```
 
-## 4.4 File Checksum <a name="4.4"></a>
-
+## F.4 File checksum field <a name="4.4"></a>
 
 **4.4.1** Purpose: Provide a unique identifier to match analysis information on each specific file in a package.
 
@@ -159,7 +144,7 @@ Example: (where file2 is a `README.TXT`)
 
 **4.4.4** Algorithm: [`SHA1`][SHA-1]is to be used on the file. Other algorithms that can be provided optionally include [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6]
 
-**4.4.5** Data Format: In `tag:value` there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF must also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160 bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected.
+**4.4.5** Data Format: In `tag:value` there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF shall also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160 bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected.
 
 **4.4.6** Tag: `FileChecksum:`
 
@@ -196,7 +181,7 @@ Example:
 </File>
 ```
 
-## 4.5 Concluded License <a name="4.5"></a>
+## F.5 Concluded license field <a name="4.5"></a>
 
 **4.5.1** Purpose: This field contains the license the SPDX file creator has concluded as governing the file or alternative values if the governing license cannot be determined.
 
@@ -224,7 +209,7 @@ If the Concluded License is not the same as the License Information in File, a w
 
 where:
 
-`<SPDX License Expression>` is a valid SPDX License Expression as defined in Appendix IV.
+`<SPDX License Expression>` is a valid SPDX License Expression as defined in [Annex AAA](appendix-IV-SPDX-license-expressions.md).
 
 **4.5.5** Tag: `LicenseConcluded:`
 
@@ -263,9 +248,9 @@ Example:
 </File>
 ```
 
-## 4.6 License Information in File <a name="4.6"></a>
+## F.6 License information in file field <a name="4.6"></a>
 
-**4.6.1** Purpose: This field contains the license information actually found in the file, if any. This information is most commonly found in the header of the file, although it may be in other areas of the actual file. Any license information not actually in the file, e.g., “COPYING.txt” file in a top level directory, should not be reflected in this field.
+**4.6.1** Purpose: This field contains the license information actually found in the file, if any. This information is most commonly found in the header of the file, although it might be in other areas of the actual file. Any license information not actually in the file, e.g., “COPYING.txt” file in a top level directory, should not be reflected in this field.
 
 The options to populate this field are limited to:
 
@@ -324,7 +309,7 @@ Example:
 </File>
 ```
 
-## 4.7 Comments on License <a name="4.7"></a>
+## F.7 Comments on license field <a name="4.7"></a>
 
 **4.7.1** Purpose: This field provides a place for the SPDX file creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a file. If the Concluded License does not match the License Information in File, this should be explained by the SPDX file creator. It is also preferable to include an explanation here when the Concluded License is `NOASSERTION`.
 
@@ -359,9 +344,9 @@ Example:
 </File>
 ```
 
-## 4.8 Copyright Text <a name="4.8"></a>
+## F.8 Copyright text field <a name="4.8"></a>
 
-**4.8.1** Purpose: Identify the copyright holder of the file, as well as any dates present. This will be a free-form text field extracted from the actual file.
+**4.8.1** Purpose: Identify the copyright holder of the file, as well as any dates present. This shall be a free-form text field extracted from the actual file.
 
 The options to populate this field are limited to:
 
@@ -403,17 +388,17 @@ Example:
 </File>
 ```
 
-## 4.9 Artifact of Project Name (deprecated) <a name="4.9"></a>
+## F.9 Artifact of project name field (deprecated) <a name="4.9"></a>
 
 **4.9.1** Purpose: To indicate that a file has been derived from a specific project.
 
-**4.9.2** Intent: To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is not described in an SPDX Document, then ArtifactOf can be used.
+**4.9.2** Intent: To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is not described in an SPDX Document, then `ArtifactOf` can be used.
 
 If the project is described in another SPDX Document, then Relationship should be used.
 
 **4.9.3** Cardinality: Optional, one or many.
 
-**4.9.4** Data Format: Single line of text. In `tag:value` format the ArtifactOfProjectName must precede any optional ArtifactOf optional properties (e.g. ArtifactOfHomePage and ArtifactOfURI).
+**4.9.4** Data Format: Single line of text. In `tag:value` format the ArtifactOfProjectName shall precede any optional ArtifactOf optional properties (e.g. ArtifactOfHomePage and ArtifactOfURI).
 
 **4.9.5** Tag: `ArtifactOfProjectName:`
 
@@ -437,17 +422,17 @@ Example:
 </File>
 ```
 
-## 4.10 Artifact of Project Homepage (deprecated) <a name="4.10"></a>
+## F.10 Artifact of project homepage field (deprecated) <a name="4.10"></a>
 
 **4.10.1** Purpose: To indicate the location of the project from which the file has been derived.
 
-**4.10.2** Intent: To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is described in another SPDX Document, then Relationship should be used.
+**4.10.2** Intent: To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is described in another SPDX Document, then `Relationship` should be used.
 
 **4.10.3** Cardinality: Optional, one or many.
 
 **4.10.4** Data Format: Uniform Resource Locator | `UNKNOWN`.
 
-In `tag:value` format all optional `ArtifactOf` fields must follow immediately below the ArtifactOfProjectName.
+In `tag:value` format all optional `ArtifactOf` fields shall follow immediately below the ArtifactOfProjectName.
 
 **4.10.5** Tag: `ArtifactOfProjectHomePage:`
 
@@ -471,17 +456,17 @@ Example:
 </File>
 ```
 
-## 4.11 Artifact of Project Uniform Resource Identifier (deprecated) <a name="4.11"></a>
+## F.11 Artifact of project uniform resource identifier field (deprecated) <a name="4.11"></a>
 
 **4.11.1** Purpose: To provide a linkage to the project resource in the DOAP document and permit interoperability between the different formats supported.
 
-**4.11.2** Intent: To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is described in another SPDX Document, then Relationship should be used.
+**4.11.2** Intent: To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is described in another SPDX Document, then `Relationship` should be used.
 
 **4.11.3** Cardinality: Optional, one or many.
 
 **4.11.4** Data Format: Uniform Resource Identifier.
 
-In `tag:value` format all optional ArtifactOf fields must follow immediately below the ArtifactOfProjectName.
+In `tag:value` format all optional ArtifactOf fields shall follow immediately below the ArtifactOfProjectName.
 
 **4.11.5** Tag: `ArtifactOfProjectURI:`
 
@@ -504,7 +489,7 @@ the value "http://subversion.apache.org/" is the URI of the describes
 resource of type doap:Project -->
 ```
 
-## 4.12 File Comment <a name="4.12"></a>
+## F.12 File comment field <a name="4.12"></a>
 
 **4.12.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the file.
 
@@ -512,7 +497,7 @@ resource of type doap:Project -->
 
 **4.12.3** Cardinality: Optional, one.
 
-**4.12.4** Data Format: Free form text that can span multiple lines
+**4.12.4** Data Format: Free form text that may span multiple lines
 
 **4.12.5** Tag: `FileComment:`
 
@@ -538,9 +523,9 @@ Example:
 </File>
 ```
 
-## 4.13 File Notice <a name="4.13"></a>
+## F.13 File notice field <a name="4.13"></a>
 
-**4.13.1** Purpose: This field provides a place for the SPDX file creator to record license notices or other such related notices found in the file. This may or may not include copyright statements.
+**4.13.1** Purpose: This field provides a place for the SPDX file creator to record license notices or other such related notices found in the file. This might or might not include copyright statements.
 
 **4.13.2** Intent: Here, the intent is to provide the recipient of the SPDX file with notices that may require additional review or otherwise contribute to the determination of the Concluded License.
 
@@ -570,9 +555,9 @@ Example:
 </File>
 ```
 
-## 4.14 File Contributor <a name="4.14"></a>
+## F.14 File contributor field <a name="4.14"></a>
 
-**4.14.1** Purpose: This field provides a place for the SPDX file creator to record file contributors. Contributors could include names of copyright holders and/or authors who may not be copyright holders, yet contributed to the file content.
+**4.14.1** Purpose: This field provides a place for the SPDX file creator to record file contributors. Contributors could include names of copyright holders and/or authors who might not be copyright holders, yet contributed to the file content.
 
 **4.14.2** Intent: Here, the intent is to provide the recipient of the SPDX file with a list of one or more contributors (credits). This is one way of providing acknowledgement to the contributors of a file. This would be useful, for example, if a recipient company wanted to contact copyright holders to inquire about alternate licensing.
 
@@ -604,11 +589,11 @@ Example:
 </File>
 ```
 
-## 4.15 File Attribution Text <a name="4.15"></a>
+## F.15 File attribution text field <a name="4.15"></a>
 
-**4.15.1** Purpose: This field provides a place for the SPDX data creator to record, at the file level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the file's actual complete license text (see `LicenseConcluded` and `LicenseInfoInFile`), and may or may not include copyright notices (see also `FileCopyrightText`). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.
+**4.15.1** Purpose: This field provides a place for the SPDX data creator to record, at the file level, acknowledgements that might be required to be communicated in some contexts. This is not meant to include the file's actual complete license text (see `LicenseConcluded` and `LicenseInfoInFile`), and might or might not include copyright notices (see also `FileCopyrightText`). The SPDX data creator might use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce.
 
-**4.15.2** Intent: The intent is to provide the recipient of the SPDX file with acknowledgement content at a file level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator may or may not explain elsewhere how they intend for this field to be used.
+**4.15.2** Intent: The intent is to provide the recipient of the SPDX file with acknowledgement content at a file level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator might or might not explain elsewhere how they intend for this field to be used.
 
 **4.15.3** Cardinality: Optional, one or many.
 
@@ -640,17 +625,17 @@ Example:
 </File>
 ```
 
-## 4.16 File Dependencies (deprecated) <a name="4.16"></a>
+## F.16 File dependencies field (deprecated) <a name="4.16"></a>
 
 This field is deprecated since SPDX 2.0 in favor of using [Section 7](7-relationships-between-SPDX-elements.md) which provides more granularity about relationships.
 
-**4.16.1** Purpose: The field provides a place for the SPDX file creator to record a list of other files (referenceable within this SPDX file) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files may not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or may be needed as part of the file distribution obligation.
+**4.16.1** Purpose: The field provides a place for the SPDX file creator to record a list of other files (referenceable within this SPDX file) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files might not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or might be needed as part of the file distribution obligation.
 
-**4.16.2** Intent: Here, the intent is to provide the recipient of the SPDX file with file dependency information based on the build system that created the file. These other files may impact the licensing of the file and/or may be required to satisfy the distribution obligation of the file (e.g., source files subject to a copyleft license).
+**4.16.2** Intent: Here, the intent is to provide the recipient of the SPDX file with file dependency information based on the build system that created the file. These other files might impact the licensing of the file and/or might be required to satisfy the distribution obligation of the file (e.g., source files subject to a copyleft license).
 
 **4.16.3** Cardinality: Optional, one or many.
 
-**4.16.4** Data Format: Reference to the file within the SPDX document. For the `tag:value` format, this will be the filename. For the RDF format, it will be a reference to the actual file node.
+**4.16.4** Data Format: Reference to the file within the SPDX document. For the `tag:value` format, this will be the filename. For the RDF format, it shall be a reference to the actual file node.
 
 **4.16.5** Tag: `FileDependency:`
 
