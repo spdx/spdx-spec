@@ -1,5 +1,20 @@
 # Package information fields
 
+If you organize your SPDX information by grouping into packages, then one instance of the Package Information is required per package being described. A package can contain sub-packages, but the information in this section is a reference to the entire contents of the package listed. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
+
+Cardinality: Optional, one or many.
+
+In `tag:value` format, the order in which package and files occur is syntactically significant.
+
+* A new Package Information section is denoted by the [Package Name](#3.1) field.
+* All Package Information fields must be grouped together before the start of a Files section (Clause [F](4-file-information.md)), if file(s) are present.
+* All files contained in a package must immediately follow the applicable Package Information.
+* A new Package Information section (via Package Name) denotes the start of another package.
+* Sub-packages should not be nested inside a Package Information section, but should be separate and should use a Relationship to clarify.
+* Annotations and Relationships for the package may appear after the Package Information before any file information.
+
+Fields:
+
 ## P.1 Package name field <a name="3.1"></a>
 
 **3.1.1** Purpose: Identify the full name of the package as given by the [Package Originator](#3.6).
@@ -54,7 +69,7 @@ SPDXID: SPDXRef-1
 [SPDX DocumentNamespace]#[SPDX Identifier]
 ```
 
-See [section 2.5](2-document-creation-information.md#2.5) for the definition of the SPDX Document Namespace and [section 2.3](2-document-creation-information.md#2.3) for the definition of the SPDX Identifier
+See [D.5](2-document-creation-information.md#2.5) for the definition of the SPDX Document Namespace and [D.3](2-document-creation-information.md#2.3) for the definition of the SPDX Identifier
 
 Example using `xml:base`:
 
@@ -194,7 +209,7 @@ Example:
 
 ## P.6 Package originator field <a name="3.6"></a>
 
-**3.6.1** Purpose: If the package identified in the SPDX file originated from a different person or organization than identified as Package Supplier (see [section 3.5](#3.5) above), this field identifies from where or whom the package originally came. In some cases a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX file identifies the package [glibc][] and [Red Hat][] as the Package Supplier, but the [Free Software Foundation][FSF] is the Package Originator.
+**3.6.1** Purpose: If the package identified in the SPDX file originated from a different person or organization than identified as Package Supplier (see [P.5](#3.5) above), this field identifies from where or whom the package originally came. In some cases a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX file identifies the package [glibc][] and [Red Hat][] as the Package Supplier, but the [Free Software Foundation][FSF] is the Package Originator.
 
 Use `NOASSERTION` if:
 
@@ -556,9 +571,9 @@ Example:
 
 Some examples:
 
-1. **A bundle of external products**: Package A can be metadata about Packages and their dependencies. It might also be a loosely organized manifest of references to Packages involved in a product or project. Build or execution might transitively discover more Packages and dependencies. All of these referenced Packages can have their own SPDX Documents. In this case, Package A may be defined with its File Analyzed attribute set to `false`. Package A includes External Document References to SPDX documents containing Packages referenced in all the available relationships. The Relationships section then relates the SPDX documents and contained SPDX elements with appropriate semantics per the dependencies in the scope of Package A.
-2. **Package relation to external product**: Package A can have a STATIC_LINK relationship to Package B, but the binary representation of Package B is furnished by the build process and thus not contained in the file list of Package A. In this case, Package B shall be defined with its Files Analyzed attribute set to false and all the other attributes subject to the subsequently defined constraints. Then, the relationship between Package A and Package B can be documented as described in [Section 7](7-relationships-between-SPDX-elements.md).
-3. **File derived from external product**: Package A contains multiple files derived from an outside project. Rather than use the `artifactOf*` attributes (Sections 4.9-4.11) to describe the relation of these files to their project, the outside project can be represented by another package, Package B, whose [`FilesAnalyzed`](#3.8) attribute is set to `false`. Each of the binary files can then have a relationship to package B (Section 6). This allows the outside project to be represented by a single SPDX identifier (the identifier of Package B). It also allows the relationship(s) between the outside project and each of the files be represented in much more detail.
+1. **A bundle of external products**: Package A can be metadata about Packages and their dependencies. It may also be a loosely organized manifest of references to Packages involved in a product or project. Build or execution may transitively discover more Packages and dependencies. All of these referenced Packages can have their own SPDX Documents. In this case, Package A may be defined with its File Analyzed attribute set to `false`. Package A includes External Document References to SPDX documents containing Packages referenced in all the available relationships. The Relationships section then relates the SPDX documents and contained SPDX elements with appropriate semantics per the dependencies in the scope of Package A.
+2. **Package relation to external product**: Package A can have a STATIC_LINK relationship to Package B, but the binary representation of Package B is furnished by the build process and thus not contained in the file list of Package A. In this case, Package B needs to be defined with its Files Analyzed attribute set to false and all the other attributes subject to the subsequently defined constraints. Then, the relationship between Package A and Package B can be documented as described in Clause [R](7-relationships-between-SPDX-elements.md).
+3. **File derived from external product**: Package A contains multiple files derived from an outside project. Rather than use the `artifactOf*` attributes (F.9-4.11) to describe the relation of these files to their project, the outside project can be represented by another package, Package B, whose [`FilesAnalyzed`](#3.8) attribute is set to `false`. Each of the binary files can then have a relationship to package B (Clause L). This allows the outside project to be represented by a single SPDX identifier (the identifier of Package B). It also allows the relationship(s) between the outside project and each of the files be represented in much more detail.
 
 **3.8.3** Cardinality: Optional, one.  If omitted, the default value of `true` is assumed.
 
@@ -615,7 +630,7 @@ Required sort order: '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e'
 
 **3.9.6** Tag: `PackageVerificationCode:` (and optionally `(excludes: FileName)`)
 
-`FileName` is specified in [section 4.1](4-file-information.md#4.1).
+`FileName` is specified in [F.1](4-file-information.md#4.1).
 
 Example:
 
@@ -780,7 +795,7 @@ Example:
 
 The options to populate this field are limited to:
 
-* A valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md);
+* A valid SPDX License Expression as defined in Annex [AAA](appendix-IV-SPDX-license-expressions.md);
 * `NONE`, if the SPDX file creator concludes there is no license available for this package; or
 * `NOASSERTION` if:
 
@@ -790,7 +805,7 @@ The options to populate this field are limited to:
 
     (iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the [Declared License](#3.15), a written explanation should be provided in the Comments on License field [(section 3.16)](#3.16). With respect to `NOASSERTION`, a written explanation in the Comments on License field [(section 3.16)](#3.16) is preferred.
+If the Concluded License is not the same as the [Declared License](#3.15), a written explanation should be provided in the Comments on License field ([P.16](#3.16)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([P.16](#3.16)) is preferred.
 
 **3.13.2** Intent: Here, the intent is for the SPDX file creator to analyze the license information in package, and other objective information, e.g., COPYING file, together with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the package.
 
@@ -800,7 +815,7 @@ If the Concluded License is not the same as the [Declared License](#3.15), a wri
 
 where:
 
-`<SPDX License Expression>` is a valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md).
+`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [AAA](appendix-IV-SPDX-license-expressions.md).
 
 **3.13.5** Tag: `PackageLicenseConcluded:`
 
@@ -868,7 +883,7 @@ The options to populate this field are limited to:
 
 where:
 
-* "DocumentRef-"`[idstring]` is an optional reference to an external SPDX document as described in [section 2.6](2-document-creation-information.md#2.6).
+* "DocumentRef-"`[idstring]` is an optional reference to an external SPDX document as described in [D.6](2-document-creation-information.md#2.6).
 * `[idstring]` is a unique string containing letters, numbers, `.`, or `-`.
 
 **3.14.5** Tag: `PackageLicenseInfoFromFiles:`
@@ -907,7 +922,7 @@ Example:
 
 The options to populate this field are limited to:
 
-* A valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md);
+* A valid SPDX License Expression as defined in Annex [AAA](appendix-IV-SPDX-license-expressions.md);
 * `NONE`, if the package contains no license information whatsoever; or
 * `NOASSERTION` if:
 
@@ -915,7 +930,7 @@ The options to populate this field are limited to:
 
     (ii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-**3.15.2** Intent: This is simply the license identified in text in one or more files (for example COPYING file) in the source code package. This field is not intended to capture license information obtained from an external source, such as the package website. Such information can be included in Concluded License [(section 3.13)](#3.13). This field may have multiple Declared Licenses, if multiple licenses are declared at the package level.
+**3.15.2** Intent: This is simply the license identified in text in one or more files (for example COPYING file) in the source code package. This field is not intended to capture license information obtained from an external source, such as the package website. Such information can be included in Concluded License ([P.13](#3.13)). This field may have multiple Declared Licenses, if multiple licenses are declared at the package level.
 
 **3.15.3** Cardinality: Mandatory, one.
 
@@ -923,7 +938,7 @@ The options to populate this field are limited to:
 
 where:
 
-* `<SPDX License Expression>` is a valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md).
+* `<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [AAA](appendix-IV-SPDX-license-expressions.md).
 
 **3.15.5** Tag: `PackageLicenseDeclared:`
 
@@ -1160,7 +1175,7 @@ Example:
 where:
 
 * `<category>` is `SECURITY` | `PACKAGE-MANAGER` | `PERSISTENT-ID` | `OTHER`
-* `<type>` is one of the types listed in [Appendix VI](appendix-VI-external-repository-identifiers.md).
+* `<type>` is one of the types listed in Annex [AAA](appendix-VI-external-repository-identifiers.md).
 
 `<locator>` is the unique string with no spaces necessary to access the package-specific information, metadata, or content within the target location. The format of the locator is subject to constraints defined by the `<type>`.
 
@@ -1214,7 +1229,7 @@ Example (for an unlisted location):
 </spdx:package>
 ```
 
-The referenceType value for a non-listed location consists of the SPDX document namespace (per [section 2.5](2-document-creation-information.md#2.5)) followed by a `#` and the category as defined in [3.21.4](#3.21).
+The referenceType value for a non-listed location consists of the SPDX document namespace (see [D.5](2-document-creation-information.md#2.5)) followed by a `#` and the category as defined in [P.21.4](#3.21).
 
 ## P.22 External reference comment field <a name="3.22"></a>
 
