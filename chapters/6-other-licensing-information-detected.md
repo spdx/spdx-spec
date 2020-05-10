@@ -1,8 +1,14 @@
 # Other licensing information detected fields
 
+This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list see: [https://spdx.org/licenses/](https://spdx.org/licenses/). The SPDX License List can also be found here in Annex [AAA](appendix-I-SPDX-license-list.md).
+
+One instance should be created for every unique license or licensing information reference detected in package that does not match one of the licenses on the SPDX License List. Each license instance should have the following fields.
+
+Fields:
+
 ## L.1 License identifier field <a name="6.1"></a>
 
-**6.1.1** Purpose: Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (sections [3](3-package-information.md) and [4](4-file-information.md), respectively).
+**6.1.1** Purpose: Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (Clause [P](3-package-information.md) and Clause [F](4-file-information.md), respectively).
 
 **6.1.2** Intent: Create a human readable short form license identifier for a license not on the SPDX License List. This identifier shall be unique within the SPDX file. In previous versions of SPDX, the references were required to be sequential numbers, but as of version 1.2, creators may specify references that are easier for humans to remember and mentally map.
 
