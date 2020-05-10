@@ -113,8 +113,8 @@ Example:
 
 where:
 
-`["DocumentRef-"[idstring]":"]` is an optional reference to an external SPDX document as described in section 2.6
-`SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in Sections 2.3, 3.2 and 4.2.
+`["DocumentRef-"[idstring]":"]` is an optional reference to an external SPDX document as described in [D.6](2-document-creation-information.md#2.6)
+`SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in [D.3](2-document-creation-information.md#2.3), [P.2](3-package-information.md#3.2) and [F.2](4-file-information.md#4.2).
 
 **8.4.5** Tag: `SPDXREF:`
 
