@@ -382,7 +382,7 @@ The following table contains the full names and short identifiers for the SPDX L
 | W3C Software Notice and Document License (2015-05-13)                        | [W3C-20150513](https://spdx.org/licenses/W3C-20150513.html)                                                 |      |
 | Sybase Open Watcom Public License 1.0                                        | [Watcom-1.0](https://spdx.org/licenses/Watcom-1.0.html)                                                     | Y    |
 | Wsuipa License                                                               | [Wsuipa](https://spdx.org/licenses/Wsuipa.html)                                                             |      |
-| Do What The F*ck You Want To Public License                                  | [WTFPL](https://spdx.org/licenses/WTFPL.html)                                                               |      |
+| Do What The F\*ck You Want To Public License                                  | [WTFPL](https://spdx.org/licenses/WTFPL.html)                                                               |      |
 | X11 License                                                                  | [X11](https://spdx.org/licenses/X11.html)                                                                   |      |
 | Xerox License                                                                | [Xerox](https://spdx.org/licenses/Xerox.html)                                                               |      |
 | XFree86 License 1.1                                                          | [XFree86-1.1](https://spdx.org/licenses/XFree86-1.1.html)                                                   |      |
