@@ -39,7 +39,7 @@ SPDX-License-Identifier: MIT
 
 ## Representing Multiple Licenses
 
-Multiple licenses can be represented using a SPDX license expression as defined in Appendix IV. A set of licenses may optionally be enclosed in parentheses, but are not required to be enclosed. As further described there:
+Multiple licenses can be represented using a SPDX license expression as defined in Annex [AAA](appendix-IV-SPDX-license-expressions.md). A set of licenses may optionally be enclosed in parentheses, but are not required to be enclosed. As further described there:
 
 1. When there is a choice between licenses ("disjunctive license"), they should be separated with "OR". If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new license expression.
 2. Similarly when multiple licenses need to be simultaneously applied ("conjunctive license"), they should be separated with "AND". If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression.
@@ -54,7 +54,7 @@ SPDX-License-Identifier: LGPL-2.1-only AND BSD-2-Clause
 SPDX-License-Identifier: GPL-2.0-or-later WITH Bison-exception-2.2
 ```
 
-Please see [Appendix IV of SPDX 2.2 Specification](./appendix-IV-SPDX-license-expressions.md) for more examples and details of the license expression specific syntax.
+Please see Annex [AAA](./appendix-IV-SPDX-license-expressions.md) for more examples and details of the license expression specific syntax.
 
 If you can’t express the license(s) as an expression using identifiers from the SPDX list, it is probably best to just put the text of your license header in the file (if there is a standard header), or refer to a neutral site URL where the text can be found. To request a license be added to the SPDX License List, please follow the process described here: [http://spdx.org/spdx-license-list/request-new-license-or-exception](http://spdx.org/spdx-license-list/request-new-license-or-exception).
 
