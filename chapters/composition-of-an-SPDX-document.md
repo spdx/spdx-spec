@@ -35,7 +35,7 @@ In `tag:value` format, the order in which package and files occur is syntactical
 
 See [Clause P](3-package-information.md) for details of the fields in this kind of Fact.
 
-### File information Fact
+### File information Fields
 
 One instance of the File Information shall exist for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
