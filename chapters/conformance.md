@@ -39,7 +39,7 @@ The data format specification and recommendations are subject to the following:
   * **tag:value** flat text file as described in this specification
   * **.xls** spreadsheets
 
-In addition to the supported formats, the following format is in development with a plan to complete the specification by SPDX 3.0:
+In addition to the supported formats, the following format is in development with a plan to complete the specification in the next release:
 
 * **Extensible Markup Language** (XML) see: https://www.w3.org/TR/2008/REC-xml-20081126/
 
