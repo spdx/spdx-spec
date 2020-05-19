@@ -1,6 +1,6 @@
-# 8 Annotations
+# Annotations fields
 
-## 8.1 Annotator <a name="8.1"></a>
+## A.1 Annotator field <a name="8.1"></a>
 
 **8.1.1** Purpose: This field identifies the person, organization or tool that has commented on a file, package, or the entire document.
 
@@ -34,9 +34,9 @@ Example:
 </Annotation>
 ```
 
-## 8.2 Annotation Date <a name="8.2"></a>
+## A.2 Annotation date field <a name="8.2"></a>
 
-**8.2.1** Purpose: Identify when the comment was made. This is to be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.
+**8.2.1** Purpose: Identify when the comment was made. This shall be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.
 
 **8.2.2** Intent: Here, the Annotation Date can serve as a verification as to when the actual review was done.
 
@@ -73,7 +73,7 @@ Example:
 </Annotation>
 ```
 
-## 8.3 Annotation Type <a name="8.3"></a>
+## A.3 Annotation type field <a name="8.3"></a>
 
 **8.3.1** Purpose: This field describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be `REVIEW`. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of `OTHER`.
 
@@ -101,7 +101,7 @@ Example:
 </Annotation>
 ```
 
-## 8.4 SPDX Identifier Reference <a name="8.4"></a>
+## A.4 SPDX identifier reference field <a name="8.4"></a>
 
 **8.4.1** Purpose: Uniquely identify the element in an SPDX document which is being referenced. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
 
@@ -144,7 +144,7 @@ For RDF, the annotations are a property of the SPDX Document, Package, File, or 
 </File>
 ```
 
-## 8.5 Annotation Comment <a name="8.5"></a>
+## A.5 Annotation comment field <a name="8.5"></a>
 
 **8.5.1** Purpose: This required free form text field permits the annotator to provide commentary on the analysis.
 
@@ -152,7 +152,7 @@ For RDF, the annotations are a property of the SPDX Document, Package, File, or 
 
 **8.5.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
 
-**8.5.4** Data Format: Free form text that can span multiple lines.
+**8.5.4** Data Format: Free form text that may span multiple lines.
 
 **8.5.5** Tag: `AnnotationComment:`
 

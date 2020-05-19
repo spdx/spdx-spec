@@ -1,16 +1,10 @@
-# 6 Other Licensing Information Detected
+# Other licensing information detected fields
 
-This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list see: [https://spdx.org/licenses/](https://spdx.org/licenses/). The SPDX License List can also be found here in [Appendix I](appendix-I-SPDX-license-list.md).
-
-One instance should be created for every unique license or licensing information reference detected in package that does not match one of the licenses on the SPDX License List. Each license instance should have the following fields.
-
-Fields:
-
-## 6.1 License Identifier <a name="6.1"></a>
+## L.1 License identifier field <a name="6.1"></a>
 
 **6.1.1** Purpose: Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (sections [3](3-package-information.md) and [4](4-file-information.md), respectively).
 
-**6.1.2** Intent: Create a human readable short form license identifier for a license not on the SPDX License List. This identifier should be unique within the SPDX file. In previous versions of SPDX, the references were required to be sequential numbers, but as of version 1.2, creators may specify references that are easier for humans to remember and mentally map.
+**6.1.2** Intent: Create a human readable short form license identifier for a license not on the SPDX License List. This identifier shall be unique within the SPDX file. In previous versions of SPDX, the references were required to be sequential numbers, but as of version 1.2, creators may specify references that are easier for humans to remember and mentally map.
 
 **6.1.3** Cardinality: Conditional (mandatory, one) if license is not on SPDX License List.
 
@@ -48,7 +42,7 @@ Examples:
 </ExtractedLicensingInfo>
 ```
 
-## 6.2 Extracted Text <a name="6.2"></a>
+## L.2 Extracted text field <a name="6.2"></a>
 
 **6.2.1** Purpose: Provide a copy of the actual text of the license reference extracted from the package or file that is associated with the License Identifier to aid in future analysis.
 
@@ -94,7 +88,7 @@ Example 2 (if indeed full text of license present in File):
 </ExtractedLicensingInfo>
 ```
 
-## 6.3 License Name <a name="6.3"></a>
+## L.3 License name field <a name="6.3"></a>
 
 **6.3.1** Purpose: Provide a common name of the license that is not on the SPDX list.
 
@@ -124,7 +118,7 @@ Example:
 </ExtractedLicensingInfo>
 ```
 
-## 6.4 License Cross Reference <a name="6.4"></a>
+## L.4 License cross reference field <a name="6.4"></a>
 
 **6.4.1** Purpose: Provide a pointer to the official source of a license that is not included in the SPDX License List, that is referenced by the License Identifier.
 
@@ -152,7 +146,7 @@ Example:
 </ExtractedLicensingInfo>
 ```
 
-## 6.5 License Comment <a name="6.5"></a>
+## L.5 License comment field <a name="6.5"></a>
 
 **6.5.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the license.
 
