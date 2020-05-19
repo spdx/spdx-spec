@@ -34,6 +34,22 @@ Example:
 </Annotation>
 ```
 
+**8.1.7**  YAML: `annotator:`
+
+Example:
+
+```text
+annotator: "Person: Jane Doe ()"
+```
+
+**8.1.8**  JSON: `"annotator":`
+
+Example:
+
+```text
+"annotator": "Person: Jane Doe ()"
+```
+
 ## A.2 Annotation date field <a name="8.2"></a>
 
 **8.2.1** Purpose: Identify when the comment was made. This shall be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.
@@ -73,6 +89,22 @@ Example:
 </Annotation>
 ```
 
+**8.2.7** YAML: `annotationDate:`
+
+Example:
+
+```text
+annotationDate: "2010-01-29T18:30:22Z"
+```
+
+**8.2.8** JSON: `"annotationDate":`
+
+Example:
+
+```text
+"annotationDate": "2010-01-29T18:30:22Z"
+```
+
 ## A.3 Annotation type field <a name="8.3"></a>
 
 **8.3.1** Purpose: This field describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be `REVIEW`. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of `OTHER`.
@@ -99,6 +131,22 @@ Example:
 <Annotation>
     <annotationType rdf:resource="http://spdx.org/rdf/terms#annotationType_other"/>
 </Annotation>
+```
+
+**8.3.7** YAML: `annotationType:`
+
+Example:
+
+```text
+annotationType: "REVIEW"
+```
+
+**8.3.8** JSON: `"annotationType":`
+
+Example:
+
+```text
+"annotationType": "REVIEW"
 ```
 
 ## A.4 SPDX identifier reference field <a name="8.4"></a>
@@ -144,6 +192,38 @@ For RDF, the annotations are a property of the SPDX Document, Package, File, or 
 </File>
 ```
 
+**8.4.7** YAML:
+
+For YAML, the annotations are a property of the SPDX element it is annotating.
+
+```text
+Document:
+    annotations:
+        - annotationDate: "2010-01-29T18:30:22Z"
+          annotationType: "OTHER"
+          annotator: "Person: Jane Doe()"
+          comment: "Document level annotation"
+        - ...
+```
+
+**8.4.8** JSON:
+
+For JSON, the annotations are a property of the SPDX element it is annotating.
+
+```text
+"Document": {
+    "annotations": [
+        {
+            "annotationDate": "2010-01-29T18:30:22Z",
+            "annotationType": "OTHER",
+            "annotator": "Person: Jane Doe()",
+            "comment": "Document level annotation"
+        },
+        ...
+    ]
+}
+```
+
 ## A.5 Annotation comment field <a name="8.5"></a>
 
 **8.5.1** Purpose: This required free form text field permits the annotator to provide commentary on the analysis.
@@ -177,4 +257,26 @@ Example:
     but the concluded license is one of the options.
     </rdfs:comment>
 </Annotation>
+```
+
+**8.5.7** YAML: `comment:`
+
+Example:
+
+```text
+comment: |
+  All of the licenses seen in the file, are matching what was seen during manual inspection.
+
+  There are some terms that can influence the concluded license, and some alternatives may be possible,
+  but the concluded license is one of the options.
+```
+
+**8.5.8** JSON: `"comment":`
+
+In JSON format line breaks need to be escaped as `\n`.
+
+Example:
+
+```text
+"comment": "All of the licenses seen in the file, are matching what was seen during manual inspection.\n\nThere are some terms that can influence the concluded license, and some alternatives may be possible,\n but the concluded license is one of the options."
 ```
