@@ -71,27 +71,27 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">5 Snippet Information</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#51-snippet-spdx-identifier">5.1 Snippet SPDX Identifier </a>
+    <li class="toctree-l2"><a class="reference internal" href="#s1-snippet-spdx-identifier-field">S.1 Snippet SPDX identifier field </a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#52-snippet-from-file-spdx-identifier">5.2 Snippet from File SPDX Identifier </a>
+    <li class="toctree-l2"><a class="reference internal" href="#s2-snippet-from-file-spdx-identifier-field">S.2 Snippet from file SPDX identifier field </a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#53-snippet-byte-range">5.3 Snippet Byte Range </a>
+    <li class="toctree-l2"><a class="reference internal" href="#s3-snippet-byte-range-field">S.3 Snippet byte range field </a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#54-snippet-line-range">5.4 Snippet Line Range </a>
+    <li class="toctree-l2"><a class="reference internal" href="#s4-snippet-line-range-field">S.4 Snippet line range field </a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#55-snippet-concluded-license">5.5 Snippet Concluded License </a>
+    <li class="toctree-l2"><a class="reference internal" href="#s5-snippet-concluded-license-field">S.5 Snippet concluded license field </a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#56-license-information-in-snippet">5.6 License Information in Snippet </a>
+    <li class="toctree-l2"><a class="reference internal" href="#s6-license-information-in-snippet-field">S.6 License information in snippet field </a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#57-snippet-comments-on-license">5.7 Snippet Comments on License </a>
+    <li class="toctree-l2"><a class="reference internal" href="#s7-snippet-comments-on-license-field">S.7 Snippet comments on license field </a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#58-snippet-copyright-text">5.8 Snippet Copyright Text </a>
+    <li class="toctree-l2"><a class="reference internal" href="#s8-snippet-copyright-text-field">S.8 Snippet copyright text field </a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#59-snippet-comment">5.9 Snippet Comment </a>
+    <li class="toctree-l2"><a class="reference internal" href="#s9-snippet-comment-field">S.9 Snippet comment field </a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#510-snippet-name">5.10 Snippet Name </a>
+    <li class="toctree-l2"><a class="reference internal" href="#s10-snippet-name-field">S.10 Snippet name field </a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#511-snippet-attribution-text">5.11 Snippet Attribution Text </a>
+    <li class="toctree-l2"><a class="reference internal" href="#s11-snippet-attribution-text-field">S.11 Snippet attribution text field </a>
     </li>
     </ul>
                     </li>
@@ -180,17 +180,8 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="5-snippet-information">5 Snippet Information</h1>
-<p>Snippets can optionally be used when a file is known to have some content that has been included from another original source. They are useful for denoting when part of a file may have been originally created under another license.</p>
-<p>Each instance of Snippet Information needs to be associated with a specific File in an SPDX Document.</p>
-<p>When implementing <code>tag:value</code> format, the positioning of Snippet elements is syntactically significant:</p>
-<ul>
-<li>If a File contains Snippets, the Snippet Information section should follow a related File Information section (if it exists in the document).</li>
-<li>Presence of a new file or package section signals the end of the set of snippets associated with the original file, unless an explicit Relationship is used.</li>
-<li>The first field to start off the description of a Snippet must be the Snippet Identifier in <code>tag:value</code> format.</li>
-<li>Annotations on the Snippet and Relationships from the Snippet may appear after the Snippet Information, before the next file or Package section.</li>
-</ul>
-<h2 id="51-snippet-spdx-identifier">5.1 Snippet SPDX Identifier <a name="5.1"></a></h2>
+                <h1 id="snippet-information-fields">Snippet information fields</h1>
+<h2 id="s1-snippet-spdx-identifier-field">S.1 Snippet SPDX identifier field <a name="5.1"></a></h2>
 <p><strong>5.1.1</strong> Purpose: Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier.</p>
 <p><strong>5.1.2</strong> Intent: There may be several instances of a snippet within an SPDX document. Each snippet is an element which needs to be able to be referred to uniquely so that relationships between it and other elements can be clearly articulated.</p>
 <p><strong>5.1.3</strong> Cardinality: Mandatory, one.</p>
@@ -201,7 +192,7 @@
 <pre class="codehilite"><code class="language-text">SnippetSPDXID: SPDXRef-1</code></pre>
 
 
-<p><strong>5.1.6</strong> RDF: The URI for the element will follow the form: <code>[SpdxDocumentURI]#SPDXRef-[idstring]</code> where <code>[SpdxDocumentURI]</code> is the URI for the SPDX Document containing the element.</p>
+<p><strong>5.1.6</strong> RDF: The URI for the element shall follow the form: <code>[SpdxDocumentURI]#SPDXRef-[idstring]</code> where <code>[SpdxDocumentURI]</code> is the URI for the SPDX Document containing the element.</p>
 <p>Example using xml:base:</p>
 <pre class="codehilite"><code class="language-text">&lt;rdf:RDF xml:base=&quot;http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B&quot;
     ...
@@ -216,13 +207,13 @@
 &lt;/Snippet&gt;</code></pre>
 
 
-<h2 id="52-snippet-from-file-spdx-identifier">5.2 Snippet from File SPDX Identifier <a name="5.2"></a></h2>
+<h2 id="s2-snippet-from-file-spdx-identifier-field">S.2 Snippet from file SPDX identifier field <a name="5.2"></a></h2>
 <p><strong>5.2.1</strong> Purpose: Uniquely identify the file in an SPDX document which this snippet is associated with.</p>
 <p><strong>5.2.2</strong> Intent: There may be several versions of the same file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.</p>
 <p><strong>5.2.3</strong> Cardinality: Mandatory, one.</p>
 <p><strong>5.2.4</strong> Data Format: ["DocumentRef-"[idstring]":"] SPDXID</p>
-<p>where <code>DocumentRef-[idstring]</code>: is an optional reference to an external SPDX document as described in <a href="../2-document-creation-information/#2.6">section 2.6</a></p>
-<p>where <code>SPDXID</code> is a string containing letters, numbers, <code>.</code> and/or <code>-</code>. as described in sections (2.3, 3.2, 4.2).</p>
+<p>where <code>DocumentRef-[idstring]</code>: is an optional reference to an external SPDX document as described in <a href="../2-document-creation-information/#2.6">D.6</a></p>
+<p>where <code>SPDXID</code> is a string containing letters, numbers, <code>.</code> and/or <code>-</code>. as described in (D.3, P.2, F.2).</p>
 <p><strong>5.2.5</strong> Tag: <code>SnippetFromFileSPDXID:</code></p>
 <p>Example (snippet from a File in local SPDX Doc):</p>
 <pre class="codehilite"><code class="language-text">SnippetFromFileSPDXID: SPDXRef-filecontainingsnippet</code></pre>
@@ -247,7 +238,7 @@
 &lt;/Snippet&gt;</code></pre>
 
 
-<h2 id="53-snippet-byte-range">5.3 Snippet Byte Range <a name="5.3"></a></h2>
+<h2 id="s3-snippet-byte-range-field">S.3 Snippet byte range field <a name="5.3"></a></h2>
 <p><strong>5.3.1</strong> Purpose: This field defines the byte range in the original host file (in <a href="#5.2">5.2</a>) that the snippet information applies to.</p>
 <p><strong>5.3.2</strong> Intent: A range of bytes is independent of various formatting concerns, and the most accurate way of referring to the differences. The choice was made to start the numbering of the byte range at 1 to be consistent with the W3C pointer method vocabulary (see <a href="http://www.w3.org/TR/Pointers-in-RDF10/">http://www.w3.org/TR/Pointers-in-RDF10/</a>).</p>
 <p><strong>5.3.3</strong> Cardinality: Mandatory, one.</p>
@@ -293,8 +284,8 @@
 <pre class="codehilite"><code class="language-text">xmlns:ptr=http://www.w3.org/2009/pointers#</code></pre>
 
 
-<h2 id="54-snippet-line-range">5.4 Snippet Line Range <a name="5.4"></a></h2>
-<p><strong>5.4.1</strong> Purpose: This optional field defines the line range in the original host file (in <a href="#5.2">5.2</a>) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.</p>
+<h2 id="s4-snippet-line-range-field">S.4 Snippet line range field <a name="5.4"></a></h2>
+<p><strong>5.4.1</strong> Purpose: This optional field defines the line range in the original host file (see <a href="#5.2">S.2</a>) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.</p>
 <p><strong>5.4.2</strong> Intent: A range of lines is a convenient reference for those files where there is a known line delimiter. The choice was made to start the numbering of the lines at 1 to be consistent with the W3C pointer method vocabulary (see <a href="http://www.w3.org/TR/Pointers-in-RDF10/">http://www.w3.org/TR/Pointers-in-RDF10/</a>).</p>
 <p><strong>5.4.3</strong> Cardinality: Optional, one.</p>
 <p><strong>5.4.4</strong> Data Format: <code>number1:number2</code></p>
@@ -334,16 +325,16 @@ AND <code>number2</code> is less than or equal to the total number of lines in f
 &lt;/Snippet&gt;</code></pre>
 
 
-<h2 id="55-snippet-concluded-license">5.5 Snippet Concluded License <a name="5.5"></a></h2>
+<h2 id="s5-snippet-concluded-license-field">S.5 Snippet concluded license field <a name="5.5"></a></h2>
 <p><strong>5.5.1</strong> Purpose: This field contains the license the SPDX file creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:</p>
-<p>A valid SPDX License Expression as defined in <a href="../appendix-IV-SPDX-license-expressions/">Appendix IV</a>.</p>
+<p>A valid SPDX License Expression as defined in Annex <a href="../appendix-IV-SPDX-license-expressions/">AAA</a>.</p>
 <p><code>NONE</code> should be used if there is no licensing information from which to conclude a license for the snippet.</p>
 <p><code>NOASSERTION</code> should be used if for the snippet:</p>
 <p>(i) the SPDX document creator has attempted to, but cannot reach a reasonable objective determination of the Concluded License;</p>
 <p>(ii) the SPDX document creator is uncomfortable concluding a license, despite some license information being available;</p>
 <p>(iii) the SPDX document creator has made no attempt to determine a Concluded License;</p>
 <p>(iv) the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).</p>
-<p>If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (<a href="#5.7">section 5.7</a>). With respect to <code>NOASSERTION</code>, a written explanation in the Comments on License field (<a href="#5.7">section 5.7</a>) is preferred.</p>
+<p>If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (see <a href="#5.7">S.7</a>). With respect to <code>NOASSERTION</code>, a written explanation in the Comments on License field (see <a href="#5.7">S.7</a>) is preferred.</p>
 <p><strong>5.5.2</strong> Intent: Here, the intent is for the SPDX document creator to reconcile the license information known about the snippet,  what license information is in the file itself and other objective information for a package, along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the snippet.</p>
 <p><strong>5.5.3</strong> Cardinality: Mandatory, one.</p>
 <p><strong>5.5.4</strong> Data Format: <code>&lt;SPDX License Expression&gt;</code> | <code>NONE</code> | <code>NOASSERTION</code></p>
@@ -378,7 +369,7 @@ AND <code>number2</code> is less than or equal to the total number of lines in f
 &lt;/Snippet&gt;</code></pre>
 
 
-<h2 id="56-license-information-in-snippet">5.6 License Information in Snippet <a name="5.6"></a></h2>
+<h2 id="s6-license-information-in-snippet-field">S.6 License information in snippet field <a name="5.6"></a></h2>
 <p><strong>5.6.1</strong> Purpose: This field contains the license information actually found in the snippet, if any. Any license information not actually in the snippet itself, e.g., header of the file the snippet belongs in, “COPYING.txt” file in a top level directory, should not be reflected in this field.</p>
 <p>The options to populate this field are limited to:</p>
 <p>The SPDX License List short form identifier, if the license is on the SPDX License List;
@@ -395,9 +386,9 @@ A reference to the license, denoted by LicenseRef-<code>[idstring]</code>, if th
 <p>| <code>NONE</code> | <code>NOASSERTION</code></p>
 <p>where:</p>
 <p><code>&lt;SPDX License Expression&gt;</code> is a valid SPDX License Expression</p>
-<p>as defined in <a href="../appendix-IV-SPDX-license-expressions/">Appendix IV</a>.</p>
-<p>"DocumentRef-"<code>[idstring]</code>: is an optional reference to an external SPDX</p>
-<p>document as described in <a href="../2-document-creation-information/#2.6">section 2.6</a></p>
+<p>as defined in Annex <a href="../appendix-IV-SPDX-license-expressions/">AAA</a>.</p>
+<p>DocumentRef-"<code>[idstring]</code>: is an optional reference to an external SPDX</p>
+<p>document as described in <a href="../2-document-creation-information/#2.6">D.6</a></p>
 <p><code>[idstring]</code> is a unique string containing letters, numbers, <code>.</code> and/or <code>-</code>.</p>
 <p><strong>5.6.5</strong> Tag: <code>LicenseInfoInSnippet:</code></p>
 <p>Example:</p>
@@ -415,9 +406,9 @@ A reference to the license, denoted by LicenseRef-<code>[idstring]</code>, if th
 &lt;/Snippet&gt;</code></pre>
 
 
-<h2 id="57-snippet-comments-on-license">5.7 Snippet Comments on License <a name="5.7"></a></h2>
+<h2 id="s7-snippet-comments-on-license-field">S.7 Snippet comments on license field <a name="5.7"></a></h2>
 <p><strong>5.7.1</strong> Purpose: This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a snippet.</p>
-<p><strong>5.7.2</strong> Intent: Here, the intent is to provide the recipient of the SPDX document with a detailed explanation of how the Concluded License was determined for a Snippet  if it does not match the License Information in File, is marked <code>NOASSERTION</code>, or other helpful information relevant to determining the license of the snippet in a file.</p>
+<p><strong>5.7.2</strong> Intent: Here, the intent is to provide the recipient of the SPDX document with a detailed explanation of how the Concluded License was determined for a Snippet if it does not match the License Information in File, is marked <code>NOASSERTION</code>, or other helpful information relevant to determining the license of the snippet in a file.</p>
 <p><strong>5.7.3</strong> Cardinality: Optional, one.</p>
 <p><strong>5.7.4</strong> Data Format: Free form text that can span multiple lines</p>
 <p><strong>5.7.5</strong> Tag: <code>SnippetLicenseComments:</code></p>
@@ -440,8 +431,8 @@ The concluded license information was found in the COPYING.txt file in package x
 &lt;/Snippet&gt;</code></pre>
 
 
-<h2 id="58-snippet-copyright-text">5.8 Snippet Copyright Text <a name="5.8"></a></h2>
-<p><strong>5.8.1</strong> Purpose: Identify the copyright holder of the snippet, as well as any dates present. This will be a free form text field, ideally extracted from the actual snippet.  The options to populate this field are limited to:</p>
+<h2 id="s8-snippet-copyright-text-field">S.8 Snippet copyright text field <a name="5.8"></a></h2>
+<p><strong>5.8.1</strong> Purpose: Identify the copyright holder of the snippet, as well as any dates present. This shall be a free form text field, ideally extracted from the actual snippet.  The options to populate this field are limited to:</p>
 <p>any text relating to a copyright notice, even if not complete;</p>
 <p><code>NONE</code>, if the file contains no copyright information whatsoever; or</p>
 <p><code>NOASSERTION</code>, if the SPDX document creator has not examined the contents of the actual file or if the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).</p>
@@ -465,7 +456,7 @@ The concluded license information was found in the COPYING.txt file in package x
 &lt;/Snippet&gt;</code></pre>
 
 
-<h2 id="59-snippet-comment">5.9 Snippet Comment <a name="5.9"></a></h2>
+<h2 id="s9-snippet-comment-field">S.9 Snippet comment field <a name="5.9"></a></h2>
 <p><strong>5.9.1</strong> Purpose: This field provides a place for the SPDX document creator to record any general comments about the snippet.</p>
 <p><strong>5.9.2</strong> Intent: Here, the intent is to provide the recipient of the SPDX document with more information determined after careful analysis of a snippet.</p>
 <p><strong>5.9.3</strong> Cardinality: Optional, one.</p>
@@ -490,9 +481,9 @@ when a commercial scanner identified it as being derived from file foo.c in pack
 &lt;/Snippet&gt;</code></pre>
 
 
-<h2 id="510-snippet-name">5.10 Snippet Name <a name="5.10"></a></h2>
+<h2 id="s10-snippet-name-field">S.10 Snippet name field <a name="5.10"></a></h2>
 <p><strong>5.10.1</strong> Purpose: Identify a specific snippet in a human convenient manner.</p>
-<p><strong>5.10.2</strong> Intent: To aid in identifying a snippet under discussion that may be used in multiple locations, and for consistency with the ability to refer to any copyrightable SPDX Element by name.</p>
+<p><strong>5.10.2</strong> Intent: To aid in identifying a snippet under discussion that might be used in multiple locations, and for consistency with the ability to refer to any copyrightable SPDX Element by name.</p>
 <p><strong>5.10.3</strong> Cardinality: Optional, one.</p>
 <p><strong>5.10.4</strong> Data Format: Single line of text</p>
 <p><strong>5.10.5</strong> Tag: <code>SnippetName:</code></p>
@@ -507,9 +498,9 @@ when a commercial scanner identified it as being derived from file foo.c in pack
 &lt;/Snippet&gt;</code></pre>
 
 
-<h2 id="511-snippet-attribution-text">5.11 Snippet Attribution Text <a name="5.11"></a></h2>
-<p><strong>5.11.1</strong> Purpose: This field provides a place for the SPDX data creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see <code>SnippetLicenseConcluded</code> and <code>LicenseInfoInSnippet</code>), and may or may not include copyright notices (see also <code>SnippetCopyrightText</code>). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.</p>
-<p><strong>5.11.2</strong> Intent: The intent is to provide the recipient of the SPDX file with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator may or may not explain elsewhere how they intend for this field to be used.</p>
+<h2 id="s11-snippet-attribution-text-field">S.11 Snippet attribution text field <a name="5.11"></a></h2>
+<p><strong>5.11.1</strong> Purpose: This field provides a place for the SPDX data creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see <code>SnippetLicenseConcluded</code> and <code>LicenseInfoInSnippet</code>), and might or might not include copyright notices (see also <code>SnippetCopyrightText</code>). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce.</p>
+<p><strong>5.11.2</strong> Intent: The intent is to provide the recipient of the SPDX file with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator might or might not explain elsewhere how they intend for this field to be used.</p>
 <p><strong>5.11.3</strong> Cardinality: Optional, one or many.</p>
 <p><strong>5.11.4</strong> Data Format: free form text that can span multiple lines.</p>
 <p><strong>5.11.5</strong> Tag: <code>SnippetAttributionText:</code></p>
