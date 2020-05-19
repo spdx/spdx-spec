@@ -139,7 +139,7 @@ NOTE The URI does not have to be accessible. It is only intended to provide a un
 | Format | Example |
 | -------- | ------- |
 | Tag/Value | `DocumentNamespace: http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...` |
-| RDF | `<SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<rdfs:comment>This document was created using SPDX 2.0 using licenses from the web site.</rdfs:comment>`<br>`</SpdxDocument>`<br>This specification uses the prefix `rdfs:` to refer to the [RDF Schema][rdf-schema] namespace:<br>`http://www.w3.org/2000/01/rdf-schema#` |
+| RDF | `<SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<rdfs:comment>This document was created using SPDX 2.0 using licenses from the web site.</rdfs:comment>`<br>`</SpdxDocument>`<br><br>This specification uses the prefix `rdfs:` to refer to the [RDF Schema][rdf-schema] namespace:<br><br>`http://www.w3.org/2000/01/rdf-schema#` |
 
 ## 6.6 External document references field <a name="2.6"></a>
 
@@ -164,7 +164,7 @@ SPDX elements within this document may be related to other SPDX elements referen
 | Format | Example |
 | -------- | ------- |
 | Tag/Value | `ExternalDocumentRef:DocumentRef-spdx-tool-1.2 http://spdx.org/spdxdocs/spdx-tools- v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301 SHA1: d6a770ba38583ed4bb4525bd96e50461655d2759` |
-| RDF | `<externalDocumentRef rdf:ID="DocumentRef-spdx-tool-1.2">`<br>`    <ExternalDocumentRef>`<br>`        <spdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..." />`<br>`        <checksum>`<br>`            <Checksum>`<br>`                <algorithm rdf:resource="checksumAlgorithm_sha1"/>`<br>`                <checksumValue>d6a770ba38583ed4bb4525bd96e50461655d2758`<br>`                </checksumValue>`<br>`            </Checksum>`<br>`        </checksum>`<br>`    </ExternalDocumentRef>`<br>`</externalDocumentRef>`<br>Notes: in RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired. |
+| RDF | `<externalDocumentRef rdf:ID="DocumentRef-spdx-tool-1.2">`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<ExternalDocumentRef>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<spdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..." />`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<checksum>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<Checksum>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<algorithm rdf:resource="checksumAlgorithm_sha1"/>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<checksumValue>d6a770ba38583ed4bb4525bd96e50461655d2758`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`</checksumValue>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`</Checksum>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`</checksum>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`</ExternalDocumentRef>`<br>`</externalDocumentRef>`<br><br>Notes: in RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired. |
 
 ## 6.7 License list version field <a name="2.7"></a>
 
@@ -189,7 +189,7 @@ Recognizing that licenses are added to the SPDX License List with each subsequen
 | Format | Example |
 | -------- | ------- |
 | Tag/Value | `LicenseListVersion: 3.8` |
-| RDF | `<CreationInfo>`<br>`    <licenseListVersion>3.8</licenseListVersion>`<br>`</CreationInfo>` |
+| RDF | `<CreationInfo>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<licenseListVersion>3.8</licenseListVersion>`<br>`</CreationInfo>` |
 
 ## 6.8 Creator field <a name="2.8"></a>
 
@@ -214,7 +214,7 @@ Here, the generation method will assist the recipient of the SPDX file in assess
 | Format | Example |
 | -------- | ------- |
 | Tag/Value | `Creator: Person: Jane Doe ()`<br>`Creator: Organization: ExampleCodeInspect ()`<br>`Creator: Tool: LicenseFind-1.0` |
-| RDF | `<CreationInfo>`<br>`    <creator> Person: Jane Doe () </creator>`<br>`    <creator> Organization: ExampleCodeInspect () </creator>`<br>`    <creator> Tool: LicenseFind-1.0 </creator>`<br>`</CreationInfo>` |
+| RDF | `<CreationInfo>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<creator> Person: Jane Doe () </creator>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<creator> Organization: ExampleCodeInspect () </creator>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<creator> Tool: LicenseFind-1.0 </creator>`<br>`</CreationInfo>` |
 
 ## 6.9 Created field <a name="2.9"></a>
 
@@ -239,7 +239,7 @@ Here, the time stamp can serve as an indication as to whether the analysis needs
 | Format | Example |
 | -------- | ------- |
 | Tag/Value | `Created: 2010-01-29T18:30:22Z` |
-| RDF | `<CreationInfo>`<br>`    <created> 2010-01-29T18:30:22Z </created>`<br>`</CreationInfo>` |
+| RDF | `<CreationInfo>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<created> 2010-01-29T18:30:22Z </created>`<br>`</CreationInfo>` |
 
 ## 6.10 Creator comment field <a name="2.10"></a>
 
@@ -264,7 +264,7 @@ Here, the intent is to provide recipients of the SPDX file with comments by the 
 | Format | Example |
 | -------- | ------- |
 | Tag/Value | `CreatorComment: <text>This SPDX file was created by a combination of using a free tool,`<br>`as indicated above, and manual analysis by several authors of the code.</text>` |
-| RDF | `<CreationInfo>`<br>`    <rdfs:comment>This SPDX file was created by a combination of using a free tool, as indicated above,`<br>`    and manual analysis by several authors of the code.</rdfs:comment>`<br>`</CreationInfo>` |
+| RDF | `<CreationInfo>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<rdfs:comment>This SPDX file was created by a combination of using a free tool, as indicated above,`<br>&nbsp;&nbsp;&nbsp;&nbsp;`and manual analysis by several authors of the code.</rdfs:comment>`<br>`</CreationInfo>` |
 
 ## 6.11 Document comment field <a name="2.11"></a>
 
@@ -289,4 +289,4 @@ Here, the intent is to provide readers/reviewers with comments by the creator of
 | Format | Example |
 | -------- | ------- |
 | Tag/Value | `DocumentComment: <text>This document was created using SPDX 2.0,`<br>`version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.</text>` |
-| RDF | `<SpdxDocument rdf:about="...">`<br>`    <rdfs:comment>`<br>`      This document was created using SPDX 2.0, version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.`<br>`    </rdfs:comment>`<br>`</SpdxDocument>`<br><br>[rdf]: https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/<br>[rdf-schema]: https://www.w3.org/TR/2014/REC-rdf-schema-20140225/ |
+| RDF | `<SpdxDocument rdf:about="...">`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<rdfs:comment>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`This document was created using SPDX 2.0, version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.`<br>&nbsp;&nbsp;&nbsp;&nbsp;`</rdfs:comment>`<br>`</SpdxDocument>`<br><br>[rdf]: https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/<br>[rdf-schema]: https://www.w3.org/TR/2014/REC-rdf-schema-20140225/ |
