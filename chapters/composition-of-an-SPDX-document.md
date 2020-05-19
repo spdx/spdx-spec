@@ -2,8 +2,6 @@
 
 ## What this specification covers
 
-> correct the following zero/one statement
-
 This document contains the specification for an SPDX document, which is made up of a set of **zero/one** or more Facts, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of Facts allowed. The fields for each kind of Fact are defined in the clause corresponding to that Fact.
 
 ## Facts
@@ -87,6 +85,14 @@ See [Clause R](7-relationships-between-SPDX-elements.md) for details of the fiel
 > ToDo: there was no intro text in Chapter 8 to move here, but, presumably, we should say something.
 
 See [Clause A](8-annotations.md) for details of the fields in this kind of Fact.
+
+### Review information Fact
+
+The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information shall use an Annotation (as described in [section 8](./8-annotations.md)) with an annotation type of `REVIEW`.
+
+Review information may be added after the initial SPDX file has been created. The set of fields are optional and multiple instances may be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date shall not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
+
+See [Clause I](9-review-information-deprecated.md) for details of the fields in this kind of Fact.
 
 ## Fact organization
 

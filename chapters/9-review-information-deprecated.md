@@ -1,12 +1,12 @@
-# 9 Review Information (deprecated)
+# Review information fields (deprecated)
 
-The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information should use an Annotation (as described in [section 8](./8-annotations.md)) with an annotation type of `REVIEW`.
+The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information should use an Annotation (as described in Clause [A](./8-annotations.md)) with an annotation type of `REVIEW`.
 
 Review information can be added after the initial SPDX file has been created. The set of fields are optional and multiple instances can be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date should not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
 
 Fields:
 
-## 9.1 Reviewer (deprecated) <a name="9.1"></a>
+## I.1 Reviewer field (deprecated) <a name="9.1"></a>
 
 This field has been deprecated since SPDX 2.0.
 
@@ -42,11 +42,11 @@ Example:
 </Review>
 ```
 
-## 9.2 Review Date (deprecated) <a name="9.2"></a>
+## I.2 Review date field (deprecated) <a name="9.2"></a>
 
 This field has been deprecated since SPDX 2.0.
 
-**9.2.1** Purpose: Identify when the review was done. This is to be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.
+**9.2.1** Purpose: Identify when the review was done. This shall be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.
 
 **9.2.2** Intent: Here, the `ReviewDate` can serve as a verification as to when the actual review was done.
 
@@ -83,7 +83,7 @@ Example:
 </Review>
 ```
 
-## 9.3 Review Comment (deprecated) <a name="9.3"></a>
+## I.3 Review comment field (deprecated) <a name="9.3"></a>
 
 This field is deprecated since SPDX 2.0.
 
@@ -93,7 +93,7 @@ This field is deprecated since SPDX 2.0.
 
 **9.3.3** Cardinality: Optional, one.
 
-**9.3.4** Data Format: Free form text that can span multiple lines.
+**9.3.4** Data Format: Free form text that may span multiple lines.
 
 **9.3.5** Tag: `ReviewComment:`
 

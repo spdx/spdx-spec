@@ -187,7 +187,7 @@ Example:
 
 The options to populate this field are limited to:
 
-A valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md);
+A valid SPDX License Expression as defined in Annex [AAA](appendix-IV-SPDX-license-expressions.md);
 
 `NONE`, if the SPDX file creator concludes there is no license available for this file; or
 
@@ -199,9 +199,9 @@ A valid SPDX License Expression as defined in [Appendix IV](appendix-IV-SPDX-lic
 
 (iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field [(section 4.7)](#4.7). With respect to `NOASSERTION`, a written explanation in the Comments on License field [(section 4.7)](#4.7) is preferred.
+If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([F.7](#4.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([F.7](#4.7)) is preferred.
 
-**4.5.2** Intent: Here, the intent is for the SPDX file creator to analyze the License Information in File [(section 4.6)](#4.6) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
+**4.5.2** Intent: Here, the intent is for the SPDX file creator to analyze the License Information in File ([F.6](#4.6)) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
 
 **4.5.3** Cardinality: Mandatory, one.
 
@@ -281,11 +281,11 @@ where:
 
 `<SPDX License Expression>` is a valid SPDX License Expression
 
-as defined in [Appendix IV](appendix-IV-SPDX-license-expressions.md).
+as defined in Annex [AAA](appendix-IV-SPDX-license-expressions.md).
 
 "DocumentRef-"`[idstring]`: is an optional reference to an external SPDX
 
-document as described in [section 2.6](2-document-creation-information.md#2.6)
+document as described in [D.6](2-document-creation-information.md#2.6)
 
 `[idstring]` is a unique string containing letters, numbers, `.` and/or `-`
 
@@ -627,7 +627,7 @@ Example:
 
 ## F.16 File dependencies field (deprecated) <a name="4.16"></a>
 
-This field is deprecated since SPDX 2.0 in favor of using [Section 7](7-relationships-between-SPDX-elements.md) which provides more granularity about relationships.
+This field is deprecated since SPDX 2.0 in favor of using Clause [R](7-relationships-between-SPDX-elements.md) which provides more granularity about relationships.
 
 **4.16.1** Purpose: The field provides a place for the SPDX file creator to record a list of other files (referenceable within this SPDX file) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files might not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or might be needed as part of the file distribution obligation.
 

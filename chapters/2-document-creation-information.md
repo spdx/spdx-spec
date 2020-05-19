@@ -112,11 +112,11 @@ The URI shall be unique for the SPDX document including the specific version of 
 
 **Intent**
 
-The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See [section 2.6](#2.6) for a description on how external documents are referenced. Although it is not required, the URI may be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
+The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See [D.6](#2.6) for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
 
 * `CreatorWebsite` is a website hosted by the creator of the document. (e.g. an SPDX document provided by SPDX would be spdx.org)
 * `PathToSpdx` is a path to where SPDX documents are stored on the website (e.g. /spdx/spdxdocs)
-* `DocumentName` is a name given to the SPDX Document itself, typically the (set of) package name(s) followed by the version. [(see section 2.4)](#2.4).
+* `DocumentName` is a name given to the SPDX Document itself, typically the (set of) package name(s) followed by the version. (See [D.4](#2.4).)
 * `UUID` is a [universally unique identifier][URI]. The UUID could be a version 4 random UUID which can be generated from the [Online UUID Generator][uuid-gen] or a version 5 UUID generated from a sha1 checksum known to be unique for this specific SPDX document version.
 * If the creator does not own their own website, a default SPDX CreatorWebsite and PathToSpdx can be used `spdx.org/spdxdocs`. Note that the SPDX documents are not currently stored or accessible on this website. The URI is only used to create a unique ID following the above conventions.
 
@@ -157,7 +157,7 @@ SPDX elements within this document may be related to other SPDX elements referen
 | --------- | ----- |
 | Required | No |
 | Cardinality | 1..* |
-| Format | DocumentRef-`[idstring]` `[SPDX Document URI]` `[Checksum]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.<br>`[SPDX Document URI]` is the unique ID for the external document as defined in [section 2.5](#2.5) of that referenced document,<br> `[Checksum]` is a checksum of the external document following the checksum format defined in [section 4.4](4-file-information#4.4). |
+| Format | DocumentRef-`[idstring]` `[SPDX Document URI]` `[Checksum]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.<br>`[SPDX Document URI]` is the unique ID for the external document as defined in [D.5](#2.5) of that referenced document,<br> `[Checksum]` is a checksum of the external document following the checksum format defined in [F.4](4-file-information#4.4). |
 
 **Examples**
 
@@ -220,7 +220,7 @@ Here, the generation method will assist the recipient of the SPDX file in assess
 
 **Description**
 
-Identify when the SPDX file was originally created. The date shall be specified according to combined date and time in UTC format as specified in ISO 8601. This field is distinct from the fields in [section 8](8-annotations.md), which involves the addition of information during a subsequent review.
+Identify when the SPDX file was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in Clause [A](8-annotations.md), which involves the addition of information during a subsequent review.
 
 **Intent**
 
