@@ -1,12 +1,12 @@
-# Composition of an SPDX document
+# 5 Composition of an SPDX document
 
-## What this specification covers
+## 5.1 What this specification covers
 
 This document contains the specification for an SPDX document, which is made up of a set of **zero/one** or more Facts, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of Facts allowed. The fields for each kind of Fact are defined in the clause corresponding to that Fact.
 
-## Facts
+## 5.2 Facts
 
-### SPDX document creation information Fact
+### 5.2.1 SPDX document creation information Fact
 
 An instance of this kind of Fact provides the necessary information for forward and backward compatibility for processing tools.
 
@@ -14,9 +14,9 @@ One instance shall be present for each SPDX file produced.
 
 Cardinality: Mandatory, one.
 
-See [Clause D](2-document-creation-information.md) for details of the fields in this kind of Fact.
+See [Clause 6](2-document-creation-information.md) for details of the fields in this kind of Fact.
 
-### Package information Fact
+### 5.2.2 Package information Fact
 
 If SPDX information is organized by grouping into packages, then one instance of the Package Information per package being described shall exist. A package may contain sub-packages, but the information in this section is a reference to the entire contents of the package listed. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
@@ -31,9 +31,9 @@ In `tag:value` format, the order in which package and files occur is syntactical
 * Sub-packages shall not be nested inside a Package Information section, but shall be separate and shall use a Relationship to clarify.
 * Annotations and Relationships for the package may appear after the Package Information before any file information.
 
-See [Clause P](3-package-information.md) for details of the fields in this kind of Fact.
+See [Clause 7](3-package-information.md) for details of the fields in this kind of Fact.
 
-### File information Fields
+### 5.2.3 File information Fields
 
 One instance of the File Information shall exist for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
@@ -49,9 +49,9 @@ When implementing `tag:value` format, the positioning of File elements is syntac
 
 When implementing file information in RDF, the `spdx:hasFile` property is used to associate the package with the file.
 
-See [Clause F](4-file-information.md) for details of the fields in this kind of Fact.
+See [Clause 8](4-file-information.md) for details of the fields in this kind of Fact.
 
-### Snippet information Fact
+### 5.2.4 Snippet information Fact
 
 Snippets can optionally be used when a file is known to have some content that has been included from another original source. They are useful for denoting when part of a file may have been originally created under another license.
 
@@ -64,47 +64,47 @@ When implementing `tag:value` format, the positioning of Snippet elements is syn
 * The first field to start off the description of a Snippet shall be the Snippet Identifier in `tag:value` format.
 * Annotations on the Snippet and Relationships from the Snippet may appear after the Snippet Information, before the next file or Package section.
 
-See [Clause S](5-snippet-information.md) for details of the fields in this kind of Fact.
+See [Clause 9](5-snippet-information.md) for details of the fields in this kind of Fact.
 
-### Other licensing information detected
+### 5.2.5 Other licensing information detected
 
-This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list, see [https://spdx.org/licenses/](https://spdx.org/licenses/). The SPDX License List can also be found here in [Appendix I](appendix-I-SPDX-license-list.md).
+This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list, see [https://spdx.org/licenses/](https://spdx.org/licenses/). The SPDX License List can also be found here in [Annex A](appendix-I-SPDX-license-list.md).
 
 One instance shall be created for every unique license or licensing information reference detected in package that does not match one of the licenses on the SPDX License List. Each license instance should have the following fields.
 
-See [Clause L](6-other-licensing-information-detected.md) for details of the fields in this kind of Fact.
+See [Clause 10](6-other-licensing-information-detected.md) for details of the fields in this kind of Fact.
 
-### Relationships Between SPDX Elements Fact
+### 5.2.6 Relationships Between SPDX Elements Fact
 
 > ToDo: there was no intro text in Chapter 7 to move here, but, presumably, we should say something.
 
-See [Clause R](7-relationships-between-SPDX-elements.md) for details of the fields in this kind of Fact.
+See [Clause 11](7-relationships-between-SPDX-elements.md) for details of the fields in this kind of Fact.
 
-### Annotations Fact
+### 5.2.7 Annotations Fact
 
 > ToDo: there was no intro text in Chapter 8 to move here, but, presumably, we should say something.
 
-See [Clause A](8-annotations.md) for details of the fields in this kind of Fact.
+See [Clause 12](8-annotations.md) for details of the fields in this kind of Fact.
 
-### Review information Fact
+### 5.2.8 Review information Fact
 
-The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information shall use an Annotation (as described in [section 8](./8-annotations.md)) with an annotation type of `REVIEW`.
+The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information shall use an Annotation (as described in [Clause 12](./8-annotations.md)) with an annotation type of `REVIEW`.
 
 Review information may be added after the initial SPDX file has been created. The set of fields are optional and multiple instances may be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date shall not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
 
-See [Clause I](9-review-information-deprecated.md) for details of the fields in this kind of Fact.
+See [Clause 13](9-review-information-deprecated.md) for details of the fields in this kind of Fact.
 
-## Fact organization
+## 5.3 Fact organization
 
 Within an SPDX document, Facts may be organized, as follows:
 
-![Overview of SPDX 2.2 document contents](img/spdx-2.2-document.png)
+![Overview of SPDX document contents](img/spdx-2.2-document.png)
 
-## What this specification does not cover
+## 5.4 What this specification does not cover
 
 This document does not address the following:
 
-* **1.5.1** Information that cannot be derived from an inspection (whether manual or using automated tools) of the package to be analyzed.
-* **1.5.2** How the data stored in an SPDX file is used by the recipient.
-* **1.5.3** Any identification of any patent(s) which may or may not relate to the package.
-* **1.5.4** Legal interpretation of the licenses or any compliance actions that have been or may need
+* Information that cannot be derived from an inspection (whether manual or using automated tools) of the package to be analyzed.
+* How the data stored in an SPDX file is used by the recipient.
+* Any identification of any patent(s) which may or may not relate to the package.
+* Legal interpretation of the licenses or any compliance actions that have been or may need
