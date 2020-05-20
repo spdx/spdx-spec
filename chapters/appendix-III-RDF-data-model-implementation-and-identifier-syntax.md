@@ -1,4 +1,6 @@
-# Appendix III: RDF Data Model Implementation and Identifier Syntax
+# Annex C RDF data model implementation and identifier syntax
+
+## C.1 Introduction
 
 SPDX ® Vocabulary Specification
 
@@ -10,7 +12,8 @@ Version: 2.2
 
 Licensed under the [Creative Commons Attribution License 3.0 Unported](http://creativecommons.org/licenses/by/3.0/).
 
-## Agent and Tool Identifiers
+## C.2 Agent and tool identifiers
+
 Fields that identify entities that have acted in relation to the SPDX file are single line of text which name the agent or
 tool and, optionally, provide contact information. For example, "Person: Jane Doe (jane.doe@example.com)",
 "Organization: ExampleCodeInspect (contact@example.com)" and "Tool: LicenseFind - 1.0". The exact syntax of agent and tool identifications is described below in [ABNF](http://tools.ietf.org/html/rfc5234).
