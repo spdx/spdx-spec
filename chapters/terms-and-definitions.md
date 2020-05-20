@@ -1,4 +1,4 @@
-# Terms and definitions
+# 3 Terms and definitions
 
 For the purposes of this document, the following terms and definitions apply.
 
