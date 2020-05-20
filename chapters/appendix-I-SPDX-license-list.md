@@ -1,4 +1,4 @@
-# Appendix I: SPDX License List
+# Annex A SPDX License List
 
 The SPDX License List is a list of commonly found licenses and exceptions used for open source and other collaborative software. The purpose of the SPDX License List is to enable easy and efficient identification of such licenses and exceptions in an SPDX document (or elsewhere). The SPDX License List includes a standardized short identifier, full name for each license, vetted license text, other basic information, and a canonical permanent URL for each license and exception. By providing a short identifier, users can efficiently refer to a license without having to redundantly reproduce the full license. License exceptions can be used with the License Expression Syntax operator, "WITH" to create a license with an exception.
 
@@ -16,7 +16,7 @@ The SPDX License List is a list of commonly found licenses and exceptions used f
 
 The following table contains the full names and short identifiers for the SPDX License List, v3.8 which was released 2020-02-09. For the full and most up-to-date version of the SPDX License List as well as other related information, please see [http://spdx.org/licenses/](http://spdx.org/licenses/)
 
-## I.1 Licenses with Short Identifiers <a name="I.1"></a>
+## A.1 Licenses with Short Identifiers <a name="I.1"></a>
 
 | Full Name of License                                                         | Short Identifier                                                                                            | OSI? |
 |------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|------|
@@ -402,7 +402,7 @@ The following table contains the full names and short identifiers for the SPDX L
 | Zope Public License 2.0                                                      | [ZPL-2.0](https://spdx.org/licenses/ZPL-2.0.html)                                                           | Y    |
 | Zope Public License 2.1                                                      | [ZPL-2.1](https://spdx.org/licenses/ZPL-2.1.html)                                                           |      |
 
-## I.2 Exceptions List <a name="I.2"></a>
+## A.2 Exceptions List <a name="I.2"></a>
 
 | Full Name of Exception                                | SPDX License Exception                                                                                |
 |-------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -444,7 +444,7 @@ The following table contains the full names and short identifiers for the SPDX L
 | Universal FOSS Exception, Version 1.0                 | [Universal-FOSS-exception-1.0](https://spdx.org/licenses/Universal-FOSS-exception-1.0.html)           |
 | WxWindows Library Exception 3.1                       | [WxWindows-exception-3.1](https://spdx.org/licenses/WxWindows-exception-3.1.html)                     |
 
-## I.3 Deprecated Licenses <a name="I.3"></a>
+## A.3 Deprecated Licenses <a name="I.3"></a>
 
 | Full Name of License                                            | Deprecated SDPX Short Identifier                                                                    |
 |-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
