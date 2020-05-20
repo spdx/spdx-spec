@@ -1,4 +1,4 @@
-# Annotations fields
+# 12 Annotations fields
 
 ## A.1 Annotator field <a name="8.1"></a>
 
@@ -113,8 +113,8 @@ Example:
 
 where:
 
-`["DocumentRef-"[idstring]":"]` is an optional reference to an external SPDX document as described in [D.6](2-document-creation-information.md#2.6)
-`SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in [D.3](2-document-creation-information.md#2.3), [P.2](3-package-information.md#3.2) and [F.2](4-file-information.md#4.2).
+`["DocumentRef-"[idstring]":"]` is an optional reference to an external SPDX document as described in [6.6](2-document-creation-information.md#2.6)
+`SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in [6.3](2-document-creation-information.md#2.3), [7.2](3-package-information.md#3.2) and [8.2](4-file-information.md#4.2).
 
 **8.4.5** Tag: `SPDXREF:`
 
