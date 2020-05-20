@@ -16,6 +16,34 @@
 
 * Miscellaneous bug fixes as reported on the mailing list and reported as issues on the [spdx-spec GitHub repository](https://github.com/spdx/spdx-spec).
 
+In this specification, new clauses were added causing the previous clause-numbering sequence to change. Also, Annexes went from having Roman numbers to Latin letters. Here is the translation between numbering in the current and previous editions:
+
+Current edition   | Title | V2.2
+:---------------: | ----- | :----:
+Clause 1  | Scope     | N/A
+Clause 2  | Normative references | N/A
+Clause 3  | Terms and definitions | N/A
+Clause 4  | Conformance | N/A
+Clause 5  | Composition of an SPDX document | N/A
+Clause 6  | Document creation information | Chapter 2
+Clause 7  | Package information | Chapter 3
+Clause 8  | File information | Chapter 4
+Clause 9  | Snippet information | Chapter 5
+Clause 10 | Other licensing information detected | Chapter 6
+Clause 11 | Relationships between SPDX elements | Chapter 7
+Clause 12 | Annotations | Chapter 8
+Clause 13 | Review information (deprecated) | Chapter 9
+Annex A   | SPDX license list | Appendix I
+Annex B   | License matching guidelines and templates | Appendix II
+Annex C   | RDF data model implementation and identifier syntax | Appendix III
+Annex D   | SPDX license expressions | Appendix IV
+Annex E   | Using SPDX short identifiers in source files | Appendix V
+Annex F   | External repository identifiers | Appendix VI
+Annex G   | Creative Commons Attribution License 3.0 Unported | Appendix VII
+Annex H   | SPDX Lite | Appendix VIII
+Annex I   | SPDX file tags | Appendix IX
+Annex J   | Differences from previous editions | N/A
+
 # J.2 Differences between V2.1 and V2.0
 
 ...
