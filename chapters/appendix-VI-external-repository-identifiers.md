@@ -1,4 +1,6 @@
-# Appendix VI: External Repository Identifiers
+# Annex F External repository identifiers
+
+## F.1 Introduction
 
 This specification allows external resources
 to be referenced from SPDX documents.
@@ -14,9 +16,9 @@ There are currently four defined categories:
 The following sections provide details on the available types
 and the locator formats for each of the categories.
 
-## Security
+## F.2 Security
 
-### cpe22Type <a name="cpe22"></a>
+### F.2.1 cpe22Type <a name="cpe22"></a>
 
 Locator Format:
 
@@ -34,7 +36,7 @@ External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 
 Documentation: [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
 
-### cpe23Type <a name="cpe23"></a>
+### F.2.2 cpe23Type <a name="cpe23"></a>
 
 Locator Format:
 
@@ -60,9 +62,9 @@ External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 
 Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf](http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf)
 
-## Package-Manager
+## F.3 Package-Manager
 
-### maven-central <a name="maven"></a>
+### F.3.1 maven-central <a name="maven"></a>
 
 Locator Format:
 
@@ -81,7 +83,7 @@ External Reference Site: [http://repo1.maven.org/maven2/](http://repo1.maven.org
 
 Documentation: [https://maven.apache.org](https://maven.apache.org)
 
-### npm <a name="npm"></a>
+### F.3.2 npm <a name="npm"></a>
 
 Locator Format:
 
@@ -100,7 +102,7 @@ External Reference Site: [https://www.npmjs.com/](https://www.npmjs.com/)
 
 Documentation: [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
 
-### nuget <a name="nuget"></a>
+### F.3.3 nuget <a name="nuget"></a>
 
 Locator Format:
 
@@ -119,7 +121,7 @@ External Reference Site: [https://www.nuget.org/](https://www.nuget.org/)
 
 Documentation: [https://docs.nuget.org/](https://docs.nuget.org/)
 
-### bower <a name="bower"></a>
+### F.3.4 bower <a name="bower"></a>
 
 Locator Format:
 
@@ -138,7 +140,7 @@ External Reference Site: [http://bower.io/](http://bower.io/)
 
 Documentation: [http://bower.io/docs/api/#install](http://bower.io/docs/api/#install)
 
-### purl <a name="purl"></a>
+### F.3.5 purl <a name="purl"></a>
 
 Locator Format:
 
@@ -156,9 +158,9 @@ External Reference Site: [https://github.com/package-url/purl-spec](https://gith
 
 Documentation: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
 
-## Persistent-Id
+## F.4 Persistent-Id
 
-### swh <a name="swh"></a>
+### F.4.1 swh <a name="swh"></a>
 
 These point to objects present in the Software Heritage archive by the means of
 SoftWare Heritage persistent Identifiers (SWHID),
@@ -198,9 +200,9 @@ Examples:
 
 External documentation: [Software Heritage](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
 
-## Other
+## F.5 Other
 
-### [idstring] <a name="idstring"></a>
+### F.5.1 [idstring] <a name="idstring"></a>
 
 Locator Format:
 
