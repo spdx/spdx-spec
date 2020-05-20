@@ -1,6 +1,6 @@
-# SPDX License Expressions
+# D SPDX license expressions
 
-## Overview
+## D.1 Overview
 
 Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0-only OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1-only AND BSD-3-Clause).
 
@@ -10,9 +10,9 @@ The exact syntax of license expressions is described below in [ABNF](http://tool
 
 idstring = 1*(ALPHA / DIGIT / "-" / "." )
 
-license-id = \<short form license identifier in Annex [AAA.I.1](./appendix-I-SPDX-license-list.md)>
+license-id = \<short form license identifier in Annex [A.1](./appendix-I-SPDX-license-list.md#XX)>
 
-license-exception-id = \<short form license exception identifier in Annex [AAA.I.2](appendix-II-license-matching-guidelines-and-templates.md)>
+license-exception-id = \<short form license exception identifier in Annex [B.2](appendix-II-license-matching-guidelines-and-templates.md#XX)>
 
 license-ref = ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
 
@@ -43,7 +43,7 @@ There MUST NOT be white space between a license-id and any following `+`. This s
 
 In the `tag:value` format, a license expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.
 
-## Case sensitivity <a name="case-sensitivity"></a>
+## D.2 Case sensitivity <a name="case-sensitivity"></a>
 
 License expression operators (`AND`, `OR` and `WITH`) should be matched in a *case-sensitive* manner.
 
@@ -51,7 +51,7 @@ License identifiers (including license exception identifiers) used in SPDX docum
 
 However, please be aware that it is often important to match with the case of the canonical identifier on the [SPDX License List](https://spdx.org/licenses). This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.
 
-## Simple License Expressions <a name="simple-expr"></a>
+## D.3 Simple license expressions <a name="simple-expr"></a>
 
 A simple `<license-expression>` is composed one of the following:
 
@@ -69,7 +69,7 @@ LicenseRef-MIT-Style-1
 DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
 ```
 
-## Composite License Expressions <a name="composite-expr"></a>
+## D.4 Composite license expressions <a name="composite-expr"></a>
 
 More expressive composite license expressions can be constructed using "OR", "AND", and "WITH" operators similar to constructing mathematical expressions using arithmetic operators.
 
@@ -119,7 +119,7 @@ For example, when the Bison exception is to be applied to GPL-2.0-or-later, the 
 GPL-2.0-or-later WITH Bison-exception-2.2
 ```
 
-The current set of valid exceptions can be found in Annex [AAA.I.2](appendix-I-SPDX-license-list.md#I.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single `<license-ref>` to represent the entire license terms (including the exception).
+The current set of valid exceptions can be found in Annex [A.2](appendix-I-SPDX-license-list.md#XX). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single `<license-ref>` to represent the entire license terms (including the exception).
 
 ### 4) Order of Precedence and Parentheses
 
