@@ -1,6 +1,6 @@
-# Review information fields (deprecated)
+# 13 Review information fields (deprecated)
 
-The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information should use an Annotation (as described in Clause [A](./8-annotations.md)) with an annotation type of `REVIEW`.
+The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information should use an Annotation (as described in Clause [12](./8-annotations.md)) with an annotation type of `REVIEW`.
 
 Review information can be added after the initial SPDX file has been created. The set of fields are optional and multiple instances can be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date should not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
 
