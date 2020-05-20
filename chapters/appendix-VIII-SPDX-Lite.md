@@ -1,6 +1,6 @@
-# Appendix VIII: SPDX Lite
+# Annex H SPDX Lite
 
-## 1. Explanation of SPDX Lite 
+## H.1 Explanation of SPDX Lite 
 
 The SPDX Lite profile defines a subset of the SPDX specification, from the point of view of use cases in some industries. SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries.
 
@@ -13,7 +13,7 @@ SPDX Lite has affinity with SPDX tools due to its containing the mandatory part 
 An SPDX Lite document can be used in parallel with SPDX documents in software supply chains.
 
 
-## 2. Format of SPDX Lite
+## H.2 Format of SPDX Lite
 
 The SPDX Lite profile is a subset of the SPDX specification. SPDX Lite consists of mandatory fields of the Document Creation and Package Information sections and other basic information. Cardinality of each item is not changed.
 
@@ -29,30 +29,30 @@ Package Comment can be used to describe additional details, such as compiling op
 
 The Other License information section (License Identifier, Extracted Text, License Name and License Comment) is used for exchanging license information for licenses that are not on the [SPDX License List](https://spdx.org/licenses).
 
-## Table of SPDX Lite Fields
+## H.3 Table of SPDX Lite fields
 
-| # | corresponding SPDX section no. | Field Name |
-|:-----|:----|:--------------------------|
-|L1.1  |2.1  | SPDX Version              |
-|L1.2  |2.2  | Data License              |
-|L1.3  |2.3  | SPDX Identifier           |
-|L1.4  |2.4	 | Document Name	           |
-|L1.5  |2.5	 | SPDX Document Namespace   |
-|L1.6  |2.8	 | Creator	                 |
-|L1.7  |2.9  | Created                   |
-|L2.1  |3.1	 | Package Name	             |
-|L2.2  |3.2	 | Package SPDX Identifier   |
-|L2.3  |3.3	 | Package Version           |
-|L2.4  |3.4	 | Package File Name         |
-|L2.5  |3.7	 | Package Download Location |
-|L2.6  |3.8	 | Files Analyzed            |
-|L2.7  |3.11 | Package Home Page         |
-|L2.8  |3.13 | Concluded License         |
-|L2.9  |3.15 | Declared License          |
-|L2.10 |3.16 | Comments on License       |
-|L2.11 |3.17 | Copyright Text            |
-|L2.12 |3.20 | Package Comment           |
-|L3.1  |6.1	 | License Identifier        |
-|L3.2  |6.2	 | Extracted Text            |
-|L3.3  |6.3	 | License Name              |
-|L3.4  |6.5	 | License Comment           |
+| # | SPDX subclause | Field Name |
+|:-----:|:----:|:--------------------------|
+|L1.1  |6.1  | SPDX Version              |
+|L1.2  |6.2  | Data License              |
+|L1.3  |6.3  | SPDX Identifier           |
+|L1.4  |6.4	 | Document Name	           |
+|L1.5  |6.5	 | SPDX Document Namespace   |
+|L1.6  |6.8	 | Creator	                 |
+|L1.7  |6.9  | Created                   |
+|L2.1  |7.1	 | Package Name	             |
+|L2.2  |7.2	 | Package SPDX Identifier   |
+|L2.3  |7.3	 | Package Version           |
+|L2.4  |7.4	 | Package File Name         |
+|L2.5  |7.7	 | Package Download Location |
+|L2.6  |7.8	 | Files Analyzed            |
+|L2.7  |7.11 | Package Home Page         |
+|L2.8  |7.13 | Concluded License         |
+|L2.9  |7.15 | Declared License          |
+|L2.10 |7.16 | Comments on License       |
+|L2.11 |7.17 | Copyright Text            |
+|L2.12 |7.20 | Package Comment           |
+|L3.1  |10.1	 | License Identifier        |
+|L3.2  |10.2	 | Extracted Text            |
+|L3.3  |10.3	 | License Name              |
+|L3.4  |10.5	 | License Comment           |
