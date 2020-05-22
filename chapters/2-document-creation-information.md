@@ -38,6 +38,22 @@ This specification uses the prefix `rdf:` to refer to the [RDF/XML][rdf] namespa
 http://www.w3.org/1999/02/22-rdf-syntax-ns#
 ```
 
+**2.1.7** YAML: `spdxVersion:`
+
+Example:
+
+```text
+spdxVersion: "SPDX-2.2"
+```
+
+**2.1.8** JSON: `"spdxVersion":`
+
+Example:
+
+```text
+"spdxVersion": "SPDX-2.2"
+```
+
 ## D.2 Data license field <a name="2.2"></a>
 
 **2.2.1** Purpose: Compliance with this document includes populating the SPDX fields therein with data related to such fields ("SPDX-Metadata"). This document contains numerous fields where an SPDX document creator may provide relevant explanatory text in SPDX-Metadata.
@@ -68,6 +84,22 @@ Example:
 </SpdxDocument>
 ```
 
+**2.2.7** YAML: `dataLicense:`
+
+Example:
+
+```text
+dataLicense: "CC0-1.0"
+```
+
+**2.2.8** JSON: `"dataLicense":`
+
+Example:
+
+```text
+"dataLicense": "CC0-1.0"
+```
+
 ## D.3 SPDX identifier field <a name="2.3"></a>
 
 **2.3.1** Purpose: Identify the current SPDX document which may be referenced in relationships by other files, packages internally and documents externally. To reference another SPDX document in total, this identifier should be used with the external document identifier preceding it. See [Clause R](7-relationships-between-SPDX-elements.md) for examples.
@@ -94,6 +126,22 @@ SPDXID: SPDXRef-DOCUMENT
 <spdx:SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-example-444504E0-4F89-41D3-9A0C-0305E82C33123#SPDXRef-DOCUMENT">
 ...
 </spdx:SpdxDocument>
+```
+
+**2.3.7** YAML: `SPDXID:`
+
+Example:
+
+```text
+SPDXID: "SPDXRef-DOCUMENT"
+```
+
+**2.3.8** JSON: `"SPDXID":`
+
+Example:
+
+```text
+"SPDXID": "SPDXRef-DOCUMENT"
 ```
 
 ## D.4 Document name field <a name="2.4"></a>
@@ -132,6 +180,30 @@ Example:
 <SpdxDocument rdf:about="...">
   <name>ubuntu-14.04</name>
 </SpdxDocument>
+```
+
+**2.4.7** YAML: `name:`
+
+Example:
+
+```text
+name: "glibc-v2.3"
+```
+
+```text
+name: "ubuntu-14.04"
+```
+
+**2.4.8** JSON: `"name":`
+
+Example:
+
+```text
+"name": "glibc-v2.3"
+```
+
+```text
+"name": "ubuntu-14.04"
 ```
 
 ## D.5 SPDX document namespace field <a name="2.5"></a>
@@ -185,6 +257,22 @@ This specification uses the prefix `rdfs:` to refer to the [RDF Schema][rdf-sche
 
 ```text
 http://www.w3.org/2000/01/rdf-schema#
+```
+
+**2.5.7** YAML: `namespace:`
+
+Example:
+
+```text
+namespace: "http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..."
+```
+
+**2.5.8** JSON: `"namespace":`
+
+Example:
+
+```text
+"namespace": "http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..."
 ```
 
 ## D.6 External document references field <a name="2.6"></a>
@@ -242,6 +330,36 @@ Example:
 
 NOTE In RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired.
 
+**2.6.7** YAML: `externalDocumentRefs:`
+
+Example:
+
+```text
+externalDocumentRefs:
+  - externalDocumentId: "DocumentRef-spdx-tool-1.2"
+    spdxDocument: "http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301"
+    - checksum:
+        algorithm: "SHA1"
+        checksumValue: "d6a770ba38583ed4bb4525bd96e50461655d2759"
+```
+
+**2.6.8** JSON: `"externalDocumentRefs": []`
+
+Example:
+
+```text
+"externalDocumentRefs": [
+  {
+      "externalDocumentId": "DocumentRef-spdx-tool-1.2",
+      "spdxDocument": "http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301",
+      "checksum": {
+          "algorithm": "SHA1",
+          "checksumValue": "d6a770ba38583ed4bb4525bd96e50461655d2759"
+      }
+  }
+]
+```
+
 ## D.7 License list version field <a name="2.7"></a>
 
 **2.7.1** Purpose: An optional field for creators of the SPDX file to provide the version of the SPDX License List used when the SPDX file was created.
@@ -273,6 +391,25 @@ Example:
 <CreationInfo>
     <licenseListVersion>3.8</licenseListVersion>
 </CreationInfo>
+```
+
+**2.7.7** YAML: `licenseListVersion:` in class `creationInfo`
+
+Example:
+
+```text
+creationInfo:
+    licenseListVersion: "3.8"
+```
+
+**2.7.8** JSON: `"licenseListVersion":` in class `creationInfo`
+
+Example:
+
+```text
+"creationInfo": {
+    "licenseListVersion": "3.8"
+}
 ```
 
 ## D.8 Creator field <a name="2.8"></a>
@@ -311,6 +448,32 @@ Example:
     <creator> Organization: ExampleCodeInspect () </creator>
     <creator> Tool: LicenseFind-1.0 </creator>
 </CreationInfo>
+```
+
+**2.8.7** YAML: `creators:` in class `creationInfo`
+
+Example:
+
+```text
+creationInfo:
+    creators:
+        - "Person: Jane Doe ()"
+        - "Organization: ExampleCodeInspect ()"
+        - "Tool: LicenseFind-1.0"
+```
+
+**2.8.8** JSON: `"creators": []` in class `creationInfo`
+
+Example:
+
+```text
+"creationInfo": {
+    "creators": [
+        "Person: Jane Doe ()",
+        "Organization: ExampleCodeInspect ()",
+        "Tool: LicenseFind-1.0"
+    ]
+}
 ```
 
 ## D.9 Created field <a name="2.9"></a>
@@ -352,6 +515,25 @@ Example:
 </CreationInfo>
 ```
 
+**2.9.7** YAML: `created:` in class `creationInfo`
+
+Example:
+
+```text
+creationInfo:
+    created: "2010-01-29T18:30:22Z"
+```
+
+**2.9.8** JSON: `"created":` in class `creationInfo`
+
+Example:
+
+```text
+"creationInfo": {
+    "created": "2010-01-29T18:30:22Z"
+}
+```
+
 ## D.10 Creator comment field <a name="2.10"></a>
 
 **2.10.1** Purpose: An optional field for creators of the SPDX file to provide general comments about the creation of the SPDX file or any other relevant comment not included in the other fields.
@@ -384,6 +566,27 @@ Example:
 </CreationInfo>
 ```
 
+**2.10.7** YAML: `comment:` in class `creationInfo`
+
+Example:
+
+```text
+creationInfo:
+    comment: "This SPDX file was created by a combination of using a free tool,
+as indicated above, and manual analysis by several authors of the code."
+```
+
+**2.10.8** JSON: `"comment":` in class `creationInfo`
+
+Example:
+
+```text
+"creationInfo": {
+    "comment": "This SPDX file was created by a combination of using a free tool,
+as indicated above, and manual analysis by several authors of the code."
+}
+```
+
 ## D.11 Document comment field <a name="2.11"></a>
 
 **2.11.1** Purpose: An optional field for creators of the SPDX file content to provide comments to the consumers of the SPDX document.
@@ -413,6 +616,24 @@ Example:
       This document was created using SPDX 2.0, version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.
     </rdfs:comment>
 </SpdxDocument>
+```
+
+**2.11.7** YAML: `comment:`
+
+Example:
+
+```text
+comment: "This document was created using SPDX 2.0,
+version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx."
+```
+
+**2.11.8** JSON: `"comment":`
+
+Example:
+
+```text
+"comment": "This document was created using SPDX 2.0,
+version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx."
 ```
 
 [rdf]: https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/
