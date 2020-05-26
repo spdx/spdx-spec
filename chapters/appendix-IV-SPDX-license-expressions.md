@@ -71,13 +71,15 @@ DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
 
 ## D.4 Composite license expressions <a name="composite-expr"></a>
 
+### D.4.1 Introduction
+
 More expressive composite license expressions can be constructed using "OR", "AND", and "WITH" operators similar to constructing mathematical expressions using arithmetic operators.
 
 For the `tag:value` format, any license expression that consists of more than one license identifier and/or LicenseRef, may optionally be encapsulated by parentheses: "( )".
 
 Nested parentheses can also be used to specify an order of precedence which is discussed in more detail in subsection (4).
 
-### 1) Disjunctive "OR" Operator
+### D.4.2 Disjunctive "OR" Operator
 
 If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new license expression, where both the left and right operands are valid license expression values.
 
@@ -93,7 +95,7 @@ An example representing a choice between three different licenses would be:
 LGPL-2.1-only OR MIT OR BSD-3-Clause
 ```
 
-### 2) Conjunctive "AND" Operator
+### D.4.3 Conjunctive "AND" Operator
 
 If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are a valid license expression values.
 
@@ -109,7 +111,7 @@ An example where all three different licenses apply would be:
 LGPL-2.1-only AND MIT AND BSD-2-Clause
 ```
 
-### 3) Exception "WITH" Operator
+### D.4.4 Exception "WITH" Operator
 
 Sometimes a set of license terms apply except under special circumstances. In this case, use the binary "WITH" operator to construct a new license expression to represent the special exception situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<license-exception-id>` that represents the special exception terms.
 
@@ -121,7 +123,7 @@ GPL-2.0-or-later WITH Bison-exception-2.2
 
 The current set of valid exceptions can be found in Annex [A.2](appendix-I-SPDX-license-list.md#XX). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single `<license-ref>` to represent the entire license terms (including the exception).
 
-### 4) Order of Precedence and Parentheses
+### D.4.5 Order of Precedence and Parentheses
 
 The order of application of the operators in an expression matters (similar to mathematical operators). The default operator order of precedence of a `<license-expression>` a is:
 
@@ -152,7 +154,7 @@ MIT AND (LGPL-2.1-or-later OR BSD-3-Clause)
 
 states the OR operator should be applied before the AND operator. That is, one should first select between the LGPL-2.1-or-later or the BSD-3-Clause license before applying the MIT license.
 
-### 5) License Expressions in RDF <a name="rdf-expr"></a>
+### D.4.6 License Expressions in RDF <a name="rdf-expr"></a>
 
 A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet>` element, with an spdx:member property for each element in the conjunctive license. Two or more members are required.
 
