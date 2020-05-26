@@ -2,21 +2,21 @@
 
 ## 5.1 What this specification covers
 
-This document contains the specification for an SPDX document, which is made up of a set of **zero/one** or more Facts, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of Facts allowed. The fields for each kind of Fact are defined in the clause corresponding to that Fact.
+This document contains the specification for an SPDX document, which is made up of a set of **zero/one** or more sections, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of sections allowed. The fields for each kind of section are defined in the clause corresponding to that section.
 
-## 5.2 Facts
+## 5.2 sections
 
-### 5.2.1 SPDX document creation information Fact
+### 5.2.1 SPDX document creation information section
 
-An instance of this kind of Fact provides the necessary information for forward and backward compatibility for processing tools.
+An instance of this kind of section provides the necessary information for forward and backward compatibility for processing tools.
 
 One instance shall be present for each SPDX file produced. 
 
 Cardinality: Mandatory, one.
 
-See [Clause 6](2-document-creation-information.md) for details of the fields in this kind of Fact.
+See [Clause 6](2-document-creation-information.md) for details of the fields in this kind of section.
 
-### 5.2.2 Package information Fact
+### 5.2.2 Package information section
 
 If SPDX information is organized by grouping into packages, then one instance of the Package Information per package being described shall exist. A package may contain sub-packages, but the information in this section is a reference to the entire contents of the package listed. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
@@ -31,7 +31,7 @@ In `tag:value` format, the order in which package and files occur is syntactical
 * Sub-packages shall not be nested inside a Package Information section, but shall be separate and shall use a Relationship to clarify.
 * Annotations and Relationships for the package may appear after the Package Information before any file information.
 
-See [Clause 7](3-package-information.md) for details of the fields in this kind of Fact.
+See [Clause 7](3-package-information.md) for details of the fields in this kind of section.
 
 ### 5.2.3 File information Fields
 
@@ -49,9 +49,9 @@ When implementing `tag:value` format, the positioning of File elements is syntac
 
 When implementing file information in RDF, the `spdx:hasFile` property is used to associate the package with the file.
 
-See [Clause 8](4-file-information.md) for details of the fields in this kind of Fact.
+See [Clause 8](4-file-information.md) for details of the fields in this kind of section.
 
-### 5.2.4 Snippet information Fact
+### 5.2.4 Snippet information section
 
 Snippets can optionally be used when a file is known to have some content that has been included from another original source. They are useful for denoting when part of a file may have been originally created under another license.
 
@@ -64,7 +64,7 @@ When implementing `tag:value` format, the positioning of Snippet elements is syn
 * The first field to start off the description of a Snippet shall be the Snippet Identifier in `tag:value` format.
 * Annotations on the Snippet and Relationships from the Snippet may appear after the Snippet Information, before the next file or Package section.
 
-See [Clause 9](5-snippet-information.md) for details of the fields in this kind of Fact.
+See [Clause 9](5-snippet-information.md) for details of the fields in this kind of section.
 
 ### 5.2.5 Other licensing information detected
 
@@ -72,31 +72,31 @@ This section is used for any detected, declared or concluded licenses that are N
 
 One instance shall be created for every unique license or licensing information reference detected in package that does not match one of the licenses on the SPDX License List. Each license instance should have the following fields.
 
-See [Clause 10](6-other-licensing-information-detected.md) for details of the fields in this kind of Fact.
+See [Clause 10](6-other-licensing-information-detected.md) for details of the fields in this kind of section.
 
-### 5.2.6 Relationships Between SPDX Elements Fact
+### 5.2.6 Relationships Between SPDX Elements section
 
 > ToDo: there was no intro text in Chapter 7 to move here, but, presumably, we should say something.
 
-See [Clause 11](7-relationships-between-SPDX-elements.md) for details of the fields in this kind of Fact.
+See [Clause 11](7-relationships-between-SPDX-elements.md) for details of the fields in this kind of section.
 
-### 5.2.7 Annotations Fact
+### 5.2.7 Annotations section
 
 > ToDo: there was no intro text in Chapter 8 to move here, but, presumably, we should say something.
 
-See [Clause 12](8-annotations.md) for details of the fields in this kind of Fact.
+See [Clause 12](8-annotations.md) for details of the fields in this kind of section.
 
-### 5.2.8 Review information Fact
+### 5.2.8 Review information section
 
 The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information shall use an Annotation (as described in [Clause 12](./8-annotations.md)) with an annotation type of `REVIEW`.
 
 Review information may be added after the initial SPDX file has been created. The set of fields are optional and multiple instances may be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date shall not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
 
-See [Clause 13](9-review-information-deprecated.md) for details of the fields in this kind of Fact.
+See [Clause 13](9-review-information-deprecated.md) for details of the fields in this kind of section.
 
-## 5.3 Fact organization
+## 5.3 Section organization
 
-Within an SPDX document, Facts may be organized, as follows:
+Within an SPDX document, sections may be organized, as follows:
 
 ![Overview of SPDX document contents](img/spdx-2.2-document.png)
 
