@@ -12,23 +12,24 @@ Here, parties exchanging information in accordance with the SPDX specification n
 
 **Metadata**
 
+The metadata for the SPDX version field is shown in Table 2.
+
+Table 2 — Metadata for the SPDX version field
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
 | Format | `SPDX-M.N` where:<br>* `M` is major version number<br>* `N` is minor version number. |
 
-**Tag: `SPDXVersion:`**
+**Examples**
 
-Example:
+EXAMPLE 1 Tag: `SPDXVersion:`
 
 ```text
 SPDXVersion: SPDX-2.2
 ```
 
-**RDF: `spdx:specVersion`**
-
-Example:
+EXAMPLE 2 RDF: `spdx:specVersion`
 
 ```text
 <SpdxDocument rdf:about="...">
@@ -56,23 +57,24 @@ This is to alleviate any concern that content (the data or database) in an SPDX 
 
 **Metadata**
 
+The metadata for the data license field is shown in Table 3.
+
+Table 3 — Metadata for the data license field
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
 | Format | `CC0-1.0` |
 
-**Tag: `DataLicense:`**
+**Examples**
 
-Example:
+EXAMPLE 1 Tag: `DataLicense:`
 
 ```text
 DataLicense: CC0-1.0
 ```
 
-**RDF: `spdx:dataLicense`**
-
-Example:
+EXAMPLE 2 RDF: `spdx:dataLicense`
 
 ```text
 <SpdxDocument rdf:about="...">
@@ -92,21 +94,24 @@ Provide a way for the document to refer to itself in relationship to other eleme
 
 **Metadata**
 
+The metadata for the SPDX identifier field is shown in Table 4.
+
+Table 4 — Metadata for SPDX identifier field
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
 | Format | `SPDXRef-DOCUMENT` |
 
-**Tag: `SPDXID:`**
+**Examples**
 
-Example:
+EXAMPLE 1 Tag: `SPDXID:`
 
 ```text
 SPDXID: SPDXRef-DOCUMENT
 ```
 
-**RDF**
+EXAMPLE 2 RDF:
 
 The URI for the document is the document namespace appended by
 
@@ -131,6 +136,9 @@ Here, the name of each document is an important convention and easier to refer t
 
 **Metadata**
 
+The metadata for the document name field is shown in Table 5.
+
+Table 5 — Metadata for the document name field
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -139,10 +147,29 @@ Here, the name of each document is an important convention and easier to refer t
 
 **Examples**
 
-| Format | Example |
-| -------- | ------- |
-| Tag/Value | `DocumentName: glibc-v2.3`<br>`DocumentName: ubuntu-14.04` |
-| RDF | `<SpdxDocument rdf:about="...">`<br>&nbsp;&nbsp;`<name>glibc-v2.3</name>`<br>`</SpdxDocument>`<br><br>`<SpdxDocument rdf:about="...">`<br>&nbsp;&nbsp;`<name>ubuntu-14.04</name>`<br>`</SpdxDocument>` |
+EXAMPLE 1 Tag: `DocumentName:`
+
+```text
+DocumentName: glibc-v2.3
+```
+
+```text
+DocumentName: ubuntu-14.04
+```
+
+EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:SpdxDocument`
+
+```text
+<SpdxDocument rdf:about="...">
+  <name>glibc-v2.3</name>
+</SpdxDocument>
+```
+
+```text
+<SpdxDocument rdf:about="...">
+  <name>ubuntu-14.04</name>
+</SpdxDocument>
+```
 
 ## 6.5 SPDX document namespace field <a name="2.5"></a>
 
@@ -170,6 +197,9 @@ NOTE The URI does not have to be accessible. It is only intended to provide a un
 
 **Metadata**
 
+The metadata for the SPDX document namespace field is shown in Table 6.
+
+Table 6 — Metadata for the SPDX document namespace field
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -178,10 +208,25 @@ NOTE The URI does not have to be accessible. It is only intended to provide a un
 
 **Examples**
 
-| Format | Example |
-| -------- | ------- |
-| Tag/Value | `DocumentNamespace: http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...` |
-| RDF | `<SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<rdfs:comment>This document was created using SPDX 2.0 using licenses from the web site.</rdfs:comment>`<br>`</SpdxDocument>`<br><br>This specification uses the prefix `rdfs:` to refer to the [RDF Schema][rdf-schema] namespace:<br><br>`http://www.w3.org/2000/01/rdf-schema#` |
+EXAMPLE 1 Tag: `DocumentNamespace:`
+
+```text
+DocumentNamespace: http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...
+```
+
+EXAMPLE 2 RDF: The unique ID is the URI for the SPDX document
+
+```text
+<SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">
+    <rdfs:comment>This document was created using SPDX 2.0 using licenses from the web site.</rdfs:comment>
+</SpdxDocument>
+```
+
+This specification uses the prefix `rdfs:` to refer to the [RDF Schema][rdf-schema] namespace:
+
+```text
+http://www.w3.org/2000/01/rdf-schema#
+```
 
 ## 6.6 External document references field <a name="2.6"></a>
 
@@ -195,6 +240,9 @@ SPDX elements within this document may be related to other SPDX elements referen
 
 **Metadata**
 
+The metadata for the external document references field is shown in Table 7.
+
+Table 7 — Metadata for the external document references field
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -203,10 +251,35 @@ SPDX elements within this document may be related to other SPDX elements referen
 
 **Examples**
 
-| Format | Example |
-| -------- | ------- |
-| Tag/Value | `ExternalDocumentRef:DocumentRef-spdx-tool-1.2 http://spdx.org/spdxdocs/spdx-tools- v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301 SHA1: d6a770ba38583ed4bb4525bd96e50461655d2759` |
-| RDF | `<externalDocumentRef rdf:ID="DocumentRef-spdx-tool-1.2">`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<ExternalDocumentRef>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<spdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..." />`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<checksum>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<Checksum>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<algorithm rdf:resource="checksumAlgorithm_sha1"/>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<checksumValue>d6a770ba38583ed4bb4525bd96e50461655d2758`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`</checksumValue>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`</Checksum>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`</checksum>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`</ExternalDocumentRef>`<br>`</externalDocumentRef>`<br><br>Notes: in RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired. |
+EXAMPLE 1 Tag: `ExternalDocumentRef:`
+
+```text
+ExternalDocumentRef:DocumentRef-spdx-tool-1.2 http://spdx.org/spdxdocs/spdx-tools- v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301 SHA1: d6a770ba38583ed4bb4525bd96e50461655d2759
+```
+
+EXAMPLE 2 RDF: Property `spdx:externalDocumentRef` in class `spdx:SpdxDocument range ExternalDocumentRef`.
+
+The ExternalDocumentRef contains two properties:
+
+* spdxDocument - the SpdxDocument being referenced
+* checksum - the checksum of the referenced SPDX document
+
+```text
+<externalDocumentRef rdf:ID="DocumentRef-spdx-tool-1.2">
+    <ExternalDocumentRef>
+        <spdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..." />
+        <checksum>
+            <Checksum>
+                <algorithm rdf:resource="checksumAlgorithm_sha1"/>
+                <checksumValue>d6a770ba38583ed4bb4525bd96e50461655d2758
+                </checksumValue>
+            </Checksum>
+        </checksum>
+    </ExternalDocumentRef>
+</externalDocumentRef>
+```
+
+NOTE In RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired.
 
 ## 6.7 License list version field <a name="2.7"></a>
 
@@ -220,6 +293,9 @@ Recognizing that licenses are added to the SPDX License List with each subsequen
 
 **Metadata**
 
+The metadata for the license list version field is shown in Table 8.
+
+Table 8 — Metadata for the license list version field
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -228,10 +304,19 @@ Recognizing that licenses are added to the SPDX License List with each subsequen
 
 **Examples**
 
-| Format | Example |
-| -------- | ------- |
-| Tag/Value | `LicenseListVersion: 3.8` |
-| RDF | `<CreationInfo>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<licenseListVersion>3.8</licenseListVersion>`<br>`</CreationInfo>` |
+EXAMPLE 1 Tag: `LicenseListVersion:`
+
+```text
+LicenseListVersion: 3.8
+```
+
+EXAMPLE 2 RDF: Property `licenseListVersion` in class `spdx:CreationInfo`
+
+```text
+<CreationInfo>
+    <licenseListVersion>3.8</licenseListVersion>
+</CreationInfo>
+```
 
 ## 6.8 Creator field <a name="2.8"></a>
 
@@ -245,6 +330,9 @@ Here, the generation method will assist the recipient of the SPDX file in assess
 
 **Metadata**
 
+The metadata for the creator field is shown in Table 9.
+
+Table 9 — Metadata for the creator field
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -253,10 +341,23 @@ Here, the generation method will assist the recipient of the SPDX file in assess
 
 **Examples**
 
-| Format | Example |
-| -------- | ------- |
-| Tag/Value | `Creator: Person: Jane Doe ()`<br>`Creator: Organization: ExampleCodeInspect ()`<br>`Creator: Tool: LicenseFind-1.0` |
-| RDF | `<CreationInfo>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<creator> Person: Jane Doe () </creator>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<creator> Organization: ExampleCodeInspect () </creator>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<creator> Tool: LicenseFind-1.0 </creator>`<br>`</CreationInfo>` |
+EXAMPLE 1 Tag: `Creator:`
+
+```text
+Creator: Person: Jane Doe ()
+Creator: Organization: ExampleCodeInspect ()
+Creator: Tool: LicenseFind-1.0
+```
+
+EXAMPLE 2 RDF: Property `spdx:creator` in class `spdx:CreationInfo`
+
+```text
+<CreationInfo>
+    <creator> Person: Jane Doe () </creator>
+    <creator> Organization: ExampleCodeInspect () </creator>
+    <creator> Tool: LicenseFind-1.0 </creator>
+</CreationInfo>
+```
 
 ## 6.9 Created field <a name="2.9"></a>
 
@@ -270,6 +371,9 @@ Here, the time stamp can serve as an indication as to whether the analysis needs
 
 **Metadata**
 
+The metadata for the created field is shown in Table 10.
+
+Table 10 — Metadata for the created field
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -278,10 +382,19 @@ Here, the time stamp can serve as an indication as to whether the analysis needs
 
 **Examples**
 
-| Format | Example |
-| -------- | ------- |
-| Tag/Value | `Created: 2010-01-29T18:30:22Z` |
-| RDF | `<CreationInfo>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<created> 2010-01-29T18:30:22Z </created>`<br>`</CreationInfo>` |
+EXAMPLE 1 Tag: `Created:`
+
+```text
+Created: 2010-01-29T18:30:22Z
+```
+
+EXAMPLE 2 RDF: Property `spdx:created` in class `spdx:CreationInfo`
+
+```text
+<CreationInfo>
+    <created> 2010-01-29T18:30:22Z </created>
+</CreationInfo>
+```
 
 ## 6.10 Creator comment field <a name="2.10"></a>
 
@@ -295,6 +408,9 @@ Here, the intent is to provide recipients of the SPDX file with comments by the 
 
 **Metadata**
 
+The metadata for the Creator comment field is shown in Table 11.
+
+Table 11 — Metadata for the Creator comment field
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -303,10 +419,21 @@ Here, the intent is to provide recipients of the SPDX file with comments by the 
 
 **Examples**
 
-| Format | Example |
-| -------- | ------- |
-| Tag/Value | `CreatorComment: <text>This SPDX file was created by a combination of using a free tool,`<br>`as indicated above, and manual analysis by several authors of the code.</text>` |
-| RDF | `<CreationInfo>`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<rdfs:comment>This SPDX file was created by a combination of using a free tool, as indicated above,`<br>&nbsp;&nbsp;&nbsp;&nbsp;`and manual analysis by several authors of the code.</rdfs:comment>`<br>`</CreationInfo>` |
+EXAMPLE 1 Tag: `CreatorComment:`
+
+```text
+CreatorComment: <text>This SPDX file was created by a combination of using a free tool,
+as indicated above, and manual analysis by several authors of the code.</text>
+```
+
+EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:CreationInfo`
+
+```text
+<CreationInfo>
+    <rdfs:comment>This SPDX file was created by a combination of using a free tool, as indicated above,
+    and manual analysis by several authors of the code.</rdfs:comment>
+</CreationInfo>
+```
 
 ## 6.11 Document comment field <a name="2.11"></a>
 
@@ -320,6 +447,9 @@ Here, the intent is to provide readers/reviewers with comments by the creator of
 
 **Metadata**
 
+The metadata for the document comment field is shown in Table 12.
+
+Table 12 — Metadata for the document comment field
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -328,7 +458,22 @@ Here, the intent is to provide readers/reviewers with comments by the creator of
 
 **Examples**
 
-| Format | Example |
-| -------- | ------- |
-| Tag/Value | `DocumentComment: <text>This document was created using SPDX 2.0,`<br>`version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.</text>` |
-| RDF | `<SpdxDocument rdf:about="...">`<br>&nbsp;&nbsp;&nbsp;&nbsp;`<rdfs:comment>`<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`This document was created using SPDX 2.0, version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.`<br>&nbsp;&nbsp;&nbsp;&nbsp;`</rdfs:comment>`<br>`</SpdxDocument>`<br><br>[rdf]: https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/<br>[rdf-schema]: https://www.w3.org/TR/2014/REC-rdf-schema-20140225/ |
+EXAMPLE 1 Tag: `DocumentComment:`
+
+```text
+DocumentComment: <text>This document was created using SPDX 2.0,
+version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.</text>
+```
+
+EXAMPLE 2 RDF: Property `rdfs:comment` in class `SpdxDocument`
+
+```text
+<SpdxDocument rdf:about="...">
+    <rdfs:comment>
+      This document was created using SPDX 2.0, version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.
+    </rdfs:comment>
+</SpdxDocument>
+```
+
+[rdf]: https://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/
+[rdf-schema]: https://www.w3.org/TR/2014/REC-rdf-schema-20140225/
