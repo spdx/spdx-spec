@@ -1,6 +1,6 @@
 # 9 Snippet information fields
 
-## S.1 Snippet SPDX identifier field <a name="5.1"></a>
+## 9.1 Snippet SPDX identifier field <a name="5.1"></a>
 
 **5.1.1** Purpose: Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
 
@@ -40,7 +40,7 @@ Example using document URI:
 </Snippet>
 ```
 
-## S.2 Snippet from file SPDX identifier field <a name="5.2"></a>
+## 9.2 Snippet from file SPDX identifier field <a name="5.2"></a>
 
 **5.2.1** Purpose: Uniquely identify the file in an SPDX document which this snippet is associated with.
 
@@ -88,7 +88,7 @@ Example (snippet from a File in an External SPDX Doc):
 </Snippet>
 ```
 
-## S.3 Snippet byte range field <a name="5.3"></a>
+## 9.3 Snippet byte range field <a name="5.3"></a>
 
 **5.3.1** Purpose: This field defines the byte range in the original host file (in [9.2](#5.2)) that the snippet information applies to.
 
@@ -150,7 +150,7 @@ This specification uses the prefix `ptr:` to refer to the [W3C Pointers][pointer
 xmlns:ptr=http://www.w3.org/2009/pointers#
 ```
 
-## S.4 Snippet line range field <a name="5.4"></a>
+## 9.4 Snippet line range field <a name="5.4"></a>
 
 **5.4.1** Purpose: This optional field defines the line range in the original host file (see [9.2](#5.2)) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.
 
@@ -204,7 +204,7 @@ Example:
 </Snippet>
 ```
 
-## S.5 Snippet concluded license field <a name="5.5"></a>
+## 9.5 Snippet concluded license field <a name="5.5"></a>
 
 **5.5.1** Purpose: This field contains the license the SPDX file creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:
 
@@ -214,13 +214,13 @@ A valid SPDX License Expression as defined in Annex [D](appendix-IV-SPDX-license
 
 `NOASSERTION` should be used if for the snippet:
 
-(i) the SPDX document creator has attempted to, but cannot reach a reasonable objective determination of the Concluded License;
+- the SPDX document creator has attempted to, but cannot reach a reasonable objective determination of the Concluded License;
 
-(ii) the SPDX document creator is uncomfortable concluding a license, despite some license information being available;
+- the SPDX document creator is uncomfortable concluding a license, despite some license information being available;
 
-(iii) the SPDX document creator has made no attempt to determine a Concluded License;
+- the SPDX document creator has made no attempt to determine a Concluded License;
 
-(iv) the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+- the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (see [9.7](#5.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field (see [9.7](#5.7)) is preferred.
 
@@ -273,7 +273,7 @@ Example:
 </Snippet>
 ```
 
-## S.6 License information in snippet field <a name="5.6"></a>
+## 9.6 License information in snippet field <a name="5.6"></a>
 
 **5.6.1** Purpose: This field contains the license information actually found in the snippet, if any. Any license information not actually in the snippet itself, e.g., header of the file the snippet belongs in, “COPYING.txt” file in a top level directory, should not be reflected in this field.
 
@@ -286,9 +286,9 @@ A reference to the license, denoted by LicenseRef-`[idstring]`, if the license i
 
 `NOASSERTION`, if:
 
-(i) the SPDX snippet creator has made no attempt to determine this field; or
+- the SPDX snippet creator has made no attempt to determine this field; or
 
-(ii) the SPDX snippet creator has intentionally provided no information (no meaning should be implied by doing so).
+- the SPDX snippet creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If license information for more than one license is contained in the snippet or if the license information offers a choice of licenses, then each of the choices should be listed as a separate entry.
 
@@ -337,7 +337,7 @@ Example:
 </Snippet>
 ```
 
-## S.7 Snippet comments on license field <a name="5.7"></a>
+## 9.7 Snippet comments on license field <a name="5.7"></a>
 
 **5.7.1** Purpose: This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a snippet.
 
@@ -374,7 +374,7 @@ Example:
 </Snippet>
 ```
 
-## S.8 Snippet copyright text field <a name="5.8"></a>
+## 9.8 Snippet copyright text field <a name="5.8"></a>
 
 **5.8.1** Purpose: Identify the copyright holder of the snippet, as well as any dates present. This shall be a free form text field, ideally extracted from the actual snippet.  The options to populate this field are limited to:
 
@@ -414,7 +414,7 @@ Example:
 </Snippet>
 ```
 
-## S.9 Snippet comment field <a name="5.9"></a>
+## 9.9 Snippet comment field <a name="5.9"></a>
 
 **5.9.1** Purpose: This field provides a place for the SPDX document creator to record any general comments about the snippet.
 
@@ -451,7 +451,7 @@ Example:
 </Snippet>
 ```
 
-## S.10 Snippet name field <a name="5.10"></a>
+## 9.10 Snippet name field <a name="5.10"></a>
 
 **5.10.1** Purpose: Identify a specific snippet in a human convenient manner.
 
@@ -479,7 +479,7 @@ Example:
 </Snippet>
 ```
 
-## S.11 Snippet attribution text field <a name="5.11"></a>
+## 9.11 Snippet attribution text field <a name="5.11"></a>
 
 **5.11.1** Purpose: This field provides a place for the SPDX data creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see `SnippetLicenseConcluded` and `LicenseInfoInSnippet`), and might or might not include copyright notices (see also `SnippetCopyrightText`). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce.
 
