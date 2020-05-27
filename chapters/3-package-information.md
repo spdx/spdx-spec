@@ -15,7 +15,7 @@ In `tag:value` format, the order in which package and files occur is syntactical
 
 Fields:
 
-## P.1 Package name field <a name="3.1"></a>
+## 7.1 Package name field <a name="3.1"></a>
 
 **3.1.1** Purpose: Identify the full name of the package as given by the [Package Originator](#3.6).
 
@@ -43,7 +43,7 @@ Example:
 </Package>
 ```
 
-## P.2 Package SPDX identifier field <a name="3.2"></a>
+## 7.2 Package SPDX identifier field <a name="3.2"></a>
 
 **3.2.1** Purpose: Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
 
@@ -90,7 +90,7 @@ Example using document URI:
 </Package>
 ```
 
-## P.3 Package version field <a name="3.3"></a>
+## 7.3 Package version field <a name="3.3"></a>
 
 **3.3.1** Purpose: Identify the version of the package.
 
@@ -120,7 +120,7 @@ Example:
 </Package>
 ```
 
-## P.4 Package file name field <a name="3.4"></a>
+## 7.4 Package file name field <a name="3.4"></a>
 
 **3.4.1** Purpose: Provide the actual file name of the package, or path of the directory being treated as a package. This may include the packaging and compression methods used as part of the file name, if appropriate.
 
@@ -166,17 +166,17 @@ Example (sub-directory being treated as a package):
 </Package>
 ```
 
-## P.5 Package supplier field <a name="3.5"></a>
+## 7.5 Package supplier field <a name="3.5"></a>
 
 **3.5.1** Purpose: Identify the actual distribution source for the package/directory identified in the SPDX file. This might or might not be different from the originating distribution source for the package. The name of the Package Supplier shall be an organization or recognized author and not a web site. For example, [SourceForge][] is a host website, not a supplier, the supplier for https://sourceforge.net/projects/bridge/ is “[The Linux Foundation][LinuxFoundation].”
 
 Use `NOASSERTION` if:
 
-(i) the SPDX file creator has attempted to but cannot reach a reasonable objective determination;
+- the SPDX file creator has attempted to but cannot reach a reasonable objective determination;
 
-(ii) the SPDX file creator has made no attempt to determine this field; or
+- the SPDX file creator has made no attempt to determine this field; or
 
-(iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
+- the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
 **3.5.2** Intent: Assist with understanding the point of distribution for the code in the package. This field is vital for ensuring that downstream package recipients can address any ambiguity or concerns that might arise with the information in the SPDX file or the contents of the package it documents.
 
@@ -207,17 +207,17 @@ Example:
 </Package>
 ```
 
-## P.6 Package originator field <a name="3.6"></a>
+## 7.6 Package originator field <a name="3.6"></a>
 
 **3.6.1** Purpose: If the package identified in the SPDX file originated from a different person or organization than identified as Package Supplier (see [7.5](#3.5) above), this field identifies from where or whom the package originally came. In some cases a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX file identifies the package [glibc][] and [Red Hat][] as the Package Supplier, but the [Free Software Foundation][FSF] is the Package Originator.
 
 Use `NOASSERTION` if:
 
-(i) the SPDX file creator has attempted to but cannot reach a reasonable objective determination;
+- the SPDX file creator has attempted to but cannot reach a reasonable objective determination;
 
-(ii) the SPDX file creator has made no attempt to determine this field; or
+- the SPDX file creator has made no attempt to determine this field; or
 
-(iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
+- the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
 **3.6.2** Intent: Assist with understanding the point of origin of the code in the package. This field is vital for understanding who originally distributed a package and should help in addressing any ambiguity or concerns that might arise with the information in the SPDX file or the contents of the Package it documents.
 
@@ -246,7 +246,7 @@ Example:
 </Package>
 ```
 
-## P.7 Package download location field <a name="3.7"></a>
+## 7.7 Package download location field <a name="3.7"></a>
 
 **3.7.1** Purpose: This section identifies the download Universal Resource Locator (URL), or a specific location within a version control system (VCS) for the package at the time that the SPDX file was created.
 
@@ -255,11 +255,11 @@ Use:
 * `NONE` if there is no download location whatsoever.
 * `NOASSERTION` if:
 
-    (i) the SPDX file creator has attempted to but cannot reach a reasonable objective determination;
+  - the SPDX file creator has attempted to but cannot reach a reasonable objective determination;
 
-    (ii) the SPDX file creator has made no attempt to determine this field; or
+  - the SPDX file creator has made no attempt to determine this field; or
 
-    (iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
+  - the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
 **3.7.2** Intent: Where and how to download the exact package being referenced is critical verification and tracking data.
 
@@ -563,7 +563,7 @@ Example:
 </Package>
 ```
 
-## P.8 Files analyzed field <a name="3.8"></a>
+## 7.8 Files analyzed field <a name="3.8"></a>
 
 **3.8.1** Purpose: Indicates whether the file content of this package has been available for or subjected to analysis when creating the SPDX document. If `false`, indicates packages that represent metadata or URI references to a project, product, artifact, distribution or a component. If `false`, the package shall not contain any files.
 
@@ -599,7 +599,7 @@ Example:
 </Package>
 ```
 
-## P.9 Package verification code field <a name="3.9"></a>
+## 7.9 Package verification code field <a name="3.9"></a>
 
 **3.9.1** Purpose: This field provides an independently reproducible mechanism identifying specific contents of a package based on the actual files (except the SPDX file itself, if it is included in the package) that make up each package and that correlates to the data in this SPDX file. This identifier enables a recipient to determine if any file in the original package (that the analysis was done on) has been changed and permits inclusion of an SPDX file as part of a package.
 
@@ -657,7 +657,7 @@ Example:
 </Package>
 ```
 
-## P.10 Package checksum field <a name="3.10"></a>
+## 7.10 Package checksum field <a name="3.10"></a>
 
 **3.10.1** Purpose: Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX file. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX file is to be included in a package, this value should not be calculated. The [SHA-1][] algorithm shall be used to provide the checksum by default.
 
@@ -714,7 +714,7 @@ Example:
 </Package>
 ```
 
-## P.11 Package home page field <a name="3.11"></a>
+## 7.11 Package home page field <a name="3.11"></a>
 
 **3.11.1** Purpose: Provide a place for the SPDX file creator to record a web site that serves as the package's home page. This link can also be used to reference further information about the package referenced by the SPDX file creator.
 
@@ -723,11 +723,11 @@ Use:
 * `NONE` if there is no package home page whatsoever.
 * `NOASSERTION` if:
 
-    (i) the SPDX file creator has attempted to but cannot reach a reasonable objective determination;
+  - the SPDX file creator has attempted to but cannot reach a reasonable objective determination;
 
-    (ii) the SPDX file creator has made no attempt to determine this field; or
+  - the SPDX file creator has made no attempt to determine this field; or
 
-    (iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
+  - the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
 **3.11.2** Intent: Save the recipient of the SPDX file who is looking for more info from having to search for and verify a match between the package and the associated project homepage.
 
@@ -757,7 +757,7 @@ This specification uses the prefix `doap:` to refer to the [DOAP][doap] namespac
 ```text
 http://usefulinc.com/ns/doap#
 ```
-## P.12 Source information field <a name="3.12"></a>
+## 7.12 Source information field <a name="3.12"></a>
 
 **3.12.1** Purpose: Provide a place for the SPDX file creator to record any relevant background information or additional comments about the origin of the package. For example, this field might include comments indicating whether the package was pulled from a source code management system or has been repackaged.
 
@@ -789,7 +789,7 @@ Example:
 </Package>
 ```
 
-## P.13 Concluded license field <a name="3.13"></a>
+## 7.13 Concluded license field <a name="3.13"></a>
 
 **3.13.1** Purpose: Contain the license the SPDX file creator has concluded as governing the package or alternative values, if the governing license cannot be determined.
 
@@ -799,11 +799,11 @@ The options to populate this field are limited to:
 * `NONE`, if the SPDX file creator concludes there is no license available for this package; or
 * `NOASSERTION` if:
 
-    (i) the SPDX file creator has attempted to but cannot reach a reasonable objective determination;
+  - the SPDX file creator has attempted to but cannot reach a reasonable objective determination;
 
-    (ii) the SPDX file creator has made no attempt to determine this field; or
+  - the SPDX file creator has made no attempt to determine this field; or
 
-    (iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
+  - the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If the Concluded License is not the same as the [Declared License](#3.15), a written explanation should be provided in the Comments on License field ([7.16](#3.16)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([7.16](#3.16)) is preferred.
 
@@ -858,7 +858,7 @@ Example:
 </Package>
 ```
 
-## P.14 All licenses information from files field <a name="3.14"></a>
+## 7.14 All licenses information from files field <a name="3.14"></a>
 
 **3.14.1** Purpose: This field is to contain a list of all licenses found in the package. The relationship between licenses (i.e., conjunctive, disjunctive) is not specified in this field – it is simply a listing of all licenses found.
 
@@ -869,9 +869,9 @@ The options to populate this field are limited to:
 * `NONE`, if no license information is detected in any of the files; or
 * `NOASSERTION`, if:
 
-    (i) the SPDX file creator has made no attempt to determine this field; or
+  - the SPDX file creator has made no attempt to determine this field; or
 
-    (ii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
+  - the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
 **3.14.2** Intent: Here, the intention is to capture all license information detected in the actual files.
 
@@ -916,7 +916,7 @@ Example:
 </Package>
 ```
 
-## P.15 Declared license field <a name="3.15"></a>
+## 7.15 Declared license field <a name="3.15"></a>
 
 **3.15.1** Purpose: List the licenses that have been declared by the authors of the package. Any license information that does not originate from the package authors, e.g. license information from a third party repository, should not be included in this field.
 
@@ -926,9 +926,9 @@ The options to populate this field are limited to:
 * `NONE`, if the package contains no license information whatsoever; or
 * `NOASSERTION` if:
 
-    (i) the SPDX file creator has made no attempt to determine this field; or
+  - the SPDX file creator has made no attempt to determine this field; or
 
-    (ii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
+  - the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
 **3.15.2** Intent: This is simply the license identified in text in one or more files (for example COPYING file) in the source code package. This field is not intended to capture license information obtained from an external source, such as the package website. Such information can be included in Concluded License ([7.13](#3.13)). This field may have multiple Declared Licenses, if multiple licenses are declared at the package level.
 
@@ -981,7 +981,7 @@ Example:
 </Package>
 ```
 
-## P.16 Comments on license field <a name="3.16"></a>
+## 7.16 Comments on license field <a name="3.16"></a>
 
 **3.16.1** Purpose: This field provides a place for the SPDX file creator to record any relevant background information or analysis that went in to arriving at the Concluded License for a package. If the Concluded License does not match the Declared License or License Information from Files, this should be explained by the SPDX file creator. Its is also preferable to include an explanation here when the Concluded License is `NOASSERTION`.
 
@@ -1018,7 +1018,7 @@ Example:
 </Package>
 ```
 
-## P.17 Copyright text field <a name="3.17"></a>
+## 7.17 Copyright text field <a name="3.17"></a>
 
 **3.17.1** Purpose: Identify the copyright holders of the package, as well as any dates present. This will be a free form text field extracted from package information files. The options to populate this field are limited to:
 
@@ -1026,9 +1026,9 @@ Example:
 * `NONE` if the package contains no copyright information whatsoever; or
 * `NOASSERTION`, if
 
-    (i) the SPDX document creator has made no attempt to determine this field; or
+  - the SPDX document creator has made no attempt to determine this field; or
 
-    (ii) the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+  - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 **3.17.2** Intent: Record any copyright notices for the package.
 
@@ -1058,7 +1058,7 @@ Example:
 </Package>
 ```
 
-## P.18 Package summary description field <a name="3.18"></a>
+## 7.18 Package summary description field <a name="3.18"></a>
 
 **3.18.1** Purpose: This field is a short description of the package.
 
@@ -1090,7 +1090,7 @@ Example:
 </Package>
 ```
 
-## P.19 Package detailed description field <a name="3.19"></a>
+## 7.19 Package detailed description field <a name="3.19"></a>
 
 **3.19.1** Purpose: This field is a more detailed description of the package. It may also be extracted from the packages itself.
 
@@ -1128,7 +1128,7 @@ Example:
 </Package>
 ```
 
-## P.20 Package comment field <a name="3.20"></a>
+## 7.20 Package comment field <a name="3.20"></a>
 
 **3.20.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the package being described.
 
@@ -1162,7 +1162,7 @@ Example:
 </Package>
 ```
 
-## P.21 External reference field <a name="3.21"></a>
+## 7.21 External reference field <a name="3.21"></a>
 
 **3.21.1** Purpose: An External Reference allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package.
 
@@ -1231,7 +1231,7 @@ Example (for an unlisted location):
 
 The referenceType value for a non-listed location consists of the SPDX document namespace (see [6.5](2-document-creation-information.md#2.5)) followed by a `#` and the category as defined in [7.21.4](#3.21).
 
-## P.22 External reference comment field <a name="3.22"></a>
+## 7.22 External reference comment field <a name="3.22"></a>
 
 **3.22.1** Purpose: To provide human-readable information about the purpose and target of the reference.
 
@@ -1274,7 +1274,7 @@ acmecorp:acmenator:6.6.6.</text>
 </spdx:package>
 ```
 
-## P.23 Package attribution text field <a name="3.23"></a>
+## 7.23 Package attribution text field <a name="3.23"></a>
 
 **3.23.1** Purpose: This field provides a place for the SPDX data creator to record, at the package level, acknowledgements that might be required to be communicated in some contexts. This is not meant to include the package's actual complete license text (see `PackageLicenseConcluded`, `PackageLicenseDeclared` and `PackageLicenseInfoFromFiles`), and might or might not include copyright notices (see also `PackageCopyrightText`). The SPDX data creator might use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce.
 
