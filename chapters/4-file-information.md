@@ -1,6 +1,6 @@
 # 8 File information fields
 
-## F.1 File name field <a name="4.1"></a>
+## 8.1 File name field <a name="4.1"></a>
 
 **4.1.1** Purpose: Identify the full path and filename that corresponds to the file information in this section.
 
@@ -31,7 +31,7 @@ Example:
 </File>
 ```
 
-## F.2 File SPDX identifier field <a name="4.2"></a>
+## 8.2 File SPDX identifier field <a name="4.2"></a>
 
 **4.2.1** Purpose: Uniquely identify any element in an SPDX document which might be referenced by other elements. These might be referenced internally and externally with the addition of the SPDX Document Identifier.
 
@@ -71,7 +71,7 @@ Example using document URI:
 </File>
 ```
 
-## F.3 File type field <a name="4.3"></a>
+## 8.3 File type field <a name="4.3"></a>
 
 **4.3.1** Purpose: This field provides information about the type of file identified. File Type is intrinsic to the file, independent of how the file is being used. A file may have more than one file type assigned to it, however the options to populate this field are limited to:
 
@@ -134,7 +134,7 @@ Example: (where file2 is a `README.TXT`)
 </File>
 ```
 
-## F.4 File checksum field <a name="4.4"></a>
+## 8.4 File checksum field <a name="4.4"></a>
 
 **4.4.1** Purpose: Provide a unique identifier to match analysis information on each specific file in a package.
 
@@ -181,7 +181,7 @@ Example:
 </File>
 ```
 
-## F.5 Concluded license field <a name="4.5"></a>
+## 8.5 Concluded license field <a name="4.5"></a>
 
 **4.5.1** Purpose: This field contains the license the SPDX file creator has concluded as governing the file or alternative values if the governing license cannot be determined.
 
@@ -193,11 +193,11 @@ A valid SPDX License Expression as defined in Annex [D](appendix-IV-SPDX-license
 
 `NOASSERTION`, if:
 
-(i) the SPDX file creator has attempted to, but cannot reach a reasonable objective determination;
+- the SPDX file creator has attempted to, but cannot reach a reasonable objective determination;
 
-(ii) the SPDX file creator has made no attempt to determine this field; or
+- the SPDX file creator has made no attempt to determine this field; or
 
-(iii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
+- the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([8.7](#4.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([8.7](#4.7)) is preferred.
 
@@ -248,7 +248,7 @@ Example:
 </File>
 ```
 
-## F.6 License information in file field <a name="4.6"></a>
+## 8.6 License information in file field <a name="4.6"></a>
 
 **4.6.1** Purpose: This field contains the license information actually found in the file, if any. This information is most commonly found in the header of the file, although it might be in other areas of the actual file. Any license information not actually in the file, e.g., “COPYING.txt” file in a top level directory, should not be reflected in this field.
 
@@ -261,9 +261,9 @@ A reference to the license, denoted by LicenseRef-`[idstring]`, if the license i
 
 `NOASSERTION`, if:
 
-(i) the SPDX file creator has made no attempt to determine this field; or
+- the SPDX file creator has made no attempt to determine this field; or
 
-(ii) the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
+- the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If license information for more than one license is contained in the file or if the license information offers the package recipient a choice of licenses, then each of the choices should be listed as a separate entry.
 
@@ -309,7 +309,7 @@ Example:
 </File>
 ```
 
-## F.7 Comments on license field <a name="4.7"></a>
+## 8.7 Comments on license field <a name="4.7"></a>
 
 **4.7.1** Purpose: This field provides a place for the SPDX file creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a file. If the Concluded License does not match the License Information in File, this should be explained by the SPDX file creator. It is also preferable to include an explanation here when the Concluded License is `NOASSERTION`.
 
@@ -344,7 +344,7 @@ Example:
 </File>
 ```
 
-## F.8 Copyright text field <a name="4.8"></a>
+## 8.8 Copyright text field <a name="4.8"></a>
 
 **4.8.1** Purpose: Identify the copyright holder of the file, as well as any dates present. This shall be a free-form text field extracted from the actual file.
 
@@ -356,9 +356,9 @@ Any text relating to a copyright notice, even if not complete;
 
 `NOASSERTION`, if
 
-(i) the SPDX document creator has made no attempt to determine this field; or
+- the SPDX document creator has made no attempt to determine this field; or
 
-(ii) the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).
+- the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).
 
 **4.8.2** Intent: Record any copyright notice for the file.
 
@@ -388,7 +388,7 @@ Example:
 </File>
 ```
 
-## F.9 Artifact of project name field (deprecated) <a name="4.9"></a>
+## 8.9 Artifact of project name field (deprecated) <a name="4.9"></a>
 
 **4.9.1** Purpose: To indicate that a file has been derived from a specific project.
 
@@ -422,7 +422,7 @@ Example:
 </File>
 ```
 
-## F.10 Artifact of project homepage field (deprecated) <a name="4.10"></a>
+## 8.10 Artifact of project homepage field (deprecated) <a name="4.10"></a>
 
 **4.10.1** Purpose: To indicate the location of the project from which the file has been derived.
 
@@ -456,7 +456,7 @@ Example:
 </File>
 ```
 
-## F.11 Artifact of project uniform resource identifier field (deprecated) <a name="4.11"></a>
+## 8.11 Artifact of project uniform resource identifier field (deprecated) <a name="4.11"></a>
 
 **4.11.1** Purpose: To provide a linkage to the project resource in the DOAP document and permit interoperability between the different formats supported.
 
@@ -489,7 +489,7 @@ the value "http://subversion.apache.org/" is the URI of the describes
 resource of type doap:Project -->
 ```
 
-## F.12 File comment field <a name="4.12"></a>
+## 8.12 File comment field <a name="4.12"></a>
 
 **4.12.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the file.
 
@@ -523,7 +523,7 @@ Example:
 </File>
 ```
 
-## F.13 File notice field <a name="4.13"></a>
+## 8.13 File notice field <a name="4.13"></a>
 
 **4.13.1** Purpose: This field provides a place for the SPDX file creator to record license notices or other such related notices found in the file. This might or might not include copyright statements.
 
@@ -555,7 +555,7 @@ Example:
 </File>
 ```
 
-## F.14 File contributor field <a name="4.14"></a>
+## 8.14 File contributor field <a name="4.14"></a>
 
 **4.14.1** Purpose: This field provides a place for the SPDX file creator to record file contributors. Contributors could include names of copyright holders and/or authors who might not be copyright holders, yet contributed to the file content.
 
@@ -589,7 +589,7 @@ Example:
 </File>
 ```
 
-## F.15 File attribution text field <a name="4.15"></a>
+## 8.15 File attribution text field <a name="4.15"></a>
 
 **4.15.1** Purpose: This field provides a place for the SPDX data creator to record, at the file level, acknowledgements that might be required to be communicated in some contexts. This is not meant to include the file's actual complete license text (see `LicenseConcluded` and `LicenseInfoInFile`), and might or might not include copyright notices (see also `FileCopyrightText`). The SPDX data creator might use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce.
 
@@ -625,7 +625,7 @@ Example:
 </File>
 ```
 
-## F.16 File dependencies field (deprecated) <a name="4.16"></a>
+## 8.16 File dependencies field (deprecated) <a name="4.16"></a>
 
 This field is deprecated since SPDX 2.0 in favor of using Clause [11](7-relationships-between-SPDX-elements.md) which provides more granularity about relationships.
 
