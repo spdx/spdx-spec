@@ -1,6 +1,6 @@
 # 11 Relationships between SPDX elements fields
 
-## R.1 Relationship field <a name="7.1"></a>
+## 11.1 Relationship field <a name="7.1"></a>
 
 **7.1.1** Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. 
 
@@ -137,7 +137,7 @@ Examples:
 </SpdxElement>
 ```
 
-## R.2 Relationship comment field <a name="7.2"></a>
+## 11.2 Relationship comment field <a name="7.2"></a>
 
 **7.2.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the relationship.
 
