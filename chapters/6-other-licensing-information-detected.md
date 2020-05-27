@@ -6,7 +6,7 @@ One instance should be created for every unique license or licensing information
 
 Fields:
 
-## L.1 License identifier field <a name="6.1"></a>
+## 10.1 License identifier field <a name="6.1"></a>
 
 **6.1.1** Purpose: Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (Clause [7](3-package-information.md) and Clause [8](4-file-information.md), respectively).
 
@@ -48,7 +48,7 @@ Examples:
 </ExtractedLicensingInfo>
 ```
 
-## L.2 Extracted text field <a name="6.2"></a>
+## 10.2 Extracted text field <a name="6.2"></a>
 
 **6.2.1** Purpose: Provide a copy of the actual text of the license reference extracted from the package or file that is associated with the License Identifier to aid in future analysis.
 
@@ -94,7 +94,7 @@ Example 2 (if indeed full text of license present in File):
 </ExtractedLicensingInfo>
 ```
 
-## L.3 License name field <a name="6.3"></a>
+## 10.3 License name field <a name="6.3"></a>
 
 **6.3.1** Purpose: Provide a common name of the license that is not on the SPDX list.
 
@@ -124,7 +124,7 @@ Example:
 </ExtractedLicensingInfo>
 ```
 
-## L.4 License cross reference field <a name="6.4"></a>
+## 10.4 License cross reference field <a name="6.4"></a>
 
 **6.4.1** Purpose: Provide a pointer to the official source of a license that is not included in the SPDX License List, that is referenced by the License Identifier.
 
@@ -152,7 +152,7 @@ Example:
 </ExtractedLicensingInfo>
 ```
 
-## L.5 License comment field <a name="6.5"></a>
+## 10.5 License comment field <a name="6.5"></a>
 
 **6.5.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the license.
 
