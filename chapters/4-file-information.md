@@ -592,10 +592,6 @@ Table 47 — Metadata for the file comment field
 | Cardinality | 0..1 |
 | Format | Free form text that may span multiple lines |
 
-**4.12.3** Cardinality: Optional, one.
-
-**4.12.4** Data Format: Free form text that may span multiple lines
-
 **Examples**
 
 EXAMPLE 1 Tag: `FileComment:`
