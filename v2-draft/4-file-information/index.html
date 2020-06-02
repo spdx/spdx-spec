@@ -192,18 +192,41 @@
               
                 <h1 id="8-file-information-fields">8 File information fields</h1>
 <h2 id="81-file-name-field">8.1 File name field <a name="4.1"></a></h2>
-<p><strong>4.1.1</strong> Purpose: Identify the full path and filename that corresponds to the file information in this section.</p>
-<p><strong>4.1.2</strong> Intent: To aid finding the correct file which corresponds to the file information.</p>
-<p><strong>4.1.3</strong> Cardinality: Mandatory, one.</p>
-<p><strong>4.1.4</strong> Data Format: A relative filename with the root of the package archive or directory.</p>
-<p>In general, every filename is preceded with a <code>./</code>, see <a href="http://www.ietf.org/rfc/rfc3986.txt">http://www.ietf.org/rfc/rfc3986.txt</a> for syntax.</p>
-<p><strong>4.1.5</strong> Tag: <code>FileName:</code></p>
-<p>Example:</p>
+<p><strong>Description</strong></p>
+<p>Identify the full path and filename that corresponds to the file information in this section.</p>
+<p><strong>Intent</strong></p>
+<p>To aid finding the correct file which corresponds to the file information.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the file name field is shown in Table 36.</p>
+<p>Table 36 — Metadata for the file name field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>1..1</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>A relative filename with the root of the package archive or directory.<br><br>In general, every filename is preceded with a <code>./</code>, see <a href="http://www.ietf.org/rfc/rfc3986.txt">http://www.ietf.org/rfc/rfc3986.txt</a> for syntax.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>FileName:</code></p>
 <pre class="codehilite"><code class="language-text">FileName: ./package/foo.c</code></pre>
 
 
-<p><strong>4.1.6</strong> RDF: Property <code>spdx:fileName</code> in class <code>spdx:File</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:fileName</code> in class <code>spdx:File</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;...&quot;&gt;
     &lt;fileName&gt;./package/foo.c&lt;/fileName&gt;
     ...
@@ -211,18 +234,42 @@
 
 
 <h2 id="82-file-spdx-identifier-field">8.2 File SPDX identifier field <a name="4.2"></a></h2>
-<p><strong>4.2.1</strong> Purpose: Uniquely identify any element in an SPDX document which might be referenced by other elements. These might be referenced internally and externally with the addition of the SPDX Document Identifier.</p>
-<p><strong>4.2.2</strong> Intent: There may be several versions of the same file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.</p>
-<p><strong>4.2.3</strong> Cardinality: Mandatory, one.</p>
-<p><strong>4.2.4</strong> Data Format: "SPDXRef-"<code>[idstring]</code></p>
-<p>where <code>[idstring]</code> is a unique string containing letters, numbers, <code>.</code> and/or <code>-</code>.</p>
-<p><strong>4.2.5</strong> Tag: <code>SPDXID:</code></p>
-<p>Example:</p>
+<p><strong>Description</strong></p>
+<p>Uniquely identify any element in an SPDX document which might be referenced by other elements. These might be referenced internally and externally with the addition of the SPDX Document Identifier.</p>
+<p><strong>Intent</strong></p>
+<p>There may be several versions of the same file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the file SPDX identifier field is shown in Table 37.</p>
+<p>Table 37 — Metadata for the file SPDX identifier field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>1..1</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>"SPDXRef-"<code>[idstring]</code><br>where <code>[idstring]</code> is a unique string containing letters, numbers, <code>.</code> and/or <code>-</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>SPDXID:</code></p>
 <pre class="codehilite"><code class="language-text">SPDXID: SPDXRef-1</code></pre>
 
 
-<p><strong>4.2.6</strong> RDF: The URI for the element will follow the form: [SpdxDocumentURI]#SPDXRef-[idstring] where [SpdxDocumentURI] is the URI for the SPDX Document containing the element.</p>
-<p>Example using <code>xml:base:</code></p>
+<p>EXAMPLE 2 RDF: The URI for the element will follow the form: [SpdxDocumentURI]#SPDXRef-[idstring] where [SpdxDocumentURI] is the URI for the SPDX Document containing the element.</p>
+<p>Using <code>xml:base:</code></p>
 <pre class="codehilite"><code class="language-text">&lt;rdf:RDF xml:base=&quot;http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B&quot;
     ...
     &lt;File rdf:about=&quot;#SPDXRef-1&quot;&gt;
@@ -230,14 +277,15 @@
     &lt;/File&gt;</code></pre>
 
 
-<p>Example using document URI:</p>
+<p>Using document URI:</p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1&quot;&gt;
     ...
 &lt;/File&gt;</code></pre>
 
 
 <h2 id="83-file-type-field">8.3 File type field <a name="4.3"></a></h2>
-<p><strong>4.3.1</strong> Purpose: This field provides information about the type of file identified. File Type is intrinsic to the file, independent of how the file is being used. A file may have more than one file type assigned to it, however the options to populate this field are limited to:</p>
+<p><strong>Description</strong></p>
+<p>This field provides information about the type of file identified. File Type is intrinsic to the file, independent of how the file is being used. A file may have more than one file type assigned to it, however the options to populate this field are limited to:</p>
 <ul>
 <li><code>SOURCE</code> if the file is human readable source code (.c, .html, etc.);</li>
 <li><code>BINARY</code> if the file is a compiled object, target image or binary executable (.o, .a, etc.);</li>
@@ -251,32 +299,55 @@
 <li><code>SPDX</code> if the file is an SPDX document;</li>
 <li><code>OTHER</code> if the file doesn't fit into the above categories (generated artifacts, data files, etc.)</li>
 </ul>
-<p><strong>4.3.2</strong> Intent: Here, this field is a reasonable estimation of the file type, from a developer perspective.</p>
-<p><strong>4.3.3</strong> Cardinality: Optional, multiple.</p>
-<p><strong>4.3.4</strong> Data Format: <code>SOURCE</code> | <code>BINARY</code> | <code>ARCHIVE</code> | <code>APPLICATION</code> | <code>AUDIO</code> | <code>IMAGE</code> | <code>TEXT</code> | <code>VIDEO</code> | <code>DOCUMENTATION</code> | <code>SPDX</code> | <code>OTHER</code></p>
-<p><strong>4.3.5</strong> Tag: <code>FileType:</code></p>
-<p>Example:</p>
+<p><strong>Intent</strong></p>
+<p>Here, this field is a reasonable estimation of the file type, from a developer perspective.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the file type field is shown in Table 38.</p>
+<p>Table 38 — Metadata for the file type field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..*</td>
+</tr>
+<tr>
+<td>Format</td>
+<td><code>SOURCE</code> | <code>BINARY</code> | <code>ARCHIVE</code> | <code>APPLICATION</code> | <code>AUDIO</code> | <code>IMAGE</code> | <code>TEXT</code> | <code>VIDEO</code> | <code>DOCUMENTATION</code> | <code>SPDX</code> | <code>OTHER</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>FileType:</code></p>
 <pre class="codehilite"><code class="language-text">FileType: BINARY</code></pre>
 
 
-<p>Example: (for a <code>README.TXT</code>)</p>
+<p>For a <code>README.TXT</code></p>
 <pre class="codehilite"><code class="language-text">FileType: TEXT
 FileType: DOCUMENTATION</code></pre>
 
 
-<p>Example (foo.exe)</p>
+<p>foo.exe</p>
 <pre class="codehilite"><code class="language-text">FileType: BINARY
 FileType: APPLICATION</code></pre>
 
 
-<p><strong>4.3.6</strong> RDF: Property <code>spdx:fileType</code> in class <code>spdx:File</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:fileType</code> in class <code>spdx:File</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;file1&quot;&gt;
     &lt;fileType rdf:resource=&quot;fileType_binary&quot; /&gt;
 &lt;/File&gt;</code></pre>
 
 
-<p>Example: (where file2 is a <code>README.TXT</code>)</p>
+<p>Where file2 is a <code>README.TXT</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;file2&quot;&gt;
     &lt;fileType rdf:resource=&quot;http://spdx.org/rdf/terms#fileType_text&quot; /&gt;
     &lt;fileType rdf:resource=&quot;http://spdx.org/rdf/terms#fileType_documentation&quot; /&gt;
@@ -284,21 +355,48 @@ FileType: APPLICATION</code></pre>
 
 
 <h2 id="84-file-checksum-field">8.4 File checksum field <a name="4.4"></a></h2>
-<p><strong>4.4.1</strong> Purpose: Provide a unique identifier to match analysis information on each specific file in a package.</p>
-<p><strong>4.4.2</strong> Intent: Here, by providing a unique identifier of each file, confusion over which version/modification of a specific file should be eliminated.</p>
-<p><strong>4.4.3</strong> Cardinality: Mandatory, one <a href="https://tools.ietf.org/html/rfc3174"><code>SHA1</code></a>, others may be optionally provided.</p>
-<p><strong>4.4.4</strong> Algorithm: <a href="https://tools.ietf.org/html/rfc3174"><code>SHA1</code></a>is to be used on the file. Other algorithms that can be provided optionally include <a href="https://en.wikipedia.org/wiki/SHA-2"><code>SHA224</code></a>, <a href="https://tools.ietf.org/html/rfc6234"><code>SHA256</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-2"><code>SHA384</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-2"><code>SHA512</code></a>, <a href="https://tools.ietf.org/html/rfc1319"><code>MD2</code></a>, <a href="https://tools.ietf.org/html/rfc1320"><code>MD4</code></a>, <a href="https://tools.ietf.org/html/rfc1321"><code>MD5</code></a>, <a href="https://groups.csail.mit.edu/cis/md6/"><code>MD6</code></a></p>
-<p><strong>4.4.5</strong> Data Format: In <code>tag:value</code> there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF shall also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160 bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected.</p>
-<p><strong>4.4.6</strong> Tag: <code>FileChecksum:</code></p>
-<p>Example:</p>
+<p><strong>Description</strong></p>
+<p>Provide a unique identifier to match analysis information on each specific file in a package.</p>
+<p><strong>Intent</strong></p>
+<p>Here, by providing a unique identifier of each file, confusion over which version/modification of a specific file should be eliminated.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the file checksum field is shown in Table 39.</p>
+<p>Table 39 — Metadata for the file checksum field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>1..1 <a href="https://tools.ietf.org/html/rfc3174"><code>SHA1</code></a>, others may be optionally provided.</td>
+</tr>
+<tr>
+<td>Algorithm</td>
+<td><a href="https://tools.ietf.org/html/rfc3174"><code>SHA1</code></a> is to be used on the file. Other algorithms that can be provided optionally include <a href="https://en.wikipedia.org/wiki/SHA-2"><code>SHA224</code></a>, <a href="https://tools.ietf.org/html/rfc6234"><code>SHA256</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-2"><code>SHA384</code></a>, <a href="https://en.wikipedia.org/wiki/SHA-2"><code>SHA512</code></a>, <a href="https://tools.ietf.org/html/rfc1319"><code>MD2</code></a>, <a href="https://tools.ietf.org/html/rfc1320"><code>MD4</code></a>, <a href="https://tools.ietf.org/html/rfc1321"><code>MD5</code></a>, <a href="https://groups.csail.mit.edu/cis/md6/"><code>MD6</code></a></td>
+</tr>
+<tr>
+<td>Format</td>
+<td>In <code>tag:value</code> there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF shall also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160 bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>FileChecksum:</code></p>
 <pre class="codehilite"><code class="language-text">FileChecksum: SHA1: d6a770ba38583ed4bb4525bd96e50461655d2758</code></pre>
 
 
 <pre class="codehilite"><code class="language-text">FileChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24</code></pre>
 
 
-<p><strong>4.4.7</strong> RDF: Property <code>spdx:Checksum</code> in class <code>spdx:File</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:Checksum</code> in class <code>spdx:File</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;...&quot;&gt;
     &lt;checksum&gt;
         &lt;Checksum&gt;
@@ -318,7 +416,8 @@ FileType: APPLICATION</code></pre>
 
 
 <h2 id="85-concluded-license-field">8.5 Concluded license field <a name="4.5"></a></h2>
-<p><strong>4.5.1</strong> Purpose: This field contains the license the SPDX file creator has concluded as governing the file or alternative values if the governing license cannot be determined.</p>
+<p><strong>Description</strong></p>
+<p>This field contains the license the SPDX file creator has concluded as governing the file or alternative values if the governing license cannot be determined.</p>
 <p>The options to populate this field are limited to:</p>
 <p>A valid SPDX License Expression as defined in Annex <a href="../appendix-IV-SPDX-license-expressions/">D</a>;</p>
 <p><code>NONE</code>, if the SPDX file creator concludes there is no license available for this file; or</p>
@@ -335,28 +434,47 @@ FileType: APPLICATION</code></pre>
 </li>
 </ul>
 <p>If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (<a href="#4.7">8.7</a>). With respect to <code>NOASSERTION</code>, a written explanation in the Comments on License field (<a href="#4.7">8.7</a>) is preferred.</p>
-<p><strong>4.5.2</strong> Intent: Here, the intent is for the SPDX file creator to analyze the License Information in File (<a href="#4.6">8.6</a>) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.</p>
-<p><strong>4.5.3</strong> Cardinality: Mandatory, one.</p>
-<p><strong>4.5.4</strong> Data Format: <code>&lt;SPDX License Expression&gt;</code> | <code>NONE</code> | <code>NOASSERTION</code></p>
-<p>where:</p>
-<p><code>&lt;SPDX License Expression&gt;</code> is a valid SPDX License Expression as defined in Annex <a href="../appendix-IV-SPDX-license-expressions/">D</a>.</p>
-<p><strong>4.5.5</strong> Tag: <code>LicenseConcluded:</code></p>
-<p>Example:</p>
+<p><strong>Intent</strong></p>
+<p>Here, the intent is for the SPDX file creator to analyze the License Information in File (<a href="#4.6">8.6</a>) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the concluded license field is shown in Table 40.</p>
+<p>Table 40 — Metadata for the concluded license field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>1..1</td>
+</tr>
+<tr>
+<td>Format</td>
+<td><code>&lt;SPDX License Expression&gt;</code> | <code>NONE</code> | <code>NOASSERTION</code><br>where:<br><code>&lt;SPDX License Expression&gt;</code> is a valid SPDX License Expression as defined in Annex <a href="../appendix-IV-SPDX-license-expressions/">D</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>LicenseConcluded:</code></p>
 <pre class="codehilite"><code class="language-text">LicenseConcluded: LGPL-2.0-only</code></pre>
 
 
-<p>Example:</p>
 <pre class="codehilite"><code class="language-text">LicenseConcluded: (LGPL-2.0-only OR LicenseRef-2)</code></pre>
 
 
-<p><strong>4.5.6</strong> RDF: Property <code>spdx:licenseConcluded</code> in class <code>spdx:File</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:licenseConcluded</code> in class <code>spdx:File</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;file&quot;&gt;
     &lt;licenseConcluded&gt;LGPL-2.0-only&lt;/licenseConcluded&gt;
 &lt;/File&gt;</code></pre>
 
 
-<p>Example:</p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;...&quot;&gt;
     &lt;licenseConcluded&gt;
         &lt;DisjunctiveLicenseSet&gt;
@@ -368,7 +486,8 @@ FileType: APPLICATION</code></pre>
 
 
 <h2 id="86-license-information-in-file-field">8.6 License information in file field <a name="4.6"></a></h2>
-<p><strong>4.6.1</strong> Purpose: This field contains the license information actually found in the file, if any. This information is most commonly found in the header of the file, although it might be in other areas of the actual file. Any license information not actually in the file, e.g., “COPYING.txt” file in a top level directory, should not be reflected in this field.</p>
+<p><strong>Description</strong></p>
+<p>This field contains the license information actually found in the file, if any. This information is most commonly found in the header of the file, although it might be in other areas of the actual file. Any license information not actually in the file, e.g., “COPYING.txt” file in a top level directory, should not be reflected in this field.</p>
 <p>The options to populate this field are limited to:</p>
 <p>The SPDX License List short form identifier, if the license is on the SPDX License List;
 A reference to the license, denoted by LicenseRef-<code>[idstring]</code>, if the license is not on the SPDX License List;</p>
@@ -383,25 +502,40 @@ A reference to the license, denoted by LicenseRef-<code>[idstring]</code>, if th
 </li>
 </ul>
 <p>If license information for more than one license is contained in the file or if the license information offers the package recipient a choice of licenses, then each of the choices should be listed as a separate entry.</p>
-<p><strong>4.6.2</strong> Intent: Here, the intent is to provide the license information actually in the file, as compared to the Concluded License field.</p>
-<p><strong>4.6.3</strong> Cardinality: Mandatory, one or many.</p>
-<p><strong>4.6.4</strong> Data Format: <code>&lt;SPDX License Expression&gt;</code> |</p>
-<p>["DocumentRef-"<code>[idstring]</code>":"]"LicenseRef-"<code>[idstring]</code> |</p>
-<p>| <code>NONE</code> | <code>NOASSERTION</code></p>
-<p>where:</p>
-<p><code>&lt;SPDX License Expression&gt;</code> is a valid SPDX License Expression</p>
-<p>as defined in Annex <a href="../appendix-IV-SPDX-license-expressions/">D</a>.</p>
-<p>"DocumentRef-"<code>[idstring]</code>: is an optional reference to an external SPDX</p>
-<p>document as described in <a href="../2-document-creation-information/#2.6">6.6</a></p>
-<p><code>[idstring]</code> is a unique string containing letters, numbers, <code>.</code> and/or <code>-</code></p>
-<p><strong>4.6.5</strong> Tag: <code>LicenseInfoInFile:</code></p>
-<p>Example:</p>
+<p><strong>Intent</strong></p>
+<p>Here, the intent is to provide the license information actually in the file, as compared to the Concluded License field.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the license information in file field is shown in Table 41.</p>
+<p>Table 41 — Metadata for the license information in file field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>1..*</td>
+</tr>
+<tr>
+<td>Format</td>
+<td><code>&lt;SPDX License Expression&gt;</code> |<br>["DocumentRef-"<code>[idstring]</code>":"]"LicenseRef-"<code>[idstring]</code> |<br>| <code>NONE</code> | <code>NOASSERTION</code><br>where:<br><code>&lt;SPDX License Expression&gt;</code> is a<br>valid SPDX License Expression<br>as defined in Annex <a href="../appendix-IV-SPDX-license-expressions/">D</a>.<br>"DocumentRef-"<code>[idstring]</code>: is an optional reference to an external SPDX<br>document as described in <a href="../2-document-creation-information/#2.6">6.6</a><br><code>[idstring]</code> is a unique string containing letters, numbers, <code>.</code> and/or <code>-</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>LicenseInfoInFile:</code></p>
 <pre class="codehilite"><code class="language-text">LicenseInfoInFile: GPL-2.0-only
 LicenseInfoInFile: LicenseRef-2</code></pre>
 
 
-<p><strong>4.6.6</strong> RDF: Property <code>spdx:licenseInfoInFile</code> in class <code>spdx:File</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:licenseInfoInFile</code> in class <code>spdx:File</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;file1&quot;&gt;
     &lt;licenseInfoInFile rdf:resource=&quot;http://spdx.org/licenses/GPL-2.0-only&quot; /&gt;
     &lt;licenseInfoInFile rdf:resource=&quot;#LicenseRef-2&quot; /&gt;
@@ -409,19 +543,43 @@ LicenseInfoInFile: LicenseRef-2</code></pre>
 
 
 <h2 id="87-comments-on-license-field">8.7 Comments on license field <a name="4.7"></a></h2>
-<p><strong>4.7.1</strong> Purpose: This field provides a place for the SPDX file creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a file. If the Concluded License does not match the License Information in File, this should be explained by the SPDX file creator. It is also preferable to include an explanation here when the Concluded License is <code>NOASSERTION</code>.</p>
-<p><strong>4.7.2</strong> Intent: Here, the intent is to provide the recipient of the SPDX file with a detailed explanation of how the Concluded License was determined if it does not match the License Information in File, is marked <code>NOASSERTION</code>, or other helpful information relevant to determining the license of the file.</p>
-<p><strong>4.7.3</strong> Cardinality: Optional, one.</p>
-<p><strong>4.7.4</strong> Data Format: Free form text that can span multiple lines</p>
-<p><strong>4.7.5</strong> Tag: <code>LicenseComments:</code></p>
+<p><strong>Description</strong></p>
+<p>This field provides a place for the SPDX file creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a file. If the Concluded License does not match the License Information in File, this should be explained by the SPDX file creator. It is also preferable to include an explanation here when the Concluded License is <code>NOASSERTION</code>.</p>
+<p><strong>Intent</strong></p>
+<p>Here, the intent is to provide the recipient of the SPDX file with a detailed explanation of how the Concluded License was determined if it does not match the License Information in File, is marked <code>NOASSERTION</code>, or other helpful information relevant to determining the license of the file.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the comments on license field is shown in Table 42.</p>
+<p>Table 42 — Metadata for the comments on license field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..1</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Free form text that can span multiple lines</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>LicenseComments:</code></p>
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
-<p>Example:</p>
 <pre class="codehilite"><code class="language-text">LicenseComments: &lt;text&gt;The concluded license was taken from the package level that the file was included in.
 This information was found in the COPYING.txt file in the xyz directory.&lt;/text&gt;</code></pre>
 
 
-<p><strong>4.7.6</strong> RDF: Property <code>spdx:licenseComments</code> in class <code>spdx:File</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:licenseComments</code> in class <code>spdx:File</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;...&quot;&gt;
     &lt;licenseComments&gt;
         The concluded license was taken from the package level that the file
@@ -432,7 +590,8 @@ This information was found in the COPYING.txt file in the xyz directory.&lt;/tex
 
 
 <h2 id="88-copyright-text-field">8.8 Copyright text field <a name="4.8"></a></h2>
-<p><strong>4.8.1</strong> Purpose: Identify the copyright holder of the file, as well as any dates present. This shall be a free-form text field extracted from the actual file.</p>
+<p><strong>Description</strong></p>
+<p>Identify the copyright holder of the file, as well as any dates present. This shall be a free-form text field extracted from the actual file.</p>
 <p>The options to populate this field are limited to:</p>
 <p>Any text relating to a copyright notice, even if not complete;</p>
 <p><code>NONE</code>, if the file contains no copyright information whatsoever; or</p>
@@ -445,17 +604,40 @@ This information was found in the COPYING.txt file in the xyz directory.&lt;/tex
 <p>the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).</p>
 </li>
 </ul>
-<p><strong>4.8.2</strong> Intent: Record any copyright notice for the file.</p>
-<p><strong>4.8.3</strong> Cardinality: Mandatory, one.</p>
-<p><strong>4.8.4</strong> Data Format: Free form text that can span multiple lines | <code>NONE</code> | <code>NOASSERTION</code></p>
-<p><strong>4.8.5</strong> Tag: <code>FileCopyrightText:</code></p>
+<p><strong>Intent</strong></p>
+<p>Record any copyright notice for the file.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the copyright text field is shown in Table 43.</p>
+<p>Table 43 — Metadata for the copyright text field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>1..1</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Free form text that can span multiple lines | <code>NONE</code> | <code>NOASSERTION</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>FileCopyrightText:</code></p>
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
-<p>Example:</p>
 <pre class="codehilite"><code class="language-text">FileCopyrightText: &lt;text&gt; Copyright 2008-2010 John Smith &lt;/text&gt;</code></pre>
 
 
-<p><strong>4.8.6</strong> RDF: Property <code>spdx:copyrightText</code> in class <code>spdx:File</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:copyrightText</code> in class <code>spdx:File</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;...&quot;&gt;
     &lt;copyrightText&gt;
         Copyright 2008-2010 John Smith
@@ -464,18 +646,42 @@ This information was found in the COPYING.txt file in the xyz directory.&lt;/tex
 
 
 <h2 id="89-artifact-of-project-name-field-deprecated">8.9 Artifact of project name field (deprecated) <a name="4.9"></a></h2>
-<p><strong>4.9.1</strong> Purpose: To indicate that a file has been derived from a specific project.</p>
-<p><strong>4.9.2</strong> Intent: To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is not described in an SPDX Document, then <code>ArtifactOf</code> can be used.</p>
+<p><strong>Description</strong></p>
+<p>To indicate that a file has been derived from a specific project.</p>
+<p><strong>Intent</strong></p>
+<p>To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is not described in an SPDX Document, then <code>ArtifactOf</code> can be used.</p>
 <p>If the project is described in another SPDX Document, then Relationship should be used.</p>
-<p><strong>4.9.3</strong> Cardinality: Optional, one or many.</p>
-<p><strong>4.9.4</strong> Data Format: Single line of text. In <code>tag:value</code> format the ArtifactOfProjectName shall precede any optional ArtifactOf optional properties (e.g. ArtifactOfHomePage and ArtifactOfURI).</p>
-<p><strong>4.9.5</strong> Tag: <code>ArtifactOfProjectName:</code></p>
-<p>Example:</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the artifact of project name field is shown in Table 44.</p>
+<p>Table 44 — Metadata for the artifact of project name field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..*</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Single line of text. In <code>tag:value</code> format the ArtifactOfProjectName shall precede any optional ArtifactOf optional properties (e.g. ArtifactOfHomePage and ArtifactOfURI).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>ArtifactOfProjectName:</code></p>
 <pre class="codehilite"><code class="language-text">ArtifactOfProjectName: Jena</code></pre>
 
 
-<p><strong>4.9.6</strong> RDF: Property <code>spdx:artifactOf/doap:Project/doap:name</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:artifactOf/doap:Project/doap:name</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File&gt;
     &lt;artifactOf&gt;
         &lt;doap:Project&gt;
@@ -486,18 +692,41 @@ This information was found in the COPYING.txt file in the xyz directory.&lt;/tex
 
 
 <h2 id="810-artifact-of-project-homepage-field-deprecated">8.10 Artifact of project homepage field (deprecated) <a name="4.10"></a></h2>
-<p><strong>4.10.1</strong> Purpose: To indicate the location of the project from which the file has been derived.</p>
-<p><strong>4.10.2</strong> Intent: To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is described in another SPDX Document, then <code>Relationship</code> should be used.</p>
-<p><strong>4.10.3</strong> Cardinality: Optional, one or many.</p>
-<p><strong>4.10.4</strong> Data Format: Uniform Resource Locator | <code>UNKNOWN</code>.</p>
-<p>In <code>tag:value</code> format all optional <code>ArtifactOf</code> fields shall follow immediately below the ArtifactOfProjectName.</p>
-<p><strong>4.10.5</strong> Tag: <code>ArtifactOfProjectHomePage:</code></p>
-<p>Example:</p>
+<p><strong>Description</strong></p>
+<p>To indicate the location of the project from which the file has been derived.</p>
+<p><strong>Intent</strong></p>
+<p>To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is described in another SPDX Document, then <code>Relationship</code> should be used.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the artifact of project homepage field is shown in Table 45.</p>
+<p>Table 45 — Metadata for the artifact of project homepage field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..*</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Uniform Resource Locator | <code>UNKNOWN</code>.<br><br>In <code>tag:value</code> format all optional <code>ArtifactOf</code> fields shall follow immediately below the ArtifactOfProjectName.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>ArtifactOfProjectHomePage:</code></p>
 <pre class="codehilite"><code class="language-text">ArtifactOfProjectHomePage: http://www.openjena.org/</code></pre>
 
 
-<p><strong>4.10.6</strong> RDF: <code>spdx:artifactOf/doap:Project/doap:homepage</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: <code>spdx:artifactOf/doap:Project/doap:homepage</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File&gt;
     &lt;artifactOf&gt;
         &lt;doap:Project&gt;
@@ -508,18 +737,42 @@ This information was found in the COPYING.txt file in the xyz directory.&lt;/tex
 
 
 <h2 id="811-artifact-of-project-uniform-resource-identifier-field-deprecated">8.11 Artifact of project uniform resource identifier field (deprecated) <a name="4.11"></a></h2>
-<p><strong>4.11.1</strong> Purpose: To provide a linkage to the project resource in the DOAP document and permit interoperability between the different formats supported.</p>
-<p><strong>4.11.2</strong> Intent: To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is described in another SPDX Document, then <code>Relationship</code> should be used.</p>
-<p><strong>4.11.3</strong> Cardinality: Optional, one or many.</p>
-<p><strong>4.11.4</strong> Data Format: Uniform Resource Identifier.</p>
+<p><strong>Description</strong></p>
+<p>To provide a linkage to the project resource in the DOAP document and permit interoperability between the different formats supported.</p>
+<p><strong>Intent</strong></p>
+<p>To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is described in another SPDX Document, then <code>Relationship</code> should be used.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the artifact of project uniform resource identifier field is shown in Table 46.</p>
+<p>Table 46 — Metadata for the artifact of project uniform resource identifier field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..*</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Uniform Resource Identifier.<br><br>In <code>tag:value</code> format all optional ArtifactOf fields shall follow immediately below the ArtifactOfProjectName.</td>
+</tr>
+</tbody>
+</table>
 <p>In <code>tag:value</code> format all optional ArtifactOf fields shall follow immediately below the ArtifactOfProjectName.</p>
-<p><strong>4.11.5</strong> Tag: <code>ArtifactOfProjectURI:</code></p>
-<p>Example:</p>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>ArtifactOfProjectURI:</code></p>
 <pre class="codehilite"><code class="language-text">ArtifactOfProjectURI: http://subversion.apache.org/doap.rdf</code></pre>
 
 
-<p><strong>4.11.6</strong> RDF: <code>spdx:artifactOf/doap</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: <code>spdx:artifactOf/doap</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File&gt;
     &lt;artifactOf rdf:resource=&quot;http://subversion.apache.org/&quot; /&gt;
 &lt;/File&gt;
@@ -529,20 +782,44 @@ resource of type doap:Project --&gt;</code></pre>
 
 
 <h2 id="812-file-comment-field">8.12 File comment field <a name="4.12"></a></h2>
-<p><strong>4.12.1</strong> Purpose: This field provides a place for the SPDX file creator to record any general comments about the file.</p>
-<p><strong>4.12.2</strong> Intent: Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of a file.</p>
-<p><strong>4.12.3</strong> Cardinality: Optional, one.</p>
-<p><strong>4.12.4</strong> Data Format: Free form text that may span multiple lines</p>
-<p><strong>4.12.5</strong> Tag: <code>FileComment:</code></p>
+<p><strong>Description</strong></p>
+<p>This field provides a place for the SPDX file creator to record any general comments about the file.</p>
+<p><strong>Intent</strong></p>
+<p>Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of a file.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the file comment field is shown in Table 47.</p>
+<p>Table 47 — Metadata for the file comment field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..1</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Free form text that may span multiple lines</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>FileComment:</code></p>
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
-<p>Example:</p>
 <pre class="codehilite"><code class="language-text">FileComment: &lt;text&gt;
 This file appears in other packages, such as Foo and Ufoo.
 &lt;/text&gt;</code></pre>
 
 
-<p><strong>4.12.6</strong> RDF: Property <code>rdfs:comments</code> in class <code>spdx:File</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>rdfs:comments</code> in class <code>spdx:File</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;...&quot;&gt;
     &lt;rdfs:comment&gt;
         This file appears in other packages, such as Foo and Ufoo.
@@ -551,18 +828,42 @@ This file appears in other packages, such as Foo and Ufoo.
 
 
 <h2 id="813-file-notice-field">8.13 File notice field <a name="4.13"></a></h2>
-<p><strong>4.13.1</strong> Purpose: This field provides a place for the SPDX file creator to record license notices or other such related notices found in the file. This might or might not include copyright statements.</p>
-<p><strong>4.13.2</strong> Intent: Here, the intent is to provide the recipient of the SPDX file with notices that may require additional review or otherwise contribute to the determination of the Concluded License.</p>
-<p><strong>4.13.3</strong> Cardinality: Optional, one.</p>
-<p><strong>4.13.4</strong> Data Format: Free form text that can span multiple lines</p>
-<p><strong>4.13.5</strong> Tag: <code>FileNotice:</code></p>
+<p><strong>Description</strong></p>
+<p>This field provides a place for the SPDX file creator to record license notices or other such related notices found in the file. This might or might not include copyright statements.</p>
+<p><strong>Intent</strong></p>
+<p>Here, the intent is to provide the recipient of the SPDX file with notices that may require additional review or otherwise contribute to the determination of the Concluded License.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the file notice field is shown in Table 48.</p>
+<p>Table 48 — Metadata for the file notice field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..1</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Free form text that can span multiple lines</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>FileNotice:</code></p>
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
-<p>Example:</p>
 <pre class="codehilite"><code class="language-text">FileNotice: &lt;text&gt;This file is licensed under GPL.&lt;/text&gt;</code></pre>
 
 
-<p><strong>4.13.6</strong> RDF: Property <code>noticeText</code> in class <code>spdx:File</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>noticeText</code> in class <code>spdx:File</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;...&quot;&gt;
     &lt;noticeText&gt;
         This file is licensed under GPL.
@@ -571,20 +872,44 @@ This file appears in other packages, such as Foo and Ufoo.
 
 
 <h2 id="814-file-contributor-field">8.14 File contributor field <a name="4.14"></a></h2>
-<p><strong>4.14.1</strong> Purpose: This field provides a place for the SPDX file creator to record file contributors. Contributors could include names of copyright holders and/or authors who might not be copyright holders, yet contributed to the file content.</p>
-<p><strong>4.14.2</strong> Intent: Here, the intent is to provide the recipient of the SPDX file with a list of one or more contributors (credits). This is one way of providing acknowledgement to the contributors of a file. This would be useful, for example, if a recipient company wanted to contact copyright holders to inquire about alternate licensing.</p>
-<p><strong>4.14.3</strong> Cardinality: Optional, one or many.</p>
-<p><strong>4.14.4</strong> Data Format: Free form text on a single line.</p>
-<p><strong>4.14.5</strong> Tag: <code>FileContributor:</code></p>
+<p><strong>Description</strong></p>
+<p>This field provides a place for the SPDX file creator to record file contributors. Contributors could include names of copyright holders and/or authors who might not be copyright holders, yet contributed to the file content.</p>
+<p><strong>Intent</strong></p>
+<p>Here, the intent is to provide the recipient of the SPDX file with a list of one or more contributors (credits). This is one way of providing acknowledgement to the contributors of a file. This would be useful, for example, if a recipient company wanted to contact copyright holders to inquire about alternate licensing.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the file contributor field is shown in Table 49.</p>
+<p>Table 49 — Metadata for the file contributor field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..*</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Free form text on a single line.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>FileContributor:</code></p>
 <p>In <code>tag:value</code> format single line per contributor.</p>
-<p>Example:</p>
 <pre class="codehilite"><code class="language-text">FileContributor: Modified by Paul Mundt lethal@linux-sh.org
 FileContributor: The Regents of the University of California
 FileContributor: IBM Corporation</code></pre>
 
 
-<p><strong>4.14.6</strong> RDF: Property <code>spdx:fileContributor</code> in class <code>spdx:File</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:fileContributor</code> in class <code>spdx:File</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;...&quot;&gt;
     &lt;fileContributor&gt; Modified by Paul Mundt lethal@linux-sh.org &lt;/fileContributor&gt;
     &lt;fileContributor&gt; The Regents of the University of California &lt;/fileContributor&gt;
@@ -593,21 +918,45 @@ FileContributor: IBM Corporation</code></pre>
 
 
 <h2 id="815-file-attribution-text-field">8.15 File attribution text field <a name="4.15"></a></h2>
-<p><strong>4.15.1</strong> Purpose: This field provides a place for the SPDX data creator to record, at the file level, acknowledgements that might be required to be communicated in some contexts. This is not meant to include the file's actual complete license text (see <code>LicenseConcluded</code> and <code>LicenseInfoInFile</code>), and might or might not include copyright notices (see also <code>FileCopyrightText</code>). The SPDX data creator might use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce.</p>
-<p><strong>4.15.2</strong> Intent: The intent is to provide the recipient of the SPDX file with acknowledgement content at a file level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator might or might not explain elsewhere how they intend for this field to be used.</p>
-<p><strong>4.15.3</strong> Cardinality: Optional, one or many.</p>
-<p><strong>4.15.4</strong> Data Format: free form text that can span multiple lines.</p>
-<p><strong>4.15.5</strong> Tag: <code>FileAttributionText:</code></p>
+<p><strong>Description</strong></p>
+<p>This field provides a place for the SPDX data creator to record, at the file level, acknowledgements that might be required to be communicated in some contexts. This is not meant to include the file's actual complete license text (see <code>LicenseConcluded</code> and <code>LicenseInfoInFile</code>), and might or might not include copyright notices (see also <code>FileCopyrightText</code>). The SPDX data creator might use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce.</p>
+<p><strong>Intent</strong></p>
+<p>The intent is to provide the recipient of the SPDX file with acknowledgement content at a file level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator might or might not explain elsewhere how they intend for this field to be used.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the file attribution text field is shown in Table 50.</p>
+<p>Table 50 — Metadata for the file attribution text field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..*</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Free form text that can span multiple lines.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>FileAttributionText:</code></p>
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
-<p>Example: </p>
 <pre class="codehilite"><code class="language-text">FileAttributionText: &lt;text&gt;
 All advertising materials mentioning features or use of this software must display the
 following acknowledgement:  This product includes software developed by the AT&amp;T.
 &lt;/text&gt;</code></pre>
 
 
-<p><strong>4.15.6</strong> RDF: property <code>spdx:attributionText</code> in class <code>spdx:File</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: property <code>spdx:attributionText</code> in class <code>spdx:File</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;...&quot;&gt;
     &lt;attributionText&gt;
         All advertising materials mentioning features or use of this software must display the
@@ -618,19 +967,43 @@ following acknowledgement:  This product includes software developed by the AT&a
 
 <h2 id="816-file-dependencies-field-deprecated">8.16 File dependencies field (deprecated) <a name="4.16"></a></h2>
 <p>This field is deprecated since SPDX 2.0 in favor of using Clause <a href="../7-relationships-between-SPDX-elements/">11</a> which provides more granularity about relationships.</p>
-<p><strong>4.16.1</strong> Purpose: The field provides a place for the SPDX file creator to record a list of other files (referenceable within this SPDX file) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files might not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or might be needed as part of the file distribution obligation.</p>
-<p><strong>4.16.2</strong> Intent: Here, the intent is to provide the recipient of the SPDX file with file dependency information based on the build system that created the file. These other files might impact the licensing of the file and/or might be required to satisfy the distribution obligation of the file (e.g., source files subject to a copyleft license).</p>
-<p><strong>4.16.3</strong> Cardinality: Optional, one or many.</p>
-<p><strong>4.16.4</strong> Data Format: Reference to the file within the SPDX document. For the <code>tag:value</code> format, this will be the filename. For the RDF format, it shall be a reference to the actual file node.</p>
-<p><strong>4.16.5</strong> Tag: <code>FileDependency:</code></p>
-<p>Example:</p>
+<p><strong>Description</strong></p>
+<p>The field provides a place for the SPDX file creator to record a list of other files (referenceable within this SPDX file) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files might not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or might be needed as part of the file distribution obligation.</p>
+<p><strong>Intent</strong></p>
+<p>Here, the intent is to provide the recipient of the SPDX file with file dependency information based on the build system that created the file. These other files might impact the licensing of the file and/or might be required to satisfy the distribution obligation of the file (e.g., source files subject to a copyleft license).</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the file dependencies field is shown in Table 51.</p>
+<p>Table 51 — Metadata for the file dependencies field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..*</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Reference to the file within the SPDX document. For the <code>tag:value</code> format, this will be the filename. For the RDF format, it shall be a reference to the actual file node.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>FileDependency:</code></p>
 <pre class="codehilite"><code class="language-text">FileDependency: ./busybox-1.20.2/shell/match.h
 FileDependency: ./busybox-1.20.2/shell/match.c
 FileDependency: ./busybox-1.20.2/shell/ash.c</code></pre>
 
 
-<p><strong>4.16.6</strong> RDF: Property <code>spdx:fileDependency</code> in class <code>spdx:File</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:fileDependency</code> in class <code>spdx:File</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:nodeID=&quot;A0&quot;&gt;
     &lt;fileName&gt;./package/source1.java&lt;/fileName&gt;
 &lt;/File&gt;</code></pre>
