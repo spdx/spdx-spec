@@ -30,6 +30,7 @@ The name of each package is an important conventional technical identifier to be
 The metadata for the SPDX version field is shown in Table 13.
 
 Table 13 — Metadata for the package name field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -67,6 +68,7 @@ There may be several versions of the same package within an SPDX document. Each 
 The metadata for the SPDX identifier field is shown in Table 14.
 
 Table 14 — Metadata for the SPDX identifier field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -123,6 +125,7 @@ The versioning of a package is a useful for identification purposes and for indi
 The metadata for the package version field is shown in Table 15.
 
 Table 15 — Metadata for the package version field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -162,6 +165,7 @@ The actual file name of the compressed file containing the package may be a sign
 The metadata for the package file name field is shown in Table 16.
 
 Table 16 — Metadata for the package file name field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -225,6 +229,7 @@ Assist with understanding the point of distribution for the code in the package.
 The metadata for the package supplier field is shown in Table 17.
 
 Table 17 — Metadata for the package supplier field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -272,6 +277,7 @@ Assist with understanding the point of origin of the code in the package. This f
 The metadata for the package originator field is shown in Table 18.
 
 Table 18 — Metadata for the package originator field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -320,6 +326,7 @@ Where and how to download the exact package being referenced is critical verific
 The metadata for the package download location field is shown in Table 19.
 
 Table 19 — Metadata for the package download location field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -629,6 +636,7 @@ Some examples:
 The metadata for the files analyzed field is shown in Table 20.
 
 Table 20 — Metadata for the files analyzed field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No. If omitted, the default value of `true` is assumed. |
@@ -668,6 +676,7 @@ Provide a unique identifier based on the files inside each package, eliminating 
 The metadata for the package verification code field is shown in Table 21.
 
 Table 21 — Metadata for the package verification code field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -737,6 +746,7 @@ Eliminate confusion over which version or modification of a specific package the
 The metadata for the package checksum field is shown in Table 22.
 
 Table 22 — Metadata for the package checksum field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -813,6 +823,7 @@ Save the recipient of the SPDX file who is looking for more info from having to 
 The metadata for the package home page field is shown in Table 23.
 
 Table 23 — Metadata for the package home page field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -854,6 +865,7 @@ The SPDX file creator can provide additional information to describe any anomali
 The metadata for the source information field is shown in Table 24.
 
 Table 24 — Metadata for the source information field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -907,6 +919,7 @@ Here, the intent is for the SPDX file creator to analyze the license information
 The metadata for the concluded license field is shown in Table 25.
 
 Table 25 — Metadata for the concluded license field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -974,6 +987,7 @@ Here, the intention is to capture all license information detected in the actual
 The metadata for the all licenses information from files field is shown in Table 26.
 
 Table 26 — Metadata for the all licenses information from files field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -1033,6 +1047,7 @@ This is simply the license identified in text in one or more files (for example 
 The metadata for the declared license field is shown in Table 27.
 
 Table 27 — Metadata for the declared license field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -1089,6 +1104,7 @@ Here, the intent is to provide the recipient of the SPDX file with a detailed ex
 The metadata for the comments on license field is shown in Table 28.
 
 Table 28 — Metadata for the comments on license field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -1141,6 +1157,7 @@ Record any copyright notices for the package.
 The metadata for the copyright text field is shown in Table 29.
 
 Table 29 — Metadata for the copyright text field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -1182,6 +1199,7 @@ Here, the intent is to allow the SPDX file creator to provide concise informatio
 The metadata for the package summary description field is shown in Table 30.
 
 Table 30 — Metadata for the package summary description field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -1223,6 +1241,7 @@ Here, the intent is to provide recipients of the SPDX file with a detailed techn
 The metadata for the package detailed description field is shown in Table 31.
 
 Table 31 — Metadata for the package detailed description field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -1270,6 +1289,7 @@ Here, the intent is to provide the recipient of the SPDX document with more info
 The metadata for the package comment field is shown in Table 32.
 
 Table 32 — Metadata for the package comment field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -1313,6 +1333,7 @@ To indicate an outside source of information, metadata enumerations, asset ident
 The metadata for the external reference field is shown in Table 33.
 
 Table 33 — Metadata for the external reference field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -1386,6 +1407,7 @@ To inform a human consumer why the reference exists, what kind of information, c
 The metadata for the external reference comment field is shown in Table 34.
 
 Table 34 — Metadata for the external reference comment field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -1438,6 +1460,7 @@ The intent is to provide the recipient of the SPDX file with acknowledgement con
 The metadata for the package attribution text field is shown in Table 35.
 
 Table 35 — Metadata for the package attribution text field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
