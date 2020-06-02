@@ -15,6 +15,7 @@ Here, parties exchanging information in accordance with the SPDX specification n
 The metadata for the SPDX version field is shown in Table 2.
 
 Table 2 — Metadata for the SPDX version field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -60,6 +61,7 @@ This is to alleviate any concern that content (the data or database) in an SPDX 
 The metadata for the data license field is shown in Table 3.
 
 Table 3 — Metadata for the data license field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -97,6 +99,7 @@ Provide a way for the document to refer to itself in relationship to other eleme
 The metadata for the SPDX identifier field is shown in Table 4.
 
 Table 4 — Metadata for SPDX identifier field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -139,6 +142,7 @@ Here, the name of each document is an important convention and easier to refer t
 The metadata for the document name field is shown in Table 5.
 
 Table 5 — Metadata for the document name field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -200,6 +204,7 @@ NOTE The URI does not have to be accessible. It is only intended to provide a un
 The metadata for the SPDX document namespace field is shown in Table 6.
 
 Table 6 — Metadata for the SPDX document namespace field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -243,6 +248,7 @@ SPDX elements within this document may be related to other SPDX elements referen
 The metadata for the external document references field is shown in Table 7.
 
 Table 7 — Metadata for the external document references field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -296,6 +302,7 @@ Recognizing that licenses are added to the SPDX License List with each subsequen
 The metadata for the license list version field is shown in Table 8.
 
 Table 8 — Metadata for the license list version field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -333,6 +340,7 @@ Here, the generation method will assist the recipient of the SPDX file in assess
 The metadata for the creator field is shown in Table 9.
 
 Table 9 — Metadata for the creator field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -374,6 +382,7 @@ Here, the time stamp can serve as an indication as to whether the analysis needs
 The metadata for the created field is shown in Table 10.
 
 Table 10 — Metadata for the created field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
@@ -411,6 +420,7 @@ Here, the intent is to provide recipients of the SPDX file with comments by the 
 The metadata for the Creator comment field is shown in Table 11.
 
 Table 11 — Metadata for the Creator comment field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
@@ -450,6 +460,7 @@ Here, the intent is to provide readers/reviewers with comments by the creator of
 The metadata for the document comment field is shown in Table 12.
 
 Table 12 — Metadata for the document comment field
+
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
