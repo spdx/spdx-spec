@@ -58,15 +58,18 @@ In addition to the supported formats, the following format is in development wit
 
 * The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Universal Resource Indicator (URI) should be present.
 
-## 4.5 ??? Heading TBD
+## 4.5 Usage
 
- > TODO: Write an intro para here.
- 
-* A file may be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the SPDX Trademark Page).
-* The official copyright notice that shall be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.1.1 is:
+A file may be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the SPDX Trademark Page).
 
-> "Official SPDX® Specification 2.1.1 Copyright © 2010-2018 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
+The official copyright notice that shall be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.2.1 is:
 
-* The official copyright notice that shall be used with any non-verbatim reproduction and/or distribution of this SPDX Specification 2.2.1, including without limitation any partial use or combining this SPDX Specification with another work, is:
+> "Official SPDX® Specification 2.2.1 Copyright © 2010-2020 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
+
+The official copyright notice that shall be used with any non-verbatim reproduction and/or distribution of this SPDX Specification 2.2.1, including without limitation any partial use or combining this SPDX Specification with another work, is:
 
 > "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX® Specification 2.2.1 found at spdx.org. These portions are Copyright © 2010-2020 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
+
+## 4.6 The SPDX Lite Profile
+
+This profile defines a subset of the SPDX specification. SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries. See [Annex H](appendix-VIII-SPDX-Lite.md) for more information.
