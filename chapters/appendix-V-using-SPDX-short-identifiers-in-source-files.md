@@ -1,4 +1,4 @@
-# Annex E Using SPDX license list short identifiers in source files
+# Annex E Using SPDX license list short identifiers in source files (Informative)
 
 ## E.1 Introduction
 
