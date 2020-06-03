@@ -1,4 +1,4 @@
-# Annex I SPDX File Tags
+# Annex I SPDX File Tags (Informative)
 
 ## I.1 Rationale
 
