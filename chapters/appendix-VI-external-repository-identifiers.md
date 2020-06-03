@@ -1,4 +1,4 @@
-# Annex F External repository identifiers
+# Annex F External repository identifiers (Normative)
 
 ## F.1 Introduction
 
