@@ -1,4 +1,4 @@
-# Annex C RDF data model implementation and identifier syntax
+# Annex C RDF data model implementation and identifier syntax (Normative)
 
 ## C.1 Introduction
 
