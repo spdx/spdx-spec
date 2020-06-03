@@ -1,4 +1,4 @@
-# Annex H SPDX Lite
+# Annex H SPDX Lite (Normative)
 
 ## H.1 Explanation of SPDX Lite 
 
