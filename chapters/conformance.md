@@ -70,6 +70,6 @@ The official copyright notice that shall be used with any non-verbatim reproduct
 
 > "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX® Specification 2.2.1 found at spdx.org. These portions are Copyright © 2010-2020 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
 
-## 4.6 The SPDX Lite Profile
+## 4.6 The SPDX Lite profile
 
 This profile defines a subset of the SPDX specification. SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries. See [Annex H](appendix-VIII-SPDX-Lite.md) for more information.
