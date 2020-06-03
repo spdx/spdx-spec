@@ -1,4 +1,4 @@
-# D SPDX license expressions
+# D SPDX license expressions (Normative)
 
 ## D.1 Overview
 
