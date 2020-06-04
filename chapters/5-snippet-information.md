@@ -2,27 +2,39 @@
 
 ## 9.1 Snippet SPDX identifier field <a name="5.1"></a>
 
-**5.1.1** Purpose: Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
+**Description**
 
-**5.1.2** Intent: There may be several instances of a snippet within an SPDX document. Each snippet is an element which needs to be able to be referred to uniquely so that relationships between it and other elements can be clearly articulated.
+Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
 
-**5.1.3** Cardinality: Mandatory, one.
+**Intent**
 
-**5.1.4** Data Format: `SPDXRef-[idstring]`
+There may be several instances of a snippet within an SPDX document. Each snippet is an element which needs to be able to be referred to uniquely so that relationships between it and other elements can be clearly articulated.
 
-where `[idstring]` is a unique string containing letters, numbers, `.` and/or `-`.
+**Metadata**
 
-**5.1.5** Tag: `SnippetSPDXID:`
+The metadata for the snippet SPDX identifier field is shown in Table 52.
 
-Example:
+Table 52 — Metadata for the snippet SPDX identifier field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | Yes |
+| Cardinality | 1..1 |
+| Format | `SPDXRef-[idstring]`<br>where `[idstring]` is a unique string containing letters, numbers, `.` and/or `-`. |
+
+**Examples**
+
+EXAMPLE 1 Tag: `SnippetSPDXID:`
 
 ```text
 SnippetSPDXID: SPDXRef-1
 ```
 
-**5.1.6** RDF: The URI for the element shall follow the form: `[SpdxDocumentURI]#SPDXRef-[idstring]` where `[SpdxDocumentURI]` is the URI for the SPDX Document containing the element.
+EXAMPLE 2 RDF: 
 
-Example using xml:base:
+The URI for the element shall follow the form: `[SpdxDocumentURI]#SPDXRef-[idstring]` where `[SpdxDocumentURI]` is the URI for the SPDX Document containing the element.
+
+Using xml:base:
 
 ```text
 <rdf:RDF xml:base="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B"
@@ -32,7 +44,7 @@ Example using xml:base:
     </Snippet>
 ```
 
-Example using document URI:
+Using document URI:
 
 ```text
 <Snippet rdf:about="http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1">
@@ -42,35 +54,45 @@ Example using document URI:
 
 ## 9.2 Snippet from file SPDX identifier field <a name="5.2"></a>
 
-**5.2.1** Purpose: Uniquely identify the file in an SPDX document which this snippet is associated with.
+**Description**
 
-**5.2.2** Intent: There may be several versions of the same file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
+Uniquely identify the file in an SPDX document which this snippet is associated with.
 
-**5.2.3** Cardinality: Mandatory, one.
+**Intent**
 
-**5.2.4** Data Format: ["DocumentRef-"[idstring]":"] SPDXID
+There may be several versions of the same file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
 
-where `DocumentRef-[idstring]`: is an optional reference to an external SPDX document as described in [D.6](2-document-creation-information.md#2.6)
+**Metadata**
 
-where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in (D.3, P.2, F.2).
+The metadata for the snippet from file SPDX identifier field is shown in Table 53.
 
-**5.2.5** Tag: `SnippetFromFileSPDXID:`
+Table 53 — Metadata for the snippet from file SPDX identifier field
 
-Example (snippet from a File in local SPDX Doc):
+| Attribute | Value |
+| --------- | ----- |
+| Required | Yes |
+| Cardinality | 1..1 |
+| Format | ["DocumentRef-"[idstring]":"] SPDXID<br>where `DocumentRef-[idstring]`: is an optional reference to an external SPDX document as described in [D.6](2-document-creation-information.md#2.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in (D.3, P.2, F.2). |
+
+**Examples**
+
+EXAMPLE 1 Tag: `SnippetFromFileSPDXID:`
+
+Snippet from a File in local SPDX Doc:
 
 ```text
 SnippetFromFileSPDXID: SPDXRef-filecontainingsnippet
 ```
 
-Example (snippet from a File in an External SPDX Doc):
+Snippet from a File in an External SPDX Doc:
 
 ```text
 SnippetFromFileSPDXID: DocumentRef-ExternalDoc1:SPDXRef-filecontainingsnippet
 ```
 
-**5.2.6** RDF: Property `spdx:snippetFromFile` in class `spdx:Snippet`
+EXAMPLE 2 RDF: Property `spdx:snippetFromFile` in class `spdx:Snippet`
 
-Example (snippet from a File in local SPDX Doc):
+Snippet from a File in local SPDX Doc:
 
 ```text
 <Snippet rdf:ID="SPDXRef-1">
@@ -79,7 +101,7 @@ Example (snippet from a File in local SPDX Doc):
     </Snippet>
 ```
 
-Example (snippet from a File in an External SPDX Doc):
+Snippet from a File in an External SPDX Doc:
 
 ```text
 <Snippet rdf:ID="SPDXRef-1">
@@ -90,29 +112,37 @@ Example (snippet from a File in an External SPDX Doc):
 
 ## 9.3 Snippet byte range field <a name="5.3"></a>
 
-**5.3.1** Purpose: This field defines the byte range in the original host file (in [9.2](#5.2)) that the snippet information applies to.
+**Description**
 
-**5.3.2** Intent: A range of bytes is independent of various formatting concerns, and the most accurate way of referring to the differences. The choice was made to start the numbering of the byte range at 1 to be consistent with the W3C pointer method vocabulary (see [http://www.w3.org/TR/Pointers-in-RDF10/](http://www.w3.org/TR/Pointers-in-RDF10/)).
+This field defines the byte range in the original host file (in [9.2](#5.2)) that the snippet information applies to.
 
-**5.3.3** Cardinality: Mandatory, one.
+**Intent**
 
-**5.3.4** Data Format: `number1:number2`
+A range of bytes is independent of various formatting concerns, and the most accurate way of referring to the differences. The choice was made to start the numbering of the byte range at 1 to be consistent with the W3C pointer method vocabulary (see [http://www.w3.org/TR/Pointers-in-RDF10/](http://www.w3.org/TR/Pointers-in-RDF10/)).
 
-where: `number1` is greater than or equal to 1 and less or equal to `number2`,
+**Metadata**
 
-AND `number2` is less than or equal to the total number of bytes in file.
+The metadata for the snippet byte range field is shown in Table 54.
 
-The byte at position number1 and position number2 are included in the range.
+Table 54 — Metadata for the snippet byte range field
 
-**5.3.5** Tag: `SnippetByteRange:`
+| Attribute | Value |
+| --------- | ----- |
+| Required | Yes |
+| Cardinality | 1..1 |
+| Format | `number1:number2`<br>where: `number1` is greater than or equal to 1 and less or equal to `number2`,<br>AND `number2` is less than or equal to the total number of bytes in file.<br><br>The byte at position number1 and position number2 are included in the range. |
 
-Example:
+**Examples**
+
+EXAMPLE 1 Tag: `SnippetByteRange:`
 
 ```text
 SnippetByteRange: 310:420
 ```
 
-**5.3.6** RDF: Property `spdx:Range` in class `spdx:Snippet`. The RDF uses the W3C proposed pointer method vocabulary (see [http://www.w3.org/TR/Pointers-in-RDF10/](http://www.w3.org/TR/Pointers-in-RDF10/)
+EXAMPLE 2 RDF: Property `spdx:Range` in class `spdx:Snippet`. 
+
+The RDF uses the W3C proposed pointer method vocabulary (see [http://www.w3.org/TR/Pointers-in-RDF10/](http://www.w3.org/TR/Pointers-in-RDF10/)
 
 Supported classes from the pointer method vocabulary are `StartEndPointer` and `ByteOffsetPointer`. Supported properties from the pointer method vocabulary include:
 
@@ -120,8 +150,6 @@ Supported classes from the pointer method vocabulary are `StartEndPointer` and `
 * `endPointer`
 * `reference`
 * `offset`
-
-Example:
 
 ```text
 <Snippet rdf:about="...">
@@ -152,28 +180,37 @@ xmlns:ptr=http://www.w3.org/2009/pointers#
 
 ## 9.4 Snippet line range field <a name="5.4"></a>
 
-**5.4.1** Purpose: This optional field defines the line range in the original host file (see [9.2](#5.2)) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.
+**Description**
 
-**5.4.2** Intent: A range of lines is a convenient reference for those files where there is a known line delimiter. The choice was made to start the numbering of the lines at 1 to be consistent with the W3C pointer method vocabulary (see [http://www.w3.org/TR/Pointers-in-RDF10/](http://www.w3.org/TR/Pointers-in-RDF10/)).
+This optional field defines the line range in the original host file (see [9.2](#5.2)) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.
 
-**5.4.3** Cardinality: Optional, one.
+**Intent**
 
-**5.4.4** Data Format: `number1:number2`
+A range of lines is a convenient reference for those files where there is a known line delimiter. The choice was made to start the numbering of the lines at 1 to be consistent with the W3C pointer method vocabulary (see [http://www.w3.org/TR/Pointers-in-RDF10/](http://www.w3.org/TR/Pointers-in-RDF10/)).
 
-where:
+**Metadata**
 
-`number1` is greater than or equal to 1 and less than or equal to `number2`,
-AND `number2` is less than or equal to the total number of lines in file.
+The metadata for the snippet line range field is shown in Table 55.
 
-**5.4.5** Tag: `SnippetLineRange:`
+Table 55 — Metadata for the snippet line range field
 
-Example:
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | `number1:number2`<br>where:<br>`number1` is greater than or equal to 1 and less than or equal to `number2`,<br>AND `number2` is less than or equal to the total number of lines in file. |
+
+**Examples**
+
+EXAMPLE 1 Tag: `SnippetLineRange:`
 
 ```text
 SnippetLineRange: 5:23
 ```
 
-**5.4.6** RDF: properties `spdx:Range` in class `spdx:Snippet`. The RDF uses the W3C proposed pointer method vocabulary (see <http://www.w3.org/TR/Pointers-in-RDF10/>).
+EXAMPLE 2 RDF: properties `spdx:Range` in class `spdx:Snippet`.
+
+The RDF uses the W3C proposed pointer method vocabulary (see <http://www.w3.org/TR/Pointers-in-RDF10/>).
 
 Supported classes from the pointer method vocabulary are `StartEndPointer` and `LineCharPointer`. Supported properties from the pointer method vocabulary include:
 
@@ -181,8 +218,6 @@ Supported classes from the pointer method vocabulary are `StartEndPointer` and `
 * `endPointer`
 * `reference`
 * `lineNumber`
-
-Example:
 
 ```text
 <Snippet rdf:about="...">
@@ -206,7 +241,9 @@ Example:
 
 ## 9.5 Snippet concluded license field <a name="5.5"></a>
 
-**5.5.1** Purpose: This field contains the license the SPDX file creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:
+**Description**
+
+This field contains the license the SPDX file creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:
 
 A valid SPDX License Expression as defined in Annex [D](appendix-IV-SPDX-license-expressions.md).
 
@@ -224,33 +261,35 @@ A valid SPDX License Expression as defined in Annex [D](appendix-IV-SPDX-license
 
 If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (see [9.7](#5.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field (see [9.7](#5.7)) is preferred.
 
-**5.5.2** Intent: Here, the intent is for the SPDX document creator to reconcile the license information known about the snippet,  what license information is in the file itself and other objective information for a package, along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the snippet.
+**Intent**
 
-**5.5.3** Cardinality: Mandatory, one.
+Here, the intent is for the SPDX document creator to reconcile the license information known about the snippet,  what license information is in the file itself and other objective information for a package, along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the snippet.
 
-**5.5.4** Data Format: `<SPDX License Expression>` | `NONE` | `NOASSERTION`
+**Metadata**
 
-where:
+The metadata for the snippet concluded license field is shown in Table 56.
 
-`<SPDX License Expression>` is a valid SPDX License Expression as defined in Appendix IV.
+Table 56 — Metadata for the snippet concluded license field
 
-**5.5.5** Tag: `SnippetLicenseConcluded:`
+| Attribute | Value |
+| --------- | ----- |
+| Required | Yes |
+| Cardinality | 1..1 |
+| Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Appendix IV. |
 
-Example:
+**Examples**
+
+EXAMPLE 1 Tag: `SnippetLicenseConcluded:`
 
 ```text
 SnippetLicenseConcluded: GPL-2.0-only
 ```
 
-Example:
-
 ```text
 SnippetLicenseConcluded: (LGPL-2.0-only OR LicenseRef-2)
 ```
 
-**5.5.6** RDF: Property `spdx:licenseConcluded` in class `spdx:Snippet`
-
-Example:
+EXAMPLE 2 RDF: Property `spdx:licenseConcluded` in class `spdx:Snippet`
 
 ```text
 <Snippet rdf:about="...">
@@ -259,8 +298,6 @@ Example:
     ...
 </Snippet>
 ```
-
-Example:
 
 ```text
 <Snippet rdf:about="...">
@@ -275,7 +312,9 @@ Example:
 
 ## 9.6 License information in snippet field <a name="5.6"></a>
 
-**5.6.1** Purpose: This field contains the license information actually found in the snippet, if any. Any license information not actually in the snippet itself, e.g., header of the file the snippet belongs in, “COPYING.txt” file in a top level directory, should not be reflected in this field.
+**Description**
+
+This field contains the license information actually found in the snippet, if any. Any license information not actually in the snippet itself, e.g., header of the file the snippet belongs in, “COPYING.txt” file in a top level directory, should not be reflected in this field.
 
 The options to populate this field are limited to:
 
@@ -292,31 +331,25 @@ A reference to the license, denoted by LicenseRef-`[idstring]`, if the license i
 
 If license information for more than one license is contained in the snippet or if the license information offers a choice of licenses, then each of the choices should be listed as a separate entry.
 
-**5.6.2** Intent: Here, the intent is to provide the license information actually in the snippet, as compared to the Concluded License field.
+**Intent**
 
-**5.6.3** Cardinality: Optional, one or many.
+Here, the intent is to provide the license information actually in the snippet, as compared to the Concluded License field.
 
-**5.6.4** Data Format: `<SPDX License Expression>` |
+**Metadata**
 
-["DocumentRef-"`[idstring]`:"]"LicenseRef-"[idstring] |
+The metadata for the license information in snippet field is shown in Table 57.
 
-| `NONE` | `NOASSERTION`
+Table 57 — Metadata for the license information in snippet field
 
-where:
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..* |
+| Format | `<SPDX License Expression>` \|<br>["DocumentRef-"`[idstring]`:"]"LicenseRef-"[idstring] \|<br>\| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression<br>as defined in Annex [D](appendix-IV-SPDX-license-expressions.md).<br>DocumentRef-"`[idstring]`: is an optional reference to an external SPDX<br>document as described in [6.6](2-document-creation-information.md#2.6)<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-`. |
 
-`<SPDX License Expression>` is a valid SPDX License Expression
+**Examples**
 
-as defined in Annex [D](appendix-IV-SPDX-license-expressions.md).
-
-DocumentRef-"`[idstring]`: is an optional reference to an external SPDX
-
-document as described in [6.6](2-document-creation-information.md#2.6)
-
-`[idstring]` is a unique string containing letters, numbers, `.` and/or `-`.
-
-**5.6.5** Tag: `LicenseInfoInSnippet:`
-
-Example:
+EXAMPLE 1 Tag: `LicenseInfoInSnippet:`
 
 ```text
 LicenseInfoInSnippet: LGPL-2.0-only
@@ -326,9 +359,7 @@ LicenseInfoInSnippet: LGPL-2.0-only
 LicenseInfoInSnippet: LicenseRef-2
 ```
 
-**5.6.6** RDF: Property `spdx:licenseInfoInSnippet` in class `spdx:Snippet`
-
-Example:
+EXAMPLE 2 RDF: Property `spdx:licenseInfoInSnippet` in class `spdx:Snippet`
 
 ```text
 <Snippet rdf:about="...">
@@ -339,28 +370,38 @@ Example:
 
 ## 9.7 Snippet comments on license field <a name="5.7"></a>
 
-**5.7.1** Purpose: This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a snippet.
+**Description**
 
-**5.7.2** Intent: Here, the intent is to provide the recipient of the SPDX document with a detailed explanation of how the Concluded License was determined for a Snippet if it does not match the License Information in File, is marked `NOASSERTION`, or other helpful information relevant to determining the license of the snippet in a file.
+This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a snippet.
 
-**5.7.3** Cardinality: Optional, one.
+**Intent**
 
-**5.7.4** Data Format: Free form text that can span multiple lines
+Here, the intent is to provide the recipient of the SPDX document with a detailed explanation of how the Concluded License was determined for a Snippet if it does not match the License Information in File, is marked `NOASSERTION`, or other helpful information relevant to determining the license of the snippet in a file.
 
-**5.7.5** Tag: `SnippetLicenseComments:`
+**Metadata**
+
+The metadata for the snippet comments on license field is shown in Table 58.
+
+Table 58 — Metadata for the snippet comments on license field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | Free form text that can span multiple lines |
+
+**Examples**
+
+EXAMPLE 1 Tag: `SnippetLicenseComments:`
 
 In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
-
-Example:
 
 ```text
 SnippetLicenseComments: <text>The concluded license was taken from package xyz, from which the snippet was copied into the current file.
 The concluded license information was found in the COPYING.txt file in package xyz.</text>
 ```
 
-**5.7.6** RDF: Property `spdx:licenseComments` in class `spdx:Snippet`
-
-Example:
+EXAMPLE 2 RDF: Property `spdx:licenseComments` in class `spdx:Snippet`
 
 ```text
 <Snippet rdf:about="...">
@@ -376,7 +417,9 @@ Example:
 
 ## 9.8 Snippet copyright text field <a name="5.8"></a>
 
-**5.8.1** Purpose: Identify the copyright holder of the snippet, as well as any dates present. This shall be a free form text field, ideally extracted from the actual snippet.  The options to populate this field are limited to:
+**Description**
+
+Identify the copyright holder of the snippet, as well as any dates present. This shall be a free form text field, ideally extracted from the actual snippet.  The options to populate this field are limited to:
 
 any text relating to a copyright notice, even if not complete;
 
@@ -384,25 +427,33 @@ any text relating to a copyright notice, even if not complete;
 
 `NOASSERTION`, if the SPDX document creator has not examined the contents of the actual file or if the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).
 
-**5.8.2** Intent: Record any copyright notice associated with the snippet.
+**Intent**
 
-**5.8.3** Cardinality: Mandatory, one.
+Record any copyright notice associated with the snippet.
 
-**5.8.4** Data Format: Free form text that can span multiple lines | `NONE` | `NOASSERTION`
+**Metadata**
 
-**5.8.5** Tag: `SnippetCopyrightText:`
+The metadata for the snippet copyright text field is shown in Table 59.
+
+Table 59 — Metadata for the snippet copyright text field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | Yes |
+| Cardinality | 1..1 |
+| Format | Free form text that can span multiple lines \| `NONE` \| `NOASSERTION` |
+
+**Examples**
+
+EXAMPLE 1 Tag: `SnippetCopyrightText:`
 
 In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
-
-Example:
 
 ```text
 SnippetCopyrightText: <text> Copyright 2008-2010 John Smith </text>
 ```
 
-**5.8.6** RDF: Property `spdx:copyrightText` in class `spdx:Snippet`
-
-Example:
+EXAMPLE 2 RDF: Property `spdx:copyrightText` in class `spdx:Snippet`
 
 ```text
 <Snippet rdf:about="...">
@@ -416,28 +467,38 @@ Example:
 
 ## 9.9 Snippet comment field <a name="5.9"></a>
 
-**5.9.1** Purpose: This field provides a place for the SPDX document creator to record any general comments about the snippet.
+**Description**
 
-**5.9.2** Intent: Here, the intent is to provide the recipient of the SPDX document with more information determined after careful analysis of a snippet.
+This field provides a place for the SPDX document creator to record any general comments about the snippet.
 
-**5.9.3** Cardinality: Optional, one.
+**Intent**
 
-**5.9.4** Data Format: Free form text that can span multiple lines
+Here, the intent is to provide the recipient of the SPDX document with more information determined after careful analysis of a snippet.
 
-**5.9.5** Tag: `SnippetComment:`
+**Metadata**
+
+The metadata for the snippet comment field is shown in Table 60.
+
+Table 60 — Metadata for the snippet comment field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | Free form text that can span multiple lines |
+
+**Examples**
+
+EXAMPLE 1 Tag: `SnippetComment:`
 
 In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
-
-Example:
 
 ```text
 SnippetComment: <text>This snippet was identified as significant and highlighted in this Apache-2.0 file,
 when a commercial scanner identified it as being derived from file foo.c in package xyz which is licensed under GPL-2.0.</text>
 ```
 
-**5.9.6** RDF: Property `rdfs:comment` in class `spdx:Snippet`
-
-Example:
+EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Snippet`
 
 ```text
 <Snippet rdf:about="...">
@@ -453,25 +514,35 @@ Example:
 
 ## 9.10 Snippet name field <a name="5.10"></a>
 
-**5.10.1** Purpose: Identify a specific snippet in a human convenient manner.
+**Description**
 
-**5.10.2** Intent: To aid in identifying a snippet under discussion that might be used in multiple locations, and for consistency with the ability to refer to any copyrightable SPDX Element by name.
+Identify a specific snippet in a human convenient manner.
 
-**5.10.3** Cardinality: Optional, one.
+**Intent**
 
-**5.10.4** Data Format: Single line of text
+To aid in identifying a snippet under discussion that might be used in multiple locations, and for consistency with the ability to refer to any copyrightable SPDX Element by name.
 
-**5.10.5** Tag: `SnippetName:`
+**Metadata**
 
-Example:
+The metadata for the snippet name field is shown in Table 61.
+
+Table 61 — Metadata for the snippet name field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | Single line of text |
+
+**Examples**
+
+EXAMPLE 1 Tag: `SnippetName:`
 
 ```text
 SnippetName: from Linux kernel
 ```
 
-**5.10.6** RDF: Property `spdx:name` in class `spdx:Snippet`
-
-Example:
+EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:Snippet`
 
 ```text
 <Snippet rdf:about="...">
@@ -481,19 +552,31 @@ Example:
 
 ## 9.11 Snippet attribution text field <a name="5.11"></a>
 
-**5.11.1** Purpose: This field provides a place for the SPDX data creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see `SnippetLicenseConcluded` and `LicenseInfoInSnippet`), and might or might not include copyright notices (see also `SnippetCopyrightText`). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce.
+**Description**
 
-**5.11.2** Intent: The intent is to provide the recipient of the SPDX file with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator might or might not explain elsewhere how they intend for this field to be used.
+This field provides a place for the SPDX data creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see `SnippetLicenseConcluded` and `LicenseInfoInSnippet`), and might or might not include copyright notices (see also `SnippetCopyrightText`). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce.
 
-**5.11.3** Cardinality: Optional, one or many.
+**Intent**
 
-**5.11.4** Data Format: free form text that can span multiple lines.
+The intent is to provide the recipient of the SPDX file with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator might or might not explain elsewhere how they intend for this field to be used.
 
-**5.11.5** Tag: `SnippetAttributionText:`
+**Metadata**
 
-In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
+The metadata for the snippet attribution text field is shown in Table 62.
 
-Example: 
+Table 62 — Metadata for the snippet attribution text field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..* |
+| Format | Free form text that can span multiple lines. |
+
+**Examples**
+
+EXAMPLE 1 Tag: `SnippetAttributionText:`
+
+In `tag:value` format multiple lines are delimited by `<text> .. </text>`. 
 
 ```text
 SnippetAttributionText: <text>
@@ -502,9 +585,7 @@ following acknowledgement:  This product includes software developed by the AT&T
 </text>
 ```
 
-**5.11.6** RDF: property `spdx:attributionText` in class `spdx:Snippet`
-
-Example:
+EXAMPLE 2 RDF: property `spdx:attributionText` in class `spdx:Snippet`
 
 ```text
 <Snippet rdf:about="...">
