@@ -2,7 +2,9 @@
 
 ## 11.1 Relationship field <a name="7.1"></a>
 
-**7.1.1** Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. 
+**Description**
+
+This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. 
 
 In cases where there are "known unknowns", the use of the keyword `NOASSERTION` can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX elements (package/file/snippet) are connected by relationships or not.  ie. There could be some, but the author is not asserting one way or another.  
 
@@ -58,31 +60,25 @@ The relationships between two SPDX elements that are supported are:
 | HAS_PREREQUISITE       | Is to be used when SPDXRef-A has as a prerequisite SPDXRef-B.                                         | An APPLICATION `foo.exe` has prerequisite or dependency on `bar.dll` |
 | OTHER                  | Is to be used for a relationship which has not been defined in the formal SPDX specification. A description of the relationship should be included in the Relationship comments field. | |
 
-**7.1.2** Intent: Here, this field is a reasonable estimation of the relation between two identified elements (i.e. files or packages, or documents), from a developer perspective.
+**Intent**
 
-**7.1.3** Cardinality: Optional*, multiple.
+Here, this field is a reasonable estimation of the relation between two identified elements (i.e. files or packages, or documents), from a developer perspective.
 
-\* see `DESCRIBES` relationship for one mandatory case.
+**Metadata**
 
-**7.1.4** Data Format:
+The metadata for the relationship field is shown in Table 68.
 
-```text
-["DocumentRef-"[idstring]":"]SPDXID <relationship> ["DocumentRef-"[idstring]":"]SPDXID | `NONE` | `NOASSERTION`
-```
+Table 68 — Metadata for the relationship field
 
-where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [6.6](2-document-creation-information.md#2.6)
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..* see `DESCRIBES` relationship for one mandatory case. |
+| Format | ["DocumentRef-"[idstring]":"]SPDXID \<relationship\> ["DocumentRef-"[idstring]":"]SPDXID \| \`NONE\` \| \`NOASSERTION\`<br>where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [6.6](2-document-creation-information.md#2.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in [6.3](2-document-creation-information.md#2.3), [7.2](3-package-information.md#3.2), [7.2](4-file-information.md#4.2).<br>where `<relationship>` is one of the documented relationship types in table 7.1.1.<br>where `NONE` can be used to explicitly indicate there are NO other relationships.<br>where `NOASSERTION` can be used to explicitly indicate it is not clear if there are relationships that may apply or not. |
 
-where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in [6.3](2-document-creation-information.md#2.3), [7.2](3-package-information.md#3.2), [7.2](4-file-information.md#4.2).
+**Examples**
 
-where `<relationship>` is one of the documented relationship types in table 7.1.1.
-
-where `NONE` can be used to explicitly indicate there are NO other relationships.
-
-where `NOASSERTION` can be used to explicitly indicate it is not clear if there are relationships that may apply or not.
-
-**7.1.5** Tag: `Relationship:`
-
-Examples:
+EXAMPLE 1 Tag: `Relationship:`
 
 ```text
 Relationship: SPDXRef-grep CONTAINS SPDXRef-make
@@ -116,9 +112,7 @@ Relationship: SPDXRef-BobBrowser CONTAINS NOASSERTION
 RelationshipComment: The package BobBrowser may have other packages embedded in it, but the author has insufficient information to treat this as other than unknown at this point in time.
 ```
 
-**7.1.6** RDF: Property `spdx:relationship` in any `spdx:SpdxDocument`, `spdx:Package`, `spdx:File` or `spdx:Snippet`
-
-Examples:
+EXAMPLE 2 RDF: Property `spdx:relationship` in any `spdx:SpdxDocument`, `spdx:Package`, `spdx:File` or `spdx:Snippet`
 
 ```text
 <File rdf:about="#SPDXRef-45">
@@ -139,29 +133,39 @@ Examples:
 
 ## 11.2 Relationship comment field <a name="7.2"></a>
 
-**7.2.1** Purpose: This field provides a place for the SPDX file creator to record any general comments about the relationship.
+**Description**
 
-**7.2.2** Intent: Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of the relationship between two elements in an SPDX file.
+This field provides a place for the SPDX file creator to record any general comments about the relationship.
 
-**7.2.3** Cardinality: Optional, one.
+**Intent**
 
-**7.2.4** Data Format: Free form text that may span multiple lines, refers only to the immediately preceding relationship.
+Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of the relationship between two elements in an SPDX file.
 
-**7.2.5** Tag: `RelationshipComment:`
+**Metadata**
+
+The metadata for the relationship comment field is shown in Table 69.
+
+Table 69 — Metadata for the relationship comment field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | Free form text that may span multiple lines, refers only to the immediately preceding relationship. |
+
+**Examples**
+
+EXAMPLE 1 Tag: `RelationshipComment:`
 
 In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 A `RelationshipComment:` shall be the line immediately after a “Relationship:”
 
-Example:
-
 ```text
 RelationshipComment: <text>The package foo.tgz is a pre-requisite for building executable bar.</text>
 ```
 
-**7.2.6** RDF: Property `rdfs:comment` in class `spdx:Relationship`
-
-Example:
+EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Relationship`
 
 ```text
 <Relationship rdf:about="...">
