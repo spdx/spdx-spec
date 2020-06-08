@@ -10,31 +10,35 @@ Fields:
 
 This field has been deprecated since SPDX 2.0.
 
-**9.1.1** Purpose: This field identifies the person, organization or tool that has reviewed the SPDX file. This field is optional and thus there is no requirement for any reviewer to add a set of review information to the file. This can be considered as an equivalent to “signed off” or “reviewed by.” Additional reviewers can be added after the original version of the SPDX file is created and be appended to the original file.
+**Description**
 
-**9.1.2** Intent: Here, as time progresses certain reviewers will begin to gain credibility as reliable. This field intends to make such information transparent. It may also be important for participants in the software supply chain to validate whether upstream providers have reviewed the SPDX file.
+This field identifies the person, organization or tool that has reviewed the SPDX file. This field is optional and thus there is no requirement for any reviewer to add a set of review information to the file. This can be considered as an equivalent to “signed off” or “reviewed by.” Additional reviewers can be added after the original version of the SPDX file is created and be appended to the original file.
 
-**9.1.3** Cardinality: Optional, one.
+**Intent**
 
-**9.1.4** Data Format: Single line of text with the following keywords.
+Here, as time progresses certain reviewers will begin to gain credibility as reliable. This field intends to make such information transparent. It may also be important for participants in the software supply chain to validate whether upstream providers have reviewed the SPDX file.
 
-```text
-"Person: person name" and optional "(email)"
-"Organization: organization" and optional "(email)"
-"Tool: tool identifier - version"
-```
+**Metadata**
 
-**9.1.5** Tag: `Reviewer:`
+The metadata for the reviewer field is shown in Table 75.
 
-Example:
+Table 75 — Metadata for the reviewer field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | Single line of text with the following keywords.<br><pre>"Person: person name" and optional "(email)"<br>"Organization: organization" and optional "(email)"<br>"Tool: tool identifier - version"</pre> |
+
+**Examples**
+
+EXAMPLE 1 Tag: `Reviewer:`
 
 ```text
 Reviewer: Person: Jane Doe ()
 ```
 
-**9.1.6** RDF: Property `spdx:reviewer` in class `spdx:Review`
-
-Example:
+EXAMPLE 2 RDF: Property `spdx:reviewer` in class `spdx:Review`
 
 ```text
 <Review>
@@ -46,36 +50,35 @@ Example:
 
 This field has been deprecated since SPDX 2.0.
 
-**9.2.1** Purpose: Identify when the review was done. This shall be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.
+**Description**
 
-**9.2.2** Intent: Here, the `ReviewDate` can serve as a verification as to when the actual review was done.
+Identify when the review was done. This shall be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.
 
-**9.2.3**  Cardinality: Conditional (Mandatory, one), if there is a Reviewer.
+**Intent**
 
-**9.2.4** Data Format: `YYYY-MM-DDThh:mm:ssZ`
+Here, the `ReviewDate` can serve as a verification as to when the actual review was done.
 
-where:
+**Metadata**
 
-* `YYYY` is year
-* `MM` is month with leading zero
-* `DD` is day with leading zero
-* `T` is delimiter for time
-* `hh` is hours with leading zero in 24 hour time
-* `mm` is minutes with leading zero
-* `ss` is seconds with leading zero
-* `Z` is universal time indicator
+The metadata for the review date field is shown in Table 76.
 
-**9.2.5** Tag: `ReviewDate:`
+Table 76 — Metadata for the review date field
 
-Example:
+| Attribute | Value |
+| --------- | ----- |
+| Required | Conditional |
+| Cardinality | 0..1 conditional (Mandatory, one), if there is a Reviewer. |
+| Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
+
+**Examples**
+
+EXAMPLE 1 Tag: `ReviewDate:`
 
 ```text
 ReviewDate: 2010-01-29T18:30:22Z
 ```
 
-**9.2.6** RDF: Property `spdx:reviewDate` in class `spdx:Review`
-
-Example:
+EXAMPLE 2 RDF: Property `spdx:reviewDate` in class `spdx:Review`
 
 ```text
 <Review>
@@ -87,19 +90,31 @@ Example:
 
 This field is deprecated since SPDX 2.0.
 
-**9.3.1** Purpose: This optional free form text field permits the reviewer to provide commentary on the analysis.
+**Description**
 
-**9.3.2** Intent: This allows the reviewer to provide independent assessment and note any points where there is disagreement with the analysis.
+This optional free form text field permits the reviewer to provide commentary on the analysis.
 
-**9.3.3** Cardinality: Optional, one.
+**Intent**
 
-**9.3.4** Data Format: Free form text that may span multiple lines.
+This allows the reviewer to provide independent assessment and note any points where there is disagreement with the analysis.
 
-**9.3.5** Tag: `ReviewComment:`
+**Metadata**
+
+The metadata for the review comment field is shown in Table 77.
+
+Table 77 — Metadata for the review comment field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | Free form text that may span multiple lines. |
+
+**Examples**
+
+EXAMPLE 1 Tag: `ReviewComment:`
 
 In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
-
-Example:
 
 ```text
 ReviewComment: <text>All of the licenses seen in the file, are matching what was seen during manual inspection.
@@ -107,9 +122,7 @@ There are some terms that can influence the concluded license, and some alternat
 but the concluded license is one of the options.</text>
 ```
 
-**9.3.6** RDF: Property `rdfs:comment` in class `spdx:Review`
-
-Example:
+EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Review`
 
 ```text
 <Review>
