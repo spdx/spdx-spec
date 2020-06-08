@@ -2,31 +2,35 @@
 
 ## 12.1 Annotator field <a name="8.1"></a>
 
-**8.1.1** Purpose: This field identifies the person, organization or tool that has commented on a file, package, or the entire document.
+**Description**
 
-**8.1.2** Intent: It may also be important for participants in the software supply chain to validate and add information on ambiguous files, and packages.
+This field identifies the person, organization or tool that has commented on a file, package, or the entire document.
 
-**8.1.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
+**Intent**
 
-**8.1.4** Data Format: Single line of text with the following keywords.
+It may also be important for participants in the software supply chain to validate and add information on ambiguous files, and packages.
 
-```text
-"Person: person name" and optional  "(email)"
-"Organization: organization" and optional "(email)"
-"Tool: tool identifier - version"
-```
+**Metadata**
 
-**8.1.5**  Tag: `Annotator:`
+The metadata for the annotator field is shown in Table 70.
 
-Example:
+Table 70 — Metadata for the annotator field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | Conditional |
+| Cardinality | 0..1 conditional (Mandatory, one), if there is an Annotation. |
+| Format | Single line of text with the following keywords.<br><pre>"Person: person name" and optional  "(email)"<br>"Organization: organization" and optional "(email)"<br>"Tool: tool identifier - version"</pre> |
+
+**Examples**
+
+EXAMPLE 1 Tag: `Annotator:`
 
 ```text
 Annotator: Person: Jane Doe ()
 ```
 
-**8.1.6** RDF: Property `spdx:annotator` in class `spdx:Annotation`
-
-Example:
+EXAMPLE 2 RDF: Property `spdx:annotator` in class `spdx:Annotation`
 
 ```text
 <Annotation>
@@ -36,36 +40,35 @@ Example:
 
 ## 12.2 Annotation date field <a name="8.2"></a>
 
-**8.2.1** Purpose: Identify when the comment was made. This shall be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.
+**Description**
 
-**8.2.2** Intent: Here, the Annotation Date can serve as a verification as to when the actual review was done.
+Identify when the comment was made. This shall be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.
 
-**8.2.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
+**Intent**
 
-**8.2.4** Data Format: `YYYY-MM-DDThh:mm:ssZ`
+Here, the Annotation Date can serve as a verification as to when the actual review was done.
 
-where:
+**Metadata**
 
-* `YYYY` is year
-* `MM` is month with leading zero
-* `DD` is day with leading zero
-* `T` is delimiter for time
-* `hh` is hours with leading zero in 24 hour time
-* `mm` is minutes with leading zero
-* `ss` is seconds with leading zero
-* `Z` is universal time indicator
+The metadata for the annotation date field is shown in Table 71.
 
-**8.2.5** Tag: `AnnotationDate:`
+Table 71 — Metadata for the annotation date field
 
-Example:
+| Attribute | Value |
+| --------- | ----- |
+| Required | Conditional |
+| Cardinality | 0..1 conditional (Mandatory, one), if there is an Annotation. |
+| Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
+
+**Examples**
+
+EXAMPLE 1 Tag: `AnnotationDate:`
 
 ```text
 AnnotationDate: 2010-01-29T18:30:22Z
 ```
 
-**8.2.6** RDF: Property `spdx:annotationDate` in class `spdx:Annotation`
-
-Example:
+EXAMPLE 2 RDF: Property `spdx:annotationDate` in class `spdx:Annotation`
 
 ```text
 </Annotation>
@@ -75,25 +78,35 @@ Example:
 
 ## 12.3 Annotation type field <a name="8.3"></a>
 
-**8.3.1** Purpose: This field describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be `REVIEW`. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of `OTHER`.
+**Description**
 
-**8.3.2** Intent: This allows the type of annotation to be recorded.
+This field describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be `REVIEW`. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of `OTHER`.
 
-**8.3.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
+**Intent**
 
-**8.3.4** Data Format: `REVIEW` | `OTHER`
+This allows the type of annotation to be recorded.
 
-**8.3.5** Tag: `AnnotationType:`
+**Metadata**
 
-Example:
+The metadata for the annotation type field is shown in Table 72.
+
+Table 72 — Metadata for the annotation type field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | Conditional |
+| Cardinality | 0..1 conditional (Mandatory, one), if there is an Annotation. |
+| Format | `REVIEW` \| `OTHER` |
+
+**Examples**
+
+EXAMPLE 1 Tag: `AnnotationType:`
 
 ```text
 AnnotationType: REVIEW
 ```
 
-**8.3.6** RDF: property `spdx:annotationType` in class `spdx:Annotation`
-
-Example:
+EXAMPLE 2 RDF: property `spdx:annotationType` in class `spdx:Annotation`
 
 ```text
 <Annotation>
@@ -103,34 +116,39 @@ Example:
 
 ## 12.4 SPDX identifier reference field <a name="8.4"></a>
 
-**8.4.1** Purpose: Uniquely identify the element in an SPDX document which is being referenced. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
+**Description**
 
-**8.4.2** Intent: There may be several versions of the same package or file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
+Uniquely identify the element in an SPDX document which is being referenced. These may be referenced internally and externally with the addition of the SPDX Document Identifier.
 
-**8.4.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
+**Intent**
 
-**8.4.4** Data Format: `[DocumentRef-[idstring]:]SPDXID`
+There may be several versions of the same package or file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
 
-where:
+**Metadata**
 
-`["DocumentRef-"[idstring]":"]` is an optional reference to an external SPDX document as described in [6.6](2-document-creation-information.md#2.6)
-`SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in [6.3](2-document-creation-information.md#2.3), [7.2](3-package-information.md#3.2) and [8.2](4-file-information.md#4.2).
+The metadata for the SPDX identifier reference field is shown in Table 73.
 
-**8.4.5** Tag: `SPDXREF:`
+Table 73 — Metadata for the SPDX identifier reference field
 
-Example:
+| Attribute | Value |
+| --------- | ----- |
+| Required | Conditional |
+| Cardinality | 0..1 conditional (Mandatory, one), if there is an Annotation. |
+| Format | `[DocumentRef-[idstring]:]SPDXID`<br>where:<br>`["DocumentRef-"[idstring]":"]` is an optional reference to an external SPDX document as described in [6.6](2-document-creation-information.md#2.6)<br>`SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in [6.3](2-document-creation-information.md#2.3), [7.2](3-package-information.md#3.2) and [8.2](4-file-information.md#4.2). |
+
+**Examples**
+
+EXAMPLE 1 Tag: `SPDXREF:`
 
 ```text
 SPDXREF: SPDXRef-45
 ```
 
-Example:
-
 ```text
 SPDXREF: DocumentRef-spdx-tool-1.2:SPDXRef-5
 ```
 
-**8.4.6** RDF:
+EXAMPLE 2 RDF:
 
 For RDF, the annotations are a property of the SPDX Document, Package, File, or Snippet they are annotating.
 
@@ -146,19 +164,31 @@ For RDF, the annotations are a property of the SPDX Document, Package, File, or 
 
 ## 12.5 Annotation comment field <a name="8.5"></a>
 
-**8.5.1** Purpose: This required free form text field permits the annotator to provide commentary on the analysis.
+**Description**
 
-**8.5.2** Intent: This allows the annotator to provide independent assessment and note any points where there is disagreement with the analysis.
+This required free form text field permits the annotator to provide commentary on the analysis.
 
-**8.5.3** Cardinality: Conditional (Mandatory, one), if there is an Annotation.
+**Intent**
 
-**8.5.4** Data Format: Free form text that may span multiple lines.
+This allows the annotator to provide independent assessment and note any points where there is disagreement with the analysis.
 
-**8.5.5** Tag: `AnnotationComment:`
+**Metadata**
+
+The metadata for the annotation comment field is shown in Table 74.
+
+Table 74 — Metadata for the annotation comment field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | Conditional |
+| Cardinality | 0..1 conditional (Mandatory, one), if there is an Annotation. |
+| Format | Free form text that may span multiple lines. |
+
+**Examples**
+
+EXAMPLE 1 Tag: `AnnotationComment:`
 
 In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
-
-Example:
 
 ```text
 AnnotationComment: <text>All of the licenses seen in the file, are matching what was seen during manual inspection.
@@ -166,9 +196,7 @@ There are some terms that can influence the concluded license, and some alternat
 but the concluded license is one of the options.</text>
 ```
 
-**8.5.6** RDF: Property `rdfs:comment` in class `spdx:Annotation`
-
-Example:
+EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Annotation`
 
 ```text
 <Annotation>
