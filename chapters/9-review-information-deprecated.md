@@ -20,9 +20,9 @@ Here, as time progresses certain reviewers will begin to gain credibility as rel
 
 **Metadata**
 
-The metadata for the reviewer field is shown in Table 75.
+The metadata for the reviewer field is shown in Table 76.
 
-Table 75 — Metadata for the reviewer field
+Table 76 — Metadata for the reviewer field
 
 | Attribute | Value |
 | --------- | ----- |
@@ -60,9 +60,9 @@ Here, the `ReviewDate` can serve as a verification as to when the actual review 
 
 **Metadata**
 
-The metadata for the review date field is shown in Table 76.
+The metadata for the review date field is shown in Table 77.
 
-Table 76 — Metadata for the review date field
+Table 77 — Metadata for the review date field
 
 | Attribute | Value |
 | --------- | ----- |
@@ -100,9 +100,9 @@ This allows the reviewer to provide independent assessment and note any points w
 
 **Metadata**
 
-The metadata for the review comment field is shown in Table 77.
+The metadata for the review comment field is shown in Table 78.
 
-Table 77 — Metadata for the review comment field
+Table 78 — Metadata for the review comment field
 
 | Attribute | Value |
 | --------- | ----- |
