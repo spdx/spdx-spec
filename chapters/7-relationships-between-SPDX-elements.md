@@ -12,7 +12,9 @@ Similarly, the use of the keywords `NONE` can be used to indicate that an SPDX e
 
 The use of `NOASSERTION`or `NONE` is not mandatory for any relationship. If no relationship of a particular type is specified, then the document author is not presumed to be asserting whether or not there are relationships of that type. If some relationships of a particular type are specified, then the document author is not presumed to be asserting whether there are more possible relationships of that type.
 
-The relationships between two SPDX elements that are supported are:
+The relationships between two SPDX elements that are supported are shown in Table 68.
+
+Table 68 — Relationships between two SPDX elements that are supported
 
 | Relationship           | Description | Example |
 |------------------------|-------------|---------|
@@ -66,9 +68,9 @@ Here, this field is a reasonable estimation of the relation between two identifi
 
 **Metadata**
 
-The metadata for the relationship field is shown in Table 68.
+The metadata for the relationship field is shown in Table 69.
 
-Table 68 — Metadata for the relationship field
+Table 69 — Metadata for the relationship field
 
 | Attribute | Value |
 | --------- | ----- |
@@ -143,9 +145,9 @@ Here, the intent is to provide the recipient of the SPDX file with more informat
 
 **Metadata**
 
-The metadata for the relationship comment field is shown in Table 69.
+The metadata for the relationship comment field is shown in Table 70.
 
-Table 69 — Metadata for the relationship comment field
+Table 70 — Metadata for the relationship comment field
 
 | Attribute | Value |
 | --------- | ----- |
