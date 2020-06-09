@@ -170,90 +170,167 @@
               
                 <h1 id="12-annotations-fields">12 Annotations fields</h1>
 <h2 id="121-annotator-field">12.1 Annotator field <a name="8.1"></a></h2>
-<p><strong>8.1.1</strong> Purpose: This field identifies the person, organization or tool that has commented on a file, package, or the entire document.</p>
-<p><strong>8.1.2</strong> Intent: It may also be important for participants in the software supply chain to validate and add information on ambiguous files, and packages.</p>
-<p><strong>8.1.3</strong> Cardinality: Conditional (Mandatory, one), if there is an Annotation.</p>
-<p><strong>8.1.4</strong> Data Format: Single line of text with the following keywords.</p>
-<pre class="codehilite"><code class="language-text">&quot;Person: person name&quot; and optional  &quot;(email)&quot;
-&quot;Organization: organization&quot; and optional &quot;(email)&quot;
-&quot;Tool: tool identifier - version&quot;</code></pre>
-
-
-<p><strong>8.1.5</strong>  Tag: <code>Annotator:</code></p>
-<p>Example:</p>
+<p><strong>Description</strong></p>
+<p>This field identifies the person, organization or tool that has commented on a file, package, or the entire document.</p>
+<p><strong>Intent</strong></p>
+<p>It may also be important for participants in the software supply chain to validate and add information on ambiguous files, and packages.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the annotator field is shown in Table 70.</p>
+<p>Table 70 — Metadata for the annotator field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>Conditional</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..1 conditional (Mandatory, one), if there is an Annotation.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Single line of text with the following keywords.<br><pre>"Person: person name" and optional  "(email)"<br>"Organization: organization" and optional "(email)"<br>"Tool: tool identifier - version"</pre></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>Annotator:</code></p>
 <pre class="codehilite"><code class="language-text">Annotator: Person: Jane Doe ()</code></pre>
 
 
-<p><strong>8.1.6</strong> RDF: Property <code>spdx:annotator</code> in class <code>spdx:Annotation</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:annotator</code> in class <code>spdx:Annotation</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Annotation&gt;
     &lt;annotator&gt; Person: Jane Doe () &lt;/annotator&gt;
 &lt;/Annotation&gt;</code></pre>
 
 
 <h2 id="122-annotation-date-field">12.2 Annotation date field <a name="8.2"></a></h2>
-<p><strong>8.2.1</strong> Purpose: Identify when the comment was made. This shall be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.</p>
-<p><strong>8.2.2</strong> Intent: Here, the Annotation Date can serve as a verification as to when the actual review was done.</p>
-<p><strong>8.2.3</strong> Cardinality: Conditional (Mandatory, one), if there is an Annotation.</p>
-<p><strong>8.2.4</strong> Data Format: <code>YYYY-MM-DDThh:mm:ssZ</code></p>
-<p>where:</p>
-<ul>
-<li><code>YYYY</code> is year</li>
-<li><code>MM</code> is month with leading zero</li>
-<li><code>DD</code> is day with leading zero</li>
-<li><code>T</code> is delimiter for time</li>
-<li><code>hh</code> is hours with leading zero in 24 hour time</li>
-<li><code>mm</code> is minutes with leading zero</li>
-<li><code>ss</code> is seconds with leading zero</li>
-<li><code>Z</code> is universal time indicator</li>
-</ul>
-<p><strong>8.2.5</strong> Tag: <code>AnnotationDate:</code></p>
-<p>Example:</p>
+<p><strong>Description</strong></p>
+<p>Identify when the comment was made. This shall be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard.</p>
+<p><strong>Intent</strong></p>
+<p>Here, the Annotation Date can serve as a verification as to when the actual review was done.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the annotation date field is shown in Table 71.</p>
+<p>Table 71 — Metadata for the annotation date field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>Conditional</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..1 conditional (Mandatory, one), if there is an Annotation.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td><code>YYYY-MM-DDThh:mm:ssZ</code><br>where:<br><ul><li><code>YYYY</code> is year</li><li><code>MM</code> is month with leading zero</li><li><code>DD</code> is day with leading zero</li><li><code>T</code> is delimiter for time</li><li><code>hh</code> is hours with leading zero in 24 hour time</li><li><code>mm</code> is minutes with leading zero</li><li><code>ss</code> is seconds with leading zero</li><li><code>Z</code> is universal time indicator</li></ul></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>AnnotationDate:</code></p>
 <pre class="codehilite"><code class="language-text">AnnotationDate: 2010-01-29T18:30:22Z</code></pre>
 
 
-<p><strong>8.2.6</strong> RDF: Property <code>spdx:annotationDate</code> in class <code>spdx:Annotation</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:annotationDate</code> in class <code>spdx:Annotation</code></p>
 <pre class="codehilite"><code class="language-text">&lt;/Annotation&gt;
     &lt;annotationDate&gt; 2010-01-29T18:30:22Z &lt;/annotation Date&gt;
 &lt;/Annotation&gt;</code></pre>
 
 
 <h2 id="123-annotation-type-field">12.3 Annotation type field <a name="8.3"></a></h2>
-<p><strong>8.3.1</strong> Purpose: This field describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be <code>REVIEW</code>. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of <code>OTHER</code>.</p>
-<p><strong>8.3.2</strong> Intent: This allows the type of annotation to be recorded.</p>
-<p><strong>8.3.3</strong> Cardinality: Conditional (Mandatory, one), if there is an Annotation.</p>
-<p><strong>8.3.4</strong> Data Format: <code>REVIEW</code> | <code>OTHER</code></p>
-<p><strong>8.3.5</strong> Tag: <code>AnnotationType:</code></p>
-<p>Example:</p>
+<p><strong>Description</strong></p>
+<p>This field describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be <code>REVIEW</code>. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of <code>OTHER</code>.</p>
+<p><strong>Intent</strong></p>
+<p>This allows the type of annotation to be recorded.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the annotation type field is shown in Table 72.</p>
+<p>Table 72 — Metadata for the annotation type field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>Conditional</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..1 conditional (Mandatory, one), if there is an Annotation.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td><code>REVIEW</code> | <code>OTHER</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>AnnotationType:</code></p>
 <pre class="codehilite"><code class="language-text">AnnotationType: REVIEW</code></pre>
 
 
-<p><strong>8.3.6</strong> RDF: property <code>spdx:annotationType</code> in class <code>spdx:Annotation</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: property <code>spdx:annotationType</code> in class <code>spdx:Annotation</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Annotation&gt;
     &lt;annotationType rdf:resource=&quot;http://spdx.org/rdf/terms#annotationType_other&quot;/&gt;
 &lt;/Annotation&gt;</code></pre>
 
 
 <h2 id="124-spdx-identifier-reference-field">12.4 SPDX identifier reference field <a name="8.4"></a></h2>
-<p><strong>8.4.1</strong> Purpose: Uniquely identify the element in an SPDX document which is being referenced. These may be referenced internally and externally with the addition of the SPDX Document Identifier.</p>
-<p><strong>8.4.2</strong> Intent: There may be several versions of the same package or file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.</p>
-<p><strong>8.4.3</strong> Cardinality: Conditional (Mandatory, one), if there is an Annotation.</p>
-<p><strong>8.4.4</strong> Data Format: <code>[DocumentRef-[idstring]:]SPDXID</code></p>
-<p>where:</p>
-<p><code>["DocumentRef-"[idstring]":"]</code> is an optional reference to an external SPDX document as described in <a href="../2-document-creation-information/#2.6">6.6</a>
-<code>SPDXID</code> is a unique string containing letters, numbers, <code>.</code> and/or <code>-</code> as described in <a href="../2-document-creation-information/#2.3">6.3</a>, <a href="../3-package-information/#3.2">7.2</a> and <a href="../4-file-information/#4.2">8.2</a>.</p>
-<p><strong>8.4.5</strong> Tag: <code>SPDXREF:</code></p>
-<p>Example:</p>
+<p><strong>Description</strong></p>
+<p>Uniquely identify the element in an SPDX document which is being referenced. These may be referenced internally and externally with the addition of the SPDX Document Identifier.</p>
+<p><strong>Intent</strong></p>
+<p>There may be several versions of the same package or file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the SPDX identifier reference field is shown in Table 73.</p>
+<p>Table 73 — Metadata for the SPDX identifier reference field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>Conditional</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..1 conditional (Mandatory, one), if there is an Annotation.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td><code>[DocumentRef-[idstring]:]SPDXID</code><br>where:<br><code>["DocumentRef-"[idstring]":"]</code> is an optional reference to an external SPDX document as described in <a href="../2-document-creation-information/#2.6">6.6</a><br><code>SPDXID</code> is a unique string containing letters, numbers, <code>.</code> and/or <code>-</code> as described in <a href="../2-document-creation-information/#2.3">6.3</a>, <a href="../3-package-information/#3.2">7.2</a> and <a href="../4-file-information/#4.2">8.2</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>SPDXREF:</code></p>
 <pre class="codehilite"><code class="language-text">SPDXREF: SPDXRef-45</code></pre>
 
 
-<p>Example:</p>
 <pre class="codehilite"><code class="language-text">SPDXREF: DocumentRef-spdx-tool-1.2:SPDXRef-5</code></pre>
 
 
-<p><strong>8.4.6</strong> RDF:</p>
+<p>EXAMPLE 2 RDF:</p>
 <p>For RDF, the annotations are a property of the SPDX Document, Package, File, or Snippet they are annotating.</p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;#SPDXRef-45&quot;&gt;
     &lt;annotation&gt;
@@ -265,20 +342,44 @@
 
 
 <h2 id="125-annotation-comment-field">12.5 Annotation comment field <a name="8.5"></a></h2>
-<p><strong>8.5.1</strong> Purpose: This required free form text field permits the annotator to provide commentary on the analysis.</p>
-<p><strong>8.5.2</strong> Intent: This allows the annotator to provide independent assessment and note any points where there is disagreement with the analysis.</p>
-<p><strong>8.5.3</strong> Cardinality: Conditional (Mandatory, one), if there is an Annotation.</p>
-<p><strong>8.5.4</strong> Data Format: Free form text that may span multiple lines.</p>
-<p><strong>8.5.5</strong> Tag: <code>AnnotationComment:</code></p>
+<p><strong>Description</strong></p>
+<p>This required free form text field permits the annotator to provide commentary on the analysis.</p>
+<p><strong>Intent</strong></p>
+<p>This allows the annotator to provide independent assessment and note any points where there is disagreement with the analysis.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the annotation comment field is shown in Table 74.</p>
+<p>Table 74 — Metadata for the annotation comment field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>Conditional</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..1 conditional (Mandatory, one), if there is an Annotation.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Free form text that may span multiple lines.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>AnnotationComment:</code></p>
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
-<p>Example:</p>
 <pre class="codehilite"><code class="language-text">AnnotationComment: &lt;text&gt;All of the licenses seen in the file, are matching what was seen during manual inspection.
 There are some terms that can influence the concluded license, and some alternatives may be possible,
 but the concluded license is one of the options.&lt;/text&gt;</code></pre>
 
 
-<p><strong>8.5.6</strong> RDF: Property <code>rdfs:comment</code> in class <code>spdx:Annotation</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>rdfs:comment</code> in class <code>spdx:Annotation</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Annotation&gt;
     &lt;rdfs:comment&gt;All of the licenses seen in the file, are matching what was seen during manual inspection.
     There are some terms that can influence the concluded license, and some alternatives may be possible,
