@@ -12,9 +12,9 @@ It may also be important for participants in the software supply chain to valida
 
 **Metadata**
 
-The metadata for the annotator field is shown in Table 70.
+The metadata for the annotator field is shown in Table 71.
 
-Table 70 — Metadata for the annotator field
+Table 71 — Metadata for the annotator field
 
 | Attribute | Value |
 | --------- | ----- |
@@ -50,9 +50,9 @@ Here, the Annotation Date can serve as a verification as to when the actual revi
 
 **Metadata**
 
-The metadata for the annotation date field is shown in Table 71.
+The metadata for the annotation date field is shown in Table 72.
 
-Table 71 — Metadata for the annotation date field
+Table 72 — Metadata for the annotation date field
 
 | Attribute | Value |
 | --------- | ----- |
@@ -88,9 +88,9 @@ This allows the type of annotation to be recorded.
 
 **Metadata**
 
-The metadata for the annotation type field is shown in Table 72.
+The metadata for the annotation type field is shown in Table 73.
 
-Table 72 — Metadata for the annotation type field
+Table 73 — Metadata for the annotation type field
 
 | Attribute | Value |
 | --------- | ----- |
@@ -126,9 +126,9 @@ There may be several versions of the same package or file within an SPDX documen
 
 **Metadata**
 
-The metadata for the SPDX identifier reference field is shown in Table 73.
+The metadata for the SPDX identifier reference field is shown in Table 74.
 
-Table 73 — Metadata for the SPDX identifier reference field
+Table 74 — Metadata for the SPDX identifier reference field
 
 | Attribute | Value |
 | --------- | ----- |
@@ -174,9 +174,9 @@ This allows the annotator to provide independent assessment and note any points 
 
 **Metadata**
 
-The metadata for the annotation comment field is shown in Table 74.
+The metadata for the annotation comment field is shown in Table 75.
 
-Table 74 — Metadata for the annotation comment field
+Table 75 — Metadata for the annotation comment field
 
 | Attribute | Value |
 | --------- | ----- |
