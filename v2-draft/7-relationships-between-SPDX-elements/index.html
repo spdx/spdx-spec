@@ -164,11 +164,13 @@
               
                 <h1 id="11-relationships-between-spdx-elements-fields">11 Relationships between SPDX elements fields</h1>
 <h2 id="111-relationship-field">11.1 Relationship field <a name="7.1"></a></h2>
-<p><strong>7.1.1</strong> Purpose: This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. </p>
+<p><strong>Description</strong></p>
+<p>This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. </p>
 <p>In cases where there are "known unknowns", the use of the keyword <code>NOASSERTION</code> can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX elements (package/file/snippet) are connected by relationships or not.  ie. There could be some, but the author is not asserting one way or another.  </p>
 <p>Similarly, the use of the keywords <code>NONE</code> can be used to indicate that an SPDX element (package/file/snippet) has no other elements connected by some relationship to it.</p>
 <p>The use of <code>NOASSERTION</code>or <code>NONE</code> is not mandatory for any relationship. If no relationship of a particular type is specified, then the document author is not presumed to be asserting whether or not there are relationships of that type. If some relationships of a particular type are specified, then the document author is not presumed to be asserting whether there are more possible relationships of that type.</p>
-<p>The relationships between two SPDX elements that are supported are:</p>
+<p>The relationships between two SPDX elements that are supported are shown in Table 68.</p>
+<p>Table 68 — Relationships between two SPDX elements that are supported</p>
 <table>
 <thead>
 <tr>
@@ -395,20 +397,35 @@
 </tr>
 </tbody>
 </table>
-<p><strong>7.1.2</strong> Intent: Here, this field is a reasonable estimation of the relation between two identified elements (i.e. files or packages, or documents), from a developer perspective.</p>
-<p><strong>7.1.3</strong> Cardinality: Optional*, multiple.</p>
-<p>* see <code>DESCRIBES</code> relationship for one mandatory case.</p>
-<p><strong>7.1.4</strong> Data Format:</p>
-<pre class="codehilite"><code class="language-text">[&quot;DocumentRef-&quot;[idstring]&quot;:&quot;]SPDXID &lt;relationship&gt; [&quot;DocumentRef-&quot;[idstring]&quot;:&quot;]SPDXID | `NONE` | `NOASSERTION`</code></pre>
-
-
-<p>where "DocumentRef-"<code>[idstring]</code>":" is an optional reference to an external SPDX document as described in <a href="../2-document-creation-information/#2.6">6.6</a></p>
-<p>where <code>SPDXID</code> is a string containing letters, numbers, <code>.</code> and/or <code>-</code>. as described in <a href="../2-document-creation-information/#2.3">6.3</a>, <a href="../3-package-information/#3.2">7.2</a>, <a href="../4-file-information/#4.2">7.2</a>.</p>
-<p>where <code>&lt;relationship&gt;</code> is one of the documented relationship types in table 7.1.1.</p>
-<p>where <code>NONE</code> can be used to explicitly indicate there are NO other relationships.</p>
-<p>where <code>NOASSERTION</code> can be used to explicitly indicate it is not clear if there are relationships that may apply or not.</p>
-<p><strong>7.1.5</strong> Tag: <code>Relationship:</code></p>
-<p>Examples:</p>
+<p><strong>Intent</strong></p>
+<p>Here, this field is a reasonable estimation of the relation between two identified elements (i.e. files or packages, or documents), from a developer perspective.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the relationship field is shown in Table 69.</p>
+<p>Table 69 — Metadata for the relationship field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..* see <code>DESCRIBES</code> relationship for one mandatory case.</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>["DocumentRef-"[idstring]":"]SPDXID \&lt;relationship> ["DocumentRef-"[idstring]":"]SPDXID | `NONE` | `NOASSERTION`<br>where "DocumentRef-"<code>[idstring]</code>":" is an optional reference to an external SPDX document as described in <a href="../2-document-creation-information/#2.6">6.6</a><br>where <code>SPDXID</code> is a string containing letters, numbers, <code>.</code> and/or <code>-</code>. as described in <a href="../2-document-creation-information/#2.3">6.3</a>, <a href="../3-package-information/#3.2">7.2</a>, <a href="../4-file-information/#4.2">7.2</a>.<br>where <code>&lt;relationship&gt;</code> is one of the documented relationship types in table 7.1.1.<br>where <code>NONE</code> can be used to explicitly indicate there are NO other relationships.<br>where <code>NOASSERTION</code> can be used to explicitly indicate it is not clear if there are relationships that may apply or not.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>Relationship:</code></p>
 <pre class="codehilite"><code class="language-text">Relationship: SPDXRef-grep CONTAINS SPDXRef-make</code></pre>
 
 
@@ -433,8 +450,7 @@
 <pre class="codehilite"><code class="language-text">RelationshipComment: The package BobBrowser may have other packages embedded in it, but the author has insufficient information to treat this as other than unknown at this point in time.</code></pre>
 
 
-<p><strong>7.1.6</strong> RDF: Property <code>spdx:relationship</code> in any <code>spdx:SpdxDocument</code>, <code>spdx:Package</code>, <code>spdx:File</code> or <code>spdx:Snippet</code></p>
-<p>Examples:</p>
+<p>EXAMPLE 2 RDF: Property <code>spdx:relationship</code> in any <code>spdx:SpdxDocument</code>, <code>spdx:Package</code>, <code>spdx:File</code> or <code>spdx:Snippet</code></p>
 <pre class="codehilite"><code class="language-text">&lt;File rdf:about=&quot;#SPDXRef-45&quot;&gt;
     &lt;relationship&gt;
         &lt;Relationship&gt;
@@ -452,19 +468,43 @@
 
 
 <h2 id="112-relationship-comment-field">11.2 Relationship comment field <a name="7.2"></a></h2>
-<p><strong>7.2.1</strong> Purpose: This field provides a place for the SPDX file creator to record any general comments about the relationship.</p>
-<p><strong>7.2.2</strong> Intent: Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of the relationship between two elements in an SPDX file.</p>
-<p><strong>7.2.3</strong> Cardinality: Optional, one.</p>
-<p><strong>7.2.4</strong> Data Format: Free form text that may span multiple lines, refers only to the immediately preceding relationship.</p>
-<p><strong>7.2.5</strong> Tag: <code>RelationshipComment:</code></p>
+<p><strong>Description</strong></p>
+<p>This field provides a place for the SPDX file creator to record any general comments about the relationship.</p>
+<p><strong>Intent</strong></p>
+<p>Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of the relationship between two elements in an SPDX file.</p>
+<p><strong>Metadata</strong></p>
+<p>The metadata for the relationship comment field is shown in Table 70.</p>
+<p>Table 70 — Metadata for the relationship comment field</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..1</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>Free form text that may span multiple lines, refers only to the immediately preceding relationship.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p>EXAMPLE 1 Tag: <code>RelationshipComment:</code></p>
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
 <p>A <code>RelationshipComment:</code> shall be the line immediately after a “Relationship:”</p>
-<p>Example:</p>
 <pre class="codehilite"><code class="language-text">RelationshipComment: &lt;text&gt;The package foo.tgz is a pre-requisite for building executable bar.&lt;/text&gt;</code></pre>
 
 
-<p><strong>7.2.6</strong> RDF: Property <code>rdfs:comment</code> in class <code>spdx:Relationship</code></p>
-<p>Example:</p>
+<p>EXAMPLE 2 RDF: Property <code>rdfs:comment</code> in class <code>spdx:Relationship</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Relationship rdf:about=&quot;...&quot;&gt;
     &lt;rdfs:comment&gt;
         The package foo.tgz is a pre-requisite for building executable bar.
