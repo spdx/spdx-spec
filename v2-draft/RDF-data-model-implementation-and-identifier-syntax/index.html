@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>2 Normative references - specification v2.2.0</title>
+  <title>Annex C RDF data model implementation and identifier syntax (Normative) - specification v2.2.0</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "2 Normative references";
-    var mkdocs_page_input_path = "normative-references.md";
+    var mkdocs_page_name = "Annex C RDF data model implementation and identifier syntax (Normative)";
+    var mkdocs_page_input_path = "RDF-data-model-implementation-and-identifier-syntax.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -145,7 +145,7 @@
     
       
     
-    <li>2 Normative references</li>
+    <li>Annex C RDF data model implementation and identifier syntax (Normative)</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -156,24 +156,62 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="2-normative-references">2 Normative references</h1>
-<p>The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.</p>
-<p><em>Apache Maven</em>, Apache Software Foundation, https://maven.apache.org/</p>
-<p><em>Bower API</em>, https://bower.io/docs/api/#install</p>
-<p><em>Common Platform Enumeration (CPE) – Specification</em>, The MITRE Corporation, https://cpe.mitre.org/files/cpe-specification_2.2.pdf</p>
-<p><em>Creative Commons Attribution License 3.0 Unported</em>, Creative Commons, http://creativecommons.org/licenses/by/3.0/</p>
-<p>NISTIR 7695, <em>Common Platform Enumeration: Naming Specification Version 2.3</em>, NIST, https://csrc.nist.gov/publications/detail/nistir/7695/final</p>
-<p><em>npm-package.json</em>, npn Inc., https://docs.npmjs.com/files/package.json</p>
-<p><em>NuGet documentation</em>, Microsoft, https://docs.microsoft.com/en-us/nuget/</p>
-<p>POSIX.1-2017 <em>The Open Group Base Specifications Issue 7</em>, 2018 edition, IEEE/Open Group, https://pubs.opengroup.org/onlinepubs/9699919799/</p>
-<p><em>Resource Description Framework (RDF)</em>, 2014-02-25, W3C, http://www.w3.org/standards/techs/rdf</p>
-<p>RFC-1321, <em>The MD5 Message-Digest Algorithm</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc1321</p>
-<p>RFC-3174, <em>US Secure Hash Algorithm 1 (SHA1)</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc3174</p>
-<p>RFC-3986, <em>Uniform Resource Identifier (URI): Generic Syntax</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc3986</p>
-<p>RFC-5234, <em>Augmented BNF for Syntax Specifications: ABNF</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc5234</p>
-<p>RFC-6234, <em>US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc6234</p>
-<p><em>SPDX License list</em>, Linux Foundation, https://spdx.org/licenses/</p>
-<p><em>SPDX License Exceptions list</em>, Linux Foundation, https://spdx.org/licenses/exceptions-index.html</p>
+                <h1 id="annex-c-rdf-data-model-implementation-and-identifier-syntax-normative">Annex C RDF data model implementation and identifier syntax (Normative)</h1>
+<h2 id="c1-introduction">C.1 Introduction</h2>
+<p>SPDX ® Vocabulary Specification</p>
+<p>See: <a href="http://spdx.org/rdf/ontology/spdx-2-2">http://spdx.org/rdf/ontology/spdx-2-2</a></p>
+<p>Version: 2.2</p>
+<p><img alt="SPDX 2.2 RDF Ontology" src="../img/spdx-2.2-rdf-ontology.png" /></p>
+<p>Licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License 3.0 Unported</a>.</p>
+<h2 id="c2-agent-and-tool-identifiers">C.2 Agent and tool identifiers</h2>
+<p>Fields that identify entities that have acted in relation to the SPDX file are single line of text which name the agent or
+tool and, optionally, provide contact information. For example, "Person: Jane Doe (jane.doe@example.com)",
+"Organization: ExampleCodeInspect (contact@example.com)" and "Tool: LicenseFind - 1.0". The exact syntax of agent and tool identifications is described below in <a href="http://tools.ietf.org/html/rfc5234">ABNF</a>.</p>
+<pre class="codehilite"><code class="language-text">agent            = person / organization
+
+tool             = &quot;Tool: &quot; name 0*1( &quot; &quot; DASH &quot; &quot; version)
+
+person           = &quot;Person: &quot; name 0*1contact-info
+
+organization     = &quot;Organization: &quot; name 0*1contact-info
+
+name             = 1*( UNRESERVED ) / U+0022 1*( VCHAR-SANS-QUOTE ) U+0022
+
+contact-info     = &quot; (&quot; email-addr &quot;)&quot;
+
+email-addr       = local-name-atom *( &quot;.&quot; local-name-atom ) &quot;@&quot; domain-name-atom 1*( &quot;.&quot; domain-name-atom )
+
+version          = 1*VCHAR-SANS-QUOTE
+
+local-name-atom  = 1*( ALPHA / DIGIT /    ; Printable US-ASCII
+                       &quot;!&quot; / &quot;#&quot; /        ;  characters not including
+                       &quot;$&quot; / &quot;%&quot; /        ;  specials.
+                       &quot;&amp;&quot; / &quot;'&quot; /
+                       &quot;*&quot; / &quot;+&quot; /
+                       &quot;-&quot; / &quot;/&quot; /
+                       &quot;=&quot; / &quot;?&quot; /
+                       &quot;^&quot; / &quot;_&quot; /
+                       &quot;`&quot; / &quot;{&quot; /
+                       &quot;|&quot; / &quot;}&quot; /
+                       &quot;~&quot; )
+
+domain-name-atom = 1*( ALPHA / DIGIT / &quot;-&quot; )
+
+DASH             = U+2010 / U+2212 /   ; hyphen, minus, em dash and
+                   U+2013 / U+2014     ;  en dash
+
+
+UNRESERVED       = U+0020-U+0027 /     ; visible unicode characters
+                   U+0029-U+0080 /     ;  except '(' and dashes
+                   U+00A0-U+200F /
+                   U+2011-U+2027 /
+                   U+202A-U+2211 /
+                   U+2213-U+E01EF
+
+
+VCHAR-SANS-QUOTE = U+0020-U+0021 /  ; visible unicode characters
+                   U+0023-U+0080 /  ;  except quotation mark
+                   U+00a0-U+E01EF</code></pre>
               
             </div>
           </div>

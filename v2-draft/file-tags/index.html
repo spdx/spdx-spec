@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>2 Normative references - specification v2.2.0</title>
+  <title>Annex I SPDX File Tags (Informative) - specification v2.2.0</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "2 Normative references";
-    var mkdocs_page_input_path = "normative-references.md";
+    var mkdocs_page_name = "Annex I SPDX File Tags (Informative)";
+    var mkdocs_page_input_path = "file-tags.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -145,7 +145,7 @@
     
       
     
-    <li>2 Normative references</li>
+    <li>Annex I SPDX File Tags (Informative)</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -156,24 +156,43 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="2-normative-references">2 Normative references</h1>
-<p>The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.</p>
-<p><em>Apache Maven</em>, Apache Software Foundation, https://maven.apache.org/</p>
-<p><em>Bower API</em>, https://bower.io/docs/api/#install</p>
-<p><em>Common Platform Enumeration (CPE) – Specification</em>, The MITRE Corporation, https://cpe.mitre.org/files/cpe-specification_2.2.pdf</p>
-<p><em>Creative Commons Attribution License 3.0 Unported</em>, Creative Commons, http://creativecommons.org/licenses/by/3.0/</p>
-<p>NISTIR 7695, <em>Common Platform Enumeration: Naming Specification Version 2.3</em>, NIST, https://csrc.nist.gov/publications/detail/nistir/7695/final</p>
-<p><em>npm-package.json</em>, npn Inc., https://docs.npmjs.com/files/package.json</p>
-<p><em>NuGet documentation</em>, Microsoft, https://docs.microsoft.com/en-us/nuget/</p>
-<p>POSIX.1-2017 <em>The Open Group Base Specifications Issue 7</em>, 2018 edition, IEEE/Open Group, https://pubs.opengroup.org/onlinepubs/9699919799/</p>
-<p><em>Resource Description Framework (RDF)</em>, 2014-02-25, W3C, http://www.w3.org/standards/techs/rdf</p>
-<p>RFC-1321, <em>The MD5 Message-Digest Algorithm</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc1321</p>
-<p>RFC-3174, <em>US Secure Hash Algorithm 1 (SHA1)</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc3174</p>
-<p>RFC-3986, <em>Uniform Resource Identifier (URI): Generic Syntax</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc3986</p>
-<p>RFC-5234, <em>Augmented BNF for Syntax Specifications: ABNF</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc5234</p>
-<p>RFC-6234, <em>US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc6234</p>
-<p><em>SPDX License list</em>, Linux Foundation, https://spdx.org/licenses/</p>
-<p><em>SPDX License Exceptions list</em>, Linux Foundation, https://spdx.org/licenses/exceptions-index.html</p>
+                <h1 id="annex-i-spdx-file-tags-informative">Annex I SPDX File Tags (Informative)</h1>
+<h2 id="i1-rationale">I.1 Rationale</h2>
+<p>SPDX short-form license identifiers using the <a href="https://spdx.org/ids"><code>SPDX-License-Identifier:</code></a> tag, as described in Annex <a href="./appendix-V-using-SPDX-short-identifiers-in-source-files.md">E</a>, provide a mechanism for developers to easily convey information about the licenses they declare on a file-by-file basis. That mechanism is intentionally very easy for software tools to identify and detect, since it includes a standard text string that is unlikely to occur in other contexts, and since it uses license identifiers from the <a href="https://spdx.org/licenses">SPDX License List</a> or from user-defined <code>LicenseRef-</code> statements.</p>
+<p>The SPDX specification defines various other fields in the File Information section (Clause <a href="./4-file-information.md">8</a>) that are also useful for conveying information on a file-by-file basis. For example, the <a href="https://reuse.software">REUSE Software guidelines</a> community expressed interest in having a similar method to recommend that developers use to express their copyright notices in a machine-readable manner.</p>
+<p>This appendix describes a mechanism, similar to <code>SPDX-License-Identifier</code>, for developers to convey such other file-based information easily in comments in their files. This in turn enables software tools to easily find and extract that information, and to insert it into the corresponding fields of an SPDX document generated by those tools.</p>
+<h2 id="i2-format">I.2 Format</h2>
+<p>An SPDX file tag consists of a single line, generally as part of a comment near the top of the file, in the following format:</p>
+<pre class="codehilite"><code class="language-text">SPDX-tagname: &lt;value&gt;</code></pre>
+
+
+<p>where <em>tagname</em> is replaced by the 'tag' defined for tag-value SPDX documents for that field, according to the <a href="./4-file-information.md">File Information</a> section of the SPDX specification. The meaning and semantics of any SPDX file tag are intended to be identical to those described in the File Information section of the SPDX specification.</p>
+<p>Examples:</p>
+<p>File type (see <a href="./4-file-information.md#4.3">8.3</a>):</p>
+<pre class="codehilite"><code class="language-text">SPDX-FileType: SOURCE
+SPDX-FileType: DOCUMENTATION
+SPDX-FileType: TEXT</code></pre>
+
+
+<p>Copyright text (see <a href="./4-file-information.md#4.8">8.8</a>):</p>
+<pre class="codehilite"><code class="language-text">SPDX-FileCopyrightText: 2019 Jane Doe &lt;jane@example.com&gt;
+SPDX-FileCopyrightText: Copyright 2008-2010 John Smith
+SPDX-FileCopyrightText: Copyright Example Company
+SPDX-FileCopyrightText: Copyright contributors to the Foo project.</code></pre>
+
+
+<p>File contributors (see <a href="./4-file-information.md#4.14">8.14</a>):</p>
+<pre class="codehilite"><code class="language-text">SPDX-FileContributor: Modified by Jane Doe
+SPDX-FileContributor: The Regents of the University of California</code></pre>
+
+
+<p>SPDX file tags of a particular type may appear one or multiple times in a file, depending on the corresponding cardinality defined for that field in the File Information section of the SPDX specification.</p>
+<p>Multiple-line values are not recommended, because doing so will make it harder for simple search tools to extract all data by looking only for lines beginning with the relevant tag.</p>
+<p>Version 3.0 of the <a href="https://reuse.software/spec/">REUSE Software guidelines</a> implements this format, via a recommendation to use the tag <code>SPDX-FileCopyrightText:</code> to include copyright notices as part of a file's comment headers.</p>
+<h2 id="i3-caveats">I.3 Caveats</h2>
+<p>A creator of an SPDX document may elect to disregard any or all file tags in any file. SPDX document creators should determine for themselves the extent to which they will rely upon the information specified in a file tag.</p>
+<p>Not all fields in the File Information section will be useful or relevant to use as file tags. For example, <code>SPDX-FileName</code> is unnecessary as it can be easily derived from the actual file name; <code>SPDX-SPDXID</code> is likely to be ignored by an SPDX document creator who may need to define their own SPDXRef- ID system for their document; etc.</p>
+<p>The short-form license identifiers described in Annex <a href="./appendix-V-using-SPDX-short-identifiers-in-source-files.md">E</a> do not follow the file tag convention described above. The <code>SPDX-License-Identifier</code> emerged from the broader community prior to being defined in the SPDX specification, so it does not map to a <code>License-Identifier</code> field in the File Information section.</p>
               
             </div>
           </div>

@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>2 Normative references - specification v2.2.0</title>
+  <title>Annex E Using SPDX license list short identifiers in source files (Informative) - specification v2.2.0</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "2 Normative references";
-    var mkdocs_page_input_path = "normative-references.md";
+    var mkdocs_page_name = "Annex E Using SPDX license list short identifiers in source files (Informative)";
+    var mkdocs_page_input_path = "using-SPDX-short-identifiers-in-source-files.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -145,7 +145,7 @@
     
       
     
-    <li>2 Normative references</li>
+    <li>Annex E Using SPDX license list short identifiers in source files (Informative)</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -156,24 +156,55 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="2-normative-references">2 Normative references</h1>
-<p>The following documents are referred to in the text in such a way that some or all of their content constitutes requirements of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.</p>
-<p><em>Apache Maven</em>, Apache Software Foundation, https://maven.apache.org/</p>
-<p><em>Bower API</em>, https://bower.io/docs/api/#install</p>
-<p><em>Common Platform Enumeration (CPE) – Specification</em>, The MITRE Corporation, https://cpe.mitre.org/files/cpe-specification_2.2.pdf</p>
-<p><em>Creative Commons Attribution License 3.0 Unported</em>, Creative Commons, http://creativecommons.org/licenses/by/3.0/</p>
-<p>NISTIR 7695, <em>Common Platform Enumeration: Naming Specification Version 2.3</em>, NIST, https://csrc.nist.gov/publications/detail/nistir/7695/final</p>
-<p><em>npm-package.json</em>, npn Inc., https://docs.npmjs.com/files/package.json</p>
-<p><em>NuGet documentation</em>, Microsoft, https://docs.microsoft.com/en-us/nuget/</p>
-<p>POSIX.1-2017 <em>The Open Group Base Specifications Issue 7</em>, 2018 edition, IEEE/Open Group, https://pubs.opengroup.org/onlinepubs/9699919799/</p>
-<p><em>Resource Description Framework (RDF)</em>, 2014-02-25, W3C, http://www.w3.org/standards/techs/rdf</p>
-<p>RFC-1321, <em>The MD5 Message-Digest Algorithm</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc1321</p>
-<p>RFC-3174, <em>US Secure Hash Algorithm 1 (SHA1)</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc3174</p>
-<p>RFC-3986, <em>Uniform Resource Identifier (URI): Generic Syntax</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc3986</p>
-<p>RFC-5234, <em>Augmented BNF for Syntax Specifications: ABNF</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc5234</p>
-<p>RFC-6234, <em>US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)</em>, The Internet Society Network Working Group, https://tools.ietf.org/html/rfc6234</p>
-<p><em>SPDX License list</em>, Linux Foundation, https://spdx.org/licenses/</p>
-<p><em>SPDX License Exceptions list</em>, Linux Foundation, https://spdx.org/licenses/exceptions-index.html</p>
+                <h1 id="annex-e-using-spdx-license-list-short-identifiers-in-source-files-informative">Annex E Using SPDX license list short identifiers in source files (Informative)</h1>
+<h2 id="e1-introduction">E.1 Introduction</h2>
+<p>Identifying the license for open source software is critical for both reporting purposes and license compliance. However, determining the license can sometimes be difficult due to a lack of information or ambiguous information. Even when licensing information is present, a lack of consistent notation can make automating the task of license detection very difficult, thus requiring vast amounts of human effort.</p>
+<p><a href="https://spdx.org/licenses/">Short identifiers</a> from the SPDX License List can be used to indicate license info at the file level. The advantages of doing this are numerous but include:</p>
+<ul>
+<li>It is precise.</li>
+<li>It is concise.</li>
+<li>It is language neutral.</li>
+<li>It is easy and more reliable to machine process.</li>
+<li>Leads to code that is easier to read.</li>
+<li>The license information travels with the file (as sometimes not entire projects are used or license files are removed).</li>
+<li>It is a standard and can be universal. There is no need for variation.</li>
+<li>An SPDX short identifier is immutable.</li>
+<li>Easy look-ups and cross-references to the SPDX License List website.</li>
+</ul>
+<p>To the extent that a source file contains existing copyright and license information, it is the SPDX project’s recommendation that SPDX short identifiers be used to supplement, not replace that information. When there is a standard header provided by the license author, it is recommended to use such standard header (alone or in combination with the SPDX short identifier). If using SPDX short identifiers in individual files, it is recommended to reproduce the full license in the projects LICENSE file and indicate that SPDX short identifiers are being used to refer to it. For links to projects illustrating these scenarios, see <a href="https://spdx.org/ids-where">https://spdx.org/ids-where</a>.</p>
+<h2 id="e2-format-for-spdx-license-identifier">E.2 Format for SPDX-License-Identifier</h2>
+<p>The SPDX-License-Identifier tag declares the license the file is under and should be placed at or near the top of the file in a comment. To the extent that the file contains existing license information, it is our recommendation that the tag be used to supplement not replace that information. Of course, this is the ultimate decision of the copyright holders of the file.</p>
+<p>The SPDX License Identifier syntax may consist of a single license (represented by a short identifier from the <a href="https://spdx.org/licenses/">SPDX license list</a>) or a compound set of licenses (represented by joining together multiple licenses using the license expression syntax).</p>
+<p>The tag should appear on its own line in the source file, generally as part of a comment.</p>
+<p>SPDX-License-Identifier: \&lt;SPDX License Expression></p>
+<h2 id="e3-representing-single-license">E.3 Representing single license</h2>
+<p>A single license is represented by using the short identifier from <a href="https://spdx.org/licenses/">SPDX license list</a>, optionally with a unary "+" operator following it to indicate "or later" versions may be applicable.</p>
+<p>Examples:</p>
+<pre class="codehilite"><code class="language-text">SPDX-License-Identifier: CDDL-1.0+
+SPDX-License-Identifier: MIT</code></pre>
+
+
+<h2 id="e4-representing-multiple-licenses">E.4 Representing multiple licenses</h2>
+<p>Multiple licenses can be represented using a SPDX license expression as defined in Annex <a href="appendix-IV-SPDX-license-expressions.md">D</a>. A set of licenses may optionally be enclosed in parentheses, but are not required to be enclosed. As further described there:</p>
+<ol>
+<li>When there is a choice between licenses ("disjunctive license"), they should be separated with "OR". If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new license expression.</li>
+<li>Similarly when multiple licenses need to be simultaneously applied ("conjunctive license"), they should be separated with "AND". If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression.</li>
+<li>In some cases, a set of license terms apply except under special circumstances, in this case, use the "WITH" operator followed by one of the <a href="https://spdx.org/licenses/exceptions-index.html">recognized exception identifiers</a>.</li>
+<li>The expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.</li>
+</ol>
+<p>Examples:</p>
+<pre class="codehilite"><code class="language-text">SPDX-License-Identifier: GPL-2.0-only OR MIT
+SPDX-License-Identifier: LGPL-2.1-only AND BSD-2-Clause
+SPDX-License-Identifier: GPL-2.0-or-later WITH Bison-exception-2.2</code></pre>
+
+
+<p>Please see Annex <a href="./appendix-IV-SPDX-license-expressions.md">D</a> for more examples and details of the license expression specific syntax.</p>
+<p>If you can’t express the license(s) as an expression using identifiers from the SPDX list, it is probably best to just put the text of your license header in the file (if there is a standard header), or refer to a neutral site URL where the text can be found. To request a license be added to the SPDX License List, please follow the process described here: <a href="http://spdx.org/spdx-license-list/request-new-license-or-exception">http://spdx.org/spdx-license-list/request-new-license-or-exception</a>.</p>
+<p>Alternatively, you can use a <code>LicenseRef-</code> custom license identifier to refer to a license that is not on the SPDX License List, such as the following:</p>
+<pre class="codehilite"><code class="language-text">SPDX-License-Identifier: LicenseRef-my-special-license</code></pre>
+
+
+<p>The <code>LicenseRef-</code> format is defined in Annex <a href="./appendix-IV-SPDX-license-expressions.md">D</a>. When using a custom <code>LicenseRef-</code> identifier, you will also need to provide a way for others to determine what license text corresponds to it. <a href="https://reuse.software/spec/">Version 3.0 of the REUSE Software Specification</a> provides a standardized format that can optionally be used for providing the corresponding license text for these identifiers.</p>
               
             </div>
           </div>
