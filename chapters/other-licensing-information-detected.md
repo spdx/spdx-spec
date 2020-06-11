@@ -1,16 +1,10 @@
 # 10 Other licensing information detected fields
 
-This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list see: [https://spdx.org/licenses/](https://spdx.org/licenses/). The SPDX License List can also be found here in Annex [A](appendix-I-SPDX-license-list.md).
-
-One instance should be created for every unique license or licensing information reference detected in package that does not match one of the licenses on the SPDX License List. Each license instance should have the following fields.
-
-Fields:
-
-## 10.1 License identifier field <a name="6.1"></a>
+## 10.1 License identifier field <a name="10.1"></a>
 
 **Description**
 
-Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (Clause [7](3-package-information.md) and Clause [8](4-file-information.md), respectively).
+Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (Clause [7](package-information.md) and Clause [8](file-information.md), respectively).
 
 **Intent**
 
@@ -54,7 +48,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseID` in class `spdx:ExtractedLicensingInfo`
 </ExtractedLicensingInfo>
 ```
 
-## 10.2 Extracted text field <a name="6.2"></a>
+## 10.2 Extracted text field <a name="10.2"></a>
 
 **Description**
 
@@ -114,7 +108,7 @@ If indeed full text of license present in File:
 </ExtractedLicensingInfo>
 ```
 
-## 10.3 License name field <a name="6.3"></a>
+## 10.3 License name field <a name="10.3"></a>
 
 **Description**
 
@@ -154,7 +148,7 @@ EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:ExtractedLicensingInfo`
 </ExtractedLicensingInfo>
 ```
 
-## 10.4 License cross reference field <a name="6.4"></a>
+## 10.4 License cross reference field <a name="10.4"></a>
 
 **Description**
 
@@ -192,7 +186,7 @@ EXAMPLE 2 RDF: Property `rdfs:seeAlso` in class `spdx:ExtractedLicensingInfo`
 </ExtractedLicensingInfo>
 ```
 
-## 10.5 License comment field <a name="6.5"></a>
+## 10.5 License comment field <a name="10.5"></a>
 
 **Description**
 
