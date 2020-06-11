@@ -1,6 +1,6 @@
 # 8 File information fields
 
-## 8.1 File name field <a name="4.1"></a>
+## 8.1 File name field <a name="8.1"></a>
 
 **Description**
 
@@ -39,7 +39,7 @@ EXAMPLE 2 RDF: Property `spdx:fileName` in class `spdx:File`
 </File>
 ```
 
-## 8.2 File SPDX identifier field <a name="4.2"></a>
+## 8.2 File SPDX identifier field <a name="8.2"></a>
 
 **Description**
 
@@ -89,7 +89,7 @@ Using document URI:
 </File>
 ```
 
-## 8.3 File type field <a name="4.3"></a>
+## 8.3 File type field <a name="8.3"></a>
 
 **Description**
 
@@ -162,7 +162,7 @@ Where file2 is a `README.TXT`
 </File>
 ```
 
-## 8.4 File checksum field <a name="4.4"></a>
+## 8.4 File checksum field <a name="8.4"></a>
 
 **Description**
 
@@ -218,7 +218,7 @@ EXAMPLE 2 RDF: Property `spdx:Checksum` in class `spdx:File`
 </File>
 ```
 
-## 8.5 Concluded license field <a name="4.5"></a>
+## 8.5 Concluded license field <a name="8.5"></a>
 
 **Description**
 
@@ -226,7 +226,7 @@ This field contains the license the SPDX file creator has concluded as governing
 
 The options to populate this field are limited to:
 
-A valid SPDX License Expression as defined in Annex [D](appendix-IV-SPDX-license-expressions.md);
+A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md);
 
 `NONE`, if the SPDX file creator concludes there is no license available for this file; or
 
@@ -238,11 +238,11 @@ A valid SPDX License Expression as defined in Annex [D](appendix-IV-SPDX-license
 
 - the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([8.7](#4.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([8.7](#4.7)) is preferred.
+If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([8.7](#8.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([8.7](#8.7)) is preferred.
 
 **Intent**
 
-Here, the intent is for the SPDX file creator to analyze the License Information in File ([8.6](#4.6)) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
+Here, the intent is for the SPDX file creator to analyze the License Information in File ([8.6](#8.6)) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
 
 **Metadata**
 
@@ -254,7 +254,7 @@ Table 40 — Metadata for the concluded license field
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](appendix-IV-SPDX-license-expressions.md). |
+| Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md). |
 
 **Examples**
 
@@ -287,7 +287,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseConcluded` in class `spdx:File`
 </File>
 ```
 
-## 8.6 License information in file field <a name="4.6"></a>
+## 8.6 License information in file field <a name="8.6"></a>
 
 **Description**
 
@@ -322,7 +322,7 @@ Table 41 — Metadata for the license information in file field
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..* |
-| Format | `<SPDX License Expression>` \|<br>["DocumentRef-"`[idstring]`":"]"LicenseRef-"`[idstring]` \|<br>\| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a<br>valid SPDX License Expression<br>as defined in Annex [D](appendix-IV-SPDX-license-expressions.md).<br>"DocumentRef-"`[idstring]`: is an optional reference to an external SPDX<br>document as described in [6.6](2-document-creation-information.md#2.6)<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-` |
+| Format | `<SPDX License Expression>` \|<br>["DocumentRef-"`[idstring]`":"]"LicenseRef-"`[idstring]` \|<br>\| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a<br>valid SPDX License Expression<br>as defined in Annex [D](SPDX-license-expressions.md).<br>"DocumentRef-"`[idstring]`: is an optional reference to an external SPDX<br>document as described in [6.6](document-creation-information.md#6.6)<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-` |
 
 **Examples**
 
@@ -342,7 +342,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseInfoInFile` in class `spdx:File`
 </File>
 ```
 
-## 8.7 Comments on license field <a name="4.7"></a>
+## 8.7 Comments on license field <a name="8.7"></a>
 
 **Description**
 
@@ -387,7 +387,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseComments` in class `spdx:File`
 </File>
 ```
 
-## 8.8 Copyright text field <a name="4.8"></a>
+## 8.8 Copyright text field <a name="8.8"></a>
 
 **Description**
 
@@ -441,7 +441,7 @@ EXAMPLE 2 RDF: Property `spdx:copyrightText` in class `spdx:File`
 </File>
 ```
 
-## 8.9 Artifact of project name field (deprecated) <a name="4.9"></a>
+## 8.9 Artifact of project name field (deprecated) <a name="8.9"></a>
 
 **Description**
 
@@ -485,7 +485,7 @@ EXAMPLE 2 RDF: Property `spdx:artifactOf/doap:Project/doap:name`
 </File>
 ```
 
-## 8.10 Artifact of project homepage field (deprecated) <a name="4.10"></a>
+## 8.10 Artifact of project homepage field (deprecated) <a name="8.10"></a>
 
 **Description**
 
@@ -527,7 +527,7 @@ EXAMPLE 2 RDF: `spdx:artifactOf/doap:Project/doap:homepage`
 </File>
 ```
 
-## 8.11 Artifact of project uniform resource identifier field (deprecated) <a name="4.11"></a>
+## 8.11 Artifact of project uniform resource identifier field (deprecated) <a name="8.11"></a>
 
 **Description**
 
@@ -570,7 +570,7 @@ the value "http://subversion.apache.org/" is the URI of the describes
 resource of type doap:Project -->
 ```
 
-## 8.12 File comment field <a name="4.12"></a>
+## 8.12 File comment field <a name="8.12"></a>
 
 **Description**
 
@@ -614,7 +614,7 @@ EXAMPLE 2 RDF: Property `rdfs:comments` in class `spdx:File`
 </File>
 ```
 
-## 8.13 File notice field <a name="4.13"></a>
+## 8.13 File notice field <a name="8.13"></a>
 
 **Description**
 
@@ -656,7 +656,7 @@ EXAMPLE 2 RDF: Property `noticeText` in class `spdx:File`
 </File>
 ```
 
-## 8.14 File contributor field <a name="4.14"></a>
+## 8.14 File contributor field <a name="8.14"></a>
 
 **Description**
 
@@ -700,7 +700,7 @@ EXAMPLE 2 RDF: Property `spdx:fileContributor` in class `spdx:File`
 </File>
 ```
 
-## 8.15 File attribution text field <a name="4.15"></a>
+## 8.15 File attribution text field <a name="8.15"></a>
 
 **Description**
 
@@ -746,9 +746,9 @@ EXAMPLE 2 RDF: property `spdx:attributionText` in class `spdx:File`
 </File>
 ```
 
-## 8.16 File dependencies field (deprecated) <a name="4.16"></a>
+## 8.16 File dependencies field (deprecated) <a name="8.16"></a>
 
-This field is deprecated since SPDX 2.0 in favor of using Clause [11](7-relationships-between-SPDX-elements.md) which provides more granularity about relationships.
+This field is deprecated since SPDX 2.0 in favor of using Clause [11](relationships-between-SPDX-elements.md) which provides more granularity about relationships.
 
 **Description**
 
