@@ -1,6 +1,6 @@
 # 12 Annotations fields
 
-## 12.1 Annotator field <a name="8.1"></a>
+## 12.1 Annotator field <a name="12.1"></a>
 
 **Description**
 
@@ -38,7 +38,7 @@ EXAMPLE 2 RDF: Property `spdx:annotator` in class `spdx:Annotation`
 </Annotation>
 ```
 
-## 12.2 Annotation date field <a name="8.2"></a>
+## 12.2 Annotation date field <a name="12.2"></a>
 
 **Description**
 
@@ -76,7 +76,7 @@ EXAMPLE 2 RDF: Property `spdx:annotationDate` in class `spdx:Annotation`
 </Annotation>
 ```
 
-## 12.3 Annotation type field <a name="8.3"></a>
+## 12.3 Annotation type field <a name="12.3"></a>
 
 **Description**
 
@@ -114,7 +114,7 @@ EXAMPLE 2 RDF: property `spdx:annotationType` in class `spdx:Annotation`
 </Annotation>
 ```
 
-## 12.4 SPDX identifier reference field <a name="8.4"></a>
+## 12.4 SPDX identifier reference field <a name="12.4"></a>
 
 **Description**
 
@@ -134,7 +134,7 @@ Table 74 — Metadata for the SPDX identifier reference field
 | --------- | ----- |
 | Required | Conditional |
 | Cardinality | 0..1 conditional (Mandatory, one), if there is an Annotation. |
-| Format | `[DocumentRef-[idstring]:]SPDXID`<br>where:<br>`["DocumentRef-"[idstring]":"]` is an optional reference to an external SPDX document as described in [6.6](2-document-creation-information.md#2.6)<br>`SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in [6.3](2-document-creation-information.md#2.3), [7.2](3-package-information.md#3.2) and [8.2](4-file-information.md#4.2). |
+| Format | `[DocumentRef-[idstring]:]SPDXID`<br>where:<br>`["DocumentRef-"[idstring]":"]` is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>`SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2) and [8.2](file-information.md#8.2). |
 
 **Examples**
 
@@ -162,7 +162,7 @@ For RDF, the annotations are a property of the SPDX Document, Package, File, or 
 </File>
 ```
 
-## 12.5 Annotation comment field <a name="8.5"></a>
+## 12.5 Annotation comment field <a name="12.5"></a>
 
 **Description**
 
