@@ -1,6 +1,6 @@
 # Annex C RDF data model implementation and identifier syntax (Normative)
 
-## C.1 Introduction
+## C.1 Introduction <a name="C.1"></a>
 
 SPDX ® Vocabulary Specification
 
@@ -12,7 +12,7 @@ Version: 2.2
 
 Licensed under the [Creative Commons Attribution License 3.0 Unported](http://creativecommons.org/licenses/by/3.0/).
 
-## C.2 Agent and tool identifiers
+## C.2 Agent and tool identifiers <a name="C.2"></a>
 
 Fields that identify entities that have acted in relation to the SPDX file are single line of text which name the agent or
 tool and, optionally, provide contact information. For example, "Person: Jane Doe (jane.doe@example.com)",
