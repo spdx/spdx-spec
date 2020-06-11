@@ -1,6 +1,6 @@
 # Annex H SPDX Lite (Normative)
 
-## H.1 Explanation of SPDX Lite 
+## H.1 Explanation of SPDX Lite <a name="H.1"></a>
 
 The SPDX Lite profile defines a subset of the SPDX specification, from the point of view of use cases in some industries. SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries.
 
@@ -12,8 +12,7 @@ SPDX Lite has affinity with SPDX tools due to its containing the mandatory part 
 
 An SPDX Lite document can be used in parallel with SPDX documents in software supply chains.
 
-
-## H.2 Format of SPDX Lite
+## H.2 Format of SPDX Lite <a name="H.2"></a>
 
 The SPDX Lite profile is a subset of the SPDX specification. SPDX Lite consists of mandatory fields of the Document Creation and Package Information sections and other basic information. Cardinality of each item is not changed.
 
@@ -29,7 +28,7 @@ Package Comment can be used to describe additional details, such as compiling op
 
 The Other License information section (License Identifier, Extracted Text, License Name and License Comment) is used for exchanging license information for licenses that are not on the [SPDX License List](https://spdx.org/licenses).
 
-## H.3 Table of SPDX Lite fields
+## H.3 Table of SPDX Lite fields <a name="H.3"></a>
 
 | # | SPDX subclause | Field Name |
 |:-----:|:----:|:--------------------------|
