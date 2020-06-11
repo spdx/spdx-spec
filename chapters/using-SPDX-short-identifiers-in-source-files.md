@@ -1,6 +1,6 @@
 # Annex E Using SPDX license list short identifiers in source files (Informative)
 
-## E.1 Introduction
+## E.1 Introduction <a name="E.1"></a>
 
 Identifying the license for open source software is critical for both reporting purposes and license compliance. However, determining the license can sometimes be difficult due to a lack of information or ambiguous information. Even when licensing information is present, a lack of consistent notation can make automating the task of license detection very difficult, thus requiring vast amounts of human effort.
 
@@ -18,7 +18,7 @@ Identifying the license for open source software is critical for both reporting 
 
 To the extent that a source file contains existing copyright and license information, it is the SPDX project’s recommendation that SPDX short identifiers be used to supplement, not replace that information. When there is a standard header provided by the license author, it is recommended to use such standard header (alone or in combination with the SPDX short identifier). If using SPDX short identifiers in individual files, it is recommended to reproduce the full license in the projects LICENSE file and indicate that SPDX short identifiers are being used to refer to it. For links to projects illustrating these scenarios, see [https://spdx.org/ids-where](https://spdx.org/ids-where).
 
-## E.2 Format for SPDX-License-Identifier
+## E.2 Format for SPDX-License-Identifier <a name="E.2"></a>
 
 The SPDX-License-Identifier tag declares the license the file is under and should be placed at or near the top of the file in a comment. To the extent that the file contains existing license information, it is our recommendation that the tag be used to supplement not replace that information. Of course, this is the ultimate decision of the copyright holders of the file.
 
@@ -28,7 +28,7 @@ The tag should appear on its own line in the source file, generally as part of a
 
 SPDX-License-Identifier: \<SPDX License Expression\>
 
-## E.3 Representing single license
+## E.3 Representing single license <a name="E.3"></a>
 
 A single license is represented by using the short identifier from [SPDX license list](https://spdx.org/licenses/), optionally with a unary "+" operator following it to indicate "or later" versions may be applicable.
 
@@ -39,9 +39,9 @@ SPDX-License-Identifier: CDDL-1.0+
 SPDX-License-Identifier: MIT
 ```
 
-## E.4 Representing multiple licenses
+## E.4 Representing multiple licenses <a name="E.4"></a>
 
-Multiple licenses can be represented using a SPDX license expression as defined in Annex [D](appendix-IV-SPDX-license-expressions.md). A set of licenses may optionally be enclosed in parentheses, but are not required to be enclosed. As further described there:
+Multiple licenses can be represented using a SPDX license expression as defined in Annex [D](SPDX-license-expressions.md). A set of licenses may optionally be enclosed in parentheses, but are not required to be enclosed. As further described there:
 
 1. When there is a choice between licenses ("disjunctive license"), they should be separated with "OR". If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new license expression.
 2. Similarly when multiple licenses need to be simultaneously applied ("conjunctive license"), they should be separated with "AND". If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression.
