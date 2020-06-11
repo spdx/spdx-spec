@@ -1,12 +1,6 @@
 # 13 Review information fields (deprecated)
 
-The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information should use an Annotation (as described in Clause [12](./8-annotations.md)) with an annotation type of `REVIEW`.
-
-Review information can be added after the initial SPDX file has been created. The set of fields are optional and multiple instances can be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date should not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
-
-Fields:
-
-## 13.1 Reviewer field (deprecated) <a name="9.1"></a>
+## 13.1 Reviewer field (deprecated) <a name="13.1"></a>
 
 This field has been deprecated since SPDX 2.0.
 
@@ -46,7 +40,7 @@ EXAMPLE 2 RDF: Property `spdx:reviewer` in class `spdx:Review`
 </Review>
 ```
 
-## 13.2 Review date field (deprecated) <a name="9.2"></a>
+## 13.2 Review date field (deprecated) <a name="13.2"></a>
 
 This field has been deprecated since SPDX 2.0.
 
@@ -86,7 +80,7 @@ EXAMPLE 2 RDF: Property `spdx:reviewDate` in class `spdx:Review`
 </Review>
 ```
 
-## 13.3 Review comment field (deprecated) <a name="9.3"></a>
+## 13.3 Review comment field (deprecated) <a name="13.3"></a>
 
 This field is deprecated since SPDX 2.0.
 
