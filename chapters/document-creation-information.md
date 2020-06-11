@@ -1,6 +1,6 @@
-# Document creation information fields
+# 6 Document creation information fields
 
-## 6.1 SPDX version field <a name="2.1"></a>
+## 6.1 SPDX version field <a name="6.1"></a>
 
 **Description**
 
@@ -44,7 +44,7 @@ This specification uses the prefix `rdf:` to refer to the [RDF/XML][rdf] namespa
 http://www.w3.org/1999/02/22-rdf-syntax-ns#
 ```
 
-## 6.2 Data license field <a name="2.2"></a>
+## 6.2 Data license field <a name="6.2"></a>
 
 **Description**
 
@@ -84,11 +84,11 @@ EXAMPLE 2 RDF: `spdx:dataLicense`
 </SpdxDocument>
 ```
 
-## 6.3 SPDX identifier field <a name="2.3"></a>
+## 6.3 SPDX identifier field <a name="6.3"></a>
 
 **Description**
 
-Identify the current SPDX document which may be referenced in relationships by other files, packages internally and documents externally. To reference another SPDX document in total, this identifier should be used with the external document identifier preceding it. See [Clause R](7-relationships-between-SPDX-elements.md) for examples.
+Identify the current SPDX document which may be referenced in relationships by other files, packages internally and documents externally. To reference another SPDX document in total, this identifier should be used with the external document identifier preceding it. See [Clause 11](relationships-between-SPDX-elements.md) for examples.
 
 **Intent**
 
@@ -127,7 +127,7 @@ The URI for the document is the document namespace appended by
 </spdx:SpdxDocument>
 ```
 
-## 6.4 Document name field <a name="2.4"></a>
+## 6.4 Document name field <a name="6.4"></a>
 
 **Description**
 
@@ -175,7 +175,7 @@ EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:SpdxDocument`
 </SpdxDocument>
 ```
 
-## 6.5 SPDX document namespace field <a name="2.5"></a>
+## 6.5 SPDX document namespace field <a name="6.5"></a>
 
 **Description**
 
@@ -185,11 +185,11 @@ The URI shall be unique for the SPDX document including the specific version of 
 
 **Intent**
 
-The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See [D.6](#2.6) for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
+The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See [6.6](#6.6) for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
 
 * `CreatorWebsite` is a website hosted by the creator of the document. (e.g. an SPDX document provided by SPDX would be spdx.org)
 * `PathToSpdx` is a path to where SPDX documents are stored on the website (e.g. /spdx/spdxdocs)
-* `DocumentName` is a name given to the SPDX Document itself, typically the (set of) package name(s) followed by the version. (See [D.4](#2.4).)
+* `DocumentName` is a name given to the SPDX Document itself, typically the (set of) package name(s) followed by the version. (See [6.4](#6.4).)
 * `UUID` is a [universally unique identifier][URI]. The UUID could be a version 4 random UUID which can be generated from the [Online UUID Generator][uuid-gen] or a version 5 UUID generated from a sha1 checksum known to be unique for this specific SPDX document version.
 * If the creator does not own their own website, a default SPDX CreatorWebsite and PathToSpdx can be used `spdx.org/spdxdocs`. Note that the SPDX documents are not currently stored or accessible on this website. The URI is only used to create a unique ID following the above conventions.
 
@@ -233,7 +233,7 @@ This specification uses the prefix `rdfs:` to refer to the [RDF Schema][rdf-sche
 http://www.w3.org/2000/01/rdf-schema#
 ```
 
-## 6.6 External document references field <a name="2.6"></a>
+## 6.6 External document references field <a name="6.6"></a>
 
 **Description**
 
@@ -253,7 +253,7 @@ Table 7 — Metadata for the external document references field
 | --------- | ----- |
 | Required | No |
 | Cardinality | 1..* |
-| Format | DocumentRef-`[idstring]` `[SPDX Document URI]` `[Checksum]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.<br>`[SPDX Document URI]` is the unique ID for the external document as defined in [D.5](#2.5) of that referenced document,<br> `[Checksum]` is a checksum of the external document following the checksum format defined in [F.4](4-file-information#4.4). |
+| Format | DocumentRef-`[idstring]` `[SPDX Document URI]` `[Checksum]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.<br>`[SPDX Document URI]` is the unique ID for the external document as defined in [6.5](#6.5) of that referenced document,<br> `[Checksum]` is a checksum of the external document following the checksum format defined in [8.4](file-information#8.4). |
 
 **Examples**
 
@@ -287,7 +287,7 @@ The ExternalDocumentRef contains two properties:
 
 NOTE In RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired.
 
-## 6.7 License list version field <a name="2.7"></a>
+## 6.7 License list version field <a name="6.7"></a>
 
 **Description**
 
@@ -325,7 +325,7 @@ EXAMPLE 2 RDF: Property `licenseListVersion` in class `spdx:CreationInfo`
 </CreationInfo>
 ```
 
-## 6.8 Creator field <a name="2.8"></a>
+## 6.8 Creator field <a name="6.8"></a>
 
 **Description**
 
@@ -367,11 +367,11 @@ EXAMPLE 2 RDF: Property `spdx:creator` in class `spdx:CreationInfo`
 </CreationInfo>
 ```
 
-## 6.9 Created field <a name="2.9"></a>
+## 6.9 Created field <a name="6.9"></a>
 
 **Description**
 
-Identify when the SPDX file was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in Clause [A](8-annotations.md), which involves the addition of information during a subsequent review.
+Identify when the SPDX file was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in Clause [12](annotations.md), which involves the addition of information during a subsequent review.
 
 **Intent**
 
@@ -405,7 +405,7 @@ EXAMPLE 2 RDF: Property `spdx:created` in class `spdx:CreationInfo`
 </CreationInfo>
 ```
 
-## 6.10 Creator comment field <a name="2.10"></a>
+## 6.10 Creator comment field <a name="6.10"></a>
 
 **Description**
 
@@ -445,7 +445,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:CreationInfo`
 </CreationInfo>
 ```
 
-## 6.11 Document comment field <a name="2.11"></a>
+## 6.11 Document comment field <a name="6.11"></a>
 
 **Description**
 
