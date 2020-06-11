@@ -1,6 +1,6 @@
 # Annex F External repository identifiers (Normative)
 
-## F.1 Introduction
+## F.1 Introduction <a name="F.1"></a>
 
 This specification allows external resources
 to be referenced from SPDX documents.
@@ -16,7 +16,7 @@ There are currently four defined categories:
 The following sections provide details on the available types
 and the locator formats for each of the categories.
 
-## F.2 Security
+## F.2 Security <a name="F.2"></a>
 
 ### F.2.1 cpe22Type <a name="cpe22"></a>
 
@@ -62,7 +62,7 @@ External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 
 Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf](http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf)
 
-## F.3 Package-Manager
+## F.3 Package-Manager <a name="F.3"></a>
 
 ### F.3.1 maven-central <a name="maven"></a>
 
@@ -158,7 +158,7 @@ External Reference Site: [https://github.com/package-url/purl-spec](https://gith
 
 Documentation: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
 
-## F.4 Persistent-Id
+## F.4 Persistent-Id <a name="F.4"></a>
 
 ### F.4.1 swh <a name="swh"></a>
 
@@ -200,7 +200,7 @@ Examples:
 
 External documentation: [Software Heritage](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
 
-## F.5 Other
+## F.5 Other <a name="F.5"></a>
 
 ### F.5.1 [idstring] <a name="idstring"></a>
 
