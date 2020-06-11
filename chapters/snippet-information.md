@@ -1,6 +1,6 @@
 # 9 Snippet information fields
 
-## 9.1 Snippet SPDX identifier field <a name="5.1"></a>
+## 9.1 Snippet SPDX identifier field <a name="9.1"></a>
 
 **Description**
 
@@ -52,7 +52,7 @@ Using document URI:
 </Snippet>
 ```
 
-## 9.2 Snippet from file SPDX identifier field <a name="5.2"></a>
+## 9.2 Snippet from file SPDX identifier field <a name="9.2"></a>
 
 **Description**
 
@@ -72,7 +72,7 @@ Table 53 — Metadata for the snippet from file SPDX identifier field
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Format | ["DocumentRef-"[idstring]":"] SPDXID<br>where `DocumentRef-[idstring]`: is an optional reference to an external SPDX document as described in [D.6](2-document-creation-information.md#2.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in (D.3, P.2, F.2). |
+| Format | ["DocumentRef-"[idstring]":"] SPDXID<br>where `DocumentRef-[idstring]`: is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in (6.3, 7.2, 8.2). |
 
 **Examples**
 
@@ -110,11 +110,11 @@ Snippet from a File in an External SPDX Doc:
 </Snippet>
 ```
 
-## 9.3 Snippet byte range field <a name="5.3"></a>
+## 9.3 Snippet byte range field <a name="9.3"></a>
 
 **Description**
 
-This field defines the byte range in the original host file (in [9.2](#5.2)) that the snippet information applies to.
+This field defines the byte range in the original host file (in [9.2](#9.2)) that the snippet information applies to.
 
 **Intent**
 
@@ -178,11 +178,11 @@ This specification uses the prefix `ptr:` to refer to the [W3C Pointers][pointer
 xmlns:ptr=http://www.w3.org/2009/pointers#
 ```
 
-## 9.4 Snippet line range field <a name="5.4"></a>
+## 9.4 Snippet line range field <a name="9.4"></a>
 
 **Description**
 
-This optional field defines the line range in the original host file (see [9.2](#5.2)) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.
+This optional field defines the line range in the original host file (see [9.2](#9.2)) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.
 
 **Intent**
 
@@ -239,13 +239,13 @@ Supported classes from the pointer method vocabulary are `StartEndPointer` and `
 </Snippet>
 ```
 
-## 9.5 Snippet concluded license field <a name="5.5"></a>
+## 9.5 Snippet concluded license field <a name="9.5"></a>
 
 **Description**
 
 This field contains the license the SPDX file creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:
 
-A valid SPDX License Expression as defined in Annex [D](appendix-IV-SPDX-license-expressions.md).
+A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md).
 
 `NONE` should be used if there is no licensing information from which to conclude a license for the snippet.
 
@@ -259,7 +259,7 @@ A valid SPDX License Expression as defined in Annex [D](appendix-IV-SPDX-license
 
 - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (see [9.7](#5.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field (see [9.7](#5.7)) is preferred.
+If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (see [9.7](#9.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field (see [9.7](#9.7)) is preferred.
 
 **Intent**
 
@@ -310,7 +310,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseConcluded` in class `spdx:Snippet`
 </Snippet>
 ```
 
-## 9.6 License information in snippet field <a name="5.6"></a>
+## 9.6 License information in snippet field <a name="9.6"></a>
 
 **Description**
 
@@ -345,7 +345,7 @@ Table 57 — Metadata for the license information in snippet field
 | --------- | ----- |
 | Required | No |
 | Cardinality | 0..* |
-| Format | `<SPDX License Expression>` \|<br>["DocumentRef-"`[idstring]`:"]"LicenseRef-"[idstring] \|<br>\| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression<br>as defined in Annex [D](appendix-IV-SPDX-license-expressions.md).<br>DocumentRef-"`[idstring]`: is an optional reference to an external SPDX<br>document as described in [6.6](2-document-creation-information.md#2.6)<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-`. |
+| Format | `<SPDX License Expression>` \|<br>["DocumentRef-"`[idstring]`:"]"LicenseRef-"[idstring] \|<br>\| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression<br>as defined in Annex [D](SPDX-license-expressions.md).<br>DocumentRef-"`[idstring]`: is an optional reference to an external SPDX<br>document as described in [6.6](document-creation-information.md#6.6)<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-`. |
 
 **Examples**
 
@@ -368,7 +368,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseInfoInSnippet` in class `spdx:Snippet`
 </Snippet>
 ```
 
-## 9.7 Snippet comments on license field <a name="5.7"></a>
+## 9.7 Snippet comments on license field <a name="9.7"></a>
 
 **Description**
 
@@ -415,7 +415,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseComments` in class `spdx:Snippet`
 </Snippet>
 ```
 
-## 9.8 Snippet copyright text field <a name="5.8"></a>
+## 9.8 Snippet copyright text field <a name="9.8"></a>
 
 **Description**
 
@@ -465,7 +465,7 @@ EXAMPLE 2 RDF: Property `spdx:copyrightText` in class `spdx:Snippet`
 </Snippet>
 ```
 
-## 9.9 Snippet comment field <a name="5.9"></a>
+## 9.9 Snippet comment field <a name="9.9"></a>
 
 **Description**
 
@@ -512,7 +512,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Snippet`
 </Snippet>
 ```
 
-## 9.10 Snippet name field <a name="5.10"></a>
+## 9.10 Snippet name field <a name="9.10"></a>
 
 **Description**
 
@@ -550,7 +550,7 @@ EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:Snippet`
 </Snippet>
 ```
 
-## 9.11 Snippet attribution text field <a name="5.11"></a>
+## 9.11 Snippet attribution text field <a name="9.11"></a>
 
 **Description**
 
