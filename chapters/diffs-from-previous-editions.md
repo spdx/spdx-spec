@@ -1,6 +1,6 @@
 # Annex J Differences from previous editions (Informative)
 
-# J.1 Differences between V2.2.1 and V2.2
+# J.1 Differences between V2.2.1 and V2.2 <a name="J.1"></a>
 
 There were no technical differences; V2.2.1 is V2.2 reformatted for submission to ISO via the PAS process. As a result, new clauses were added causing the previous clause-numbering sequence to change. Also, Annexes went from having Roman numbers to Latin letters. Here is the translation between numbering in the current and previous editions:
 
@@ -30,21 +30,21 @@ Annex H   | SPDX Lite | Appendix VIII
 Annex I   | SPDX file tags | Appendix IX
 Annex J   | Differences from previous editions | N/A
 
-# J.1 Differences from V2.2 and V2.1
+# J.2 Differences from V2.2 and V2.1 <a name="J.2"></a>
 
-* Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in. The use of snippets is completely optional and it is not mandatory for snippets to be identified. See Clause [9](./5-snippet-information.md) for further details on the fields available to describe snippets.
+* Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in. The use of snippets is completely optional and it is not mandatory for snippets to be identified. See Clause [9](snippet-information.md) for further details on the fields available to describe snippets.
 
-* External Packages can now be referred to in SPDX documents. When there is no SPDX file information available to document the content of these external packages, then the `filesAnalyzed` attribute on a package should be set to false. See [7.8](3-package-information.md#3.8) `Files Analyzed` for more information.
+* External Packages can now be referred to in SPDX documents. When there is no SPDX file information available to document the content of these external packages, then the `filesAnalyzed` attribute on a package should be set to false. See [7.8](package-information.md#7.8) `Files Analyzed` for more information.
 
-* Packages are now able to associate with an "External Reference" which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package. See [7.21](3-package-information.md#3.21), [7.22](3-package-information.md#3.22) and Annex [F](./appendix-VI-external-repository-identifiers.md) for more information.
+* Packages are now able to associate with an "External Reference" which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package. See [7.21](package-information.md#7.21), [7.22](package-information.md#7.22) and Annex [F](external-repository-identifiers.md) for more information.
 
 * The "Artifact of Project" fields at the file level are now deprecated, as they can be replaced by a relationship to the more descriptive External Packages.
 
-* A new annex "Using SPDX short identifiers in Source Files" has been added to document the best practices to refer to the licenses in the SPDX license list that have emerged from the development community. See Annex [E](./appendix-V-using-SPDX-short-identifiers-in-source-files.md) for more information.
+* A new annex "Using SPDX short identifiers in Source Files" has been added to document the best practices to refer to the licenses in the SPDX license list that have emerged from the development community. See Annex [E](using-SPDX-short-identifiers-in-source-files.md) for more information.
 
 * Miscellaneous bug fixes as reported on the mailing list and reported as issues on the [spdx-spec GitHub repository](https://github.com/spdx/spdx-spec).
 
-# J.2 Differences between V2.1 and V2.0
+# J.3 Differences between V2.1 and V2.0 <a name="J.3"></a>
 
 * Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in.  The use of snippets is completely optional and it is not manditory for snippets to be identified. See section 5 Snippet Information for further details on the fields available to describe snippets.
 
@@ -59,7 +59,7 @@ more information.
 
 * Miscellaneous bug fixes.
 
-# J.3 Differences between V2.0 and V1.2
+# J.4 Differences between V2.0 and V1.2 <a name="J.4"></a>
 
 * Abstraction has been applied to the underlying model with the inclusion of SPDX elements. With SPDX 2.0, the concept of an SPDX element is introduced (see Appendix III). This includes SPDX Documents, SPDX Files, and SPDX Packages, each of which gets associated with an SPDX Identifier which is denoted by “SPDXRef-”.
 
