@@ -1,6 +1,6 @@
 # 11 Relationships between SPDX elements fields
 
-## 11.1 Relationship field <a name="7.1"></a>
+## 11.1 Relationship field <a name="11.1"></a>
 
 **Description**
 
@@ -76,7 +76,7 @@ Table 69 — Metadata for the relationship field
 | --------- | ----- |
 | Required | No |
 | Cardinality | 0..* see `DESCRIBES` relationship for one mandatory case. |
-| Format | ["DocumentRef-"[idstring]":"]SPDXID \<relationship\> ["DocumentRef-"[idstring]":"]SPDXID \| \`NONE\` \| \`NOASSERTION\`<br>where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [6.6](2-document-creation-information.md#2.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in [6.3](2-document-creation-information.md#2.3), [7.2](3-package-information.md#3.2), [7.2](4-file-information.md#4.2).<br>where `<relationship>` is one of the documented relationship types in table 7.1.1.<br>where `NONE` can be used to explicitly indicate there are NO other relationships.<br>where `NOASSERTION` can be used to explicitly indicate it is not clear if there are relationships that may apply or not. |
+| Format | ["DocumentRef-"[idstring]":"]SPDXID \<relationship\> ["DocumentRef-"[idstring]":"]SPDXID \| \`NONE\` \| \`NOASSERTION\`<br>where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2), [8.2](file-information.md#8.2).<br>where `<relationship>` is one of the documented relationship types in Table 68.<br>where `NONE` can be used to explicitly indicate there are NO other relationships.<br>where `NOASSERTION` can be used to explicitly indicate it is not clear if there are relationships that may apply or not. |
 
 **Examples**
 
@@ -133,7 +133,7 @@ EXAMPLE 2 RDF: Property `spdx:relationship` in any `spdx:SpdxDocument`, `spdx:Pa
 </SpdxElement>
 ```
 
-## 11.2 Relationship comment field <a name="7.2"></a>
+## 11.2 Relationship comment field <a name="11.2"></a>
 
 **Description**
 
