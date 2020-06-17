@@ -222,6 +222,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:ExtractedLicensingInfo`
 
 ```text
 <ExtractedLicensingInfo rdf:about="licenseRef-1">
-    <rdfs:comment> The Whiskey-Ware License has a couple of other standard variants.</rdfs:comment>
+    <rdfs:comment> The Whiskey-Ware License has a couple of
+    other standard variants.</rdfs:comment>
 </ExtractedLicensingInfo>
 ```
