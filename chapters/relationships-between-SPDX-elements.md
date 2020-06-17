@@ -118,18 +118,16 @@ EXAMPLE 2 RDF: Property `spdx:relationship` in any `spdx:SpdxDocument`, `spdx:Pa
 
 ```text
 <File rdf:about="#SPDXRef-45">
-    <relationship>
-        <Relationship>
-            <relatedSpdxElement>
-                <File rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..."
-                </relatedSpdxElement>
-
-                <relationshipType>http://spdx.org/rdf/terms#relationshipType_contains</relationshipType>
-        </Relationship>
-    </relationship>
-
-    ...
-
+  <relationship>
+    <Relationship>
+      <relatedSpdxElement>
+        <File rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..."
+      </relatedSpdxElement>
+      <relationshipType>http://spdx.org/rdf/terms#relationshipType_contains
+      </relationshipType>
+    </Relationship>
+  </relationship>
+  ...
 </SpdxElement>
 ```
 
@@ -171,11 +169,11 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Relationship`
 
 ```text
 <Relationship rdf:about="...">
-    <rdfs:comment>
-        The package foo.tgz is a pre-requisite for building executable bar.
-    </rdfs:comment>
+  <rdfs:comment>
+    The package foo.tgz is a pre-requisite for building executable bar.
+  </rdfs:comment>
 
-    ...
+  ...
 
 </Relationship>
 ```
