@@ -110,7 +110,8 @@ EXAMPLE 2 RDF: property `spdx:annotationType` in class `spdx:Annotation`
 
 ```text
 <Annotation>
-    <annotationType rdf:resource="http://spdx.org/rdf/terms#annotationType_other"/>
+    <annotationType rdf:resource
+      ="http://spdx.org/rdf/terms#annotationType_other"/>
 </Annotation>
 ```
 
@@ -200,9 +201,11 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Annotation`
 
 ```text
 <Annotation>
-    <rdfs:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
-    There are some terms that can influence the concluded license, and some alternatives may be possible,
-    but the concluded license is one of the options.
+    <rdfs:comment>All of the licenses seen in the file, are 
+    matching what was seen during manual inspection. There
+    are some terms that can influence the concluded license,
+    and some alternatives may be possible, but the concluded
+    license is one of the options.
     </rdfs:comment>
 </Annotation>
 ```
