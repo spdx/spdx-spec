@@ -170,21 +170,21 @@ RDFa Access: The template text for the license can be accessed using the RDF tag
 
 A template is composed of text with zero or more rules embedded in it.
 
-A rule is a variable section of a license wrapped between double angle brackets “<<>>” and is composed of 4 fields. Each field is separated with a semi-colon “;”. Rules cannot be embedded within other rules. Rule fields begin with a case sensitive tag followed by an equal sign “=”.
+A rule is a variable section of a license wrapped between double angle brackets “\<\<\>\>” and is composed of 4 fields. Each field is separated with a semi-colon “;”. Rules cannot be embedded within other rules. Rule fields begin with a case sensitive tag followed by an equal sign “=”.
 
 Rule fields:
 
 * type: indicates whether the text is replaceable or omitable as per [Matching Guideline #2](http://spdx.org/spdx-license-list/matching-guidelines) (“Substantive Text”).
-    * Indicated by <<var; . . . >> or...
-    * Indicated by <<beginOptional; . . .>> and <<endOptional>> respectively.
+    * Indicated by \<\<var; . . . \>\> or...
+    * Indicated by \<\<beginOptional; . . .\>\> and \<\<endOptional\>\> respectively.
     * This field is the first field and is required.
 * name: name of the field in the template.
     * This field is unique within each license template.
     * This field is required.
 * original: the original text of the rule.
-    * This field is required for a rule type: <<var; . . . >>
+    * This field is required for a rule type: \<\<var; . . . \>\>
 * match: a [POSIX extended regular expession (ERE)](http://pubs.opengroup.org/onlinepubs/9699919799/).
-    * This field is required for a rule type: <<var; . . . >>
+    * This field is required for a rule type: \<\<var; . . . \>\>
 
 The [POSIX ERE]( http://pubs.opengroup.org/onlinepubs/9699919799/) in the match field has the following restrictions and extensions:
 
