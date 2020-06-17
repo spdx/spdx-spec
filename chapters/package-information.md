@@ -281,7 +281,8 @@ EXAMPLE 2 RDF: property `spdx:originator` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
-    <originator>Organization: ExampleCodeInspect (contact@example.com)</originator>
+    <originator>Organization: ExampleCodeInspect 
+    (contact@example.com)</originator>
 </Package>
 ```
 
@@ -762,7 +763,8 @@ EXAMPLE 2 RDF: properties `spdx:algorithm`, `spdx:checksumValue` in class `spdx:
     <checksum>
         <Checksum>
             <algorithm rdf:resource="spdx:checksumAlgorithm_sha1"/>
-            <checksumValue>85ed0817af83a24ad8da68c2b5094de69833983c</checksumValue>
+            <checksumValue>85ed0817af83a24ad8da68c2b5094de69833983c
+            </checksumValue>
         </Checksum>
     </checksum>
     <checksum>
@@ -827,7 +829,8 @@ EXAMPLE 2 RDF: property `doap:homepage` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
-    <doap:homepage >http://ftp.gnu.org/gnu/glibc/</doap:homepage>    </Package>
+    <doap:homepage >http://ftp.gnu.org/gnu/glibc/</doap:homepage>
+</Package>
 ```
 
 This specification uses the prefix `doap:` to refer to the [DOAP][doap] namespace:
@@ -870,7 +873,8 @@ EXAMPLE 2 RDF: `spdx:sourceInfo`
 ```text
 <Package rdf:about="...">
     ...
-    <sourceInfo>uses glibc-2_11-branch from git://sourceware.org/git/glibc.git.</sourceInfo>
+    <sourceInfo>uses glibc-2_11-branch from 
+    git://sourceware.org/git/glibc.git.</sourceInfo>
     ...
 </Package>
 ```
@@ -927,21 +931,21 @@ EXAMPLE 2 RDF: property `spdx:licenseConcluded` in `class spdx:Package`
 
 ```text
 <Package rdf:about="...">
-    ...
-    <licenseConcluded rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
-    ...
+  ...
+  <licenseConcluded rdf:resource="http://spdx.org/licenses/LGPL-2.0-only"/>
+  ...
 </Package>
 ```
 
 ```text
 <Package rdf:about="...">
-    ...
-    <licenseConcluded>
-         <DisjunctiveLicenseSet>
-             <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
-             <member rdf:resource="LicenseRef-3" />
-        </DisjunctiveLicenseSet>
-    </licenseConcluded>
+  ...
+  <licenseConcluded>
+     <DisjunctiveLicenseSet>
+        <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
+        <member rdf:resource="LicenseRef-3" />
+     </DisjunctiveLicenseSet>
+  </licenseConcluded>
     ...
 </Package>
 ```
@@ -1000,7 +1004,8 @@ EXAMPLE 2 RDF: property `spdx:licenseInfoFromFiles` in class `spdx:Package`
 ```text
 <Package rdf:about="...">
     ...
-    <licenseInfoFromFiles rdf:resource="https://spdx.org/licenses/GPL-2.0-only" />
+    <licenseInfoFromFiles rdf:resource
+      ="https://spdx.org/licenses/GPL-2.0-only" />
     <licenseInfoFromFiles rdf:resource="#LicenseRef-1" />
     <licenseInfoFromFiles rdf:resource="#LicenseRef-2" />
     ...
@@ -1055,21 +1060,21 @@ EXAMPLE 2 RDF: property `spdx:licenseDeclared` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
-    ...
-    <licenseDeclared rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
-    ...
+  ...
+  <licenseDeclared rdf:resource="http://spdx.org/licenses/LGPL-2.0-only"/>
+  ...
 </Package>
 ```
 
 ```text
 <Package rdf:about="...">
-    ...
-     <licenseDeclared>
-         <ConjunctiveLicenseSet>
-             <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only" />
-             <member rdf:resource="#LicenseRef-3" />
-         </ConjunctiveLicenseSet>
-    </licenseDeclared>
+  ...
+  <licenseDeclared>
+     <ConjunctiveLicenseSet>
+        <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only"/>
+        <member rdf:resource="#LicenseRef-3" />
+     </ConjunctiveLicenseSet>
+  </licenseDeclared>
     ...
 </Package>
 ```
@@ -1249,12 +1254,12 @@ EXAMPLE 2 RDF: property `spdx:description` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
-    ...
-    <description>
-        The GNU C Library defines functions that are specified by the
-        ISO C standard, as well as additional features specific to POSIX and other
-        derivatives of the Unix operating system, and extensions specific to GNU systems.
-    </description>
+  ...
+  <description>
+    The GNU C Library defines functions that are specified by the
+    ISO C standard, as well as additional features specific to POSIX and other
+    derivatives of the Unix operating system, and extensions specific to GNU systems.
+  </description>
     ...
 </Package>
 ```
@@ -1295,11 +1300,11 @@ EXAMPLE 2 RDF: property `rdfs:comment` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
-    ...
-    <rdfs:comment>
-        The package includes several sub-packages; see Relationship information.
-    </rdfs:comment>
-    ...
+  ...
+  <rdfs:comment>
+    The package includes several sub-packages; see Relationship information.
+  </rdfs:comment>
+  ...
 </Package>
 ```
 
@@ -1350,9 +1355,12 @@ For a listed location:
     ...
     <spdx:externalRef>
         <spdx:ExternalRef>
-            <spdx:referenceCategory rdf:resource="spdx:referenceCategory_packageManager" />
-            <spdx:referenceType rdf:resource="http://spdx.org/rdf/refeferences/maven-central" />
-            <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1</spdx:referenceLocator>
+            <spdx:referenceCategory rdf:resource
+              ="spdx:referenceCategory_packageManager" />
+            <spdx:referenceType rdf:resource
+              ="http://spdx.org/rdf/refeferences/maven-central" />
+            <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1
+            </spdx:referenceLocator>
         </spdx:ExternalRef>
     </spdx:externalRef>
     ...
@@ -1416,13 +1424,16 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:ExternalRef`
     ...
     <spdx:externalRef>
         <spdx:ExternalRef>
-            <spdx:referenceCategory rdf:resource="spdx:referenceCategory_packageManager" />
-            <spdx:referenceType rdf:resource="http://spdx.org/rdf/refeferences/maven-central" />
-            <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1</spdx:referenceLocator>
+            <spdx:referenceCategory rdf:resource
+              ="spdx:referenceCategory_packageManager" />
+            <spdx:referenceType rdf:resource
+              ="http://spdx.org/rdf/refeferences/maven-central" />
+            <spdx:referenceLocator>org.apache.commons:commons-lang:3.2.1
+            </spdx:referenceLocator>
             <rdfs:comment>
-                NIST National Vulnerability Database (NVD) describes
-                security vulnerabilities (CVEs) which affect Vendor Product Version
-                acmecorp:acmenator:6.6.6
+              NIST National Vulnerability Database (NVD) describes
+              security vulnerabilities (CVEs) which affect Vendor Product
+              Version acmecorp:acmenator:6.6.6
             </rdfs:comment>
         </spdx:ExternalRef>
     </spdx:externalRef>
@@ -1470,8 +1481,9 @@ EXAMPLE 2 RDF: property `spdx:attributionText` in class `spdx:Package`
 ```text
 <Package rdf:about="...">
     <attributionText>
-        All advertising materials mentioning features or use of this software must display the
-        following acknowledgement:  This product includes software developed by the AT&T.
+        All advertising materials mentioning features or use of this
+        software must display the following acknowledgement:  This 
+        product includes software developed by the AT&T.
     </attributionText>
 </Package>
 ```
