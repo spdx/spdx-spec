@@ -120,8 +120,10 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Review`
 
 ```text
 <Review>
-    <rdfs:comment>All of the licenses seen in the file, are matching what was seen during manual inspection.
-    There are some terms that can influence the concluded license, and some alternatives may be possible,
-    but the concluded license is one of the options.</rdfs:comment>
+    <rdfs:comment>All of the licenses seen in the file, are
+    matching what was seen during manual inspection. There
+    are some terms that can influence the concluded license, 
+    and some alternatives may be possible, but the concluded
+    license is one of the options.</rdfs:comment>
 </Review>
 ```
