@@ -4,6 +4,8 @@
 
 This document contains the specification for an SPDX document, which is made up of a set of **zero/one** or more sections, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of sections allowed. The fields for each kind of section are defined in the clause corresponding to that section.
 
+The data model is illustrated by [Annex C](RDF-data-model-implementation-and-identifier-syntax.md).
+
 ## 5.2 Sections <a name="5.2"></a>
 
 ### 5.2.1 SPDX document creation information section <a name="5.2.1"></a>
