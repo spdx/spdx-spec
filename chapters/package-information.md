@@ -1,20 +1,5 @@
 # 7 Package information fields
 
-If you organize your SPDX information by grouping into packages, then one instance of the Package Information is required per package being described. A package can contain sub-packages, but the information in this section is a reference to the entire contents of the package listed. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
-
-Cardinality: Optional, one or many.
-
-In `tag:value` format, the order in which package and files occur is syntactically significant.
-
-* A new Package Information section is denoted by the Package Name ([7.1](#7.1)) field.
-* All Package Information fields must be grouped together before the start of a Files section (Clause [8](file-information.md)), if file(s) are present.
-* All files contained in a package must immediately follow the applicable Package Information.
-* A new Package Information section (via Package Name) denotes the start of another package.
-* Sub-packages should not be nested inside a Package Information section, but should be separate and should use a Relationship to clarify.
-* Annotations and Relationships for the package may appear after the Package Information before any file information.
-
-Fields:
-
 ## 7.1 Package name field <a name="7.1"></a>
 
 **Description**
