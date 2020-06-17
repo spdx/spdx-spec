@@ -14,7 +14,7 @@ This standard contains more than a few *cardinality assertions*, each of which i
 
 * Cardinality: Mandatory, one.
 * Cardinality: Optional, one or many.
-* Cardinality: Mandatory, one if <condition> is true or <feature> omitted, zero (must be omitted) if <condition> is false.
+* Cardinality: Mandatory, one if \<condition\> is true or \<feature\> omitted, zero (must be omitted) if \<condition\> is false.
 
 Each of these assertions can easily be understood as to whether a feature is required, and if so, how many occurrences are required; also whether a feature is permitted, and if so, in what number. As this is the format long familiar to the SPDX community, it has been preserved in this document.
 
