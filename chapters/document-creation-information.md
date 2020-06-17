@@ -123,7 +123,7 @@ The URI for the document is the document namespace appended by
 ```text
 <spdx:SpdxDocument 
   rdf:about="http://spdx.org/spdxdocs/spdx-example-444504E0-4F89-41D3-9A0C-0305E82C33123#SPDXRef-DOCUMENT">
-...
+  ...
 </spdx:SpdxDocument>
 ```
 
@@ -223,7 +223,8 @@ EXAMPLE 2 RDF: The unique ID is the URI for the SPDX document
 
 ```text
 <SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">
-    <rdfs:comment>This document was created using SPDX 2.0 using licenses from the web site.</rdfs:comment>
+    <rdfs:comment>This document was created using SPDX 2.0 using
+    licenses from the web site.</rdfs:comment>
 </SpdxDocument>
 ```
 
@@ -440,8 +441,9 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:CreationInfo`
 
 ```text
 <CreationInfo>
-    <rdfs:comment>This SPDX file was created by a combination of using a free tool, as indicated above,
-    and manual analysis by several authors of the code.</rdfs:comment>
+    <rdfs:comment>This SPDX file was created by a combination of 
+    using a free tool, as indicated above, and manual analysis 
+    by several authors of the code.</rdfs:comment>
 </CreationInfo>
 ```
 
@@ -481,7 +483,9 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `SpdxDocument`
 ```text
 <SpdxDocument rdf:about="...">
     <rdfs:comment>
-      This document was created using SPDX 2.0, version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.
+      This document was created using SPDX 2.0, version 2.3 of the SPDX
+      License List and refering to licenses in file
+      MyCompany.Approved.Licenses.spdx.
     </rdfs:comment>
 </SpdxDocument>
 ```
