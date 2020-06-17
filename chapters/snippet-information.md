@@ -363,7 +363,8 @@ EXAMPLE 2 RDF: Property `spdx:licenseInfoInSnippet` in class `spdx:Snippet`
 
 ```text
 <Snippet rdf:about="...">
-    <licenseInfoInSnippet rdf:resource="http://spdx.org/licenses/GPL-2.0-only" />
+    <licenseInfoInSnippet rdf:resource
+      ="http://spdx.org/licenses/GPL-2.0-only" />
     <licenseInfoInSnippet rdf:resource="#LicenseRef-2" />
 </Snippet>
 ```
@@ -504,9 +505,10 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Snippet`
 <Snippet rdf:about="...">
     ...
     <rdfs:comment>
-        This snippet was identified as significant and highlighted in this Apache-2.0
-        file, when a commercial scanner identified it as being derived from file foo.c
-        in package xyz which is licensed under GPL-2.0.
+        This snippet was identified as significant and highlighted
+        in this Apache-2.0 file, when a commercial scanner identified
+        it as being derived from file foo.c in package xyz which is
+        licensed under GPL-2.0.
     </rdfs:comment>
     ...
 </Snippet>
@@ -590,8 +592,9 @@ EXAMPLE 2 RDF: property `spdx:attributionText` in class `spdx:Snippet`
 ```text
 <Snippet rdf:about="...">
     <attributionText>
-        All advertising materials mentioning features or use of this software must display the
-        following acknowledgement:  This product includes software developed by the AT&T.
+        All advertising materials mentioning features or use of this
+        software must display the following acknowledgement:  This 
+        product includes software developed by the AT&T.
     </attributionText>
 </Snippet>
 ```
