@@ -157,8 +157,10 @@ Where file2 is a `README.TXT`
 
 ```text
 <File rdf:about="file2">
-    <fileType rdf:resource="http://spdx.org/rdf/terms#fileType_text" />
-    <fileType rdf:resource="http://spdx.org/rdf/terms#fileType_documentation" />
+    <fileType rdf:resource
+      ="http://spdx.org/rdf/terms#fileType_text" />
+    <fileType rdf:resource
+      ="http://spdx.org/rdf/terms#fileType_documentation" />
 </File>
 ```
 
@@ -203,14 +205,16 @@ EXAMPLE 2 RDF: Property `spdx:Checksum` in class `spdx:File`
 <File rdf:about="...">
     <checksum>
         <Checksum>
-            <algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_sha1"/>
+            <algorithm rdf:resource
+              ="http://spdx.org/rdf/terms#checksumAlgorithm_sha1"/>
             <checksumValue>d6a770ba38583ed4bb4525bd96e50461655d2758
             </checksumValue>
         </Checksum>
     </checksum>
     <checksum>
         <Checksum>
-            <algorithm rdf:resource="http://spdx.org/rdf/terms#checksumAlgorithm_md5"/>
+            <algorithm rdf:resource
+              ="http://spdx.org/rdf/terms#checksumAlgorithm_md5"/>
             <checksumValue> 624c1abb3664f4b35547e7c73864ad24
             </checksumValue>
         </Checksum>
@@ -280,7 +284,8 @@ EXAMPLE 2 RDF: Property `spdx:licenseConcluded` in class `spdx:File`
 <File rdf:about="...">
     <licenseConcluded>
         <DisjunctiveLicenseSet>
-            <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only"/>
+            <member rdf:resource
+              ="http://spdx.org/licenses/LGPL-2.0-only"/>
             <member rdf:resource="#LicenseRef-2"/>
         </DisjunctiveLicenseSet>
     </licenseConcluded>
@@ -337,7 +342,8 @@ EXAMPLE 2 RDF: Property `spdx:licenseInfoInFile` in class `spdx:File`
 
 ```text
 <File rdf:about="file1">
-    <licenseInfoInFile rdf:resource="http://spdx.org/licenses/GPL-2.0-only" />
+    <licenseInfoInFile rdf:resource
+      ="http://spdx.org/licenses/GPL-2.0-only" />
     <licenseInfoInFile rdf:resource="#LicenseRef-2" />
 </File>
 ```
@@ -380,9 +386,10 @@ EXAMPLE 2 RDF: Property `spdx:licenseComments` in class `spdx:File`
 ```text
 <File rdf:about="...">
     <licenseComments>
-        The concluded license was taken from the package level that the file
-        was included in. This information was found in the COPYING.txt file
-        in the xyz directory. This package has been shipped in source and binary form.
+        The concluded license was taken from the package level that
+        the file was included in. This information was found in the 
+        COPYING.txt file in the xyz directory. This package has been 
+        shipped in source and binary form.
     </licenseComments>
 </File>
 ```
@@ -694,8 +701,10 @@ EXAMPLE 2 RDF: Property `spdx:fileContributor` in class `spdx:File`
 
 ```text
 <File rdf:about="...">
-    <fileContributor> Modified by Paul Mundt lethal@linux-sh.org </fileContributor>
-    <fileContributor> The Regents of the University of California </fileContributor>
+    <fileContributor> Modified by Paul Mundt lethal@linux-sh.org
+    </fileContributor>
+    <fileContributor> The Regents of the University of California
+    </fileContributor>
     <fileContributor> IBM Corporation </fileContributor>
 </File>
 ```
@@ -740,8 +749,9 @@ EXAMPLE 2 RDF: property `spdx:attributionText` in class `spdx:File`
 ```text
 <File rdf:about="...">
     <attributionText>
-        All advertising materials mentioning features or use of this software must display the
-        following acknowledgement:  This product includes software developed by the AT&T.
+        All advertising materials mentioning features or use of
+        this software must display the following acknowledgement:
+        This product includes software developed by the AT&T.
     </attributionText>
 </File>
 ```
