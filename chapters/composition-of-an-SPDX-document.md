@@ -22,7 +22,7 @@ See [Clause 6](2-document-creation-information.md) for details of the fields in 
 
 ### 5.2.2 Package information section <a name="5.2.2"></a>
 
-If SPDX information is being used to describe packages, then one instance of the Package Information per package being described shall exist.  It provided important meta informaiton about the package as a whole.  Packages are an abstract concept that can be used to refer to any grouping of files.  Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
+If SPDX information is being used to describe packages, then one instance of the Package Information per package being described shall exist.  It provides important meta information about the package as a whole.  Packages are an abstract concept that can be used to refer to any distribution of software, typically consisting of one or more files and capable of containing sub-packages.  Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
 Cardinality: Optional, one or many.
 
@@ -80,7 +80,7 @@ When implementing `tag:value` format, the positioning of Snippet elements is syn
 
 This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list, see [https://spdx.org/licenses/](https://spdx.org/licenses/). The SPDX License List can also be found in [Annex A](SPDX-license-list.md).
 
-One instance shall be created for every unique license or licensing information reference detected in package that does not match one of the licenses on the SPDX License List. 
+One instance shall be created for every unique license or licensing information being referenced that does not match one of the licenses on the SPDX License List. 
 
 Cardinality: Optional, one or many.
 
