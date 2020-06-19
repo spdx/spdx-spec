@@ -237,18 +237,6 @@
             <div class="section">
               
                 <h1 id="7-package-information-fields">7 Package information fields</h1>
-<p>If you organize your SPDX information by grouping into packages, then one instance of the Package Information is required per package being described. A package can contain sub-packages, but the information in this section is a reference to the entire contents of the package listed. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.</p>
-<p>Cardinality: Optional, one or many.</p>
-<p>In <code>tag:value</code> format, the order in which package and files occur is syntactically significant.</p>
-<ul>
-<li>A new Package Information section is denoted by the Package Name (<a href="#7.1">7.1</a>) field.</li>
-<li>All Package Information fields must be grouped together before the start of a Files section (Clause <a href="../file-information/">8</a>), if file(s) are present.</li>
-<li>All files contained in a package must immediately follow the applicable Package Information.</li>
-<li>A new Package Information section (via Package Name) denotes the start of another package.</li>
-<li>Sub-packages should not be nested inside a Package Information section, but should be separate and should use a Relationship to clarify.</li>
-<li>Annotations and Relationships for the package may appear after the Package Information before any file information.</li>
-</ul>
-<p>Fields:</p>
 <h2 id="71-package-name-field">7.1 Package name field <a name="7.1"></a></h2>
 <p><strong>Description</strong></p>
 <p>Identify the full name of the package as given by the Package Originator (<a href="#7.6">7.6</a>).</p>
@@ -547,7 +535,8 @@
 
 <p>EXAMPLE 2 RDF: property <code>spdx:originator</code> in class <code>spdx:Package</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Package rdf:about=&quot;...&quot;&gt;
-    &lt;originator&gt;Organization: ExampleCodeInspect (contact@example.com)&lt;/originator&gt;
+    &lt;originator&gt;Organization: ExampleCodeInspect 
+    (contact@example.com)&lt;/originator&gt;
 &lt;/Package&gt;</code></pre>
 
 
@@ -966,7 +955,8 @@ verificationcode = SHA1(filelist)</code></pre>
     &lt;checksum&gt;
         &lt;Checksum&gt;
             &lt;algorithm rdf:resource=&quot;spdx:checksumAlgorithm_sha1&quot;/&gt;
-            &lt;checksumValue&gt;85ed0817af83a24ad8da68c2b5094de69833983c&lt;/checksumValue&gt;
+            &lt;checksumValue&gt;85ed0817af83a24ad8da68c2b5094de69833983c
+            &lt;/checksumValue&gt;
         &lt;/Checksum&gt;
     &lt;/checksum&gt;
     &lt;checksum&gt;
@@ -1039,7 +1029,8 @@ verificationcode = SHA1(filelist)</code></pre>
 
 <p>EXAMPLE 2 RDF: property <code>doap:homepage</code> in class <code>spdx:Package</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Package rdf:about=&quot;...&quot;&gt;
-    &lt;doap:homepage &gt;http://ftp.gnu.org/gnu/glibc/&lt;/doap:homepage&gt;    &lt;/Package&gt;</code></pre>
+    &lt;doap:homepage &gt;http://ftp.gnu.org/gnu/glibc/&lt;/doap:homepage&gt;
+&lt;/Package&gt;</code></pre>
 
 
 <p>This specification uses the prefix <code>doap:</code> to refer to the <a href="http://usefulinc.com/ns/doap">DOAP</a> namespace:</p>
@@ -1084,7 +1075,8 @@ verificationcode = SHA1(filelist)</code></pre>
 <p>EXAMPLE 2 RDF: <code>spdx:sourceInfo</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Package rdf:about=&quot;...&quot;&gt;
     ...
-    &lt;sourceInfo&gt;uses glibc-2_11-branch from git://sourceware.org/git/glibc.git.&lt;/sourceInfo&gt;
+    &lt;sourceInfo&gt;uses glibc-2_11-branch from 
+    git://sourceware.org/git/glibc.git.&lt;/sourceInfo&gt;
     ...
 &lt;/Package&gt;</code></pre>
 
@@ -1147,20 +1139,20 @@ verificationcode = SHA1(filelist)</code></pre>
 
 <p>EXAMPLE 2 RDF: property <code>spdx:licenseConcluded</code> in <code>class spdx:Package</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Package rdf:about=&quot;...&quot;&gt;
-    ...
-    &lt;licenseConcluded rdf:resource=&quot;http://spdx.org/licenses/LGPL-2.0-only&quot; /&gt;
-    ...
+  ...
+  &lt;licenseConcluded rdf:resource=&quot;http://spdx.org/licenses/LGPL-2.0-only&quot;/&gt;
+  ...
 &lt;/Package&gt;</code></pre>
 
 
 <pre class="codehilite"><code class="language-text">&lt;Package rdf:about=&quot;...&quot;&gt;
-    ...
-    &lt;licenseConcluded&gt;
-         &lt;DisjunctiveLicenseSet&gt;
-             &lt;member rdf:resource=&quot;http://spdx.org/licenses/LGPL-2.0-only&quot; /&gt;
-             &lt;member rdf:resource=&quot;LicenseRef-3&quot; /&gt;
-        &lt;/DisjunctiveLicenseSet&gt;
-    &lt;/licenseConcluded&gt;
+  ...
+  &lt;licenseConcluded&gt;
+     &lt;DisjunctiveLicenseSet&gt;
+        &lt;member rdf:resource=&quot;http://spdx.org/licenses/LGPL-2.0-only&quot; /&gt;
+        &lt;member rdf:resource=&quot;LicenseRef-3&quot; /&gt;
+     &lt;/DisjunctiveLicenseSet&gt;
+  &lt;/licenseConcluded&gt;
     ...
 &lt;/Package&gt;</code></pre>
 
@@ -1224,7 +1216,8 @@ verificationcode = SHA1(filelist)</code></pre>
 <p>EXAMPLE 2 RDF: property <code>spdx:licenseInfoFromFiles</code> in class <code>spdx:Package</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Package rdf:about=&quot;...&quot;&gt;
     ...
-    &lt;licenseInfoFromFiles rdf:resource=&quot;https://spdx.org/licenses/GPL-2.0-only&quot; /&gt;
+    &lt;licenseInfoFromFiles rdf:resource
+      =&quot;https://spdx.org/licenses/GPL-2.0-only&quot; /&gt;
     &lt;licenseInfoFromFiles rdf:resource=&quot;#LicenseRef-1&quot; /&gt;
     &lt;licenseInfoFromFiles rdf:resource=&quot;#LicenseRef-2&quot; /&gt;
     ...
@@ -1285,20 +1278,20 @@ verificationcode = SHA1(filelist)</code></pre>
 
 <p>EXAMPLE 2 RDF: property <code>spdx:licenseDeclared</code> in class <code>spdx:Package</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Package rdf:about=&quot;...&quot;&gt;
-    ...
-    &lt;licenseDeclared rdf:resource=&quot;http://spdx.org/licenses/LGPL-2.0-only&quot; /&gt;
-    ...
+  ...
+  &lt;licenseDeclared rdf:resource=&quot;http://spdx.org/licenses/LGPL-2.0-only&quot;/&gt;
+  ...
 &lt;/Package&gt;</code></pre>
 
 
 <pre class="codehilite"><code class="language-text">&lt;Package rdf:about=&quot;...&quot;&gt;
-    ...
-     &lt;licenseDeclared&gt;
-         &lt;ConjunctiveLicenseSet&gt;
-             &lt;member rdf:resource=&quot;http://spdx.org/licenses/LGPL-2.0-only&quot; /&gt;
-             &lt;member rdf:resource=&quot;#LicenseRef-3&quot; /&gt;
-         &lt;/ConjunctiveLicenseSet&gt;
-    &lt;/licenseDeclared&gt;
+  ...
+  &lt;licenseDeclared&gt;
+     &lt;ConjunctiveLicenseSet&gt;
+        &lt;member rdf:resource=&quot;http://spdx.org/licenses/LGPL-2.0-only&quot;/&gt;
+        &lt;member rdf:resource=&quot;#LicenseRef-3&quot; /&gt;
+     &lt;/ConjunctiveLicenseSet&gt;
+  &lt;/licenseDeclared&gt;
     ...
 &lt;/Package&gt;</code></pre>
 
@@ -1492,12 +1485,12 @@ and extensions specific to GNU systems.&lt;/text&gt;</code></pre>
 
 <p>EXAMPLE 2 RDF: property <code>spdx:description</code> in class <code>spdx:Package</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Package rdf:about=&quot;...&quot;&gt;
-    ...
-    &lt;description&gt;
-        The GNU C Library defines functions that are specified by the
-        ISO C standard, as well as additional features specific to POSIX and other
-        derivatives of the Unix operating system, and extensions specific to GNU systems.
-    &lt;/description&gt;
+  ...
+  &lt;description&gt;
+    The GNU C Library defines functions that are specified by the
+    ISO C standard, as well as additional features specific to POSIX and other
+    derivatives of the Unix operating system, and extensions specific to GNU systems.
+  &lt;/description&gt;
     ...
 &lt;/Package&gt;</code></pre>
 
@@ -1540,11 +1533,11 @@ and extensions specific to GNU systems.&lt;/text&gt;</code></pre>
 
 <p>EXAMPLE 2 RDF: property <code>rdfs:comment</code> in class <code>spdx:Package</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Package rdf:about=&quot;...&quot;&gt;
-    ...
-    &lt;rdfs:comment&gt;
-        The package includes several sub-packages; see Relationship information.
-    &lt;/rdfs:comment&gt;
-    ...
+  ...
+  &lt;rdfs:comment&gt;
+    The package includes several sub-packages; see Relationship information.
+  &lt;/rdfs:comment&gt;
+  ...
 &lt;/Package&gt;</code></pre>
 
 
@@ -1595,9 +1588,12 @@ and extensions specific to GNU systems.&lt;/text&gt;</code></pre>
     ...
     &lt;spdx:externalRef&gt;
         &lt;spdx:ExternalRef&gt;
-            &lt;spdx:referenceCategory rdf:resource=&quot;spdx:referenceCategory_packageManager&quot; /&gt;
-            &lt;spdx:referenceType rdf:resource=&quot;http://spdx.org/rdf/refeferences/maven-central&quot; /&gt;
-            &lt;spdx:referenceLocator&gt;org.apache.commons:commons-lang:3.2.1&lt;/spdx:referenceLocator&gt;
+            &lt;spdx:referenceCategory rdf:resource
+              =&quot;spdx:referenceCategory_packageManager&quot; /&gt;
+            &lt;spdx:referenceType rdf:resource
+              =&quot;http://spdx.org/rdf/refeferences/maven-central&quot; /&gt;
+            &lt;spdx:referenceLocator&gt;org.apache.commons:commons-lang:3.2.1
+            &lt;/spdx:referenceLocator&gt;
         &lt;/spdx:ExternalRef&gt;
     &lt;/spdx:externalRef&gt;
     ...
@@ -1661,13 +1657,16 @@ acmecorp:acmenator:6.6.6.&lt;/text&gt;</code></pre>
     ...
     &lt;spdx:externalRef&gt;
         &lt;spdx:ExternalRef&gt;
-            &lt;spdx:referenceCategory rdf:resource=&quot;spdx:referenceCategory_packageManager&quot; /&gt;
-            &lt;spdx:referenceType rdf:resource=&quot;http://spdx.org/rdf/refeferences/maven-central&quot; /&gt;
-            &lt;spdx:referenceLocator&gt;org.apache.commons:commons-lang:3.2.1&lt;/spdx:referenceLocator&gt;
+            &lt;spdx:referenceCategory rdf:resource
+              =&quot;spdx:referenceCategory_packageManager&quot; /&gt;
+            &lt;spdx:referenceType rdf:resource
+              =&quot;http://spdx.org/rdf/refeferences/maven-central&quot; /&gt;
+            &lt;spdx:referenceLocator&gt;org.apache.commons:commons-lang:3.2.1
+            &lt;/spdx:referenceLocator&gt;
             &lt;rdfs:comment&gt;
-                NIST National Vulnerability Database (NVD) describes
-                security vulnerabilities (CVEs) which affect Vendor Product Version
-                acmecorp:acmenator:6.6.6
+              NIST National Vulnerability Database (NVD) describes
+              security vulnerabilities (CVEs) which affect Vendor Product
+              Version acmecorp:acmenator:6.6.6
             &lt;/rdfs:comment&gt;
         &lt;/spdx:ExternalRef&gt;
     &lt;/spdx:externalRef&gt;
@@ -1717,8 +1716,9 @@ following acknowledgement:  This product includes software developed by the AT&a
 <p>EXAMPLE 2 RDF: property <code>spdx:attributionText</code> in class <code>spdx:Package</code></p>
 <pre class="codehilite"><code class="language-text">&lt;Package rdf:about=&quot;...&quot;&gt;
     &lt;attributionText&gt;
-        All advertising materials mentioning features or use of this software must display the
-        following acknowledgement:  This product includes software developed by the AT&amp;T.
+        All advertising materials mentioning features or use of this
+        software must display the following acknowledgement:  This 
+        product includes software developed by the AT&amp;T.
     &lt;/attributionText&gt;
 &lt;/Package&gt;</code></pre>
               
