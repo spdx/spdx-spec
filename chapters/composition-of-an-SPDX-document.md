@@ -2,7 +2,9 @@
 
 ## 5.1 What this specification covers <a name="5.1"></a>
 
-This document contains the specification for an SPDX document, which is made up of a set of **zero/one** or more sections, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of sections allowed. The fields for each kind of section are defined in the clause corresponding to that section.
+This document contains the specification for an SPDX document, which is made up of a set of one or more sections, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of sections allowed. The fields for each kind of section are defined in the clause corresponding to that section.  Within an SPDX document, sections may be organized, as follows:
+
+![Overview of SPDX document contents](img/spdx-2.2-document.png)
 
 The data model is illustrated by [Annex C](RDF-data-model-implementation-and-identifier-syntax.md).
 
@@ -10,7 +12,7 @@ The data model is illustrated by [Annex C](RDF-data-model-implementation-and-ide
 
 ### 5.2.1 SPDX document creation information section <a name="5.2.1"></a>
 
-An instance of this kind of section provides the necessary information for forward and backward compatibility for processing tools.
+An instance of this section provides the necessary information for forward and backward compatibility for processing tools.
 
 One instance shall be present for each SPDX file produced. 
 
@@ -20,9 +22,11 @@ See [Clause 6](2-document-creation-information.md) for details of the fields in 
 
 ### 5.2.2 Package information section <a name="5.2.2"></a>
 
-If SPDX information is organized by grouping into packages, then one instance of the Package Information per package being described shall exist. A package may contain sub-packages, but the information in this section is a reference to the entire contents of the package listed. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
+If SPDX information is being used to describe packages, then one instance of the Package Information per package being described shall exist.  It provided important meta informaiton about the package as a whole.  Packages are an abstract concept that can be used to refer to any grouping of files.  Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
 Cardinality: Optional, one or many.
+
+See [Clause 7](package-information.md) for details of the fields in this kind of section.
 
 In `tag:value` format, the order in which package and files occur is syntactically significant.
 
@@ -33,17 +37,20 @@ In `tag:value` format, the order in which package and files occur is syntactical
 * Sub-packages shall not be nested inside a Package Information section, but shall be separate and shall use a Relationship to clarify.
 * Annotations and Relationships for the package may appear after the Package Information before any file information.
 
-See [Clause 7](package-information.md) for details of the fields in this kind of section.
 
-### 5.2.3 File information Fields <a name="5.2.3"></a>
+### 5.2.3 File information section <a name="5.2.3"></a>
 
 One instance of the File Information shall exist for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
+
+Cardinality: Optional, one or many.
+
+See [Clause 8](file-information.md) for details of the fields in this kind of section.
 
 When implementing `tag:value` format, the positioning of File elements is syntactically significant:
 
 * Files are assumed to be associated with the Package Information that immediately precedes it, if a package exists.
 * Presence of a new Package Information signals the end of the set of files associated with the preceding package, unless an explicit Relationship is used.
-* If a package contains files, the File Information section shall follow its Package Information section.
+* If a package contains files, the File Information sections shall follow its Package Information section.
 * If a File is not part of any package, it shall precede any Package Information section reference in the SPDX document.
 * The first field to start off the description of a File shall be the File Name in `tag:value` format.
 * File information is associated with the File Name that precedes it.
@@ -51,13 +58,15 @@ When implementing `tag:value` format, the positioning of File elements is syntac
 
 When implementing file information in RDF, the `spdx:hasFile` property is used to associate the package with the file.
 
-See [Clause 8](file-information.md) for details of the fields in this kind of section.
-
 ### 5.2.4 Snippet information section <a name="5.2.4"></a>
 
 Snippets can optionally be used when a file is known to have some content that has been included from another original source. They are useful for denoting when part of a file may have been originally created under another license.
 
 Each instance of Snippet Information shall be associated with a specific File in an SPDX Document.
+
+Cardinality: Optional, one or many.
+
+See [Clause 9](snippet-information.md) for details of the fields in this kind of section.
 
 When implementing `tag:value` format, the positioning of Snippet elements is syntactically significant:
 
@@ -66,25 +75,30 @@ When implementing `tag:value` format, the positioning of Snippet elements is syn
 * The first field to start off the description of a Snippet shall be the Snippet Identifier in `tag:value` format.
 * Annotations on the Snippet and Relationships from the Snippet may appear after the Snippet Information, before the next file or Package section.
 
-See [Clause 9](snippet-information.md) for details of the fields in this kind of section.
 
 ### 5.2.5 Other licensing information detected <a name="5.2.5"></a>
 
 This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list, see [https://spdx.org/licenses/](https://spdx.org/licenses/). The SPDX License List can also be found in [Annex A](SPDX-license-list.md).
 
-One instance shall be created for every unique license or licensing information reference detected in package that does not match one of the licenses on the SPDX License List. Each license instance should have the following fields.
+One instance shall be created for every unique license or licensing information reference detected in package that does not match one of the licenses on the SPDX License List. 
+
+Cardinality: Optional, one or many.
 
 See [Clause 10](other-licensing-information-detected.md) for details of the fields in this kind of section.
 
 ### 5.2.6 Relationships Between SPDX Elements section <a name="5.2.6"></a>
 
-> ToDo: there was no intro text in Chapter 7 to move here, but, presumably, we should say something.
+Packages, files, and snippets are all considered to be SPDX Elements, and relationships can be made explicit between these SPDX elements by using the fields in this section. 
+
+Cardinality: Optional, one or many.
 
 See [Clause 11](relationships-between-SPDX-elements.md) for details of the fields in this kind of section.
 
 ### 5.2.7 Annotations section <a name="5.2.7"></a>
 
-> ToDo: there was no intro text in Chapter 8 to move here, but, presumably, we should say something.
+Annotations permit the addition of information to validate and clarify ambiguous SPDX Elements (Packages, Files or Snippets).
+
+Cardinality: Optional, one or many.
 
 See [Clause 12](annotations.md) for details of the fields in this kind of section.
 
@@ -96,13 +110,7 @@ Review information may be added after the initial SPDX file has been created. Th
 
 See [Clause 13](review-information-deprecated.md) for details of the fields in this kind of section.
 
-## 5.3 Section organization <a name="5.3"></a>
-
-Within an SPDX document, sections may be organized, as follows:
-
-![Overview of SPDX document contents](img/spdx-2.2-document.png)
-
-## 5.4 What this specification does not cover <a name="5.4"></a>
+## 5.3 What this specification does not cover <a name="5.3"></a>
 
 This document does not address the following:
 
