@@ -24,6 +24,21 @@ See [Clause 6](2-document-creation-information.md) for details of the fields in 
 
 If SPDX information is being used to describe packages, then one instance of the Package Information per package being described shall exist.  It provides important meta information about the package as a whole.  Packages are an abstract concept that can be used to refer to any distribution of software, typically consisting of one or more files and capable of containing sub-packages.  Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
+A Package refers to any unit of content that can be associated with a distribution of software. Typically, a Package is composed of one or more files. An SPDX document may, but is not required to, provide details about the individual files comprising a Package (see [Clause 8](file-information.md)).
+
+Any of the following non-limiting examples may be (but are not required to be) represented in SPDX as a Package:
+
+* a tarball, zip file or other archive
+* a directory or sub-directory
+* a separately-distributed piece of software which another Package or File uses or depends upon (e.g., a Python package, a Go module, ...)
+* a container image, and/or each image layer within a container image
+* a collection of one or more sub-packages
+* a Git repository snapshot from a particular point in time
+
+Note that some of these could be represented in SPDX as a File as well.
+
+In an SPDX document, Relationship elements can be used to indicate relationships between Packages, such as dependency relationships.
+
 Cardinality: Optional, one or many.
 
 See [Clause 7](package-information.md) for details of the fields in this kind of section.
