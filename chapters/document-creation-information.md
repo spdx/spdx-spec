@@ -12,7 +12,7 @@ Table 2 — Metadata for the SPDX version field
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Format | `SPDX-M.N` where:<br><ul><li>`M` is major version number</li><li>N` is minor version number.</li></ul> |
+| Format | `SPDX-M.N` where:<br><ul><li>`M` is major version number</li><li>`N` is minor version number.</li></ul> |
 
 <br>
 
@@ -236,7 +236,7 @@ Table 7 — Metadata for the external document references field
 | --------- | ----- |
 | Required | No |
 | Cardinality | 1..* |
-| Format | DocumentRef-`[idstring]` `[SPDX Document URI]` `[Checksum]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.<br>`[SPDX Document URI]` is the unique ID for the external document as defined in [6.5](#6.5) of that referenced document,<br> `[Checksum]` is a checksum of the external document following the checksum format defined in [8.4](file-information#8.4). |
+| Format | DocumentRef-`[idstring]` `[SPDX Document URI]` `[Checksum]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.<br>`[SPDX Document URI]` is the unique ID for the external document as defined in [6.5](#6.5) of that referenced document,<br>`[Checksum]` is a checksum of the external document following the checksum format defined in [8.4](file-information#8.4). |
 
 <br>
 
