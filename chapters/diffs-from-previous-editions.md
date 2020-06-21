@@ -21,7 +21,7 @@ Clause 12 | Annotations | Chapter 8
 Clause 13 | Review information (deprecated) | Chapter 9
 Annex A   | SPDX license list | Appendix I
 Annex B   | License matching guidelines and templates | Appendix II
-Annex C   | RDF data model implementation and identifier syntax | Appendix III
+Annex C   | RDF object model and identifier syntax | Appendix III
 Annex D   | SPDX license expressions | Appendix IV
 Annex E   | Using SPDX short identifiers in source files | Appendix V
 Annex F   | External repository identifiers | Appendix VI
