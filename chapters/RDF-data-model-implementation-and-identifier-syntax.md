@@ -1,4 +1,4 @@
-# Annex C RDF data model implementation and identifier syntax (Normative)
+# Annex C RDF object model and identifier syntax (Normative)
 
 ## C.1 Introduction <a name="C.1"></a>
 
