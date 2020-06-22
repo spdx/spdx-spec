@@ -236,9 +236,7 @@ A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions
 
 - the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([8.7](#8.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([8.7](#8.7)) is preferred.
-
-The metadata for the concluded license field is shown in Table 40.
+If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([8.7](#8.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([8.7](#8.7)) is preferred. The metadata for the concluded license field is shown in Table 40.
 
 Table 40 — Metadata for the concluded license field
 
@@ -305,9 +303,7 @@ A reference to the license, denoted by LicenseRef-`[idstring]`, if the license i
 
 - the SPDX file creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If license information for more than one license is contained in the file or if the license information offers the package recipient a choice of licenses, then each of the choices should be listed as a separate entry.
-
-The metadata for the license information in file field is shown in Table 41.
+If license information for more than one license is contained in the file or if the license information offers the package recipient a choice of licenses, then each of the choices should be listed as a separate entry. The metadata for the license information in file field is shown in Table 41.
 
 Table 41 — Metadata for the license information in file field
 
