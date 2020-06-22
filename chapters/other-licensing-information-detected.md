@@ -2,17 +2,9 @@
 
 ## 10.1 License identifier field <a name="10.1"></a>
 
-**Description**
+### 10.1.1 Description
 
-Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (Clause [7](package-information.md) and Clause [8](file-information.md), respectively).
-
-**Intent**
-
-Create a human readable short form license identifier for a license not on the SPDX License List. This identifier shall be unique within the SPDX file. In previous versions of SPDX, the references were required to be sequential numbers, but as of version 1.2, creators may specify references that are easier for humans to remember and mentally map.
-
-**Metadata**
-
-The metadata for the license identifier field is shown in Table 63.
+Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (Clause [7](package-information.md) and Clause [8](file-information.md), respectively). The metadata for the license identifier field is shown in Table 63.
 
 Table 63 — Metadata for the license identifier field
 
@@ -22,7 +14,13 @@ Table 63 — Metadata for the license identifier field
 | Cardinality | 0..1 conditional (mandatory, one) if license is not on SPDX License List. |
 | Format | "LicenseRef-"`[idstring]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-`. |
 
-**Examples**
+<br>
+
+### 10.1.2 Intent
+
+Create a human readable short form license identifier for a license not on the SPDX License List. This identifier shall be unique within the SPDX file. In previous versions of SPDX, the references were required to be sequential numbers, but as of version 1.2, creators may specify references that are easier for humans to remember and mentally map.
+
+### 10.1.3 Examples
 
 EXAMPLE 1 Tag: `LicenseID:`
 
@@ -50,17 +48,9 @@ EXAMPLE 2 RDF: Property `spdx:licenseID` in class `spdx:ExtractedLicensingInfo`
 
 ## 10.2 Extracted text field <a name="10.2"></a>
 
-**Description**
+### 10.2.1 Description
 
-Provide a copy of the actual text of the license reference extracted from the package or file that is associated with the License Identifier to aid in future analysis.
-
-**Intent**
-
-Provide the actual text as found in the package or file for a license that is not on the SPDX License List.
-
-**Metadata**
-
-The metadata for the extracted text field is shown in Table 64.
+Provide a copy of the actual text of the license reference extracted from the package or file that is associated with the License Identifier to aid in future analysis. The metadata for the extracted text field is shown in Table 64.
 
 Table 64 — Metadata for the extracted text field
 
@@ -70,7 +60,13 @@ Table 64 — Metadata for the extracted text field
 | Cardinality | 0..1 conditional (Mandatory, one) if there is a License Identifier assigned. |
 | Format | Free form text field that may span multiple lines. |
 
-**Examples**
+<br>
+
+### 10.2.2 Intent
+
+Provide the actual text as found in the package or file for a license that is not on the SPDX License List.
+
+### 10.2.3 Examples
 
 EXAMPLE 1 Tag: `ExtractedText:`
 
@@ -110,19 +106,11 @@ If indeed full text of license present in File:
 
 ## 10.3 License name field <a name="10.3"></a>
 
-**Description**
+### 10.3.1 Description
 
 Provide a common name of the license that is not on the SPDX list.
 
-Use `NOASSERTION` If there is no common name or it is not known.
-
-**Intent**
-
-Provides a human readable name suitable for use as a title or label of the license when showing compact lists of licenses from the SPDX data to humans.
-
-**Metadata**
-
-The metadata for the license name field is shown in Table 65.
+Use `NOASSERTION` If there is no common name or it is not known. The metadata for the license name field is shown in Table 65.
 
 Table 65 — Metadata for the license name field
 
@@ -132,7 +120,13 @@ Table 65 — Metadata for the license name field
 | Cardinality | 0..1 conditional (mandatory, one) if license is not on SPDX License List. |
 | Format | Single line of text | `NOASSERTION` |
 
-**Examples**
+<br>
+
+### 10.3.2 Intent
+
+Provides a human readable name suitable for use as a title or label of the license when showing compact lists of licenses from the SPDX data to humans.
+
+### 10.3.3 Examples
 
 EXAMPLE 1 Tag: `LicenseName:`
 
@@ -150,17 +144,9 @@ EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:ExtractedLicensingInfo`
 
 ## 10.4 License cross reference field <a name="10.4"></a>
 
-**Description**
+### 10.4.1 Description
 
-Provide a pointer to the official source of a license that is not included in the SPDX License List, that is referenced by the License Identifier.
-
-**Intent**
-
-Canonical source for a license currently not on the SPDX License List.
-
-**Metadata**
-
-The metadata for the license cross reference field is shown in Table 66.
+Provide a pointer to the official source of a license that is not included in the SPDX License List, that is referenced by the License Identifier. The metadata for the license cross reference field is shown in Table 66.
 
 Table 66 — Metadata for the license cross reference field
 
@@ -170,7 +156,13 @@ Table 66 — Metadata for the license cross reference field
 | Cardinality | 0..* conditional (optional, one or more) if license is not on SPDX License List. |
 | Format | Uniform Resource Locator |
 
-**Examples**
+<br>
+
+### 10.4.2 Intent
+
+Canonical source for a license currently not on the SPDX License List.
+
+### 10.4.3 Examples
 
 EXAMPLE 1 Tag: `LicenseCrossReference:`
 
@@ -188,17 +180,9 @@ EXAMPLE 2 RDF: Property `rdfs:seeAlso` in class `spdx:ExtractedLicensingInfo`
 
 ## 10.5 License comment field <a name="10.5"></a>
 
-**Description**
+### 10.5.1 Description
 
-This field provides a place for the SPDX file creator to record any general comments about the license.
-
-**Intent**
-
-Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of a license, or addition cross references.
-
-**Metadata**
-
-The metadata for the license comment field is shown in Table 67.
+This field provides a place for the SPDX file creator to record any general comments about the license. The metadata for the license comment field is shown in Table 67.
 
 Table 67 — Metadata for the license comment field
 
@@ -208,7 +192,13 @@ Table 67 — Metadata for the license comment field
 | Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines |
 
-**Examples**
+<br>
+
+### 10.5.2 Intent
+
+Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of a license, or addition cross references.
+
+### 10.5.3 Examples
 
 EXAMPLE 1 Tag: `LicenseComment:`
 
