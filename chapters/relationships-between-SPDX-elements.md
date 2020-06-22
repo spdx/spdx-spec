@@ -2,7 +2,7 @@
 
 ## 11.1 Relationship field <a name="11.1"></a>
 
-**Description**
+### 11.1.1 Description
 
 This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. 
 
@@ -62,11 +62,7 @@ Table 68 — Relationships between two SPDX elements that are supported
 | HAS_PREREQUISITE       | Is to be used when SPDXRef-A has as a prerequisite SPDXRef-B.                                         | An APPLICATION `foo.exe` has prerequisite or dependency on `bar.dll` |
 | OTHER                  | Is to be used for a relationship which has not been defined in the formal SPDX specification. A description of the relationship should be included in the Relationship comments field. | |
 
-**Intent**
-
-Here, this field is a reasonable estimation of the relation between two identified elements (i.e. files or packages, or documents), from a developer perspective.
-
-**Metadata**
+<br>
 
 The metadata for the relationship field is shown in Table 69.
 
@@ -78,7 +74,13 @@ Table 69 — Metadata for the relationship field
 | Cardinality | 0..* see `DESCRIBES` relationship for one mandatory case. |
 | Format | ["DocumentRef-"[idstring]":"]SPDXID \<relationship\> ["DocumentRef-"[idstring]":"]SPDXID \| \`NONE\` \| \`NOASSERTION\`<br>where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2), [8.2](file-information.md#8.2).<br>where `<relationship>` is one of the documented relationship types in Table 68.<br>where `NONE` can be used to explicitly indicate there are NO other relationships.<br>where `NOASSERTION` can be used to explicitly indicate it is not clear if there are relationships that may apply or not. |
 
-**Examples**
+<br>
+
+### 11.1.2 Intent
+
+Here, this field is a reasonable estimation of the relation between two identified elements (i.e. files or packages, or documents), from a developer perspective.
+
+### 11.1.3 Examples
 
 EXAMPLE 1 Tag: `Relationship:`
 
@@ -133,17 +135,9 @@ EXAMPLE 2 RDF: Property `spdx:relationship` in any `spdx:SpdxDocument`, `spdx:Pa
 
 ## 11.2 Relationship comment field <a name="11.2"></a>
 
-**Description**
+### 11.2.1 Description
 
-This field provides a place for the SPDX file creator to record any general comments about the relationship.
-
-**Intent**
-
-Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of the relationship between two elements in an SPDX file.
-
-**Metadata**
-
-The metadata for the relationship comment field is shown in Table 70.
+This field provides a place for the SPDX file creator to record any general comments about the relationship. The metadata for the relationship comment field is shown in Table 70.
 
 Table 70 — Metadata for the relationship comment field
 
@@ -153,7 +147,13 @@ Table 70 — Metadata for the relationship comment field
 | Cardinality | 0..1 |
 | Format | Free form text that may span multiple lines, refers only to the immediately preceding relationship. |
 
-**Examples**
+<br>
+
+### 11.2.2 Intent
+
+Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of the relationship between two elements in an SPDX file.
+
+### 11.2.3 Examples
 
 EXAMPLE 1 Tag: `RelationshipComment:`
 
