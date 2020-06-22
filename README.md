@@ -20,7 +20,7 @@ See for the official [releases of the specification](https://spdx.org/specificat
 
 ## Prerequisites
 
-You have to [MkDocs](http://mkdocs.org) installed on your machine. If you don't have it yet installed please follow these [installation instrucions](http://www.mkdocs.org/#installation).
+You have to [MkDocs](http://mkdocs.org) installed on your machine. If you don't have it yet installed please follow these [installation instructions](http://www.mkdocs.org/#installation).
 
 ## Building HTML
 
