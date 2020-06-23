@@ -227,7 +227,7 @@ Supported classes from the pointer method vocabulary are `StartEndPointer` and `
 
 ### 9.5.1 Description
 
-This field contains the license the SPDX file creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:
+This field contains the license the SPDX Document creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:
 
 A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md).
 
@@ -530,7 +530,7 @@ Table 62 — Metadata for the snippet attribution text field
 
 ### 9.11.2 Intent
 
-The intent is to provide the recipient of the SPDX file with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator might or might not explain elsewhere how they intend for this field to be used.
+The intent is to provide the recipient of the SPDX Document with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator might or might not explain elsewhere how they intend for this field to be used.
 
 ### 9.11.3 Examples
 
