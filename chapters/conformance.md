@@ -28,9 +28,9 @@ The data format specification and recommendations are subject to the following:
 
 * Shall be suitable to be checked for syntactic correctness automatically, independent of how it was generated (human or tool).
 
-* The SPDX file character set shall support UTF-8 encoding.
+* The SPDX document character set shall support UTF-8 encoding.
 
-* Multiple file formats may be used to represent the information being exchanged. Current supported formats include:
+* Multiple serialization formats may be used to represent the information being exchanged. Current supported formats include:
   * **YAML 1.2** see: <https://yaml.org/spec/1.2/spec.html>
   * **JavaScript Object Notation** (JSON) see: [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
     * The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)

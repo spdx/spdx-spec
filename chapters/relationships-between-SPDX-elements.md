@@ -133,7 +133,7 @@ EXAMPLE 2 RDF: Property `spdx:relationship` in any `spdx:SpdxDocument`, `spdx:Pa
 
 ### 11.2.1 Description
 
-This field provides a place for the SPDX file creator to record any general comments about the relationship. The metadata for the relationship comment field is shown in Table 70.
+This field provides a place for the SPDX Document creator to record any general comments about the relationship. The metadata for the relationship comment field is shown in Table 70.
 
 Table 70 — Metadata for the relationship comment field
 

@@ -4,7 +4,7 @@
 
 ### 10.1.1 Description
 
-Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX file (Clause [7](package-information.md) and Clause [8](file-information.md), respectively). The metadata for the license identifier field is shown in Table 63.
+Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages and files sections of the SPDX Document (Clause [7](package-information.md) and Clause [8](file-information.md), respectively).
 
 Table 63 — Metadata for the license identifier field
 
@@ -174,7 +174,7 @@ EXAMPLE 2 RDF: Property `rdfs:seeAlso` in class `spdx:ExtractedLicensingInfo`
 
 ### 10.5.1 Description
 
-This field provides a place for the SPDX file creator to record any general comments about the license. The metadata for the license comment field is shown in Table 67.
+This field provides a place for the SPDX Document creator to record any general comments about the license. The metadata for the license comment field is shown in Table 67.
 
 Table 67 — Metadata for the license comment field
 

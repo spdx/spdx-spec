@@ -122,7 +122,7 @@ By having a rule regarding the use of "©", "(c)", or "copyright", we avoid the 
 
 ### B.11.1 Purpose <a name="B.11.1"></a>
 
-To avoid a license mismatch merely because the copyright notice (usually found above the actual license or exception text) is different. The copyright notice is important information to be recorded elsewhere in the SPDX file, but for the purposes of matching a license to the SPDX License List, it should be ignored because it is not part of the substantive license text.
+To avoid a license mismatch merely because the copyright notice (usually found above the actual license or exception text) is different. The copyright notice is important information to be recorded elsewhere in the SPDX Document, but for the purposes of matching a license to the SPDX License List, it should be ignored because it is not part of the substantive license text.
 
 ### B.11.2 Guideline <a name="B.11.2"></a>
 

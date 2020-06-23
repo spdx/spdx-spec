@@ -14,7 +14,7 @@ The data model is illustrated by [Annex C](RDF-data-model-implementation-and-ide
 
 An instance of this section provides the necessary information for forward and backward compatibility for processing tools.
 
-One instance shall be present for each SPDX file produced. 
+One instance shall be present for each SPDX document produced. 
 
 Cardinality: Mandatory, one.
 
@@ -121,7 +121,7 @@ See [Clause 12](annotations.md) for details of the fields in this kind of sectio
 
 The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information shall use an Annotation (as described in [Clause 12](annotations.md)) with an annotation type of `REVIEW`.
 
-Review information may be added after the initial SPDX file has been created. The set of fields are optional and multiple instances may be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date shall not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
+Review information may be added after the initial SPDX document has been created. The set of fields are optional and multiple instances may be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date shall not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
 
 See [Clause 13](review-information-deprecated.md) for details of the fields in this kind of section.
 
@@ -130,6 +130,6 @@ See [Clause 13](review-information-deprecated.md) for details of the fields in t
 This document does not address the following:
 
 * Information that cannot be derived from an inspection (whether manual or using automated tools) of the package to be analyzed.
-* How the data stored in an SPDX file is used by the recipient.
+* How the data stored in an SPDX document is used by the recipient.
 * Any identification of any patent(s) which may or may not relate to the package.
 * Legal interpretation of the licenses or any compliance actions that have been or may need

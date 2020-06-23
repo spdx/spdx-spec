@@ -58,7 +58,7 @@ Table 3 — Metadata for the data license field
 
 ### 6.2.2 Intent
 
-This is to alleviate any concern that content (the data or database) in an SPDX file is subject to any form of intellectual property right that could restrict the re-use of the information or the creation of another SPDX file for the same project(s). This approach avoids intellectual property and related restrictions over the SPDX file, however individuals can still contract with each other to restrict release of specific collections of SPDX files (which map to software bill of materials) and the identification of the supplier of SPDX files.
+This is to alleviate any concern that content (the data or database) in an SPDX document is subject to any form of intellectual property right that could restrict the re-use of the information or the creation of another SPDX document for the same project(s). This approach avoids intellectual property and related restrictions over the SPDX document, however individuals can still contract with each other to restrict release of specific collections of SPDX documents (which map to software bill of materials) and the identification of the supplier of SPDX documents.
 
 ### 6.2.3 Examples
 
@@ -268,7 +268,7 @@ NOTE In RDF, a namespace can be created for the external document reference if a
 
 ### 6.7.1 Description
 
-An optional field for creators of the SPDX file to provide the version of the SPDX License List used when the SPDX file was created. The metadata for the license list version field is shown in Table 8.
+An optional field for creators of the SPDX document to provide the version of the SPDX License List used when the SPDX document was created. The metadata for the license list version field is shown in Table 8.
 
 Table 8 — Metadata for the license list version field
 
@@ -280,7 +280,7 @@ Table 8 — Metadata for the license list version field
 
 ### 6.7.2 Intent
 
-Recognizing that licenses are added to the SPDX License List with each subsequent version, the intent is to provide recipients of the SPDX file with the version of the SPDX License List used. This anticipates that in the future, an SPDX file might have used a version of the SPDX License List that is older than the then current one.
+Recognizing that licenses are added to the SPDX License List with each subsequent version, the intent is to provide recipients of the SPDX document with the version of the SPDX License List used. This anticipates that in the future, an SPDX document might have used a version of the SPDX License List that is older than the then current one.
 
 ### 6.7.3 Examples
 
@@ -302,7 +302,7 @@ EXAMPLE 2 RDF: Property `licenseListVersion` in class `spdx:CreationInfo`
 
 ### 6.8.1 Description
 
-Identify who (or what, in the case of a tool) created the SPDX file. If the SPDX file was created by an individual, indicate the person's name. If the SPDX file was created on behalf of a company or organization, indicate the entity name. If the SPDX file was created using a software tool, indicate the name and version for that tool. If multiple participants or tools were involved, use multiple instances of this field. Person name or organization name may be designated as “anonymous” if appropriate. The metadata for the creator field is shown in Table 9.
+Identify who (or what, in the case of a tool) created the SPDX Document. If the SPDX Document was created by an individual, indicate the person's name. If the SPDX Document was created on behalf of a company or organization, indicate the entity name. If the SPDX Document was created using a software tool, indicate the name and version for that tool. If multiple participants or tools were involved, use multiple instances of this field. Person name or organization name may be designated as “anonymous” if appropriate. The metadata for the creator field is shown in Table 9.
 
 Table 9 — Metadata for the creator field
 
@@ -314,7 +314,7 @@ Table 9 — Metadata for the creator field
 
 ### 6.8.2 Intent
 
-Here, the generation method will assist the recipient of the SPDX file in assessing the general reliability/accuracy of the analysis information.
+Here, the generation method will assist the recipient of the SPDX Document in assessing the general reliability/accuracy of the analysis information.
 
 ### 6.8.3 Examples
 
@@ -340,7 +340,7 @@ EXAMPLE 2 RDF: Property `spdx:creator` in class `spdx:CreationInfo`
 
 ### 6.9.1 Description
 
-Identify when the SPDX file was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in Clause [12](annotations.md), which involves the addition of information during a subsequent review. The metadata for the created field is shown in Table 10.
+Identify when the SPDX Document was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in Clause [12](annotations.md), which involves the addition of information during a subsequent review. The metadata for the created field is shown in Table 10.
 
 Table 10 — Metadata for the created field
 
@@ -374,7 +374,7 @@ EXAMPLE 2 RDF: Property `spdx:created` in class `spdx:CreationInfo`
 
 ### 6.10.1 Description
 
-An optional field for creators of the SPDX file to provide general comments about the creation of the SPDX file or any other relevant comment not included in the other fields. The metadata for the Creator comment field is shown in Table 11.
+An optional field for creators of the SPDX Document to provide general comments about the creation of the SPDX Document or any other relevant comment not included in the other fields. The metadata for the Creator comment field is shown in Table 11.
 
 Table 11 — Metadata for the Creator comment field
 
@@ -386,14 +386,14 @@ Table 11 — Metadata for the Creator comment field
 
 ### 6.10.2 Intent
 
-Here, the intent is to provide recipients of the SPDX file with comments by the creator of the SPDX file.
+Here, the intent is to provide recipients of the SPDX Document with comments by the creator of the SPDX Document.
 
 ### 6.10.3 Examples
 
 EXAMPLE 1 Tag: `CreatorComment:`
 
 ```text
-CreatorComment: <text>This SPDX file was created by a combination of using a free tool,
+CreatorComment: <text>This SPDX Document was created by a combination of using a free tool,
 as indicated above, and manual analysis by several authors of the code.</text>
 ```
 
@@ -401,7 +401,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:CreationInfo`
 
 ```text
 <CreationInfo>
-    <rdfs:comment>This SPDX file was created by a combination of 
+    <rdfs:comment>This SPDX Document was created by a combination of 
     using a free tool, as indicated above, and manual analysis 
     by several authors of the code.</rdfs:comment>
 </CreationInfo>
@@ -411,7 +411,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:CreationInfo`
 
 ### 6.11.1 Description
 
-An optional field for creators of the SPDX file content to provide comments to the consumers of the SPDX document. The metadata for the document comment field is shown in Table 12.
+An optional field for creators of the SPDX Document content to provide comments to the consumers of the SPDX document. The metadata for the document comment field is shown in Table 12.
 
 Table 12 — Metadata for the document comment field
 
@@ -423,7 +423,7 @@ Table 12 — Metadata for the document comment field
 
 ### 6.11.2 Intent
 
-Here, the intent is to provide readers/reviewers with comments by the creator of the SPDX file about the SPDX document.
+Here, the intent is to provide readers/reviewers with comments by the creator of the SPDX Document about the SPDX document.
 
 ### 6.11.3 Examples
 
