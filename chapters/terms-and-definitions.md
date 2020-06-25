@@ -45,9 +45,7 @@ a package which is embedded in a larger package
 **3.x**  
 **SPDX Document**  
 collection of *section* (3.x) instances each of which contains information about software organized using the *SPDX format* (3.x)
-**3.x**  
-**SPDX file**  
-collection of *section* (3.x) instances each of which contains information about a file
+
 **3.x**  
 **SPDX format**  
 the data format defined by this document
