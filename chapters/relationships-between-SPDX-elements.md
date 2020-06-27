@@ -62,8 +62,6 @@ Table 68 — Relationships between two SPDX elements that are supported
 | HAS_PREREQUISITE       | Is to be used when SPDXRef-A has as a prerequisite SPDXRef-B.                                         | An APPLICATION `foo.exe` has prerequisite or dependency on `bar.dll` |
 | OTHER                  | Is to be used for a relationship which has not been defined in the formal SPDX specification. A description of the relationship should be included in the Relationship comments field. | |
 
-<br>
-
 The metadata for the relationship field is shown in Table 69.
 
 Table 69 — Metadata for the relationship field
@@ -73,8 +71,6 @@ Table 69 — Metadata for the relationship field
 | Required | No |
 | Cardinality | 0..* see `DESCRIBES` relationship for one mandatory case. |
 | Format | ["DocumentRef-"[idstring]":"]SPDXID \<relationship\> ["DocumentRef-"[idstring]":"]SPDXID \| \`NONE\` \| \`NOASSERTION\`<br>where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2), [8.2](file-information.md#8.2).<br>where `<relationship>` is one of the documented relationship types in Table 68.<br>where `NONE` can be used to explicitly indicate there are NO other relationships.<br>where `NOASSERTION` can be used to explicitly indicate it is not clear if there are relationships that may apply or not. |
-
-<br>
 
 ### 11.1.2 Intent
 
@@ -146,8 +142,6 @@ Table 70 — Metadata for the relationship comment field
 | Required | No |
 | Cardinality | 0..1 |
 | Format | Free form text that may span multiple lines, refers only to the immediately preceding relationship. |
-
-<br>
 
 ### 11.2.2 Intent
 
