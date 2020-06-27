@@ -16,8 +16,6 @@ Table 76 — Metadata for the reviewer field
 | Cardinality | 0..1 |
 | Format | Single line of text with the following keywords.<br><pre>"Person: person name" and optional "(email)"<br>"Organization: organization" and optional "(email)"<br>"Tool: tool identifier - version"</pre> |
 
-<br>
-
 ### 13.1.2 Intent
 
 Here, as time progresses certain reviewers will begin to gain credibility as reliable. This field intends to make such information transparent. It may also be important for participants in the software supply chain to validate whether upstream providers have reviewed the SPDX file.
@@ -54,8 +52,6 @@ Table 77 — Metadata for the review date field
 | Cardinality | 0..1 conditional (Mandatory, one), if there is a Reviewer. |
 | Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
 
-<br>
-
 ### 13.2.2 Intent
 
 Here, the `ReviewDate` can serve as a verification as to when the actual review was done.
@@ -91,8 +87,6 @@ Table 78 — Metadata for the review comment field
 | Required | No |
 | Cardinality | 0..1 |
 | Format | Free form text that may span multiple lines. |
-
-<br>
 
 ### 13.3.2 Intent
 
