@@ -14,8 +14,6 @@ Table 13 — Metadata for the package name field
 | Cardinality | 1..1 |
 | Format | Single line of text. |
 
-<br>
-
 ### 7.1.2 Intent
 
 The name of each package is an important conventional technical identifier to be maintained for each package.
@@ -49,8 +47,6 @@ Table 14 — Metadata for the SPDX identifier field
 | Required | Yes |
 | Cardinality | 1..1 |
 | Format | "SPDXRef-"`[idstring]` <br> where `[idstring]` is a unique string containing letters, numbers, `.`, and/or `-`. |
-
-<br>
 
 ### 7.2.2 Intent
 
@@ -105,8 +101,6 @@ Table 15 — Metadata for the package version field
 | Cardinality | 1..1 |
 | Format | Single line of text. |
 
-<br>
-
 ### 7.3.2 Intent
 
 The versioning of a package is a useful for identification purposes and for indicating later changes of the package version.
@@ -142,8 +136,6 @@ Table 16 — Metadata for the package file name field
 | Required | No |
 | Cardinality | 1..1 |
 | Format | Single line of text. |
-
-<br>
 
 ### 7.4.2 Intent
 
@@ -207,8 +199,6 @@ Table 17 — Metadata for the package supplier field
 | Cardinality | 1..1 |
 | Format | Single line of text with the following keywords \| `NOASSERTION`<ul><li>`Person:` person name and optional `(<email>)`</li><li>`Organization:` organization name and optional `(<email>)` </li></ul>|
 
-<br>
-
 ### 7.5.2 Intent
 
 Assist with understanding the point of distribution for the code in the package. This field is vital for ensuring that downstream package recipients can address any ambiguity or concerns that might arise with the information in the SPDX file or the contents of the package it documents.
@@ -254,8 +244,6 @@ Table 18 — Metadata for the package originator field
 | Required | No |
 | Cardinality | 1..1 |
 | Format | Single line of text with the following keywords \| `NOASSERTION`<ul><li>`Person:` person name and optional `(<email>)`</li><li>`Organization:` organization name and optional `(<email>)`</li></ul> |
-
-<br>
 
 ### 7.6.2 Intent
 
@@ -304,8 +292,6 @@ Table 19 — Metadata for the package download location field
 | Required | Yes |
 | Cardinality | 1..1 |
 | Format | Uniform resource locator \| VCS location \| `NONE` \| `NOASSERTION`<br><br>For version-controlled files, the VCS location syntax is similar to a URL and has the:<br><br>`<vcs_tool>+<transport>://<host_name>[/<path_to_repository>][@<revision_tag_or_branch>][#<sub_path>]`<br><br>This VCS location compact notation (inspired and mostly adopted from [pip][pip-vcs] as of 2015-02-20) supports referencing locations in version control systems such as [Git][], [Mercurial][], [Subversion][] and [Bazaar][], and specifies the type of VCS tool using url prefixes: `git+`, `hg+`, `bzr+`, `svn+` and specific transport schemes such as SSH or HTTPS.<br><br>Specifying sub-paths, branch names, a commit hash, a revision or a tag name is recommended, and supported using the `@` delimiter for commits and the `#` delimiter for sub-paths.<br><br>Using user names and password in the `<host_name>` is not supported and should be considered as an error. User access control to URLs or VCS repositories must be handled outside of an SPDX document.<br><br>In VCS location compact notations, the trailing slashes in `<host_name>`, `<path_to_repository>` are not significant. Leading and trailing slashes in `<sub_path>` are not significant. |
-
-<br>
 
 ### 7.7.2 Intent
 
@@ -607,8 +593,6 @@ Table 20 — Metadata for the files analyzed field
 | Cardinality | 1..1 |
 | Format | Boolean |
 
-<br>
-
 ### 7.8.2 Intent
 
 A package can refer to a project, product, artifact, distribution or a component that is external to the SPDX document.
@@ -651,8 +635,6 @@ Table 21 — Metadata for the package verification code field
 | Cardinality | 0..1 if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (must be omitted) if `FilesAnalyzed` is `false`.|
 | Algorithm | <sup>[a](#Algorithm)</sup> |
 | Format | Single line of text with 160 bit binary represented as 40 lowercase hexadecimal digits |
-
-<br>
 
 <sup><a name="Algorithm">a</a></sup> Algorithm
 ```text
@@ -719,8 +701,6 @@ Table 22 — Metadata for the package checksum field
 | Cardinality | 1..* |
 | Algorithm | Algorithms that can be used: [`SHA1`][SHA-1], [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6] |
 | Format | There are three components, an algorithm identifier (e.g. `SHA1`), a colon separator `:`, and a bit value represented as lowercase hexadecimal digits (appropriate as output to the algorithm). |
-
-<br>
 
 ### 7.10.2 Intent
 
@@ -797,8 +777,6 @@ Table 23 — Metadata for the package home page field
 | Cardinality | 1..1 |
 | Format | Uniform resource locator \| `NONE` \| `NOASSERTION` |
 
-<br>
-
 ### 7.11.2 Intent
 
 Save the recipient of the SPDX file who is looking for more info from having to search for and verify a match between the package and the associated project homepage.
@@ -837,8 +815,6 @@ Table 24 — Metadata for the source information field
 | Required | No |
 | Cardinality | 1..1 |
 | Format | Free form text that can span multiple lines.<br><br>In `tag:value` format this is delimited by `<text>...</text>`. |
-
-<br>
 
 ### 7.12.2 Intent
 
@@ -892,8 +868,6 @@ Table 25 — Metadata for the concluded license field
 | Required | Yes |
 | Cardinality | 1..1 |
 | Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](IV-SPDX-license-expressions.md). |
-
-<br>
 
 ### 7.13.2 Intent
 
@@ -961,8 +935,6 @@ Table 26 — Metadata for the all licenses information from files field
 | Cardinality | 0..* if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (must be omitted) if `FilesAnalyzed` is `false`. |
 | Format | `<shortIdentifier>` ([Annex A](SPDX-license-list.md#A.1)) \| ["DocumentRef-"`[idstring]`:]"LicenseRef-"`[idstring]` \| `NONE` \| `NOASSERTION`<br>where:<br><ul><li> "DocumentRef-"`[idstring]` is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6).</li><li>`[idstring]` is a unique string containing letters, numbers, `.`, or `-`. </li></ul> |
 
-<br>
-
 ### 7.14.2 Intent
 
 Here, the intention is to capture all license information detected in the actual files.
@@ -1022,8 +994,6 @@ Table 27 — Metadata for the declared license field
 | Cardinality | 1..1 |
 | Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br><ul><li>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md).</li></ul> |
 
-<br>
-
 ### 7.15.2 Intent
 
 This is simply the license identified in text in one or more files (for example COPYING file) in the source code package. This field is not intended to capture license information obtained from an external source, such as the package website. Such information can be included in Concluded License ([7.13](#7.13)). This field may have multiple Declared Licenses, if multiple licenses are declared at the package level.
@@ -1077,8 +1047,6 @@ Table 28 — Metadata for the comments on license field
 | Cardinality | 1..1 |
 | Format | Free form text that can span multiple lines.<br><br>In `tag:value` format this is delimited by `<text>...</text>`. |
 
-<br>
-
 ### 7.16.2 Intent
 
 Here, the intent is to provide the recipient of the SPDX file with a detailed explanation of how the Concluded License was determined if it does not match the License Information from the files or the source code package, is marked `NOASSERTION`, or other helpful information relevant to determining the license of the package.
@@ -1130,8 +1098,6 @@ Table 29 — Metadata for the copyright text field
 | Cardinality | 1..1 |
 | Format | Free form text that can span multiple lines \| `NONE` \| `NOASSERTION` |
 
-<br>
-
 ### 7.17.2 Intent
 
 Record any copyright notices for the package.
@@ -1170,8 +1136,6 @@ Table 30 — Metadata for the package summary description field
 | Cardinality | 1..1 |
 | Format | Free form text that can span multiple lines. |
 
-<br>
-
 ### 7.18.2 Intent
 
 Here, the intent is to allow the SPDX file creator to provide concise information about the function or use of the package without having to parse the source code of the actual package.
@@ -1209,8 +1173,6 @@ Table 31 — Metadata for the package detailed description field
 | Required | No |
 | Cardinality | 1..1 |
 | Format | Free form text than can span multiple lines. |
-
-<br>
 
 ### 7.19.2 Intent
 
@@ -1256,8 +1218,6 @@ Table 32 — Metadata for the package comment field
 | Cardinality | 1..1 |
 | Format | Free form text that can span multiple lines. |
 
-<br>
-
 ### 7.20.2 Intent
 
 Here, the intent is to provide the recipient of the SPDX document with more information determined after careful analysis of a package.
@@ -1297,8 +1257,6 @@ Table 33 — Metadata for the external reference field
 | Required | No |
 | Cardinality | 1..* |
 | Format | `<category> <type> <locator>`<br>where:<ul><li>`<category>` is `SECURITY` \| `PACKAGE-MANAGER` \| `PERSISTENT-ID` \| `OTHER`</li><li>`<type>` is one of the types listed in Annex [F](external-repository-identifiers.md).</li><li>`<locator>` is the unique string with no spaces necessary to access the package-specific information, metadata, or content within the target location. The format of the locator is subject to constraints defined by the `<type>`.</li></ul> |
-
-<br>
 
 ### 7.21.2 Intent
 
@@ -1373,8 +1331,6 @@ Table 34 — Metadata for the external reference comment field
 | Cardinality | 0..1 for each External Reference ([3.21](#3.21)) |
 | Format | Free form text that can span multiple lines.<br><br>In `tag:value` format this is delimited by `<text>...</text>` and is expected to follow an External Reference ([3.21](#3.21)) so that the association can be made. |
 
-<br>
-
 ### 7.22.2 Intent
 
 To inform a human consumer why the reference exists, what kind of information, content or metadata can be extracted. The target's relationship to artifactOf values of files in the package might need to be explained here. If the reference is BINARY, its relationship to PackageDownloadLocation might need to be explained. If the reference is SOURCE, its relationship to PackageDownloadLocation and SourceInformation might need to be explained.
@@ -1426,8 +1382,6 @@ Table 35 — Metadata for the package attribution text field
 | Required | No |
 | Cardinality | 1..* |
 | Format | Free form text that can span multiple lines. |
-
-<br>
 
 ### 7.23.2 Intent
 
