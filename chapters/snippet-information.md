@@ -14,8 +14,6 @@ Table 52 — Metadata for the snippet SPDX identifier field
 | Cardinality | 1..1 |
 | Format | `SPDXRef-[idstring]`<br>where `[idstring]` is a unique string containing letters, numbers, `.` and/or `-`. |
 
-<br>
-
 ### 9.1.2 Intent
 
 There may be several instances of a snippet within an SPDX document. Each snippet is an element which needs to be able to be referred to uniquely so that relationships between it and other elements can be clearly articulated.
@@ -63,8 +61,6 @@ Table 53 — Metadata for the snippet from file SPDX identifier field
 | Required | Yes |
 | Cardinality | 1..1 |
 | Format | ["DocumentRef-"[idstring]":"] SPDXID<br>where `DocumentRef-[idstring]`: is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in (6.3, 7.2, 8.2). |
-
-<br>
 
 ### 9.2.2 Intent
 
@@ -119,8 +115,6 @@ Table 54 — Metadata for the snippet byte range field
 | Required | Yes |
 | Cardinality | 1..1 |
 | Format | `number1:number2`<br>where: `number1` is greater than or equal to 1 and less or equal to `number2`,<br>AND `number2` is less than or equal to the total number of bytes in file.<br><br>The byte at position number1 and position number2 are included in the range. |
-
-<br>
 
 ### 9.3.2 Intent
 
@@ -185,8 +179,6 @@ Table 55 — Metadata for the snippet line range field
 | Required | No |
 | Cardinality | 0..1 |
 | Format | `number1:number2`<br>where:<br>`number1` is greater than or equal to 1 and less than or equal to `number2`,<br>AND `number2` is less than or equal to the total number of lines in file. |
-
-<br>
 
 ### 9.4.2 Intent
 
@@ -259,9 +251,7 @@ Table 56 — Metadata for the snippet concluded license field
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Appendix IV. |
-
-<br>
+| Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Appendix D. |
 
 ### 9.5.2 Intent
 
@@ -329,8 +319,6 @@ Table 57 — Metadata for the license information in snippet field
 | Cardinality | 0..* |
 | Format | `<SPDX License Expression>` \|<br>["DocumentRef-"`[idstring]`:"]"LicenseRef-"[idstring] \|<br>\| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression<br>as defined in Annex [D](SPDX-license-expressions.md).<br>DocumentRef-"`[idstring]`: is an optional reference to an external SPDX<br>document as described in [6.6](document-creation-information.md#6.6)<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-`. |
 
-<br>
-
 ### 9.6.2 Intent
 
 Here, the intent is to provide the license information actually in the snippet, as compared to the Concluded License field.
@@ -370,8 +358,6 @@ Table 58 — Metadata for the snippet comments on license field
 | Required | No |
 | Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines |
-
-<br>
 
 ### 9.7.2 Intent
 
@@ -424,8 +410,6 @@ Table 59 — Metadata for the snippet copyright text field
 | Cardinality | 1..1 |
 | Format | Free form text that can span multiple lines \| `NONE` \| `NOASSERTION` |
 
-<br>
-
 ### 9.8.2 Intent
 
 Record any copyright notice associated with the snippet.
@@ -465,8 +449,6 @@ Table 60 — Metadata for the snippet comment field
 | Required | No |
 | Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines |
-
-<br>
 
 ### 9.9.2 Intent
 
@@ -512,8 +494,6 @@ Table 61 — Metadata for the snippet name field
 | Cardinality | 0..1 |
 | Format | Single line of text |
 
-<br>
-
 ### 9.10.2 Intent
 
 To aid in identifying a snippet under discussion that might be used in multiple locations, and for consistency with the ability to refer to any copyrightable SPDX Element by name.
@@ -547,8 +527,6 @@ Table 62 — Metadata for the snippet attribution text field
 | Required | No |
 | Cardinality | 0..* |
 | Format | Free form text that can span multiple lines. |
-
-<br>
 
 ### 9.11.2 Intent
 
