@@ -14,8 +14,6 @@ Table 2 — Metadata for the SPDX version field
 | Cardinality | 1..1 |
 | Format | `SPDX-M.N` where:<br><ul><li>`M` is major version number</li><li>`N` is minor version number.</li></ul> |
 
-<br>
-
 ### 6.1.2 Intent
 
 Here, parties exchanging information in accordance with the SPDX specification need to provide 100% transparency as to which SPDX specification version such information is conforming to.
@@ -58,8 +56,6 @@ Table 3 — Metadata for the data license field
 | Cardinality | 1..1 |
 | Format | `CC0-1.0` |
 
-<br>
-
 ### 6.2.2 Intent
 
 This is to alleviate any concern that content (the data or database) in an SPDX file is subject to any form of intellectual property right that could restrict the re-use of the information or the creation of another SPDX file for the same project(s). This approach avoids intellectual property and related restrictions over the SPDX file, however individuals can still contract with each other to restrict release of specific collections of SPDX files (which map to software bill of materials) and the identification of the supplier of SPDX files.
@@ -93,8 +89,6 @@ Table 4 — Metadata for SPDX identifier field
 | Required | Yes |
 | Cardinality | 1..1 |
 | Format | `SPDXRef-DOCUMENT` |
-
-<br>
 
 ### 6.3.2 Intent
 
@@ -134,8 +128,6 @@ Table 5 — Metadata for the document name field
 | Required | Yes |
 | Cardinality | 1..1 |
 | Format | Single line of text. |
-
-<br>
 
 ### 6.4.2 Intent
 
@@ -182,8 +174,6 @@ Table 6 — Metadata for the SPDX document namespace field
 | Required | Yes |
 | Cardinality | 1..1 |
 | Format | Unique absolute Uniform Resource Identifier (URI) as specified in [RFC-3986](https://tools.ietf.org/html/rfc3986), with the following exceptions:<br><br>The SPDX Document URI cannot contain a URI "part" (e.g. the `#` delimiter), since the `#` is used to uniquely identify SPDX element identifiers. The URI must contain a scheme (e.g. `https:`).<br><br>The URI must be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI. |
-
-<br>
 
 ### 6.5.2 Intent
 
@@ -238,8 +228,6 @@ Table 7 — Metadata for the external document references field
 | Cardinality | 1..* |
 | Format | DocumentRef-`[idstring]` `[SPDX Document URI]` `[Checksum]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.<br>`[SPDX Document URI]` is the unique ID for the external document as defined in [6.5](#6.5) of that referenced document,<br>`[Checksum]` is a checksum of the external document following the checksum format defined in [8.4](file-information#8.4). |
 
-<br>
-
 ### 6.6.2 Intent
 
 SPDX elements within this document may be related to other SPDX elements referenced from external SPDX documents. An SPDX element could be a snippet, file, package, license reference or SPDX document.
@@ -290,8 +278,6 @@ Table 8 — Metadata for the license list version field
 | Cardinality | 1..1 |
 | Format | `M.N`<br>where:<br>`M` is major version number<br>`N` is minor version number. |
 
-<br>
-
 ### 6.7.2 Intent
 
 Recognizing that licenses are added to the SPDX License List with each subsequent version, the intent is to provide recipients of the SPDX file with the version of the SPDX License List used. This anticipates that in the future, an SPDX file might have used a version of the SPDX License List that is older than the then current one.
@@ -325,8 +311,6 @@ Table 9 — Metadata for the creator field
 | Required | Yes |
 | Cardinality | 1..* |
 | Format | Single line of text with the following keywords:<br>`"Person: person name" and optional "(email)"`<br>`"Organization: organization" and optional "(email)"`<br>`"Tool: toolidentifier-version"` |
-
-<br>
 
 ### 6.8.2 Intent
 
@@ -366,8 +350,6 @@ Table 10 — Metadata for the created field
 | Cardinality | 1..1 |
 | Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
 
-<br>
-
 ### 6.9.2 Intent
 
 Here, the time stamp can serve as an indication as to whether the analysis needs to be updated.
@@ -401,8 +383,6 @@ Table 11 — Metadata for the Creator comment field
 | Required | No |
 | Cardinality | 1..1 |
 | Format | Free form text that can span multiple lines.<br>In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`. |
-
-<br>
 
 ### 6.10.2 Intent
 
@@ -440,8 +420,6 @@ Table 12 — Metadata for the document comment field
 | Required | No |
 | Cardinality | 1..1 |
 | Format | Free form text that can span multiple lines. In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`. |
-
-<br>
 
 ### 6.11.2 Intent
 
