@@ -14,8 +14,6 @@ Table 63 — Metadata for the license identifier field
 | Cardinality | 0..1 conditional (mandatory, one) if license is not on SPDX License List. |
 | Format | "LicenseRef-"`[idstring]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-`. |
 
-<br>
-
 ### 10.1.2 Intent
 
 Create a human readable short form license identifier for a license not on the SPDX License List. This identifier shall be unique within the SPDX file. In previous versions of SPDX, the references were required to be sequential numbers, but as of version 1.2, creators may specify references that are easier for humans to remember and mentally map.
@@ -59,8 +57,6 @@ Table 64 — Metadata for the extracted text field
 | Required | Conditional |
 | Cardinality | 0..1 conditional (Mandatory, one) if there is a License Identifier assigned. |
 | Format | Free form text field that may span multiple lines. |
-
-<br>
 
 ### 10.2.2 Intent
 
@@ -120,8 +116,6 @@ Table 65 — Metadata for the license name field
 | Cardinality | 0..1 conditional (mandatory, one) if license is not on SPDX License List. |
 | Format | Single line of text | `NOASSERTION` |
 
-<br>
-
 ### 10.3.2 Intent
 
 Provides a human readable name suitable for use as a title or label of the license when showing compact lists of licenses from the SPDX data to humans.
@@ -156,8 +150,6 @@ Table 66 — Metadata for the license cross reference field
 | Cardinality | 0..* conditional (optional, one or more) if license is not on SPDX License List. |
 | Format | Uniform Resource Locator |
 
-<br>
-
 ### 10.4.2 Intent
 
 Canonical source for a license currently not on the SPDX License List.
@@ -191,8 +183,6 @@ Table 67 — Metadata for the license comment field
 | Required | No |
 | Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines |
-
-<br>
 
 ### 10.5.2 Intent
 
