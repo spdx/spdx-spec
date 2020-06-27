@@ -14,8 +14,6 @@ Table 71 — Metadata for the annotator field
 | Cardinality | 0..1 conditional (Mandatory, one), if there is an Annotation. |
 | Format | Single line of text with the following keywords.<br><pre>"Person: person name" and optional  "(email)"<br>"Organization: organization" and optional "(email)"<br>"Tool: tool identifier - version"</pre> |
 
-<br>
-
 ### 12.1.2 Intent
 
 It may also be important for participants in the software supply chain to validate and add information on ambiguous files, and packages.
@@ -49,8 +47,6 @@ Table 72 — Metadata for the annotation date field
 | Required | Conditional |
 | Cardinality | 0..1 conditional (Mandatory, one), if there is an Annotation. |
 | Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
-
-<br>
 
 ### 12.2.2 Intent
 
@@ -86,8 +82,6 @@ Table 73 — Metadata for the annotation type field
 | Cardinality | 0..1 conditional (Mandatory, one), if there is an Annotation. |
 | Format | `REVIEW` \| `OTHER` |
 
-<br>
-
 ### 12.3.2 Intent
 
 This allows the type of annotation to be recorded.
@@ -122,8 +116,6 @@ Table 74 — Metadata for the SPDX identifier reference field
 | Required | Conditional |
 | Cardinality | 0..1 conditional (Mandatory, one), if there is an Annotation. |
 | Format | `[DocumentRef-[idstring]:]SPDXID`<br>where:<br>`["DocumentRef-"[idstring]":"]` is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>`SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2) and [8.2](file-information.md#8.2). |
-
-<br>
 
 ### 12.4.2 Intent
 
@@ -168,8 +160,6 @@ Table 75 — Metadata for the annotation comment field
 | Required | Conditional |
 | Cardinality | 0..1 conditional (Mandatory, one), if there is an Annotation. |
 | Format | Free form text that may span multiple lines. |
-
-<br>
 
 ### 12.5.2 Intent
 
