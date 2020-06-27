@@ -14,8 +14,6 @@ Table 36 — Metadata for the file name field
 | Cardinality | 1..1 |
 | Format | A relative filename with the root of the package archive or directory.<br><br>In general, every filename is preceded with a `./`, see [http://www.ietf.org/rfc/rfc3986.txt](http://www.ietf.org/rfc/rfc3986.txt) for syntax. |
 
-<br>
-
 ### 8.1.2 Intent
 
 To aid finding the correct file which corresponds to the file information.
@@ -50,8 +48,6 @@ Table 37 — Metadata for the file SPDX identifier field
 | Required | Yes |
 | Cardinality | 1..1 |
 | Format | "SPDXRef-"`[idstring]`<br>where `[idstring]` is a unique string containing letters, numbers, `.` and/or `-`. |
-
-<br>
 
 ### 8.2.2 Intent
 
@@ -113,8 +109,6 @@ Table 38 — Metadata for the file type field
 | Cardinality | 0..* |
 | Format | `SOURCE` \| `BINARY` \| `ARCHIVE` \| `APPLICATION` \| `AUDIO` \| `IMAGE` \| `TEXT` \| `VIDEO` \| `DOCUMENTATION` \| `SPDX` \| `OTHER` |
 
-<br>
-
 ### 8.3.2 Intent
 
 Here, this field is a reasonable estimation of the file type, from a developer perspective.
@@ -174,8 +168,6 @@ Table 39 — Metadata for the file checksum field
 | Cardinality | 1..1 [`SHA1`][SHA-1], others may be optionally provided. |
 | Algorithm | [`SHA1`][SHA-1] is to be used on the file. Other algorithms that can be provided optionally include [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6] |
 | Format | In `tag:value` there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF shall also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160 bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected. |
-
-<br>
 
 ### 8.4.2 Intent
 
@@ -246,8 +238,6 @@ Table 40 — Metadata for the concluded license field
 | Cardinality | 1..1 |
 | Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md). |
 
-<br>
-
 ### 8.5.2 Intent
 
 Here, the intent is for the SPDX file creator to analyze the License Information in File ([8.6](#8.6)) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
@@ -313,8 +303,6 @@ Table 41 — Metadata for the license information in file field
 | Cardinality | 1..* |
 | Format | `<SPDX License Expression>` \|<br>["DocumentRef-"`[idstring]`":"]"LicenseRef-"`[idstring]` \|<br>\| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a<br>valid SPDX License Expression<br>as defined in Annex [D](SPDX-license-expressions.md).<br>"DocumentRef-"`[idstring]`: is an optional reference to an external SPDX<br>document as described in [6.6](document-creation-information.md#6.6)<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-` |
 
-<br>
-
 ### 8.6.2 Intent
 
 Here, the intent is to provide the license information actually in the file, as compared to the Concluded License field.
@@ -351,8 +339,6 @@ Table 42 — Metadata for the comments on license field
 | Required | No |
 | Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines |
-
-<br>
 
 ### 8.7.2 Intent
 
@@ -410,8 +396,6 @@ Table 43 — Metadata for the copyright text field
 | Cardinality | 1..1 |
 | Format | Free form text that can span multiple lines \| `NONE` \| `NOASSERTION` |
 
-<br>
-
 ### 8.8.2 Intent
 
 Record any copyright notice for the file.
@@ -449,8 +433,6 @@ Table 44 — Metadata for the artifact of project name field
 | Required | No |
 | Cardinality | 0..* |
 | Format | Single line of text. In `tag:value` format the ArtifactOfProjectName shall precede any optional ArtifactOf optional properties (e.g. ArtifactOfHomePage and ArtifactOfURI). |
-
-<br>
 
 ### 8.9.2 Intent
 
@@ -492,8 +474,6 @@ Table 45 — Metadata for the artifact of project homepage field
 | Cardinality | 0..* |
 | Format | Uniform Resource Locator \| `UNKNOWN`.<br><br>In `tag:value` format all optional `ArtifactOf` fields shall follow immediately below the ArtifactOfProjectName. |
 
-<br>
-
 ### 8.10.2 Intent
 
 To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is described in another SPDX Document, then `Relationship` should be used.
@@ -534,8 +514,6 @@ Table 46 — Metadata for the artifact of project uniform resource identifier fi
 
 In `tag:value` format all optional ArtifactOf fields shall follow immediately below the ArtifactOfProjectName.
 
-<br>
-
 ### 8.11.2 Intent
 
 To make it easier for recipients of the SPDX file to determine the original source of the identified file. If the project is described in another SPDX Document, then `Relationship` should be used.
@@ -572,8 +550,6 @@ Table 47 — Metadata for the file comment field
 | Required | No |
 | Cardinality | 0..1 |
 | Format | Free form text that may span multiple lines |
-
-<br>
 
 ### 8.12.2 Intent
 
@@ -615,8 +591,6 @@ Table 48 — Metadata for the file notice field
 | Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines |
 
-<br>
-
 ### 8.13.2 Intent
 
 Here, the intent is to provide the recipient of the SPDX file with notices that may require additional review or otherwise contribute to the determination of the Concluded License.
@@ -654,8 +628,6 @@ Table 49 — Metadata for the file contributor field
 | Required | No |
 | Cardinality | 0..* |
 | Format | Free form text on a single line. |
-
-<br>
 
 ### 8.14.2 Intent
 
@@ -698,8 +670,6 @@ Table 50 — Metadata for the file attribution text field
 | Required | No |
 | Cardinality | 0..* |
 | Format | Free form text that can span multiple lines. |
-
-<br>
 
 ### 8.15.2 Intent
 
@@ -745,8 +715,6 @@ Table 51 — Metadata for the file dependencies field
 | Required | No |
 | Cardinality | 0..* |
 | Format | Reference to the file within the SPDX document. For the `tag:value` format, this will be the filename. For the RDF format, it shall be a reference to the actual file node. |
-
-<br>
 
 ### 8.16.2 Intent
 
