@@ -162,7 +162,7 @@ HTTP:// and HTTPS:// should be considered equivalent. Templates may or may not i
 
 ### B.15.1 Template Access <a name="B.15.1"></a>
 
-The master files for the SPDX License List includes a spreadsheet listing all the licenses, deprecated licenses, and license exceptions; and the text for each license in a .txt file. These files are available in a [Git repository](https://github.com/spdx/license-list-XML). Text that can be considered replaceable or omitable for matching purposes is indicated in the .txt file with markup as per the description below.
+The master files for the SPDX License List includes a spreadsheet listing all the licenses, deprecated licenses, and license exceptions; and the text for each license in a .txt file. These files are available in a Git repository at <https://github.com/spdx/license-list-XML>. Text that can be considered replaceable or omitable for matching purposes is indicated in the .txt file with markup as per the description below.
 
 RDFa Access: The template text for the license can be accessed using the RDF tag licenseTemplate on the web page containing the license.
 

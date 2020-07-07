@@ -12,7 +12,7 @@ idstring = 1*(ALPHA / DIGIT / "-" / "." )
 
 license-id = \<short form license identifier in Annex [A.1](SPDX-license-list.md#A.1)>
 
-license-exception-id = \<short form license exception identifier in Annex [B.2](license-matching-guidelines-and-templates.md#B.2)>
+license-exception-id = \<short form license exception identifier in Annex [A.2](SPDX-license-list.md#A.2)>
 
 license-ref = ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
 
