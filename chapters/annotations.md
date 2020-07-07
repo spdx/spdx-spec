@@ -4,7 +4,7 @@
 
 ### 12.1.1 Description
 
-This field identifies the person, organization or tool that has commented on a file, package, or the entire document. The metadata for the annotator field is shown in Table 71.
+This field identifies the person, organization or tool that has commented on a snippet, file, package, or the entire document. The metadata for the annotator field is shown in Table 71.
 
 Table 71 — Metadata for the annotator field
 
@@ -16,7 +16,7 @@ Table 71 — Metadata for the annotator field
 
 ### 12.1.2 Intent
 
-It may also be important for participants in the software supply chain to validate and add information on ambiguous files, and packages.
+It may also be important for participants in the software supply chain to validate and add information on ambiguous snippets, files and packages.
 
 ### 12.1.3 Examples
 
@@ -72,7 +72,7 @@ EXAMPLE 2 RDF: Property `spdx:annotationDate` in class `spdx:Annotation`
 
 ### 12.3.1 Description
 
-This field describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be `REVIEW`. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of `OTHER`. The metadata for the annotation type field is shown in Table 73.
+This field describes the type of annotation. Annotations are usually created when someone reviews the SPDX document, and if this is the case the annotation type should be `REVIEW`. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of `OTHER`. The metadata for the annotation type field is shown in Table 73.
 
 Table 73 — Metadata for the annotation type field
 
@@ -107,7 +107,7 @@ EXAMPLE 2 RDF: property `spdx:annotationType` in class `spdx:Annotation`
 
 ### 12.4.1 Description
 
-Uniquely identify the element in an SPDX document which is being referenced. These may be referenced internally and externally with the addition of the SPDX Document Identifier. The metadata for the SPDX identifier reference field is shown in Table 74.
+Uniquely identify the element in an SPDX document which is being referenced. These may be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the SPDX identifier reference field is shown in Table 74.
 
 Table 74 — Metadata for the SPDX identifier reference field
 
@@ -119,7 +119,7 @@ Table 74 — Metadata for the SPDX identifier reference field
 
 ### 12.4.2 Intent
 
-There may be several versions of the same package or file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
+There may be several versions of the same snippet, package or file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
 
 ### 12.4.3 Examples
 
@@ -135,7 +135,7 @@ SPDXREF: DocumentRef-spdx-tool-1.2:SPDXRef-5
 
 EXAMPLE 2 RDF:
 
-For RDF, the annotations are a property of the SPDX Document, Package, File, or Snippet they are annotating.
+For RDF, the annotations are a property of the SPDX document, package, file, or snippet they are annotating.
 
 ```text
 <File rdf:about="#SPDXRef-45">

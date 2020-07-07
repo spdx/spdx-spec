@@ -2,7 +2,7 @@
 
 ## 4.1 SPDX Versions <a name="4.1"></a>
 
-This edition has the version number 2.2.1 as part of its title. Although this is the first ISO edition of the SPDX Specification, earlier editions were published by the SPDX Working Group via the Linux Foundation (which also co-published this edition). [Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012), 1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), and 2.2 (May 2020).] Differences between this edition and earlier ones are reported in [Annex J](diffs-from-previous-editions.md); see also [1].
+This edition has the version number 2.2.1 as part of its title. Although this is the first ISO edition of the SPDX Specification, earlier editions were published by the SPDX workgroup via the Linux Foundation (which also co-published this edition). [Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012), 1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), and 2.2 (May 2020).] Differences between this edition and earlier ones are reported in [Annex J](diffs-from-previous-editions.md); see also [[1]](bibliography.md).
 
 ## 4.2 Obsolete features <a name="4.2"></a>
 
@@ -38,9 +38,9 @@ The data format specification and recommendations are subject to the following:
   * **tag:value** flat text file as described in this specification
   * **.xls** spreadsheets
 
-In addition to the supported formats, the following format is in development with a plan to complete the specification in the next release:
+* In addition to the supported formats, the following format is in development with a plan to complete the specification in the next release:
 
-* **Extensible Markup Language** (XML) see: https://www.w3.org/TR/2008/REC-xml-20081126/
+  * **Extensible Markup Language** (XML) see: <https://www.w3.org/TR/2008/REC-xml-20081126/>
 
 * Interoperability between all the supported file formats shall be preserved. SPDX defines how to validate a document in each supported format, and how to translate a valid document without loss to each other supported format.
 
@@ -60,7 +60,7 @@ In addition to the supported formats, the following format is in development wit
 
 ## 4.5 Usage <a name="4.5"></a>
 
-A file may be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the SPDX Trademark Page).
+A file may be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the [SPDX Trademark Page](https://spdx.dev/trademark/)).
 
 The official copyright notice that shall be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.2.1 is:
 
@@ -72,4 +72,4 @@ The official copyright notice that shall be used with any non-verbatim reproduct
 
 ## 4.6 The SPDX Lite profile <a name="4.6"></a>
 
-This profile defines a subset of the SPDX specification. SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries. See [Annex H](appendix-VIII-SPDX-Lite.md) for more information.
+This profile defines a subset of the SPDX specification. SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries. See [Annex H](SPDX-Lite.md) for more information.

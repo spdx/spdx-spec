@@ -163,7 +163,7 @@ EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:SpdxDocument`
 
 ### 6.5.1 Description
 
-Provide an SPDX document-specific namespace as a unique absolute [Uniform Resource Identifier][URI] (URI) as specified in [RFC-3986][rfc3986], with the exception of the ‘#’ delimiter. The SPDX Document URI shall not contain a URI "part" (e.g. the "#" character), since the ‘#’ is used in SPDX element URIs (packages, files, snippets, etc) to separate the document namespace from the element’s SPDX identifier. Additionally, a scheme (e.g. “https:”) is required.
+Provide an SPDX document-specific namespace as a unique absolute [Uniform Resource Identifier][URI] (URI) as specified in [RFC-3986][rfc3986], with the exception of the ‘#’ delimiter. The SPDX document URI shall not contain a URI "part" (e.g. the "#" character), since the ‘#’ is used in SPDX element URIs (packages, files, snippets, etc) to separate the document namespace from the element’s SPDX identifier. Additionally, a scheme (e.g. “https:”) is required.
 
 The URI shall be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document shall be used. There may only be one URI for an SPDX document and only one SPDX document for a given URI. The metadata for the SPDX document namespace field is shown in Table 6.
 
@@ -173,7 +173,7 @@ Table 6 — Metadata for the SPDX document namespace field
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Format | Unique absolute Uniform Resource Identifier (URI) as specified in [RFC-3986](https://tools.ietf.org/html/rfc3986), with the following exceptions:<br><br>The SPDX Document URI cannot contain a URI "part" (e.g. the `#` delimiter), since the `#` is used to uniquely identify SPDX element identifiers. The URI must contain a scheme (e.g. `https:`).<br><br>The URI must be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI. |
+| Format | Unique absolute Uniform Resource Identifier (URI) as specified in [RFC-3986](https://tools.ietf.org/html/rfc3986), with the following exceptions:<br><br>The SPDX document URI cannot contain a URI "part" (e.g. the `#` delimiter), since the `#` is used to uniquely identify SPDX element identifiers. The URI must contain a scheme (e.g. `https:`).<br><br>The URI must be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI. |
 
 ### 6.5.2 Intent
 
@@ -181,7 +181,7 @@ The URI provides an unambiguous mechanism for other SPDX documents to reference 
 
 * `CreatorWebsite` is a website hosted by the creator of the document. (e.g. an SPDX document provided by SPDX would be spdx.org)
 * `PathToSpdx` is a path to where SPDX documents are stored on the website (e.g. /spdx/spdxdocs)
-* `DocumentName` is a name given to the SPDX Document itself, typically the (set of) package name(s) followed by the version. (See [6.4](#6.4).)
+* `DocumentName` is a name given to the SPDX document itself, typically the (set of) package name(s) followed by the version. (See [6.4](#6.4).)
 * `UUID` is a [universally unique identifier][URI]. The UUID could be a version 4 random UUID which can be generated from the [Online UUID Generator][uuid-gen] or a version 5 UUID generated from a sha1 checksum known to be unique for this specific SPDX document version.
 * If the creator does not own their own website, a default SPDX CreatorWebsite and PathToSpdx can be used `spdx.org/spdxdocs`. Note that the SPDX documents are not currently stored or accessible on this website. The URI is only used to create a unique ID following the above conventions.
 
@@ -226,7 +226,7 @@ Table 7 — Metadata for the external document references field
 | --------- | ----- |
 | Required | No |
 | Cardinality | 1..* |
-| Format | DocumentRef-`[idstring]` `[SPDX Document URI]` `[Checksum]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.<br>`[SPDX Document URI]` is the unique ID for the external document as defined in [6.5](#6.5) of that referenced document,<br>`[Checksum]` is a checksum of the external document following the checksum format defined in [8.4](file-information#8.4). |
+| Format | DocumentRef-`[idstring]` `[SPDX document URI]` `[Checksum]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.<br>`[SPDX document URI]` is the unique ID for the external document as defined in [6.5](#6.5) of that referenced document,<br>`[Checksum]` is a checksum of the external document following the checksum format defined in [8.4](file-information#8.4). |
 
 ### 6.6.2 Intent
 
@@ -302,7 +302,7 @@ EXAMPLE 2 RDF: Property `licenseListVersion` in class `spdx:CreationInfo`
 
 ### 6.8.1 Description
 
-Identify who (or what, in the case of a tool) created the SPDX Document. If the SPDX Document was created by an individual, indicate the person's name. If the SPDX Document was created on behalf of a company or organization, indicate the entity name. If the SPDX Document was created using a software tool, indicate the name and version for that tool. If multiple participants or tools were involved, use multiple instances of this field. Person name or organization name may be designated as “anonymous” if appropriate. The metadata for the creator field is shown in Table 9.
+Identify who (or what, in the case of a tool) created the SPDX document. If the SPDX document was created by an individual, indicate the person's name. If the SPDX document was created on behalf of a company or organization, indicate the entity name. If the SPDX document was created using a software tool, indicate the name and version for that tool. If multiple participants or tools were involved, use multiple instances of this field. Person name or organization name may be designated as “anonymous” if appropriate. The metadata for the creator field is shown in Table 9.
 
 Table 9 — Metadata for the creator field
 
@@ -314,7 +314,7 @@ Table 9 — Metadata for the creator field
 
 ### 6.8.2 Intent
 
-Here, the generation method will assist the recipient of the SPDX Document in assessing the general reliability/accuracy of the analysis information.
+Here, the generation method will assist the recipient of the SPDX document in assessing the general reliability/accuracy of the analysis information.
 
 ### 6.8.3 Examples
 
@@ -340,7 +340,7 @@ EXAMPLE 2 RDF: Property `spdx:creator` in class `spdx:CreationInfo`
 
 ### 6.9.1 Description
 
-Identify when the SPDX Document was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in Clause [12](annotations.md), which involves the addition of information during a subsequent review. The metadata for the created field is shown in Table 10.
+Identify when the SPDX document was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in Clause [12](annotations.md), which involves the addition of information during a subsequent review. The metadata for the created field is shown in Table 10.
 
 Table 10 — Metadata for the created field
 
@@ -374,7 +374,7 @@ EXAMPLE 2 RDF: Property `spdx:created` in class `spdx:CreationInfo`
 
 ### 6.10.1 Description
 
-An optional field for creators of the SPDX Document to provide general comments about the creation of the SPDX Document or any other relevant comment not included in the other fields. The metadata for the Creator comment field is shown in Table 11.
+An optional field for creators of the SPDX document to provide general comments about the creation of the SPDX document or any other relevant comment not included in the other fields. The metadata for the Creator comment field is shown in Table 11.
 
 Table 11 — Metadata for the Creator comment field
 
@@ -386,14 +386,14 @@ Table 11 — Metadata for the Creator comment field
 
 ### 6.10.2 Intent
 
-Here, the intent is to provide recipients of the SPDX Document with comments by the creator of the SPDX Document.
+Here, the intent is to provide recipients of the SPDX document with comments by the creator of the SPDX document.
 
 ### 6.10.3 Examples
 
 EXAMPLE 1 Tag: `CreatorComment:`
 
 ```text
-CreatorComment: <text>This SPDX Document was created by a combination of using a free tool,
+CreatorComment: <text>This SPDX document was created by a combination of using a free tool,
 as indicated above, and manual analysis by several authors of the code.</text>
 ```
 
@@ -401,7 +401,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:CreationInfo`
 
 ```text
 <CreationInfo>
-    <rdfs:comment>This SPDX Document was created by a combination of 
+    <rdfs:comment>This SPDX document was created by a combination of 
     using a free tool, as indicated above, and manual analysis 
     by several authors of the code.</rdfs:comment>
 </CreationInfo>
@@ -411,7 +411,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:CreationInfo`
 
 ### 6.11.1 Description
 
-An optional field for creators of the SPDX Document content to provide comments to the consumers of the SPDX document. The metadata for the document comment field is shown in Table 12.
+An optional field for creators of the SPDX document content to provide comments to the consumers of the SPDX document. The metadata for the document comment field is shown in Table 12.
 
 Table 12 — Metadata for the document comment field
 
@@ -423,7 +423,7 @@ Table 12 — Metadata for the document comment field
 
 ### 6.11.2 Intent
 
-Here, the intent is to provide readers/reviewers with comments by the creator of the SPDX Document about the SPDX document.
+Here, the intent is to provide readers/reviewers with comments by the creator of the SPDX document about the SPDX document.
 
 ### 6.11.3 Examples
 

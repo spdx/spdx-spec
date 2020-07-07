@@ -9,15 +9,15 @@ To create a set of data exchange standards that enable companies and organizatio
 
 ## 1.2 Definition <a name="1.2"></a>
 
-The Software Package Data Exchange (SPDX®) specification is a standard format for communicating the component and metadata information associated with software packages. An SPDX Document can be associated with a set of software packages, set of files or snippets and contains information about the software in the SPDX format described in this specification.
+The Software Package Data Exchange (SPDX®) specification is a standard format for communicating the component and metadata information associated with software packages. An SPDX document can be associated with a set of software packages, set of files or snippets and contains information about the software in the SPDX format described in this specification.
 
 ## 1.3 Why is a common format for data exchange needed? <a name="1.3"></a>
 
-Companies and organizations (collectively “Organizations”) are widely using and reusing open source and other software packages.  Accurate identification of software is key for many supply chain processes.  Vulnerability remediation starts with knowing the details of which version of software is in use on a system. Compliance with the associated licenses requires a set of analysis activities and due diligence that each Organization performs independently, which may include a manual and/or automated scan of software and identification of associated licenses followed by manual verification. Software development teams across the globe use the same open source packages, but little infrastructure exists to facilitate collaboration on the analysis or share the results of these analysis activities. As a result, many groups are performing the same work leading to duplicated efforts and redundant information. The SPDX working group seeks to create a data exchange format so that information about software packages and related content may be collected and shared in a common format with the goal of saving time and improving data accuracy.
+Companies and organizations (collectively “Organizations”) are widely using and reusing open source and other software packages.  Accurate identification of software is key for many supply chain processes.  Vulnerability remediation starts with knowing the details of which version of software is in use on a system. Compliance with the associated licenses requires a set of analysis activities and due diligence that each Organization performs independently, which may include a manual and/or automated scan of software and identification of associated licenses followed by manual verification. Software development teams across the globe use the same open source packages, but little infrastructure exists to facilitate collaboration on the analysis or share the results of these analysis activities. As a result, many groups are performing the same work leading to duplicated efforts and redundant information. The SPDX workgroup seeks to create a data exchange format so that information about software packages and related content may be collected and shared in a common format with the goal of saving time and improving data accuracy.
 
 ## 1.4 What does this specification cover? <a name="1.4"></a>
 
-**1.4.1** SPDX Document Creation Information: Metadata to associate analysis results with a specific version of the SPDX Document and license for use, and provide information on how, when, and by whom the SPDX Document was created.
+**1.4.1** SPDX Document Creation Information: Metadata to associate analysis results with a specific version of the SPDX document and license for use, and provide information on how, when, and by whom the SPDX document was created.
 
 **1.4.2** Package Information: Facts that are common properties of an entire package.
 
@@ -29,7 +29,7 @@ Companies and organizations (collectively “Organizations”) are widely using 
 
 **1.4.6** Relationships Between SPDX Elements: Information on how Documents, Packages & Files relate to each other.
 
-**1.4.7** Annotations: Information about when and by whom the SPDX Document was reviewed
+**1.4.7** Annotations: Information about when and by whom the SPDX document was reviewed
 
 ![Overview of SPDX 2.2 document contents](img/spdx-2.2-document.png)
 
@@ -37,13 +37,13 @@ Companies and organizations (collectively “Organizations”) are widely using 
 
 **1.5.1** Information that cannot be derived from an inspection (whether manual or using automated tools) of the package to be analyzed.
 
-**1.5.2** How the data stored in an SPDX Document is used by the recipient.
+**1.5.2** How the data stored in an SPDX document is used by the recipient.
 
 **1.5.3** Any identification of any patent(s) which may or may not relate to the package.
 
 **1.5.4** Legal interpretation of the licenses or any compliance actions that have been or may need to be taken.
 
-**1.5.5** Examples may contain `...` which indicate detailed text specific to the SPDX Document
+**1.5.5** Examples may contain `...` which indicate detailed text specific to the SPDX document
 
 ## 1.6 What does "Package" mean in the context of SPDX? <a name="1.6"></a>
 
@@ -70,7 +70,7 @@ In an SPDX document, Relationship elements can be used to indicate relationships
 
 **1.7.3** Must be suitable to be checked for syntactic correctness automatically, independent of how it was generated (human or tool).
 
-**1.7.4** The SPDX Document character set must support UTF-8 encoding.
+**1.7.4** The SPDX document character set must support UTF-8 encoding.
 
 **1.7.5** Multiple file formats can be used to represent the information being exchanged.   Current supported formats include:
 
