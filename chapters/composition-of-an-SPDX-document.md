@@ -6,7 +6,7 @@ This document contains the specification for an SPDX document, which is made up 
 
 ![Overview of SPDX document contents](img/spdx-2.2-document.png)
 
-The data model is illustrated by [Annex C](RDF-data-model-implementation-and-identifier-syntax.md).
+The object model is illustrated by [Annex C](RDF-object-model-and-identifier-syntax.md).
 
 ## 5.2 Sections <a name="5.2"></a>
 
@@ -18,7 +18,7 @@ One instance shall be present for each SPDX document produced.
 
 Cardinality: Mandatory, one.
 
-See [Clause 6](2-document-creation-information.md) for details of the fields in this kind of section.
+See [Clause 6](document-creation-information.md) for details of the fields in this kind of section.
 
 ### 5.2.2 Package information section <a name="5.2.2"></a>
 
@@ -77,7 +77,7 @@ When implementing file information in RDF, the `spdx:hasFile` property is used t
 
 Snippets can optionally be used when a file is known to have some content that has been included from another original source. They are useful for denoting when part of a file may have been originally created under another license.
 
-Each instance of Snippet Information shall be associated with a specific File in an SPDX Document.
+Each instance of Snippet Information shall be associated with a specific file in an SPDX document.
 
 Cardinality: Optional, one or many.
 
@@ -132,4 +132,4 @@ This document does not address the following:
 * Information that cannot be derived from an inspection (whether manual or using automated tools) of the package to be analyzed.
 * How the data stored in an SPDX document is used by the recipient.
 * Any identification of any patent(s) which may or may not relate to the package.
-* Legal interpretation of the licenses or any compliance actions that have been or may need
+* Legal interpretation of the licenses or any compliance actions that have been or may need to be taken.

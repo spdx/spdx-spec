@@ -16,9 +16,9 @@ An SPDX Lite document can be used in parallel with SPDX documents in software su
 
 The SPDX Lite profile is a subset of the SPDX specification. SPDX Lite consists of mandatory fields of the Document Creation and Package Information sections and other basic information. Cardinality of each item is not changed.
 
-The mandatory part of the Document Creation section (which consists of SPDX Version, Data License, SPDX Identifier, Document Name, SPDX Document Namespace, Creator and Created) is used for keeping the compatibility with other SPDX documents.
+The mandatory part of the Document Creation Information section (which consists of SPDX Version, Data License, SPDX Identifier, Document Name, SPDX Document Namespace, Creator and Created) is used for keeping compatibility with SPDX tools.
 
-The main part of the Package Information (those are Package Name,  Package Version, Package File Name, Package Download Location,  Package Home Page, Concluded License, Declared License, Comments on License and Copyright Text) is used for exchanging license information.
+The main part of the Package Information (those are Package Name, Package Version, Package File Name, Package Download Location, Package Home Page, Concluded License, Declared License, Comments on License and Copyright Text) is used for exchanging license information.
 
 In the Package Information, Package SPDX Identifier and Files Analyzed are used for keeping compatibility with SPDX tools.
 

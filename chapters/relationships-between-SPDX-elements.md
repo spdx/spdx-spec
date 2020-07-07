@@ -6,9 +6,9 @@
 
 This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. 
 
-In cases where there are "known unknowns", the use of the keyword `NOASSERTION` can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX elements (package/file/snippet) are connected by relationships or not.  ie. There could be some, but the author is not asserting one way or another.  
+In cases where there are "known unknowns", the use of the keyword `NOASSERTION` can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX elements (package/file/snippet) that are connected by relationships or not. ie. There could be some, but the author is not asserting one way or another.
 
-Similarly, the use of the keywords `NONE` can be used to indicate that an SPDX element (package/file/snippet) has no other elements connected by some relationship to it.
+Similarly, the use of the keyword `NONE` can be used to indicate that an SPDX element (package/file/snippet) has no other elements connected by some relationship to it.
 
 The use of `NOASSERTION`or `NONE` is not mandatory for any relationship. If no relationship of a particular type is specified, then the document author is not presumed to be asserting whether or not there are relationships of that type. If some relationships of a particular type are specified, then the document author is not presumed to be asserting whether there are more possible relationships of that type.
 
@@ -133,7 +133,7 @@ EXAMPLE 2 RDF: Property `spdx:relationship` in any `spdx:SpdxDocument`, `spdx:Pa
 
 ### 11.2.1 Description
 
-This field provides a place for the SPDX Document creator to record any general comments about the relationship. The metadata for the relationship comment field is shown in Table 70.
+This field provides a place for the SPDX document creator to record any general comments about the relationship. The metadata for the relationship comment field is shown in Table 70.
 
 Table 70 — Metadata for the relationship comment field
 
@@ -145,7 +145,7 @@ Table 70 — Metadata for the relationship comment field
 
 ### 11.2.2 Intent
 
-Here, the intent is to provide the recipient of the SPDX file with more information determined after careful analysis of the relationship between two elements in an SPDX file.
+Here, the intent is to provide the recipient of the SPDX document with more information determined after careful analysis of the relationship between two elements in an SPDX document.
 
 ### 11.2.3 Examples
 

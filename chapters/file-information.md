@@ -39,7 +39,7 @@ EXAMPLE 2 RDF: Property `spdx:fileName` in class `spdx:File`
 
 ### 8.2.1 Description
 
-Uniquely identify any element in an SPDX document which might be referenced by other elements. These might be referenced internally and externally with the addition of the SPDX Document Identifier. The metadata for the file SPDX identifier field is shown in Table 37.
+Uniquely identify any element in an SPDX document which might be referenced by other elements. These might be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the file SPDX identifier field is shown in Table 37.
 
 Table 37 — Metadata for the file SPDX identifier field
 
@@ -61,7 +61,7 @@ EXAMPLE 1 Tag: `SPDXID:`
 SPDXID: SPDXRef-1
 ```
 
-EXAMPLE 2 RDF: The URI for the element will follow the form: [SpdxDocumentURI]#SPDXRef-[idstring] where [SpdxDocumentURI] is the URI for the SPDX Document containing the element.
+EXAMPLE 2 RDF: The URI for the element will follow the form: [SpdxDocumentURI]#SPDXRef-[idstring] where [SpdxDocumentURI] is the URI for the SPDX document containing the element.
 
 Using `xml:base:`
 
@@ -212,21 +212,21 @@ EXAMPLE 2 RDF: Property `spdx:Checksum` in class `spdx:File`
 
 ### 8.5.1 Description
 
-This field contains the license the SPDX Document creator has concluded as governing the file or alternative values if the governing license cannot be determined.
+This field contains the license the SPDX document creator has concluded as governing the file or alternative values if the governing license cannot be determined.
 
 The options to populate this field are limited to:
 
 A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md);
 
-`NONE`, if the SPDX Document creator concludes there is no license available for this file; or
+`NONE`, if the SPDX document creator concludes there is no license available for this file; or
 
 `NOASSERTION`, if:
 
-- the SPDX Document creator has attempted to, but cannot reach a reasonable objective determination;
+- the SPDX document creator has attempted to, but cannot reach a reasonable objective determination;
 
-- the SPDX Document creator has made no attempt to determine this field; or
+- the SPDX document creator has made no attempt to determine this field; or
 
-- the SPDX Document creator has intentionally provided no information (no meaning should be implied by doing so).
+- the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([8.7](#8.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([8.7](#8.7)) is preferred. The metadata for the concluded license field is shown in Table 40.
 
@@ -240,7 +240,7 @@ Table 40 — Metadata for the concluded license field
 
 ### 8.5.2 Intent
 
-Here, the intent is for the SPDX Document creator to analyze the License Information in File ([8.6](#8.6)) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
+Here, the intent is for the SPDX document creator to analyze the License Information in File ([8.6](#8.6)) and other objective information, e.g., “COPYING FILE,” along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the file.
 
 ### 8.5.3 Examples
 
@@ -289,9 +289,9 @@ A reference to the license, denoted by LicenseRef-`[idstring]`, if the license i
 
 `NOASSERTION`, if:
 
-- the SPDX Document creator has made no attempt to determine this field; or
+- the SPDX document creator has made no attempt to determine this field; or
 
-- the SPDX Document creator has intentionally provided no information (no meaning should be implied by doing so).
+- the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If license information for more than one license is contained in the file or if the license information offers the package recipient a choice of licenses, then each of the choices should be listed as a separate entry. The metadata for the license information in file field is shown in Table 41.
 
@@ -330,7 +330,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseInfoInFile` in class `spdx:File`
 
 ### 8.7.1 Description
 
-This field provides a place for the SPDX Document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a file. If the Concluded License does not match the License Information in File, this should be explained by the SPDX Document creator. It is also preferable to include an explanation here when the Concluded License is `NOASSERTION`. The metadata for the comments on license field is shown in Table 42.
+This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a file. If the Concluded License does not match the License Information in File, this should be explained by the SPDX document creator. It is also preferable to include an explanation here when the Concluded License is `NOASSERTION`. The metadata for the comments on license field is shown in Table 42.
 
 Table 42 — Metadata for the comments on license field
 
@@ -342,7 +342,7 @@ Table 42 — Metadata for the comments on license field
 
 ### 8.7.2 Intent
 
-Here, the intent is to provide the recipient of the SPDX Document with a detailed explanation of how the Concluded License was determined if it does not match the License Information in File, is marked `NOASSERTION`, or other helpful information relevant to determining the license of the file.
+Here, the intent is to provide the recipient of the SPDX document with a detailed explanation of how the Concluded License was determined if it does not match the License Information in File, is marked `NOASSERTION`, or other helpful information relevant to determining the license of the file.
 
 ### 8.7.3 Examples
 
@@ -436,9 +436,9 @@ Table 44 — Metadata for the artifact of project name field
 
 ### 8.9.2 Intent
 
-To make it easier for recipients of the SPDX Document to determine the original source of the identified file. If the project is not described in an SPDX Document, then `ArtifactOf` can be used.
+To make it easier for recipients of the SPDX document to determine the original source of the identified file. If the project is not described in an SPDX document, then `ArtifactOf` can be used.
 
-If the project is described in another SPDX Document, then Relationship should be used.
+If the project is described in another SPDX document, then Relationship should be used.
 
 ### 8.9.3 Examples
 
@@ -476,7 +476,7 @@ Table 45 — Metadata for the artifact of project homepage field
 
 ### 8.10.2 Intent
 
-To make it easier for recipients of the SPDX Document to determine the original source of the identified file. If the project is described in another SPDX Document, then `Relationship` should be used.
+To make it easier for recipients of the SPDX document to determine the original source of the identified file. If the project is described in another SPDX document, then `Relationship` should be used.
 
 ### 8.10.3 Examples
 
@@ -516,7 +516,7 @@ In `tag:value` format all optional ArtifactOf fields shall follow immediately be
 
 ### 8.11.2 Intent
 
-To make it easier for recipients of the SPDX Document to determine the original source of the identified file. If the project is described in another SPDX Document, then `Relationship` should be used.
+To make it easier for recipients of the SPDX document to determine the original source of the identified file. If the project is described in another SPDX document, then `Relationship` should be used.
 
 ### 8.11.3 Examples
 
@@ -541,7 +541,7 @@ resource of type doap:Project -->
 
 ### 8.12.1 Description
 
-This field provides a place for the SPDX Document creator to record any general comments about the file. The metadata for the file comment field is shown in Table 47.
+This field provides a place for the SPDX document creator to record any general comments about the file. The metadata for the file comment field is shown in Table 47.
 
 Table 47 — Metadata for the file comment field
 
@@ -553,7 +553,7 @@ Table 47 — Metadata for the file comment field
 
 ### 8.12.2 Intent
 
-Here, the intent is to provide the recipient of the SPDX Document with more information determined after careful analysis of a file.
+Here, the intent is to provide the recipient of the SPDX document with more information determined after careful analysis of a file.
 
 ### 8.12.3 Examples
 
@@ -581,7 +581,7 @@ EXAMPLE 2 RDF: Property `rdfs:comments` in class `spdx:File`
 
 ### 8.13.1 Description
 
-This field provides a place for the SPDX Document creator to record license notices or other such related notices found in the file. This might or might not include copyright statements. The metadata for the file notice field is shown in Table 48.
+This field provides a place for the SPDX document creator to record license notices or other such related notices found in the file. This might or might not include copyright statements. The metadata for the file notice field is shown in Table 48.
 
 Table 48 — Metadata for the file notice field
 
@@ -593,7 +593,7 @@ Table 48 — Metadata for the file notice field
 
 ### 8.13.2 Intent
 
-Here, the intent is to provide the recipient of the SPDX Document with notices that may require additional review or otherwise contribute to the determination of the Concluded License.
+Here, the intent is to provide the recipient of the SPDX document with notices that may require additional review or otherwise contribute to the determination of the Concluded License.
 
 ### 8.13.3 Examples
 
@@ -619,7 +619,7 @@ EXAMPLE 2 RDF: Property `noticeText` in class `spdx:File`
 
 ### 8.14.1 Description
 
-This field provides a place for the SPDX Document creator to record file contributors. Contributors could include names of copyright holders and/or authors who might not be copyright holders, yet contributed to the file content. The metadata for the file contributor field is shown in Table 49.
+This field provides a place for the SPDX document creator to record file contributors. Contributors could include names of copyright holders and/or authors who might not be copyright holders, yet contributed to the file content. The metadata for the file contributor field is shown in Table 49.
 
 Table 49 — Metadata for the file contributor field
 
@@ -631,7 +631,7 @@ Table 49 — Metadata for the file contributor field
 
 ### 8.14.2 Intent
 
-Here, the intent is to provide the recipient of the SPDX Document with a list of one or more contributors (credits). This is one way of providing acknowledgement to the contributors of a file. This would be useful, for example, if a recipient company wanted to contact copyright holders to inquire about alternate licensing.
+Here, the intent is to provide the recipient of the SPDX document with a list of one or more contributors (credits). This is one way of providing acknowledgement to the contributors of a file. This would be useful, for example, if a recipient company wanted to contact copyright holders to inquire about alternate licensing.
 
 ### 8.14.3 Examples
 
@@ -661,7 +661,7 @@ EXAMPLE 2 RDF: Property `spdx:fileContributor` in class `spdx:File`
 
 ### 8.15.1 Description
 
-This field provides a place for the SPDX data creator to record, at the file level, acknowledgements that might be required to be communicated in some contexts. This is not meant to include the file's actual complete license text (see `LicenseConcluded` and `LicenseInfoInFile`), and might or might not include copyright notices (see also `FileCopyrightText`). The SPDX data creator might use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce. The metadata for the file attribution text field is shown in Table 50.
+This field provides a place for the SPDX document creator to record, at the file level, acknowledgements that might be required to be communicated in some contexts. This is not meant to include the file's actual complete license text (see `LicenseConcluded` and `LicenseInfoInFile`), and might or might not include copyright notices (see also `FileCopyrightText`). The SPDX document creator might use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce. The metadata for the file attribution text field is shown in Table 50.
 
 Table 50 — Metadata for the file attribution text field
 
@@ -673,7 +673,7 @@ Table 50 — Metadata for the file attribution text field
 
 ### 8.15.2 Intent
 
-The intent is to provide the recipient of the SPDX Document with acknowledgement content at a file level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator might or might not explain elsewhere how they intend for this field to be used.
+The intent is to provide the recipient of the SPDX document with acknowledgement content at a file level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX document creator might or might not explain elsewhere how they intend for this field to be used.
 
 ### 8.15.3 Examples
 
@@ -706,7 +706,7 @@ This field is deprecated since SPDX 2.0 in favor of using Clause [11](relationsh
 
 ### 8.16.1 Description
 
-The field provides a place for the SPDX Document creator to record a list of other files (referenceable within this SPDX Document) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files might not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or might be needed as part of the file distribution obligation. The metadata for the file dependencies field is shown in Table 51.
+The field provides a place for the SPDX document creator to record a list of other files (referenceable within this SPDX document) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files might not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or might be needed as part of the file distribution obligation. The metadata for the file dependencies field is shown in Table 51.
 
 Table 51 — Metadata for the file dependencies field
 
@@ -718,7 +718,7 @@ Table 51 — Metadata for the file dependencies field
 
 ### 8.16.2 Intent
 
-Here, the intent is to provide the recipient of the SPDX Document with file dependency information based on the build system that created the file. These other files might impact the licensing of the file and/or might be required to satisfy the distribution obligation of the file (e.g., source files subject to a copyleft license).
+Here, the intent is to provide the recipient of the SPDX document with file dependency information based on the build system that created the file. These other files might impact the licensing of the file and/or might be required to satisfy the distribution obligation of the file (e.g., source files subject to a copyleft license).
 
 ### 8.16.3 Examples
 

@@ -6,7 +6,7 @@ This field has been deprecated since SPDX 2.0.
 
 ### 13.1.1 Description
 
-This field identifies the person, organization or tool that has reviewed the SPDX file. This field is optional and thus there is no requirement for any reviewer to add a set of review information to the file. This can be considered as an equivalent to “signed off” or “reviewed by.” Additional reviewers can be added after the original version of the SPDX file is created and be appended to the original file. The metadata for the reviewer field is shown in Table 76.
+This field identifies the person, organization or tool that has reviewed the SPDX document. This field is optional and thus there is no requirement for any reviewer to add a set of review information to the SPDX document. This can be considered as an equivalent to “signed off” or “reviewed by.” Additional reviewers can be added after the original version of the SPDX document is created and be appended to the original SPDX document. The metadata for the reviewer field is shown in Table 76.
 
 Table 76 — Metadata for the reviewer field
 
@@ -18,7 +18,7 @@ Table 76 — Metadata for the reviewer field
 
 ### 13.1.2 Intent
 
-Here, as time progresses certain reviewers will begin to gain credibility as reliable. This field intends to make such information transparent. It may also be important for participants in the software supply chain to validate whether upstream providers have reviewed the SPDX file.
+Here, as time progresses certain reviewers will begin to gain credibility as reliable. This field intends to make such information transparent. It may also be important for participants in the software supply chain to validate whether upstream providers have reviewed the SPDX document.
 
 ### 13.1.3 Examples
 

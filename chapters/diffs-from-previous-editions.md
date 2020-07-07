@@ -61,7 +61,7 @@ more information.
 
 # J.4 Differences between V2.0 and V1.2 <a name="J.4"></a>
 
-* Abstraction has been applied to the underlying model with the inclusion of SPDX elements. With SPDX 2.0, the concept of an SPDX element is introduced (see Appendix III). This includes SPDX Documents, SPDX Files, and SPDX Packages, each of which gets associated with an SPDX Identifier which is denoted by “SPDXRef-”.
+* Abstraction has been applied to the underlying model with the inclusion of SPDX elements. With SPDX 2.0, the concept of an SPDX element is introduced (see Appendix III). This includes SPDX documents, SPDX files, and SPDX packages, each of which gets associated with an SPDX identifier which is denoted by “SPDXRef-”.
 
 * SPDX relationships have been added to allow any SPDX element to have a relationship to other SPDX elements. This can be used for a variety of purposes including documenting a Software Package Data Exchange (SPDX®) Specification – Version 2.0 Copyright © 2010-2015 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved. hierarchy of sub-packages, documenting the origin of an SPDX element, and documenting modifications or corrections (annotations) to an SPDX element.
 

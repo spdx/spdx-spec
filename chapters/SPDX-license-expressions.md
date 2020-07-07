@@ -57,7 +57,7 @@ A simple `<license-expression>` is composed one of the following:
 
 * An SPDX License List Short Form Identifier. For example: CDDL-1.0
 * An SPDX License List Short Form Identifier with a unary "+" operator suffix to represent the current version of the license or any later version. For example: CDDL-1.0+
-* A SPDX user defined license reference: ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
+* An SPDX user defined license reference: ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
 
 Some examples:
 
@@ -77,7 +77,7 @@ More expressive composite license expressions can be constructed using "OR", "AN
 
 For the `tag:value` format, any license expression that consists of more than one license identifier and/or LicenseRef, may optionally be encapsulated by parentheses: "( )".
 
-Nested parentheses can also be used to specify an order of precedence which is discussed in more detail in subsection (4).
+Nested parentheses can also be used to specify an order of precedence which is discussed in more detail in [D.4.5](#D.4.5).
 
 ### D.4.2 Disjunctive "OR" Operator <a name="D.4.2"></a>
 

@@ -106,7 +106,7 @@ English uses different spelling for some words. By identifying the spelling vari
 
 ### B.9.2  Guideline <a name="B.9.2"></a>
 
-The words in each line of the text file available at https://github.com/spdx/license-list-XML/blob/master/equivalentwords.txt are considered equivalent and interchangeable. Templates do not include markup for this guideline.
+The words in each line of the text file available at <https://github.com/spdx/license-list-XML/blob/master/equivalentwords.txt> are considered equivalent and interchangeable. Templates do not include markup for this guideline.
 
 ## B.10 Copyright Symbol <a name="B.10"></a>
 
@@ -122,7 +122,7 @@ By having a rule regarding the use of "©", "(c)", or "copyright", we avoid the 
 
 ### B.11.1 Purpose <a name="B.11.1"></a>
 
-To avoid a license mismatch merely because the copyright notice (usually found above the actual license or exception text) is different. The copyright notice is important information to be recorded elsewhere in the SPDX Document, but for the purposes of matching a license to the SPDX License List, it should be ignored because it is not part of the substantive license text.
+To avoid a license mismatch merely because the copyright notice (usually found above the actual license or exception text) is different. The copyright notice is important information to be recorded elsewhere in the SPDX document, but for the purposes of matching a license to the SPDX License List, it should be ignored because it is not part of the substantive license text.
 
 ### B.11.2 Guideline <a name="B.11.2"></a>
 
