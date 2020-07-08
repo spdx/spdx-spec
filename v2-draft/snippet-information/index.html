@@ -303,7 +303,7 @@
                 <h1 id="9-snippet-information-fields">9 Snippet information fields</h1>
 <h2 id="91-snippet-spdx-identifier-field">9.1 Snippet SPDX identifier field <a name="9.1"></a></h2>
 <h3 id="911-description">9.1.1 Description</h3>
-<p>Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document Identifier. The metadata for the snippet SPDX identifier field is shown in Table 52.</p>
+<p>Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the snippet SPDX identifier field is shown in Table 52.</p>
 <p>Table 52 — Metadata for the snippet SPDX identifier field</p>
 <table>
 <thead>
@@ -335,7 +335,7 @@
 
 
 <p>EXAMPLE 2 RDF: </p>
-<p>The URI for the element shall follow the form: <code>[SpdxDocumentURI]#SPDXRef-[idstring]</code> where <code>[SpdxDocumentURI]</code> is the URI for the SPDX Document containing the element.</p>
+<p>The URI for the element shall follow the form: <code>[SpdxDocumentURI]#SPDXRef-[idstring]</code> where <code>[SpdxDocumentURI]</code> is the URI for the SPDX document containing the element.</p>
 <p>Using xml:base:</p>
 <pre class="codehilite"><code class="language-text">&lt;rdf:RDF xml:base=&quot;http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B&quot;
     ...
@@ -372,7 +372,7 @@
 </tr>
 <tr>
 <td>Format</td>
-<td>["DocumentRef-"[idstring]":"] SPDXID<br>where <code>DocumentRef-[idstring]</code>: is an optional reference to an external SPDX document as described in <a href="../document-creation-information/#6.6">6.6</a><br>where <code>SPDXID</code> is a string containing letters, numbers, <code>.</code> and/or <code>-</code>. as described in (6.3, 7.2, 8.2).</td>
+<td>["DocumentRef-"[idstring]":"] SPDXID<br>where <code>DocumentRef-[idstring]</code>: is an optional reference to an external SPDX document as described in <a href="../document-creation-information/#6.6">6.6</a><br>where <code>SPDXID</code> is a string containing letters, numbers, <code>.</code> and/or <code>-</code>. as described in (<a href="../document-creation-information/#6.3">6.3</a>, <a href="../package-information/#7.2">7.2</a>, <a href="../file-information/#8.2">8.2</a>).</td>
 </tr>
 </tbody>
 </table>
@@ -532,7 +532,7 @@
 
 <h2 id="95-snippet-concluded-license-field">9.5 Snippet concluded license field <a name="9.5"></a></h2>
 <h3 id="951-description">9.5.1 Description</h3>
-<p>This field contains the license the SPDX Document creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:</p>
+<p>This field contains the license the SPDX document creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:</p>
 <p>A valid SPDX License Expression as defined in Annex <a href="../SPDX-license-expressions/">D</a>.</p>
 <p><code>NONE</code> should be used if there is no licensing information from which to conclude a license for the snippet.</p>
 <p><code>NOASSERTION</code> should be used if for the snippet:</p>
@@ -550,7 +550,7 @@
 <p>the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).</p>
 </li>
 </ul>
-<p>If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field (see <a href="#9.7">9.7</a>). With respect to <code>NOASSERTION</code>, a written explanation in the Comments on License field (see <a href="#9.7">9.7</a>) is preferred. The metadata for the snippet concluded license field is shown in Table 56.</p>
+<p>If the Concluded License is not the same as the License Information in Snippet, a written explanation should be provided in the Comments on License field (see <a href="#9.7">9.7</a>). With respect to <code>NOASSERTION</code>, a written explanation in the Comments on License field (see <a href="#9.7">9.7</a>) is preferred. The metadata for the snippet concluded license field is shown in Table 56.</p>
 <p>Table 56 — Metadata for the snippet concluded license field</p>
 <table>
 <thead>
@@ -570,12 +570,12 @@
 </tr>
 <tr>
 <td>Format</td>
-<td><code>&lt;SPDX License Expression&gt;</code> | <code>NONE</code> | <code>NOASSERTION</code><br>where:<br><code>&lt;SPDX License Expression&gt;</code> is a valid SPDX License Expression as defined in Appendix D.</td>
+<td><code>&lt;SPDX License Expression&gt;</code> | <code>NONE</code> | <code>NOASSERTION</code><br>where:<br><code>&lt;SPDX License Expression&gt;</code> is a valid SPDX License Expression as defined in <a href="../SPDX-license-expressions/">Annex D</a>.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="952-intent">9.5.2 Intent</h3>
-<p>Here, the intent is for the SPDX document creator to reconcile the license information known about the snippet,  what license information is in the file itself and other objective information for a package, along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the snippet.</p>
+<p>Here, the intent is for the SPDX document creator to reconcile the license information known about the snippet, what license information is in the snippet itself and other objective information for a package, along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the snippet.</p>
 <h3 id="953-examples">9.5.3 Examples</h3>
 <p>EXAMPLE 1 Tag: <code>SnippetLicenseConcluded:</code></p>
 <pre class="codehilite"><code class="language-text">SnippetLicenseConcluded: GPL-2.0-only</code></pre>
@@ -612,10 +612,10 @@ A reference to the license, denoted by LicenseRef-<code>[idstring]</code>, if th
 <p><code>NOASSERTION</code>, if:</p>
 <ul>
 <li>
-<p>the SPDX snippet creator has made no attempt to determine this field; or</p>
+<p>the SPDX document creator has made no attempt to determine this field; or</p>
 </li>
 <li>
-<p>the SPDX snippet creator has intentionally provided no information (no meaning should be implied by doing so).</p>
+<p>the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).</p>
 </li>
 </ul>
 <p>If license information for more than one license is contained in the snippet or if the license information offers a choice of licenses, then each of the choices should be listed as a separate entry. The metadata for the license information in snippet field is shown in Table 57.</p>
@@ -687,7 +687,7 @@ A reference to the license, denoted by LicenseRef-<code>[idstring]</code>, if th
 </tbody>
 </table>
 <h3 id="972-intent">9.7.2 Intent</h3>
-<p>Here, the intent is to provide the recipient of the SPDX document with a detailed explanation of how the Concluded License was determined for a Snippet if it does not match the License Information in File, is marked <code>NOASSERTION</code>, or other helpful information relevant to determining the license of the snippet in a file.</p>
+<p>Here, the intent is to provide the recipient of the SPDX document with a detailed explanation of how the Concluded License was determined for a Snippet if it does not match the License Information in Snippet, is marked <code>NOASSERTION</code>, or other helpful information relevant to determining the license of the snippet in a file.</p>
 <h3 id="973-examples">9.7.3 Examples</h3>
 <p>EXAMPLE 1 Tag: <code>SnippetLicenseComments:</code></p>
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
@@ -711,8 +711,8 @@ The concluded license information was found in the COPYING.txt file in package x
 <h3 id="981-description">9.8.1 Description</h3>
 <p>Identify the copyright holder of the snippet, as well as any dates present. This shall be a free form text field, ideally extracted from the actual snippet.  The options to populate this field are limited to:</p>
 <p>any text relating to a copyright notice, even if not complete;</p>
-<p><code>NONE</code>, if the file contains no copyright information whatsoever; or</p>
-<p><code>NOASSERTION</code>, if the SPDX document creator has not examined the contents of the actual file or if the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).</p>
+<p><code>NONE</code>, if the snippet contains no copyright information whatsoever; or</p>
+<p><code>NOASSERTION</code>, if the SPDX document creator has not examined the contents of the actual snippet or if the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).</p>
 <p>The metadata for the snippet copyright text field is shown in Table 59.</p>
 <p>Table 59 — Metadata for the snippet copyright text field</p>
 <table>
@@ -844,7 +844,7 @@ when a commercial scanner identified it as being derived from file foo.c in pack
 
 <h2 id="911-snippet-attribution-text-field">9.11 Snippet attribution text field <a name="9.11"></a></h2>
 <h3 id="9111-description">9.11.1 Description</h3>
-<p>This field provides a place for the SPDX data creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see <code>SnippetLicenseConcluded</code> and <code>LicenseInfoInSnippet</code>), and might or might not include copyright notices (see also <code>SnippetCopyrightText</code>). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce. The metadata for the snippet attribution text field is shown in Table 62.</p>
+<p>This field provides a place for the SPDX document creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see <code>SnippetLicenseConcluded</code> and <code>LicenseInfoInSnippet</code>), and might or might not include copyright notices (see also <code>SnippetCopyrightText</code>). The SPDX document creator may use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce. The metadata for the snippet attribution text field is shown in Table 62.</p>
 <p>Table 62 — Metadata for the snippet attribution text field</p>
 <table>
 <thead>
@@ -869,7 +869,7 @@ when a commercial scanner identified it as being derived from file foo.c in pack
 </tbody>
 </table>
 <h3 id="9112-intent">9.11.2 Intent</h3>
-<p>The intent is to provide the recipient of the SPDX Document with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX data creator might or might not explain elsewhere how they intend for this field to be used.</p>
+<p>The intent is to provide the recipient of the SPDX document with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX document creator might or might not explain elsewhere how they intend for this field to be used.</p>
 <h3 id="9113-examples">9.11.3 Examples</h3>
 <p>EXAMPLE 1 Tag: <code>SnippetAttributionText:</code></p>
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>. </p>
