@@ -15,6 +15,10 @@ This standard contains more than a few *cardinality assertions*, each of which i
 * Cardinality: Mandatory, one.
 * Cardinality: Optional, one or many.
 * Cardinality: Mandatory, one if {condition} is true or {feature} omitted, zero (must be omitted) if {condition} is false.
+* Cardinality: 0..1
+* Cardinality: 0..\*
+* Cardinality: 1..1
+* Cardinality: 1..\*
 
 Each of these assertions can easily be understood as to whether a feature is required, and if so, how many occurrences are required; also whether a feature is permitted, and if so, in what number. As this is the format long familiar to the SPDX community, it has been preserved in this document.
 
@@ -31,16 +35,17 @@ The data format specification and recommendations are subject to the following:
 * The SPDX document character set shall support UTF-8 encoding.
 
 * Multiple serialization formats may be used to represent the information being exchanged. Current supported formats include:
-  * **YAML 1.2** see: <https://yaml.org/spec/1.2/spec.html>
-  * **JavaScript Object Notation** (JSON) see: [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
-    * The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)
-  * **Resource Description Framework** (RDF also referred to as RDF/XML) see: <https://www.w3.org/TR/rdf-syntax-grammar/>
-  * **tag:value** flat text file as described in this specification
-  * **.xls** spreadsheets
+
+    * **YAML 1.2** see: <https://yaml.org/spec/1.2/spec.html>
+    * **JavaScript Object Notation** (JSON) see: [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
+        * The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)
+    * **Resource Description Framework** (RDF also referred to as RDF/XML) see: <https://www.w3.org/TR/rdf-syntax-grammar/>
+    * **tag:value** flat text file as described in this specification
+    * **.xls** spreadsheets
 
 * In addition to the supported formats, the following format is in development with a plan to complete the specification in the next release:
 
-  * **Extensible Markup Language** (XML) see: <https://www.w3.org/TR/2008/REC-xml-20081126/>
+    * **Extensible Markup Language** (XML) see: <https://www.w3.org/TR/2008/REC-xml-20081126/>
 
 * Interoperability between all the supported file formats shall be preserved. SPDX defines how to validate a document in each supported format, and how to translate a valid document without loss to each other supported format.
 
@@ -68,7 +73,7 @@ The official copyright notice that shall be used with any verbatim reproduction 
 
 The official copyright notice that shall be used with any non-verbatim reproduction and/or distribution of this SPDX Specification 2.2.1, including without limitation any partial use or combining this SPDX Specification with another work, is:
 
-> "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX® Specification 2.2.1 found at spdx.org. These portions are Copyright © 2010-2020 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
+> "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX® Specification 2.2.1 found at spdx.dev. These portions are Copyright © 2010-2020 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
 
 ## 4.6 The SPDX Lite profile <a name="4.6"></a>
 

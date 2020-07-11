@@ -1,4 +1,4 @@
-# 11 Relationships between SPDX elements fields
+# 11 Relationship between SPDX elements information fields
 
 ## 11.1 Relationship field <a name="11.1"></a>
 

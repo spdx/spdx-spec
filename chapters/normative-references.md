@@ -12,7 +12,7 @@ The following documents are referred to in the text in such a way that some or a
 
 NISTIR 7695, *Common Platform Enumeration: Naming Specification Version 2.3*, NIST, [https://csrc.nist.gov/publications/detail/nistir/7695/final](https://csrc.nist.gov/publications/detail/nistir/7695/final)
 
-*npm-package.json*, npn Inc., [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
+*npm-package.json*, npm Inc., [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
 
 *NuGet documentation*, Microsoft, [https://docs.microsoft.com/en-us/nuget/](https://docs.microsoft.com/en-us/nuget/)
 
