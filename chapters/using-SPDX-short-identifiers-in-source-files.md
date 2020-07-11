@@ -26,7 +26,9 @@ The SPDX License Identifier syntax may consist of a single license (represented 
 
 The tag should appear on its own line in the source file, generally as part of a comment.
 
-SPDX-License-Identifier: \<SPDX License Expression\>
+```text
+SPDX-License-Identifier: <SPDX License Expression>
+```
 
 ## E.3 Representing single license <a name="E.3"></a>
 

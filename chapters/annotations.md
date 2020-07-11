@@ -1,4 +1,4 @@
-# 12 Annotations fields
+# 12 Annotation information fields
 
 ## 12.1 Annotator field <a name="12.1"></a>
 

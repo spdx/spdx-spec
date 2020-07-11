@@ -301,7 +301,7 @@ Table 41 — Metadata for the license information in file field
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..* |
-| Format | `<SPDX License Expression>` \|<br>["DocumentRef-"`[idstring]`":"]"LicenseRef-"`[idstring]` \|<br>\| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a<br>valid SPDX License Expression<br>as defined in Annex [D](SPDX-license-expressions.md).<br>"DocumentRef-"`[idstring]`: is an optional reference to an external SPDX<br>document as described in [6.6](document-creation-information.md#6.6)<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-` |
+| Format | `<SPDX License Expression>` \|<br>["DocumentRef-"`[idstring]`":"]"LicenseRef-"`[idstring]` \|<br>\| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md).<br>"DocumentRef-"`[idstring]`: is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-` |
 
 ### 8.6.2 Intent
 
