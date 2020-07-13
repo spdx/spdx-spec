@@ -174,19 +174,18 @@ A rule is a variable section of a license wrapped between double angle brackets 
 
 Rule fields:
 
-```text
+
 * type: indicates whether the text is replaceable or omitable as per Matching Guideline #2 (“Substantive Text”).
-    * Indicated by <<var; . . . >> or...
-    * Indicated by <<beginOptional; . . .>> and <<endOptional>> respectively.
+    * Indicated by `<<var; . . . >>` or...
+    * Indicated by `<<beginOptional; . . .>>` and `<<endOptional>>` respectively.
     * This field is the first field and is required.
 * name: name of the field in the template.
     * This field is unique within each license template.
     * This field is required.
 * original: the original text of the rule.
-    * This field is required for a rule type: <<var; . . . >>
+    * This field is required for a rule type: `<<var; . . . >>`
 * match: a POSIX extended regular expession (ERE).
-    * This field is required for a rule type: <<var; . . . >>
-```
+    * This field is required for a rule type: `<<var; . . . >>`
 
 The [POSIX ERE]( http://pubs.opengroup.org/onlinepubs/9699919799/) in the match field has the following restrictions and extensions:
 
