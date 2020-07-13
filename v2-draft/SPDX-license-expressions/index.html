@@ -101,11 +101,11 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../relationships-between-SPDX-elements/">Clause 11: Relationships between SPDX Elements</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../relationships-between-SPDX-elements/">Clause 11: Relationship between SPDX Elements Information</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../annotations/">Clause 12: Annotations</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../annotations/">Clause 12: Annotation Information</a>
                     </li>
                 </ul>
                 <ul>
@@ -217,17 +217,30 @@
 <p>Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0-only OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1-only AND BSD-3-Clause).</p>
 <p>SPDX License Expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-<code>[idString]</code>; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., <code>AND</code>, <code>OR</code>, <code>WITH</code> and <code>+</code>). We provide the definition of what constitutes a valid an SPDX License Expression in this section.</p>
 <p>The exact syntax of license expressions is described below in <a href="http://tools.ietf.org/html/rfc5234">ABNF</a>.</p>
-<p>idstring = 1*(ALPHA / DIGIT / "-" / "." )</p>
-<p>license-id = \<short form license identifier in Annex <a href="SPDX-license-list.md#A.1">A.1</a>></p>
-<p>license-exception-id = \<short form license exception identifier in Annex <a href="SPDX-license-list.md#A.2">A.2</a>></p>
-<p>license-ref = ["DocumentRef-"1*(idstring)":"]"LicenseRef-"1*(idstring)</p>
-<p>simple-expression = license-id / license-id"+" / license-ref</p>
-<p>compound-expression = 1*1(simple-expression /</p>
-<p>simple-expression "WITH" license-exception-id /</p>
-<p>compound-expression "AND" compound-expression /</p>
-<p>compound-expression "OR" compound-expression ) /</p>
-<p>"(" compound-expression ")" )</p>
-<p>license-expression = 1*1(simple-expression / compound-expression)</p>
+<pre class="codehilite"><code class="language-text">idstring = 1*(ALPHA / DIGIT / &quot;-&quot; / &quot;.&quot; )
+
+license-id = &lt;short form license identifier in Annex A.1&gt;
+
+license-exception-id = &lt;short form license exception identifier in Annex A.2&gt;
+
+license-ref = [&quot;DocumentRef-&quot;1\*(idstring)&quot;:&quot;]&quot;LicenseRef-&quot;1*(idstring)
+
+simple-expression = license-id / license-id&quot;+&quot; / license-ref
+
+compound-expression = 1*1(simple-expression /
+
+
+simple-expression &quot;WITH&quot; license-exception-id /
+
+  compound-expression &quot;AND&quot; compound-expression /
+
+  compound-expression &quot;OR&quot; compound-expression ) /
+
+  &quot;(&quot; compound-expression &quot;)&quot; )
+
+license-expression = 1*1(simple-expression / compound-expression)</code></pre>
+
+
 <p>In the following sections we describe in more detail <code>&lt;license-expression&gt;</code> construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern day software.</p>
 <p>A valid <code>&lt;license-expression&gt;</code> string consists of either:</p>
 <p>(i) a simple license expression, such as a single license identifier; or</p>
