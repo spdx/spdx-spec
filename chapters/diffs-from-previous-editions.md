@@ -32,17 +32,15 @@ Annex J   | Differences from previous editions | N/A
 
 # J.2 Differences from V2.2 and V2.1 <a name="J.2"></a>
 
-* Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in. The use of snippets is completely optional and it is not mandatory for snippets to be identified. See Clause [9](snippet-information.md) for further details on the fields available to describe snippets.
+* JSON, YAML, and a development version of XML have been added as supported file formats.
 
-* External Packages can now be referred to in SPDX documents. When there is no SPDX file information available to document the content of these external packages, then the `filesAnalyzed` attribute on a package should be set to false. See [7.8](package-information.md#7.8) `Files Analyzed` for more information.
+* A new appendix "SPDX File Tags" has been added to describe a method that developers can use to document other SPDX file-specific information (such as copyright notices, file type, etc.) in a standardized and easily machine-readable manner. See Appendix IX for more information.
 
-* Packages are now able to associate with an "External Reference" which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package. See [7.21](package-information.md#7.21), [7.22](package-information.md#7.22) and Annex [F](external-repository-identifiers.md) for more information.
+* A new appendix "SPDX Lite" has been added to document a lightweight subset of the SPDX specification for scenarios where a full SPDX document is not required. See Appendix VIII for more information.
 
-* The "Artifact of Project" fields at the file level are now deprecated, as they can be replaced by a relationship to the more descriptive External Packages.
+* Additional relationship options have been added to enable expression of different forms of dependencies between SPDX elements. As well, NONE and NOASSERTION keywords are now permitted to be used with relationships to indicate what is unknown.
 
-* A new annex "Using SPDX short identifiers in Source Files" has been added to document the best practices to refer to the licenses in the SPDX license list that have emerged from the development community. See Annex [E](using-SPDX-short-identifiers-in-source-files.md) for more information.
-
-* Miscellaneous bug fixes as reported on the mailing list and reported as issues on the [spdx-spec GitHub repository](https://github.com/spdx/spdx-spec).
+* Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the spdx-spec GitHub repository.
 
 # J.3 Differences between V2.1 and V2.0 <a name="J.3"></a>
 
