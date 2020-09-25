@@ -420,126 +420,9 @@ EXAMPLE 2 RDF: Property `spdx:copyrightText` in class `spdx:File`
 </File>
 ```
 
-## 8.9 Artifact of project name field (deprecated) <a name="8.9"></a>
+## 8.9 File comment field <a name="8.9"></a>
 
 ### 8.9.1 Description
-
-To indicate that a file has been derived from a specific project. The metadata for the artifact of project name field is shown in Table 44.
-
-Table 44 — Metadata for the artifact of project name field
-
-| Attribute | Value |
-| --------- | ----- |
-| Required | No |
-| Cardinality | 0..* |
-| Format | Single line of text. In `tag:value` format the ArtifactOfProjectName shall precede any optional ArtifactOf optional properties (e.g. ArtifactOfHomePage and ArtifactOfURI). |
-
-### 8.9.2 Intent
-
-To make it easier for recipients of the SPDX document to determine the original source of the identified file. If the project is not described in an SPDX document, then `ArtifactOf` can be used.
-
-If the project is described in another SPDX document, then Relationship should be used.
-
-### 8.9.3 Examples
-
-EXAMPLE 1 Tag: `ArtifactOfProjectName:`
-
-```text
-ArtifactOfProjectName: Jena
-```
-
-EXAMPLE 2 RDF: Property `spdx:artifactOf/doap:Project/doap:name`
-
-```text
-<File>
-    <artifactOf>
-        <doap:Project>
-            <doap:name>Jena</doap:name>
-        </doap:Project>
-    </artifactOf>
-</File>
-```
-
-## 8.10 Artifact of project homepage field (deprecated) <a name="8.10"></a>
-
-### 8.10.1 Description
-
-To indicate the location of the project from which the file has been derived. The metadata for the artifact of project homepage field is shown in Table 45.
-
-Table 45 — Metadata for the artifact of project homepage field
-
-| Attribute | Value |
-| --------- | ----- |
-| Required | No |
-| Cardinality | 0..* |
-| Format | Uniform Resource Locator \| `UNKNOWN`.<br><br>In `tag:value` format all optional `ArtifactOf` fields shall follow immediately below the ArtifactOfProjectName. |
-
-### 8.10.2 Intent
-
-To make it easier for recipients of the SPDX document to determine the original source of the identified file. If the project is described in another SPDX document, then `Relationship` should be used.
-
-### 8.10.3 Examples
-
-EXAMPLE 1 Tag: `ArtifactOfProjectHomePage:`
-
-```text
-ArtifactOfProjectHomePage: http://www.openjena.org/
-```
-
-EXAMPLE 2 RDF: `spdx:artifactOf/doap:Project/doap:homepage`
-
-```text
-<File>
-    <artifactOf>
-        <doap:Project>
-            <doap:homepage >rttp://www.openjena.org/</doap:homepage>
-        </doap:Project>
-    </artifactOf>
-</File>
-```
-
-## 8.11 Artifact of project uniform resource identifier field (deprecated) <a name="8.11"></a>
-
-### 8.11.1 Description
-
-To provide a linkage to the project resource in the DOAP document and permit interoperability between the different formats supported. The metadata for the artifact of project uniform resource identifier field is shown in Table 46.
-
-Table 46 — Metadata for the artifact of project uniform resource identifier field
-
-| Attribute | Value |
-| --------- | ----- |
-| Required | No |
-| Cardinality | 0..* |
-| Format | Uniform Resource Identifier.<br><br>In `tag:value` format all optional ArtifactOf fields shall follow immediately below the ArtifactOfProjectName. |
-
-In `tag:value` format all optional ArtifactOf fields shall follow immediately below the ArtifactOfProjectName.
-
-### 8.11.2 Intent
-
-To make it easier for recipients of the SPDX document to determine the original source of the identified file. If the project is described in another SPDX document, then `Relationship` should be used.
-
-### 8.11.3 Examples
-
-EXAMPLE 1 Tag: `ArtifactOfProjectURI:`
-
-```text
-ArtifactOfProjectURI: http://subversion.apache.org/doap.rdf
-```
-
-EXAMPLE 2 RDF: `spdx:artifactOf/doap`
-
-```text
-<File>
-    <artifactOf rdf:resource="http://subversion.apache.org/" />
-</File>
-<!-- Note: within the DOAP file at http://subversion.apache.org/doap.rdf
-the value "http://subversion.apache.org/" is the URI of the describes
-resource of type doap:Project -->
-```
-
-## 8.12 File comment field <a name="8.12"></a>
-
-### 8.12.1 Description
 
 This field provides a place for the SPDX document creator to record any general comments about the file. The metadata for the file comment field is shown in Table 47.
 
@@ -551,11 +434,11 @@ Table 47 — Metadata for the file comment field
 | Cardinality | 0..1 |
 | Format | Free form text that may span multiple lines |
 
-### 8.12.2 Intent
+### 8.9.2 Intent
 
 Here, the intent is to provide the recipient of the SPDX document with more information determined after careful analysis of a file.
 
-### 8.12.3 Examples
+### 8.9.3 Examples
 
 EXAMPLE 1 Tag: `FileComment:`
 
@@ -577,9 +460,9 @@ EXAMPLE 2 RDF: Property `rdfs:comments` in class `spdx:File`
 </File>
 ```
 
-## 8.13 File notice field <a name="8.13"></a>
+## 8.10 File notice field <a name="8.10"></a>
 
-### 8.13.1 Description
+### 8.10.1 Description
 
 This field provides a place for the SPDX document creator to record license notices or other such related notices found in the file. This might or might not include copyright statements. The metadata for the file notice field is shown in Table 48.
 
@@ -591,11 +474,11 @@ Table 48 — Metadata for the file notice field
 | Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines |
 
-### 8.13.2 Intent
+### 8.10.2 Intent
 
 Here, the intent is to provide the recipient of the SPDX document with notices that may require additional review or otherwise contribute to the determination of the Concluded License.
 
-### 8.13.3 Examples
+### 8.10.3 Examples
 
 EXAMPLE 1 Tag: `FileNotice:`
 
@@ -615,9 +498,9 @@ EXAMPLE 2 RDF: Property `noticeText` in class `spdx:File`
 </File>
 ```
 
-## 8.14 File contributor field <a name="8.14"></a>
+## 8.11 File contributor field <a name="8.11"></a>
 
-### 8.14.1 Description
+### 8.11.1 Description
 
 This field provides a place for the SPDX document creator to record file contributors. Contributors could include names of copyright holders and/or authors who might not be copyright holders, yet contributed to the file content. The metadata for the file contributor field is shown in Table 49.
 
@@ -629,11 +512,11 @@ Table 49 — Metadata for the file contributor field
 | Cardinality | 0..* |
 | Format | Free form text on a single line. |
 
-### 8.14.2 Intent
+### 8.11.2 Intent
 
 Here, the intent is to provide the recipient of the SPDX document with a list of one or more contributors (credits). This is one way of providing acknowledgement to the contributors of a file. This would be useful, for example, if a recipient company wanted to contact copyright holders to inquire about alternate licensing.
 
-### 8.14.3 Examples
+### 8.11.3 Examples
 
 EXAMPLE 1 Tag: `FileContributor:`
 
@@ -657,9 +540,9 @@ EXAMPLE 2 RDF: Property `spdx:fileContributor` in class `spdx:File`
 </File>
 ```
 
-## 8.15 File attribution text field <a name="8.15"></a>
+## 8.12 File attribution text field <a name="8.12"></a>
 
-### 8.15.1 Description
+### 8.12.1 Description
 
 This field provides a place for the SPDX document creator to record, at the file level, acknowledgements that might be required to be communicated in some contexts. This is not meant to include the file's actual complete license text (see `LicenseConcluded` and `LicenseInfoInFile`), and might or might not include copyright notices (see also `FileCopyrightText`). The SPDX document creator might use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce. The metadata for the file attribution text field is shown in Table 50.
 
@@ -671,11 +554,11 @@ Table 50 — Metadata for the file attribution text field
 | Cardinality | 0..* |
 | Format | Free form text that can span multiple lines. |
 
-### 8.15.2 Intent
+### 8.12.2 Intent
 
 The intent is to provide the recipient of the SPDX document with acknowledgement content at a file level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX document creator might or might not explain elsewhere how they intend for this field to be used.
 
-### 8.15.3 Examples
+### 8.12.3 Examples
 
 EXAMPLE 1 Tag: `FileAttributionText:`
 
@@ -697,65 +580,6 @@ EXAMPLE 2 RDF: property `spdx:attributionText` in class `spdx:File`
         this software must display the following acknowledgement:
         This product includes software developed by the AT&T.
     </attributionText>
-</File>
-```
-
-## 8.16 File dependencies field (deprecated) <a name="8.16"></a>
-
-This field is deprecated since SPDX 2.0 in favor of using Clause [11](relationships-between-SPDX-elements.md) which provides more granularity about relationships.
-
-### 8.16.1 Description
-
-The field provides a place for the SPDX document creator to record a list of other files (referenceable within this SPDX document) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files might not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or might be needed as part of the file distribution obligation. The metadata for the file dependencies field is shown in Table 51.
-
-Table 51 — Metadata for the file dependencies field
-
-| Attribute | Value |
-| --------- | ----- |
-| Required | No |
-| Cardinality | 0..* |
-| Format | Reference to the file within the SPDX document. For the `tag:value` format, this will be the filename. For the RDF format, it shall be a reference to the actual file node. |
-
-### 8.16.2 Intent
-
-Here, the intent is to provide the recipient of the SPDX document with file dependency information based on the build system that created the file. These other files might impact the licensing of the file and/or might be required to satisfy the distribution obligation of the file (e.g., source files subject to a copyleft license).
-
-### 8.16.3 Examples
-
-EXAMPLE 1 Tag: `FileDependency:`
-
-```text
-FileDependency: ./busybox-1.20.2/shell/match.h
-FileDependency: ./busybox-1.20.2/shell/match.c
-FileDependency: ./busybox-1.20.2/shell/ash.c
-```
-
-EXAMPLE 2 RDF: Property `spdx:fileDependency` in class `spdx:File`
-
-```text
-<File rdf:nodeID="A0">
-    <fileName>./package/source1.java</fileName>
-</File>
-```
-
-```text
-<File rdf:nodeID="A1">
-    <fileName>./package/source2.java</fileName>
-</File>
-```
-
-```text
-<File rdf:nodeID="A3">
-  <fileName>./package/source3.java</fileName>
-</File>
-```
-
-```text
-<File rdf:about="...">
-    <fileName>./package/mylibrary.jar</fileName>
-    <fileDependency rdf:nodeID="A0"/>
-    <fileDependency rdf:nodeID="A1"/>
-    <fileDependency rdf:nodeID="A2"/>
 </File>
 ```
 

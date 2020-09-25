@@ -76,3 +76,4 @@ Annex J   | Differences from previous editions | N/A
 # J.5 Differences between V3.0-DRAFT and V2.2.1 <a name="J.5"></a>
 
 * Removed Clause 13 - Review information (deprecated)
+* Removed deprecated fields from Clause 8 - File information (8.9 - 8.11, 8.16)
