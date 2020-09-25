@@ -37,7 +37,7 @@ SPDX-FileCopyrightText: Copyright Example Company
 SPDX-FileCopyrightText: Copyright contributors to the Foo project.
 ```
 
-File contributors (see [8.14](file-information.md#8.14)):
+File contributors (see [8.11](file-information.md#8.11)):
 
 ```text
 SPDX-FileContributor: Modified by Jane Doe
