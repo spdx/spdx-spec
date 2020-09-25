@@ -75,4 +75,4 @@ Annex J   | Differences from previous editions | N/A
 
 # J.5 Differences between V3.0-DRAFT and V2.2.1 <a name="J.5"></a>
 
-* TODO
+* Removed Clause 13 - Review information (deprecated)

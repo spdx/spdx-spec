@@ -117,14 +117,6 @@ Cardinality: Optional, one or many.
 
 See [Clause 12](annotations.md) for details of the fields in this kind of section.
 
-### 5.2.8 Review information section <a name="5.2.8"></a>
-
-The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information shall use an Annotation (as described in [Clause 12](annotations.md)) with an annotation type of `REVIEW`.
-
-Review information may be added after the initial SPDX document has been created. The set of fields are optional and multiple instances may be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date shall not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
-
-See [Clause 13](review-information-deprecated.md) for details of the fields in this kind of section.
-
 ## 5.3 What this specification does not cover <a name="5.3"></a>
 
 This document does not address the following:
