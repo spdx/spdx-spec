@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 3.0 (TODO)
+
+* TODO
+
 ## 2.2 (2020-05-02)
 
 * Added more relationship types to [Relationships](https://github.com/spdx/spdx-spec/blob/development/v2.2/chapters/7-relationships-between-SPDX-elements.md).

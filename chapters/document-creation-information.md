@@ -23,14 +23,14 @@ Here, parties exchanging information in accordance with the SPDX specification n
 EXAMPLE 1 Tag: `SPDXVersion:`
 
 ```text
-SPDXVersion: SPDX-2.2
+SPDXVersion: SPDX-3.0-DRAFT
 ```
 
 EXAMPLE 2 RDF: `spdx:specVersion`
 
 ```text
 <SpdxDocument rdf:about="...">
-   <specVersion>SPDX-2.2</specVersion>
+   <specVersion>SPDX-3.0-DRAFT</specVersion>
 </SpdxDocument>
 ```
 

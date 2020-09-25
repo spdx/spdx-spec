@@ -2,7 +2,7 @@
 
 ## 4.1 SPDX Versions <a name="4.1"></a>
 
-This edition has the version number 2.2.1 as part of its title. Although this is the first ISO edition of the SPDX Specification, earlier editions were published by the SPDX workgroup via the Linux Foundation (which also co-published this edition). [Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012), 1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), and 2.2 (May 2020).] Differences between this edition and earlier ones are reported in [Annex J](diffs-from-previous-editions.md); see also [[1]](bibliography.md).
+This edition has the version number 3.0-DRAFT as part of its title. Although this is the first ISO edition of the SPDX Specification, earlier editions were published by the SPDX workgroup via the Linux Foundation (which also co-published this edition). [Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012), 1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), 2.2 (May 2020), and 2.2.1 (TODO).] Differences between this edition and earlier ones are reported in [Annex J](diffs-from-previous-editions.md); see also [[1]](bibliography.md).
 
 ## 4.2 Obsolete features <a name="4.2"></a>
 
@@ -67,13 +67,13 @@ The data format specification and recommendations are subject to the following:
 
 A file may be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the [SPDX Trademark Page](https://spdx.dev/trademark/)).
 
-The official copyright notice that shall be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.2.1 is:
+The official copyright notice that shall be used with any verbatim reproduction and/or distribution of this SPDX Specification 3.0-DRAFT is:
 
-> "Official SPDX® Specification 2.2.1 Copyright © 2010-2020 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
+> "Official SPDX® Specification 3.0-DRAFT Copyright © 2010-2020 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
 
-The official copyright notice that shall be used with any non-verbatim reproduction and/or distribution of this SPDX Specification 2.2.1, including without limitation any partial use or combining this SPDX Specification with another work, is:
+The official copyright notice that shall be used with any non-verbatim reproduction and/or distribution of this SPDX Specification 3.0-DRAFT, including without limitation any partial use or combining this SPDX Specification with another work, is:
 
-> "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX® Specification 2.2.1 found at spdx.dev. These portions are Copyright © 2010-2020 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
+> "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX® Specification 3.0-DRAFT found at spdx.dev. These portions are Copyright © 2010-2020 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
 
 ## 4.6 The SPDX Lite profile <a name="4.6"></a>
 
