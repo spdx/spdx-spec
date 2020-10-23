@@ -198,8 +198,8 @@
 <p>where <code>[idstring]</code> is a unique string containing letters, numbers, <code>.</code> and/or <code>-</code>.</p>
 <p><strong>5.1.5</strong> Tag: <code>SnippetSPDXID:</code></p>
 <p>Example:</p>
-<pre class="codehilite"><code class="language-text">SnippetSPDXID: SPDXRef-1</code></pre>
-
+<pre class="codehilite"><code class="language-text">SnippetSPDXID: SPDXRef-1
+</code></pre>
 
 <p><strong>5.1.6</strong> RDF: The URI for the element will follow the form: <code>[SpdxDocumentURI]#SPDXRef-[idstring]</code> where <code>[SpdxDocumentURI]</code> is the URI for the SPDX Document containing the element.</p>
 <p>Example using xml:base:</p>
@@ -207,14 +207,14 @@
     ...
     &lt;Snippet rdf:about=&quot;#SPDXRef-1&quot;&gt;
         ...
-    &lt;/Snippet&gt;</code></pre>
-
+    &lt;/Snippet&gt;
+</code></pre>
 
 <p>Example using document URI:</p>
 <pre class="codehilite"><code class="language-text">&lt;Snippet rdf:about=&quot;http://acme.com/spdxdocs/acmeproj/v1.2/1BE2A4FF-5F1A-48D3-8483-28A9B0349A1B#SPDXRef-1&quot;&gt;
     ...
-&lt;/Snippet&gt;</code></pre>
-
+&lt;/Snippet&gt;
+</code></pre>
 
 <h2 id="52-snippet-from-file-spdx-identifier">5.2 Snippet from File SPDX Identifier <a name="5.2"></a></h2>
 <p><strong>5.2.1</strong> Purpose: Uniquely identify the file in an SPDX document which this snippet is associated with.</p>
@@ -225,27 +225,27 @@
 <p>where <code>SPDXID</code> is a string containing letters, numbers, <code>.</code> and/or <code>-</code>. as described in sections (2.3, 3.2, 4.2).</p>
 <p><strong>5.2.5</strong> Tag: <code>SnippetFromFileSPDXID:</code></p>
 <p>Example (snippet from a File in local SPDX Doc):</p>
-<pre class="codehilite"><code class="language-text">SnippetFromFileSPDXID: SPDXRef-filecontainingsnippet</code></pre>
-
+<pre class="codehilite"><code class="language-text">SnippetFromFileSPDXID: SPDXRef-filecontainingsnippet
+</code></pre>
 
 <p>Example (snippet from a File in an External SPDX Doc):</p>
-<pre class="codehilite"><code class="language-text">SnippetFromFileSPDXID: DocumentRef-ExternalDoc1:SPDXRef-filecontainingsnippet</code></pre>
-
+<pre class="codehilite"><code class="language-text">SnippetFromFileSPDXID: DocumentRef-ExternalDoc1:SPDXRef-filecontainingsnippet
+</code></pre>
 
 <p><strong>5.2.6</strong> RDF: Property <code>spdx:snippetFromFile</code> in class <code>spdx:Snippet</code></p>
 <p>Example (snippet from a File in local SPDX Doc):</p>
 <pre class="codehilite"><code class="language-text">&lt;Snippet rdf:ID=&quot;SPDXRef-1&quot;&gt;
     &lt;snippetFromFile rdf:about=&quot;#SPDXRef-filecontainingsnippet&quot;&gt;
         ...
-    &lt;/Snippet&gt;</code></pre>
-
+    &lt;/Snippet&gt;
+</code></pre>
 
 <p>Example (snippet from a File in an External SPDX Doc):</p>
 <pre class="codehilite"><code class="language-text">&lt;Snippet rdf:ID=&quot;SPDXRef-1&quot;&gt;
     &lt;snippetFromFile rdf:about=&quot;http://foo.org/ExternalDocument1#SPDXRef-filecontainingsnippet&quot;&gt;
     ...
-&lt;/Snippet&gt;</code></pre>
-
+&lt;/Snippet&gt;
+</code></pre>
 
 <h2 id="53-snippet-byte-range">5.3 Snippet Byte Range <a name="5.3"></a></h2>
 <p><strong>5.3.1</strong> Purpose: This field defines the byte range in the original host file (in <a href="#5.2">5.2</a>) that the snippet information applies to.</p>
@@ -257,8 +257,8 @@
 <p>The byte at position number1 and position number2 are included in the range.</p>
 <p><strong>5.3.5</strong> Tag: <code>SnippetByteRange:</code></p>
 <p>Example:</p>
-<pre class="codehilite"><code class="language-text">SnippetByteRange: 310:420</code></pre>
-
+<pre class="codehilite"><code class="language-text">SnippetByteRange: 310:420
+</code></pre>
 
 <p><strong>5.3.6</strong> RDF: Property <code>spdx:Range</code> in class <code>spdx:Snippet</code>. The RDF uses the W3C proposed pointer method vocabulary (see <a href="http://www.w3.org/TR/Pointers-in-RDF10/">http://www.w3.org/TR/Pointers-in-RDF10/</a></p>
 <p>Supported classes from the pointer method vocabulary are <code>StartEndPointer</code> and <code>ByteOffsetPointer</code>. Supported properties from the pointer method vocabulary include:</p>
@@ -286,12 +286,12 @@
             &lt;/ptr:endPointer&gt;
         &lt;/ptr: StartEndPointer&gt;
     &lt;/range&gt;
-&lt;/Snippet&gt;</code></pre>
-
+&lt;/Snippet&gt;
+</code></pre>
 
 <p>This specification uses the prefix <code>ptr:</code> to refer to the <a href="http://www.w3.org/TR/Pointers-in-RDF10/">W3C Pointers</a> namespace:</p>
-<pre class="codehilite"><code class="language-text">xmlns:ptr=http://www.w3.org/2009/pointers#</code></pre>
-
+<pre class="codehilite"><code class="language-text">xmlns:ptr=http://www.w3.org/2009/pointers#
+</code></pre>
 
 <h2 id="54-snippet-line-range">5.4 Snippet Line Range <a name="5.4"></a></h2>
 <p><strong>5.4.1</strong> Purpose: This optional field defines the line range in the original host file (in <a href="#5.2">5.2</a>) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence.</p>
@@ -303,8 +303,8 @@
 AND <code>number2</code> is less than or equal to the total number of lines in file.</p>
 <p><strong>5.4.5</strong> Tag: <code>SnippetLineRange:</code></p>
 <p>Example:</p>
-<pre class="codehilite"><code class="language-text">SnippetLineRange: 5:23</code></pre>
-
+<pre class="codehilite"><code class="language-text">SnippetLineRange: 5:23
+</code></pre>
 
 <p><strong>5.4.6</strong> RDF: properties <code>spdx:Range</code> in class <code>spdx:Snippet</code>. The RDF uses the W3C proposed pointer method vocabulary (see <a href="http://www.w3.org/TR/Pointers-in-RDF10/">http://www.w3.org/TR/Pointers-in-RDF10/</a>).</p>
 <p>Supported classes from the pointer method vocabulary are <code>StartEndPointer</code> and <code>LineCharPointer</code>. Supported properties from the pointer method vocabulary include:</p>
@@ -331,8 +331,8 @@ AND <code>number2</code> is less than or equal to the total number of lines in f
             &lt;/ptr:LineCharPointer&gt;
         &lt;/ptr: StartEndPointer&gt;
     &lt;/range&gt;
-&lt;/Snippet&gt;</code></pre>
-
+&lt;/Snippet&gt;
+</code></pre>
 
 <h2 id="55-snippet-concluded-license">5.5 Snippet Concluded License <a name="5.5"></a></h2>
 <p><strong>5.5.1</strong> Purpose: This field contains the license the SPDX file creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:</p>
@@ -351,12 +351,12 @@ AND <code>number2</code> is less than or equal to the total number of lines in f
 <p><code>&lt;SPDX License Expression&gt;</code> is a valid SPDX License Expression as defined in Appendix IV.</p>
 <p><strong>5.5.5</strong> Tag: <code>SnippetLicenseConcluded:</code></p>
 <p>Example:</p>
-<pre class="codehilite"><code class="language-text">SnippetLicenseConcluded: GPL-2.0-only</code></pre>
-
+<pre class="codehilite"><code class="language-text">SnippetLicenseConcluded: GPL-2.0-only
+</code></pre>
 
 <p>Example:</p>
-<pre class="codehilite"><code class="language-text">SnippetLicenseConcluded: (LGPL-2.0-only OR LicenseRef-2)</code></pre>
-
+<pre class="codehilite"><code class="language-text">SnippetLicenseConcluded: (LGPL-2.0-only OR LicenseRef-2)
+</code></pre>
 
 <p><strong>5.5.6</strong> RDF: Property <code>spdx:licenseConcluded</code> in class <code>spdx:Snippet</code></p>
 <p>Example:</p>
@@ -364,8 +364,8 @@ AND <code>number2</code> is less than or equal to the total number of lines in f
     ...
     &lt;licenseConcluded&gt;GPL-2.0-only&lt;/licenseConcluded&gt;
     ...
-&lt;/Snippet&gt;</code></pre>
-
+&lt;/Snippet&gt;
+</code></pre>
 
 <p>Example:</p>
 <pre class="codehilite"><code class="language-text">&lt;Snippet rdf:about=&quot;...&quot;&gt;
@@ -375,8 +375,8 @@ AND <code>number2</code> is less than or equal to the total number of lines in f
             &lt;member rdf:resource=&quot;#LicenseRef-2&quot;/&gt;
         &lt;/DisjunctiveLicenseSet&gt;
     &lt;/licenseConcluded&gt;
-&lt;/Snippet&gt;</code></pre>
-
+&lt;/Snippet&gt;
+</code></pre>
 
 <h2 id="56-license-information-in-snippet">5.6 License Information in Snippet <a name="5.6"></a></h2>
 <p><strong>5.6.1</strong> Purpose: This field contains the license information actually found in the snippet, if any. Any license information not actually in the snippet itself, e.g., header of the file the snippet belongs in, “COPYING.txt” file in a top level directory, should not be reflected in this field.</p>
@@ -401,19 +401,19 @@ A reference to the license, denoted by LicenseRef-<code>[idstring]</code>, if th
 <p><code>[idstring]</code> is a unique string containing letters, numbers, <code>.</code> and/or <code>-</code>.</p>
 <p><strong>5.6.5</strong> Tag: <code>LicenseInfoInSnippet:</code></p>
 <p>Example:</p>
-<pre class="codehilite"><code class="language-text">LicenseInfoInSnippet: LGPL-2.0-only</code></pre>
+<pre class="codehilite"><code class="language-text">LicenseInfoInSnippet: LGPL-2.0-only
+</code></pre>
 
-
-<pre class="codehilite"><code class="language-text">LicenseInfoInSnippet: LicenseRef-2</code></pre>
-
+<pre class="codehilite"><code class="language-text">LicenseInfoInSnippet: LicenseRef-2
+</code></pre>
 
 <p><strong>5.6.6</strong> RDF: Property <code>spdx:licenseInfoInSnippet</code> in class <code>spdx:Snippet</code></p>
 <p>Example:</p>
 <pre class="codehilite"><code class="language-text">&lt;Snippet rdf:about=&quot;...&quot;&gt;
     &lt;licenseInfoInSnippet rdf:resource=&quot;http://spdx.org/licenses/GPL-2.0-only&quot; /&gt;
     &lt;licenseInfoInSnippet rdf:resource=&quot;#LicenseRef-2&quot; /&gt;
-&lt;/Snippet&gt;</code></pre>
-
+&lt;/Snippet&gt;
+</code></pre>
 
 <h2 id="57-snippet-comments-on-license">5.7 Snippet Comments on License <a name="5.7"></a></h2>
 <p><strong>5.7.1</strong> Purpose: This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a snippet.</p>
@@ -424,8 +424,8 @@ A reference to the license, denoted by LicenseRef-<code>[idstring]</code>, if th
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
 <p>Example:</p>
 <pre class="codehilite"><code class="language-text">SnippetLicenseComments: &lt;text&gt;The concluded license was taken from package xyz, from which the snippet was copied into the current file.
-The concluded license information was found in the COPYING.txt file in package xyz.&lt;/text&gt;</code></pre>
-
+The concluded license information was found in the COPYING.txt file in package xyz.&lt;/text&gt;
+</code></pre>
 
 <p><strong>5.7.6</strong> RDF: Property <code>spdx:licenseComments</code> in class <code>spdx:Snippet</code></p>
 <p>Example:</p>
@@ -437,8 +437,8 @@ The concluded license information was found in the COPYING.txt file in package x
         in the COPYING.txt file in package xyz.
     &lt;/licenseComments&gt;
     ...
-&lt;/Snippet&gt;</code></pre>
-
+&lt;/Snippet&gt;
+</code></pre>
 
 <h2 id="58-snippet-copyright-text">5.8 Snippet Copyright Text <a name="5.8"></a></h2>
 <p><strong>5.8.1</strong> Purpose: Identify the copyright holder of the snippet, as well as any dates present. This will be a free form text field, ideally extracted from the actual snippet.  The options to populate this field are limited to:</p>
@@ -451,8 +451,8 @@ The concluded license information was found in the COPYING.txt file in package x
 <p><strong>5.8.5</strong> Tag: <code>SnippetCopyrightText:</code></p>
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
 <p>Example:</p>
-<pre class="codehilite"><code class="language-text">SnippetCopyrightText: &lt;text&gt; Copyright 2008-2010 John Smith &lt;/text&gt;</code></pre>
-
+<pre class="codehilite"><code class="language-text">SnippetCopyrightText: &lt;text&gt; Copyright 2008-2010 John Smith &lt;/text&gt;
+</code></pre>
 
 <p><strong>5.8.6</strong> RDF: Property <code>spdx:copyrightText</code> in class <code>spdx:Snippet</code></p>
 <p>Example:</p>
@@ -462,8 +462,8 @@ The concluded license information was found in the COPYING.txt file in package x
         Copyright 2008-2010 John Smith
     &lt;/copyrightText&gt;
     ...
-&lt;/Snippet&gt;</code></pre>
-
+&lt;/Snippet&gt;
+</code></pre>
 
 <h2 id="59-snippet-comment">5.9 Snippet Comment <a name="5.9"></a></h2>
 <p><strong>5.9.1</strong> Purpose: This field provides a place for the SPDX document creator to record any general comments about the snippet.</p>
@@ -474,8 +474,8 @@ The concluded license information was found in the COPYING.txt file in package x
 <p>In <code>tag:value</code> format multiple lines are delimited by <code>&lt;text&gt; .. &lt;/text&gt;</code>.</p>
 <p>Example:</p>
 <pre class="codehilite"><code class="language-text">SnippetComment: &lt;text&gt;This snippet was identified as significant and highlighted in this Apache-2.0 file,
-when a commercial scanner identified it as being derived from file foo.c in package xyz which is licensed under GPL-2.0.&lt;/text&gt;</code></pre>
-
+when a commercial scanner identified it as being derived from file foo.c in package xyz which is licensed under GPL-2.0.&lt;/text&gt;
+</code></pre>
 
 <p><strong>5.9.6</strong> RDF: Property <code>rdfs:comment</code> in class <code>spdx:Snippet</code></p>
 <p>Example:</p>
@@ -487,8 +487,8 @@ when a commercial scanner identified it as being derived from file foo.c in pack
         in package xyz which is licensed under GPL-2.0.
     &lt;/rdfs:comment&gt;
     ...
-&lt;/Snippet&gt;</code></pre>
-
+&lt;/Snippet&gt;
+</code></pre>
 
 <h2 id="510-snippet-name">5.10 Snippet Name <a name="5.10"></a></h2>
 <p><strong>5.10.1</strong> Purpose: Identify a specific snippet in a human convenient manner.</p>
@@ -497,15 +497,15 @@ when a commercial scanner identified it as being derived from file foo.c in pack
 <p><strong>5.10.4</strong> Data Format: Single line of text</p>
 <p><strong>5.10.5</strong> Tag: <code>SnippetName:</code></p>
 <p>Example:</p>
-<pre class="codehilite"><code class="language-text">SnippetName: from Linux kernel</code></pre>
-
+<pre class="codehilite"><code class="language-text">SnippetName: from Linux kernel
+</code></pre>
 
 <p><strong>5.10.6</strong> RDF: Property <code>spdx:name</code> in class <code>spdx:Snippet</code></p>
 <p>Example:</p>
 <pre class="codehilite"><code class="language-text">&lt;Snippet rdf:about=&quot;...&quot;&gt;
     &lt;name&gt;from Linux kernel&lt;/name&gt;
-&lt;/Snippet&gt;</code></pre>
-
+&lt;/Snippet&gt;
+</code></pre>
 
 <h2 id="511-snippet-attribution-text">5.11 Snippet Attribution Text <a name="5.11"></a></h2>
 <p><strong>5.11.1</strong> Purpose: This field provides a place for the SPDX data creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see <code>SnippetLicenseConcluded</code> and <code>LicenseInfoInSnippet</code>), and may or may not include copyright notices (see also <code>SnippetCopyrightText</code>). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.</p>
@@ -518,8 +518,8 @@ when a commercial scanner identified it as being derived from file foo.c in pack
 <pre class="codehilite"><code class="language-text">SnippetAttributionText: &lt;text&gt;
 All advertising materials mentioning features or use of this software must display the
 following acknowledgement:  This product includes software developed by the AT&amp;T.
-&lt;/text&gt;</code></pre>
-
+&lt;/text&gt;
+</code></pre>
 
 <p><strong>5.11.6</strong> RDF: property <code>spdx:attributionText</code> in class <code>spdx:Snippet</code></p>
 <p>Example:</p>
@@ -528,7 +528,8 @@ following acknowledgement:  This product includes software developed by the AT&a
         All advertising materials mentioning features or use of this software must display the
         following acknowledgement:  This product includes software developed by the AT&amp;T.
     &lt;/attributionText&gt;
-&lt;/Snippet&gt;</code></pre>
+&lt;/Snippet&gt;
+</code></pre>
               
             </div>
           </div>
