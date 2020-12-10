@@ -10,7 +10,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://spdx.org/rdf/terms">
         <owl:versionIRI rdf:resource="http://spdx.org/rdf/terms/2.2"/>
-        <rdfs:comment xml:lang="en">This specification describes the SPDX® language, defined as a dictionary of named properties and classes using W3C&apos;s RDF Technology. 
+        <rdfs:comment>This specification describes the SPDX® language, defined as a dictionary of named properties and classes using W3C&apos;s RDF Technology.
 
 SPDX® is a designed to allow the exchange of data about software packages. This information includes general information about the package, licensing information about the package as a whole, a manifest of files contained in the package and licensing information related to the contained files.
 
@@ -178,6 +178,15 @@ Known issues:</rdfs:comment>
         <rdfs:range rdf:resource="http://spdx.org/rdf/terms#CreationInfo"/>
         <rdfs:comment xml:lang="en">The creationInfo property relates an SpdxDocument to a set of information about the creation of the SpdxDocument.</rdfs:comment>
         <ns:term_status>stable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#crossRef -->
+
+    <owl:ObjectProperty rdf:about="http://spdx.org/rdf/terms#crossRef">
+        <rdfs:range rdf:resource="http://spdx.org/rdf/terms#SimpleLicensingInfo"/>
+        <rdfs:comment xml:lang="en">Cross Reference Detail for a license SeeAlso URL</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -983,6 +992,16 @@ Known issues:</rdfs:comment>
     
 
 
+    <!-- http://spdx.org/rdf/terms#isLive -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#isLive">
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#CrossRef"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">Indicate a URL is still a live accessible location on the public internet</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://spdx.org/rdf/terms#isOsiApproved -->
 
     <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#isOsiApproved">
@@ -990,6 +1009,26 @@ Known issues:</rdfs:comment>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <rdfs:comment xml:lang="en">Indicates if the OSI has approved the license.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#isValid -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#isValid">
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#CrossRef"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">True if the URL is a valid well formed URL</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#isWayBackLink -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#isWayBackLink">
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#CrossRef"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="en">True if the License SeeAlso URL points to a Wayback archive</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -1061,6 +1100,16 @@ Known issues:</rdfs:comment>
     
 
 
+    <!-- http://spdx.org/rdf/terms#match -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#match">
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#CrossRef"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Status of a License List SeeAlso URL reference if it refers to a website that matches the license text.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://spdx.org/rdf/terms#name -->
 
     <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#name">
@@ -1079,6 +1128,15 @@ Known issues:</rdfs:comment>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">This field provides a place for the SPDX file creator to record potential legal notices found in the file. This may or may not include copyright statements.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#order -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#order">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">The ordinal order of this element within a list</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -1257,6 +1315,26 @@ Known issues:</rdfs:comment>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">The name and, optionally, contact information of the person or organization who was the immediate supplier of this package to the recipient. The supplier may be different than originator when the software has been repackaged. Values of this property must conform to the agent and tool syntax.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#timestamp -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#timestamp">
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#CrossRef"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">Timestamp</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#url -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#url">
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#CrossRef"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:comment xml:lang="en">URL Reference</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -1463,6 +1541,64 @@ Known issues:</rdfs:comment>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">One instance is required for each SPDX file produced. It provides the necessary information for forward and backward compatibility for processing tools.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#CrossRef -->
+
+    <owl:Class rdf:about="http://spdx.org/rdf/terms#CrossRef">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#url"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#isLive"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#isValid"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#isWayBackLink"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#match"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#order"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#timestamp"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Cross reference details for the a URL reference</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:Class>
     
@@ -2052,6 +2188,13 @@ Known issues:</rdfs:comment>
 
     <owl:Class rdf:about="http://spdx.org/rdf/terms#SimpleLicensingInfo">
         <rdfs:subClassOf rdf:resource="http://spdx.org/rdf/terms#AnyLicenseInfo"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#crossRef"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://spdx.org/rdf/terms#CrossRef"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
