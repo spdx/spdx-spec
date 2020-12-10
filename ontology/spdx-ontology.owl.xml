@@ -863,6 +863,24 @@ Known issues:</rdfs:comment>
     
 
 
+    <!-- http://spdx.org/rdf/terms#deprecatedVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#deprecatedVersion">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://spdx.org/rdf/terms#ListedLicense"/>
+                    <rdf:Description rdf:about="http://spdx.org/rdf/terms#ListedLicenseException"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">License list version where this license was decprecated</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://spdx.org/rdf/terms#description -->
 
     <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#description">
@@ -902,6 +920,17 @@ Known issues:</rdfs:comment>
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#LicenseException"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">Text for examples in describing an SPDX element.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#exceptionTextHtml -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#exceptionTextHtml">
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#ListedLicenseException"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">HTML representation of the License Exception Text</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:DatatypeProperty>
     
@@ -1100,6 +1129,17 @@ Known issues:</rdfs:comment>
     
 
 
+    <!-- http://spdx.org/rdf/terms#licenseTextHtml -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#licenseTextHtml">
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#ListedLicense"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">License text in HTML format</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://spdx.org/rdf/terms#match -->
 
     <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#match">
@@ -1270,6 +1310,17 @@ Known issues:</rdfs:comment>
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#License"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">License author&apos;s preferred text to indicated that a file is covered by the license.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#standardLicenseHeaderHtml -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#standardLicenseHeaderHtml">
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#ListedLicense"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">HTML representation of the standard license header</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:DatatypeProperty>
     
@@ -1898,13 +1949,50 @@ Known issues:</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://spdx.org/rdf/terms#License"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#deprecatedVersion"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#isDeprecatedLicenseId"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#licenseTextHtml"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#standardLicenseHeaderHtml"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A license which is included in the SPDX License List (http://spdx.org/licenses).</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#ListedLicenseException -->
+
+    <owl:Class rdf:about="http://spdx.org/rdf/terms#ListedLicenseException">
+        <rdfs:subClassOf rdf:resource="http://spdx.org/rdf/terms#LicenseException"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#exceptionTextHtml"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>License exception specific to ListedLicenses</rdfs:comment>
     </owl:Class>
     
 
