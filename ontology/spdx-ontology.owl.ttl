@@ -55,9 +55,9 @@ owl:qualifiedCardinality a owl:AnnotationProperty .
   rdfs:range [
     a owl:Class ;
     owl:unionOf (
-     _:genid2
-     _:genid4
-     _:genid6
+     _:md5
+     _:sha1
+     _:sha256
    )
   ] ;
   rdfs:comment "Identifies the algorithm used to produce the subject Checksum. Currently, SHA-1 is the only supported algorithm. It is anticipated that other algorithms will be supported at a later time."@en ;
@@ -76,8 +76,8 @@ owl:qualifiedCardinality a owl:AnnotationProperty .
   rdfs:range [
     a owl:Class ;
     owl:unionOf (
-     _:genid9
-     _:genid11
+     _:annotationTypeOther
+     _:annotationTypeReview
    )
   ] ;
   rdfs:comment "Type of the annotation."@en ;
@@ -155,10 +155,10 @@ owl:qualifiedCardinality a owl:AnnotationProperty .
   rdfs:range [
     a owl:Class ;
     owl:unionOf (
-     _:genid18
-     _:genid20
-     _:genid22
-     _:genid24
+     _:fileTypeArchive
+     _:FileTypeBinary
+     _:FileTypeOther
+     _:FileTypeSource
    )
   ] ;
   rdfs:comment "The type of the file."@en ;
@@ -184,8 +184,8 @@ owl:qualifiedCardinality a owl:AnnotationProperty .
     a owl:Class ;
     owl:unionOf (
      <http://spdx.org/rdf/terms#AnyLicenseInfo>
-     _:genid28
-     _:genid30
+     _:Noassertion
+     _:None
    )
   ] ;
   rdfs:comment "The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the package."@en ;
@@ -212,8 +212,8 @@ owl:qualifiedCardinality a owl:AnnotationProperty .
     a owl:Class ;
     owl:unionOf (
      <http://spdx.org/rdf/terms#SimpleLicensingInfo>
-     _:genid34
-     _:genid36
+     _:FromFileNoAssertion
+     _:FromFileNone
    )
   ] ;
   rdfs:comment "The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package."@en ;
@@ -227,8 +227,8 @@ owl:qualifiedCardinality a owl:AnnotationProperty .
     a owl:Class ;
     owl:unionOf (
      <http://spdx.org/rdf/terms#SimpleLicensingInfo>
-     _:genid40
-     _:genid42
+     _:InFileNoAssertion
+     _:InFileNone
    )
   ] ;
   rdfs:comment "Licensing information that was discovered directly in the subject file. This is also considered a declared license for the file."@en ;
@@ -242,8 +242,8 @@ owl:qualifiedCardinality a owl:AnnotationProperty .
     a owl:Class ;
     owl:unionOf (
      <http://spdx.org/rdf/terms#SimpleLicensingInfo>
-     _:genid46
-     _:genid48
+     _:LicenseInfoNoAssertion
+     _:LicenseInfoNone
    )
   ] ;
   rdfs:comment "Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet."@en ;
@@ -283,9 +283,9 @@ owl:qualifiedCardinality a owl:AnnotationProperty .
   rdfs:range [
     a owl:Class ;
     owl:unionOf (
-     _:genid55
-     _:genid57
-     _:genid59
+     _:ExtRefOther
+     _:ExtRefPackageManager
+     _:ExtRefSecurity
    )
   ] ;
   rdfs:comment "Category for the external reference"@en ;
@@ -326,37 +326,37 @@ owl:qualifiedCardinality a owl:AnnotationProperty .
   rdfs:range [
     a owl:Class ;
     owl:unionOf (
-     _:genid62
-     _:genid64
-     _:genid66
-     _:genid68
-     _:genid70
-     _:genid72
-     _:genid74
-     _:genid76
-     _:genid78
-     _:genid80
-     _:genid82
-     _:genid84
-     _:genid86
-     _:genid88
-     _:genid90
-     _:genid92
-     _:genid94
-     _:genid96
-     _:genid98
-     _:genid100
-     _:genid102
-     _:genid104
-     _:genid106
-     _:genid108
-     _:genid110
-     _:genid112
-     _:genid114
-     _:genid116
-     _:genid118
-     _:genid120
-     _:genid122
+     _:RelTypeAmendment
+     _:RelTypeAncestorOf
+     _:RelTypeBuildToolOf
+     _:RelTypeContainedBy
+     _:RelTypeContains
+     _:RelTypeCopyOf
+     _:RelTypeDataFile
+     _:RelTypeDataFileOf
+     _:RelTypeDescendantOf
+     _:RelTypeDescribedBy
+     _:RelTypeDescibes
+     _:RelTypeDistributionArtifact
+     _:RelTypeDocumentation
+     _:RelTypeDynamicLink
+     _:RelTypeExpandedFromArchive
+     _:RelTypeFileAdded
+     _:RelTypeFileDeleted
+     _:RelTypeFileModified
+     _:RelTypeGeneratedFrom
+     _:RelTypeGenerates
+     _:RelTypeHasPrerequisite
+     _:RelTypeMetaFileOf
+     _:RelTypeOptionalComponentOf
+     _:RelTypeOther
+     _:RelTypePackageOf
+     _:RelTypePatchApplied
+     _:RelTypePatchFor
+     _:RelTypePrerequisiteFor
+     _:RelTypeStaticLink
+     _:RelTypeTestCaseOf
+     _:RelTypeVariantOf
    )
   ] ;
   rdfs:comment "Describes the type of relationship between two SPDX elements."@en ;
@@ -1091,9 +1091,9 @@ rdfs:seeAlso a owl:DatatypeProperty .
   rdfs:subClassOf <http://spdx.org/rdf/terms#SpdxItem>, [
     a owl:Class ;
     owl:unionOf (
-     _:genid168
-     _:genid170
-     _:genid172
+     _:LicenseNoAssertion
+     _:LicenseNone
+     _:LicenseAny
    )
   ], [
     a owl:Restriction ;
@@ -1381,9 +1381,9 @@ rdfs:seeAlso a owl:DatatypeProperty .
   rdfs:subClassOf <http://spdx.org/rdf/terms#SpdxElement>, [
     a owl:Class ;
     owl:unionOf (
-     _:genid219
-     _:genid221
-     _:genid223
+     _:LicenseConcludedNoAssertion
+     _:LicenseConcludedNone
+     _:LicenseConcludedAny
    )
   ], [
     a owl:Restriction ;
@@ -1853,288 +1853,305 @@ IMAGE if the file is assoicated with an picture image file (MIME type of image/*
   rdfs:comment "A Relationship of relationshipType_variantOf expresses that an SPDXElement is a variant of the relatedSPDXElement, but it is not clear which came first.  For example, if the content of two Files differs by some edit, but there is no way to tell which came first (no reliable date information), then one File is a variant of the other File."@en ;
   ns0:term_status "stable"@en .
 
-_:genid2
+
+
+
+_:md5
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#algorithm> ;
   owl:hasValue <http://spdx.org/rdf/terms#checksumAlgorithm_md5> .
 
-_:genid4
+_:sha1
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#algorithm> ;
   owl:hasValue <http://spdx.org/rdf/terms#checksumAlgorithm_sha1> .
 
-_:genid6
+_:sha256
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#algorithm> ;
   owl:hasValue <http://spdx.org/rdf/terms#checksumAlgorithm_sha256> .
 
-_:genid9
+
+
+_:annotationTypeOther
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#annotationType> ;
   owl:hasValue <http://spdx.org/rdf/terms#annotationType_other> .
 
-_:genid11
+_:annotationTypeReview
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#annotationType> ;
   owl:hasValue <http://spdx.org/rdf/terms#annotationType_review> .
 
-_:genid18
+
+
+_:fileTypeArchive
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#fileType> ;
   owl:hasValue <http://spdx.org/rdf/terms#fileType_archive> .
 
-_:genid20
+_:fileTypeBinary
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#fileType> ;
   owl:hasValue <http://spdx.org/rdf/terms#fileType_binary> .
 
-_:genid22
+_:FileTypeOther
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#fileType> ;
   owl:hasValue <http://spdx.org/rdf/terms#fileType_other> .
 
-_:genid24
+_:FileTypeSource
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#fileType> ;
   owl:hasValue <http://spdx.org/rdf/terms#fileType_source> .
 
-_:genid28
+
+
+_:Noassertion
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseConcluded> ;
   owl:hasValue <http://spdx.org/rdf/terms#noassertion> .
 
-_:genid30
+_:None
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseConcluded> ;
   owl:hasValue <http://spdx.org/rdf/terms#none> .
 
-_:genid34
+
+
+_:FromFileNoAssertion
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseInfoFromFiles> ;
   owl:hasValue <http://spdx.org/rdf/terms#noassertion> .
 
-_:genid36
+_:FromFileNone
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseInfoFromFiles> ;
   owl:hasValue <http://spdx.org/rdf/terms#none> .
 
-_:genid40
+_:InFileNoAssertion
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseInfoInFile> ;
   owl:hasValue <http://spdx.org/rdf/terms#noassertion> .
 
-_:genid42
+_:InFileNone
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseInfoInFile> ;
   owl:hasValue <http://spdx.org/rdf/terms#none> .
 
-_:genid46
+
+
+_:LicenseInfoNoAssertion
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseInfoInFile> ;
   owl:hasValue <http://spdx.org/rdf/terms#noassertion> .
 
-_:genid48
+_:LicenseInfoNone
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseInfoInFile> ;
   owl:hasValue <http://spdx.org/rdf/terms#none> .
 
-_:genid55
+
+
+_:ExtRefOther
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#referenceCategory> ;
   owl:hasValue <http://spdx.org/rdf/terms#referenceCategory_other> .
 
-_:genid57
+_:ExtRefPackageManager
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#referenceCategory> ;
   owl:hasValue <http://spdx.org/rdf/terms#referenceCategory_packageManager> .
 
-_:genid59
+_:ExtRefSecurity
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#referenceCategory> ;
   owl:hasValue <http://spdx.org/rdf/terms#referenceCategory_security> .
 
-_:genid62
+
+
+_:RelTypeAmendment
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_amendment> .
 
-_:genid64
+_:RelTypeAncestorOf
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_ancestorOf> .
 
-_:genid66
+_:RelTypeBuildToolOf
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_buildToolOf> .
 
-_:genid68
+_:RelTypeContainedBy
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_containedBy> .
 
-_:genid70
+_:RelTypeContains
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_contains> .
 
-_:genid72
+_:RelTypeCopyOf
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_copyOf> .
 
-_:genid74
+_:RelTypeDataFile
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_dataFile> .
 
-_:genid76
+_:RelTypeDataFileOf
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_dataFileOf> .
 
-_:genid78
+_:RelTypeDescendantOf
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_descendantOf> .
 
-_:genid80
+_:RelTypeDescibedBy
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_describedBy> .
 
-_:genid82
+_:RelTypeDescibes
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_describes> .
 
-_:genid84
+_:RelTypeDistributionArtifact
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_distributionArtifact> .
 
-_:genid86
+_:RelTypeDocumentation
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_documentation> .
 
-_:genid88
+_:RelTypeDynamicLink
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_dynamicLink> .
 
-_:genid90
+_:RelTypeExpandedFromArchive
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_expandedFromArchive> .
 
-_:genid92
+_:RelTypeFileAdded
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_fileAdded> .
 
-_:genid94
+_:RelTypeFileDeleted
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_fileDeleted> .
 
-_:genid96
+_:RelTypeFileModified
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_fileModified> .
 
-_:genid98
+_:RelTypeGeneratedFrom
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_generatedFrom> .
 
-_:genid100
+_:RelTypeGenerates
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_generates> .
 
-_:genid102
+_:RelTypeHasPrerequisite
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_hasPrerequisite> .
 
-_:genid104
+_:RelTypeMetaFileOf
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_metafileOf> .
 
-_:genid106
+_:RelTypeOptionalComponentOf
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_optionalComponentOf> .
 
-_:genid108
+_:RelTypeOther
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_other> .
 
-_:genid110
+_:RelTypePackageOf
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_packageOf> .
 
-_:genid112
+_:RelTypePatchApplied
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_patchApplied> .
 
-_:genid114
+_:RelTypePatchFor
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_patchFor> .
 
-_:genid116
+_:RelTypePrerequisiteFor
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_prerequisiteFor> .
 
-_:genid118
+_:RelTypeStaticLink
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_staticLink> .
 
-_:genid120
+_:RelTypeTestCaseOf
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_testcaseOf> .
 
-_:genid122
+_:RelTypeVariantOf
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#relationshipType> ;
   owl:hasValue <http://spdx.org/rdf/terms#relationshipType_variantOf> .
 
-_:genid168
+_:LicenseNoAssertion
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseDeclared> ;
   owl:hasValue <http://spdx.org/rdf/terms#noassertion> .
 
-_:genid170
+_:LicenseNone
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseDeclared> ;
   owl:hasValue <http://spdx.org/rdf/terms#none> .
 
-_:genid172
+_:LicenseAny
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseDeclared> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
   owl:onClass <http://spdx.org/rdf/terms#AnyLicenseInfo> .
 
-_:genid219
+_:LicenseConcludedNoAssertion
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseConcluded> ;
   owl:hasValue <http://spdx.org/rdf/terms#noassertion> .
 
-_:genid221
+_:LicenseConcludedNone
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseConcluded> ;
   owl:hasValue <http://spdx.org/rdf/terms#none> .
 
-_:genid223
+_:LicenseConcludedAny
   a owl:Restriction ;
   owl:onProperty <http://spdx.org/rdf/terms#licenseConcluded> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
