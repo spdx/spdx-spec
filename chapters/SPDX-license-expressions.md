@@ -26,7 +26,7 @@ simple-expression "WITH" license-exception-id /
 
   compound-expression "AND" compound-expression /
 
-  compound-expression "OR" compound-expression ) /
+  compound-expression "OR" compound-expression /
 
   "(" compound-expression ")" )
 
