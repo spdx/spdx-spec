@@ -184,7 +184,7 @@ Rule fields:
     * This field is required.
 * original: the original text of the rule.
     * This field is required for a rule type: `<<var; . . . >>`
-* match: a POSIX extended regular expession (ERE).
+* match: a POSIX extended regular expression (ERE).
     * This field is required for a rule type: `<<var; . . . >>`
 
 The [POSIX ERE]( http://pubs.opengroup.org/onlinepubs/9699919799/) in the match field has the following restrictions and extensions:

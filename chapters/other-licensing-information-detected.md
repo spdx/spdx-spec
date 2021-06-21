@@ -96,7 +96,7 @@ If indeed full text of license present in File:
 ```text
 <ExtractedLicensingInfo rdf:about="licenseRef-Whiskeyware">
     <licenseId>LicenseRef-Whiskeyware</licenseId>
-    <extractedText>""THE WHISKEY-WARE LICENSE": whiskeyfan@example.com wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a bottle of whiskey in return.</extractedText>
+    <extractedText>"THE WHISKEY-WARE LICENSE": whiskeyfan@example.com wrote this file. As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a bottle of whiskey in return.</extractedText>
 </ExtractedLicensingInfo>
 ```
 
