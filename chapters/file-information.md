@@ -422,6 +422,8 @@ EXAMPLE 2 RDF: Property `spdx:copyrightText` in class `spdx:File`
 
 ## 8.9 Artifact of project name field (deprecated) <a name="8.9"></a>
 
+This field is deprecated since 1.8.4, as they can be replaced by a relationship to the more descriptive External Packages.
+
 ### 8.9.1 Description
 
 To indicate that a file has been derived from a specific project. The metadata for the artifact of project name field is shown in Table 44.
@@ -462,6 +464,8 @@ EXAMPLE 2 RDF: Property `spdx:artifactOf/doap:Project/doap:name`
 
 ## 8.10 Artifact of project homepage field (deprecated) <a name="8.10"></a>
 
+This field is deprecated since 1.8.4, as they can be replaced by a relationship to the more descriptive External Packages.
+
 ### 8.10.1 Description
 
 To indicate the location of the project from which the file has been derived. The metadata for the artifact of project homepage field is shown in Table 45.
@@ -499,6 +503,8 @@ EXAMPLE 2 RDF: `spdx:artifactOf/doap:Project/doap:homepage`
 ```
 
 ## 8.11 Artifact of project uniform resource identifier field (deprecated) <a name="8.11"></a>
+
+This field is deprecated since 1.8.4, as they can be replaced by a relationship to the more descriptive External Packages.
 
 ### 8.11.1 Description
 
