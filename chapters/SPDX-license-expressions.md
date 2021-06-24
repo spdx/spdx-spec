@@ -15,11 +15,11 @@ license-id = <short form license identifier in Annex A.1>
 
 license-exception-id = <short form license exception identifier in Annex A.2>
 
-license-ref = ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
+license-ref = ["DocumentRef-"(idstring)":"]"LicenseRef-"(idstring)
 
 simple-expression = license-id / license-id"+" / license-ref
 
-compound-expression = 1*1(simple-expression /
+compound-expression = (simple-expression /
 
 
 simple-expression "WITH" license-exception-id /
@@ -30,7 +30,7 @@ simple-expression "WITH" license-exception-id /
 
   "(" compound-expression ")" )
 
-license-expression = 1*1(simple-expression / compound-expression)
+license-expression = (simple-expression / compound-expression)
 ```
 
 In the following sections we describe in more detail `<license-expression>` construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern day software.
