@@ -69,3 +69,23 @@ SPDX-License-Identifier: LicenseRef-my-special-license
 ```
 
 The `LicenseRef-` format is defined in Annex [D](SPDX-license-expressions.md). When using a custom `LicenseRef-` identifier, you will also need to provide a way for others to determine what license text corresponds to it. [Version 3.0 of the REUSE Software Specification](https://reuse.software/spec/) provides a standardized format that can optionally be used for providing the corresponding license text for these identifiers.
+
+## E.5 Representing licenses of a third-party snippet <a name="E.5"></a>
+
+When re-using a third-party snippet, e.g. from another software project or person on a help forum, you may have to attribute the copyright holder and license. In SPDX, you can do this like the following in your source code file:
+
+```text
+[ your own code ]
+
+SPDX-SnippetBegin
+SPDX-License-Identifier: CC-BY-SA-4.0
+SPDX-SnippetCopyrightText: © 2020 Jane Doe <https://stackoverflow/users/...>
+
+[ snippet code by Jane Doe here ]
+
+SPDX-SnippetEnd
+
+[ your own code continues ]
+```
+
+Please note that the `SPDX-License-Identifier` in this case is enclosed by `SPDX-SnippetBegin` and `SPDX-SnippetEnd`, and therefore only relates to the content of this very snippet. More information on snippets in SPDX can be found in the [snippet information fields](snippet-information.md).
