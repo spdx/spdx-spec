@@ -106,7 +106,7 @@ English uses different spelling for some words. By identifying the spelling vari
 
 ### B.9.2  Guideline <a name="B.9.2"></a>
 
-The words in each line of the text file available at <https://github.com/spdx/license-list-XML/blob/master/equivalentwords.txt> are considered equivalent and interchangeable. Templates do not include markup for this guideline.
+The words in each line of the text file available at <https://spdx.org/licenses/equivalentwords.txt> are considered equivalent and interchangeable. Templates do not include markup for this guideline.
 
 ## B.10 Copyright Symbol <a name="B.10"></a>
 
