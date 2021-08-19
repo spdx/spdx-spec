@@ -9,6 +9,30 @@
       "minItems" : 1,
       "maxItems" : 1
     },
+    "revieweds" : {
+      "description" : "Reviewed",
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "reviewer" : {
+            "description" : "The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.",
+            "maxItems" : 1,
+            "type" : "string"
+          },
+          "comment" : {
+            "maxItems" : 1,
+            "type" : "string"
+          },
+          "reviewDate" : {
+            "description" : "The date and time at which the SpdxDocument was reviewed. This value must be in UTC and have 'Z' as its timezone indicator.",
+            "minItems" : 1,
+            "maxItems" : 1,
+            "type" : "string"
+          }
+        }
+      }
+    },
     "hasExtractedLicensingInfos" : {
       "description" : "Indicates that a particular ExtractedLicensingInfo was defined in the subject SpdxDocument.",
       "type" : "array",
@@ -45,30 +69,6 @@
           }
         },
         "description" : "An ExtractedLicensingInfo represents a license or licensing notice that was found in the package. Any license text that is recognized as a license may be represented as a License rather than an ExtractedLicensingInfo."
-      }
-    },
-    "revieweds" : {
-      "description" : "Reviewed",
-      "type" : "array",
-      "items" : {
-        "type" : "object",
-        "properties" : {
-          "reviewer" : {
-            "description" : "The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.",
-            "maxItems" : 1,
-            "type" : "string"
-          },
-          "comment" : {
-            "maxItems" : 1,
-            "type" : "string"
-          },
-          "reviewDate" : {
-            "description" : "The date and time at which the SpdxDocument was reviewed. This value must be in UTC and have 'Z' as its timezone indicator.",
-            "minItems" : 1,
-            "maxItems" : 1,
-            "type" : "string"
-          }
-        }
       }
     },
     "name" : {
@@ -121,6 +121,12 @@
         "description" : "An Annotation is a comment on an SpdxItem by an agent."
       }
     },
+    "dataLicense" : {
+      "description" : "License expression for dataLicense.  Compliance with the SPDX specification includes populating the SPDX fields therein with data related to such fields (\"SPDX-Metadata\"). The SPDX specification contains numerous fields where an SPDX document creator may provide relevant explanatory text in SPDX-Metadata. Without opining on the lawfulness of \"database rights\" (in jurisdictions where applicable), such explanatory text is copyrightable subject matter in most Berne Convention countries. By using the SPDX specification, or any portion hereof, you hereby agree that any copyright rights (as determined by your jurisdiction) in any SPDX-Metadata, including without limitation explanatory text, shall be subject to the terms of the Creative Commons CC0 1.0 Universal license. For SPDX-Metadata not containing any copyright rights, you hereby agree and acknowledge that the SPDX-Metadata is provided to you \"as-is\" and without any representations or warranties of any kind concerning the SPDX-Metadata, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non-infringement, or the absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.",
+      "minItems" : 1,
+      "maxItems" : 1,
+      "type" : "string"
+    },
     "describesPackages" : {
       "description" : "The describesPackage property relates an SpdxDocument to the package which it describes.",
       "type" : "array",
@@ -128,12 +134,6 @@
         "description" : "SPDX ID for Package.  The describesPackage property relates an SpdxDocument to the package which it describes.",
         "type" : "string"
       }
-    },
-    "dataLicense" : {
-      "description" : "License expression for dataLicense.  Compliance with the SPDX specification includes populating the SPDX fields therein with data related to such fields (\"SPDX-Metadata\"). The SPDX specification contains numerous fields where an SPDX document creator may provide relevant explanatory text in SPDX-Metadata. Without opining on the lawfulness of \"database rights\" (in jurisdictions where applicable), such explanatory text is copyrightable subject matter in most Berne Convention countries. By using the SPDX specification, or any portion hereof, you hereby agree that any copyright rights (as determined by your jurisdiction) in any SPDX-Metadata, including without limitation explanatory text, shall be subject to the terms of the Creative Commons CC0 1.0 Universal license. For SPDX-Metadata not containing any copyright rights, you hereby agree and acknowledge that the SPDX-Metadata is provided to you \"as-is\" and without any representations or warranties of any kind concerning the SPDX-Metadata, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non-infringement, or the absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.",
-      "minItems" : 1,
-      "maxItems" : 1,
-      "type" : "string"
     },
     "externalDocumentRefs" : {
       "description" : "Identify any external SPDX documents referenced within this SPDX document.",
@@ -265,12 +265,12 @@
               "description" : "An Annotation is a comment on an SpdxItem by an agent."
             }
           },
-          "homepage" : {
+          "supplier" : {
+            "description" : "The name and, optionally, contact information of the person or organization who was the immediate supplier of this package to the recipient. The supplier may be different than originator when the software has been repackaged. Values of this property must conform to the agent and tool syntax.",
             "maxItems" : 1,
             "type" : "string"
           },
-          "supplier" : {
-            "description" : "The name and, optionally, contact information of the person or organization who was the immediate supplier of this package to the recipient. The supplier may be different than originator when the software has been repackaged. Values of this property must conform to the agent and tool syntax.",
+          "homepage" : {
             "maxItems" : 1,
             "type" : "string"
           },
@@ -372,6 +372,12 @@
             "maxItems" : 1,
             "type" : "string"
           },
+          "name" : {
+            "description" : "Identify name of this SpdxElement.",
+            "minItems" : 1,
+            "maxItems" : 1,
+            "type" : "string"
+          },
           "hasFiles" : {
             "description" : "Indicates that a particular file belongs to a package.",
             "type" : "array",
@@ -379,12 +385,6 @@
               "description" : "SPDX ID for File.  Indicates that a particular file belongs to a package.",
               "type" : "string"
             }
-          },
-          "name" : {
-            "description" : "Identify name of this SpdxElement.",
-            "minItems" : 1,
-            "maxItems" : 1,
-            "type" : "string"
           },
           "comment" : {
             "maxItems" : 1,
@@ -546,14 +546,14 @@
             "maxItems" : 1,
             "type" : "string"
           },
-          "name" : {
-            "description" : "Identify name of this SpdxElement.",
+          "fileName" : {
+            "description" : "The name of the file relative to the root of the package.",
             "minItems" : 1,
             "maxItems" : 1,
             "type" : "string"
           },
-          "fileName" : {
-            "description" : "The name of the file relative to the root of the package.",
+          "name" : {
+            "description" : "Identify name of this SpdxElement.",
             "minItems" : 1,
             "maxItems" : 1,
             "type" : "string"
@@ -753,6 +753,11 @@
       "items" : {
         "type" : "object",
         "properties" : {
+          "spdxElementId" : {
+            "type" : "string",
+            "minItems" : 1,
+            "maxItems" : 1
+          },
           "comment" : {
             "maxItems" : 1,
             "type" : "string"
