@@ -5,28 +5,8 @@
   "type" : "object",
   "properties" : {
     "SPDXID" : {
-      "type" : "string"
-    },
-    "revieweds" : {
-      "description" : "Reviewed",
-      "type" : "array",
-      "items" : {
-        "type" : "object",
-        "properties" : {
-          "reviewer" : {
-            "description" : "The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.",
-            "type" : "string"
-          },
-          "comment" : {
-            "type" : "string"
-          },
-          "reviewDate" : {
-            "description" : "The date and time at which the SpdxDocument was reviewed. This value must be in UTC and have 'Z' as its timezone indicator.",
-            "type" : "string"
-          }
-        },
-        "required" : [ "reviewDate" ]
-      }
+      "type" : "string",
+      "description" : "Uniquely identify any element in an SPDX document which may be referenced by other elements."
     },
     "hasExtractedLicensingInfos" : {
       "description" : "Indicates that a particular ExtractedLicensingInfo was defined in the subject SpdxDocument.",
@@ -61,13 +41,13 @@
                   "description" : "Status of a License List SeeAlso URL reference if it refers to a website that matches the license text.",
                   "type" : "string"
                 },
-                "timestamp" : {
-                  "description" : "Timestamp",
-                  "type" : "string"
-                },
                 "order" : {
                   "description" : "The ordinal order of this element within a list",
                   "type" : "integer"
+                },
+                "timestamp" : {
+                  "description" : "Timestamp",
+                  "type" : "string"
                 },
                 "url" : {
                   "description" : "URL Reference",
@@ -97,6 +77,27 @@
         },
         "required" : [ "licenseId", "extractedText" ],
         "description" : "An ExtractedLicensingInfo represents a license or licensing notice that was found in the package. Any license text that is recognized as a license may be represented as a License rather than an ExtractedLicensingInfo."
+      }
+    },
+    "revieweds" : {
+      "description" : "Reviewed",
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "reviewer" : {
+            "description" : "The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.",
+            "type" : "string"
+          },
+          "comment" : {
+            "type" : "string"
+          },
+          "reviewDate" : {
+            "description" : "The date and time at which the SpdxDocument was reviewed. This value must be in UTC and have 'Z' as its timezone indicator.",
+            "type" : "string"
+          }
+        },
+        "required" : [ "reviewDate" ]
       }
     },
     "name" : {
@@ -140,14 +141,6 @@
     "dataLicense" : {
       "description" : "License expression for dataLicense.  Compliance with the SPDX specification includes populating the SPDX fields therein with data related to such fields (\"SPDX-Metadata\"). The SPDX specification contains numerous fields where an SPDX document creator may provide relevant explanatory text in SPDX-Metadata. Without opining on the lawfulness of \"database rights\" (in jurisdictions where applicable), such explanatory text is copyrightable subject matter in most Berne Convention countries. By using the SPDX specification, or any portion hereof, you hereby agree that any copyright rights (as determined by your jurisdiction) in any SPDX-Metadata, including without limitation explanatory text, shall be subject to the terms of the Creative Commons CC0 1.0 Universal license. For SPDX-Metadata not containing any copyright rights, you hereby agree and acknowledge that the SPDX-Metadata is provided to you \"as-is\" and without any representations or warranties of any kind concerning the SPDX-Metadata, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non-infringement, or the absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.",
       "type" : "string"
-    },
-    "describesPackages" : {
-      "description" : "The describesPackage property relates an SpdxDocument to the package which it describes.",
-      "type" : "array",
-      "items" : {
-        "description" : "SPDX ID for Package.  The describesPackage property relates an SpdxDocument to the package which it describes.",
-        "type" : "string"
-      }
     },
     "externalDocumentRefs" : {
       "description" : "Identify any external SPDX documents referenced within this SPDX document.",
@@ -212,7 +205,15 @@
       "description" : "One instance is required for each SPDX file produced. It provides the necessary information for forward and backward compatibility for processing tools."
     },
     "documentNamespace" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document."
+    },
+    "documentDescribes" : {
+      "description" : "Packages, files and/or Snippets described by this SPDX document",
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
     },
     "packages" : {
       "description" : "Packages referenced in the SPDX document",
@@ -221,7 +222,8 @@
         "type" : "object",
         "properties" : {
           "SPDXID" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Uniquely identify any element in an SPDX document which may be referenced by other elements."
           },
           "attributionTexts" : {
             "description" : "This field provides a place for the SPDX data creator to record acknowledgements that may be required to be communicated in some contexts. This is not meant to include theactual complete license text (see licenseConculded and licenseDeclared), and may or may not include copyright notices (see also copyrightText). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce.",
@@ -269,25 +271,6 @@
             "description" : "License expression for licenseDeclared.  The licensing that the creators of the software in the package, or the packager, have declared. Declarations by the original software creator should be preferred, if they exist.",
             "type" : "string"
           },
-          "packageVerificationCode" : {
-            "type" : "object",
-            "properties" : {
-              "packageVerificationCodeValue" : {
-                "description" : "The actual package verification code as a hex encoded value.",
-                "type" : "string"
-              },
-              "packageVerificationCodeExcludedFiles" : {
-                "description" : "A file that was excluded when calculating the package verification code. This is usually a file containing SPDX data regarding the package. If a package contains more than one SPDX file all SPDX files must be excluded from the package verification code. If this is not done it would be impossible to correctly calculate the verification codes in both files.",
-                "type" : "array",
-                "items" : {
-                  "description" : "A file that was excluded when calculating the package verification code. This is usually a file containing SPDX data regarding the package. If a package contains more than one SPDX file all SPDX files must be excluded from the package verification code. If this is not done it would be impossible to correctly calculate the verification codes in both files.",
-                  "type" : "string"
-                }
-              }
-            },
-            "required" : [ "packageVerificationCodeValue" ],
-            "description" : "A manifest based verification code (the algorithm is defined in section 4.7 of the full specification) of the SPDX Item. This allows consumers of this data and/or database to determine if an SPDX item they have in hand is identical to the SPDX item from which the data was produced. This algorithm works even if the SPDX document is included in the SPDX item."
-          },
           "checksums" : {
             "description" : "The checksum property provides a mechanism that can be used to verify that the contents of a File or Package have not changed.",
             "type" : "array",
@@ -307,6 +290,25 @@
               "required" : [ "algorithm", "checksumValue" ],
               "description" : "A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented."
             }
+          },
+          "packageVerificationCode" : {
+            "type" : "object",
+            "properties" : {
+              "packageVerificationCodeValue" : {
+                "description" : "The actual package verification code as a hex encoded value.",
+                "type" : "string"
+              },
+              "packageVerificationCodeExcludedFiles" : {
+                "description" : "A file that was excluded when calculating the package verification code. This is usually a file containing SPDX data regarding the package. If a package contains more than one SPDX file all SPDX files must be excluded from the package verification code. If this is not done it would be impossible to correctly calculate the verification codes in both files.",
+                "type" : "array",
+                "items" : {
+                  "description" : "A file that was excluded when calculating the package verification code. This is usually a file containing SPDX data regarding the package. If a package contains more than one SPDX file all SPDX files must be excluded from the package verification code. If this is not done it would be impossible to correctly calculate the verification codes in both files.",
+                  "type" : "string"
+                }
+              }
+            },
+            "required" : [ "packageVerificationCodeValue" ],
+            "description" : "A manifest based verification code (the algorithm is defined in section 4.7 of the full specification) of the SPDX Item. This allows consumers of this data and/or database to determine if an SPDX item they have in hand is identical to the SPDX item from which the data was produced. This algorithm works even if the SPDX document is included in the SPDX item."
           },
           "downloadLocation" : {
             "description" : "The URI at which this package is available for download. Private (i.e., not publicly reachable) URIs are acceptable as values of this property. The values http://spdx.org/rdf/terms#none and http://spdx.org/rdf/terms#noassertion may be used to specify that the package is not downloadable or that no attempt was made to determine its download location, respectively.",
@@ -413,7 +415,8 @@
         "type" : "object",
         "properties" : {
           "SPDXID" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Uniquely identify any element in an SPDX document which may be referenced by other elements."
           },
           "fileTypes" : {
             "description" : "The type of the file.",
@@ -545,7 +548,8 @@
         "type" : "object",
         "properties" : {
           "SPDXID" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Uniquely identify any element in an SPDX document which may be referenced by other elements."
           },
           "ranges" : {
             "description" : "This field defines the byte range in the original host file (in X.2) that the snippet information applies to",
@@ -655,7 +659,8 @@
         "type" : "object",
         "properties" : {
           "spdxElementId" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Id to which the SPDX element is related"
           },
           "comment" : {
             "type" : "string"
@@ -674,5 +679,5 @@
       }
     }
   },
-  "required" : [ "SPDXID", "name", "spdxVersion", "dataLicense", "creationInfo", "documentNamespace" ]
+  "required" : [ "SPDXID", "name", "spdxVersion", "dataLicense", "creationInfo" ]
 }
