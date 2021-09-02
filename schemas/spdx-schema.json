@@ -8,6 +8,28 @@
       "type" : "string",
       "description" : "Uniquely identify any element in an SPDX document which may be referenced by other elements."
     },
+    "revieweds" : {
+      "description" : "Reviewed",
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "reviewer" : {
+            "description" : "The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.",
+            "type" : "string"
+          },
+          "comment" : {
+            "type" : "string"
+          },
+          "reviewDate" : {
+            "description" : "The date and time at which the SpdxDocument was reviewed. This value must be in UTC and have 'Z' as its timezone indicator.",
+            "type" : "string"
+          }
+        },
+        "required" : [ "reviewDate" ],
+        "additionalProperties" : false
+      }
+    },
     "hasExtractedLicensingInfos" : {
       "description" : "Indicates that a particular ExtractedLicensingInfo was defined in the subject SpdxDocument.",
       "type" : "array",
@@ -41,13 +63,13 @@
                   "description" : "Status of a License List SeeAlso URL reference if it refers to a website that matches the license text.",
                   "type" : "string"
                 },
-                "order" : {
-                  "description" : "The ordinal order of this element within a list",
-                  "type" : "integer"
-                },
                 "timestamp" : {
                   "description" : "Timestamp",
                   "type" : "string"
+                },
+                "order" : {
+                  "description" : "The ordinal order of this element within a list",
+                  "type" : "integer"
                 },
                 "url" : {
                   "description" : "URL Reference",
@@ -63,6 +85,7 @@
                 }
               },
               "required" : [ "url" ],
+              "additionalProperties" : false,
               "description" : "Cross reference details for the a URL reference"
             }
           },
@@ -76,28 +99,8 @@
           }
         },
         "required" : [ "licenseId", "extractedText" ],
+        "additionalProperties" : false,
         "description" : "An ExtractedLicensingInfo represents a license or licensing notice that was found in the package. Any license text that is recognized as a license may be represented as a License rather than an ExtractedLicensingInfo."
-      }
-    },
-    "revieweds" : {
-      "description" : "Reviewed",
-      "type" : "array",
-      "items" : {
-        "type" : "object",
-        "properties" : {
-          "reviewer" : {
-            "description" : "The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.",
-            "type" : "string"
-          },
-          "comment" : {
-            "type" : "string"
-          },
-          "reviewDate" : {
-            "description" : "The date and time at which the SpdxDocument was reviewed. This value must be in UTC and have 'Z' as its timezone indicator.",
-            "type" : "string"
-          }
-        },
-        "required" : [ "reviewDate" ]
       }
     },
     "name" : {
@@ -135,6 +138,7 @@
           }
         },
         "required" : [ "annotationDate", "comment", "annotator", "annotationType" ],
+        "additionalProperties" : false,
         "description" : "An Annotation is a comment on an SpdxItem by an agent."
       }
     },
@@ -166,6 +170,7 @@
               }
             },
             "required" : [ "algorithm", "checksumValue" ],
+            "additionalProperties" : false,
             "description" : "A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented."
           },
           "spdxDocument" : {
@@ -174,6 +179,7 @@
           }
         },
         "required" : [ "externalDocumentId", "checksum", "spdxDocument" ],
+        "additionalProperties" : false,
         "description" : "Information about an external SPDX document reference including the checksum. This allows for verification of the external references."
       }
     },
@@ -202,6 +208,7 @@
         }
       },
       "required" : [ "created" ],
+      "additionalProperties" : false,
       "description" : "One instance is required for each SPDX file produced. It provides the necessary information for forward and backward compatibility for processing tools."
     },
     "documentNamespace" : {
@@ -257,39 +264,20 @@
                 }
               },
               "required" : [ "annotationDate", "comment", "annotator", "annotationType" ],
+              "additionalProperties" : false,
               "description" : "An Annotation is a comment on an SpdxItem by an agent."
             }
-          },
-          "homepage" : {
-            "type" : "string"
           },
           "supplier" : {
             "description" : "The name and, optionally, contact information of the person or organization who was the immediate supplier of this package to the recipient. The supplier may be different than originator when the software has been repackaged. Values of this property must conform to the agent and tool syntax.",
             "type" : "string"
           },
+          "homepage" : {
+            "type" : "string"
+          },
           "licenseDeclared" : {
             "description" : "License expression for licenseDeclared.  The licensing that the creators of the software in the package, or the packager, have declared. Declarations by the original software creator should be preferred, if they exist.",
             "type" : "string"
-          },
-          "checksums" : {
-            "description" : "The checksum property provides a mechanism that can be used to verify that the contents of a File or Package have not changed.",
-            "type" : "array",
-            "items" : {
-              "type" : "object",
-              "properties" : {
-                "algorithm" : {
-                  "description" : "Identifies the algorithm used to produce the subject Checksum. Currently, SHA-1 is the only supported algorithm. It is anticipated that other algorithms will be supported at a later time.",
-                  "type" : "string",
-                  "enum" : [ "SHA256", "SHA1", "SHA384", "MD2", "MD4", "SHA512", "MD6", "MD5", "SHA224" ]
-                },
-                "checksumValue" : {
-                  "description" : "The checksumValue property provides a lower case hexidecimal encoded digest value produced using a specific algorithm.",
-                  "type" : "string"
-                }
-              },
-              "required" : [ "algorithm", "checksumValue" ],
-              "description" : "A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented."
-            }
           },
           "packageVerificationCode" : {
             "type" : "object",
@@ -308,7 +296,29 @@
               }
             },
             "required" : [ "packageVerificationCodeValue" ],
+            "additionalProperties" : false,
             "description" : "A manifest based verification code (the algorithm is defined in section 4.7 of the full specification) of the SPDX Item. This allows consumers of this data and/or database to determine if an SPDX item they have in hand is identical to the SPDX item from which the data was produced. This algorithm works even if the SPDX document is included in the SPDX item."
+          },
+          "checksums" : {
+            "description" : "The checksum property provides a mechanism that can be used to verify that the contents of a File or Package have not changed.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "algorithm" : {
+                  "description" : "Identifies the algorithm used to produce the subject Checksum. Currently, SHA-1 is the only supported algorithm. It is anticipated that other algorithms will be supported at a later time.",
+                  "type" : "string",
+                  "enum" : [ "SHA256", "SHA1", "SHA384", "MD2", "MD4", "SHA512", "MD6", "MD5", "SHA224" ]
+                },
+                "checksumValue" : {
+                  "description" : "The checksumValue property provides a lower case hexidecimal encoded digest value produced using a specific algorithm.",
+                  "type" : "string"
+                }
+              },
+              "required" : [ "algorithm", "checksumValue" ],
+              "additionalProperties" : false,
+              "description" : "A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented."
+            }
           },
           "downloadLocation" : {
             "description" : "The URI at which this package is available for download. Private (i.e., not publicly reachable) URIs are acceptable as values of this property. The values http://spdx.org/rdf/terms#none and http://spdx.org/rdf/terms#noassertion may be used to specify that the package is not downloadable or that no attempt was made to determine its download location, respectively.",
@@ -342,6 +352,7 @@
                 }
               },
               "required" : [ "referenceCategory", "referenceLocator", "referenceType" ],
+              "additionalProperties" : false,
               "description" : "An External Reference allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package."
             }
           },
@@ -405,7 +416,8 @@
             "type" : "string"
           }
         },
-        "required" : [ "SPDXID", "licenseDeclared", "downloadLocation", "name", "copyrightText", "licenseConcluded" ]
+        "required" : [ "SPDXID", "licenseDeclared", "downloadLocation", "name", "copyrightText", "licenseConcluded" ],
+        "additionalProperties" : false
       }
     },
     "files" : {
@@ -459,6 +471,7 @@
                 }
               },
               "required" : [ "annotationDate", "comment", "annotator", "annotationType" ],
+              "additionalProperties" : false,
               "description" : "An Annotation is a comment on an SpdxItem by an agent."
             }
           },
@@ -480,6 +493,7 @@
                 }
               },
               "required" : [ "algorithm", "checksumValue" ],
+              "additionalProperties" : false,
               "description" : "A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented."
             }
           },
@@ -538,7 +552,8 @@
             }
           }
         },
-        "required" : [ "SPDXID", "fileName", "copyrightText", "licenseConcluded" ]
+        "required" : [ "SPDXID", "fileName", "copyrightText", "licenseConcluded" ],
+        "additionalProperties" : false
       }
     },
     "snippets" : {
@@ -564,9 +579,18 @@
                     "reference" : {
                       "description" : "SPDX ID for File",
                       "type" : "string"
+                    },
+                    "offset" : {
+                      "type" : "integer",
+                      "description" : "Byte offset in the file"
+                    },
+                    "lineNumber" : {
+                      "type" : "integer",
+                      "description" : "line number offset in the file"
                     }
                   },
-                  "required" : [ "reference" ]
+                  "required" : [ "reference" ],
+                  "additionalProperties" : false
                 },
                 "endPointer" : {
                   "type" : "object",
@@ -574,12 +598,22 @@
                     "reference" : {
                       "description" : "SPDX ID for File",
                       "type" : "string"
+                    },
+                    "offset" : {
+                      "type" : "integer",
+                      "description" : "Byte offset in the file"
+                    },
+                    "lineNumber" : {
+                      "type" : "integer",
+                      "description" : "line number offset in the file"
                     }
                   },
-                  "required" : [ "reference" ]
+                  "required" : [ "reference" ],
+                  "additionalProperties" : false
                 }
               },
-              "required" : [ "startPointer", "endPointer" ]
+              "required" : [ "startPointer", "endPointer" ],
+              "additionalProperties" : false
             }
           },
           "licenseComments" : {
@@ -641,6 +675,7 @@
                 }
               },
               "required" : [ "annotationDate", "comment", "annotator", "annotationType" ],
+              "additionalProperties" : false,
               "description" : "An Annotation is a comment on an SpdxItem by an agent."
             }
           },
@@ -649,7 +684,8 @@
             "type" : "string"
           }
         },
-        "required" : [ "SPDXID", "name", "snippetFromFile", "copyrightText", "licenseConcluded" ]
+        "required" : [ "SPDXID", "name", "snippetFromFile", "copyrightText", "licenseConcluded" ],
+        "additionalProperties" : false
       }
     },
     "relationships" : {
@@ -675,9 +711,11 @@
             "type" : "string"
           }
         },
-        "required" : [ "spdxElementId", "relationshipType", "relatedSpdxElement" ]
+        "required" : [ "spdxElementId", "relationshipType", "relatedSpdxElement" ],
+        "additionalProperties" : false
       }
     }
   },
-  "required" : [ "SPDXID", "name", "spdxVersion", "dataLicense", "creationInfo" ]
+  "required" : [ "SPDXID", "name", "spdxVersion", "dataLicense", "creationInfo" ],
+  "additionalProperties" : false
 }
