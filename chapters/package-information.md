@@ -270,7 +270,7 @@ EXAMPLE 2 RDF: property `spdx:originator` in class `spdx:Package`
 
 ### 7.7.1 Description
 
-This section identifies the download Universal Resource Locator (URL), or a specific location within a version control system (VCS) for the package at the time that the SPDX document was created.
+This section identifies the download Uniform Resource Locator (URL), or a specific location within a version control system (VCS) for the package at the time that the SPDX document was created.
 
 Use:
 
