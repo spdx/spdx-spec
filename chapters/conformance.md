@@ -61,7 +61,7 @@ The data format specification and recommendations are subject to the following:
 | XML         | \*.spdx.xml  |
 | YAML        | \*.spdx.yaml or \*.spdx.yml |
 
-* The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Universal Resource Indicator (URI) should be present.
+* The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Uniform Resource Indicator (URI) should be present.
 
 ## 4.5 Usage <a name="4.5"></a>
 
