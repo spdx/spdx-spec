@@ -225,7 +225,7 @@ EXAMPLE 2 RDF: property `spdx:supplier` in class `spdx:Package`
 
 ### 7.6.1 Description
 
-If the package identified in the SPDX document originated from a different person or organization than identified as Package Supplier (see [7.5](#3.5) above), this field identifies from where or whom the package originally came. In some cases a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX document identifies the package [glibc][] and [Red Hat][] as the Package Supplier, but the [Free Software Foundation][FSF] is the Package Originator.
+If the package identified in the SPDX document originated from a different person or organization than identified as Package Supplier (see [7.5](#3.5) above), this field identifies from where or whom the package originally came. In some cases a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX document identifies the package as [glibc][] and the Package Supplier as [Red Hat][], but the [Free Software Foundation][FSF] is the Package Originator.
 
 Use `NOASSERTION` if:
 
@@ -270,7 +270,7 @@ EXAMPLE 2 RDF: property `spdx:originator` in class `spdx:Package`
 
 ### 7.7.1 Description
 
-This section identifies the download Universal Resource Locator (URL), or a specific location within a version control system (VCS) for the package at the time that the SPDX document was created.
+This section identifies the download Uniform Resource Locator (URL), or a specific location within a version control system (VCS) for the package at the time that the SPDX document was created.
 
 Use:
 
