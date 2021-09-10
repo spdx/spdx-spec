@@ -182,12 +182,13 @@ The URI provides an unambiguous mechanism for other SPDX documents to reference 
 * `CreatorWebsite` is a website hosted by the creator of the document. (e.g. an SPDX document provided by SPDX would be spdx.org)
 * `PathToSpdx` is a path to where SPDX documents are stored on the website (e.g. /spdx/spdxdocs)
 * `DocumentName` is a name given to the SPDX document itself, typically the (set of) package name(s) followed by the version. (See [6.4](#6.4).)
-* `UUID` is a [universally unique identifier][URI]. The UUID could be a version 4 random UUID which can be generated from the [Online UUID Generator][uuid-gen] or a version 5 UUID generated from a sha1 checksum known to be unique for this specific SPDX document version.
+* `UUID` is a [universally unique identifier][UUID]. The UUID could be a version 4 random UUID which can be generated from the [Online UUID Generator][uuid-gen] or a version 5 UUID generated from a sha1 checksum known to be unique for this specific SPDX document version.
 * If the creator does not own their own website, a default SPDX CreatorWebsite and PathToSpdx can be used `spdx.org/spdxdocs`. Note that the SPDX documents are not currently stored or accessible on this website. The URI is only used to create a unique ID following the above conventions.
 
 NOTE The URI does not have to be accessible. It is only intended to provide a unique ID. In many cases, the URI will point to a web accessible document, but this should not be assumed to be the case.
 
 [URI]: https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
+[UUID]: https://en.wikipedia.org/wiki/Universally_unique_identifier
 [rfc3986]: https://tools.ietf.org/html/rfc3986
 [uuid-gen]: https://www.uuidgenerator.net/
 
