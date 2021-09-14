@@ -1,8 +1,10 @@
-# Annex J Differences from previous editions (Informative)
+# Annex I Differences from previous editions (Informative)
 
-# J.1 Differences between V2.2.1 and V2.2 <a name="J.1"></a>
+# I.1 Differences between V2.2.1 and V2.2 <a name="I.1"></a>
 
 There were no technical differences; V2.2.1 is V2.2 reformatted for submission to ISO via the PAS process. As a result, new clauses were added causing the previous clause-numbering sequence to change. Also, Annexes went from having Roman numbers to Latin letters. Here is the translation between numbering in the current and previous editions:
+
+**Table I.1 — SPDX Editions**
 
 Current edition   | Title | V2.2
 :---------------: | ----- | :----:
@@ -11,14 +13,14 @@ Clause 2  | Normative references | N/A
 Clause 3  | Terms and definitions | N/A
 Clause 4  | Conformance | N/A
 Clause 5  | Composition of an SPDX document | N/A
-Clause 6  | Document creation information | Chapter 2
-Clause 7  | Package information | Chapter 3
-Clause 8  | File information | Chapter 4
-Clause 9  | Snippet information | Chapter 5
-Clause 10 | Other licensing information detected | Chapter 6
-Clause 11 | Relationships between SPDX elements | Chapter 7
-Clause 12 | Annotations | Chapter 8
-Clause 13 | Review information (deprecated) | Chapter 9
+Clause 6  | SPDX document creation information section | Chapter 2
+Clause 7  | Package information section | Chapter 3
+Clause 8  | File information section | Chapter 4
+Clause 9  | Snippet information section | Chapter 5
+Clause 10 | Other licensing information detected section | Chapter 6
+Clause 11 | Relationships between SPDX elements section | Chapter 7
+Clause 12 | Annotations section | Chapter 8
+Clause 13 | Review information section (deprecated) | Chapter 9
 Annex A   | SPDX license list | Appendix I
 Annex B   | License matching guidelines and templates | Appendix II
 Annex C   | RDF object model and identifier syntax | Appendix III
@@ -30,7 +32,7 @@ Annex H   | SPDX Lite | Appendix VIII
 Annex I   | SPDX file tags | Appendix IX
 Annex J   | Differences from previous editions | N/A
 
-# J.2 Differences from V2.2 and V2.1 <a name="J.2"></a>
+# I.2 Differences from V2.2 and V2.1 <a name="I.2"></a>
 
 * JSON, YAML, and a development version of XML have been added as supported file formats.
 
@@ -42,7 +44,7 @@ Annex J   | Differences from previous editions | N/A
 
 * Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the spdx-spec GitHub repository.
 
-# J.3 Differences between V2.1 and V2.0 <a name="J.3"></a>
+# I.3 Differences between V2.1 and V2.0 <a name="I.3"></a>
 
 * Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in.  The use of snippets is completely optional and it is not manditory for snippets to be identified. See section 5 Snippet Information for further details on the fields available to describe snippets.
 
@@ -57,7 +59,7 @@ more information.
 
 * Miscellaneous bug fixes.
 
-# J.4 Differences between V2.0 and V1.2 <a name="J.4"></a>
+# I.4 Differences between V2.0 and V1.2 <a name="I.4"></a>
 
 * Abstraction has been applied to the underlying model with the inclusion of SPDX elements. With SPDX 2.0, the concept of an SPDX element is introduced (see Appendix III). This includes SPDX documents, SPDX files, and SPDX packages, each of which gets associated with an SPDX identifier which is denoted by “SPDXRef-”.
 
