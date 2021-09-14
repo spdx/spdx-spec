@@ -1,4 +1,4 @@
-# 7 Package information fields
+# 7 Package information section
 
 ## 7.1 Package name field <a name="7.1"></a>
 
@@ -6,7 +6,7 @@
 
 Identify the full name of the package as given by the Package Originator ([7.6](#7.6)). The metadata for the SPDX version field is shown in Table 13.
 
-Table 13 — Metadata for the package name field
+**Table 13 — Metadata for the package name field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -26,7 +26,7 @@ EXAMPLE 1 Tag: `PackageName:`
 PackageName: glibc
 ```
 
-EXAMPLE 2 RDF: property `spdx:name` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -40,7 +40,7 @@ EXAMPLE 2 RDF: property `spdx:name` in class `spdx:Package`
 
 Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the SPDX identifier field is shown in Table 14.
 
-Table 14 — Metadata for the SPDX identifier field
+**Table 14 — Metadata for the SPDX identifier field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -93,7 +93,7 @@ Using document URI:
 
 Identify the version of the package. The metadata for the package version field is shown in Table 15.
 
-Table 15 — Metadata for the package version field
+**Table 15 — Metadata for the package version field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -113,7 +113,7 @@ EXAMPLE 1 Tag: `PackageVersion:`
 PackageVersion: 2.11.1
 ```
 
-EXAMPLE 2 RDF: property `spdx:versionInfo` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:versionInfo` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -129,7 +129,7 @@ EXAMPLE 2 RDF: property `spdx:versionInfo` in class `spdx:Package`
 
 Provide the actual file name of the package, or path of the directory being treated as a package. This may include the packaging and compression methods used as part of the file name, if appropriate. The metadata for the package file name field is shown in Table 16.
 
-Table 16 — Metadata for the package file name field
+**Table 16 — Metadata for the package file name field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -155,7 +155,7 @@ Sub-directory being treated as a package:
 PackageFileName: ./myrootdir/mysubdir1
 ```
 
-EXAMPLE 2 RDF: property `spdx:packageFileName` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:packageFileName` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -191,13 +191,13 @@ Use `NOASSERTION` if:
 
 The metadata for the package supplier field is shown in Table 17.
 
-Table 17 — Metadata for the package supplier field
+**Table 17 — Metadata for the package supplier field**
 
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
 | Cardinality | 1..1 |
-| Format | Single line of text with the following keywords \| `NOASSERTION`<ul><li>`Person:` person name and optional `(<email>)`</li><li>`Organization:` organization name and optional `(<email>)` </li></ul>|
+| Format | Single line of text with one of the following keywords \| `NOASSERTION`<ul><li>`Person:` person name and optional `(<email>)`</li><li>`Organization:` organization name and optional `(<email>)` </li></ul>|
 
 ### 7.5.2 Intent
 
@@ -211,7 +211,7 @@ EXAMPLE 1 Tag: `PackageSupplier:`
 PackageSupplier: Person: Jane Doe (jane.doe@example.com)
 ```
 
-EXAMPLE 2 RDF: property `spdx:supplier` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:supplier` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -237,13 +237,13 @@ Use `NOASSERTION` if:
 
 The metadata for the package originator field is shown in Table 18.
 
-Table 18 — Metadata for the package originator field
+**Table 18 — Metadata for the package originator field**
 
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
 | Cardinality | 1..1 |
-| Format | Single line of text with the following keywords \| `NOASSERTION`<ul><li>`Person:` person name and optional `(<email>)`</li><li>`Organization:` organization name and optional `(<email>)`</li></ul> |
+| Format | Single line of text with one of the following keywords \| `NOASSERTION`<ul><li>`Person:` person name and optional `(<email>)`</li><li>`Organization:` organization name and optional `(<email>)`</li></ul> |
 
 ### 7.6.2 Intent
 
@@ -257,7 +257,7 @@ EXAMPLE 1 Tag: `PackageOriginator:`
 PackageOriginator: Organization: ExampleCodeInspect (contact@example.com)
 ```
 
-EXAMPLE 2 RDF: property `spdx:originator` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:originator` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -285,13 +285,13 @@ Use:
 
 The metadata for the package download location field is shown in Table 19.
 
-Table 19 — Metadata for the package download location field
+**Table 19 — Metadata for the package download location field**
 
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Format | Uniform resource locator \| VCS location \| `NONE` \| `NOASSERTION`<br><br>For version-controlled files, the VCS location syntax is similar to a URL and has the:<br><br>`<vcs_tool>+<transport>://<host_name>[/<path_to_repository>][@<revision_tag_or_branch>][#<sub_path>]`<br><br>This VCS location compact notation (inspired and mostly adopted from [pip][pip-vcs] as of 2015-02-20) supports referencing locations in version control systems such as [Git][], [Mercurial][], [Subversion][] and [Bazaar][], and specifies the type of VCS tool using url prefixes: `git+`, `hg+`, `bzr+`, `svn+` and specific transport schemes such as SSH or HTTPS.<br><br>Specifying sub-paths, branch names, a commit hash, a revision or a tag name is recommended, and supported using the `@` delimiter for commits and the `#` delimiter for sub-paths.<br><br>Using user names and password in the `<host_name>` is not supported and should be considered as an error. User access control to URLs or VCS repositories must be handled outside of an SPDX document.<br><br>In VCS location compact notations, the trailing slashes in `<host_name>`, `<path_to_repository>` are not significant. Leading and trailing slashes in `<sub_path>` are not significant. |
+| Format | Uniform resource locator \| VCS location \| `NONE` \| `NOASSERTION`<br><br>For version-controlled files, the VCS location syntax is similar to a URL and has the:<br><br>`<vcs_tool>+<transport>://<host_name>[/<path_to_repository>][@<revision_tag_or_branch>][#<sub_path>]`<br><br>This VCS location compact notation (inspired and mostly adopted from [pip][pip-vcs] as of 2015-02-20) supports referencing locations in version control systems such as [Git][], [Mercurial][], [Subversion][] and [Bazaar][], and specifies the type of VCS tool using url prefixes: `git+`, `hg+`, `bzr+`, `svn+` and specific transport schemes such as SSH or HTTPS.<br><br>Specifying sub-paths, branch names, a commit hash, a revision or a tag name is recommended, and supported using the `@` delimiter for commits and the `#` delimiter for sub-paths.<br><br>Using user names and password in the `<host_name>` is not supported and should be considered as an error. User access control to URLs or VCS repositories shall be handled outside of an SPDX document.<br><br>In VCS location compact notations, the trailing slashes in `<host_name>`, `<path_to_repository>` are not significant. Leading and trailing slashes in `<sub_path>` are not significant. |
 
 ### 7.7.2 Intent
 
@@ -551,7 +551,7 @@ Sub-paths and revisions can be combined too:
 PackageDownloadLocation: bzr+https://bzr.myproject.org/MyProject/trunk@2019#src/somefile.c
 ```
 
-EXAMPLE 2 RDF: property `spdx:downloadLocation` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:downloadLocation` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -585,7 +585,7 @@ EXAMPLE 2 RDF: property `spdx:downloadLocation` in class `spdx:Package`
 
 Indicates whether the file content of this package has been available for or subjected to analysis when creating the SPDX document. If `false`, indicates packages that represent metadata or URI references to a project, product, artifact, distribution or a component. If `false`, the package shall not contain any files. The metadata for the files analyzed field is shown in Table 20.
 
-Table 20 — Metadata for the files analyzed field
+**Table 20 — Metadata for the files analyzed field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -611,7 +611,7 @@ EXAMPLE 1 Tag: `FilesAnalyzed`
 FilesAnalyzed: false
 ```
 
-EXAMPLE 2 RDF: property `spdx:filesAnalyzed` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:filesAnalyzed` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -627,12 +627,12 @@ EXAMPLE 2 RDF: property `spdx:filesAnalyzed` in class `spdx:Package`
 
 This field provides an independently reproducible mechanism identifying specific contents of a package based on the actual files (except the SPDX document itself, if it is included in the package) that make up each package and that correlates to the data in this SPDX document. This identifier enables a recipient to determine if any file in the original package (that the analysis was done on) has been changed and permits inclusion of an SPDX document as part of a package. The metadata for the package verification code field is shown in Table 21.
 
-Table 21 — Metadata for the package verification code field
+**Table 21 — Metadata for the package verification code field**
 
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
-| Cardinality | 0..1 if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (must be omitted) if `FilesAnalyzed` is `false`.|
+| Cardinality | 0..1 if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (shall be omitted) if `FilesAnalyzed` is `false`.|
 | Algorithm | <sup>[a](#Algorithm)</sup> |
 | Format | Single line of text with 160-bit binary represented as 40 lowercase hexadecimal digits |
 
@@ -670,7 +670,7 @@ EXAMPLE 1 Tag: `PackageVerificationCode:` (and optionally `(excludes: FileName)`
 PackageVerificationCode: d6a770ba38583ed4bb4525bd96e50461655d2758 (excludes: ./package.spdx)
 ```
 
-EXAMPLE 2 RDF: `spdx:packageVerificationCodeValue`, `spdx:packageVerificationCodeExcludedFile` in class `spdx:PackageVerificationCode` in class `spdx:Package`
+EXAMPLE 2 RDF: Properties `spdx:packageVerificationCodeValue`, `spdx:packageVerificationCodeExcludedFile` in class `spdx:PackageVerificationCode` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -693,7 +693,7 @@ EXAMPLE 2 RDF: `spdx:packageVerificationCodeValue`, `spdx:packageVerificationCod
 
 Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX document. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX document is to be included in a package, this value should not be calculated. The [SHA-1][] algorithm shall be used to provide the checksum by default. The metadata for the package checksum field is shown in Table 22.
 
-Table 22 — Metadata for the package checksum field
+**Table 22 — Metadata for the package checksum field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -722,7 +722,7 @@ PackageChecksum: SHA256: 11b6d3ee554eedf79299905a98f9b9a04e498210b59f15094c916c9
 PackageChecksum: MD5: 624c1abb3664f4b35547e7c73864ad24
 ```
 
-EXAMPLE 2 RDF: properties `spdx:algorithm`, `spdx:checksumValue` in class `spdx:checksum` in class `spdx:Package`
+EXAMPLE 2 RDF: Properties `spdx:algorithm`, `spdx:checksumValue` in class `spdx:checksum` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -769,7 +769,7 @@ Use:
 
 The metadata for the package home page field is shown in Table 23.
 
-Table 23 — Metadata for the package home page field
+**Table 23 — Metadata for the package home page field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -789,7 +789,7 @@ EXAMPLE 1 Tag: `PackageHomePage:`
 PackageHomePage: http://ftp.gnu.org/gnu/glibc
 ```
 
-EXAMPLE 2 RDF: property `doap:homepage` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `doap:homepage` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -828,7 +828,7 @@ EXAMPLE 1 Tag: `PackageSourceInfo:`
 PackageSourceInfo: <text>uses glibc-2_11-branch from git://sourceware.org/git/glibc.git.</text>
 ```
 
-EXAMPLE 2 RDF: `spdx:sourceInfo`
+EXAMPLE 2 RDF: Property `spdx:sourceInfo` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -861,7 +861,7 @@ If the Concluded License is not the same as the Declared License ([7.15](#7.15))
 
 The metadata for the concluded license field is shown in Table 25.
 
-Table 25 — Metadata for the concluded license field
+**Table 25 — Metadata for the concluded license field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -885,7 +885,7 @@ PackageLicenseConcluded: LGPL-2.0-only
 PackageLicenseConcluded: (LGPL-2.0-only OR LicenseRef-3)
 ```
 
-EXAMPLE 2 RDF: property `spdx:licenseConcluded` in `class spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:licenseConcluded` in `class spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -927,12 +927,12 @@ The options to populate this field are limited to:
 
 The metadata for all license information from files field is shown in Table 26.
 
-Table 26 — Metadata for the all licenses information from files field
+**Table 26 — Metadata for the all licenses information from files field**
 
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
-| Cardinality | 0..* if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (must be omitted) if `FilesAnalyzed` is `false`. |
+| Cardinality | 0..* if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (shall be omitted) if `FilesAnalyzed` is `false`. |
 | Format | `<shortIdentifier>` ([Annex A](SPDX-license-list.md#A.1)) \| ["DocumentRef-"`[idstring]`:]"LicenseRef-"`[idstring]` \| `NONE` \| `NOASSERTION`<br>where:<br><ul><li> "DocumentRef-"`[idstring]` is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6).</li><li>`[idstring]` is a unique string containing letters, numbers, `.`, or `-`. </li></ul> |
 
 ### 7.14.2 Intent
@@ -955,7 +955,7 @@ PackageLicenseInfoFromFiles: LicenseRef-1
 PackageLicenseInfoFromFiles: LicenseRef-2
 ```
 
-EXAMPLE 2 RDF: property `spdx:licenseInfoFromFiles` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:licenseInfoFromFiles` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -986,7 +986,7 @@ The options to populate this field are limited to:
 
 The metadata for the declared license field is shown in Table 27.
 
-Table 27 — Metadata for the declared license field
+**Table 27 — Metadata for the declared license field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -1010,7 +1010,7 @@ PackageLicenseDeclared: LGPL-2.0-only
 PackageLicenseDeclared: (LGPL-2.0-only AND LicenseRef-3)
 ```
 
-EXAMPLE 2 RDF: property `spdx:licenseDeclared` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:licenseDeclared` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -1039,7 +1039,7 @@ EXAMPLE 2 RDF: property `spdx:licenseDeclared` in class `spdx:Package`
 
 This field provides a place for the SPDX document creator to record any relevant background information or analysis that went in to arriving at the Concluded License for a package. If the Concluded License does not match the Declared License or License Information from Files, this should be explained by the SPDX document creator. It is also preferable to include an explanation here when the Concluded License is `NOASSERTION`. The metadata for the comments on license field is shown in Table 28.
 
-Table 28 — Metadata for the comments on license field
+**Table 28 — Metadata for the comments on license field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -1060,7 +1060,7 @@ PackageLicenseComments: <text>The license for this project changed with the rele
 The version of the project included here post-dates the license change.</text>
 ```
 
-EXAMPLE 2 RDF: property `spdx:licenseComments` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:licenseComments` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -1090,7 +1090,7 @@ Identify the copyright holders of the package, as well as any dates present. Thi
 
 The metadata for the copyright text field is shown in Table 29.
 
-Table 29 — Metadata for the copyright text field
+**Table 29 — Metadata for the copyright text field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -1112,7 +1112,7 @@ In `tag:value` format multiple lines are delimited by `<text>...</text>`.
 PackageCopyrightText: <text>Copyright 2008-2010 John Smith</text>
 ```
 
-EXAMPLE 2 RDF: property `spdx:copyrightText` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:copyrightText` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -1128,7 +1128,7 @@ EXAMPLE 2 RDF: property `spdx:copyrightText` in class `spdx:Package`
 
 This field is a short description of the package. The metadata for the package summary description field is shown in Table 30.
 
-Table 30 — Metadata for the package summary description field
+**Table 30 — Metadata for the package summary description field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -1150,7 +1150,7 @@ In `tag:value` format multiple lines are delimited by `<text>...</text>`.
 PackageSummary: <text>GNU C library.</text>
 ```
 
-EXAMPLE 2 RDF: property `spdx:summary` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:summary` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -1166,7 +1166,7 @@ EXAMPLE 2 RDF: property `spdx:summary` in class `spdx:Package`
 
 This field is a more detailed description of the package. It may also be extracted from the packages itself. The metadata for the package detailed description field is shown in Table 31.
 
-Table 31 — Metadata for the package detailed description field
+**Table 31 — Metadata for the package detailed description field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -1190,7 +1190,7 @@ as well as additional features specific to POSIX and other derivatives of the Un
 and extensions specific to GNU systems.</text>
 ```
 
-EXAMPLE 2 RDF: property `spdx:description` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:description` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -1210,7 +1210,7 @@ EXAMPLE 2 RDF: property `spdx:description` in class `spdx:Package`
 
 This field provides a place for the SPDX document creator to record any general comments about the package being described. The metadata for the package comment field is shown in Table 32.
 
-Table 32 — Metadata for the package comment field
+**Table 32 — Metadata for the package comment field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -1232,7 +1232,7 @@ In `tag:value` format multiple lines are delimited by `<text>...</text>`.
 PackageComment: <text>The package includes several sub-packages; see Relationship information.</text>
 ```
 
-EXAMPLE 2 RDF: property `rdfs:comment` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -1250,7 +1250,7 @@ EXAMPLE 2 RDF: property `rdfs:comment` in class `spdx:Package`
 
 An External Reference allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package. The metadata for the external reference field is shown in Table 33.
 
-Table 33 — Metadata for the external reference field
+**Table 33 — Metadata for the external reference field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -1278,7 +1278,7 @@ ExternalRef: PERSISTENT-ID swh swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e
 ExternalRef: OTHER LocationRef-acmeforge acmecorp/acmenator/4.1.3-alpha
 ```
 
-EXAMPLE 2 RDF: property `externalRef` in class `spdx:Package` of type `spdx:ExternalRef` 
+EXAMPLE 2 RDF: Property `externalRef` in class `spdx:Package` of type `spdx:ExternalRef` 
 
 For a listed location:
 
@@ -1323,7 +1323,7 @@ The referenceType value for a non-listed location consists of the SPDX document 
 
 To provide human-readable information about the purpose and target of the reference. The metadata for the external reference comment field is shown in Table 34.
 
-Table 34 — Metadata for the external reference comment field
+**Table 34 — Metadata for the external reference comment field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -1375,7 +1375,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:ExternalRef`
 
 This field provides a place for the SPDX document creator to record, at the package level, acknowledgements that might be required to be communicated in some contexts. This is not meant to include the package's actual complete license text (see `PackageLicenseConcluded`, `PackageLicenseDeclared` and `PackageLicenseInfoFromFiles`), and might or might not include copyright notices (see also `PackageCopyrightText`). The SPDX document creator might use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce. The metadata for the package attribution text field is shown in Table 35.
 
-Table 35 — Metadata for the package attribution text field
+**Table 35 — Metadata for the package attribution text field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -1400,7 +1400,7 @@ following acknowledgement:  This product includes software developed by the AT&T
 </text>
 ```
 
-EXAMPLE 2 RDF: property `spdx:attributionText` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:attributionText` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
