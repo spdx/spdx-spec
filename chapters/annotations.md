@@ -1,4 +1,4 @@
-# 12 Annotation information fields
+# 12 Annotations information section
 
 ## 12.1 Annotator field <a name="12.1"></a>
 
@@ -6,7 +6,7 @@
 
 This field identifies the person, organization or tool that has commented on a snippet, file, package, or the entire document. The metadata for the annotator field is shown in Table 71.
 
-Table 71 — Metadata for the annotator field
+**Table 71 — Metadata for the annotator field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -40,7 +40,7 @@ EXAMPLE 2 RDF: Property `spdx:annotator` in class `spdx:Annotation`
 
 Identify when the comment was made. This shall be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard. The metadata for the annotation date field is shown in Table 72.
 
-Table 72 — Metadata for the annotation date field
+**Table 72 — Metadata for the annotation date field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -74,7 +74,7 @@ EXAMPLE 2 RDF: Property `spdx:annotationDate` in class `spdx:Annotation`
 
 This field describes the type of annotation. Annotations are usually created when someone reviews the SPDX document, and if this is the case the annotation type should be `REVIEW`. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of `OTHER`. The metadata for the annotation type field is shown in Table 73.
 
-Table 73 — Metadata for the annotation type field
+**Table 73 — Metadata for the annotation type field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -94,7 +94,7 @@ EXAMPLE 1 Tag: `AnnotationType:`
 AnnotationType: REVIEW
 ```
 
-EXAMPLE 2 RDF: property `spdx:annotationType` in class `spdx:Annotation`
+EXAMPLE 2 RDF: Property `spdx:annotationType` in class `spdx:Annotation`
 
 ```text
 <Annotation>
@@ -109,7 +109,7 @@ EXAMPLE 2 RDF: property `spdx:annotationType` in class `spdx:Annotation`
 
 Uniquely identify the element in an SPDX document which is being referenced. These may be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the SPDX identifier reference field is shown in Table 74.
 
-Table 74 — Metadata for the SPDX identifier reference field
+**Table 74 — Metadata for the SPDX identifier reference field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -153,7 +153,7 @@ For RDF, the annotations are a property of the SPDX document, package, file, or 
 
 This required free form text field permits the annotator to provide commentary on the analysis. The metadata for the annotation comment field is shown in Table 75.
 
-Table 75 — Metadata for the annotation comment field
+**Table 75 — Metadata for the annotation comment field**
 
 | Attribute | Value |
 | --------- | ----- |
