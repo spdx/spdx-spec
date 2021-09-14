@@ -1,4 +1,4 @@
-# 6 Document creation information fields
+# 6 SPDX document creation information section
 
 ## 6.1 SPDX version field <a name="6.1"></a>
 
@@ -6,7 +6,7 @@
 
 Provide a reference number that can be used to understand how to parse and interpret the rest of the file. It will enable both future changes to the specification and to support backward compatibility. The version number consists of a major and minor version indicator. The major field shall be incremented when incompatible changes between versions are made (one or more sections are created, modified or deleted). The minor field shall be incremented when backwards compatible changes are made. The metadata for the SPDX version field is shown in Table 2.
 
-Table 2 — Metadata for the SPDX version field
+**Table 2 — Metadata for the SPDX version field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -26,7 +26,7 @@ EXAMPLE 1 Tag: `SPDXVersion:`
 SPDXVersion: SPDX-2.2
 ```
 
-EXAMPLE 2 RDF: `spdx:specVersion`
+EXAMPLE 2 RDF: Property spdx:specVersion in class spdx:SpdxDocument
 
 ```text
 <SpdxDocument rdf:about="...">
@@ -48,7 +48,7 @@ Compliance with this document includes populating the SPDX fields therein with d
 Without opining on the lawfulness of "database rights" (in jurisdictions where applicable), such explanatory text is copyrightable subject matter in most Berne Convention countries.
 By using this document, or any portion hereof, you hereby agree that any copyright rights (as determined by your jurisdiction) in any SPDX-Metadata, including without limitation explanatory text, shall be subject to the terms of the Creative Commons CC0 1.0 Universal license.  For SPDX-Metadata not containing any copyright rights, you hereby agree and acknowledge that the SPDX-Metadata is provided to you "as-is" and without any representations or warranties of any kind concerning the SPDX-Metadata, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non-infringement, or the absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law. The metadata for the data license field is shown in Table 3.
 
-Table 3 — Metadata for the data license field
+**Table 3 — Metadata for the data license field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -68,7 +68,7 @@ EXAMPLE 1 Tag: `DataLicense:`
 DataLicense: CC0-1.0
 ```
 
-EXAMPLE 2 RDF: `spdx:dataLicense`
+EXAMPLE 2 RDF: Property spdx:dataLicense in class spdx:SpdxDocument
 
 ```text
 <SpdxDocument rdf:about="...">
@@ -82,7 +82,7 @@ EXAMPLE 2 RDF: `spdx:dataLicense`
 
 Identify the current SPDX document which may be referenced in relationships by other files, packages internally and documents externally. To reference another SPDX document in total, this identifier should be used with the external document identifier preceding it. See [Clause 11](relationships-between-SPDX-elements.md) for examples. The metadata for the SPDX identifier field is shown in Table 4.
 
-Table 4 — Metadata for SPDX identifier field
+**Table 4 — Metadata for SPDX identifier field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -121,7 +121,7 @@ The URI for the document is the document namespace appended by
 
 Identify name of this document as designated by creator. The metadata for the document name field is shown in Table 5.
 
-Table 5 — Metadata for the document name field
+**Table 5 — Metadata for the document name field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -167,13 +167,13 @@ Provide an SPDX document-specific namespace as a unique absolute [Uniform Resour
 
 The URI shall be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document shall be used. There may only be one URI for an SPDX document and only one SPDX document for a given URI. The metadata for the SPDX document namespace field is shown in Table 6.
 
-Table 6 — Metadata for the SPDX document namespace field
+**Table 6 — Metadata for the SPDX document namespace field**
 
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Format | Unique absolute Uniform Resource Identifier (URI) as specified in [RFC-3986](https://tools.ietf.org/html/rfc3986), with the following exceptions:<br><br>The SPDX document URI cannot contain a URI "part" (e.g. the `#` delimiter), since the `#` is used to uniquely identify SPDX element identifiers. The URI must contain a scheme (e.g. `https:`).<br><br>The URI must be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document must be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI. |
+| Format | Unique absolute Uniform Resource Identifier (URI) as specified in [RFC-3986](https://tools.ietf.org/html/rfc3986), with the following exceptions:<br><br>The SPDX document URI cannot contain a URI "part" (e.g., the `#` delimiter), since the `#` is used to uniquely identify SPDX element identifiers. The URI shall contain a scheme (e.g., `https:`).<br><br>The URI shall be unique for the SPDX document including the specific version of the SPDX document. If the SPDX document is updated, thereby creating a new version, a new URI for the updated document shall be used. There can only be one URI for an SPDX document and only one SPDX document for a given URI. |
 
 ### 6.5.2 Intent
 
@@ -221,7 +221,7 @@ http://www.w3.org/2000/01/rdf-schema#
 
 Identify any external SPDX documents referenced within this SPDX document. The metadata for the external document references field is shown in Table 7.
 
-Table 7 — Metadata for the external document references field
+**Table 7 — Metadata for the external document references field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -249,7 +249,8 @@ The ExternalDocumentRef contains two properties:
 * checksum - the checksum of the referenced SPDX document
 
 ```text
-<externalDocumentRef rdf:ID="DocumentRef-spdx-tool-1.2">
+<SpdxDocument rdf:about="...">
+  <externalDocumentRef rdf:ID="DocumentRef-spdx-tool-1.2">
     <ExternalDocumentRef>
         <spdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..." />
         <checksum>
@@ -260,7 +261,8 @@ The ExternalDocumentRef contains two properties:
             </Checksum>
         </checksum>
     </ExternalDocumentRef>
-</externalDocumentRef>
+  </externalDocumentRef>
+</SpdxDocument>
 ```
 
 NOTE In RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired.
@@ -271,7 +273,7 @@ NOTE In RDF, a namespace can be created for the external document reference if a
 
 An optional field for creators of the SPDX document to provide the version of the SPDX License List used when the SPDX document was created. The metadata for the license list version field is shown in Table 8.
 
-Table 8 — Metadata for the license list version field
+**Table 8 — Metadata for the license list version field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -305,7 +307,7 @@ EXAMPLE 2 RDF: Property `licenseListVersion` in class `spdx:CreationInfo`
 
 Identify who (or what, in the case of a tool) created the SPDX document. If the SPDX document was created by an individual, indicate the person's name. If the SPDX document was created on behalf of a company or organization, indicate the entity name. If the SPDX document was created using a software tool, indicate the name and version for that tool. If multiple participants or tools were involved, use multiple instances of this field. Person name or organization name may be designated as “anonymous” if appropriate. The metadata for the creator field is shown in Table 9.
 
-Table 9 — Metadata for the creator field
+**Table 9 — Metadata for the creator field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -343,7 +345,7 @@ EXAMPLE 2 RDF: Property `spdx:creator` in class `spdx:CreationInfo`
 
 Identify when the SPDX document was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in Clause [12](annotations.md), which involves the addition of information during a subsequent review. The metadata for the created field is shown in Table 10.
 
-Table 10 — Metadata for the created field
+**Table 10 — Metadata for the created field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -377,7 +379,7 @@ EXAMPLE 2 RDF: Property `spdx:created` in class `spdx:CreationInfo`
 
 An optional field for creators of the SPDX document to provide general comments about the creation of the SPDX document or any other relevant comment not included in the other fields. The metadata for the Creator comment field is shown in Table 11.
 
-Table 11 — Metadata for the Creator comment field
+**Table 11 — Metadata for the Creator comment field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -414,7 +416,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:CreationInfo`
 
 An optional field for creators of the SPDX document content to provide comments to the consumers of the SPDX document. The metadata for the document comment field is shown in Table 12.
 
-Table 12 — Metadata for the document comment field
+**Table 12 — Metadata for the document comment field**
 
 | Attribute | Value |
 | --------- | ----- |
