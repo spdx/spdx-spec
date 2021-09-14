@@ -1,6 +1,6 @@
-# Annex H SPDX Lite (Normative)
+# Annex G SPDX Lite (Normative)
 
-## H.1 Explanation of SPDX Lite <a name="H.1"></a>
+## G.1 Explanation of SPDX Lite <a name="G.1"></a>
 
 The SPDX Lite profile defines a subset of the SPDX specification, from the point of view of use cases in some industries. SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries.
 
@@ -12,23 +12,25 @@ SPDX Lite has affinity with SPDX tools due to its containing the mandatory part 
 
 An SPDX Lite document can be used in parallel with SPDX documents in software supply chains.
 
-## H.2 Format of SPDX Lite <a name="H.2"></a>
+## G.2 Format of SPDX Lite <a name="G.2"></a>
 
 The SPDX Lite profile is a subset of the SPDX specification. SPDX Lite consists of mandatory fields of the Document Creation and Package Information sections and other basic information. Cardinality of each item is not changed.
 
-The mandatory part of the Document Creation Information section (which consists of SPDX Version, Data License, SPDX Identifier, Document Name, SPDX Document Namespace, Creator and Created) is used for keeping compatibility with SPDX tools.
+The mandatory part of the SPDX document creation information section (which consists of SPDX Version, Data License, SPDX Identifier, Document Name, SPDX Document Namespace, Creator and Created) is used for keeping compatibility with SPDX tools.
 
 The main part of the Package Information (those are Package Name, Package Version, Package File Name, Package Download Location, Package Home Page, Concluded License, Declared License, Comments on License and Copyright Text) is used for exchanging license information.
 
 In the Package Information, Package SPDX Identifier and Files Analyzed are used for keeping compatibility with SPDX tools.
 
-Files Analyzed must be set to "false" when SPDX Lite is used.
+Files Analyzed shall be set to "false" when SPDX Lite is used.
 
 Package Comment can be used to describe additional details, such as compiling options, where a license may change with a different compiling option.
 
 The Other License information section (License Identifier, Extracted Text, License Name and License Comment) is used for exchanging license information for licenses that are not on the [SPDX License List](https://spdx.org/licenses).
 
-## H.3 Table of SPDX Lite fields <a name="H.3"></a>
+## G.3 Table of SPDX Lite fields <a name="G.3"></a>
+
+**Table G.1 — SPDX Lite fields**
 
 | # | SPDX subclause | Field Name |
 |:-----:|:----:|:--------------------------|
