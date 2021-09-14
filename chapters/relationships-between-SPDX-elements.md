@@ -1,4 +1,4 @@
-# 11 Relationship between SPDX elements information fields
+# 11 Relationships between SPDX elements information section
 
 ## 11.1 Relationship field <a name="11.1"></a>
 
@@ -14,7 +14,7 @@ The use of `NOASSERTION`or `NONE` is not mandatory for any relationship. If no r
 
 The relationships between two SPDX elements that are supported are shown in Table 68.
 
-Table 68 — Relationships between two SPDX elements that are supported
+**Table 68 — Relationships between two SPDX elements that are supported**
 
 | Relationship           | Description | Example |
 |------------------------|-------------|---------|
@@ -64,7 +64,7 @@ Table 68 — Relationships between two SPDX elements that are supported
 
 The metadata for the relationship field is shown in Table 69.
 
-Table 69 — Metadata for the relationship field
+**Table 69 — Metadata for the relationship field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -119,14 +119,14 @@ EXAMPLE 2 RDF: Property `spdx:relationship` in any `spdx:SpdxDocument`, `spdx:Pa
   <relationship>
     <Relationship>
       <relatedSpdxElement>
-        <File rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..."
+        <File rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..."/>
       </relatedSpdxElement>
       <relationshipType>http://spdx.org/rdf/terms#relationshipType_contains
       </relationshipType>
     </Relationship>
   </relationship>
   ...
-</SpdxElement>
+</File>
 ```
 
 ## 11.2 Relationship comment field <a name="11.2"></a>
@@ -135,7 +135,7 @@ EXAMPLE 2 RDF: Property `spdx:relationship` in any `spdx:SpdxDocument`, `spdx:Pa
 
 This field provides a place for the SPDX document creator to record any general comments about the relationship. The metadata for the relationship comment field is shown in Table 70.
 
-Table 70 — Metadata for the relationship comment field
+**Table 70 — Metadata for the relationship comment field**
 
 | Attribute | Value |
 | --------- | ----- |
