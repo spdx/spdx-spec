@@ -1,4 +1,4 @@
-# 13 Review information fields (deprecated)
+# 13 Review information section (deprecated)
 
 ## 13.1 Reviewer field (deprecated) <a name="13.1"></a>
 
@@ -8,7 +8,7 @@ This field has been deprecated since SPDX 2.0.
 
 This field identifies the person, organization or tool that has reviewed the SPDX document. This field is optional and thus there is no requirement for any reviewer to add a set of review information to the SPDX document. This can be considered as an equivalent to “signed off” or “reviewed by.” Additional reviewers can be added after the original version of the SPDX document is created and be appended to the original SPDX document. The metadata for the reviewer field is shown in Table 76.
 
-Table 76 — Metadata for the reviewer field
+**Table 76 — Metadata for the reviewer field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -44,7 +44,7 @@ This field has been deprecated since SPDX 2.0.
 
 Identify when the review was done. This shall be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard. The metadata for the review date field is shown in Table 77.
 
-Table 77 — Metadata for the review date field
+**Table 77 — Metadata for the review date field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -80,7 +80,7 @@ This field is deprecated since SPDX 2.0.
 
 This optional free form text field permits the reviewer to provide commentary on the analysis. The metadata for the review comment field is shown in Table 78.
 
-Table 78 — Metadata for the review comment field
+**Table 78 — Metadata for the review comment field**
 
 | Attribute | Value |
 | --------- | ----- |
