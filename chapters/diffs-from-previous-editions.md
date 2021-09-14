@@ -27,10 +27,10 @@ Annex C   | RDF object model and identifier syntax | Appendix III
 Annex D   | SPDX license expressions | Appendix IV
 Annex E   | Using SPDX short identifiers in source files | Appendix V
 Annex F   | External repository identifiers | Appendix VI
-Annex G   | Creative Commons Attribution License 3.0 Unported | Appendix VII
-Annex H   | SPDX Lite | Appendix VIII
-Annex I   | SPDX file tags | Appendix IX
-Annex J   | Differences from previous editions | N/A
+[omitted] | Creative Commons Attribution License 3.0 Unported | Appendix VII
+Annex G   | SPDX Lite | Appendix VIII
+Annex H   | SPDX file tags | Appendix IX
+Annex I   | Differences from previous editions | N/A
 
 # I.2 Differences from V2.2 and V2.1 <a name="I.2"></a>
 
