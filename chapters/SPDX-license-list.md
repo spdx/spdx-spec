@@ -18,7 +18,11 @@ The following table contains the full names and short identifiers for the SPDX L
 
 ## A.1 Licenses with Short Identifiers <a name="A.1"></a>
 
-| Full name of license                                                         | Short identifier                                                                                            | OSI? |
+The OSI column in Table A.1 refers to Open Source Initiative licenses [see Reference 2].
+
+**Table A.1 — License names and corresponding short identifiers**
+
+| Full Name of License                                                         | Short Identifier                                                                                            | OSI? |
 |------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|------|
 | BSD Zero Clause License                                                      | [0BSD](https://spdx.org/licenses/0BSD.html)                                                                 | Y    |
 | Attribution Assurance License                                                | [AAL](https://spdx.org/licenses/AAL.html)                                                                   | Y    |
@@ -404,7 +408,9 @@ The following table contains the full names and short identifiers for the SPDX L
 
 ## A.2 Exceptions List <a name="A.2"></a>
 
-| Full name of exception                                | SPDX license exception                                                                                |
+**Table A.2 — Exception names and license links**
+
+| Full Name of Exception                                | SPDX License Exception                                                                                |
 |-------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | 389 Directory Server Exception                        | [389-exception](https://spdx.org/licenses/389-exception.html)                                         |
 | Autoconf exception 2.0                                | [Autoconf-exception-2.0](https://spdx.org/licenses/Autoconf-exception-2.0.html)                       |
@@ -446,7 +452,9 @@ The following table contains the full names and short identifiers for the SPDX L
 
 ## A.3 Deprecated Licenses <a name="A.3"></a>
 
-| Full name of license                                            | Deprecated SDPX short identifier                                                                    |
+**Table A.3 — Deprecated license short identifiers**
+
+| Full Name of License                                            | Deprecated SDPX Short Identifier                                                                    |
 |-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | Affero General Public License v1.0                              | [AGPL-1.0](https://spdx.org/licenses/AGPL-1.0.html)                                                 |
 | GNU Affero General Public License v3.0                          | [AGPL-3.0](https://spdx.org/licenses/AGPL-3.0.html)                                                 |
