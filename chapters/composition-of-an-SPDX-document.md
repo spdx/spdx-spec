@@ -4,7 +4,7 @@
 
 This document contains the specification for an SPDX document, which is made up of a set of one or more sections, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of sections allowed. The fields for each kind of section are defined in the clause corresponding to that section.  Within an SPDX document, sections may be organized, as follows:
 
-![Overview of SPDX document contents](img/spdx-2.2-document.png)
+![Overview of SPDX document contents](img/spdx-2.2.1-document.png)
 
 The object model is illustrated by [Annex C](RDF-object-model-and-identifier-syntax.md).
 
@@ -91,7 +91,7 @@ When implementing `tag:value` format, the positioning of Snippet elements is syn
 * Annotations on the Snippet and Relationships from the Snippet may appear after the Snippet Information, before the next file or Package section.
 
 
-### 5.2.5 Other licensing information detected <a name="5.2.5"></a>
+### 5.2.5 Other licensing information detected section <a name="5.2.5"></a>
 
 This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list, see [https://spdx.org/licenses/](https://spdx.org/licenses/). The SPDX License List can also be found in [Annex A](SPDX-license-list.md).
 
@@ -116,6 +116,8 @@ Annotations permit the addition of information to validate and clarify ambiguous
 Cardinality: Optional, one or many.
 
 See [Clause 12](annotations.md) for details of the fields in this kind of section.
+
+This section is now the preferred home for review information.
 
 ### 5.2.8 Review information section <a name="5.2.8"></a>
 
