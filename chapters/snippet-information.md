@@ -1,4 +1,4 @@
-# 9 Snippet information fields
+# 9 Snippet information section
 
 ## 9.1 Snippet SPDX identifier field <a name="9.1"></a>
 
@@ -6,7 +6,7 @@
 
 Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the snippet SPDX identifier field is shown in Table 52.
 
-Table 52 — Metadata for the snippet SPDX identifier field
+**Table 52 — Metadata for the snippet SPDX identifier field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -54,7 +54,7 @@ Using document URI:
 
 Uniquely identify the file in an SPDX document which this snippet is associated with. The metadata for the snippet from file SPDX identifier field is shown in Table 53.
 
-Table 53 — Metadata for the snippet from file SPDX identifier field
+**Table 53 — Metadata for the snippet from file SPDX identifier field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -108,7 +108,7 @@ Snippet from a File in an External SPDX Doc:
 
 This field defines the byte range in the original host file (in [9.2](#9.2)) that the snippet information applies to. The metadata for the snippet byte range field is shown in Table 54.
 
-Table 54 — Metadata for the snippet byte range field
+**Table 54 — Metadata for the snippet byte range field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -172,7 +172,7 @@ xmlns:ptr=http://www.w3.org/2009/pointers#
 
 This optional field defines the line range in the original host file (see [9.2](#9.2)) that the snippet information applies to. If there is a disagreement between the byte range and line range, the byte range values will take precedence. The metadata for the snippet line range field is shown in Table 55.
 
-Table 55 — Metadata for the snippet line range field
+**Table 55 — Metadata for the snippet line range field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -192,7 +192,7 @@ EXAMPLE 1 Tag: `SnippetLineRange:`
 SnippetLineRange: 5:23
 ```
 
-EXAMPLE 2 RDF: properties `spdx:Range` in class `spdx:Snippet`.
+EXAMPLE 2 RDF: Properties `spdx:Range` in class `spdx:Snippet`.
 
 The RDF uses the W3C proposed pointer method vocabulary (see <http://www.w3.org/TR/Pointers-in-RDF10/>).
 
@@ -245,7 +245,7 @@ A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions
 
 If the Concluded License is not the same as the License Information in Snippet, a written explanation should be provided in the Comments on License field (see [9.7](#9.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field (see [9.7](#9.7)) is preferred. The metadata for the snippet concluded license field is shown in Table 56.
 
-Table 56 — Metadata for the snippet concluded license field
+**Table 56 — Metadata for the snippet concluded license field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -311,7 +311,7 @@ A reference to the license, denoted by LicenseRef-`[idstring]`, if the license i
 
 If license information for more than one license is contained in the snippet or if the license information offers a choice of licenses, then each of the choices should be listed as a separate entry. The metadata for the license information in snippet field is shown in Table 57.
 
-Table 57 — Metadata for the license information in snippet field
+**Table 57 — Metadata for the license information in snippet field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -351,7 +351,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseInfoInSnippet` in class `spdx:Snippet`
 
 This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a snippet. The metadata for the snippet comments on license field is shown in Table 58.
 
-Table 58 — Metadata for the snippet comments on license field
+**Table 58 — Metadata for the snippet comments on license field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -402,7 +402,7 @@ any text relating to a copyright notice, even if not complete;
 
 The metadata for the snippet copyright text field is shown in Table 59.
 
-Table 59 — Metadata for the snippet copyright text field
+**Table 59 — Metadata for the snippet copyright text field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -442,7 +442,7 @@ EXAMPLE 2 RDF: Property `spdx:copyrightText` in class `spdx:Snippet`
 
 This field provides a place for the SPDX document creator to record any general comments about the snippet. The metadata for the snippet comment field is shown in Table 60.
 
-Table 60 — Metadata for the snippet comment field
+**Table 60 — Metadata for the snippet comment field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -486,7 +486,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Snippet`
 
 Identify a specific snippet in a human convenient manner. The metadata for the snippet name field is shown in Table 61.
 
-Table 61 — Metadata for the snippet name field
+**Table 61 — Metadata for the snippet name field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -520,7 +520,7 @@ EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:Snippet`
 
 This field provides a place for the SPDX document creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see `SnippetLicenseConcluded` and `LicenseInfoInSnippet`), and might or might not include copyright notices (see also `SnippetCopyrightText`). The SPDX document creator may use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce. The metadata for the snippet attribution text field is shown in Table 62.
 
-Table 62 — Metadata for the snippet attribution text field
+**Table 62 — Metadata for the snippet attribution text field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -545,7 +545,7 @@ following acknowledgement:  This product includes software developed by the AT&T
 </text>
 ```
 
-EXAMPLE 2 RDF: property `spdx:attributionText` in class `spdx:Snippet`
+EXAMPLE 2 RDF: Property `spdx:attributionText` in class `spdx:Snippet`
 
 ```text
 <Snippet rdf:about="...">
