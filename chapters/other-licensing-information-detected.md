@@ -1,4 +1,4 @@
-# 10 Other licensing information detected fields
+# 10 Other licensing information detected section
 
 ## 10.1 License identifier field <a name="10.1"></a>
 
@@ -6,7 +6,7 @@
 
 Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages, files and snippets sections of the SPDX document (Clause [7](package-information.md), Clause [8](file-information.md) and Clause [9](snippet-information.md), respectively).
 
-Table 63 — Metadata for the license identifier field
+**Table 63 — Metadata for the license identifier field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -50,7 +50,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseID` in class `spdx:ExtractedLicensingInfo`
 
 Provide a copy of the actual text of the license reference extracted from the package, file or snippet that is associated with the License Identifier to aid in future analysis. The metadata for the extracted text field is shown in Table 64.
 
-Table 64 — Metadata for the extracted text field
+**Table 64 — Metadata for the extracted text field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -108,7 +108,7 @@ Provide a common name of the license that is not on the SPDX list.
 
 Use `NOASSERTION` If there is no common name or it is not known. The metadata for the license name field is shown in Table 65.
 
-Table 65 — Metadata for the license name field
+**Table 65 — Metadata for the license name field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -142,7 +142,7 @@ EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:ExtractedLicensingInfo`
 
 Provide a pointer to the official source of a license that is not included in the SPDX License List, that is referenced by the License Identifier. The metadata for the license cross reference field is shown in Table 66.
 
-Table 66 — Metadata for the license cross reference field
+**Table 66 — Metadata for the license cross reference field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -176,7 +176,7 @@ EXAMPLE 2 RDF: Property `rdfs:seeAlso` in class `spdx:ExtractedLicensingInfo`
 
 This field provides a place for the SPDX document creator to record any general comments about the license. The metadata for the license comment field is shown in Table 67.
 
-Table 67 — Metadata for the license comment field
+**Table 67 — Metadata for the license comment field**
 
 | Attribute | Value |
 | --------- | ----- |
