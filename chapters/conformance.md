@@ -1,20 +1,20 @@
 # 4 Conformance
 
-## 4.1 SPDX Versions <a name="4.1"></a>
+## 4.1 SPDX Current and Previous Versions <a name="4.1"></a>
 
-This edition has the version number 2.2.1 as part of its title. Although this is the first ISO edition of the SPDX Specification, earlier editions were published by the SPDX workgroup via the Linux Foundation (which also co-published this edition). [Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012), 1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), and 2.2 (May 2020).] Differences between this edition and earlier ones are reported in [Annex J](diffs-from-previous-editions.md); see also [[1]](bibliography.md).
+This edition has the version number 2.2.1 as part of its title. Although this is the first ISO edition of the SPDX Specification, earlier editions were published by the SPDX workgroup via the Linux Foundation (which also co-published this edition). The SPDX Specification 2.2.1 was subsequently transposed into the Joint Development Foundation. [Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012), 1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), and 2.2 (May 2020).] Differences between this edition and earlier ones are reported in [Annex I](diffs-from-previous-editions.md); see also [[1]](bibliography.md).
 
 ## 4.2 Obsolete features <a name="4.2"></a>
 
 Over the life of a standard, some older approaches can become obsolete and are dropped from subsequent editions, possibly with a replacement approach being provided. Such action involves *deprecating* those outdated features. This edition identifies all currently deprecated features.
 
-## 4.3 Alternate notation for some requirements <a name="4.3"></a>
+## 4.3 Alternate notation for some conformance requirements <a name="4.3"></a>
 
 This standard contains more than a few *cardinality assertions*, each of which indicates absolute, optional, or conditional requirements. Here are some examples:
 
 * Cardinality: Mandatory, one.
 * Cardinality: Optional, one or many.
-* Cardinality: Mandatory, one if {condition} is true or {feature} omitted, zero (must be omitted) if {condition} is false.
+* Cardinality: Mandatory, one if {condition} is true or {feature} omitted, zero (shall be omitted) if {condition} is false.
 * Cardinality: 0..1
 * Cardinality: 0..\*
 * Cardinality: 1..1
@@ -24,7 +24,7 @@ Each of these assertions can easily be understood as to whether a feature is req
 
 ## 4.4 Standard data format requirements <a name="4.4"></a>
 
-The data format specification and recommendations are subject to the following:
+The data format specification and recommendations are subject to the following constraints:
 
 * Shall be in a human readable form.
 
@@ -63,9 +63,9 @@ The data format specification and recommendations are subject to the following:
 
 * The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Uniform Resource Indicator (URI) should be present.
 
-## 4.5 Usage <a name="4.5"></a>
+## 4.5 Trademark Compliance <a name="4.5"></a>
 
-A file may be designated an SPDX document, if it is compliant with the requirements of the SPDX Trademark License (See the [SPDX Trademark Page](https://spdx.dev/trademark/)).
+To be designated an SPDX document, a file shall comply with the requirements of the SPDX Trademark License (See the [SPDX Trademark Page](https://spdx.dev/trademark/)).
 
 The official copyright notice that shall be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.2.1 is:
 
@@ -77,4 +77,4 @@ The official copyright notice that shall be used with any non-verbatim reproduct
 
 ## 4.6 The SPDX Lite profile <a name="4.6"></a>
 
-This profile defines a subset of the SPDX specification. SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries. See [Annex H](SPDX-Lite.md) for more information.
+Rather than conforming to this whole specification, an implementation may conform with SPDX Lite only, a profile that defines a subset of the SPDX specification. SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries. See [Annex G](SPDX-Lite.md) for more information.
