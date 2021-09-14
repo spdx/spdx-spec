@@ -1,4 +1,4 @@
-# 8 File information fields
+# 8 File information section
 
 ## 8.1 File name field <a name="8.1"></a>
 
@@ -6,7 +6,7 @@
 
 Identify the full path and filename that corresponds to the file information in this section. The metadata for the file name field is shown in Table 36.
 
-Table 36 — Metadata for the file name field
+**Table 36 — Metadata for the file name field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -41,7 +41,7 @@ EXAMPLE 2 RDF: Property `spdx:fileName` in class `spdx:File`
 
 Uniquely identify any element in an SPDX document which might be referenced by other elements. These might be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the file SPDX identifier field is shown in Table 37.
 
-Table 37 — Metadata for the file SPDX identifier field
+**Table 37 — Metadata for the file SPDX identifier field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -101,7 +101,7 @@ This field provides information about the type of file identified. File Type is 
 
 The metadata for the file type field is shown in Table 38.
 
-Table 38 — Metadata for the file type field
+**Table 38 — Metadata for the file type field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -160,7 +160,7 @@ Where file2 is a `README.TXT`
 
 Provide a unique identifier to match analysis information on each specific file in a package. The metadata for the file checksum field is shown in Table 39.
 
-Table 39 — Metadata for the file checksum field
+**Table 39 — Metadata for the file checksum field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -230,7 +230,7 @@ A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions
 
 If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([8.7](#8.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([8.7](#8.7)) is preferred. The metadata for the concluded license field is shown in Table 40.
 
-Table 40 — Metadata for the concluded license field
+**Table 40 — Metadata for the concluded license field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -295,7 +295,7 @@ A reference to the license, denoted by LicenseRef-`[idstring]`, if the license i
 
 If license information for more than one license is contained in the file or if the license information offers the package recipient a choice of licenses, then each of the choices should be listed as a separate entry. The metadata for the license information in file field is shown in Table 41.
 
-Table 41 — Metadata for the license information in file field
+**Table 41 — Metadata for the license information in file field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -332,7 +332,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseInfoInFile` in class `spdx:File`
 
 This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a file. If the Concluded License does not match the License Information in File, this should be explained by the SPDX document creator. It is also preferable to include an explanation here when the Concluded License is `NOASSERTION`. The metadata for the comments on license field is shown in Table 42.
 
-Table 42 — Metadata for the comments on license field
+**Table 42 — Metadata for the comments on license field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -388,7 +388,7 @@ Any text relating to a copyright notice, even if not complete;
 
 The metadata for the copyright text field is shown in Table 43.
 
-Table 43 — Metadata for the copyright text field
+**Table 43 — Metadata for the copyright text field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -428,7 +428,7 @@ This field is deprecated since 1.8.4, as they can be replaced by a relationship 
 
 To indicate that a file has been derived from a specific project. The metadata for the artifact of project name field is shown in Table 44.
 
-Table 44 — Metadata for the artifact of project name field
+**Table 44 — Metadata for the artifact of project name field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -450,7 +450,7 @@ EXAMPLE 1 Tag: `ArtifactOfProjectName:`
 ArtifactOfProjectName: Jena
 ```
 
-EXAMPLE 2 RDF: Property `spdx:artifactOf/doap:Project/doap:name`
+EXAMPLE 2 RDF: Property `doap:name` in class `doap:Project` in property `spdx:artifactOf` in class `spdx:File`
 
 ```text
 <File>
@@ -470,7 +470,7 @@ This field is deprecated since 1.8.4, as they can be replaced by a relationship 
 
 To indicate the location of the project from which the file has been derived. The metadata for the artifact of project homepage field is shown in Table 45.
 
-Table 45 — Metadata for the artifact of project homepage field
+**Table 45 — Metadata for the artifact of project homepage field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -484,13 +484,13 @@ To make it easier for recipients of the SPDX document to determine the original 
 
 ### 8.10.3 Examples
 
-EXAMPLE 1 Tag: `ArtifactOfProjectHomePage:`
+EXAMPLE 1 Tag: Property `ArtifactOfProjectHomePage` in class `spdx:File`
 
 ```text
 ArtifactOfProjectHomePage: http://www.openjena.org/
 ```
 
-EXAMPLE 2 RDF: `spdx:artifactOf/doap:Project/doap:homepage`
+EXAMPLE 2 RDF: Property `doap:homepage` in class `doap:Project` in property `spdx:artifactOf` in class `spdx:File`
 
 ```text
 <File>
@@ -532,7 +532,7 @@ EXAMPLE 1 Tag: `ArtifactOfProjectURI:`
 ArtifactOfProjectURI: http://subversion.apache.org/doap.rdf
 ```
 
-EXAMPLE 2 RDF: `spdx:artifactOf/doap`
+EXAMPLE 2 RDF: Property `spdx:artifactOf` in class `spdx:File`
 
 ```text
 <File>
@@ -549,7 +549,7 @@ resource of type doap:Project -->
 
 This field provides a place for the SPDX document creator to record any general comments about the file. The metadata for the file comment field is shown in Table 47.
 
-Table 47 — Metadata for the file comment field
+**Table 47 — Metadata for the file comment field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -589,7 +589,7 @@ EXAMPLE 2 RDF: Property `rdfs:comments` in class `spdx:File`
 
 This field provides a place for the SPDX document creator to record license notices or other such related notices found in the file. This might or might not include copyright statements. The metadata for the file notice field is shown in Table 48.
 
-Table 48 — Metadata for the file notice field
+**Table 48 — Metadata for the file notice field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -627,7 +627,7 @@ EXAMPLE 2 RDF: Property `noticeText` in class `spdx:File`
 
 This field provides a place for the SPDX document creator to record file contributors. Contributors could include names of copyright holders and/or authors who might not be copyright holders, yet contributed to the file content. The metadata for the file contributor field is shown in Table 49.
 
-Table 49 — Metadata for the file contributor field
+**Table 49 — Metadata for the file contributor field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -669,7 +669,7 @@ EXAMPLE 2 RDF: Property `spdx:fileContributor` in class `spdx:File`
 
 This field provides a place for the SPDX document creator to record, at the file level, acknowledgements that might be required to be communicated in some contexts. This is not meant to include the file's actual complete license text (see `LicenseConcluded` and `LicenseInfoInFile`), and might or might not include copyright notices (see also `FileCopyrightText`). The SPDX document creator might use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce. The metadata for the file attribution text field is shown in Table 50.
 
-Table 50 — Metadata for the file attribution text field
+**Table 50 — Metadata for the file attribution text field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -694,7 +694,7 @@ following acknowledgement:  This product includes software developed by the AT&T
 </text>
 ```
 
-EXAMPLE 2 RDF: property `spdx:attributionText` in class `spdx:File`
+EXAMPLE 2 RDF: Property `spdx:attributionText` in class `spdx:File`
 
 ```text
 <File rdf:about="...">
@@ -714,7 +714,7 @@ This field is deprecated since SPDX 2.0 in favor of using Clause [11](relationsh
 
 The field provides a place for the SPDX document creator to record a list of other files (referenceable within this SPDX document) which the file is a derivative of and/or depends on for the build (e.g., source file or build script for a binary program or library). The list of files might not necessarily represent the list of all file dependencies, but possibly the ones that impact the licensing and/or might be needed as part of the file distribution obligation. The metadata for the file dependencies field is shown in Table 51.
 
-Table 51 — Metadata for the file dependencies field
+**Table 51 — Metadata for the file dependencies field**
 
 | Attribute | Value |
 | --------- | ----- |
