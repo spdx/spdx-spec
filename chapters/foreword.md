@@ -10,6 +10,6 @@ Any trade name used in this document is information given for the convenience of
 
 For an explanation of the voluntary nature of standards, the meaning of ISO specific terms and expressions related to conformity assessment, as well as information about ISO's adherence to the World Trade Organization (WTO) principles in the Technical Barriers to Trade (TBT), see [https://www.iso.org/iso/foreword.html](https://www.iso.org/iso/foreword.html).
 
-This document was prepared by the SPDX workgroup, which is hosted by The Linux Foundation. (That workgroup included representatives from more than 20 organizations involved with software development, systems and tool vendors, foundations and systems integrators.) This document was adopted, under the PAS procedure, by Joint Technical Committee ISO/IEC JTC 1, Information technology, in parallel with its approval by the national bodies of ISO and IEC.
+This document was prepared by the Joint Development Foundation. This document was adopted, under the PAS procedure, by Joint Technical Committee ISO/IEC JTC 1, Information technology, in parallel with its approval by the national bodies of ISO and IEC.
 
 Any feedback or questions on this document should be directed to the user’s national standards body. A complete listing of these bodies can be found at [https://www.iso.org/members.html](https://www.iso.org/members.html).

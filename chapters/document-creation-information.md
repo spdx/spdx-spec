@@ -233,7 +233,7 @@ Identify any external SPDX documents referenced within this SPDX document. The m
 
 SPDX elements within this document may be related to other SPDX elements referenced from external SPDX documents. An SPDX element could be a snippet, file, package, license reference or SPDX document.
 
-###6.6.3 Examples
+### 6.6.3 Examples
 
 EXAMPLE 1 Tag: `ExternalDocumentRef:`
 
