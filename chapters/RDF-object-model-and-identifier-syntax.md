@@ -12,7 +12,7 @@ Version: 2.2
 
 **Figure C.1 — SPDX ontology**
 
-This figure is licensed under the [Creative Commons Attribution License 3.0 Unported](http://creativecommons.org/licenses/by/3.0/).
+This figure is licensed under the [Creative Commons Attribution 3.0 Unported](http://creativecommons.org/licenses/by/3.0/).
 
 ## C.2 Agent and tool identifiers <a name="C.2"></a>
 

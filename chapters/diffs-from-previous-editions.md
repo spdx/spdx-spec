@@ -48,7 +48,7 @@ Annex I   | Differences from previous editions | N/A
 
 * Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in.  The use of snippets is completely optional and it is not mandatory for snippets to be identified. See section 5 Snippet Information for further details on the fields available to describe snippets.
 
-* External Packages can now be referred to in SPDX documents.  When there is no SPDX file information available to document the content of these external packages, then the filesAnnalyzed attribute on a package should be set to false. See section 3.8 Files Analyzed for more information. Copyright © 2010-2016 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved.
+* External Packages can now be refered to in SPDX documents.  When there is no SPDX file information available to document the content of these external packages, then the filesAnnalyzed attribute on a package should be set to false. See section 3.8 Files Analyzed for more information.
 
 * Packages are now able to associate with an “External Reference” which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package.   See: section 3.21  External Reference, 3.22 External Reference Comment and Appendix VI:  External Repository Identifiers for
 more information.
@@ -63,7 +63,7 @@ more information.
 
 * Abstraction has been applied to the underlying model with the inclusion of SPDX elements. With SPDX 2.0, the concept of an SPDX element is introduced (see Appendix III). This includes SPDX documents, SPDX files, and SPDX packages, each of which gets associated with an SPDX identifier which is denoted by “SPDXRef-”.
 
-* SPDX relationships have been added to allow any SPDX element to have a relationship to other SPDX elements. This can be used for a variety of purposes including documenting a Software Package Data Exchange (SPDX®) Specification – Version 2.0 Copyright © 2010-2015 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved. hierarchy of sub-packages, documenting the origin of an SPDX element, and documenting modifications or corrections (annotations) to an SPDX element.
+* SPDX relationships have been added to allow any SPDX element to have a relationship to other SPDX elements. Documented the origin of an SPDX hierarchy of sub-packages, documenting the origin of an SPDX element, and documenting modifications or corrections (annotations) to an SPDX element.
 
 * The ability to reference SPDX elements outside the current SPDX document itself (external references).
 
