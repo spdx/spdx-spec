@@ -8,8 +8,6 @@ The following documents are referred to in the text in such a way that some or a
 
 *Common Platform Enumeration (CPE) – Specification*, The MITRE Corporation, [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
 
-*Creative Commons Attribution License 3.0 Unported*, Creative Commons, [http://creativecommons.org/licenses/by/3.0/](http://creativecommons.org/licenses/by/3.0/)
-
 NISTIR 7695, *Common Platform Enumeration: Naming Specification Version 2.3*, NIST, [https://csrc.nist.gov/publications/detail/nistir/7695/final](https://csrc.nist.gov/publications/detail/nistir/7695/final)
 
 *npm-package.json*, npm Inc., [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
