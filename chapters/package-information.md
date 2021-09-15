@@ -632,11 +632,11 @@ This field provides an independently reproducible mechanism identifying specific
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
-| Cardinality | 0..1 if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (shall be omitted) if `FilesAnalyzed` is `false`.|
-| Algorithm | <sup>[a](#Algorithm)</sup> |
-| Format | Single line of text with 160-bit binary represented as 40 lowercase hexadecimal digits |
+| Cardinality | 0..1 if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (must be omitted) if `FilesAnalyzed` is `false`.|
+| Algorithm | (see the algorithm below) |
+| Format | Single line of text with 160 bit binary represented as 40 lowercase hexadecimal digits |
 
-<sup><a name="Algorithm">a</a></sup> Algorithm
+Algorithm
 ```text
 verificationcode = 0
 filelist = templist = ""
