@@ -225,7 +225,7 @@ EXAMPLE 2 RDF: property `spdx:supplier` in class `spdx:Package`
 
 ### 7.6.1 Description
 
-If the package identified in the SPDX document originated from a different person or organization than identified as Package Supplier (see [7.5](#3.5) above), this field identifies from where or whom the package originally came. In some cases a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX document identifies the package as [glibc][] and the Package Supplier as [Red Hat][], but the [Free Software Foundation][FSF] is the Package Originator.
+If the package identified in the SPDX document originated from a different person or organization than identified as Package Supplier (see [7.5](#3.5) above), this field identifies from where or whom the package originally came. In some cases, a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX document identifies the package as [glibc][] and the Package Supplier as [Red Hat][], but the [Free Software Foundation][FSF] is the Package Originator.
 
 Use `NOASSERTION` if:
 
@@ -634,7 +634,7 @@ Table 21 — Metadata for the package verification code field
 | Required | Yes |
 | Cardinality | 0..1 if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (must be omitted) if `FilesAnalyzed` is `false`.|
 | Algorithm | <sup>[a](#Algorithm)</sup> |
-| Format | Single line of text with 160 bit binary represented as 40 lowercase hexadecimal digits |
+| Format | Single line of text with 160-bit binary represented as 40 lowercase hexadecimal digits |
 
 <sup><a name="Algorithm">a</a></sup> Algorithm
 ```text
@@ -925,7 +925,7 @@ The options to populate this field are limited to:
 
   - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-The metadata for the all licenses information from files field is shown in Table 26.
+The metadata for all license information from files field is shown in Table 26.
 
 Table 26 — Metadata for the all licenses information from files field
 
@@ -972,7 +972,7 @@ EXAMPLE 2 RDF: property `spdx:licenseInfoFromFiles` in class `spdx:Package`
 
 ### 7.15.1 Description
 
-List the licenses that have been declared by the authors of the package. Any license information that does not originate from the package authors, e.g. license information from a third party repository, should not be included in this field.
+List the licenses that have been declared by the authors of the package. Any license information that does not originate from the package authors, e.g. license information from a third-party repository, should not be included in this field.
 
 The options to populate this field are limited to:
 
@@ -1037,7 +1037,7 @@ EXAMPLE 2 RDF: property `spdx:licenseDeclared` in class `spdx:Package`
 
 ### 7.16.1 Description
 
-This field provides a place for the SPDX document creator to record any relevant background information or analysis that went in to arriving at the Concluded License for a package. If the Concluded License does not match the Declared License or License Information from Files, this should be explained by the SPDX document creator. Its is also preferable to include an explanation here when the Concluded License is `NOASSERTION`. The metadata for the comments on license field is shown in Table 28.
+This field provides a place for the SPDX document creator to record any relevant background information or analysis that went in to arriving at the Concluded License for a package. If the Concluded License does not match the Declared License or License Information from Files, this should be explained by the SPDX document creator. It is also preferable to include an explanation here when the Concluded License is `NOASSERTION`. The metadata for the comments on license field is shown in Table 28.
 
 Table 28 — Metadata for the comments on license field
 

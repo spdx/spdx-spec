@@ -33,7 +33,7 @@ simple-expression "WITH" license-exception-id /
 license-expression = 1*1(simple-expression / compound-expression)
 ```
 
-In the following sections we describe in more detail `<license-expression>` construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern day software.
+In the following sections we describe in more detail `<license-expression>` construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern-day software.
 
 A valid `<license-expression>` string consists of either:
 

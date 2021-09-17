@@ -92,7 +92,7 @@ This field provides information about the type of file identified. File Type is 
 * `ARCHIVE` if the file represents an archive (.tar, .jar, etc.);
 * `APPLICATION` if the file is associated with a specific application type (MIME type of application/\*);
 * `AUDIO` if the file is associated with an audio file (MIME type of audio/* , e.g. .mp3);
-* `IMAGE` if the file is associated with an picture image file (MIME type of image/\*, e.g., .jpg, .gif);
+* `IMAGE` if the file is associated with a picture image file (MIME type of image/\*, e.g., .jpg, .gif);
 * `TEXT` if the file is human readable text file (MIME type of text/\*);
 * `VIDEO` if the file is associated with a video file type (MIME type of video/\*);
 * `DOCUMENTATION` if the file serves as documentation;
@@ -167,7 +167,7 @@ Table 39 — Metadata for the file checksum field
 | Required | Yes |
 | Cardinality | 1..1 [`SHA1`][SHA-1], others may be optionally provided. |
 | Algorithm | [`SHA1`][SHA-1] is to be used on the file. Other algorithms that can be provided optionally include [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6] |
-| Format | In `tag:value` there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF shall also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160 bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected. |
+| Format | In `tag:value` there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF shall also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160-bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected. |
 
 ### 8.4.2 Intent
 
@@ -278,7 +278,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseConcluded` in class `spdx:File`
 
 ### 8.6.1 Description
 
-This field contains the license information actually found in the file, if any. This information is most commonly found in the header of the file, although it might be in other areas of the actual file. Any license information not actually in the file, e.g., “COPYING.txt” file in a top level directory, should not be reflected in this field.
+This field contains the license information actually found in the file, if any. This information is most commonly found in the header of the file, although it might be in other areas of the actual file. Any license information not actually in the file, e.g., “COPYING.txt” file in a top-level directory, should not be reflected in this field.
 
 The options to populate this field are limited to:
 
