@@ -6,7 +6,7 @@
 
 This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. 
 
-In cases where there are "known unknowns", the use of the keyword `NOASSERTION` can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX elements (package/file/snippet) that are connected by relationships or not. ie. There could be some, but the author is not asserting one way or another.
+In cases where there are "known unknowns", the use of the keyword `NOASSERTION` can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX elements (package/file/snippet) that are connected by relationships or not. That is, there could be some, but the author is not asserting one way or another.
 
 Similarly, the use of the keyword `NONE` can be used to indicate that an SPDX element (package/file/snippet) has no other elements connected by some relationship to it.
 
@@ -70,7 +70,7 @@ Table 69 — Metadata for the relationship field
 | --------- | ----- |
 | Required | No |
 | Cardinality | 0..* see `DESCRIBES` relationship for one mandatory case. |
-| Format | ["DocumentRef-"[idstring]":"]SPDXID \<relationship\> ["DocumentRef-"[idstring]":"]SPDXID \| \`NONE\` \| \`NOASSERTION\`<br>where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2), [8.2](file-information.md#8.2).<br>where `<relationship>` is one of the documented relationship types in Table 68.<br>where `NONE` can be used to explicitly indicate there are NO other relationships.<br>where `NOASSERTION` can be used to explicitly indicate it is not clear if there are relationships that may apply or not. |
+| Format | ["DocumentRef-"[idstring]":"]SPDXID \<relationship\> ["DocumentRef-"[idstring]":"]`SPDXID` \| `NONE` \| `NOASSERTION`<br>where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2), [8.2](file-information.md#8.2).<br>where `<relationship>` is one of the documented relationship types in Table 68.<br>where `NONE` can be used to explicitly indicate there are NO other relationships.<br>where `NOASSERTION` can be used to explicitly indicate it is not clear if there are relationships that may apply or not. |
 
 ### 11.1.2 Intent
 

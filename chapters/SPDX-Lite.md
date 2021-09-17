@@ -30,7 +30,7 @@ The Other License information section (License Identifier, Extracted Text, Licen
 
 ## H.3 Table of SPDX Lite fields <a name="H.3"></a>
 
-| # | SPDX subclause | Field Name |
+| # | SPDX subclause | Field name |
 |:-----:|:----:|:--------------------------|
 |L1.1  |6.1  | SPDX Version              |
 |L1.2  |6.2  | Data License              |

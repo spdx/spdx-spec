@@ -6,7 +6,7 @@ This edition has the version number 2.2.1 as part of its title. Although this is
 
 ## 4.2 Obsolete features <a name="4.2"></a>
 
-Over the life of a standard, some older approaches can become obsolete and are dropped from subsequent editions, possibly with a replacement approach being provided. Such action involves *deprecating* those out-dated features. This edition identifies all currently deprecated features.
+Over the life of a standard, some older approaches can become obsolete and are dropped from subsequent editions, possibly with a replacement approach being provided. Such action involves *deprecating* those outdated features. This edition identifies all currently deprecated features.
 
 ## 4.3 Alternate notation for some requirements <a name="4.3"></a>
 
