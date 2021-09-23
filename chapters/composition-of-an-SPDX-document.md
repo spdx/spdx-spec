@@ -101,7 +101,7 @@ Cardinality: Optional, one or many.
 
 See [Clause 10](other-licensing-information-detected.md) for details of the fields in this kind of section.
 
-### 5.2.6 Relationships Between SPDX Elements section <a name="5.2.6"></a>
+### 5.2.6 Relationships between SPDX elements information section <a name="5.2.6"></a>
 
 Packages, files, and snippets are all considered to be SPDX Elements, and relationships can be made explicit between these SPDX elements by using the fields in this section. 
 
@@ -109,7 +109,7 @@ Cardinality: Optional, one or many.
 
 See [Clause 11](relationships-between-SPDX-elements.md) for details of the fields in this kind of section.
 
-### 5.2.7 Annotations section <a name="5.2.7"></a>
+### 5.2.7 Annotations information section <a name="5.2.7"></a>
 
 Annotations permit the addition of information to validate and clarify ambiguous SPDX Elements (Packages, Files or Snippets).
 
