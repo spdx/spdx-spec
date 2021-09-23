@@ -1,40 +1,40 @@
-# Annex B License Matching Guidelines and Templates (Informative)
+# Annex B License matching guidelines and templates (Informative)
 
-## B.1 SPDX License List Matching Guidelines <a name="B.1"></a>
+## B.1 SPDX license list matching guidelines <a name="B.1"></a>
 
 The [SPDX License List Matching Guidelines](https://spdx.org/spdx-license-list/matching-guidelines) provide guidelines to be used for the purposes of matching licenses and license exceptions against those included on the SPDX License List. There is no intent here to make a judgment or interpretation, but merely to ensure that when one SPDX user identifies a license as "BSD-3-Clause," for example, it is indeed the same license as what someone else identifies as "BSD-3-Clause" and the same license as what is listed on the SPDX License List. Examples of how to apply some of the matching guidelines to a license or exception are provided via templates.  Templates are comprised of technical markup within the master license text file to provide further or specific guidance to SPDX document creators or tool makers.  Not all licenses or exceptions will have templates.
 
-## B.2 How These Guidelines Are Applied <a name="B.2"></a>
+## B.2 How these guidelines are applied <a name="B.2"></a>
 
 ### B.2.1 Purpose <a name="B.2.1"></a>
 
 To ensure consistent results by different SPDX document creators when matching license information that will be included in the License Information in File field. SPDX document creators or tools may match on the license or exception text itself, the official license header, or the SPDX License List short identifier.
 
-### B.2.2 Guideline: Official License Headers <a name="B.2.2"></a>
+### B.2.2 Guideline: official license headers <a name="B.2.2"></a>
 
 The same matching guidelines used for license and exception text apply to the official license headers. Where applicable, an official license header template file with markup is included with the SPDX License List. Official license headers are defined by the SPDX License List as specific text specified within the license itself to be put in the header of files. (see https://spdx.org/spdx-license-list/license-list-overview for more info).
 
-## B.3 Substantive Text <a name="B.3"></a>
+## B.3 Substantive text <a name="B.3"></a>
 
 ### B.3.1 Purpose <a name="B.3.1"></a>
 
 To ensure that when matching licenses and exceptions to the SPDX License List, there is an appropriate balance between matching against the substantive text and disregarding parts of the text that do not alter the substantive text. Further guidelines of what can be disregarded or considered replaceable for purposes of matching are listed below here and in the subsequent specific guidelines. A conservative approach is taken in regard to rules about disregarded or replaceable text.
 
-### B.3.2 Guideline: Verbatim Text <a name="B.3.2"></a>
+### B.3.2 Guideline: verbatim text <a name="B.3.2"></a>
 
 License and exception text should be the same verbatim text (except for the guidelines stated here). The text should be in the same order, e.g., differently ordered paragraphs would not be considered a match.
 
-### B.3.3 Guideline: No Additional Text <a name="B.3.3"></a>
+### B.3.3 Guideline: no additional text <a name="B.3.3"></a>
 
 Matched text should only include that found in the vetted license or exception text. Where a license or exception found includes additional text or clauses, this should not be considered a match.
 
-### B.3.4 Guideline: Replaceable Text <a name="B.3.4"></a>
+### B.3.4 Guideline: replaceable text <a name="B.3.4"></a>
 
 Some licenses include text that refers to the specific copyright holder or author, yet the rest of the license is exactly the same as a generic version. The intent here is to avoid the inclusion of a specific name in one part of the license resulting in a non-match where the license is otherwise an exact match (e.g., the third clause and disclaimer in the BSD licenses, or the third, fourth, and fifth clauses of Apache-1.1). In these cases, there should be a positive license match.
 
 Text that can be considered replaceable for matching purposes is indicated in the SPDX License List template with mark-up and in the corresponding HTML pages with colored text. The text indicated as such can be replaced with similar values (e.g., a different name or generic term; different date) and still be considered a positive match. This rule also applies to text-matching in official license headers (see Guideline #1).
 
-### B.3.5 Guideline: Omittable Text <a name="B.3.5"></a>
+### B.3.5 Guideline: omittable text <a name="B.3.5"></a>
 
 Some licenses have text that can simply be ignored. The intent here is to avoid the inclusion of certain text that is superfluous or irrelevant in regards to the substantive license text resulting in a non-match where the license is otherwise an exact match (e.g., directions on how to apply the license or other similar non-substantive exhibits). In these cases, there should be a positive license match.
 
@@ -66,11 +66,11 @@ All uppercase and lowercase letters should be treated as lowercase letters. Temp
 
 Because punctuation can change the meaning of a sentence, punctuation needs to be included in the matching process. License template files do not include markup for this guideline.
 
-### B.6.2  Guideline: Punctuation <a name="B.6.2"></a>
+### B.6.2  Guideline: punctuation <a name="B.6.2"></a>
 
 Punctuation should be matched, unless otherwise stated in these guidelines.
 
-### B.6.3  Guideline: Hyphens, Dashes <a name="B.6.3"></a>
+### B.6.3  Guideline: hyphens, dashes <a name="B.6.3"></a>
 
 Any hyphen, dash, en dash, em dash, or other variation should be considered equivalent.
 
@@ -88,7 +88,7 @@ To avoid the possibility of a non-match due to the existence or absence of code 
 
 Any kind of code comment indicator or prefix which occurs at the beginning of each line in a matchable section should be ignored for matching purposes. Templates do not include markup for this guideline.
 
-## B.8 Bullets and Numbering <a name="B.8"></a>
+## B.8 Bullets and numbering <a name="B.8"></a>
 
 ### B.8.1  Purpose <a name="B.8.1"></a>
 
@@ -98,7 +98,7 @@ To avoid the possibility of a non-match due to the otherwise same license using 
 
 Where a line starts with a bullet, number, letter, or some form of a list item (determined where list item is followed by a space, then the text of the sentence), ignore the list item for matching purposes. Templates do not include markup for this guideline.
 
-## B.9 Varietal Word Spelling <a name="B.9"></a>
+## B.9 Varietal word spelling <a name="B.9"></a>
 
 ### B.9.1  Purpose <a name="B.9.1"></a>
 
@@ -108,7 +108,7 @@ English uses different spelling for some words. By identifying the spelling vari
 
 The words in each line of the text file available at <https://spdx.org/licenses/equivalentwords.txt> are considered equivalent and interchangeable. Templates do not include markup for this guideline.
 
-## B.10 Copyright Symbol <a name="B.10"></a>
+## B.10 Copyright symbol <a name="B.10"></a>
 
 ### B.10.1 Purpose <a name="B.10.1"></a>
 
@@ -118,7 +118,7 @@ By having a rule regarding the use of "©", "(c)", or "copyright", we avoid the 
 
 "©", "(c)", or "Copyright" should be considered equivalent and interchangeable. Templates do not include markup for this guideline.
 
-## B.11 Copyright Notice <a name="B.11"></a>
+## B.11 Copyright notice <a name="B.11"></a>
 
 ### B.11.1 Purpose <a name="B.11.1"></a>
 
@@ -128,7 +128,7 @@ To avoid a license mismatch merely because the copyright notice (usually found a
 
 Ignore copyright notices. A copyright notice consists of the following elements, for example: "2012 Copyright, John Doe. All rights reserved." or "(c) 2012 John Doe." Templates may or may not include markup for this guideline.
 
-## B.12 License Name or Title <a name="B.12"></a>
+## B.12 License name or title <a name="B.12"></a>
 
 ### B.12.1 Purpose <a name="B.12.1"></a>
 
@@ -138,7 +138,7 @@ To avoid a license mismatch merely because the name or title of the license is d
 
 Ignore the license name or title for matching purposes, so long as what ignored is the title only and there is no additional substantive text added here. Templates do not include markup for this guideline.
 
-## B.13 Extraneous Text At the End of a License <a name="B.13"></a>
+## B.13 Extraneous text at the end of a license <a name="B.13"></a>
 
 ### B.13.1 Purpose <a name="B.13.1"></a>
 
@@ -158,15 +158,15 @@ To avoid a license mismatch due to a difference in a hyperlink protocol (e.g. ht
 
 HTTP:// and HTTPS:// should be considered equivalent. Templates may or may not include markup for this guideline.
 
-## B.15 SPDX License List <a name="B.15"></a>
+## B.15 SPDX License list <a name="B.15"></a>
 
-### B.15.1 Template Access <a name="B.15.1"></a>
+### B.15.1 Template access <a name="B.15.1"></a>
 
 The master files for the SPDX License List includes a spreadsheet listing all the licenses, deprecated licenses, and license exceptions; and the text for each license in a .txt file. These files are available in a Git repository at <https://github.com/spdx/license-list-XML>. Text that can be considered replaceable or omittable for matching purposes is indicated in the .txt file with markup as per the description below.
 
 RDFa Access: The template text for the license can be accessed using the RDF tag licenseTemplate on the web page containing the license.
 
-### B.15.2 Template Format <a name="B.15.2"></a>
+### B.15.2 Template format <a name="B.15.2"></a>
 
 A template is composed of text with zero or more rules embedded in it.
 
