@@ -351,8 +351,9 @@ EXAMPLE 1 Tag: `LicenseComments:`
 In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 ```text
-LicenseComments: <text>The concluded license was taken from the package level that the file was included in.
-This information was found in the COPYING.txt file in the xyz directory.</text>
+LicenseComments: <text>The concluded license was taken from the package
+level that the file was included in. This information was found in the
+COPYING.txt file in the xyz directory.</text>
 ```
 
 EXAMPLE 2 RDF: Property `spdx:licenseComments` in class `spdx:File`
@@ -689,8 +690,9 @@ In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 ```text
 FileAttributionText: <text>
-All advertising materials mentioning features or use of this software must display the
-following acknowledgement:  This product includes software developed by the AT&T.
+All advertising materials mentioning features or use of this software
+must display the following acknowledgement:  This product includes
+software developed by the AT&T.
 </text>
 ```
 

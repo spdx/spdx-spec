@@ -163,11 +163,14 @@ A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet
 ```text
 <spdx:ConjunctiveLicenseSet>
     <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
-    <spdx:ExtractedLicensingInfo rdf:about="http://example.org#LicenseRef-EternalSurrender">
+    <spdx:ExtractedLicensingInfo rdf:about
+      ="http://example.org#LicenseRef-EternalSurrender">
         <spdx:extractedText>
-            In exchange for using this software, you agree to give its author all your worldly possessions.
-            You will not hold the author liable for all the damage this software will inevitably cause not only
-            to your person and property, but to the entire fabric of the cosmos.
+            In exchange for using this software, you agree to give
+            its author all your worldly possessions. You will not
+            hold the author liable for all the damage this software
+            will inevitably cause not only to your person and
+            property, but to the entire fabric of the cosmos.
         </spdx:extractedText>
         <spdx:licenseId>LicenseRef-EternalSurrender</spdx:licenseId>
     </spdx:ExtractedLicensingInfo>
@@ -180,11 +183,15 @@ A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet
 <spdx:DisjunctiveLicenseSet>
     <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
     <spdx:member>
-        <spdx:ExtractedLicensingInfo rdf:about="http://example.org#LicenseRef-EternalSurrender">
+        <spdx:ExtractedLicensingInfo rdf:about
+          ="http://example.org#LicenseRef-EternalSurrender">
             <spdx:extractedText>
-                In exchange for using this software, you agree to give its author all your worldly possessions.
-                You will not hold the author liable for all the damage this software will inevitably cause
-                not only to your person and property, but to the entire fabric of the cosmos.
+                In exchange for using this software, you agree to
+                give its author all your worldly possessions. You
+                will not hold the author liable for all the damage
+                this software will inevitably cause not only to
+                your person and property, but to the entire fabric
+                of the cosmos.
             </spdx:extractedText>
             <spdx:licenseId>LicenseRef-EternalSurrender</spdx:licenseId>
         </spdx:ExtractedLicensingInfo>
@@ -202,16 +209,21 @@ A License Exception can be expressed in RDF via a `<spdx:LicenseException>` elem
 * `licenseExceptionText` - Full text of the license exception.
 
 ```text
-<rdf:Description rdf:about="http://example.org#SPDXRef-ButIdDontWantToException">
-    <rdfs:comment>This exception may be invalid in some jurisdictions.</rdfs:comment>
+<rdf:Description rdf:about
+  ="http://example.org#SPDXRef-ButIdDontWantToException">
+    <rdfs:comment>This exception may be invalid in some
+      jurisdictions.</rdfs:comment>
     <rdfs:seeAlso>http://dilbert.com/strip/1997-01-15</rdfs:seeAlso>
-    <spdx:example>So this one time, I had a license exception…</spdx:example>
+    <spdx:example>So this one time, I had a license exception
+      …</spdx:example>
     <spdx:licenseExceptionText>
-        A user of this software may decline to follow any subset of the terms of this license upon
-        finding any or all such terms unfavorable.
+        A user of this software may decline to follow any subset of
+        the terms of this license upon finding any or all such terms
+        unfavorable.
     </spdx:licenseExceptionText>
     <spdx:name>&quot;But I Don&apos;t Want To&quot; Exception</spdx:name>
     <spdx:licenseExceptionId>SPDXRef-ButIdDontWantToException</spdx:licenseExceptionId>
-    <rdf:type rdf:resource="http://spdx.org/rdf/terms#LicenseException"/>
+    <rdf:type rdf:resource
+      ="http://spdx.org/rdf/terms#LicenseException"/>
 </rdf:Description>
 ```

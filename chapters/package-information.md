@@ -1056,8 +1056,9 @@ Here, the intent is to provide the recipient of the SPDX document with a detaile
 EXAMPLE 1 Tag: `PackageLicenseComments:`
 
 ```text
-PackageLicenseComments: <text>The license for this project changed with the release of version 1.4.
-The version of the project included here post-dates the license change.</text>
+PackageLicenseComments: <text>The license for this project changed with
+the release of version 1.4. The version of the project included here
+post-dates the license change.</text>
 ```
 
 EXAMPLE 2 RDF: Property `spdx:licenseComments` in class `spdx:Package`
@@ -1185,8 +1186,9 @@ EXAMPLE 1 Tag: `PackageDescription:`
 In `tag:value` format multiple lines are delimited by `<text>...</text>`.
 
 ```text
-PackageDescription: <text>The GNU C Library defines functions that are specified by the ISO C standard,
-as well as additional features specific to POSIX and other derivatives of the Unix operating system,
+PackageDescription: <text>The GNU C Library defines functions that are
+specified by the ISO C standard, as well as additional features
+specific to POSIX and other derivatives of the Unix operating system,
 and extensions specific to GNU systems.</text>
 ```
 
@@ -1197,8 +1199,9 @@ EXAMPLE 2 RDF: Property `spdx:description` in class `spdx:Package`
   ...
   <description>
     The GNU C Library defines functions that are specified by the
-    ISO C standard, as well as additional features specific to POSIX and other
-    derivatives of the Unix operating system, and extensions specific to GNU systems.
+    ISO C standard, as well as additional features specific to POSIX and
+    other derivatives of the Unix operating system, and extensions
+    specific to GNU systems.
   </description>
     ...
 </Package>
@@ -1229,7 +1232,8 @@ EXAMPLE 1 Tag: `PackageComment:`
 In `tag:value` format multiple lines are delimited by `<text>...</text>`.
 
 ```text
-PackageComment: <text>The package includes several sub-packages; see Relationship information.</text>
+PackageComment: <text>The package includes several sub-packages; see Relationship
+information.</text>
 ```
 
 EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Package`
@@ -1340,9 +1344,9 @@ To inform a human consumer why the reference exists, what kind of information, c
 EXAMPLE 1 Tag: `ExternalRefComment:`
 
 ```text
-ExternalRefComment: <text>NIST National Vulnerability Database (NVD) describes
-security vulnerabilities (CVEs) which affect Vendor Product Version
-acmecorp:acmenator:6.6.6.</text>
+ExternalRefComment: <text>NIST National Vulnerability Database (NVD)
+describes security vulnerabilities (CVEs) which affect Vendor Product
+Version acmecorp:acmenator:6.6.6.</text>
 ```
 
 EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:ExternalRef`
@@ -1395,8 +1399,9 @@ In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 ```text
 PackageAttributionText: <text>
-All advertising materials mentioning features or use of this software must display the
-following acknowledgement:  This product includes software developed by the AT&T.
+All advertising materials mentioning features or use of this software
+must display the following acknowledgement:  This product includes
+software developed by the AT&T.
 </text>
 ```
 

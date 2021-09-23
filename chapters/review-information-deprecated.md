@@ -99,8 +99,9 @@ EXAMPLE 1 Tag: `ReviewComment:`
 In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 ```text
-ReviewComment: <text>All of the licenses seen in the file, are matching what was seen during manual inspection.
-There are some terms that can influence the concluded license, and some alternatives may be possible,
+ReviewComment: <text>All of the licenses seen in the file, are matching
+what was seen during manual inspection. There are some terms that can
+influence the concluded license, and some alternatives may be possible,
 but the concluded license is one of the options.</text>
 ```
 
