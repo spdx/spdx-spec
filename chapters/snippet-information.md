@@ -283,7 +283,8 @@ EXAMPLE 2 RDF: Property `spdx:licenseConcluded` in class `spdx:Snippet`
 <Snippet rdf:about="...">
     <licenseConcluded>
         <DisjunctiveLicenseSet>
-            <member rdf:resource="http://spdx.org/licenses/LGPL-2.0-only"/>
+            <member rdf:resource
+              ="http://spdx.org/licenses/LGPL-2.0-only"/>
             <member rdf:resource="#LicenseRef-2"/>
         </DisjunctiveLicenseSet>
     </licenseConcluded>
@@ -380,9 +381,9 @@ EXAMPLE 2 RDF: Property `spdx:licenseComments` in class `spdx:Snippet`
 <Snippet rdf:about="...">
     ...
     <licenseComments>
-        The concluded license was taken from package xyz, from which the snippet
-        was copied into the current file. The concluded license information was found
-        in the COPYING.txt file in package xyz.
+        The concluded license was taken from package xyz, from which the
+        snippet was copied into the current file. The concluded license
+        information was found in the COPYING.txt file in package xyz.
     </licenseComments>
     ...
 </Snippet>
@@ -461,8 +462,10 @@ EXAMPLE 1 Tag: `SnippetComment:`
 In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 ```text
-SnippetComment: <text>This snippet was identified as significant and highlighted in this Apache-2.0 file,
-when a commercial scanner identified it as being derived from file foo.c in package xyz which is licensed under GPL-2.0.</text>
+SnippetComment: <text>This snippet was identified as significant and
+highlighted in this Apache-2.0 file, when a commercial scanner
+identified it as being derived from file foo.c in package xyz which
+is licensed under GPL-2.0.</text>
 ```
 
 EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:Snippet`
@@ -540,8 +543,9 @@ In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 
 ```text
 SnippetAttributionText: <text>
-All advertising materials mentioning features or use of this software must display the
-following acknowledgement:  This product includes software developed by the AT&T.
+All advertising materials mentioning features or use of this software
+must display the following acknowledgement:  This product includes
+software developed by the AT&T.
 </text>
 ```
 

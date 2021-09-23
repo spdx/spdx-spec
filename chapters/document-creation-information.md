@@ -396,8 +396,9 @@ Here, the intent is to provide recipients of the SPDX document with comments by 
 EXAMPLE 1 Tag: `CreatorComment:`
 
 ```text
-CreatorComment: <text>This SPDX document was created by a combination of using a free tool,
-as indicated above, and manual analysis by several authors of the code.</text>
+CreatorComment: <text>This SPDX document was created by a combination of
+using a free tool, as indicated above, and manual analysis by several
+authors of the code.</text>
 ```
 
 EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:CreationInfo`
@@ -434,7 +435,8 @@ EXAMPLE 1 Tag: `DocumentComment:`
 
 ```text
 DocumentComment: <text>This document was created using SPDX 2.0,
-version 2.3 of the SPDX License List and refering to licenses in file MyCompany.Approved.Licenses.spdx.</text>
+version 2.3 of the SPDX License List and refering to licenses
+in file MyCompany.Approved.Licenses.spdx.</text>
 ```
 
 EXAMPLE 2 RDF: Property `rdfs:comment` in class `SpdxDocument`
