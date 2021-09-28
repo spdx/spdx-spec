@@ -91,11 +91,11 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#524-snippet-information-section">5.2.4 Snippet information section </a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#525-other-licensing-information-detected">5.2.5 Other licensing information detected </a>
+    <li class="toctree-l3"><a class="reference internal" href="#525-other-licensing-information-detected-section">5.2.5 Other licensing information detected section </a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#526-relationships-between-spdx-elements-section">5.2.6 Relationships Between SPDX Elements section </a>
+    <li class="toctree-l3"><a class="reference internal" href="#526-relationships-between-spdx-elements-information-section">5.2.6 Relationships between SPDX elements information section </a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#527-annotations-section">5.2.7 Annotations section </a>
+    <li class="toctree-l3"><a class="reference internal" href="#527-annotations-information-section">5.2.7 Annotations information section </a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#528-review-information-section">5.2.8 Review information section </a>
     </li>
@@ -217,7 +217,7 @@
                 <h1 id="5-composition-of-an-spdx-document">5 Composition of an SPDX document</h1>
 <h2 id="51-what-this-specification-covers">5.1 What this specification covers <a name="5.1"></a></h2>
 <p>This document contains the specification for an SPDX document, which is made up of a set of one or more sections, instances of which contain information in the form of <em>fields</em>. The following subclauses introduce the different kinds of sections allowed. The fields for each kind of section are defined in the clause corresponding to that section.  Within an SPDX document, sections may be organized, as follows:</p>
-<p><img alt="Overview of SPDX document contents" src="../img/spdx-2.2-document.png" /></p>
+<p><img alt="Overview of SPDX document contents" src="../img/spdx-2.2.1-document.png" /></p>
 <p>The object model is illustrated by <a href="../RDF-object-model-and-identifier-syntax/">Annex C</a>.</p>
 <h2 id="52-sections">5.2 Sections <a name="5.2"></a></h2>
 <h3 id="521-spdx-document-creation-information-section">5.2.1 SPDX document creation information section <a name="5.2.1"></a></h3>
@@ -232,7 +232,7 @@
 <ul>
 <li>a tarball, zip file or other archive</li>
 <li>a directory or sub-directory</li>
-<li>a separately-distributed piece of software which another Package or File uses or depends upon (e.g., a Python package, a Go module, ...)</li>
+<li>a separately distributed piece of software which another Package or File uses or depends upon (e.g., a Python package, a Go module, ...)</li>
 <li>a container image, and/or each image layer within a container image</li>
 <li>a collection of one or more sub-packages</li>
 <li>a Git repository snapshot from a particular point in time</li>
@@ -277,19 +277,20 @@
 <li>The first field to start off the description of a Snippet shall be the Snippet Identifier in <code>tag:value</code> format.</li>
 <li>Annotations on the Snippet and Relationships from the Snippet may appear after the Snippet Information, before the next file or Package section.</li>
 </ul>
-<h3 id="525-other-licensing-information-detected">5.2.5 Other licensing information detected <a name="5.2.5"></a></h3>
+<h3 id="525-other-licensing-information-detected-section">5.2.5 Other licensing information detected section <a name="5.2.5"></a></h3>
 <p>This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list, see <a href="https://spdx.org/licenses/">https://spdx.org/licenses/</a>. The SPDX License List can also be found in <a href="../SPDX-license-list/">Annex A</a>.</p>
 <p>One instance shall be created for every unique license or licensing information being referenced that does not match one of the licenses on the SPDX License List. </p>
 <p>Cardinality: Optional, one or many.</p>
 <p>See <a href="../other-licensing-information-detected/">Clause 10</a> for details of the fields in this kind of section.</p>
-<h3 id="526-relationships-between-spdx-elements-section">5.2.6 Relationships Between SPDX Elements section <a name="5.2.6"></a></h3>
+<h3 id="526-relationships-between-spdx-elements-information-section">5.2.6 Relationships between SPDX elements information section <a name="5.2.6"></a></h3>
 <p>Packages, files, and snippets are all considered to be SPDX Elements, and relationships can be made explicit between these SPDX elements by using the fields in this section. </p>
 <p>Cardinality: Optional, one or many.</p>
 <p>See <a href="../relationships-between-SPDX-elements/">Clause 11</a> for details of the fields in this kind of section.</p>
-<h3 id="527-annotations-section">5.2.7 Annotations section <a name="5.2.7"></a></h3>
+<h3 id="527-annotations-information-section">5.2.7 Annotations information section <a name="5.2.7"></a></h3>
 <p>Annotations permit the addition of information to validate and clarify ambiguous SPDX Elements (Packages, Files or Snippets).</p>
 <p>Cardinality: Optional, one or many.</p>
 <p>See <a href="../annotations/">Clause 12</a> for details of the fields in this kind of section.</p>
+<p>This section is now the preferred home for review information.</p>
 <h3 id="528-review-information-section">5.2.8 Review information section <a name="5.2.8"></a></h3>
 <p>The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information shall use an Annotation (as described in <a href="../annotations/">Clause 12</a>) with an annotation type of <code>REVIEW</code>.</p>
 <p>Review information may be added after the initial SPDX document has been created. The set of fields are optional and multiple instances may be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date shall not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.</p>
