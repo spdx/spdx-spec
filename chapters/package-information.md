@@ -867,7 +867,7 @@ The metadata for the concluded license field is shown in Table 25.
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](IV-SPDX-license-expressions.md). |
+| Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md). |
 
 ### 7.13.2 Intent
 
