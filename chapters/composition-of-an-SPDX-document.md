@@ -22,11 +22,11 @@ See [Clause 6](document-creation-information.md) for details of the fields in th
 
 ### 5.2.2 Package information section <a name="5.2.2"></a>
 
-If SPDX information is being used to describe packages, then one instance of the Package Information per package being described shall exist.  It provides important meta information about the package as a whole.  Packages are an abstract concept that can be used to refer to any distribution of software, typically consisting of one or more files and capable of containing sub-packages.  Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
+If SPDX information is being used to describe packages, then one instance of the package information per package being described shall exist.  It provides important meta information about the package as a whole.  Packages are an abstract concept that can be used to refer to any distribution of software, typically consisting of one or more files and capable of containing sub-packages.  Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
-A Package refers to any unit of content that can be associated with a distribution of software. Typically, a Package is composed of one or more files. An SPDX document may, but is not required to, provide details about the individual files comprising a Package (see [Clause 8](file-information.md)).
+A package refers to any unit of content that can be associated with a distribution of software. Typically, a package is composed of one or more files. An SPDX document may, but is not required to, provide details about the individual files comprising a package (see [Clause 8](file-information.md)).
 
-Any of the following non-limiting examples may be (but are not required to be) represented in SPDX as a Package:
+Any of the following non-limiting examples may be (but are not required to be) represented in SPDX as a package:
 
 * a tarball, zip file or other archive
 * a directory or sub-directory
@@ -35,9 +35,9 @@ Any of the following non-limiting examples may be (but are not required to be) r
 * a collection of one or more sub-packages
 * a Git repository snapshot from a particular point in time
 
-Note that some of these could be represented in SPDX as a File as well.
+Note that some of these could be represented in SPDX as a file as well.
 
-In an SPDX document, Relationship elements can be used to indicate relationships between Packages, such as dependency relationships.
+In an SPDX document, relationship elements can be used to indicate relationships between packages, such as dependency relationships.
 
 Cardinality: Optional, one or many.
 
@@ -45,31 +45,31 @@ See [Clause 7](package-information.md) for details of the fields in this kind of
 
 In `tag:value` format, the order in which package and files occur is syntactically significant.
 
-* A new Package Information section is denoted by the Package Name ([7.1](package-information.md#7.1)) field.
-* All Package Information fields shall be grouped together before the start of a Files section ([Clause 8](file-information.md)), if file(s) are present.
-* All files contained in a package shall immediately follow the applicable Package Information.
-* A new Package Information section (via Package Name) denotes the start of another package.
-* Sub-packages shall not be nested inside a Package Information section, but shall be separate and shall use a Relationship to clarify.
-* Annotations and Relationships for the package may appear after the Package Information before any file information.
+* A new package Information section is denoted by the package name ([7.1](package-information.md#7.1)) field.
+* All package information fields shall be grouped together before the start of a files section ([Clause 8](file-information.md)), if file(s) are present.
+* All files contained in a package shall immediately follow the applicable package information.
+* A new package information section (via package name) denotes the start of another package.
+* Sub-packages shall not be nested inside a package information section, but shall be separate and shall use a relationship to clarify.
+* Annotations and relationships for the package may appear after the package information before any file information.
 
 
 ### 5.2.3 File information section <a name="5.2.3"></a>
 
-One instance of the File Information shall exist for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
+One instance of the file information shall exist for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
 Cardinality: Optional, one or many.
 
 See [Clause 8](file-information.md) for details of the fields in this kind of section.
 
-When implementing `tag:value` format, the positioning of File elements is syntactically significant:
+When implementing `tag:value` format, the positioning of file elements is syntactically significant:
 
-* Files are assumed to be associated with the Package Information that immediately precedes it, if a package exists.
-* Presence of a new Package Information signals the end of the set of files associated with the preceding package, unless an explicit Relationship is used.
-* If a package contains files, the File Information sections shall follow its Package Information section.
-* If a File is not part of any package, it shall precede any Package Information section reference in the SPDX document.
-* The first field to start off the description of a File shall be the File Name in `tag:value` format.
-* File information is associated with the File Name that precedes it.
-* Annotations on the file and Relationships from the file may appear after the file information, before the next file or Package Information section.
+* Files are assumed to be associated with the package information that immediately precedes it, if a package exists.
+* Presence of a new package information signals the end of the set of files associated with the preceding package, unless an explicit relationship is used.
+* If a package contains files, the file information sections shall follow its package information section.
+* If a file is not part of any package, it shall precede any package information section reference in the SPDX document.
+* The first field to start off the description of a file shall be the file name in `tag:value` format.
+* File information is associated with the file name that precedes it.
+* Annotations on the file and relationships from the file may appear after the file information, before the next file or package information section.
 
 When implementing file information in RDF, the `spdx:hasFile` property is used to associate the package with the file.
 
@@ -83,12 +83,12 @@ Cardinality: Optional, one or many.
 
 See [Clause 9](snippet-information.md) for details of the fields in this kind of section.
 
-When implementing `tag:value` format, the positioning of Snippet elements is syntactically significant:
+When implementing `tag:value` format, the positioning of snippet elements is syntactically significant:
 
-* If a File contains Snippets, the Snippet Information section shall follow a related File Information section (if it exists in the document).
-* Presence of a new file or package section signals the end of the set of snippets associated with the original file, unless an explicit Relationship is used.
-* The first field to start off the description of a Snippet shall be the Snippet Identifier in `tag:value` format.
-* Annotations on the Snippet and Relationships from the Snippet may appear after the Snippet Information, before the next file or Package section.
+* If a file contains snippets, the snippet information section shall follow a related file information section (if it exists in the document).
+* Presence of a new file or package section signals the end of the set of snippets associated with the original file, unless an explicit relationship is used.
+* The first field to start off the description of a snippet shall be the snippet identifier in `tag:value` format.
+* Annotations on the snippet and relationships from the snippet may appear after the snippet information, before the next file or package section.
 
 
 ### 5.2.5 Other licensing information detected section <a name="5.2.5"></a>
@@ -103,7 +103,7 @@ See [Clause 10](other-licensing-information-detected.md) for details of the fiel
 
 ### 5.2.6 Relationships between SPDX elements information section <a name="5.2.6"></a>
 
-Packages, files, and snippets are all considered to be SPDX Elements, and relationships can be made explicit between these SPDX elements by using the fields in this section. 
+Packages, files, and snippets are all considered to be SPDX elements, and relationships can be made explicit between these SPDX elements by using the fields in this section. 
 
 Cardinality: Optional, one or many.
 
@@ -111,7 +111,7 @@ See [Clause 11](relationships-between-SPDX-elements.md) for details of the field
 
 ### 5.2.7 Annotations information section <a name="5.2.7"></a>
 
-Annotations permit the addition of information to validate and clarify ambiguous SPDX Elements (Packages, Files or Snippets).
+Annotations permit the addition of information to validate and clarify ambiguous SPDX elements (packages, files or snippets).
 
 Cardinality: Optional, one or many.
 
@@ -121,9 +121,9 @@ This section is now the preferred home for review information.
 
 ### 5.2.8 Review information section <a name="5.2.8"></a>
 
-The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information shall use an Annotation (as described in [Clause 12](annotations.md)) with an annotation type of `REVIEW`.
+The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information shall use an annotation (as described in [Clause 12](annotations.md)) with an annotation type of `REVIEW`.
 
-Review information may be added after the initial SPDX document has been created. The set of fields are optional and multiple instances may be added. Once a Reviewer entry is added, the Review Date associated with the review is mandatory. The Created date shall not be modified as a result of the addition of information regarding the conduct of a review. A Review Comments is optional.
+Review information may be added after the initial SPDX document has been created. The set of fields are optional and multiple instances may be added. Once a reviewer entry is added, the review date associated with the review is mandatory. The created date shall not be modified as a result of the addition of information regarding the conduct of a review. A review comments is optional.
 
 See [Clause 13](review-information-deprecated.md) for details of the fields in this kind of section.
 
