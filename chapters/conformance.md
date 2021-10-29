@@ -69,11 +69,11 @@ To be designated an SPDX document, a file shall comply with the requirements of 
 
 The official copyright notice that shall be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.2.1 is:
 
-> "Official SPDX Specification 2.2.1 Copyright © 2010-2020 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
+> "Official SPDX Specification 2.2.1 Copyright © 2010-2021 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
 
 The official copyright notice that shall be used with any non-verbatim reproduction and/or distribution of this SPDX Specification 2.2.1, including without limitation any partial use or combining this SPDX Specification with another work, is:
 
-> "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX Specification 2.2.1 found at spdx.dev. These portions are Copyright © 2010-2020 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
+> "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX Specification 2.2.1 found at spdx.dev. These portions are Copyright © 2010-2021 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
 
 ## 4.6 The SPDX Lite profile <a name="4.6"></a>
 
