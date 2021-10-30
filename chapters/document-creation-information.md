@@ -185,7 +185,7 @@ The URI provides an unambiguous mechanism for other SPDX documents to reference 
 * `UUID` is a [universally unique identifier][UUID]. The UUID could be a version 4 random UUID which can be generated from the [Online UUID Generator][uuid-gen] or a version 5 UUID generated from a sha1 checksum known to be unique for this specific SPDX document version.
 * If the creator does not own their own website, a default SPDX CreatorWebsite and PathToSpdx can be used `spdx.org/spdxdocs`. Note that the SPDX documents are not currently stored or accessible on this website. The URI is only used to create a unique ID following the above conventions.
 
-NOTE The URI does not have to be accessible. It is only intended to provide a unique ID. In many cases, the URI will point to a web accessible document, but this should not be assumed to be the case.
+NOTE: The URI does not have to be accessible. It is only intended to provide a unique ID. In many cases, the URI will point to a Web accessible document, but this should not be assumed to be the case.
 
 [URI]: https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
 [UUID]: https://en.wikipedia.org/wiki/Universally_unique_identifier
@@ -265,7 +265,7 @@ The ExternalDocumentRef contains two properties:
 </SpdxDocument>
 ```
 
-NOTE In RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired.
+NOTE: In RDF, a namespace can be created for the external document reference if a short form name for the external reference is desired.
 
 ## 6.7 License list version field <a name="6.7"></a>
 
