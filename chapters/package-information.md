@@ -277,11 +277,11 @@ Use:
 * `NONE` if there is no download location whatsoever.
 * `NOASSERTION` if:
 
-  - the SPDX document creator has attempted to but cannot reach a reasonable objective determination;
+    - the SPDX document creator has attempted to but cannot reach a reasonable objective determination;
 
-  - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX document creator has made no attempt to determine this field; or
 
-  - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 The metadata for the package download location field is shown in Table 19.
 
@@ -761,11 +761,11 @@ Use:
 * `NONE` if there is no package home page whatsoever.
 * `NOASSERTION` if:
 
-  - the SPDX document creator has attempted to but cannot reach a reasonable objective determination;
+    - the SPDX document creator has attempted to but cannot reach a reasonable objective determination;
 
-  - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX document creator has made no attempt to determine this field; or
 
-  - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 The metadata for the package home page field is shown in Table 23.
 
@@ -851,11 +851,11 @@ The options to populate this field are limited to:
 * `NONE`, if the SPDX document creator concludes there is no license available for this package; or
 * `NOASSERTION` if:
 
-  - the SPDX document creator has attempted to but cannot reach a reasonable objective determination;
+    - the SPDX document creator has attempted to but cannot reach a reasonable objective determination;
 
-  - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX document creator has made no attempt to determine this field; or
 
-  - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If the Concluded License is not the same as the Declared License ([7.15](#7.15)), a written explanation should be provided in the Comments on License field ([7.16](#7.16)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([7.16](#7.16)) is preferred.
 
@@ -921,9 +921,9 @@ The options to populate this field are limited to:
 * `NONE`, if no license information is detected in any of the files; or
 * `NOASSERTION`, if:
 
-  - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX document creator has made no attempt to determine this field; or
 
-  - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 The metadata for all license information from files field is shown in Table 26.
 
@@ -980,9 +980,9 @@ The options to populate this field are limited to:
 * `NONE`, if the package contains no license information whatsoever; or
 * `NOASSERTION` if:
 
-  - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX document creator has made no attempt to determine this field; or
 
-  - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 The metadata for the declared license field is shown in Table 27.
 
@@ -1085,9 +1085,9 @@ Identify the copyright holders of the package, as well as any dates present. Thi
 * `NONE` if the package contains no copyright information whatsoever; or
 * `NOASSERTION`, if
 
-  - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX document creator has made no attempt to determine this field; or
 
-  - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 The metadata for the copyright text field is shown in Table 29.
 
