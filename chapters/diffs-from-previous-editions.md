@@ -1,38 +1,57 @@
 # Annex I Differences from previous editions (Informative)
 
-# I.1 Differences between V2.2.1 and V2.2 <a name="I.1"></a>
 
-There were no technical differences; V2.2.1 is V2.2 reformatted for submission to ISO via the PAS process. As a result, new clauses were added causing the previous clause-numbering sequence to change. Also, Annexes went from having Roman numbers to Latin letters. Here is the translation between numbering in the current and previous editions:
+# I.1 Differences between V2.2.2 and V2.2.1 <a name="I.1"></a>
 
-**Table I.1 — SPDX Editions**
+V2.2.2 fixed annex lettering inconsistencies. It also moved CC-BY-3.0 to the end of the spec to keep annex letters more consistent in future versions. Here is the translation between lettering in V2.2.2 and the version that came before it:
 
-Current edition   | Title | V2.2
-:---------------: | ----- | :----:
-Clause 1  | Scope     | N/A
-Clause 2  | Normative references | N/A
-Clause 3  | Terms and definitions | N/A
-Clause 4  | Conformance | N/A
-Clause 5  | Composition of an SPDX document | N/A
-Clause 6  | SPDX document creation information section | Chapter 2
-Clause 7  | Package information section | Chapter 3
-Clause 8  | File information section | Chapter 4
-Clause 9  | Snippet information section | Chapter 5
-Clause 10 | Other licensing information detected section | Chapter 6
-Clause 11 | Relationships between SPDX elements section | Chapter 7
-Clause 12 | Annotations section | Chapter 8
-Clause 13 | Review information section (deprecated) | Chapter 9
-Annex A   | SPDX license list | Appendix I
-Annex B   | License matching guidelines and templates | Appendix II
-Annex C   | RDF object model and identifier syntax | Appendix III
-Annex D   | SPDX license expressions | Appendix IV
-Annex E   | Using SPDX short identifiers in source files | Appendix V
-Annex F   | External repository identifiers | Appendix VI
-[omitted] | Creative Commons Attribution License 3.0 Unported | Appendix VII
-Annex G   | SPDX Lite | Appendix VIII
-Annex H   | SPDX file tags | Appendix IX
-Annex I   | Differences from previous editions | N/A
+**Table I.1 — SPDX V2.2.2 Organizational Changes**
 
-# I.2 Differences from V2.2 and V2.1 <a name="I.2"></a>
+Title | V2.2.1 ([spdx.dev](https://spdx.dev/)) | V2.2.1 (ISO) | V2.2.2
+----- | -------------------------------------- | ------------ | ------
+SPDX Lite                                         | Annex H/G* | Annex G   | Annex G
+SPDX File Tags                                    | Annex I/H* | Annex H   | Annex H
+Differences from Earlier SPDX Versions            | Annex J/I* | Annex I   | Annex I
+Creative Commons Attribution License 3.0 Unported | Annex G    | [omitted] | Annex J [omitted in ISO version]
+
+*_This edition featured inconsistent lettering._
+
+# I.2 Differences between V2.2.1 and V2.2 <a name="I.2"></a>
+
+There were no technical differences; V2.2.1 is V2.2 reformatted for submission to ISO via the PAS process. As a result, new clauses were added causing the previous clause-numbering sequence to change. Also, Annexes went from having Roman numbers to Latin letters. Here is the translation between numbering in V2.2.1 and the version that came before it:
+
+**Table I.2 — SPDX V2.2.1 Organizational Changes**
+
+Title | V2.2      | V2.2.1 ([spdx.dev](https://spdx.dev/)) | V2.2.1 (ISO)
+----- | --------- | -------------------------------------- | ------------
+Scope                                             | N/A           | Clause 1   | Clause 1
+Normative references                              | N/A           | Clause 2   | Clause 2
+Terms and definitions                             | N/A           | Clause 3   | Clause 3
+Conformance                                       | N/A           | Clause 4   | Clause 4
+Composition of an SPDX document                   | N/A           | Clause 5   | Clause 5
+Document Creation Information                     | Chapter 2     | Clause 6   | Clause 6
+Package Information                               | Chapter 3     | Clause 7   | Clause 7
+File Information                                  | Chapter 4     | Clause 8   | Clause 8
+Snippet Information                               | Chapter 5     | Clause 9   | Clause 9
+Other Licensing Information Detected              | Chapter 6     | Clause 10  | Clause 1
+Relationship between SPDX Elements Information    | Chapter 7     | Clause 11  | Clause 1
+Annotation Information                            | Chapter 8     | Clause 12  | Clause 1
+Review Information (deprecated)                   | Chapter 9     | Clause 13  | Clause 1
+SPDX License List                                 | Appendix I    | Annex A    | Annex A
+License Matching Guidelines and Templates         | Appendix II   | Annex B    | Annex B
+RDF Object Model and Identifier Syntax            | Appendix III  | Annex C    | Annex C
+SPDX License Expressions                          | Appendix IV   | Annex D    | Annex D
+Using SPDX short identifiers in Source Files      | Appendix V    | Annex E    | Annex E
+External Repository Identifiers                   | Appendix VI   | Annex F    | Annex F
+Creative Commons Attribution License 3.0 Unported | Appendix VII  | Annex G    | [omitted]
+SPDX Lite                                         | Appendix VIII | Annex H/G* | Annex G
+SPDX File Tags                                    | Appendix IX   | Annex I/H* | Annex H
+Differences from Earlier SPDX Versions            | N/A           | Annex J/I* | Annex I
+
+
+*_This edition featured inconsistent lettering._
+
+# I.3 Differences from V2.2 and V2.1 <a name="I.3"></a>
 
 * JSON, YAML, and a development version of XML have been added as supported file formats.
 
@@ -44,7 +63,7 @@ Annex I   | Differences from previous editions | N/A
 
 * Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the spdx-spec GitHub repository.
 
-# I.3 Differences between V2.1 and V2.0 <a name="I.3"></a>
+# I.4 Differences between V2.1 and V2.0 <a name="I.4"></a>
 
 * Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in.  The use of snippets is completely optional and it is not mandatory for snippets to be identified. See section 5 Snippet Information for further details on the fields available to describe snippets.
 
@@ -59,7 +78,7 @@ more information.
 
 * Miscellaneous bug fixes.
 
-# I.4 Differences between V2.0 and V1.2 <a name="I.4"></a>
+# I.5 Differences between V2.0 and V1.2 <a name="I.5"></a>
 
 * Abstraction has been applied to the underlying model with the inclusion of SPDX elements. With SPDX 2.0, the concept of an SPDX element is introduced (see Appendix III). This includes SPDX documents, SPDX files, and SPDX packages, each of which gets associated with an SPDX identifier which is denoted by “SPDXRef-”.
 
