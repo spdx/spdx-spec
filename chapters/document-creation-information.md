@@ -227,7 +227,7 @@ Identify any external SPDX documents referenced within this SPDX document. The m
 | --------- | ----- |
 | Required | No |
 | Cardinality | 1..* |
-| Format | DocumentRef-`[idstring]` `[SPDX document URI]` `[Checksum]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.<br>`[SPDX document URI]` is the unique ID for the external document as defined in [6.5](#6.5) of that referenced document,<br>`[Checksum]` is a checksum of the external document following the checksum format defined in [8.4](file-information#8.4). |
+| Format | DocumentRef-`[idstring]` `[SPDX document URI]` `[Checksum]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.<br>`[SPDX document URI]` is the unique ID for the external document as defined in [6.5](#6.5) of that referenced document,<br>`[Checksum]` is a checksum of the external document following the checksum format defined in [8.4](file-information.md#8.4). |
 
 ### 6.6.2 Intent
 
