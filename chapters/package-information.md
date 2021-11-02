@@ -4,7 +4,7 @@
 
 ### 7.1.1 Description
 
-Identify the full name of the package as given by the Package Originator ([7.6](#7.6)). The metadata for the SPDX version field is shown in Table 13.
+Identify the full name of the package as given by the Package Originator ([7.6](#7.6)). The metadata for the package name field is shown in Table 13.
 
 **Table 13 — Metadata for the package name field**
 
@@ -38,9 +38,9 @@ EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:Package`
 
 ### 7.2.1 Description
 
-Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the SPDX identifier field is shown in Table 14.
+Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the package SPDX identifier field is shown in Table 14.
 
-**Table 14 — Metadata for the SPDX identifier field**
+**Table 14 — Metadata for the package SPDX identifier field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -925,7 +925,7 @@ The options to populate this field are limited to:
 
     - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-The metadata for all license information from files field is shown in Table 26.
+The metadata for the all license information from files field is shown in Table 26.
 
 **Table 26 — Metadata for the all licenses information from files field**
 

@@ -4,7 +4,7 @@
 
 ### 10.1.1 Description
 
-Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages, files and snippets sections of the SPDX document (Clause [7](package-information.md), Clause [8](file-information.md) and Clause [9](snippet-information.md), respectively).
+Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages, files and snippets sections of the SPDX document (Clause [7](package-information.md), Clause [8](file-information.md) and Clause [9](snippet-information.md), respectively). The metadata for the license identifier field is shown in Table 63.
 
 **Table 63 — Metadata for the license identifier field**
 
