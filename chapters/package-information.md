@@ -197,7 +197,7 @@ The metadata for the package supplier field is shown in Table 17.
 | --------- | ----- |
 | Required | No |
 | Cardinality | 1..1 |
-| Format | Single line of text with one of the following keywords \| `NOASSERTION`<ul><li>`Person:` person name and optional `(<email>)`</li><li>`Organization:` organization name and optional `(<email>)` </li></ul>|
+| Format | Single line of text with one of the following:<ul><li>`NOASSERTION`</li><li>`Person:` person name and optional `(<email>)`</li><li>`Organization:` organization name and optional `(<email>)`</li></ul> |
 
 ### 7.5.2 Intent
 
@@ -243,7 +243,7 @@ The metadata for the package originator field is shown in Table 18.
 | --------- | ----- |
 | Required | No |
 | Cardinality | 1..1 |
-| Format | Single line of text with one of the following keywords \| `NOASSERTION`<ul><li>`Person:` person name and optional `(<email>)`</li><li>`Organization:` organization name and optional `(<email>)`</li></ul> |
+| Format | Single line of text with one of the following:<ul><li>`NOASSERTION`</li><li>`Person:` person name and optional `(<email>)`</li><li>`Organization:` organization name and optional `(<email>)`</li></ul> |
 
 ### 7.6.2 Intent
 
