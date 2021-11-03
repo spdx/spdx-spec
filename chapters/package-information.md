@@ -160,7 +160,7 @@ EXAMPLE 2 RDF: Property `spdx:packageFileName` in class `spdx:Package`
 ```text
 <Package rdf:about="...">
     ...
-    <packageFileName>glibc 2.11.1.tar.gz</packageFileName>
+    <packageFileName>glibc-2.11.1.tar.gz</packageFileName>
     ...
 </Package>
 ```
