@@ -10,17 +10,17 @@ Identifying the license for open source software is critical for both reporting 
 * It is concise.
 * It is language neutral.
 * It is easy and more reliable to machine process.
-* Leads to code that is easier to read.
+* Leads to code that is easier to reuse.
 * The license information travels with the file (as sometimes not entire projects are used or license files are removed).
 * It is a standard and can be universal. There is no need for variation.
 * An SPDX short identifier is immutable.
 * Easy look-ups and cross-references to the SPDX License List website.
 
-To the extent that a source file contains existing copyright and license information, it is the SPDX project’s recommendation that SPDX short identifiers be used to supplement, not replace that information. When there is a standard header provided by the license author, it is recommended to use such standard header (alone or in combination with the SPDX short identifier). If using SPDX short identifiers in individual files, it is recommended to reproduce the full license in the projects LICENSE file and indicate that SPDX short identifiers are being used to refer to it. For links to projects illustrating these scenarios, see [https://spdx.dev/ids-where](https://spdx.dev/ids-where).
+If using SPDX short identifiers in individual files, it is recommended to reproduce the full license in the projects LICENSE file and indicate that SPDX short identifiers are being used to refer to it. For links to projects illustrating these scenarios, see [https://spdx.dev/ids-where](https://spdx.dev/ids-where).
 
 ## E.2 Format for SPDX-License-Identifier <a name="E.2"></a>
 
-The SPDX-License-Identifier tag declares the license the file is under and should be placed at or near the top of the file in a comment. To the extent that the file contains existing license information, it is our recommendation that the tag be used to supplement not replace that information. Of course, this is the ultimate decision of the copyright holders of the file.
+The SPDX-License-Identifier tag declares the license the file is under and should be placed at or near the top of the file in a comment. 
 
 The SPDX License Identifier syntax may consist of a single license (represented by a short identifier from the [SPDX license list](https://spdx.org/licenses/)) or a compound set of licenses (represented by joining together multiple licenses using the license expression syntax).
 
