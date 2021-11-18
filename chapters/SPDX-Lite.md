@@ -26,6 +26,8 @@ Files Analyzed shall be set to "false" when SPDX Lite is used.
 
 Package Comment can be used to describe additional details, such as compiling options, where a license may change with a different compiling option.
 
+External Reference field can be used to express correlated external resources information such as security CPE strings as described in Annex F of SPDX spec.
+
 The Other License information section (License Identifier, Extracted Text, License Name and License Comment) is used for exchanging license information for licenses that are not on the [SPDX License List](https://spdx.org/licenses).
 
 ## G.3 Table of SPDX Lite fields <a name="G.3"></a>
@@ -53,6 +55,7 @@ The Other License information section (License Identifier, Extracted Text, Licen
 |L2.10 |7.16 | Comments on License       |
 |L2.11 |7.17 | Copyright Text            |
 |L2.12 |7.20 | Package Comment           |
+|L2.13 |7.21 | External Reference field  |
 |L3.1  |10.1	 | License Identifier        |
 |L3.2  |10.2	 | Extracted Text            |
 |L3.3  |10.3	 | License Name              |
