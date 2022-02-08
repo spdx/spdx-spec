@@ -1417,6 +1417,55 @@ EXAMPLE 2 RDF: Property `spdx:attributionText` in class `spdx:Package`
 </Package>
 ```
 
+## 7.24 Package Purpose field <a name="7.24"></a>
+
+### 7.24.1 Description
+
+This field provides information about the purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package. The options to populated this field are limited to:
+
+`APPLICATION` if the package is a software application;
+`FRAMEWORK` if the package is a software framework;
+`LIBRARY` if the package is a software library;
+`CONTAINER` if the package refers to a container image which can be used by a container runtime application;
+`OPERATING-SYSTEM` if the package refers to an operating system;
+`DEVICE` if the package refers to a chipset, processor, or electronic board;
+`FIRMWARE` if the package provides low level control over a device's hardware;
+`SOURCE` if the package is a collection of source files;
+`ARCHIVE` if the package refers to an archived collection of files (.tar, .zip, etc);
+`FILE` if the package is a single file which can be independently distributed (configuration file, statically linked binary, Kubernetes deployment, etc);
+`INSTALL` if the package is used to install software on disk;
+`OTHER` if the package doesn't fit into the above categories.
+
+The metadata for the Package Purpose field is shown in Table 36.
+
+**Table 36 — Metadata for the package purpose field**
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..* |
+| Format | `APPLICATION` \| `FRAMEWORK` \| `LIBRARY` \| `CONTAINER` \| `OPERATING-SYSTEM` \| `DEVICE` \| `FIRMWARE` \| `SOURCE` \| `ARCHIVE` \| `FILE` \| `INSTALL \| `OTHER` \|
+
+### 7.24.2 Intent
+
+This field is a reasonable estimate of the package usage from the producer and consumer perspective from which both parties can draw conclusions about the context in which the package exists.
+
+### 7.24.3 Examples
+
+EXAMPLE 1 Tag: `PackagePurpose:`
+
+```text
+PackagePurpose: FRAMEWORK
+```
+
+EXAMPLE 2 RDF: Property `spdx:purpose` in class `spdx:Package`
+
+```text
+<Package rdf:about="cluster-api">
+    <packagePurpose rdf:resource="packagePurpose_container" />
+</Package>
+```
+
 [Bazaar]: http://bazaar.canonical.com/
 [FSF]: http://www.fsf.org/
 [Git]: https://git-scm.com/
