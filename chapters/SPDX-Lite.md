@@ -18,7 +18,7 @@ The SPDX Lite profile is a subset of the SPDX specification. SPDX Lite consists 
 
 The mandatory part of the SPDX document creation information section (which consists of SPDX Version, Data License, SPDX Identifier, Document Name, SPDX Document Namespace, Creator and Created) is used for keeping compatibility with SPDX tools.
 
-The main part of the Package Information (those are Package Name, Package Version, Package File Name, Package Download Location, Package Home Page, Concluded License, Declared License, Comments on License and Copyright Text) is used for exchanging license information.
+The main part of the Package Information (those are Package Name, Package Version, Package File Name, Package Supplier, Package Download Location, Package Home Page, Concluded License, Declared License, Comments on License and Copyright Text) is used for exchanging license information.
 
 In the Package Information, Package SPDX Identifier and Files Analyzed are used for keeping compatibility with SPDX tools.
 
@@ -39,7 +39,7 @@ The Other License information section (License Identifier, Extracted Text, Licen
 |L1.1  |6.1  | SPDX Version              |
 |L1.2  |6.2  | Data License              |
 |L1.3  |6.3  | SPDX Identifier           |
-|L1.4  |6.4	 | Document Name	           |
+|L1.4  |6.4	 | Document Name	         |
 |L1.5  |6.5	 | SPDX Document Namespace   |
 |L1.6  |6.8	 | Creator	                 |
 |L1.7  |6.9  | Created                   |
@@ -47,16 +47,17 @@ The Other License information section (License Identifier, Extracted Text, Licen
 |L2.2  |7.2	 | Package SPDX Identifier   |
 |L2.3  |7.3	 | Package Version           |
 |L2.4  |7.4	 | Package File Name         |
-|L2.5  |7.7	 | Package Download Location |
-|L2.6  |7.8	 | Files Analyzed            |
-|L2.7  |7.11 | Package Home Page         |
-|L2.8  |7.13 | Concluded License         |
-|L2.9  |7.15 | Declared License          |
-|L2.10 |7.16 | Comments on License       |
-|L2.11 |7.17 | Copyright Text            |
-|L2.12 |7.20 | Package Comment           |
-|L2.13 |7.21 | External Reference field  |
-|L3.1  |10.1	 | License Identifier        |
-|L3.2  |10.2	 | Extracted Text            |
-|L3.3  |10.3	 | License Name              |
-|L3.4  |10.5	 | License Comment           |
+|L2.5  |7.5  | Package Supplier          |
+|L2.6  |7.7	 | Package Download Location |
+|L2.7  |7.8	 | Files Analyzed            |
+|L2.8  |7.11 | Package Home Page         |
+|L2.9  |7.13 | Concluded License         |
+|L2.10 |7.15 | Declared License          |
+|L2.11 |7.16 | Comments on License       |
+|L2.12 |7.17 | Copyright Text            |
+|L2.13 |7.20 | Package Comment           |
+|L2.14 |7.21 | External Reference field  |
+|L3.1  |10.1 | License Identifier        |
+|L3.2  |10.2 | Extracted Text            |
+|L3.3  |10.3 | License Name              |
+|L3.4  |10.5 | License Comment           |
