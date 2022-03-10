@@ -243,14 +243,14 @@ A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions
 
 - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the License Information in Snippet, a written explanation should be provided in the Comments on License field (see [9.7](#9.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field (see [9.7](#9.7)) is preferred. The metadata for the snippet concluded license field is shown in Table 56.
+If the Concluded License is not the same as the License Information in Snippet, a written explanation should be provided in the Comments on License field (see [9.7](#9.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field (see [9.7](#9.7)) is preferred. If the Snippet Concluded License field is not present for a snippet, it implies an equivalent meaning to `NOASSERTION`. The metadata for the snippet concluded license field is shown in Table 56.
 
 **Table 56 — Metadata for the snippet concluded license field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..1 |
+| Required | No |
+| Cardinality | 0..1 |
 | Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in [Annex D](SPDX-license-expressions.md). |
 
 ### 9.5.2 Intent
@@ -310,7 +310,7 @@ A reference to the license, denoted by LicenseRef-`[idstring]`, if the license i
 
 - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If license information for more than one license is contained in the snippet or if the license information offers a choice of licenses, then each of the choices should be listed as a separate entry. The metadata for the license information in snippet field is shown in Table 57.
+If license information for more than one license is contained in the snippet or if the license information offers a choice of licenses, then each of the choices should be listed as a separate entry. If the License Information in Snippet field is not present for a snippet, it implies an equivalent meaning to `NOASSERTION`. The metadata for the license information in snippet field is shown in Table 57.
 
 **Table 57 — Metadata for the license information in snippet field**
 
@@ -401,14 +401,14 @@ any text relating to a copyright notice, even if not complete;
 
 `NOASSERTION`, if the SPDX document creator has not examined the contents of the actual snippet or if the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).
 
-The metadata for the snippet copyright text field is shown in Table 59.
+If the Snippet Copyright Text field is not present for a snippet, it implies an equivalent meaning to `NOASSERTION`. The metadata for the snippet copyright text field is shown in Table 59.
 
 **Table 59 — Metadata for the snippet copyright text field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..1 |
+| Required | No |
+| Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines \| `NONE` \| `NOASSERTION` |
 
 ### 9.8.2 Intent

@@ -861,7 +861,7 @@ The options to populate this field are limited to:
 
     - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the Declared License ([7.15](#7.15)), a written explanation should be provided in the Comments on License field ([7.16](#7.16)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([7.16](#7.16)) is preferred.
+If the Concluded License is not the same as the Declared License ([7.15](#7.15)), a written explanation should be provided in the Comments on License field ([7.16](#7.16)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([7.16](#7.16)) is preferred. If the Concluded License field is not present in a package, it implies an equivalent meaning to `NOASSERTION`.
 
 The metadata for the concluded license field is shown in Table 25.
 
@@ -869,8 +869,8 @@ The metadata for the concluded license field is shown in Table 25.
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..1 |
+| Required | No |
+| Cardinality | 0..1 |
 | Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md). |
 
 ### 7.13.2 Intent
@@ -929,14 +929,14 @@ The options to populate this field are limited to:
 
     - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-The metadata for the all license information from files field is shown in Table 26.
+If the All Licenses Information from Files field is not present for a package and `FilesAnalyzed` field ([7.8](#7.8)) for that same pacakge is `true` or omitted, it implies an equivalent meaning to `NOASSERTION`. The metadata for all license information from files field is shown in Table 26.
 
 **Table 26 — Metadata for the all licenses information from files field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 0..* if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (shall be omitted) if `FilesAnalyzed` is `false`. |
+| Required | No |
+| Cardinality | 0..* (optional) if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (must be omitted) if `FilesAnalyzed` is `false`. |
 | Format | `<shortIdentifier>` ([Annex A](SPDX-license-list.md#A.1)) \| ["DocumentRef-"`[idstring]`:]"LicenseRef-"`[idstring]` \| `NONE` \| `NOASSERTION`<br>where:<br><ul><li> "DocumentRef-"`[idstring]` is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6).</li><li>`[idstring]` is a unique string containing letters, numbers, `.`, or `-`. </li></ul> |
 
 ### 7.14.2 Intent
@@ -988,14 +988,14 @@ The options to populate this field are limited to:
 
     - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-The metadata for the declared license field is shown in Table 27.
+If the Declared License field is not present for a package, it implies an equivalent meaning to `NOASSERTION`. The metadata for the declared license field is shown in Table 27.
 
 **Table 27 — Metadata for the declared license field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..1 |
+| Required | No |
+| Cardinality | 0..1 |
 | Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br><ul><li>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md).</li></ul> |
 
 ### 7.15.2 Intent
@@ -1093,14 +1093,14 @@ Identify the copyright holders of the package, as well as any dates present. Thi
 
     - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-The metadata for the copyright text field is shown in Table 29.
+If the Copyright Text field is not present for a package, it implies an equivalent meaning to `NOASSERTION`. The metadata for the copyright text field is shown in Table 29.
 
 **Table 29 — Metadata for the copyright text field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..1 |
+| Required | No |
+| Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines \| `NONE` \| `NOASSERTION` |
 
 ### 7.17.2 Intent
