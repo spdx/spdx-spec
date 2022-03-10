@@ -243,14 +243,14 @@ A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions
 
 - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([8.7](#8.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([8.7](#8.7)) is preferred. The metadata for the concluded license field is shown in Table 40.
+If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([8.7](#8.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([8.7](#8.7)) is preferred. If the Concluded License field is not present for a file, it implies an equivalent meaning to `NOASSERTION`. The metadata for the concluded license field is shown in Table 40.
 
 **Table 40 — Metadata for the concluded license field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..1 |
+| Required | No |
+| Cardinality | 0..1 |
 | Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md). |
 
 ### 8.5.2 Intent
@@ -308,14 +308,14 @@ A reference to the license, denoted by LicenseRef-`[idstring]`, if the license i
 
 - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If license information for more than one license is contained in the file or if the license information offers the package recipient a choice of licenses, then each of the choices should be listed as a separate entry. The metadata for the license information in file field is shown in Table 41.
+If license information for more than one license is contained in the file or if the license information offers the package recipient a choice of licenses, then each of the choices should be listed as a separate entry. If the License Information in File field is not present for a file, it implies an equivalent meaning to `NOASSERTION`. The metadata for the license information in file field is shown in Table 41.
 
 **Table 41 — Metadata for the license information in file field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..* |
+| Required | No |
+| Cardinality | 0..* |
 | Format | `<SPDX License Expression>` \|<br>["DocumentRef-"`[idstring]`":"]"LicenseRef-"`[idstring]` \|<br>\| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md).<br>"DocumentRef-"`[idstring]`: is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-` |
 
 ### 8.6.2 Intent
@@ -402,14 +402,14 @@ Any text relating to a copyright notice, even if not complete;
 
 - the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).
 
-The metadata for the copyright text field is shown in Table 43.
+If the Copyright Text field is not present for a file, it implies an equivalent meaning to `NOASSERTION`. The metadata for the copyright text field is shown in Table 43.
 
 **Table 43 — Metadata for the copyright text field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..1 |
+| Required | No |
+| Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines \| `NONE` \| `NOASSERTION` |
 
 ### 8.8.2 Intent
