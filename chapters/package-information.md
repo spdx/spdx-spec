@@ -98,7 +98,7 @@ Identify the version of the package. The metadata for the package version field 
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Single line of text. |
 
 ### 7.3.2 Intent
@@ -134,7 +134,7 @@ Provide the actual file name of the package, or path of the directory being trea
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Single line of text. |
 
 ### 7.4.2 Intent
@@ -196,7 +196,7 @@ The metadata for the package supplier field is shown in Table 17.
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Single line of text with one of the following:<ul><li>`NOASSERTION`</li><li>`Person:` person name and optional `(<email>)`</li><li>`Organization:` organization name and optional `(<email>)`</li></ul> |
 
 ### 7.5.2 Intent
@@ -242,7 +242,7 @@ The metadata for the package originator field is shown in Table 18.
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Single line of text with one of the following:<ul><li>`NOASSERTION`</li><li>`Person:` person name and optional `(<email>)`</li><li>`Organization:` organization name and optional `(<email>)`</li></ul> |
 
 ### 7.6.2 Intent
@@ -590,7 +590,7 @@ Indicates whether the file content of this package has been available for or sub
 | Attribute | Value |
 | --------- | ----- |
 | Required | No. If omitted, the default value of `true` is assumed. |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Boolean |
 
 ### 7.8.2 Intent
@@ -698,7 +698,7 @@ Provide an independently reproducible mechanism that permits unique identificati
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..* |
+| Cardinality | 0..* |
 | Algorithm | Algorithms that can be used: [`SHA1`][SHA-1], [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6] |
 | Format | There are three components, an algorithm identifier (e.g. `SHA1`), a colon separator `:`, and a bit value represented as lowercase hexadecimal digits (appropriate as output to the algorithm). |
 
@@ -774,7 +774,7 @@ The metadata for the package home page field is shown in Table 23.
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Uniform resource locator \| `NONE` \| `NOASSERTION` |
 
 ### 7.11.2 Intent
@@ -813,7 +813,7 @@ Table 24 — Metadata for the source information field
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines.<br><br>In `tag:value` format this is delimited by `<text>...</text>`. |
 
 ### 7.12.2 Intent
@@ -1044,7 +1044,7 @@ This field provides a place for the SPDX document creator to record any relevant
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines.<br><br>In `tag:value` format this is delimited by `<text>...</text>`. |
 
 ### 7.16.2 Intent
@@ -1134,7 +1134,7 @@ This field is a short description of the package. The metadata for the package s
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines. |
 
 ### 7.18.2 Intent
@@ -1172,7 +1172,7 @@ This field is a more detailed description of the package. It may also be extract
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Free form text than can span multiple lines. |
 
 ### 7.19.2 Intent
@@ -1218,7 +1218,7 @@ This field provides a place for the SPDX document creator to record any general 
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines. |
 
 ### 7.20.2 Intent
@@ -1259,7 +1259,7 @@ An External Reference allows a Package to reference an external source of additi
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..* |
+| Cardinality | 0..* |
 | Format | `<category> <type> <locator>`<br>where:<ul><li>`<category>` is `SECURITY` \| `PACKAGE-MANAGER` \| `PERSISTENT-ID` \| `OTHER`</li><li>`<type>` is one of the types listed in Annex [F](external-repository-identifiers.md).</li><li>`<locator>` is the unique string with no spaces necessary to access the package-specific information, metadata, or content within the target location. The format of the locator is subject to constraints defined by the `<type>`.</li></ul> |
 
 ### 7.21.2 Intent
@@ -1384,7 +1384,7 @@ This field provides a place for the SPDX document creator to record, at the pack
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..* |
+| Cardinality | 0..* |
 | Format | Free form text that can span multiple lines. |
 
 ### 7.23.2 Intent
