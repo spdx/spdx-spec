@@ -165,7 +165,7 @@ Provide a unique identifier to match analysis information on each specific file 
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
-| Cardinality | 1..1 [`SHA1`][SHA-1], others may be optionally provided. |
+| Cardinality | 1..1 for the [`SHA1`][SHA-1] algorithm, 0..* for all other algorithms |
 | Algorithm | [`SHA1`][SHA-1] is to be used on the file. Other algorithms that can be provided optionally include [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6] |
 | Format | In `tag:value` there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF shall also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160-bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected. |
 
