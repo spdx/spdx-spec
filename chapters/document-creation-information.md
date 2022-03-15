@@ -279,7 +279,7 @@ An optional field for creators of the SPDX document to provide the version of th
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | `M.N`<br>where:<br>`M` is major version number<br>`N` is minor version number. |
 
 ### 6.7.2 Intent
@@ -385,7 +385,7 @@ An optional field for creators of the SPDX document to provide general comments 
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines.<br>In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`. |
 
 ### 6.10.2 Intent
@@ -423,7 +423,7 @@ An optional field for creators of the SPDX document content to provide comments 
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines. In `tag:value` format this is delimited by `<text> .. </text>`, in RDF, it is delimited by `<rdfs:comment>`. |
 
 ### 6.11.2 Intent
