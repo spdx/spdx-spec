@@ -158,7 +158,13 @@ Where file2 is a `README.TXT`
 
 ### 8.4.1 Description
 
-Provide a unique identifier to match analysis information on each specific file in a package. The metadata for the file checksum field is shown in Table 39.
+This field provides the result from some specific checksum algorithm.
+Checksum algorithms consume data from the file and produce a short,
+fix-sized summary that is sensitive to changes in the file's data.
+Any random change to the file's data will (with high likelihood)
+result in a different checksum value.
+
+The metadata for the file checksum field is shown in Table 39.
 
 **Table 39 — Metadata for the file checksum field**
 
@@ -171,7 +177,16 @@ Provide a unique identifier to match analysis information on each specific file 
 
 ### 8.4.2 Intent
 
-Here, by providing a unique identifier of each file, confusion over which version/modification of a specific file should be eliminated.
+Checksum values are used primarily to protect a file's data against
+accidental corruption during transmissions or storage.
+Cryptographically strong checksum algorithms may be used to detect
+deliberate corruption, but only if the authenticity of the checksum
+value may be verified.
+
+Checksum values may also be used as an identifier for the file's data
+that is (with high likelihood) unique.  Such an identifier may be used
+to establish the desired version of a file, if multiple versions are
+available.
 
 ### 8.4.3 Examples
 
