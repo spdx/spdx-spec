@@ -62,6 +62,12 @@ External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 
 Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf](http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf)
 
+### F.2.3 advisory <a name="SECadvisory"></a>
+
+### F.2.4 disclosure <a name="SECdisclosure"></a>
+
+### F.2.5 url <a name="SECurl"></a>
+
 ## F.3 Package-Manager <a name="F.3"></a>
 
 ### F.3.1 maven-central <a name="maven"></a>
