@@ -18,6 +18,8 @@ and the locator formats for each of the categories.
 
 ## F.2 Security <a name="F.2"></a>
 
+It’s recommended practice for SPDX SBOM document creators to include one or more package identifiers (e.g.  CPE, GitBOM, PURL or SWID) when using SPDX external references for the purpose of resolving current security vulnerability information. The specified identifiers are contained in this section, F.2 Security, as well as section F.4.
+
 ### F.2.1 cpe22Type <a name="cpe22"></a>
 
 Locator Format:
@@ -61,6 +63,42 @@ cpe:2.3:o:canonical:ubuntu_linux:10.04:­:lts:*:*:*:*:*
 External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
 
 Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf](http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf)
+
+### F.2.3 advisory <a name="advisory"></a>
+
+Locator Format: URL as defined by <https://www.ietf.org/rfc/rfc1738.txt>.
+
+Contextual Example: <https://nvd.nist.gov/vuln/detail/CVE-2020-28498>.
+
+Documentation: A reference to the published security advisory (where advisory as defined per ISO 29147:2018). It may contain an impact statement whether a package (e.g. a product) is or is not affected by vulnerabilities.
+
+### F.2.4 fix <a name="fix"></a>
+
+Locator Format: URL as defined by <https://www.ietf.org/rfc/rfc1738.txt>
+
+Contextual Example: <https://github.com/indutny/elliptic/commit/441b7428>
+
+Documentation: A reference to the source code with a fix for the vulnerability (e.g., a GitHub commit). 
+
+### F.2.5 url <a name="url"></a>
+
+Locator Format: URL as defined by <https://www.ietf.org/rfc/rfc1738.txt>.
+
+Contextual Example:  <https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/secp256k1_twist_attacks.md>
+
+Documentation: A reference to related security information of unspecified type.
+
+### F.2.6 swid <a name="swid"></a>
+
+Locator format: URI as defined by <https://www.ietf.org/archive/id/draft-ietf-sacm-coswid-21.html#name-uri-schemes>.
+
+Conceptual Example: 2df9de35-0aff-4a86-ace6-f7dddd1ade4c
+
+External Reference Site: <https://csrc.nist.gov/Projects/Software-Identification-SWID>
+
+Documentation: <https://www.ietf.org/archive/id/draft-ietf-sacm-coswid-21.html#section-2.3)>
+
+Note: A binary tag-id should be base64url encoded.
 
 ## F.3 Package-Manager <a name="F.3"></a>
 
@@ -198,7 +236,17 @@ Examples:
 * `swh:1:rel:22ece559cc7cc2364edc5e5593d63ae8bd229f9f` points to Darktable release 2.3.0, dated 24 December 2016
 * `swh:1:snp:c7c108084bc0bf3d81436bf980b46e98bd338453` points to a snapshot of the entire Darktable Git repository taken on 4 May 2017 from GitHub
 
-External documentation: [Software Heritage](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
+External Reference Site: [Software Heritage persistent IDentifiers](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
+
+### F.4.1 gitbom <a name="gitbom"></a>
+
+Locator Format: gitoid":"\<git object type>":"\<hash algorithm>":"\<hash value>
+	
+Contextual Example: gitoid:blob:sha1:261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64
+
+External Reference Site: <https://gitbom.dev/>
+
+Documentation: GitBOM uses a similar algorithm as Git to uniquely identify files by using their 40-byte hash. Gitoid stands for Git Object ID.  Git is an object store, see <https://git-scm.com/book/en/v2/Git-Internals-Git-Objects>.
 
 ## F.5 Other <a name="F.5"></a>
 
