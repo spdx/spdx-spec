@@ -3,7 +3,14 @@
 
 # I.1 Differences between V2.2.2 and V2.2.1 <a name="I.1"></a>
 
-V2.2.2 fixed annex lettering inconsistencies. It also moved CC-BY-3.0 to the end of the spec to keep annex letters more consistent in future versions. Here is the translation between lettering in V2.2.2 and the version that came before it:
+V2.2.2 fixed formatting, grammatical and spelling issues found since ISO/IEC 5962:2021 SPDX v2.2.1 was published.   No new fields were added.
+
+Key changes include:
+* Clarify Optional Cardinality contradictions
+* Update OWL document
+* Update JSON schema to fix typos and add missing required fields.
+* Clarify Information on using License List short form identifiers.
+* It fixed annex lettering inconsistencies. It also moved CC-BY-3.0 to the end of the spec to keep annex letters more consistent in future versions. Here is the translation between lettering in V2.2.2 and the version that came before it:
 
 **Table I.1 — SPDX V2.2.2 Organizational Changes**
 
