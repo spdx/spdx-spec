@@ -34,9 +34,9 @@ Contextual Example:
 cpe:/o:canonical:ubuntu_linux:10.04:-:lts
 ```
 
-External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
+External Reference Site: <https://nvd.nist.gov/cpe>
 
-Documentation: [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
+Documentation: <https://cpe.mitre.org/files/cpe-specification_2.2.pdf>
 
 ### F.2.2 cpe23Type <a name="cpe23"></a>
 
@@ -60,9 +60,9 @@ Contextual Example:
 cpe:2.3:o:canonical:ubuntu_linux:10.04:­:lts:*:*:*:*:*
 ```
 
-External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
+External Reference Site: <https://nvd.nist.gov/cpe>
 
-Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf](http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf)
+Documentation: <https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7695.pdf>
 
 ### F.2.3 advisory <a name="advisory"></a>
 
@@ -117,9 +117,9 @@ Contextual Example:
 org.apache.tomcat:tomcat:9.0.0.M4
 ```
 
-External Reference Site: [http://repo1.maven.org/maven2/](http://repo1.maven.org/maven2/)
+External Reference Site: <https://repo1.maven.org/maven2/>
 
-Documentation: [https://maven.apache.org](https://maven.apache.org)
+Documentation: <https://maven.apache.org>
 
 ### F.3.2 npm <a name="npm"></a>
 
@@ -136,9 +136,9 @@ Contextual Example:
 http-server@0.3.0
 ```
 
-External Reference Site: [https://www.npmjs.com/](https://www.npmjs.com/)
+External Reference Site: <https://www.npmjs.com>
 
-Documentation: [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
+Documentation: <https://docs.npmjs.com/files/package.json>
 
 ### F.3.3 nuget <a name="nuget"></a>
 
@@ -155,9 +155,9 @@ Contextual Example:
 Microsoft.AspNet.MVC/5.0.0
 ```
 
-External Reference Site: [https://www.nuget.org/](https://www.nuget.org/)
+External Reference Site: <https://www.nuget.org>
 
-Documentation: [https://docs.nuget.org/](https://docs.nuget.org/)
+Documentation: <https://docs.nuget.org>
 
 ### F.3.4 bower <a name="bower"></a>
 
@@ -174,9 +174,9 @@ Contextual Example:
 modernizr#2.6.2
 ```
 
-External Reference Site: [http://bower.io/](http://bower.io/)
+External Reference Site: <https://bower.io>
 
-Documentation: [http://bower.io/docs/api/#install](http://bower.io/docs/api/#install)
+Documentation: <https://bower.io/docs/api/#install>
 
 ### F.3.5 purl <a name="purl"></a>
 
@@ -192,9 +192,9 @@ Contextual Example:
 pkg:docker/debian@sha256:2f04d3d33b6027bb74ecc81397abe780649ec89f1a2af18d7022737d0482cefe
 ```
 
-External Reference Site: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
+External Reference Site: <https://github.com/package-url/purl-spec>
 
-Documentation: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
+Documentation: <https://github.com/package-url/purl-spec>
 
 ## F.4 Persistent-Id <a name="F.4"></a>
 
