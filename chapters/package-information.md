@@ -1,6 +1,10 @@
 # 7 Package information section
 
+If the SPDX information describes a package, the following fields shall be included per package.
+
 ## 7.1 Package name field <a name="7.1"></a>
+
+The existence of the Package name fields indicates the existence of package information in the SPDX information. Hence in order to describe package information, this field is mandatory.
 
 ### 7.1.1 Description
 
