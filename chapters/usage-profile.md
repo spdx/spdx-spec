@@ -171,4 +171,39 @@ EXAMPLE 2 RDF: Property `spdx:packageReleseDate` in class `spdx:UsageScope`
 </UsageScope>
 ```
 
+## 31.5 Package Built Date field <a name="31.5"></a>
+
+### 31.5.1 Description
+
+This field provides a place for recording built date of the package 
+
+Table 31.5 — Metadata for the package built date
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
+
+
+### 31.5.2 Intent
+
+Description of the built date of the package for strict identification of the prerequisite assumptions of usage scope by the package supplyer.
+It's recoreded from build system tools or date field of the package file.
+
+### 31.5.3 Examples
+
+EXAMPLE 1 Tag: `PackageBuiltDate:`
+
+```text
+PackageBuiltDate: 2010-01-29T18:30:22Z
+```
+
+EXAMPLE 2 RDF: Property `spdx:packageBuiltDate` in class `spdx:UsageScope`
+
+```text
+<UsageScope rdf:about="...">
+    <packageBuiltDate> 2010-01-29T18:30:22Z </packageBuiltDate>
+</UsageScope>
+```
 
