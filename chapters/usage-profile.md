@@ -207,3 +207,38 @@ EXAMPLE 2 RDF: Property `spdx:packageBuiltDate` in class `spdx:UsageScope`
 </UsageScope>
 ```
 
+## 31.6 Valid Until Date field <a name="31.6"></a>
+
+### 31.6.1 Description
+
+Identify expiration date of designated "usage scope" descriptions which declared by supplyer of the package. 
+
+Table 31.6 — Metadata for the valid until date
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
+
+
+### 31.6.2 Intent
+
+Description of the expiration date for specific usage scope.
+
+### 31.6.3 Examples
+
+EXAMPLE 1 Tag: `ValidUntilDate:`
+
+```text
+ValidUntilDate: 2030-01-29T18:30:22Z
+```
+
+EXAMPLE 2 RDF: Property `spdx:validUntilDate` in class `spdx:UsageScope`
+
+```text
+<UsageScope rdf:about="...">
+    <validUntilDate> 2030-01-29T18:30:22Z </validUntilDate>
+</UsageScope>
+```
+
