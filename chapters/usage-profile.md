@@ -135,3 +135,40 @@ Using document URI:
     ...
 </UsageScope>
 ```
+
+## 31.4 Package Release Date field <a name="31.4"></a>
+
+### 31.4.1 Description
+
+This field provides a place for recording package release date
+
+Table 31.4 — Metadata for the package release date
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
+
+
+### 31.4.2 Intent
+
+Description of the package release date for strict identification of the prerequisite assumptions of usage scope by the package supplyer.
+
+### 31.4.3 Examples
+
+EXAMPLE 1 Tag: `PackageReleaseDate:`
+
+```text
+PackageReleaseDate: 2010-01-29T18:30:22Z
+```
+
+EXAMPLE 2 RDF: Property `spdx:packageReleseDate` in class `spdx:UsageScope`
+
+```text
+<UsageScope rdf:about="...">
+    <packageReleaseDate> 2010-01-29T18:30:22Z </packageReleaseDate>
+</UsageScope>
+```
+
+
