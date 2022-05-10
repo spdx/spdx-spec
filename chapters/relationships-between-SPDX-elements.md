@@ -60,6 +60,7 @@ The relationships between two SPDX elements that are supported are shown in Tabl
 | AMENDS                 | Is to be used when (current) SPDXRef-DOCUMENT amends the SPDX information in SPDXRef-B.               | (Current) SPDX document A version 2 contains a correction to a previous version of the SPDX document A version 1. Note the reserved identifier SPDXRef-DOCUMENT for the current document is required. |
 | PREREQUISITE_FOR       | Is to be used when SPDXRef-A is a prerequisite for SPDXRef-B.                                         | A library `bar.dll` is a prerequisite or dependency for APPLICATION `foo.exe`|
 | HAS_PREREQUISITE       | Is to be used when SPDXRef-A has as a prerequisite SPDXRef-B.                                         | An APPLICATION `foo.exe` has prerequisite or dependency on `bar.dll` |
+| SPECIFICATION_FOR      | Is to be used when SPDXRef-A describes, illustrates, or defines a design specification for SPDXRef-B. | A UML diagram illustrating a directed requirement graph for a discernible set of software components in a software package. |
 | OTHER                  | Is to be used for a relationship which has not been defined in the formal SPDX specification. A description of the relationship should be included in the Relationship comments field. | |
 
 The metadata for the relationship field is shown in Table 69.
