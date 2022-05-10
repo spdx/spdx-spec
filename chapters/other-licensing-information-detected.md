@@ -27,7 +27,7 @@ LicenseID: LicenseRef-1
 ```
 
 ```text
-LicenseID: LicenseRef-Beerware-4.2
+LicenseID: LicenseRef-Whiskeyware
 ```
 
 EXAMPLE 2 RDF: Property `spdx:licenseID` in class `spdx:ExtractedLicensingInfo`
@@ -39,8 +39,8 @@ EXAMPLE 2 RDF: Property `spdx:licenseID` in class `spdx:ExtractedLicensingInfo`
 ```
 
 ```text
-<ExtractedLicensingInfo rdf:about="licenseRef-Beerware-4.2">
-    <licenseId>LicenseRef-Beerware-4.2</licenseId>
+<ExtractedLicensingInfo rdf:about="licenseRef-Whiskeyware">
+    <licenseId>LicenseRef-Whiskeyware</licenseId>
 </ExtractedLicensingInfo>
 ```
 
@@ -71,7 +71,7 @@ In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 If only short reference to license present in File:
 
 ```text
-ExtractedText: <text>This software is licensed under the Beer License.</text>
+ExtractedText: <text>This software is licensed under the WHISKEY-WARE LICENSE.</text>
 ```
 
 If indeed full text of license present in File:
