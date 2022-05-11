@@ -1,6 +1,6 @@
 on: 
   push:
-    branches: [fix-gh-pages]
+    branches: [master, development/v2.2.2, development/v3.0, fix-gh-pages]
 
 jobs:
   build_current:
@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: 'fix-gh-pages'
+        ref: 'master'
     - name: Install pre-requisites
       run: pip install -r requirements.txt
     - name: Build
@@ -62,10 +62,29 @@ jobs:
       with:
         name: site-v3-draft
         path: ./site
+  build_test:
+    name: Build test
+    runs-on: ubuntu-latest
+    container: python:3
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: 'fix-gh-pages'
+    - name: Install pre-requisites
+      run: pip install -r requirements.txt
+    - name: Build
+      run: mkdocs build -v --clean
+    - name: Schema
+      run: generate-schema-doc schemas/spdx-schema.json site/spdx-json-schema.html
+    - name: Upload
+      uses: actions/upload-artifact@v1
+      with:
+        name: site-current
+        path: ./site
   publish:
     name: Publish
     runs-on: ubuntu-latest
-    needs: [build_current]
+    needs: [build_test]
     steps:
     - name: Download current
       uses: actions/download-artifact@v1
