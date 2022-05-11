@@ -1,6 +1,6 @@
 on: 
   push:
-    branches: [master, development/v2.2.2, development/v3.0]
+    branches: [master, development/v2.3, development/v3.0]
 
 jobs:
   build_current:
@@ -29,7 +29,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: 'development/v2.2.2'
+        ref: 'development/v2.3'
     - name: Install pre-requisites
       run: pip install -r requirements.txt
     - name: Build
@@ -83,8 +83,8 @@ jobs:
         name: site-v3-draft
         path: ./site/v3-draft
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2
-      env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./site
