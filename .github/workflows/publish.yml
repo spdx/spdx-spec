@@ -1,6 +1,6 @@
 on: 
   push:
-    branches: [master, development/v2.3, development/v3.0]
+    branches: [master, development/v2.3]
 
 jobs:
   build_current:
@@ -41,31 +41,10 @@ jobs:
       with:
         name: site-v2-draft
         path: ./site
-  build_v3-draft:
-    name: Build v3-draft
-    runs-on: ubuntu-latest
-    container: python:3
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: 'development/v3.0'
-    - name: Install pre-requisites
-      run: pip install -r requirements.txt
-    - name: Install graphviz
-      run: apt-get update && apt-get install -y graphviz
-    - name: Build
-      run: mkdocs build -v  --clean
-    - name: Schema
-      run: generate-schema-doc schemas/spdx-schema.json site/spdx-json-schema.html
-    - name: Upload
-      uses: actions/upload-artifact@v1
-      with:
-        name: site-v3-draft
-        path: ./site
   publish:
     name: Publish
     runs-on: ubuntu-latest
-    needs: [build_current, build_v2-draft, build_v3-draft]
+    needs: [build_current, build_v2-draft]
     steps:
     - name: Download current
       uses: actions/download-artifact@v1
@@ -77,11 +56,6 @@ jobs:
       with:
         name: site-v2-draft
         path: ./site/v2-draft
-    - name: Download v3-draft
-      uses: actions/download-artifact@v1
-      with:
-        name: site-v3-draft
-        path: ./site/v3-draft
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
