@@ -4,7 +4,7 @@
 
 ### 31.1.1 Description
 
-Software packages are sometimes generated with specific Build conditions based on package supplier's license conditions and intended usage in addition to original software source code. In those cases, it prefer to package supplier clearly state into the SPDX document that the intended usage of the package as envisioned when setting the Build conditions by the package supplier.
+Software packages are sometimes generated with specific Build conditions based on package supplier's license conditions and intended usage in addition to original software source code. In those cases, it is preferred for the package supplier to clearly state in the SPDX document the intended usage of the package as envisioned when setting the Build conditions.
 In other cases, some specific licenses out of dual or multiple licenses of original software source code may be applied to the package according to the Build conditions. Or, the inspection conditions for packages may also have to be clearly stated for each package.
 
 With this "Usage Scope" field, the intended usage and license conditions assumed by the package supplier are appended to the generated package in a manner that supplements those conditions contained in the source code.
@@ -63,7 +63,7 @@ Table 31.2 — Metadata for the usage scope comment field
 
 ### 31.2.2 Intent
 
-To describe prerequisite assumptions of usage scope by the package supplyer.
+To provide additional context. For example, describing prerequisite assumptions of usage scope by the package supplier.
 
 ### 31.2.3 Examples
 
@@ -99,7 +99,7 @@ Uniquely identify any element in an SPDX document which may be referenced by oth
 
 ### 31.3.2 Intent
 
-There may be several usecase of the same package within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
+There may be several cases of the same package within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
 
 ### 31.3.3 Examples
 
@@ -153,7 +153,7 @@ Table 31.4 — Metadata for the package release date
 
 ### 31.4.2 Intent
 
-Description of the package release date for strict identification of the prerequisite assumptions of usage scope by the package supplyer.
+Description of the package release date for strict identification of the prerequisite assumptions of usage scope by the package supplier.
 
 ### 31.4.3 Examples
 
@@ -188,8 +188,8 @@ Table 31.5 — Metadata for the package built date
 
 ### 31.5.2 Intent
 
-Description of the built date of the package for strict identification of the prerequisite assumptions of usage scope by the package supplyer.
-It's recoreded from build system tools or date field of the package file.
+Description of the built date of the package for strict identification of the prerequisite assumptions of usage scope by the package supplier.
+It should recorded from build system tools or date field of the package file.
 
 ### 31.5.3 Examples
 
@@ -211,7 +211,7 @@ EXAMPLE 2 RDF: Property `spdx:packageBuiltDate` in class `spdx:UsageScope`
 
 ### 31.6.1 Description
 
-Identify expiration date of designated "usage scope" descriptions which declared by supplyer of the package. 
+Identify expiration date of designated "usage scope" descriptions which declared by supplier of the package. 
 
 Table 31.6 — Metadata for the valid until date
 
