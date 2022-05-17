@@ -92,7 +92,7 @@ Uniquely identify any element in an SPDX document which may be referenced by oth
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
+| Required | No |
 | Cardinality | 1..1 |
 | Format | "SPDXRef-"`[idstring]` <br> where `[idstring]` is a unique string containing letters, numbers, `.`, and/or `-`. |
 
