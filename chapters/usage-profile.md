@@ -4,10 +4,9 @@
 
 ### 31.1.1 Description
 
-Software packages are sometimes generated with specific Build conditions based on package supplier's license conditions and intended usage in addition to original software source code. In those cases, it is preferred for the package supplier to clearly state in the SPDX document the intended usage of the package as envisioned when setting the Build conditions.
-In other cases, some specific licenses out of dual or multiple licenses of original software source code may be applied to the package according to the Build conditions. Or, the inspection conditions for packages may also have to be clearly stated for each package.
+Software packages are sometimes generated with specific Build conditions based on package supplier's license conditions and intended usage in addition to original software source code. In those cases, it is preferred for the package supplier to clearly state in the SPDX document the intended usage of the package as envisioned when setting the Build conditions, and/or the inspection conditions for packages may also have to be clearly stated for each package.
 
-With this "Usage Scope" field, the intended usage and license conditions assumed by the package supplier are appended to the generated package in a manner that supplements those conditions contained in the source code.
+With this "Usage Scope" field, the intended usage assumed by the package supplier is appended to the generated package in a manner that supplements those conditions contained in the source code.
 
 
 Table 31.1 — Metadata for the usage scope field
@@ -16,13 +15,13 @@ Table 31.1 — Metadata for the usage scope field
 | --------- | ----- |
 | Required | No |
 | Cardinality | 0..* |
-| Format | ["DocumentRef-"[idstring]":"]SPDXID \<single line of text\> \| `NONE` \| `NOASSERTION`<br>where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. to designate SPDX document/package/file as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2), [8.2](file-information.md#8.2).<br>where `<single line of text>` is the intended usage and license conditions assumed by the package supplier.<br>where `NONE` can be used to explicitly indicate there are NO other "usage scope".<br>where `NOASSERTION` can be used to explicitly indicate it is not clear if there are "usage scope" that may apply or not. |
+| Format | ["DocumentRef-"[idstring]":"]SPDXID \<single line of text\> \| `NONE` \| `NOASSERTION`<br>where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. to designate SPDX document/package/file as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2), [8.2](file-information.md#8.2).<br>where `<single line of text>` is the intended usage of the package assumed by the package supplier.<br>where `NONE` can be used to explicitly indicate there are NO other "usage scope".<br>where `NOASSERTION` can be used to explicitly indicate it is not clear if there are "usage scope" that may apply or not. |
 
 <br>
 
 ### 31.1.2 Intent
 
-To describe detail intended usage and/or license conditions assumed by the package supplier in a manner that supplements those conditions contained in the software.
+To describe detail intended usage of the package assumed by the package supplier in a manner that supplements those conditions contained in the software.
 
 ### 31.1.3 Examples
 
