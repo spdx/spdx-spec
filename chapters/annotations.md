@@ -23,14 +23,14 @@ It may also be important for participants in the software supply chain to valida
 EXAMPLE 1 Tag: `Annotator:`
 
 ```text
-Annotator: Person: Jane Doe ()
+Annotator: Person: Jane Doe
 ```
 
 EXAMPLE 2 RDF: Property `spdx:annotator` in class `spdx:Annotation`
 
 ```text
 <Annotation>
-    <annotator> Person: Jane Doe () </annotator>
+    <annotator> Person: Jane Doe</annotator>
 </Annotation>
 ```
 
@@ -64,7 +64,7 @@ EXAMPLE 2 RDF: Property `spdx:annotationDate` in class `spdx:Annotation`
 
 ```text
 </Annotation>
-    <annotationDate> 2010-01-29T18:30:22Z </annotation Date>
+    <annotationDate> 2010-01-29T18:30:22Z </annotationDate>
 </Annotation>
 ```
 
