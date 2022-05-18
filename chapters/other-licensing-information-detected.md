@@ -80,7 +80,7 @@ If indeed full text of license present in File:
 ExtractedText: <text>"THE WHISKEY-WARE LICENSE": whiskeyfan@example.com
 wrote this file. As long as you retain this notice you can do whatever
 you want with this stuff. If we meet some day, and you think this stuff
-is worth it, you can buy me a bottle of whiskey in return </text>
+is worth it, you can buy me a bottle of whiskey in return.</text>
 ```
 
 EXAMPLE 2 RDF: Property `spdx:extractedText` in class `spdx:ExtractedLicensingInfo`
