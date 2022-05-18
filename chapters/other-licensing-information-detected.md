@@ -11,7 +11,7 @@ Provide a locally unique identifier to refer to licenses that are not found on t
 | Attribute | Value |
 | --------- | ----- |
 | Required | Conditional |
-| Cardinality | 0..1 conditional (mandatory, one) if license is not on SPDX License List. |
+| Cardinality | 0..1 conditional (Mandatory, one) if license is not on SPDX License List. |
 | Format | "LicenseRef-"`[idstring]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-`. |
 
 ### 10.1.2 Intent
@@ -120,7 +120,7 @@ Use `NOASSERTION` If there is no common name or it is not known. The metadata fo
 | Attribute | Value |
 | --------- | ----- |
 | Required | Conditional |
-| Cardinality | 0..1 conditional (mandatory, one) if license is not on SPDX License List. |
+| Cardinality | 0..1 conditional (Mandatory, one) if license is not on SPDX License List. |
 | Format | Single line of text | `NOASSERTION` |
 
 ### 10.3.2 Intent
