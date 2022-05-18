@@ -23,14 +23,14 @@ Here, parties exchanging information in accordance with the SPDX specification n
 EXAMPLE 1 Tag: `SPDXVersion:`
 
 ```text
-SPDXVersion: SPDX-2.2
+SPDXVersion: SPDX-2.3
 ```
 
 EXAMPLE 2 RDF: Property spdx:specVersion in class spdx:SpdxDocument
 
 ```text
 <SpdxDocument rdf:about="...">
-   <specVersion>SPDX-2.2</specVersion>
+   <specVersion>SPDX-2.3</specVersion>
 </SpdxDocument>
 ```
 
@@ -205,7 +205,7 @@ EXAMPLE 2 RDF: The unique ID is the URI for the SPDX document
 
 ```text
 <SpdxDocument rdf:about="https://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">
-    <rdfs:comment>This document was created using SPDX 2.0 using
+    <rdfs:comment>This document was created using SPDX 2.3 using
     licenses from the web site.</rdfs:comment>
 </SpdxDocument>
 ```
@@ -291,14 +291,14 @@ Recognizing that licenses are added to the SPDX License List with each subsequen
 EXAMPLE 1 Tag: `LicenseListVersion:`
 
 ```text
-LicenseListVersion: 3.8
+LicenseListVersion: 3.17
 ```
 
 EXAMPLE 2 RDF: Property `licenseListVersion` in class `spdx:CreationInfo`
 
 ```text
 <CreationInfo>
-    <licenseListVersion>3.8</licenseListVersion>
+    <licenseListVersion>3.17</licenseListVersion>
 </CreationInfo>
 ```
 
@@ -435,8 +435,8 @@ Here, the intent is to provide readers/reviewers with comments by the creator of
 EXAMPLE 1 Tag: `DocumentComment:`
 
 ```text
-DocumentComment: <text>This document was created using SPDX 2.0,
-version 2.3 of the SPDX License List and refering to licenses
+DocumentComment: <text>This document was created using SPDX 2.3,
+version 3.17 of the SPDX License List and refering to licenses
 in file MyCompany.Approved.Licenses.spdx.</text>
 ```
 
@@ -445,7 +445,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `SpdxDocument`
 ```text
 <SpdxDocument rdf:about="...">
     <rdfs:comment>
-      This document was created using SPDX 2.0, version 2.3 of the SPDX
+      This document was created using SPDX 2.3, version 3.17 of the SPDX
       License List and refering to licenses in file
       MyCompany.Approved.Licenses.spdx.
     </rdfs:comment>
