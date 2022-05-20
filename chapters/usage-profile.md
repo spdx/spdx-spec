@@ -241,3 +241,86 @@ EXAMPLE 2 RDF: Property `spdx:validUntilDate` in class `spdx:UsageScope`
 </UsageScope>
 ```
 
+## 31.7 Valid Until Event field <a name="31.7"></a>
+
+### 31.7.1 Description
+
+Identify expiration condition of the usage profile descriptions or the package itself which declared by supplier of the package.
+For example, to specify expiration conditions of "usage scope" descriptions such as "These SPDX descriptions are valid until next delivery of newer SPDX descriptions". 
+In case, there are two or more "valid until" descriptions exist, designated "usage scope" description is expired when it meets an earliest condition defined in each "valid until" descriptions.
+
+Table 31.7 — Metadata for the valid until event field
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..* |
+| Format | Free form text that may span multiple lines, refers only to the immediately preceding "usage scope".  |
+
+
+### 31.7.2 Intent
+
+To the place for describing conditions / events which affects to validity of usage scope descriptions.
+
+### 31.7.3 Examples
+
+EXAMPLE 1 Tag: `ValidUntilEvent:`
+
+```text
+ValidUntilEvent: This Usage Scope descriptions are valid until updated descriptions are delivered
+```
+
+
+EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:validUntilEvent` of `spdx:UsageScope`
+
+```text
+<UsageScope rdf:about="...">
+    <validUntilEvent>
+         <rdfs:comment> Updated descriptions are delivered</rdfs:comment>
+    </validUntilEvent>
+</UsageScope>
+```
+
+## 31.8 ValidUntil SPDX identifier field <a name="31.8"></a>
+
+### 31.8.1 Description
+
+Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the validUntil SPDX identifier field is shown in Table 31.8.
+
+**Table 31.8 — Metadata for the validUntil SPDX identifier field**
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | "SPDXRef-"`[idstring]` <br> where `[idstring]` is a unique string containing letters, numbers, `.`, and/or `-`. |
+
+### 31.8.2 Intent
+
+There may be several expiration date designated by a ValidUntilDate field or expiration conditions by ValidUntilEvent fields of the "usage scope" within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
+
+### 31.8.3 Examples
+
+EXAMPLE 1 Tag: `ValidUntilSPDXID:`
+
+```text
+ValidUntilDate: 2030-01-29T18:30:22Z
+ValidUntilSPDXID: SPDXRef-valid_until_1
+```
+
+```text
+ValidUntilEvent: This Usage Scope descriptions are valid until updated descriptions are delivered
+ValidUntilSPDXID: SPDXRef-valid_until_2
+```
+
+
+EXAMPLE 2 RDF: Property `spdx:validUntilDate` or `spdx:validUntilEvent` in class `spdx:UsageScope`:
+
+```text
+<UsageScope rdf:about="...">
+    <validUntilDate rdf:about="#SPDXRef-valid_until_1"> 2030-01-29T18:30:22Z </validUntilDate>
+    <validUntilEvent rdf:about="#SPDXRef-valid_until_2">
+         <rdfs:comment> Updated descriptions are delivered</rdfs:comment>
+    </validUntilEvent>
+</UsageScope>
+```
