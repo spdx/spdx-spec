@@ -13,7 +13,7 @@ setup(
     name = "spdx_specification",
     version = "2.2.2",
     author = "Linux Foundation and SPDX Contributors",
-    author_email = "opensource@steenbe.nl",
+    author_email = "spdx-tech@lists.spdx.org",
     description = ("The Software Package Data Exchange® (SPDX®) specification is a standard format for communicating the components, licenses and copyrights associated with software packages."),
     license = "Community-Spec-1.0 AND CC-BY-3.0 AND MIT",
     keywords = "SPDX Software Package Data Exchange SPDX-License-Identifier specification licenses license",
