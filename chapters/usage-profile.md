@@ -28,7 +28,7 @@ To describe detail intended usage of the package assumed by the package supplier
 EXAMPLE 1 Tag: `UsageScope:`
 
 ```text
-UsageScope: SPDXRef-a_specific_binary_verNNN: shipped for consumer product/ medical system / automotive system
+UsageScope: SPDXRef-a-specific-binary-verNNN: shipped for consumer product/ medical system / automotive system
 ```
 
 EXAMPLE 2 RDF: Property `spdx:UsageScope` in any `spdx:SpdxDocument`, `spdx:Package` or `spdx:File`
@@ -38,7 +38,7 @@ EXAMPLE 2 RDF: Property `spdx:UsageScope` in any `spdx:SpdxDocument`, `spdx:Pack
       <UsageScopeElement>
         <File rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..."
       </UsageScopeElement>
-      <Usage>SPDXRef-a_specific_binary_verNNN: shipped for consumer product/ medical system / automotive system
+      <Usage>SPDXRef-a-specific-binary-verNNN: shipped for consumer product/ medical system / automotive system
       </Usage>
     </UsageScope>
   ...
@@ -69,15 +69,15 @@ To provide additional context. For example, describing prerequisite assumptions 
 EXAMPLE 1 Tag: `UsageScopeComment:`
 
 ```text
-UsageScope: SPDXRef-a_specific_binary_verNNN: shipped for consumer product/ medical system / automotive system
-UsageScopeComment: A_specific_binary_verNNN is compiled and velified as production level quality
+UsageScope: SPDXRef-a-specific-binary-verNNN: shipped for consumer product/ medical system / automotive system
+UsageScopeComment: A-specific-binary-verNNN is compiled and velified as production level quality
 ```
 
 EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:UsageScope`
 
 ```text
 <UsageScope>
-         <rdfs:comment> A_specific_binary_verNNN is compiled and velified as production level quality</rdfs:comment>
+         <rdfs:comment> A-specific-binary-verNNN is compiled and velified as production level quality</rdfs:comment>
 </UsageScope>
 ```
 
