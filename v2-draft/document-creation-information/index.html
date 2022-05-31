@@ -315,12 +315,12 @@
 <p>Here, parties exchanging information in accordance with the SPDX specification need to provide 100% transparency as to which SPDX specification version such information is conforming to.</p>
 <h3 id="613-examples">6.1.3 Examples</h3>
 <p>EXAMPLE 1 Tag: <code>SPDXVersion:</code></p>
-<div class="codehilite"><pre><span></span><code>SPDXVersion: SPDX-2.2
+<div class="codehilite"><pre><span></span><code>SPDXVersion: SPDX-2.3
 </code></pre></div>
 
 <p>EXAMPLE 2 RDF: Property spdx:specVersion in class spdx:SpdxDocument</p>
 <div class="codehilite"><pre><span></span><code>&lt;SpdxDocument rdf:about=&quot;...&quot;&gt;
-   &lt;specVersion&gt;SPDX-2.2&lt;/specVersion&gt;
+   &lt;specVersion&gt;SPDX-2.3&lt;/specVersion&gt;
 &lt;/SpdxDocument&gt;
 </code></pre></div>
 
@@ -487,7 +487,7 @@ The metadata for the data license field is shown in Table 3.</p>
 </tbody>
 </table>
 <h3 id="652-intent">6.5.2 Intent</h3>
-<p>The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See <a href="#6.6">6.6</a> for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is <code>http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]</code> where:</p>
+<p>The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See <a href="#6.6">6.6</a> for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is <code>https://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]</code> where:</p>
 <ul>
 <li><code>CreatorWebsite</code> is a website hosted by the creator of the document. (e.g. an SPDX document provided by SPDX would be spdx.org)</li>
 <li><code>PathToSpdx</code> is a path to where SPDX documents are stored on the website (e.g. /spdx/spdxdocs)</li>
@@ -498,12 +498,12 @@ The metadata for the data license field is shown in Table 3.</p>
 <p>NOTE: The URI does not have to be accessible. It is only intended to provide a unique ID. In many cases, the URI will point to a Web accessible document, but this should not be assumed to be the case.</p>
 <h3 id="653-examples">6.5.3 Examples</h3>
 <p>EXAMPLE 1 Tag: <code>DocumentNamespace:</code></p>
-<div class="codehilite"><pre><span></span><code>DocumentNamespace: http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...
+<div class="codehilite"><pre><span></span><code>DocumentNamespace: https://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...
 </code></pre></div>
 
 <p>EXAMPLE 2 RDF: The unique ID is the URI for the SPDX document</p>
-<div class="codehilite"><pre><span></span><code>&lt;SpdxDocument rdf:about=&quot;http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...&quot;&gt;
-    &lt;rdfs:comment&gt;This document was created using SPDX 2.0 using
+<div class="codehilite"><pre><span></span><code>&lt;SpdxDocument rdf:about=&quot;https://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...&quot;&gt;
+    &lt;rdfs:comment&gt;This document was created using SPDX 2.3 using
     licenses from the web site.&lt;/rdfs:comment&gt;
 &lt;/SpdxDocument&gt;
 </code></pre></div>
@@ -542,7 +542,7 @@ The metadata for the data license field is shown in Table 3.</p>
 <p>SPDX elements within this document may be related to other SPDX elements referenced from external SPDX documents. An SPDX element could be a snippet, file, package, license reference or SPDX document.</p>
 <h3 id="663-examples">6.6.3 Examples</h3>
 <p>EXAMPLE 1 Tag: <code>ExternalDocumentRef:</code></p>
-<div class="codehilite"><pre><span></span><code>ExternalDocumentRef:DocumentRef-spdx-tool-1.2 http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301 SHA1: d6a770ba38583ed4bb4525bd96e50461655d2759
+<div class="codehilite"><pre><span></span><code>ExternalDocumentRef:DocumentRef-spdx-tool-1.2 https://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301 SHA1: d6a770ba38583ed4bb4525bd96e50461655d2759
 </code></pre></div>
 
 <p>EXAMPLE 2 RDF: Property <code>spdx:externalDocumentRef</code> in class <code>spdx:SpdxDocument range ExternalDocumentRef</code>.</p>
@@ -554,7 +554,7 @@ The metadata for the data license field is shown in Table 3.</p>
 <div class="codehilite"><pre><span></span><code>&lt;SpdxDocument rdf:about=&quot;...&quot;&gt;
   &lt;externalDocumentRef rdf:ID=&quot;DocumentRef-spdx-tool-1.2&quot;&gt;
     &lt;ExternalDocumentRef&gt;
-        &lt;spdxDocument rdf:about=&quot;http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...&quot; /&gt;
+        &lt;spdxDocument rdf:about=&quot;https://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...&quot; /&gt;
         &lt;checksum&gt;
             &lt;Checksum&gt;
                 &lt;algorithm rdf:resource=&quot;checksumAlgorithm_sha1&quot;/&gt;
@@ -598,12 +598,12 @@ The metadata for the data license field is shown in Table 3.</p>
 <p>Recognizing that licenses are added to the SPDX License List with each subsequent version, the intent is to provide recipients of the SPDX document with the version of the SPDX License List used. This anticipates that in the future, an SPDX document might have used a version of the SPDX License List that is older than the then current one.</p>
 <h3 id="673-examples">6.7.3 Examples</h3>
 <p>EXAMPLE 1 Tag: <code>LicenseListVersion:</code></p>
-<div class="codehilite"><pre><span></span><code>LicenseListVersion: 3.8
+<div class="codehilite"><pre><span></span><code>LicenseListVersion: 3.17
 </code></pre></div>
 
 <p>EXAMPLE 2 RDF: Property <code>licenseListVersion</code> in class <code>spdx:CreationInfo</code></p>
 <div class="codehilite"><pre><span></span><code>&lt;CreationInfo&gt;
-    &lt;licenseListVersion&gt;3.8&lt;/licenseListVersion&gt;
+    &lt;licenseListVersion&gt;3.17&lt;/licenseListVersion&gt;
 &lt;/CreationInfo&gt;
 </code></pre></div>
 
@@ -762,15 +762,15 @@ authors of the code.&lt;/text&gt;
 <p>Here, the intent is to provide readers/reviewers with comments by the creator of the SPDX document about the SPDX document.</p>
 <h3 id="6113-examples">6.11.3 Examples</h3>
 <p>EXAMPLE 1 Tag: <code>DocumentComment:</code></p>
-<div class="codehilite"><pre><span></span><code>DocumentComment: &lt;text&gt;This document was created using SPDX 2.0,
-version 2.3 of the SPDX License List and refering to licenses
+<div class="codehilite"><pre><span></span><code>DocumentComment: &lt;text&gt;This document was created using SPDX 2.3,
+version 3.17 of the SPDX License List and refering to licenses
 in file MyCompany.Approved.Licenses.spdx.&lt;/text&gt;
 </code></pre></div>
 
 <p>EXAMPLE 2 RDF: Property <code>rdfs:comment</code> in class <code>SpdxDocument</code></p>
 <div class="codehilite"><pre><span></span><code>&lt;SpdxDocument rdf:about=&quot;...&quot;&gt;
     &lt;rdfs:comment&gt;
-      This document was created using SPDX 2.0, version 2.3 of the SPDX
+      This document was created using SPDX 2.3, version 3.17 of the SPDX
       License List and refering to licenses in file
       MyCompany.Approved.Licenses.spdx.
     &lt;/rdfs:comment&gt;

@@ -136,6 +136,14 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#f22-cpe23type">F.2.2 cpe23Type </a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#f23-advisory">F.2.3 advisory </a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#f24-fix">F.2.4 fix </a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#f25-url">F.2.5 url </a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#f26-swid">F.2.6 swid </a>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#f3-package-manager">F.3 Package-Manager </a>
@@ -155,6 +163,8 @@
     <li class="toctree-l2"><a class="reference internal" href="#f4-persistent-id">F.4 Persistent-Id </a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#f41-swh">F.4.1 swh </a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#f41-gitbom">F.4.1 gitbom </a>
     </li>
         </ul>
     </li>
@@ -225,6 +235,7 @@ The identifiers are a combination of a category, a type and a locator.</p>
 <p>The following sections provide details on the available types
 and the locator formats for each of the categories.</p>
 <h2 id="f2-security">F.2 Security <a name="F.2"></a></h2>
+<p>It’s recommended practice for SPDX SBOM document creators to include one or more package identifiers (e.g.  CPE, GitBOM, PURL or SWID) when using SPDX external references for the purpose of resolving current security vulnerability information. The specified identifiers are contained in this section, F.2 Security, as well as section F.4.</p>
 <h3 id="f21-cpe22type">F.2.1 cpe22Type <a name="cpe22"></a></h3>
 <p>Locator Format:</p>
 <div class="codehilite"><pre><span></span><code>[c][pP][eE]:/[AHOaho]?(:[A-Za-z0-9\._\-~%]*){0,6}
@@ -254,7 +265,25 @@ and the locator formats for each of the categories.</p>
 </code></pre></div>
 
 <p>External Reference Site: <a href="https://nvd.nist.gov/cpe">https://nvd.nist.gov/cpe</a></p>
-<p>Documentation: <a href="http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf">http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf</a></p>
+<p>Documentation: <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7695.pdf">https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7695.pdf</a></p>
+<h3 id="f23-advisory">F.2.3 advisory <a name="advisory"></a></h3>
+<p>Locator Format: URL as defined by <a href="https://www.ietf.org/rfc/rfc1738.txt">https://www.ietf.org/rfc/rfc1738.txt</a>.</p>
+<p>Contextual Example: <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-28498">https://nvd.nist.gov/vuln/detail/CVE-2020-28498</a>.</p>
+<p>Documentation: A reference to the published security advisory (where advisory as defined per ISO 29147:2018). It may contain an impact statement whether a package (e.g. a product) is or is not affected by vulnerabilities.</p>
+<h3 id="f24-fix">F.2.4 fix <a name="fix"></a></h3>
+<p>Locator Format: URL as defined by <a href="https://www.ietf.org/rfc/rfc1738.txt">https://www.ietf.org/rfc/rfc1738.txt</a></p>
+<p>Contextual Example: <a href="https://github.com/indutny/elliptic/commit/441b7428">https://github.com/indutny/elliptic/commit/441b7428</a></p>
+<p>Documentation: A reference to the source code with a fix for the vulnerability (e.g., a GitHub commit). </p>
+<h3 id="f25-url">F.2.5 url <a name="url"></a></h3>
+<p>Locator Format: URL as defined by <a href="https://www.ietf.org/rfc/rfc1738.txt">https://www.ietf.org/rfc/rfc1738.txt</a>.</p>
+<p>Contextual Example:  <a href="https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/secp256k1_twist_attacks.md">https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/secp256k1_twist_attacks.md</a></p>
+<p>Documentation: A reference to related security information of unspecified type.</p>
+<h3 id="f26-swid">F.2.6 swid <a name="swid"></a></h3>
+<p>Locator format: URI as defined by <a href="https://www.ietf.org/archive/id/draft-ietf-sacm-coswid-21.html#name-uri-schemes">https://www.ietf.org/archive/id/draft-ietf-sacm-coswid-21.html#name-uri-schemes</a>.</p>
+<p>Conceptual Example: 2df9de35-0aff-4a86-ace6-f7dddd1ade4c</p>
+<p>External Reference Site: <a href="https://csrc.nist.gov/Projects/Software-Identification-SWID">https://csrc.nist.gov/Projects/Software-Identification-SWID</a></p>
+<p>Documentation: <a href="https://www.ietf.org/archive/id/draft-ietf-sacm-coswid-21.html#section-2.3)">https://www.ietf.org/archive/id/draft-ietf-sacm-coswid-21.html#section-2.3)</a></p>
+<p>Note: A binary tag-id should be base64url encoded.</p>
 <h2 id="f3-package-manager">F.3 Package-Manager <a name="F.3"></a></h2>
 <h3 id="f31-maven-central">F.3.1 maven-central <a name="maven"></a></h3>
 <p>Locator Format:</p>
@@ -266,7 +295,7 @@ and the locator formats for each of the categories.</p>
 <div class="codehilite"><pre><span></span><code>org.apache.tomcat:tomcat:9.0.0.M4
 </code></pre></div>
 
-<p>External Reference Site: <a href="http://repo1.maven.org/maven2/">http://repo1.maven.org/maven2/</a></p>
+<p>External Reference Site: <a href="https://repo1.maven.org/maven2/">https://repo1.maven.org/maven2/</a></p>
 <p>Documentation: <a href="https://maven.apache.org">https://maven.apache.org</a></p>
 <h3 id="f32-npm">F.3.2 npm <a name="npm"></a></h3>
 <p>Locator Format:</p>
@@ -278,7 +307,7 @@ and the locator formats for each of the categories.</p>
 <div class="codehilite"><pre><span></span><code>http-server@0.3.0
 </code></pre></div>
 
-<p>External Reference Site: <a href="https://www.npmjs.com/">https://www.npmjs.com/</a></p>
+<p>External Reference Site: <a href="https://www.npmjs.com">https://www.npmjs.com</a></p>
 <p>Documentation: <a href="https://docs.npmjs.com/files/package.json">https://docs.npmjs.com/files/package.json</a></p>
 <h3 id="f33-nuget">F.3.3 nuget <a name="nuget"></a></h3>
 <p>Locator Format:</p>
@@ -290,8 +319,8 @@ and the locator formats for each of the categories.</p>
 <div class="codehilite"><pre><span></span><code>Microsoft.AspNet.MVC/5.0.0
 </code></pre></div>
 
-<p>External Reference Site: <a href="https://www.nuget.org/">https://www.nuget.org/</a></p>
-<p>Documentation: <a href="https://docs.nuget.org/">https://docs.nuget.org/</a></p>
+<p>External Reference Site: <a href="https://www.nuget.org">https://www.nuget.org</a></p>
+<p>Documentation: <a href="https://docs.nuget.org">https://docs.nuget.org</a></p>
 <h3 id="f34-bower">F.3.4 bower <a name="bower"></a></h3>
 <p>Locator Format:</p>
 <div class="codehilite"><pre><span></span><code>package#version
@@ -302,8 +331,8 @@ and the locator formats for each of the categories.</p>
 <div class="codehilite"><pre><span></span><code>modernizr#2.6.2
 </code></pre></div>
 
-<p>External Reference Site: <a href="http://bower.io/">http://bower.io/</a></p>
-<p>Documentation: <a href="http://bower.io/docs/api/#install">http://bower.io/docs/api/#install</a></p>
+<p>External Reference Site: <a href="https://bower.io">https://bower.io</a></p>
+<p>Documentation: <a href="https://bower.io/docs/api/#install">https://bower.io/docs/api/#install</a></p>
 <h3 id="f35-purl">F.3.5 purl <a name="purl"></a></h3>
 <p>Locator Format:</p>
 <div class="codehilite"><pre><span></span><code>scheme:type/namespace/name@version?qualifiers#subpath
@@ -349,7 +378,12 @@ Objects come in different types, and most notably:</p>
 <li><code>swh:1:rel:22ece559cc7cc2364edc5e5593d63ae8bd229f9f</code> points to Darktable release 2.3.0, dated 24 December 2016</li>
 <li><code>swh:1:snp:c7c108084bc0bf3d81436bf980b46e98bd338453</code> points to a snapshot of the entire Darktable Git repository taken on 4 May 2017 from GitHub</li>
 </ul>
-<p>External documentation: <a href="https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html">Software Heritage</a></p>
+<p>External Reference Site: <a href="https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html">Software Heritage persistent IDentifiers</a></p>
+<h3 id="f41-gitbom">F.4.1 gitbom <a name="gitbom"></a></h3>
+<p>Locator Format: gitoid":"\<git object type>":"\<hash algorithm>":"\<hash value></p>
+<p>Contextual Example: gitoid:blob:sha1:261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64</p>
+<p>External Reference Site: <a href="https://gitbom.dev/">https://gitbom.dev/</a></p>
+<p>Documentation: GitBOM uses a similar algorithm as Git to uniquely identify files by using their 40-byte hash. Gitoid stands for Git Object ID.  Git is an object store, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-Objects">https://git-scm.com/book/en/v2/Git-Internals-Git-Objects</a>.</p>
 <h2 id="f5-other">F.5 Other <a name="F.5"></a></h2>
 <h3 id="f51-idstring">F.5.1 [idstring] <a name="idstring"></a></h3>
 <p>Locator Format:</p>

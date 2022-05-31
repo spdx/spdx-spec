@@ -310,6 +310,16 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#724-package-purpose-field">7.24 Package Purpose field </a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#7241-description">7.24.1 Description</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7242-intent">7.24.2 Intent</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7243-examples">7.24.3 Examples</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -405,7 +415,9 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="7-package-information-section">7 Package information section</h1>
+<p>If the SPDX information describes a package, the following fields shall be included per package.</p>
 <h2 id="71-package-name-field">7.1 Package name field <a name="7.1"></a></h2>
+<p>The existence of the Package name fields indicates the existence of package information in the SPDX information. Hence in order to describe package information, this field is mandatory.</p>
 <h3 id="711-description">7.1.1 Description</h3>
 <p>Identify the full name of the package as given by the Package Originator (<a href="#7.6">7.6</a>). The metadata for the package name field is shown in Table 13.</p>
 <p><strong>Table 13 — Metadata for the package name field</strong></p>
@@ -1255,7 +1267,7 @@ verificationcode = SHA1(filelist)
 </ul>
 </li>
 </ul>
-<p>If the Concluded License is not the same as the Declared License (<a href="#7.15">7.15</a>), a written explanation should be provided in the Comments on License field (<a href="#7.16">7.16</a>). With respect to <code>NOASSERTION</code>, a written explanation in the Comments on License field (<a href="#7.16">7.16</a>) is preferred.</p>
+<p>If the Concluded License is not the same as the Declared License (<a href="#7.15">7.15</a>), a written explanation should be provided in the Comments on License field (<a href="#7.16">7.16</a>). With respect to <code>NOASSERTION</code>, a written explanation in the Comments on License field (<a href="#7.16">7.16</a>) is preferred. If the Concluded License field is not present in a package, it implies an equivalent meaning to <code>NOASSERTION</code>.</p>
 <p>The metadata for the concluded license field is shown in Table 25.</p>
 <p><strong>Table 25 — Metadata for the concluded license field</strong></p>
 <table>
@@ -1268,11 +1280,11 @@ verificationcode = SHA1(filelist)
 <tbody>
 <tr>
 <td>Required</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Cardinality</td>
-<td>1..1</td>
+<td>0..1</td>
 </tr>
 <tr>
 <td>Format</td>
@@ -1330,7 +1342,7 @@ verificationcode = SHA1(filelist)
 </ul>
 </li>
 </ul>
-<p>The metadata for the all license information from files field is shown in Table 26.</p>
+<p>If the All Licenses Information from Files field is not present for a package and <code>FilesAnalyzed</code> field (<a href="#7.8">7.8</a>) for that same pacakge is <code>true</code> or omitted, it implies an equivalent meaning to <code>NOASSERTION</code>. The metadata for all license information from files field is shown in Table 26.</p>
 <p><strong>Table 26 — Metadata for the all licenses information from files field</strong></p>
 <table>
 <thead>
@@ -1342,11 +1354,11 @@ verificationcode = SHA1(filelist)
 <tbody>
 <tr>
 <td>Required</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Cardinality</td>
-<td>0..* if <code>FilesAnalyzed</code> (<a href="#7.8">7.8</a>) is <code>true</code> or omitted, 0..0 (shall be omitted) if <code>FilesAnalyzed</code> is <code>false</code>.</td>
+<td>0..* (optional) if <code>FilesAnalyzed</code> (<a href="#7.8">7.8</a>) is <code>true</code> or omitted, 0..0 (must be omitted) if <code>FilesAnalyzed</code> is <code>false</code>.</td>
 </tr>
 <tr>
 <td>Format</td>
@@ -1397,7 +1409,7 @@ verificationcode = SHA1(filelist)
 </ul>
 </li>
 </ul>
-<p>The metadata for the declared license field is shown in Table 27.</p>
+<p>If the Declared License field is not present for a package, it implies an equivalent meaning to <code>NOASSERTION</code>. The metadata for the declared license field is shown in Table 27.</p>
 <p><strong>Table 27 — Metadata for the declared license field</strong></p>
 <table>
 <thead>
@@ -1409,11 +1421,11 @@ verificationcode = SHA1(filelist)
 <tbody>
 <tr>
 <td>Required</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Cardinality</td>
-<td>1..1</td>
+<td>0..1</td>
 </tr>
 <tr>
 <td>Format</td>
@@ -1516,7 +1528,7 @@ post-dates the license change.&lt;/text&gt;
 </ul>
 </li>
 </ul>
-<p>The metadata for the copyright text field is shown in Table 29.</p>
+<p>If the Copyright Text field is not present for a package, it implies an equivalent meaning to <code>NOASSERTION</code>. The metadata for the copyright text field is shown in Table 29.</p>
 <p><strong>Table 29 — Metadata for the copyright text field</strong></p>
 <table>
 <thead>
@@ -1528,11 +1540,11 @@ post-dates the license change.&lt;/text&gt;
 <tbody>
 <tr>
 <td>Required</td>
-<td>Yes</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Cardinality</td>
-<td>1..1</td>
+<td>0..1</td>
 </tr>
 <tr>
 <td>Format</td>
@@ -1867,6 +1879,58 @@ software developed by the AT&amp;T.
         software must display the following acknowledgement:  This 
         product includes software developed by the AT&amp;T.
     &lt;/attributionText&gt;
+&lt;/Package&gt;
+</code></pre></div>
+
+<h2 id="724-package-purpose-field">7.24 Package Purpose field <a name="7.24"></a></h2>
+<h3 id="7241-description">7.24.1 Description</h3>
+<p>This field provides information about the purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package. The options to populated this field are limited to:</p>
+<p><code>APPLICATION</code> if the package is a software application;
+<code>FRAMEWORK</code> if the package is a software framework;
+<code>LIBRARY</code> if the package is a software library;
+<code>CONTAINER</code> if the package refers to a container image which can be used by a container runtime application;
+<code>OPERATING-SYSTEM</code> if the package refers to an operating system;
+<code>DEVICE</code> if the package refers to a chipset, processor, or electronic board;
+<code>FIRMWARE</code> if the package provides low level control over a device's hardware;
+<code>SOURCE</code> if the package is a collection of source files;
+<code>ARCHIVE</code> if the package refers to an archived collection of files (.tar, .zip, etc);
+<code>FILE</code> if the package is a single file which can be independently distributed (configuration file, statically linked binary, Kubernetes deployment, etc);
+<code>INSTALL</code> if the package is used to install software on disk;
+<code>OTHER</code> if the package doesn't fit into the above categories.</p>
+<p>The metadata for the Package Purpose field is shown in Table 36.</p>
+<p><strong>Table 36 — Metadata for the package purpose field</strong></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Cardinality</td>
+<td>0..*</td>
+</tr>
+<tr>
+<td>Format</td>
+<td><code>APPLICATION</code> | <code>FRAMEWORK</code> | <code>LIBRARY</code> | <code>CONTAINER</code> | <code>OPERATING-SYSTEM</code> | <code>DEVICE</code> | <code>FIRMWARE</code> | <code>SOURCE</code> | <code>ARCHIVE</code> | <code>FILE</code> | <code>INSTALL \|</code>OTHER` |</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7242-intent">7.24.2 Intent</h3>
+<p>This field is a reasonable estimate of the package usage from the producer and consumer perspective from which both parties can draw conclusions about the context in which the package exists.</p>
+<h3 id="7243-examples">7.24.3 Examples</h3>
+<p>EXAMPLE 1 Tag: <code>PackagePurpose:</code></p>
+<div class="codehilite"><pre><span></span><code>PackagePurpose: FRAMEWORK
+</code></pre></div>
+
+<p>EXAMPLE 2 RDF: Property <code>spdx:purpose</code> in class <code>spdx:Package</code></p>
+<div class="codehilite"><pre><span></span><code>&lt;Package rdf:about=&quot;cluster-api&quot;&gt;
+    &lt;packagePurpose rdf:resource=&quot;packagePurpose_container&quot; /&gt;
 &lt;/Package&gt;
 </code></pre></div>
               
