@@ -5,6 +5,7 @@ on:
 jobs:
   build_current:
     name: Build current
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     container: python:3
     steps:
@@ -24,6 +25,7 @@ jobs:
         path: ./site
   build_v2-draft:
     name: Build v2-draft
+    if: github.ref == 'refs/heads/development/v2.3'
     runs-on: ubuntu-latest
     container: python:3
     steps:
