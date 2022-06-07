@@ -1509,7 +1509,7 @@ EXAMPLE 2 RDF: Property `spdx:releaseDate` in class `spdx:Package`
 
 This field provides a place for recording the actual date the package was built.
 
-Table 38 — Metadata for the release date
+Table 38 — Metadata for the built date
 
 | Attribute | Value |
 | --------- | ----- |
@@ -1531,7 +1531,7 @@ EXAMPLE 1 Tag: `BuiltDate:`
 BuiltDate: 2010-01-29T18:30:22Z
 ```
 
-EXAMPLE 2 RDF: Property `spdx:releaseDate` in class `spdx:Package`
+EXAMPLE 2 RDF: Property `spdx:builtDate` in class `spdx:Package`
 
 ```text
 <Package rdf:about="...">
@@ -1543,7 +1543,7 @@ EXAMPLE 2 RDF: Property `spdx:releaseDate` in class `spdx:Package`
 
 This field provides a place for recording the end of the support period for a package from the supplier.
 
-Table 39 — Metadata for the release date
+Table 39 — Metadata for the valid until date
 
 | Attribute | Value |
 | --------- | ----- |
