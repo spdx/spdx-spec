@@ -1469,7 +1469,109 @@ EXAMPLE 2 RDF: Property `spdx:purpose` in class `spdx:Package`
     <packagePurpose rdf:resource="packagePurpose_container" />
 </Package>
 ```
+  
+## 7.25 Release Date <a name="7.25"></a>
+### 7.25.1 Description
 
+This field provides a place for recording the date the package was released.
+
+Table 37 — Metadata for the release date
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
+
+
+### 7.25.2 Intent
+
+The release date is helpful for strict identification of the prerequisite assumptions of usage.
+
+### 7.25.3 Examples
+
+EXAMPLE 1 Tag: `ReleaseDate:`
+
+```text
+ReleaseDate: 2010-01-29T18:30:22Z
+```
+
+EXAMPLE 2 RDF: Property `spdx:releaseDate` in class `spdx:Package`
+
+```text
+<Package rdf:about="...">
+    <releaseDate> 2010-01-29T18:30:22Z </releaseDate>
+</Package>
+```
+
+## 7.26 Built Date <a name="7.26"></a>
+### 7.26.1 Description
+
+This field provides a place for recording the actual date the package was built.
+
+Table 38 — Metadata for the release date
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
+
+
+### 7.26.2 Intent
+
+The date when the package was built is helpful for strict identification of the prerequisite assumptions of usage.  
+Ideally it should be recorded from build system tools directly or the creation date of the package itself.
+
+### 7.26.3 Examples
+
+EXAMPLE 1 Tag: `BuiltDate:`
+
+```text
+BuiltDate: 2010-01-29T18:30:22Z
+```
+
+EXAMPLE 2 RDF: Property `spdx:releaseDate` in class `spdx:Package`
+
+```text
+<Package rdf:about="...">
+    <builtDate> 2010-01-29T18:30:22Z </builtDate>
+</Package>
+```
+## 7.27 Valid Until Date <a name="7.27"></a>
+### 7.27.1 Description
+
+This field provides a place for recording the end of the support period for a package from the supplier.
+
+Table 39 — Metadata for the release date
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
+
+
+### 7.26.2 Intent
+
+The date when support for the package ends from the supplier.  Usage is considered valid until this date.
+
+### 7.26.3 Examples
+
+EXAMPLE 1 Tag: `ValidUntilDate:`
+
+```text
+ValidUntilDate: 2030-12-30T18:00:00Z
+```
+
+EXAMPLE 2 RDF: Property `spdx:validUntilDate` in class `spdx:Package`
+
+```text
+<Package rdf:about="...">
+    <validUntilDate> 2030-12-30T18:00:00Z </validUntilDate>
+</Package>
+```
+  
 [Bazaar]: http://bazaar.canonical.com/
 [FSF]: http://www.fsf.org/
 [Git]: https://git-scm.com/
