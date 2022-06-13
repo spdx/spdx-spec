@@ -1,4 +1,4 @@
-# The Software Package Data Exchange® (SPDX®) Specification Version 2.2.2
+# The Software Package Data Exchange® (SPDX®) Specification Version 2.3
 
 Copyright © 2010-2022 Linux Foundation and its Contributors.
 This work is licensed under the Creative Commons Attribution License 3.0 Unported (CC-BY-3.0) reproduced in its entirety in [Annex G](creative-commons-attribution-license-3.0-unported.md) herein. All other rights are expressly reserved.
@@ -15,7 +15,7 @@ Bradlee Edmondson,
 Bruno Cornec,
 Ciaran Farrell,
 Daniel German,
-David Edelsohn
+David Edelsohn,
 David Kemp,
 David A. Wheeler,
 Debra McGlade,
