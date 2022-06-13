@@ -41,18 +41,6 @@ Known issues:
     
 
 
-    <!-- http://www.w3.org/2002/07/owl#deprecatedClass -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#deprecatedClass"/>
-    
-
-
-    <!-- http://www.w3.org/2002/07/owl#deprecatedProperty -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#deprecatedProperty"/>
-    
-
-
     <!-- http://www.w3.org/2002/07/owl#qualifiedCardinality -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#qualifiedCardinality"/>
@@ -61,10 +49,7 @@ Known issues:
 
     <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
 
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status">
-        <rdfs:isDefinedBy>http://spdx.org/rdf/terms#</rdfs:isDefinedBy>
-        <ns:term_status>stable</ns:term_status>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"/>
     
 
 
@@ -146,9 +131,10 @@ Known issues:
     <owl:ObjectProperty rdf:about="http://spdx.org/rdf/terms#artifactOf">
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#SpdxElement"/>
         <rdfs:range rdf:resource="http://usefulinc.com/ns/doap#Project"/>
+        <rdfs:comment xml:lang="en">Deprecated as of version 2.1</rdfs:comment>
         <rdfs:comment xml:lang="en">Indicates the project in which the SpdxElement originated. Tools must preserve doap:homepage and doap:name properties and the URI (if one is known) of doap:Project resources that are values of this property. All other properties of doap:Projects are not directly supported by SPDX and may be dropped when translating to or from some SPDX formats.</rdfs:comment>
-        <owl:deprecatedProperty xml:lang="en">Deprecated as of version 2.1</owl:deprecatedProperty>
-        <ns:term_status>stable</ns:term_status>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <ns:term_status xml:lang="en">deprecated</ns:term_status>
     </owl:ObjectProperty>
     
 
@@ -214,7 +200,6 @@ Known issues:
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#SpdxDocument"/>
         <rdfs:range rdf:resource="http://spdx.org/rdf/terms#Package"/>
         <rdfs:comment xml:lang="en">The describesPackage property relates an SpdxDocument to the package which it describes.</rdfs:comment>
-        <owl:deprecatedProperty></owl:deprecatedProperty>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:ObjectProperty>
     
@@ -246,7 +231,9 @@ Known issues:
     <owl:ObjectProperty rdf:about="http://spdx.org/rdf/terms#fileDependency">
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#File"/>
         <rdfs:range rdf:resource="http://spdx.org/rdf/terms#File"/>
-        <owl:deprecated xml:lang="en">This field is deprecated since SPDX 2.0 in favor of using Section 7 which provides more granularity about relationships.</owl:deprecated>
+        <rdfs:comment xml:lang="en">This field is deprecated since SPDX 2.0 in favor of using Section 7 which provides more granularity about relationships.</rdfs:comment>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <ns:term_status xml:lang="en">deprecated</ns:term_status>
     </owl:ObjectProperty>
     
 
@@ -405,7 +392,7 @@ If the All Licenses Information from Files field is not present for a package an
         <rdfs:comment xml:lang="en">Licensing information that was discovered directly in the subject file. This is also considered a declared license for the file.
 
 If the License Information in File field is not present for a file, it implies an equivalent meaning to NOASSERTION.</rdfs:comment>
-        <ns:term_status>deprecated</ns:term_status>
+        <ns:term_status>stable</ns:term_status>
     </owl:ObjectProperty>
     
 
@@ -516,7 +503,8 @@ If the License Information in Snippet field is not present for a snippet, it imp
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#SpdxDocument"/>
         <rdfs:range rdf:resource="http://spdx.org/rdf/terms#File"/>
         <rdfs:comment xml:lang="en">Indicates that a particular file belongs as part of the set of analyzed files in the SpdxDocument.</rdfs:comment>
-        <owl:deprecatedProperty xml:lang="en">This property has been replaced by a relationship between the SPDX document and file with a &quot;contains&quot; relationship type.</owl:deprecatedProperty>
+        <rdfs:comment xml:lang="en">This property has been replaced by a relationship between the SPDX document and file with a &quot;contains&quot; relationship type.</rdfs:comment>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <ns:term_status xml:lang="en">deprecated</ns:term_status>
     </owl:ObjectProperty>
     
@@ -778,6 +766,8 @@ If the License Information in Snippet field is not present for a snippet, it imp
     <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#annotator">
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#Annotation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>This field identifies the person, organization, or tool that has commented on a file, package, snippet, or the entire document.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:DatatypeProperty>
     
 
@@ -1295,8 +1285,9 @@ If the License Information in File field is not present, it implies an equivalen
     <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#reviewDate">
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#Review"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">Deprecated in favor of Annotation with an annotationType_review.</rdfs:comment>
         <rdfs:comment xml:lang="en">The date and time at which the SpdxDocument was reviewed. This value must be in UTC and have &apos;Z&apos; as its timezone indicator.</rdfs:comment>
-        <owl:deprecatedProperty xml:lang="en">Deprecated in favor of Annotation with an annotationType_review.</owl:deprecatedProperty>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <ns:term_status xml:lang="en">deprecated</ns:term_status>
     </owl:DatatypeProperty>
     
@@ -1307,9 +1298,9 @@ If the License Information in File field is not present, it implies an equivalen
     <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#reviewer">
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#Review"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.</rdfs:comment>
-        <owl:deprecatedProperty xml:lang="en">The reviewer property is deprecated in favor of Annotation with an annotationType review.</owl:deprecatedProperty>
-        <ns:term_status xml:lang="en">depcrecated</ns:term_status>
+        <rdfs:comment xml:lang="en">The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.  The reviewer property is deprecated in favor of Annotation with an annotationType review.</rdfs:comment>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <ns:term_status xml:lang="en">deprecated</ns:term_status>
     </owl:DatatypeProperty>
     
 
@@ -2093,7 +2084,7 @@ If the License Information in File field is not present, it implies an equivalen
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#licenseDeclared"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                         <owl:onClass rdf:resource="http://spdx.org/rdf/terms#AnyLicenseInfo"/>
                     </owl:Restriction>
                 </owl:unionOf>
@@ -2136,30 +2127,16 @@ If the License Information in File field is not present, it implies an equivalen
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#builtDate"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#releaseDate"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#validUntilDate"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#downloadLocation"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#builtDate"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2192,6 +2169,13 @@ If the License Information in File field is not present, it implies an equivalen
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#releaseDate"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#sourceInfo"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -2209,6 +2193,13 @@ If the License Information in File field is not present, it implies an equivalen
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#supplier"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#validUntilDate"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2365,7 +2356,8 @@ If the License Information in File field is not present, it implies an equivalen
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:deprecatedClass xml:lang="en">This class has been deprecated in favor of an Annotation with an Annotation type of review.</owl:deprecatedClass>
+        <rdfs:comment xml:lang="en">This class has been deprecated in favor of an Annotation with an Annotation type of review.</rdfs:comment>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <ns:term_status xml:lang="en">deprecated</ns:term_status>
     </owl:Class>
     
@@ -2566,7 +2558,7 @@ If the License Information in File field is not present, it implies an equivalen
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#licenseConcluded"/>
-                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                         <owl:onClass rdf:resource="http://spdx.org/rdf/terms#AnyLicenseInfo"/>
                     </owl:Restriction>
                 </owl:unionOf>
@@ -2773,12 +2765,6 @@ If the License Information in File field is not present, it implies an equivalen
         <rdfs:comment xml:lang="en">A Review represents an audit and signoff by an individual, organization or tool on the information for an SpdxElement.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:NamedIndividual>
-    
-
-
-    <!-- http://spdx.org/rdf/terms#annotator -->
-
-    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#annotator"/>
     
 
 
@@ -3066,7 +3052,7 @@ IMAGE if the file is assoicated with an picture image file (MIME type of image/*
     <!-- http://spdx.org/rdf/terms#noassertion -->
 
     <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#noassertion">
-        <rdfs:comment>Individual to indiate the creator of the SPDX document does not assert any value for the object.</rdfs:comment>
+        <rdfs:comment>Individual to indicate the creator of the SPDX document does not assert any value for the object.</rdfs:comment>
     </owl:NamedIndividual>
     
 
@@ -3311,6 +3297,7 @@ IMAGE if the file is assoicated with an picture image file (MIME type of image/*
     <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#relationshipType_dataFile">
         <rdf:type rdf:resource="http://spdx.org/rdf/terms#RelationshipType"/>
         <rdfs:comment xml:lang="en">Is to be used when SPDXRef-A is a data file used in SPDXRef-B.  Replaced by relationshipType_dataFileOf</rdfs:comment>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <ns:term_status xml:lang="en">deprecated</ns:term_status>
     </owl:NamedIndividual>
     
@@ -3713,14 +3700,11 @@ IMAGE if the file is assoicated with an picture image file (MIME type of image/*
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="http://spdx.org/rdf/terms#annotator">
-        <ns:term_status xml:lang="en">stable</ns:term_status>
-        <rdfs:comment>This field identifies the person, organization, or tool that has commented on a file, package, snippet, or the entire document.</rdfs:comment>
-    </rdf:Description>
     <rdf:Description rdf:about="http://spdx.org/rdf/terms#reviewed">
+        <rdfs:comment xml:lang="en">This property has been deprecated since SPDX version 2.0.  It has been replaced by an Annotation with an annotation type review.</rdfs:comment>
         <rdfs:comment>Reviewed</rdfs:comment>
         <ns:term_status xml:lang="en">deprecated</ns:term_status>
-        <owl:deprecatedProperty xml:lang="en">This property has been deprecated since SPDX version 2.0.  It has been replaced by an Annotation with an annotation type review.</owl:deprecatedProperty>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </rdf:Description>
     
 
