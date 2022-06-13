@@ -1,7 +1,7 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "$id" : "http://spdx.org/rdf/terms",
-  "title" : "SPDX 2.2",
+  "title" : "SPDX 2.3",
   "type" : "object",
   "properties" : {
     "SPDXID" : {
@@ -199,12 +199,13 @@
             "type" : "string"
           },
           "reviewer" : {
-            "description" : "The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.",
+            "description" : "The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.  The reviewer property is deprecated in favor of Annotation with an annotationType review.",
             "type" : "string"
           }
         },
         "required" : [ "reviewDate" ],
-        "additionalProperties" : false
+        "additionalProperties" : false,
+        "description" : "This class has been deprecated in favor of an Annotation with an Annotation type of review."
       }
     },
     "spdxVersion" : {
@@ -269,6 +270,10 @@
               "type" : "string"
             }
           },
+          "builtDate" : {
+            "description" : "This field provides a place for recording the actual date the package was built.",
+            "type" : "string"
+          },
           "checksums" : {
             "description" : "The checksum property provides a mechanism that can be used to verify that the contents of a File or Package have not changed.",
             "type" : "array",
@@ -294,7 +299,7 @@
             "type" : "string"
           },
           "copyrightText" : {
-            "description" : "The text of copyright declarations recited in the Package or File.",
+            "description" : "The text of copyright declarations recited in the Package, File or snippet.\n\nIf the License Information in File field is not present, it implies an equivalent meaning to NOASSERTION.",
             "type" : "string"
           },
           "description" : {
@@ -353,7 +358,7 @@
             "type" : "string"
           },
           "licenseConcluded" : {
-            "description" : "License expression for licenseConcluded.  The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the package.",
+            "description" : "License expression for licenseConcluded.  The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the package.\n\nIf the Concluded License field is not present for an SPDX Item, it implies an equivalent meaning to NOASSERTION.",
             "type" : "string"
           },
           "licenseDeclared" : {
@@ -361,10 +366,10 @@
             "type" : "string"
           },
           "licenseInfoFromFiles" : {
-            "description" : "The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.",
+            "description" : "The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.\n\nIf the All Licenses Information from Files field is not present for a package and FilesAnalyzed property for that same pacakge is true or omitted, it implies an equivalent meaning to NOASSERTION.",
             "type" : "array",
             "items" : {
-              "description" : "License expression for licenseInfoFromFiles.  The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.",
+              "description" : "License expression for licenseInfoFromFiles.  The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.\n\nIf the All Licenses Information from Files field is not present for a package and FilesAnalyzed property for that same pacakge is true or omitted, it implies an equivalent meaning to NOASSERTION.",
               "type" : "string"
             }
           },
@@ -379,6 +384,14 @@
           "packageFileName" : {
             "description" : "The base name of the package file name. For example, zlib-1.2.5.tar.gz.",
             "type" : "string"
+          },
+          "packagePurposes" : {
+            "description" : "This field provides information about the purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package.",
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "description" : "Package Purpose is intrinsic to how the package is being used rather than the content of the package."
+            }
           },
           "packageVerificationCode" : {
             "type" : "object",
@@ -400,6 +413,10 @@
             "additionalProperties" : false,
             "description" : "A manifest based verification code (the algorithm is defined in section 4.7 of the full specification) of the SPDX Item. This allows consumers of this data and/or database to determine if an SPDX item they have in hand is identical to the SPDX item from which the data was produced. This algorithm works even if the SPDX document is included in the SPDX item."
           },
+          "releaseDate" : {
+            "description" : "This field provides a place for recording the date the package was released.",
+            "type" : "string"
+          },
           "sourceInfo" : {
             "description" : "Allows the producer(s) of the SPDX document to describe how the package was acquired and/or changed from the original source.",
             "type" : "string"
@@ -412,12 +429,16 @@
             "description" : "The name and, optionally, contact information of the person or organization who was the immediate supplier of this package to the recipient. The supplier may be different than originator when the software has been repackaged. Values of this property must conform to the agent and tool syntax.",
             "type" : "string"
           },
+          "validUntilDate" : {
+            "description" : "This field provides a place for recording the end of the support period for a package from the supplier.",
+            "type" : "string"
+          },
           "versionInfo" : {
             "description" : "Provides an indication of the version of the package that is described by this SpdxDocument.",
             "type" : "string"
           }
         },
-        "required" : [ "SPDXID", "copyrightText", "downloadLocation", "licenseConcluded", "licenseDeclared", "name" ],
+        "required" : [ "SPDXID", "downloadLocation", "name" ],
         "additionalProperties" : false
       }
     },
@@ -500,7 +521,7 @@
             "type" : "string"
           },
           "copyrightText" : {
-            "description" : "The text of copyright declarations recited in the Package or File.",
+            "description" : "The text of copyright declarations recited in the Package, File or snippet.\n\nIf the License Information in File field is not present, it implies an equivalent meaning to NOASSERTION.",
             "type" : "string"
           },
           "fileContributors" : {
@@ -512,9 +533,10 @@
             }
           },
           "fileDependencies" : {
+            "description" : "This field is deprecated since SPDX 2.0 in favor of using Section 7 which provides more granularity about relationships.",
             "type" : "array",
             "items" : {
-              "description" : "SPDX ID for File",
+              "description" : "SPDX ID for File.  This field is deprecated since SPDX 2.0 in favor of using Section 7 which provides more granularity about relationships.",
               "type" : "string"
             }
           },
@@ -536,15 +558,14 @@
             "type" : "string"
           },
           "licenseConcluded" : {
-            "description" : "License expression for licenseConcluded.  The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the package.",
+            "description" : "License expression for licenseConcluded.  The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the package.\n\nIf the Concluded License field is not present for an SPDX Item, it implies an equivalent meaning to NOASSERTION.",
             "type" : "string"
           },
           "licenseInfoInFiles" : {
-            "description" : "Licensing information that was discovered directly in the subject file. This is also considered a declared license for the file.",
-            "minItems" : 1,
+            "description" : "Licensing information that was discovered directly in the subject file. This is also considered a declared license for the file.\n\nIf the License Information in File field is not present for a file, it implies an equivalent meaning to NOASSERTION.",
             "type" : "array",
             "items" : {
-              "description" : "License expression for licenseInfoInFile.  Licensing information that was discovered directly in the subject file. This is also considered a declared license for the file.",
+              "description" : "License expression for licenseInfoInFile.  Licensing information that was discovered directly in the subject file. This is also considered a declared license for the file.\n\nIf the License Information in File field is not present for a file, it implies an equivalent meaning to NOASSERTION.",
               "type" : "string"
             }
           },
@@ -553,7 +574,7 @@
             "type" : "string"
           }
         },
-        "required" : [ "SPDXID", "checksums", "copyrightText", "fileName", "licenseConcluded", "licenseInfoInFiles" ],
+        "required" : [ "SPDXID", "checksums", "fileName" ],
         "additionalProperties" : false
       }
     },
@@ -607,7 +628,7 @@
             "type" : "string"
           },
           "copyrightText" : {
-            "description" : "The text of copyright declarations recited in the Package or File.",
+            "description" : "The text of copyright declarations recited in the Package, File or snippet.\n\nIf the License Information in File field is not present, it implies an equivalent meaning to NOASSERTION.",
             "type" : "string"
           },
           "licenseComments" : {
@@ -615,14 +636,14 @@
             "type" : "string"
           },
           "licenseConcluded" : {
-            "description" : "License expression for licenseConcluded.  The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the package.",
+            "description" : "License expression for licenseConcluded.  The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the package.\n\nIf the Concluded License field is not present for an SPDX Item, it implies an equivalent meaning to NOASSERTION.",
             "type" : "string"
           },
           "licenseInfoInSnippets" : {
-            "description" : "Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet.",
+            "description" : "Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet.\n\nIf the License Information in Snippet field is not present for a snippet, it implies an equivalent meaning to NOASSERTION.",
             "type" : "array",
             "items" : {
-              "description" : "License expression for licenseInfoInSnippet.  Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet.",
+              "description" : "License expression for licenseInfoInSnippet.  Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet.\n\nIf the License Information in Snippet field is not present for a snippet, it implies an equivalent meaning to NOASSERTION.",
               "type" : "string"
             }
           },
@@ -685,7 +706,7 @@
             "type" : "string"
           }
         },
-        "required" : [ "SPDXID", "copyrightText", "licenseConcluded", "name", "ranges", "snippetFromFile" ],
+        "required" : [ "SPDXID", "name", "ranges", "snippetFromFile" ],
         "additionalProperties" : false
       }
     },
