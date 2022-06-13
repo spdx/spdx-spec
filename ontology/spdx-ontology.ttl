@@ -1,0 +1,2684 @@
+@prefix : <http://spdx.org/rdf/terms#> .
+@prefix ns: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://spdx.org/rdf/terms> .
+
+<http://spdx.org/rdf/terms> rdf:type owl:Ontology ;
+                             owl:versionIRI <http://spdx.org/rdf/terms/2.3> ;
+                             rdfs:comment """This specification describes the SPDX® language, defined as a dictionary of named properties and classes using W3C's RDF Technology.
+
+SPDX® is an open standard for communicating software bill of material information, including components, licenses, copyrights, and security references. SPDX reduces redundant work by providing a common format for companies and communities to share important data, thereby streamlining and improving compliance.
+.
+Known issues:
+- rdfs:comment and rdfs:seeAlso are used within the SPDX classes and causes a redefinition of these standard terms"""@en ;
+                             rdfs:label "SPDX 2.3" ;
+                             owl:versionInfo 2.3 .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#comment
+rdfs:comment rdf:type owl:AnnotationProperty ;
+             rdfs:range xsd:string .
+
+
+###  http://www.w3.org/2002/07/owl#qualifiedCardinality
+owl:qualifiedCardinality rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2003/06/sw-vocab-status/ns#term_status
+ns:term_status rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://spdx.org/rdf/terms#algorithm
+:algorithm rdf:type owl:ObjectProperty ;
+           rdfs:domain :Checksum ;
+           rdfs:comment "Identifies the algorithm used to produce the subject Checksum. Currently, SHA-1 is the only supported algorithm. It is anticipated that other algorithms will be supported at a later time."@en ;
+           ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#annotation
+:annotation rdf:type owl:ObjectProperty ;
+            rdfs:domain :SpdxElement ;
+            rdfs:range :Annotation ;
+            rdfs:comment "Provide additional information about an SpdxElement."@en ;
+            ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#annotationType
+:annotationType rdf:type owl:ObjectProperty ;
+                rdfs:domain :Annotation ;
+                rdfs:range [ rdf:type owl:Class ;
+                             owl:unionOf ( [ rdf:type owl:Restriction ;
+                                             owl:onProperty :annotationType ;
+                                             owl:hasValue :annotationType_other
+                                           ]
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :annotationType ;
+                                             owl:hasValue :annotationType_review
+                                           ]
+                                         )
+                           ] ;
+                rdfs:comment "Type of the annotation."@en ;
+                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#artifactOf
+:artifactOf rdf:type owl:ObjectProperty ;
+            rdfs:domain :SpdxElement ;
+            rdfs:range doap:Project ;
+            rdfs:comment "Deprecated as of version 2.1"@en ,
+                         "Indicates the project in which the SpdxElement originated. Tools must preserve doap:homepage and doap:name properties and the URI (if one is known) of doap:Project resources that are values of this property. All other properties of doap:Projects are not directly supported by SPDX and may be dropped when translating to or from some SPDX formats."@en ;
+            owl:deprecated "true"^^xsd:boolean ;
+            ns:term_status "deprecated"@en .
+
+
+###  http://spdx.org/rdf/terms#checksum
+:checksum rdf:type owl:ObjectProperty ;
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( :File
+                                      :Package
+                                    )
+                      ] ;
+          rdfs:range :Checksum ;
+          rdfs:comment "The checksum property provides a mechanism that can be used to verify that the contents of a File or Package have not changed."@en ;
+          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#creationInfo
+:creationInfo rdf:type owl:ObjectProperty ;
+              rdfs:domain :SpdxDocument ;
+              rdfs:range :CreationInfo ;
+              rdfs:comment "The creationInfo property relates an SpdxDocument to a set of information about the creation of the SpdxDocument."@en ;
+              ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#crossRef
+:crossRef rdf:type owl:ObjectProperty ;
+          rdfs:range :SimpleLicensingInfo ;
+          rdfs:comment "Cross Reference Detail for a license SeeAlso URL"@en .
+
+
+###  http://spdx.org/rdf/terms#dataLicense
+:dataLicense rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain :SpdxDocument ;
+             rdfs:range [ rdf:type owl:Restriction ;
+                          owl:onProperty :dataLicense ;
+                          owl:hasValue <http://spdx.org/licenses/CC0-1.0>
+                        ] ;
+             rdfs:comment "Compliance with the SPDX specification includes populating the SPDX fields therein with data related to such fields (\"SPDX-Metadata\"). The SPDX specification contains numerous fields where an SPDX document creator may provide relevant explanatory text in SPDX-Metadata. Without opining on the lawfulness of \"database rights\" (in jurisdictions where applicable), such explanatory text is copyrightable subject matter in most Berne Convention countries. By using the SPDX specification, or any portion hereof, you hereby agree that any copyright rights (as determined by your jurisdiction) in any SPDX-Metadata, including without limitation explanatory text, shall be subject to the terms of the Creative Commons CC0 1.0 Universal license. For SPDX-Metadata not containing any copyright rights, you hereby agree and acknowledge that the SPDX-Metadata is provided to you \"as-is\" and without any representations or warranties of any kind concerning the SPDX-Metadata, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non-infringement, or the absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law."@en ;
+             ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#describesPackage
+:describesPackage rdf:type owl:ObjectProperty ;
+                  rdfs:domain :SpdxDocument ;
+                  rdfs:range :Package ;
+                  rdfs:comment "The describesPackage property relates an SpdxDocument to the package which it describes."@en ;
+                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#externalDocumentRef
+:externalDocumentRef rdf:type owl:ObjectProperty ;
+                     rdfs:domain :SpdxDocument ;
+                     rdfs:comment "Identify any external SPDX documents referenced within this SPDX document."@en ;
+                     ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#externalRef
+:externalRef rdf:type owl:ObjectProperty ;
+             rdfs:domain :Package ;
+             rdfs:range :ExternalRef ;
+             rdfs:comment "An External Reference allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package."@en ;
+             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileDependency
+:fileDependency rdf:type owl:ObjectProperty ;
+                rdfs:domain :File ;
+                rdfs:range :File ;
+                rdfs:comment "This field is deprecated since SPDX 2.0 in favor of using Section 7 which provides more granularity about relationships."@en ;
+                owl:deprecated "true"^^xsd:boolean ;
+                ns:term_status "deprecated"@en .
+
+
+###  http://spdx.org/rdf/terms#fileType
+:fileType rdf:type owl:ObjectProperty ;
+          rdfs:domain :File ;
+          rdfs:range [ rdf:type owl:Class ;
+                       owl:unionOf ( [ rdf:type owl:Restriction ;
+                                       owl:onProperty :fileType ;
+                                       owl:hasValue :fileType_archive
+                                     ]
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :fileType ;
+                                       owl:hasValue :fileType_binary
+                                     ]
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :fileType ;
+                                       owl:hasValue :fileType_other
+                                     ]
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :fileType ;
+                                       owl:hasValue :fileType_source
+                                     ]
+                                   )
+                     ] ;
+          rdfs:comment "The type of the file."@en ;
+          ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#hasExtractedLicensingInfo
+:hasExtractedLicensingInfo rdf:type owl:ObjectProperty ;
+                           rdfs:domain :ExtractedLicensingInfo ,
+                                       :SpdxDocument ;
+                           rdfs:comment "Indicates that a particular ExtractedLicensingInfo was defined in the subject SpdxDocument."@en ;
+                           ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#hasFile
+:hasFile rdf:type owl:ObjectProperty ;
+         rdfs:domain :Package ;
+         rdfs:range :File ;
+         rdfs:comment "Indicates that a particular file belongs to a package."@en ;
+         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseConcluded
+:licenseConcluded rdf:type owl:ObjectProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain :SpdxItem ;
+                  rdfs:range [ rdf:type owl:Class ;
+                               owl:unionOf ( :AnyLicenseInfo
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :licenseConcluded ;
+                                               owl:hasValue :noassertion
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :licenseConcluded ;
+                                               owl:hasValue :none
+                                             ]
+                                           )
+                             ] ;
+                  rdfs:comment """The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the package.
+
+If the Concluded License field is not present for an SPDX Item, it implies an equivalent meaning to NOASSERTION."""@en ;
+                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseDeclared
+:licenseDeclared rdf:type owl:ObjectProperty ;
+                 rdfs:domain :SpdxItem ;
+                 rdfs:range :AnyLicenseInfo ;
+                 rdfs:comment "The licensing that the creators of the software in the package, or the packager, have declared. Declarations by the original software creator should be preferred, if they exist."@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseException
+:licenseException rdf:type owl:ObjectProperty ;
+                  rdfs:domain :WithExceptionOperator ;
+                  rdfs:range :LicenseException ;
+                  rdfs:comment "An exception to a license."@en ;
+                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseInfoFromFiles
+:licenseInfoFromFiles rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Package ;
+                      rdfs:range [ rdf:type owl:Class ;
+                                   owl:unionOf ( :SimpleLicensingInfo
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :licenseInfoFromFiles ;
+                                                   owl:hasValue :noassertion
+                                                 ]
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :licenseInfoFromFiles ;
+                                                   owl:hasValue :none
+                                                 ]
+                                               )
+                                 ] ;
+                      rdfs:comment """The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.
+
+If the All Licenses Information from Files field is not present for a package and FilesAnalyzed property for that same pacakge is true or omitted, it implies an equivalent meaning to NOASSERTION."""@en ;
+                      ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseInfoInFile
+:licenseInfoInFile rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :licenseInfoFromFiles ;
+                   rdfs:domain :File ;
+                   rdfs:range [ rdf:type owl:Class ;
+                                owl:unionOf ( :SimpleLicensingInfo
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :licenseInfoInFile ;
+                                                owl:hasValue :noassertion
+                                              ]
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :licenseInfoInFile ;
+                                                owl:hasValue :none
+                                              ]
+                                            )
+                              ] ;
+                   rdfs:comment """Licensing information that was discovered directly in the subject file. This is also considered a declared license for the file.
+
+If the License Information in File field is not present for a file, it implies an equivalent meaning to NOASSERTION."""@en ;
+                   ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#licenseInfoInSnippet
+:licenseInfoInSnippet rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :licenseInfoFromFiles ;
+                      rdfs:domain :Snippet ;
+                      rdfs:range [ rdf:type owl:Class ;
+                                   owl:unionOf ( :SimpleLicensingInfo
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :licenseInfoInFile ;
+                                                   owl:hasValue :noassertion
+                                                 ]
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :licenseInfoInFile ;
+                                                   owl:hasValue :none
+                                                 ]
+                                               )
+                                 ] ;
+                      rdfs:comment """Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet.
+
+If the License Information in Snippet field is not present for a snippet, it implies an equivalent meaning to NOASSERTION."""@en ;
+                      ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#member
+:member rdf:type owl:ObjectProperty ;
+        rdfs:domain [ rdf:type owl:Class ;
+                      owl:unionOf ( :ConjunctiveLicenseSet
+                                    :DisjunctiveLicenseSet
+                                    :WithExceptionOperator
+                                  )
+                    ] ;
+        rdfs:range :AnyLicenseInfo ;
+        rdfs:comment "A license, or other licensing information, that is a member of the subject license set."@en ;
+        ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#packagePurpose
+:packagePurpose rdf:type owl:ObjectProperty ;
+                rdfs:domain :Package ;
+                rdfs:comment "This field provides information about the purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package."@en ;
+                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#packageVerificationCode
+:packageVerificationCode rdf:type owl:ObjectProperty ;
+                         rdfs:domain :Package ;
+                         rdfs:range :PackageVerificationCode ;
+                         rdfs:comment "A manifest based verification code (the algorithm is defined in section 3.9.4 of the full specification) of the package. This allows consumers of this data and/or database to determine if a package they have in hand is identical to the package from which the data was produced. This algorithm works even if the SPDX document is included in the package."@en ;
+                         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#range
+:range rdf:type owl:ObjectProperty ;
+       rdfs:domain :Snippet ;
+       rdfs:range <http://www.w3.org/2009/pointers#CompoundPointer> ;
+       rdfs:comment "This field defines the byte range in the original host file (in X.2) that the snippet information applies to"@en ;
+       ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#referenceCategory
+:referenceCategory rdf:type owl:ObjectProperty ;
+                   rdfs:domain :ExternalRef ;
+                   rdfs:comment "Category for the external reference"@en ;
+                   ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#referenceType
+:referenceType rdf:type owl:ObjectProperty ;
+               rdfs:domain :ExternalRef ;
+               rdfs:range :ReferenceType ;
+               rdfs:comment "Type of the external reference. These are definined in an appendix in the SPDX specification."@en ;
+               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#referencesFile
+:referencesFile rdf:type owl:ObjectProperty ;
+                rdfs:domain :SpdxDocument ;
+                rdfs:range :File ;
+                rdfs:comment "Indicates that a particular file belongs as part of the set of analyzed files in the SpdxDocument."@en ,
+                             "This property has been replaced by a relationship between the SPDX document and file with a \"contains\" relationship type."@en ;
+                owl:deprecated "true"^^xsd:boolean ;
+                ns:term_status "deprecated"@en .
+
+
+###  http://spdx.org/rdf/terms#relatedSpdxElement
+:relatedSpdxElement rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Relationship ;
+                    rdfs:range :SpdxElement ;
+                    rdfs:comment "A related SpdxElement."@en ;
+                    ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationship
+:relationship rdf:type owl:ObjectProperty ;
+              rdfs:domain :SpdxElement ;
+              rdfs:range :Relationship ;
+              rdfs:comment "Defines a relationship between two SPDX elements. The SPDX element may be a Package, File, or SpdxDocument."@en ;
+              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType
+:relationshipType rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Relationship ;
+                  rdfs:range [ rdf:type owl:Class ;
+                               owl:unionOf ( [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_amendment
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_ancestorOf
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_buildToolOf
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_containedBy
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_contains
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_copyOf
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_dataFile
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_dataFileOf
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_descendantOf
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_describedBy
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_describes
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_distributionArtifact
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_documentation
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_dynamicLink
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_expandedFromArchive
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_fileAdded
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_fileDeleted
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_fileModified
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_generatedFrom
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_generates
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_hasPrerequisite
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_metafileOf
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_optionalComponentOf
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_other
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_packageOf
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_patchApplied
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_patchFor
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_prerequisiteFor
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_staticLink
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_testcaseOf
+                                             ]
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :relationshipType ;
+                                               owl:hasValue :relationshipType_variantOf
+                                             ]
+                                           )
+                             ] ;
+                  rdfs:comment "Describes the type of relationship between two SPDX elements."@en ;
+                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#reviewed
+:reviewed rdf:type owl:ObjectProperty ;
+          rdfs:domain :SpdxDocument ;
+          rdfs:range :Review .
+
+
+###  http://spdx.org/rdf/terms#snippetFromFile
+:snippetFromFile rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Snippet ;
+                 rdfs:range :File ;
+                 rdfs:comment "File containing the SPDX element (e.g. the file contaning a snippet)."@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#spdxDocument
+:spdxDocument rdf:type owl:ObjectProperty ;
+              rdfs:domain :ExternalDocumentRef ;
+              rdfs:range :SpdxDocument ;
+              rdfs:comment "A property containing an SPDX document."@en ;
+              ns:term_status "stable"@en .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#member
+rdfs:member rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2009/pointers#endPointer
+<http://www.w3.org/2009/pointers#endPointer> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <http://www.w3.org/2009/pointers#CompoundPointer> ;
+                                             rdfs:range <http://www.w3.org/2009/pointers#SinglePointer> ;
+                                             ns:term_status "stable"@en .
+
+
+###  http://www.w3.org/2009/pointers#reference
+<http://www.w3.org/2009/pointers#reference> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <http://www.w3.org/2009/pointers#SinglePointer> ;
+                                            ns:term_status "stable"@en .
+
+
+###  http://www.w3.org/2009/pointers#startPointer
+<http://www.w3.org/2009/pointers#startPointer> rdf:type owl:ObjectProperty ;
+                                               rdfs:domain <http://www.w3.org/2009/pointers#CompoundPointer> ;
+                                               rdfs:range <http://www.w3.org/2009/pointers#SinglePointer> ;
+                                               ns:term_status "stable"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://spdx.org/rdf/terms#annotationDate
+:annotationDate rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :date ;
+                rdfs:domain :Annotation ;
+                rdfs:range xsd:dateTime ;
+                rdfs:comment "Identify when the comment was made. This is to be specified according to the combined date and time in the UTC format, as specified in the ISO 8601 standard."@en ;
+                ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#annotator
+:annotator rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Annotation ;
+           rdfs:range xsd:string ;
+           rdfs:comment "This field identifies the person, organization, or tool that has commented on a file, package, snippet, or the entire document." ;
+           ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#attributionText
+:attributionText rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :SpdxItem ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "This field provides a place for the SPDX data creator to record acknowledgements that may be required to be communicated in some contexts. This is not meant to include the actual complete license text (see licenseConculded and licenseDeclared), and may or may not include copyright notices (see also copyrightText). The SPDX data creator may use this field to record other acknowledgements, such as particular clauses from license texts, which may be necessary or desirable to reproduce."@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#builtDate
+:builtDate rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :date ;
+           rdfs:domain :Package ;
+           rdfs:range xsd:dateTime ;
+           rdfs:comment "This field provides a place for recording the actual date the package was built."@en ;
+           ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumValue
+:checksumValue rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :Checksum ;
+               rdfs:range xsd:hexBinary ;
+               rdfs:comment "The checksumValue property provides a lower case hexidecimal encoded digest value produced using a specific algorithm."@en ;
+               ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#contextualExample
+:contextualExample rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :ReferenceType ;
+                   rdfs:range xsd:anyURI ;
+                   rdfs:comment "Example for use of the external repository identifier"@en ;
+                   ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#copyrightText
+:copyrightText rdf:type owl:DatatypeProperty ;
+               rdfs:domain :SpdxItem ;
+               rdfs:range rdfs:Literal ,
+                          xsd:string ;
+               rdfs:comment """The text of copyright declarations recited in the Package, File or snippet.
+
+If the License Information in File field is not present, it implies an equivalent meaning to NOASSERTION."""@en ;
+               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#created
+:created rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :date ;
+         rdfs:domain :CreationInfo ;
+         rdfs:range xsd:dateTime ;
+         rdfs:comment "Identify when the SPDX file was originally created. The date is to be specified according to combined date and time in UTC format as specified in ISO 8601 standard. This field is distinct from the fields in section 8, which involves the addition of information during a subsequent review."@en ;
+         ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#creator
+:creator rdf:type owl:DatatypeProperty ;
+         rdfs:domain :CreationInfo ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Identify who (or what, in the case of a tool) created the SPDX file. If the SPDX file was created by an individual, indicate the person's name. If the SPDX file was created on behalf of a company or organization, indicate the entity name. If the SPDX file was created using a software tool, indicate the name and version for that tool. If multiple participants or tools were involved, use multiple instances of this field. Person name or organization name may be designated as “anonymous” if appropriate."@en ;
+         ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#date
+:date rdf:type owl:DatatypeProperty ;
+      rdfs:domain [ rdf:type owl:Class ;
+                    owl:unionOf ( :Annotation
+                                  :CreationInfo
+                                )
+                  ] ;
+      rdfs:range xsd:dateTime ;
+      rdfs:comment "A date-time stamp."@en ;
+      ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#deprecatedVersion
+:deprecatedVersion rdf:type owl:DatatypeProperty ;
+                   rdfs:domain [ rdf:type owl:Class ;
+                                 owl:unionOf ( :ListedLicense
+                                               :ListedLicenseException
+                                             )
+                               ] ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "License list version where this license was decprecated"@en ;
+                   ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#description
+:description rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Package ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Provides a detailed description of the package."@en ;
+             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#documentation
+:documentation rdf:type owl:DatatypeProperty ;
+               rdfs:domain :ReferenceType ;
+               rdfs:range xsd:anyURI ;
+               rdfs:comment "Website containing the documentation related to the repository identifier"@en ;
+               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#downloadLocation
+:downloadLocation rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Package ;
+                  rdfs:range xsd:anyURI ;
+                  rdfs:comment "The URI at which this package is available for download. Private (i.e., not publicly reachable) URIs are acceptable as values of this property. The values http://spdx.org/rdf/terms#none and http://spdx.org/rdf/terms#noassertion may be used to specify that the package is not downloadable or that no attempt was made to determine its download location, respectively."@en ;
+                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#example
+:example rdf:type owl:DatatypeProperty ;
+         rdfs:domain :LicenseException ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Text for examples in describing an SPDX element."@en ;
+         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#exceptionTextHtml
+:exceptionTextHtml rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :ListedLicenseException ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "HTML representation of the License Exception Text"@en ;
+                   ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#externalDocumentId
+:externalDocumentId rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :ExternalDocumentRef ;
+                    rdfs:range xsd:anyURI ;
+                    rdfs:comment "externalDocumentId is a string containing letters, numbers, ., - and/or + which uniquely identifies an external document within this document."@en ;
+                    ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#externalReferenceSite
+:externalReferenceSite rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :ReferenceType ;
+                       rdfs:range xsd:anyURI ;
+                       rdfs:comment "Website for the maintainers of the external reference site"@en ;
+                       ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#extractedText
+:extractedText rdf:type owl:DatatypeProperty ;
+               rdfs:domain :ExtractedLicensingInfo ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Verbatim license or licensing notice text that was discovered."@en ;
+               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileContributor
+:fileContributor rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :File ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "This field provides a place for the SPDX file creator to record file contributors. Contributors could include names of copyright holders and/or authors who may not be copyright holders yet contributed to the file content."@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileName
+:fileName rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :name ;
+          rdfs:domain :File ;
+          rdfs:range xsd:string ;
+          rdfs:comment "The name of the file relative to the root of the package."@en ;
+          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#filesAnalyzed
+:filesAnalyzed rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Package ;
+               rdfs:range xsd:boolean ;
+               rdfs:comment "Indicates whether the file content of this package has been available for or subjected to analysis when creating the SPDX document. If false indicates packages that represent metadata or URI references to a project, product, artifact, distribution or a component. If set to false, the package must not contain any files."@en ;
+               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#isDeprecatedLicenseId
+:isDeprecatedLicenseId rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :ListedLicense ;
+                       rdfs:range xsd:boolean .
+
+
+###  http://spdx.org/rdf/terms#isFsfLibre
+:isFsfLibre rdf:type owl:DatatypeProperty ;
+            rdfs:domain :License ;
+            rdfs:range xsd:boolean .
+
+
+###  http://spdx.org/rdf/terms#isLive
+:isLive rdf:type owl:DatatypeProperty ;
+        rdfs:domain :CrossRef ;
+        rdfs:range xsd:boolean ;
+        rdfs:comment "Indicate a URL is still a live accessible location on the public internet"@en .
+
+
+###  http://spdx.org/rdf/terms#isOsiApproved
+:isOsiApproved rdf:type owl:DatatypeProperty ;
+               rdfs:domain :License ;
+               rdfs:range xsd:boolean ;
+               rdfs:comment "Indicates if the OSI has approved the license."@en ;
+               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#isValid
+:isValid rdf:type owl:DatatypeProperty ;
+         rdfs:domain :CrossRef ;
+         rdfs:range xsd:boolean ;
+         rdfs:comment "True if the URL is a valid well formed URL"@en .
+
+
+###  http://spdx.org/rdf/terms#isWayBackLink
+:isWayBackLink rdf:type owl:DatatypeProperty ;
+               rdfs:domain :CrossRef ;
+               rdfs:range xsd:boolean ;
+               rdfs:comment "True if the License SeeAlso URL points to a Wayback archive"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseComments
+:licenseComments rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :SpdxItem ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "The licenseComments property allows the preparer of the SPDX document to describe why the licensing in spdx:licenseConcluded was chosen."@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseExceptionId
+:licenseExceptionId rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :LicenseException ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Short form license exception identifier in Appendix I.2 of the SPDX specification."@en ;
+                    ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseExceptionTemplate
+:licenseExceptionTemplate rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :LicenseException ;
+                          rdfs:range xsd:string ;
+                          rdfs:comment "Template for matching license exception text"@en ;
+                          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseExceptionText
+:licenseExceptionText rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :LicenseException ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "Full text of the license exception."@en ;
+                      ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseId
+:licenseId rdf:type owl:DatatypeProperty ;
+           rdfs:domain :SimpleLicensingInfo ;
+           rdfs:range xsd:string ;
+           rdfs:comment "A human readable short form license identifier for a license. The license ID is either on the standard license list or the form \"LicenseRef-\"[idString] where [idString] is a unique string containing letters, numbers, \".\", \"-\" or \"+\"."@en ;
+           ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseListVersion
+:licenseListVersion rdf:type owl:DatatypeProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain :CreationInfo ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "An optional field for creators of the SPDX file to provide the version of the SPDX License List used when the SPDX file was created."@en ;
+                    ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseText
+:licenseText rdf:type owl:DatatypeProperty ;
+             rdfs:domain :License ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Full text of the license."@en ;
+             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#licenseTextHtml
+:licenseTextHtml rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :ListedLicense ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "License text in HTML format"@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#match
+:match rdf:type owl:DatatypeProperty ;
+       rdfs:domain :CrossRef ;
+       rdfs:range xsd:string ;
+       rdfs:comment "Status of a License List SeeAlso URL reference if it refers to a website that matches the license text." .
+
+
+###  http://spdx.org/rdf/terms#name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:domain :SpdxElement ;
+      rdfs:range xsd:string ;
+      rdfs:comment "Identify name of this SpdxElement."@en ;
+      ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#noticeText
+:noticeText rdf:type owl:DatatypeProperty ;
+            rdfs:domain :File ;
+            rdfs:range xsd:string ;
+            rdfs:comment "This field provides a place for the SPDX file creator to record potential legal notices found in the file. This may or may not include copyright statements."@en ;
+            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#order
+:order rdf:type owl:DatatypeProperty ;
+       rdfs:range xsd:nonNegativeInteger ;
+       rdfs:comment "The ordinal order of this element within a list"@en .
+
+
+###  http://spdx.org/rdf/terms#originator
+:originator rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Package ;
+            rdfs:range xsd:string ;
+            rdfs:comment "The name and, optionally, contact information of the person or organization that originally created the package. Values of this property must conform to the agent and tool syntax."@en .
+
+
+###  http://spdx.org/rdf/terms#packageFileName
+:packageFileName rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Package ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "The base name of the package file name. For example, zlib-1.2.5.tar.gz."@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#packageName
+:packageName rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :name ;
+             rdfs:domain :Package ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Identify the full name of the package as given by Package Originator."@en ;
+             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#packageVerificationCodeExcludedFile
+:packageVerificationCodeExcludedFile rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :PackageVerificationCode ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:comment "A file that was excluded when calculating the package verification code. This is usually a file containing SPDX data regarding the package. If a package contains more than one SPDX file all SPDX files must be excluded from the package verification code. If this is not done it would be impossible to correctly calculate the verification codes in both files."@en ;
+                                     ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#packageVerificationCodeValue
+:packageVerificationCodeValue rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :PackageVerificationCode ;
+                              rdfs:range xsd:hexBinary ;
+                              rdfs:comment "The actual package verification code as a hex encoded value."@en ;
+                              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#referenceLocator
+:referenceLocator rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :ExternalRef ;
+                  rdfs:range xsd:anyURI ;
+                  rdfs:comment "The unique string with no spaces necessary to access the package-specific information, metadata, or content within the target location. The format of the locator is subject to constraints defined by the <type>."@en ;
+                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#releaseDate
+:releaseDate rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :date ;
+             rdfs:domain :Package ;
+             rdfs:range xsd:dateTime ;
+             rdfs:comment "This field provides a place for recording the date the package was released."@en ;
+             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#reviewDate
+:reviewDate rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Review ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "Deprecated in favor of Annotation with an annotationType_review."@en ,
+                         "The date and time at which the SpdxDocument was reviewed. This value must be in UTC and have 'Z' as its timezone indicator."@en ;
+            owl:deprecated "true"^^xsd:boolean ;
+            ns:term_status "deprecated"@en .
+
+
+###  http://spdx.org/rdf/terms#reviewer
+:reviewer rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Review ;
+          rdfs:range xsd:string ;
+          rdfs:comment "The name and, optionally, contact information of the person who performed the review. Values of this property must conform to the agent and tool syntax.  The reviewer property is deprecated in favor of Annotation with an annotationType review."@en ;
+          owl:deprecated "true"^^xsd:boolean ;
+          ns:term_status "deprecated"@en .
+
+
+###  http://spdx.org/rdf/terms#snippetName
+:snippetName rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :name ;
+             rdfs:domain :Snippet ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Identify a specific snippet in a human convenient manner."@en ;
+             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#sourceInfo
+:sourceInfo rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Package ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Allows the producer(s) of the SPDX document to describe how the package was acquired and/or changed from the original source."@en ;
+            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#specVersion
+:specVersion rdf:type owl:DatatypeProperty ;
+             rdfs:domain :SpdxDocument ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Provide a reference number that can be used to understand how to parse and interpret the rest of the file. It will enable both future changes to the specification and to support backward compatibility. The version number consists of a major and minor version indicator. The major field will be incremented when incompatible changes between versions are made (one or more sections are created, modified or deleted). The minor field will be incremented when backwards compatible changes are made."@en .
+
+
+###  http://spdx.org/rdf/terms#standardLicenseHeader
+:standardLicenseHeader rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :License ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "License author's preferred text to indicated that a file is covered by the license."@en ;
+                       ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#standardLicenseHeaderHtml
+:standardLicenseHeaderHtml rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :ListedLicense ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "HTML representation of the standard license header"@en ;
+                           ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#standardLicenseHeaderTemplate
+:standardLicenseHeaderTemplate rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :ListedLicense ;
+                               rdfs:range xsd:string ;
+                               rdfs:comment "License template which describes sections of the license header which can be varied. See License Template section of the specification for format information."@en ;
+                               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#standardLicenseTemplate
+:standardLicenseTemplate rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :License ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "License template which describes sections of the license which can be varied. See License Template section of the specification for format information."@en ;
+                         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#summary
+:summary rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Package ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Provides a short description of the package."@en ;
+         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#supplier
+:supplier rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Package ;
+          rdfs:range xsd:string ;
+          rdfs:comment "The name and, optionally, contact information of the person or organization who was the immediate supplier of this package to the recipient. The supplier may be different than originator when the software has been repackaged. Values of this property must conform to the agent and tool syntax."@en ;
+          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#timestamp
+:timestamp rdf:type owl:DatatypeProperty ;
+           rdfs:domain :CrossRef ;
+           rdfs:range xsd:dateTime ;
+           rdfs:comment "Timestamp"@en .
+
+
+###  http://spdx.org/rdf/terms#url
+:url rdf:type owl:DatatypeProperty ;
+     rdfs:domain :CrossRef ;
+     rdfs:range xsd:anyURI ;
+     rdfs:comment "URL Reference"@en .
+
+
+###  http://spdx.org/rdf/terms#validUntilDate
+:validUntilDate rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :date ;
+                rdfs:domain :Package ;
+                rdfs:range xsd:dateTime ;
+                rdfs:comment "This field provides a place for recording the end of the support period for a package from the supplier."@en ;
+                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#versionInfo
+:versionInfo rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Package ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Provides an indication of the version of the package that is described by this SpdxDocument."@en ;
+             ns:term_status "stable"@en .
+
+
+###  http://usefulinc.com/ns/doap#homepage
+doap:homepage rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Package ;
+              rdfs:range xsd:anyURI ;
+              ns:term_status "stable"@en .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#comment
+rdfs:comment rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#seeAlso
+rdfs:seeAlso rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2009/pointers#lineNumber
+<http://www.w3.org/2009/pointers#lineNumber> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain <http://www.w3.org/2009/pointers#LineCharPointer> ;
+                                             rdfs:range xsd:positiveInteger ;
+                                             ns:term_status "stable"@en .
+
+
+###  http://www.w3.org/2009/pointers#offset
+<http://www.w3.org/2009/pointers#offset> rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain <http://www.w3.org/2009/pointers#OffsetPointer> ;
+                                         rdfs:range xsd:positiveInteger ;
+                                         ns:term_status "stable"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://spdx.org/rdf/terms#Annotation
+:Annotation rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :annotationType ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :AnnotationType
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :annotationDate ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :annotator ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdfs:comment ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ;
+            rdfs:comment "An Annotation is a comment on an SpdxItem by an agent." ;
+            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#AnnotationType
+:AnnotationType rdf:type owl:Class ;
+                rdfs:comment "This type describes the type of annotation. Annotations are usually created when someone reviews the file, and if this is the case the annotation type should be REVIEW."@en ;
+                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#AnyLicenseInfo
+:AnyLicenseInfo rdf:type owl:Class ;
+                rdfs:comment "The AnyLicenseInfo class includes all resources that represent licensing information." ;
+                rdfs:isDefinedBy "http://spdx.org/rdf/terms#AnyLicenseInfo" ;
+                ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#Checksum
+:Checksum rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :algorithm ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :ChecksumAlgorithm
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :checksumValue ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:hexBinary
+                          ] ;
+          rdfs:comment "A Checksum is value that allows the contents of a file to be authenticated. Even small changes to the content of the file will change its checksum. This class allows the results of a variety of checksum and cryptographic message digest algorithms to be represented."@en ;
+          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#ChecksumAlgorithm
+:ChecksumAlgorithm rdf:type owl:Class ;
+                   rdfs:comment "Algorighm for Checksums."@en ;
+                   ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#ConjunctiveLicenseSet
+:ConjunctiveLicenseSet rdf:type owl:Class ;
+                       rdfs:subClassOf :AnyLicenseInfo ,
+                                       rdfs:Container ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :member ;
+                                         owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :AnyLicenseInfo
+                                       ] ;
+                       rdfs:comment "A ConjunctiveLicenseSet represents a set of licensing information all of which apply."@en ;
+                       ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#CreationInfo
+:CreationInfo rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :creator ;
+                                owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:string
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :created ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:dateTimeStamp
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :licenseListVersion ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:string
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdfs:comment ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:string
+                              ] ;
+              rdfs:comment "One instance is required for each SPDX file produced. It provides the necessary information for forward and backward compatibility for processing tools."@en ;
+              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#CrossRef
+:CrossRef rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :url ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:anyURI
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isLive ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:boolean
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isValid ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:boolean
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isWayBackLink ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:anyURI
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :match ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :order ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :timestamp ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] ;
+          rdfs:comment "Cross reference details for the a URL reference"@en ;
+          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#DisjunctiveLicenseSet
+:DisjunctiveLicenseSet rdf:type owl:Class ;
+                       rdfs:subClassOf :AnyLicenseInfo ,
+                                       rdfs:Container ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :member ;
+                                         owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :AnyLicenseInfo
+                                       ] ;
+                       rdfs:comment "A DisjunctiveLicenseSet represents a set of licensing information where only one license applies at a time. This class implies that the recipient gets to choose one of these licenses they would prefer to use."@en ;
+                       ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#ExternalDocumentRef
+:ExternalDocumentRef rdf:type owl:Class ;
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty :checksum ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :Checksum
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :spdxDocument ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :SpdxDocument
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :externalDocumentId ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:anyURI
+                                     ] ;
+                     rdfs:comment "Information about an external SPDX document reference including the checksum. This allows for verification of the external references."@en ;
+                     ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#ExternalRef
+:ExternalRef rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty :referenceCategory ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :ReferenceCategory
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :referenceType ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :ReferenceType
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :referenceLocator ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:anyURI
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rdfs:comment ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ;
+             rdfs:comment "An External Reference allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package."@en ;
+             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#ExtractedLicensingInfo
+:ExtractedLicensingInfo rdf:type owl:Class ;
+                        rdfs:subClassOf :SimpleLicensingInfo ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :extractedText ;
+                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ;
+                        rdfs:comment "An ExtractedLicensingInfo represents a license or licensing notice that was found in a package, file or snippet. Any license text that is recognized as a license may be represented as a License rather than an ExtractedLicensingInfo."@en ;
+                        ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#File
+:File rdf:type owl:Class ;
+      rdfs:subClassOf :SpdxItem ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :artifactOf ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass doap:Project
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :checksum ;
+                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Checksum
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :fileDependency ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :File
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :fileType ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :FileType
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :licenseInfoInFile ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :AnyLicenseInfo
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :fileContributor ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :fileName ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :noticeText ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ;
+      owl:disjointWith :Snippet ;
+      rdfs:comment "A File represents a named sequence of information that is contained in a software package."@en ;
+      ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#FileType
+:FileType rdf:type owl:Class ;
+          rdfs:comment "Type of file."@en ;
+          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#License
+:License rdf:type owl:Class ;
+         rdfs:subClassOf :SimpleLicensingInfo ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isOsiApproved ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:boolean
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :licenseText ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isDeprecatedLicenseId ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:boolean
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isFsfLibre ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:boolean
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :standardLicenseHeader ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :standardLicenseHeaderTemplate ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :standardLicenseTemplate ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ;
+         rdfs:comment "A License represents a copyright license. The SPDX license list website is annotated with these properties (using RDFa) to allow license data published there to be easily processed. The license list is populated in accordance with the License List fields guidelines. These guidelines are not normative and may change over time. SPDX tooling should not rely on values in the license list conforming to the current guidelines."@en ;
+         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#LicenseException
+:LicenseException rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty rdfs:seeAlso ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:anyURI
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :licenseExceptionId ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :licenseExceptionText ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :name ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rdfs:comment ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :example ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :licenseExceptionTemplate ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ;
+                  rdfs:comment "An exception to a license."@en ;
+                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#ListedLicense
+:ListedLicense rdf:type owl:Class ;
+               rdfs:subClassOf :License ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :deprecatedVersion ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isDeprecatedLicenseId ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:boolean
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :licenseTextHtml ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :standardLicenseHeaderHtml ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ;
+               rdfs:comment "A license which is included in the SPDX License List (http://spdx.org/licenses)."@en ;
+               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#ListedLicenseException
+:ListedLicenseException rdf:type owl:Class ;
+                        rdfs:subClassOf :LicenseException ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :exceptionTextHtml ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ;
+                        rdfs:comment "License exception specific to ListedLicenses" .
+
+
+###  http://spdx.org/rdf/terms#OrLaterOperator
+:OrLaterOperator rdf:type owl:Class ;
+                 rdfs:subClassOf :AnyLicenseInfo ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :member ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :SimpleLicensingInfo
+                                 ] ;
+                 rdfs:comment "A license with an or later operator indicating this license version or any later version of the license"@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#Package
+:Package rdf:type owl:Class ;
+         rdfs:subClassOf :SpdxItem ,
+                         [ rdf:type owl:Class ;
+                           owl:unionOf ( [ rdf:type owl:Restriction ;
+                                           owl:onProperty :licenseDeclared ;
+                                           owl:hasValue :noassertion
+                                         ]
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :licenseDeclared ;
+                                           owl:hasValue :none
+                                         ]
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :licenseDeclared ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :AnyLicenseInfo
+                                         ]
+                                       )
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :checksum ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Checksum
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :externalRef ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :ExternalRef
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasFile ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :File
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :packagePurpose ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Purpose
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :packageVerificationCode ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :PackageVerificationCode
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :downloadLocation ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:anyURI
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :builtDate ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:date
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :description ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :filesAnalyzed ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:boolean
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :originator ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :packageFileName ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :releaseDate ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:date
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :sourceInfo ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :summary ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :supplier ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :validUntilDate ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:date
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :versionInfo ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty doap:homepage ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:anyURI
+                         ] ;
+         rdfs:comment "A Package represents a collection of software files that are delivered as a single functional component."@en ;
+         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#PackageVerificationCode
+:PackageVerificationCode rdf:type owl:Class ;
+                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           owl:onProperty :packageVerificationCodeExcludedFile ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:string
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :packageVerificationCodeValue ;
+                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:hexBinary
+                                         ] ;
+                         rdfs:comment "A manifest based verification code (the algorithm is defined in section 4.7 of the full specification) of the SPDX Item. This allows consumers of this data and/or database to determine if an SPDX item they have in hand is identical to the SPDX item from which the data was produced. This algorithm works even if the SPDX document is included in the SPDX item."@en ;
+                         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#Purpose
+:Purpose rdf:type owl:Class ;
+         rdfs:comment "Package Purpose is intrinsic to how the package is being used rather than the content of the package." ;
+         ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#ReferenceCategory
+:ReferenceCategory rdf:type owl:Class ;
+                   rdfs:comment "Category used for ExternalRef"@en ;
+                   ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#ReferenceType
+:ReferenceType rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :contextualExample ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:anyURI
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :documentation ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:anyURI
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :externalReferenceSite ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:anyURI
+                               ] ;
+               rdfs:comment "Types used to external reference identifiers."@en ;
+               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#Relationship
+:Relationship rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :relatedSpdxElement ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :SpdxElement
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :relationshipType ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :RelationshipType
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdfs:comment ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:string
+                              ] ;
+              rdfs:comment "A Relationship represents a relationship between two SpdxElements."@en ;
+              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#RelationshipType
+:RelationshipType rdf:type owl:Class ;
+                  rdfs:comment "Type of relationship."@en ;
+                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#Review
+:Review rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :reviewDate ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :reviewer ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty rdfs:comment ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ;
+        rdfs:comment "This class has been deprecated in favor of an Annotation with an Annotation type of review."@en ;
+        owl:deprecated "true"^^xsd:boolean ;
+        ns:term_status "deprecated"@en .
+
+
+###  http://spdx.org/rdf/terms#SimpleLicensingInfo
+:SimpleLicensingInfo rdf:type owl:Class ;
+                     rdfs:subClassOf :AnyLicenseInfo ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :crossRef ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :CrossRef
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rdfs:seeAlso ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:anyURI
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :licenseId ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :name ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rdfs:comment ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ;
+                     rdfs:comment "The SimpleLicenseInfo class includes all resources that represent simple, atomic, licensing information."@en ;
+                     ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#Snippet
+:Snippet rdf:type owl:Class ;
+         rdfs:subClassOf :SpdxItem ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :licenseInfoInSnippet ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :AnyLicenseInfo
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :range ;
+                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass <http://www.w3.org/2009/pointers#StartEndPointer>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :snippetFromFile ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :File
+                         ] ;
+         rdfs:comment "The set of bytes in a file. The name of the snippet is the name of the file appended with the byte range in parenthesis (ie: \"./file/name(2145:5532)\")"@en ;
+         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#SpdxDocument
+:SpdxDocument rdf:type owl:Class ;
+              rdfs:subClassOf :SpdxElement ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :dataLicense ;
+                                owl:hasValue <http://spdx.org/licenses/CC0-1.0>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :describesPackage ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :Package
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :externalDocumentRef ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :ExternalDocumentRef
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasExtractedLicensingInfo ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :ExtractedLicensingInfo
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :reviewed ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :Review
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :creationInfo ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :CreationInfo
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :dataLicense ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :AnyLicenseInfo
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :specVersion ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:string
+                              ] ;
+              rdfs:comment "An SpdxDocument is a summary of the contents, provenance, ownership and licensing analysis of a specific software package. This is, effectively, the top level of SPDX information."@en ;
+              ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#SpdxElement
+:SpdxElement rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty :annotation ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Annotation
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :relationship ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Relationship
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :name ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rdfs:comment ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ;
+             rdfs:comment "An SpdxElement is any thing described in SPDX, either a document or an SpdxItem. SpdxElements can be related to other SpdxElements."@en ;
+             ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#SpdxItem
+:SpdxItem rdf:type owl:Class ;
+          rdfs:subClassOf :SpdxElement ,
+                          [ rdf:type owl:Class ;
+                            owl:unionOf ( [ rdf:type owl:Restriction ;
+                                            owl:onProperty :licenseConcluded ;
+                                            owl:hasValue :noassertion
+                                          ]
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :licenseConcluded ;
+                                            owl:hasValue :none
+                                          ]
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :licenseConcluded ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass :AnyLicenseInfo
+                                          ]
+                                        )
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :licenseInfoFromFiles ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :SimpleLicensingInfo
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :attributionText ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :copyrightText ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :licenseComments ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ;
+          rdfs:comment "An SpdxItem is a potentially copyrightable work."@en ;
+          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#WithExceptionOperator
+:WithExceptionOperator rdf:type owl:Class ;
+                       rdfs:subClassOf :AnyLicenseInfo ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :licenseException ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :LicenseException
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :member ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :SimpleLicensingInfo
+                                       ] ;
+                       rdfs:comment "Sometimes a set of license terms apply except under special circumstances. In this case, use the binary \"WITH\" operator to construct a new license expression to represent the special exception situation. A valid <license-expression> is where the left operand is a <simple-expression> value and the right operand is a <license-exception-id> that represents the special exception terms."@en ;
+                       ns:term_status "stable"@en .
+
+
+###  http://usefulinc.com/ns/doap#Project
+doap:Project rdf:type owl:Class .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Container
+rdfs:Container rdf:type owl:Class .
+
+
+###  http://www.w3.org/2009/pointers#ByteOffsetPointer
+<http://www.w3.org/2009/pointers#ByteOffsetPointer> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.w3.org/2009/pointers#OffsetPointer> ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.w3.org/2009/pointers#offset> ;
+                                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                      owl:onDataRange xsd:positiveInteger
+                                                                    ] ;
+                                                    ns:term_status "stable" .
+
+
+###  http://www.w3.org/2009/pointers#CompoundPointer
+<http://www.w3.org/2009/pointers#CompoundPointer> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.w3.org/2009/pointers#Pointer> ;
+                                                  ns:term_status "stable" .
+
+
+###  http://www.w3.org/2009/pointers#LineCharPointer
+<http://www.w3.org/2009/pointers#LineCharPointer> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.w3.org/2009/pointers#OffsetPointer> ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.w3.org/2009/pointers#lineNumber> ;
+                                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                    owl:onDataRange xsd:positiveInteger
+                                                                  ] ;
+                                                  ns:term_status "stable" .
+
+
+###  http://www.w3.org/2009/pointers#OffsetPointer
+<http://www.w3.org/2009/pointers#OffsetPointer> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://www.w3.org/2009/pointers#SinglePointer> ;
+                                                ns:term_status "stable" .
+
+
+###  http://www.w3.org/2009/pointers#Pointer
+<http://www.w3.org/2009/pointers#Pointer> rdf:type owl:Class ;
+                                          ns:term_status "stable" .
+
+
+###  http://www.w3.org/2009/pointers#SinglePointer
+<http://www.w3.org/2009/pointers#SinglePointer> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://www.w3.org/2009/pointers#Pointer> ,
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://www.w3.org/2009/pointers#reference> ;
+                                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                  owl:onClass :File
+                                                                ] ;
+                                                ns:term_status "stable" .
+
+
+###  http://www.w3.org/2009/pointers#StartEndPointer
+<http://www.w3.org/2009/pointers#StartEndPointer> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.w3.org/2009/pointers#CompoundPointer> ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.w3.org/2009/pointers#endPointer> ;
+                                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                    owl:onClass <http://www.w3.org/2009/pointers#SinglePointer>
+                                                                  ] ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.w3.org/2009/pointers#startPointer> ;
+                                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                    owl:onClass <http://www.w3.org/2009/pointers#SinglePointer>
+                                                                  ] ;
+                                                  ns:term_status "stable" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://spdx.org/licenses/CC0-1.0
+<http://spdx.org/licenses/CC0-1.0> rdf:type owl:NamedIndividual .
+
+
+###  http://spdx.org/rdf/terms#annotationType_other
+:annotationType_other rdf:type owl:NamedIndividual ,
+                               :AnnotationType ;
+                      rdfs:comment "Type of annotation which does not fit in any of the pre-defined annotation types."@en ;
+                      ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#annotationType_review
+:annotationType_review rdf:type owl:NamedIndividual ,
+                                :AnnotationType ;
+                       rdfs:comment "A Review represents an audit and signoff by an individual, organization or tool on the information for an SpdxElement."@en ;
+                       ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_adler32
+:checksumAlgorithm_adler32 rdf:type owl:NamedIndividual ,
+                                    :ChecksumAlgorithm ;
+                           rdfs:comment "Indicates the algorithm used was ADLER32."@en ;
+                           ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_blake2b256
+:checksumAlgorithm_blake2b256 rdf:type owl:NamedIndividual ,
+                                       :ChecksumAlgorithm ;
+                              rdfs:comment "Indicates the algorithm used was BLAKE2b-256."@en ;
+                              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_blake2b384
+:checksumAlgorithm_blake2b384 rdf:type owl:NamedIndividual ,
+                                       :ChecksumAlgorithm ;
+                              rdfs:comment "Indicates the algorithm used was BLAKE2b-384."@en ;
+                              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_blake2b512
+:checksumAlgorithm_blake2b512 rdf:type owl:NamedIndividual ,
+                                       :ChecksumAlgorithm ;
+                              rdfs:comment "Indicates the algorithm used was BLAKE2b-512."@en ;
+                              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_blake3
+:checksumAlgorithm_blake3 rdf:type owl:NamedIndividual ,
+                                   :ChecksumAlgorithm ;
+                          rdfs:comment "Indicates the algorithm used was BLAKE3."@en ;
+                          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_md2
+:checksumAlgorithm_md2 rdf:type owl:NamedIndividual ,
+                                :ChecksumAlgorithm ;
+                       rdfs:comment "Indicates the algorithm used was MD2" ;
+                       ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_md4
+:checksumAlgorithm_md4 rdf:type owl:NamedIndividual ,
+                                :ChecksumAlgorithm ;
+                       rdfs:comment "Indicates the algorithm used was MD4" ;
+                       ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_md5
+:checksumAlgorithm_md5 rdf:type owl:NamedIndividual ,
+                                :ChecksumAlgorithm ;
+                       rdfs:comment "Indicates the algorithm used was MD5"@en ;
+                       ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_md6
+:checksumAlgorithm_md6 rdf:type owl:NamedIndividual ,
+                                :ChecksumAlgorithm ;
+                       rdfs:comment "Indicates the algorithm used was MD6"@en ;
+                       ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_sha1
+:checksumAlgorithm_sha1 rdf:type owl:NamedIndividual ,
+                                 :ChecksumAlgorithm ;
+                        rdfs:comment "Indicates the algorithm used was SHA-1" ;
+                        ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_sha224
+:checksumAlgorithm_sha224 rdf:type owl:NamedIndividual ,
+                                   :ChecksumAlgorithm ;
+                          rdfs:comment "Indicates the algorithm used was SHA224"@en ;
+                          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_sha256
+:checksumAlgorithm_sha256 rdf:type owl:NamedIndividual ,
+                                   :ChecksumAlgorithm ;
+                          rdfs:comment "Indicates the algorithm used was SHA256"@en ;
+                          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_sha384
+:checksumAlgorithm_sha384 rdf:type owl:NamedIndividual ,
+                                   :ChecksumAlgorithm ;
+                          rdfs:comment "Indicates the algorithm used was SHA384"@en ;
+                          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_sha3_256
+:checksumAlgorithm_sha3_256 rdf:type owl:NamedIndividual ,
+                                     :ChecksumAlgorithm ;
+                            rdfs:comment "Indicates the algorithm used was SHA3-256."@en ;
+                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_sha3_384
+:checksumAlgorithm_sha3_384 rdf:type owl:NamedIndividual ,
+                                     :ChecksumAlgorithm ;
+                            rdfs:comment "Indicates the algorithm used was SHA3-384."@en ;
+                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_sha3_512
+:checksumAlgorithm_sha3_512 rdf:type owl:NamedIndividual ,
+                                     :ChecksumAlgorithm ;
+                            rdfs:comment "Indicates the algorithm used was SHA3-512."@en ;
+                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#checksumAlgorithm_sha512
+:checksumAlgorithm_sha512 rdf:type owl:NamedIndividual ,
+                                   :ChecksumAlgorithm ;
+                          rdfs:comment "Indicates the algorithm used was SHA512"@en ;
+                          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileType_application
+:fileType_application rdf:type owl:NamedIndividual ,
+                               :FileType ;
+                      rdfs:comment " The file is associated with a specific application type (MIME type of application/* )"@en ;
+                      ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileType_archive
+:fileType_archive rdf:type owl:NamedIndividual ,
+                           :FileType ;
+                  rdfs:comment "Indicates the file is an archive file."@en ;
+                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileType_audio
+:fileType_audio rdf:type owl:NamedIndividual ,
+                         :FileType ;
+                rdfs:comment """The file is associated with an audio file (MIME type of audio/* , ie. .mp3 ); 
+IMAGE if the file is assoicated with an picture image file (MIME type of image/*,  ie. .jpg, .gif  )"""@en ;
+                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileType_binary
+:fileType_binary rdf:type owl:NamedIndividual ,
+                          :FileType ;
+                 rdfs:comment "Indicates the file is not a text file. spdx:filetype_archive is preferred for archive files even though they are binary."@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileType_documentation
+:fileType_documentation rdf:type owl:NamedIndividual ,
+                                 :FileType ;
+                        rdfs:comment "The file serves as documentation."@en ;
+                        ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileType_image
+:fileType_image rdf:type owl:NamedIndividual ,
+                         :FileType ;
+                rdfs:comment "The file is assoicated with an picture image file (MIME type of image/*,  ie. .jpg, .gif  )."@en ;
+                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileType_other
+:fileType_other rdf:type owl:NamedIndividual ,
+                         :FileType ;
+                rdfs:comment "Indicates the file is not a source, archive or binary file."@en ;
+                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileType_source
+:fileType_source rdf:type owl:NamedIndividual ,
+                          :FileType ;
+                 rdfs:comment "Indicates the file is a source code file."@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileType_spdx
+:fileType_spdx rdf:type owl:NamedIndividual ,
+                        :FileType ;
+               rdfs:comment "The file is an SPDX document."@en ;
+               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileType_text
+:fileType_text rdf:type owl:NamedIndividual ,
+                        :FileType ;
+               rdfs:comment "The file is human readable text file (MIME type of text/*)."@en ;
+               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#fileType_video
+:fileType_video rdf:type owl:NamedIndividual ,
+                         :FileType ;
+                rdfs:comment "The file is associated with a video file type (MIME type of video/*)."@en ;
+                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#noassertion
+:noassertion rdf:type owl:NamedIndividual ;
+             rdfs:comment "Individual to indicate the creator of the SPDX document does not assert any value for the object." .
+
+
+###  http://spdx.org/rdf/terms#none
+:none rdf:type owl:NamedIndividual ;
+      rdfs:comment "Individual to indicate that no value is applicable for the Object." .
+
+
+###  http://spdx.org/rdf/terms#purpose_application
+:purpose_application rdf:type owl:NamedIndividual ,
+                              :Purpose ;
+                     rdfs:comment "The package is a software application."@en ;
+                     ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#purpose_archive
+:purpose_archive rdf:type owl:NamedIndividual ,
+                          :Purpose ;
+                 rdfs:comment "The package refers to an archived collection of files (.tar, .zip, etc)."@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#purpose_container
+:purpose_container rdf:type owl:NamedIndividual ,
+                            :Purpose ;
+                   rdfs:comment "The package refers to a container image which can be used by a container runtime application."@en ;
+                   ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#purpose_device
+:purpose_device rdf:type owl:NamedIndividual ,
+                         :Purpose ;
+                rdfs:comment "The package refers to a chipset, processor, or electronic board."@en ;
+                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#purpose_file
+:purpose_file rdf:type owl:NamedIndividual ,
+                       :Purpose ;
+              rdfs:comment "The package is a single file which can be independently distributed (configuration file, statically linked binary, Kubernetes deployment, etc)."@en ;
+              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#purpose_firmware
+:purpose_firmware rdf:type owl:NamedIndividual ,
+                           :Purpose ;
+                  rdfs:comment "The package provides low level control over a device's hardware."@en ;
+                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#purpose_framework
+:purpose_framework rdf:type owl:NamedIndividual ,
+                            :Purpose ;
+                   rdfs:comment "The package is a software framework."@en ;
+                   ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#purpose_install
+:purpose_install rdf:type owl:NamedIndividual ,
+                          :Purpose ;
+                 rdfs:comment "The package is used to install software on disk."@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#purpose_library
+:purpose_library rdf:type owl:NamedIndividual ,
+                          :Purpose ;
+                 rdfs:comment "The package is a software library."@en ;
+                 ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#purpose_operatingSystem
+:purpose_operatingSystem rdf:type owl:NamedIndividual ,
+                                  :Purpose ;
+                         rdfs:comment "The package refers to an operating system."@en ;
+                         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#purpose_other
+:purpose_other rdf:type owl:NamedIndividual ,
+                        :Purpose ;
+               rdfs:comment "The package doesn't fit into other purpose defined terms."@en ;
+               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#purpose_source
+:purpose_source rdf:type owl:NamedIndividual ,
+                         :Purpose ;
+                rdfs:comment "The package is a collection of source files."@en ;
+                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#referenceCategory_other
+:referenceCategory_other rdf:type owl:NamedIndividual ,
+                                  :ReferenceCategory ;
+                         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#referenceCategory_packageManager
+:referenceCategory_packageManager rdf:type owl:NamedIndividual ,
+                                           :ReferenceCategory ;
+                                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#referenceCategory_persistentId
+:referenceCategory_persistentId rdf:type owl:NamedIndividual ,
+                                         :ReferenceCategory ;
+                                rdfs:comment "These point to objects present in the Software Heritage archive by the means of persistent identifiers that are guaranteed to remain stable (persistent) over time."@en ;
+                                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#referenceCategory_security
+:referenceCategory_security rdf:type owl:NamedIndividual ,
+                                     :ReferenceCategory ;
+                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_amendment
+:relationshipType_amendment rdf:type owl:NamedIndividual ,
+                                     :RelationshipType ;
+                            rdfs:comment "To be used when SPDXRef-A amends the SPDX information in SPDXRef-B."@en ;
+                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_ancestorOf
+:relationshipType_ancestorOf rdf:type owl:NamedIndividual ,
+                                      :RelationshipType ;
+                             rdfs:comment "A Relationship of relationshipType_ancestorOf expresses that an SPDXElement is an ancestor of (same lineage but pre-dates) the relatedSPDXElement.  For example, an upstream File is an ancestor of a modified downstream File"@en ;
+                             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_buildDependencyOf
+:relationshipType_buildDependencyOf rdf:type owl:NamedIndividual ,
+                                             :RelationshipType ;
+                                    rdfs:comment "Is to be used when SPDXRef-A is a build dependency of SPDXRef-B."@en ;
+                                    ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_buildToolOf
+:relationshipType_buildToolOf rdf:type owl:NamedIndividual ,
+                                       :RelationshipType ;
+                              rdfs:comment "To be used when SPDXRef-A is used to to build SPDXRef-B."@en ;
+                              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_containedBy
+:relationshipType_containedBy rdf:type owl:NamedIndividual ,
+                                       :RelationshipType ;
+                              rdfs:comment "A Relationship of relationshipType_containedBy expresses that an SPDXElement is contained by the relatedSPDXElement.  For example, a File contained by a Package. "@en ;
+                              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_contains
+:relationshipType_contains rdf:type owl:NamedIndividual ,
+                                    :RelationshipType ;
+                           rdfs:comment "A Relationship of relationshipType_contains expresses that an SPDXElement contains the relatedSPDXElement.  For example, a Package contains a File. (relationshipType_contains introduced in SPDX 2.0 deprecates property 'hasFile' from SPDX 1.2)"@en ;
+                           ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_copyOf
+:relationshipType_copyOf rdf:type owl:NamedIndividual ,
+                                  :RelationshipType ;
+                         rdfs:comment "A Relationship of relationshipType_copyOf expresses that the SPDXElement is an exact copy of the relatedSDPXElement.  For example, a downstream distribution of a binary library which was copied from the upstream package."@en ;
+                         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_dataFile
+:relationshipType_dataFile rdf:type owl:NamedIndividual ,
+                                    :RelationshipType ;
+                           rdfs:comment "Is to be used when SPDXRef-A is a data file used in SPDXRef-B.  Replaced by relationshipType_dataFileOf"@en ;
+                           owl:deprecated "true"^^xsd:boolean ;
+                           ns:term_status "deprecated"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_dataFileOf
+:relationshipType_dataFileOf rdf:type owl:NamedIndividual ,
+                                      :RelationshipType ;
+                             rdfs:comment "Is to be used when SPDXRef-A is a data file used in SPDXRef-B."@en ;
+                             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_dependencyManifestOf
+:relationshipType_dependencyManifestOf rdf:type owl:NamedIndividual ,
+                                                :RelationshipType ;
+                                       rdfs:comment "Is to be used when SPDXRef-A is a manifest file that lists a set of dependencies for SPDXRef-B."@en ;
+                                       ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_dependencyOf
+:relationshipType_dependencyOf rdf:type owl:NamedIndividual ,
+                                        :RelationshipType ;
+                               rdfs:comment "Is to be used when SPDXRef-A is dependency of SPDXRef-B."@en ;
+                               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_dependsOn
+:relationshipType_dependsOn rdf:type owl:NamedIndividual ,
+                                     :RelationshipType ;
+                            rdfs:comment "Is to be used when SPDXRef-A depends on SPDXRef-B."@en ;
+                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_descendantOf
+:relationshipType_descendantOf rdf:type owl:NamedIndividual ,
+                                        :RelationshipType ;
+                               rdfs:comment "A Relationship of relationshipType_descendantOf expresses that an SPDXElement is a descendant of (same lineage but post-dates) the relatedSPDXElement.  For example, an downstream File that was modified is a descendant of an upstream File"@en ;
+                               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_describedBy
+:relationshipType_describedBy rdf:type owl:NamedIndividual ,
+                                       :RelationshipType ;
+                              rdfs:comment "Is to be used an SPDXRef-A is described by SPDXRef-Document."@en ;
+                              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_describes
+:relationshipType_describes rdf:type owl:NamedIndividual ,
+                                     :RelationshipType ;
+                            rdfs:comment "Is to be used when SPDXRef-DOCUMENT describes SPDXRef-A."@en ;
+                            ns:term_status "stable" .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_devDependencyOf
+:relationshipType_devDependencyOf rdf:type owl:NamedIndividual ,
+                                           :RelationshipType ;
+                                  rdfs:comment "Is to be used when SPDXRef-A is a development dependency of SPDXRef-B."@en ;
+                                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_devToolOf
+:relationshipType_devToolOf rdf:type owl:NamedIndividual ,
+                                     :RelationshipType ;
+                            rdfs:comment "Is to be used when SPDXRef-A is a development dependency of SPDXRef-B."@en ;
+                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_distributionArtifact
+:relationshipType_distributionArtifact rdf:type owl:NamedIndividual ,
+                                                :RelationshipType ;
+                                       rdfs:comment "A Relationship of relationshipType_distributionArtifact expresses that distributing the SPDXElement requires that the relatedSPDXElement also be distributed.  For example, distributing a binary File may require that a source tarball (another File) be made available with the distribuiton. "@en ;
+                                       ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_documentation
+:relationshipType_documentation rdf:type owl:NamedIndividual ,
+                                         :RelationshipType ;
+                                rdfs:comment "To be used when SPDXRef-A provides documentation of SPDXRef-B."@en ;
+                                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_dynamicLink
+:relationshipType_dynamicLink rdf:type owl:NamedIndividual ,
+                                       :RelationshipType ;
+                              rdfs:comment "Is to be used when SPDXRef-A dynamically links to SPDXRef-B."@en ;
+                              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_exampleOf
+:relationshipType_exampleOf rdf:type owl:NamedIndividual ,
+                                     :RelationshipType ;
+                            rdfs:comment "Is to be used when SPDXRef-A is an example of SPDXRef-B."@en ;
+                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_expandedFromArchive
+:relationshipType_expandedFromArchive rdf:type owl:NamedIndividual ,
+                                               :RelationshipType ;
+                                      rdfs:comment "A Relationship of relationshipType_expandedFromArchive expresses that the SPDXElement is a file which was epanded from a relatedSPDXElement file.  For example, if there is an archive file xyz.tar.gz containing a file foo.c the archive file was expanded in a directory arch/xyz, the file arch/xyz/foo.c would have a relationshipType_expandedFromArchive with the file xyz.tar.gz."@en ;
+                                      ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_fileAdded
+:relationshipType_fileAdded rdf:type owl:NamedIndividual ,
+                                     :RelationshipType ;
+                            rdfs:comment "A Relationship of relationshipType_fileAdded expresses that the SPDXElement is a file which has been added to the relatedSPDXElement package.  For example, a package (the relatedSPDXElement) has been patched to remove a file (the SPDXElement).  This relationship is typically used to express the result of a patched package when the actual patchfile is not present."@en ;
+                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_fileDeleted
+:relationshipType_fileDeleted rdf:type owl:NamedIndividual ,
+                                       :RelationshipType ;
+                              rdfs:comment "A Relationship of relationshipType_fileDeleted expresses that the SPDXElement is a package where the relatedSPDXElement file has been removed.  For example, a package has been patched to remove a file a file (the relatedSPDXElement resulting in the patched package (the SPDXElement).  This relationship is typically used to express the result of a patched package when the actual patchfile is not present."@en ;
+                              ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_fileModified
+:relationshipType_fileModified rdf:type owl:NamedIndividual ,
+                                        :RelationshipType ;
+                               rdfs:comment "A Relationship of relationshipType_fileModified expresses that the SPDXElement is a file which is a modified version of the relatedSPDXElement file.  For example, a file (the SPDXElement) has been patched to modify the contents of the original file (the SPDXElement).  This relationship is typically used to express the result of a patched package when the actual patchfile is not present."@en ;
+                               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_generatedFrom
+:relationshipType_generatedFrom rdf:type owl:NamedIndividual ,
+                                         :RelationshipType ;
+                                rdfs:comment "A Relationship of relationshipType_generatedFrom expresses that an SPDXElement was generated from the relatedSPDXElement.  For example, a binary File might have been generated from a source File."@en ;
+                                ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_generates
+:relationshipType_generates rdf:type owl:NamedIndividual ,
+                                     :RelationshipType ;
+                            rdfs:comment "A Relationship of relationshipType_generates expresses that an SPDXElement generates the relatedSPDXElement.  For example, a source File generates a binary File."@en ;
+                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_hasPrerequisite
+:relationshipType_hasPrerequisite rdf:type owl:NamedIndividual ,
+                                           :RelationshipType ;
+                                  rdfs:comment "Is to be used when SPDXRef-A has as a prerequisite SPDXRef-B."@en ;
+                                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_metafileOf
+:relationshipType_metafileOf rdf:type owl:NamedIndividual ,
+                                      :RelationshipType ;
+                             rdfs:comment "To be used when SPDXRef-A is a metafile of SPDXRef-B."@en ;
+                             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_optionalComponentOf
+:relationshipType_optionalComponentOf rdf:type owl:NamedIndividual ,
+                                               :RelationshipType ;
+                                      rdfs:comment "To be used when SPDXRef-A is an optional component of SPDXRef-B."@en ;
+                                      ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_optionalDependencyOf
+:relationshipType_optionalDependencyOf rdf:type owl:NamedIndividual ,
+                                                :RelationshipType ;
+                                       rdfs:comment "Is to be used when SPDXRef-A is an optional dependency of SPDXRef-B."@en ;
+                                       ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_other
+:relationshipType_other rdf:type owl:NamedIndividual ,
+                                 :RelationshipType ;
+                        rdfs:comment "to be used for a relationship which has not been defined in the formal SPDX specification. A description of the relationship should be included in the Relationship comments field."@en ;
+                        ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_packageOf
+:relationshipType_packageOf rdf:type owl:NamedIndividual ,
+                                     :RelationshipType ;
+                            rdfs:comment "To be used when SPDXRef-A is used as a package as part of SPDXRef-B."@en ;
+                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_patchApplied
+:relationshipType_patchApplied rdf:type owl:NamedIndividual ,
+                                        :RelationshipType ;
+                               rdfs:comment "A Relationship of relationshipType_patchApplied expresses that the SPDXElement is a 'patchfile' that was applied and produced the relatedSPDXElement. For example, a .diff File relates to a specific file where the diff was applied."@en ;
+                               ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_patchFor
+:relationshipType_patchFor rdf:type owl:NamedIndividual ,
+                                    :RelationshipType ;
+                           rdfs:comment "A Relationship of relationshipType_patchFor expresses that the SPDXElement is a 'patchfile' that is designed to patch (apply modifications to) the relatedSPDXElement.  For example, relationship from a .diff File to a Package it is designed to patch. "@en ;
+                           ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_prerequisiteFor
+:relationshipType_prerequisiteFor rdf:type owl:NamedIndividual ,
+                                           :RelationshipType ;
+                                  rdfs:comment "Is to be used when SPDXRef-A is a prerequisite for SPDXRef-B"@en ;
+                                  ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_providedDependencyOf
+:relationshipType_providedDependencyOf rdf:type owl:NamedIndividual ,
+                                                :RelationshipType ;
+                                       rdfs:comment "Is to be used when SPDXRef-A is a to be provided dependency of SPDXRef-B."@en ;
+                                       ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_requirementDescriptionFor
+:relationshipType_requirementDescriptionFor rdf:type owl:NamedIndividual ,
+                                                     :RelationshipType ;
+                                            rdfs:comment "Is to be used when SPDXRef-A describes, illustrates, or specifies a requirement statement for SPDXRef-B."@en ;
+                                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_runtimeDependencyOf
+:relationshipType_runtimeDependencyOf rdf:type owl:NamedIndividual ,
+                                               :RelationshipType ;
+                                      rdfs:comment "Is to be used when SPDXRef-A is a dependency required for the execution of SPDXRef-B."@en ;
+                                      ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_specificationFor
+:relationshipType_specificationFor rdf:type owl:NamedIndividual ,
+                                            :RelationshipType ;
+                                   rdfs:comment "Is to be used when SPDXRef-A describes, illustrates, or defines a design specification for SPDXRef-B."@en ;
+                                   ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_staticLink
+:relationshipType_staticLink rdf:type owl:NamedIndividual ,
+                                      :RelationshipType ;
+                             rdfs:comment "Is to be used when SPDXRef-A statically links to SPDXRef-B."@en ;
+                             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_testDependencyOf
+:relationshipType_testDependencyOf rdf:type owl:NamedIndividual ,
+                                            :RelationshipType ;
+                                   rdfs:comment "Is to be used when SPDXRef-A is a test dependency of SPDXRef-B."@en ;
+                                   ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_testOf
+:relationshipType_testOf rdf:type owl:NamedIndividual ,
+                                  :RelationshipType ;
+                         rdfs:comment "Is to be used when SPDXRef-A is used for testing SPDXRef-B."@en ;
+                         ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_testToolOf
+:relationshipType_testToolOf rdf:type owl:NamedIndividual ,
+                                      :RelationshipType ;
+                             rdfs:comment "Is to be used when SPDXRef-A is used as a test tool for SPDXRef-B."@en ;
+                             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_testcaseOf
+:relationshipType_testcaseOf rdf:type owl:NamedIndividual ,
+                                      :RelationshipType ;
+                             rdfs:comment "Is to be used when SPDXRef-A is a test case used in testing SPDXRef-B."@en ;
+                             ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#relationshipType_variantOf
+:relationshipType_variantOf rdf:type owl:NamedIndividual ,
+                                     :RelationshipType ;
+                            rdfs:comment "A Relationship of relationshipType_variantOf expresses that an SPDXElement is a variant of the relatedSPDXElement, but it is not clear which came first.  For example, if the content of two Files differs by some edit, but there is no way to tell which came first (no reliable date information), then one File is a variant of the other File."@en ;
+                            ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#reviewed
+:reviewed rdf:type owl:NamedIndividual .
+
+
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+] .
+
+#################################################################
+#    Annotations
+#################################################################
+
+:reviewed rdfs:comment "This property has been deprecated since SPDX version 2.0.  It has been replaced by an Annotation with an annotation type review."@en ,
+                        "Reviewed" ;
+           ns:term_status "deprecated"@en ;
+           owl:deprecated "true"^^xsd:boolean .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Annotation
+                :Relationship
+                :SpdxElement
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :annotationType_other
+                        :annotationType_review
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :noassertion
+                        :none
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
