@@ -9,14 +9,15 @@
      xmlns:doap="http://usefulinc.com/ns/doap#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://spdx.org/rdf/terms">
-        <owl:versionIRI rdf:resource="http://spdx.org/rdf/terms/2.2"/>
-        <rdfs:comment>This specification describes the SPDX® language, defined as a dictionary of named properties and classes using W3C&apos;s RDF Technology.
+        <owl:versionIRI rdf:resource="http://spdx.org/rdf/terms/2.3"/>
+        <rdfs:comment xml:lang="en">This specification describes the SPDX® language, defined as a dictionary of named properties and classes using W3C&apos;s RDF Technology.
 
-SPDX® is a designed to allow the exchange of data about software packages. This information includes general information about the package, licensing information about the package as a whole, a manifest of files contained in the package and licensing information related to the contained files.
-
-Known issues:</rdfs:comment>
-        <rdfs:label>SPDX 2.2</rdfs:label>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.2</owl:versionInfo>
+SPDX® is an open standard for communicating software bill of material information, including components, licenses, copyrights, and security references. SPDX reduces redundant work by providing a common format for companies and communities to share important data, thereby streamlining and improving compliance.
+.
+Known issues:
+- rdfs:comment and rdfs:seeAlso are used within the SPDX classes and causes a redefinition of these standard terms</rdfs:comment>
+        <rdfs:label>SPDX 2.3</rdfs:label>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.3</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -64,6 +65,23 @@ Known issues:</rdfs:comment>
         <rdfs:isDefinedBy>http://spdx.org/rdf/terms#</rdfs:isDefinedBy>
         <ns:term_status>stable</ns:term_status>
     </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
     
 
 
@@ -307,7 +325,9 @@ Known issues:</rdfs:comment>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
-        <rdfs:comment xml:lang="en">The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the package.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the package.
+
+If the Concluded License field is not present for an SPDX Item, it implies an equivalent meaning to NOASSERTION.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:ObjectProperty>
     
@@ -354,7 +374,9 @@ Known issues:</rdfs:comment>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
-        <rdfs:comment xml:lang="en">The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.
+
+If the All Licenses Information from Files field is not present for a package and FilesAnalyzed property for that same pacakge is true or omitted, it implies an equivalent meaning to NOASSERTION.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:ObjectProperty>
     
@@ -380,7 +402,9 @@ Known issues:</rdfs:comment>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
-        <rdfs:comment xml:lang="en">Licensing information that was discovered directly in the subject file. This is also considered a declared license for the file.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Licensing information that was discovered directly in the subject file. This is also considered a declared license for the file.
+
+If the License Information in File field is not present for a file, it implies an equivalent meaning to NOASSERTION.</rdfs:comment>
         <ns:term_status>deprecated</ns:term_status>
     </owl:ObjectProperty>
     
@@ -406,7 +430,9 @@ Known issues:</rdfs:comment>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
-        <rdfs:comment xml:lang="en">Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet.
+
+If the License Information in Snippet field is not present for a snippet, it implies an equivalent meaning to NOASSERTION.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:ObjectProperty>
     
@@ -426,6 +452,16 @@ Known issues:</rdfs:comment>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://spdx.org/rdf/terms#AnyLicenseInfo"/>
         <rdfs:comment xml:lang="en">A license, or other licensing information, that is a member of the subject license set.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#packagePurpose -->
+
+    <owl:ObjectProperty rdf:about="http://spdx.org/rdf/terms#packagePurpose">
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#Package"/>
+        <rdfs:comment xml:lang="en">This field provides information about the purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:ObjectProperty>
     
@@ -757,6 +793,18 @@ Known issues:</rdfs:comment>
     
 
 
+    <!-- http://spdx.org/rdf/terms#builtDate -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#builtDate">
+        <rdfs:subPropertyOf rdf:resource="http://spdx.org/rdf/terms#date"/>
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#Package"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">This field provides a place for recording the actual date the package was built.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://spdx.org/rdf/terms#checksumValue -->
 
     <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#checksumValue">
@@ -786,7 +834,9 @@ Known issues:</rdfs:comment>
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#SpdxItem"/>
         <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">The text of copyright declarations recited in the Package or File.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The text of copyright declarations recited in the Package, File or snippet.
+
+If the License Information in File field is not present, it implies an equivalent meaning to NOASSERTION.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:DatatypeProperty>
     
@@ -1228,6 +1278,18 @@ Known issues:</rdfs:comment>
     
 
 
+    <!-- http://spdx.org/rdf/terms#releaseDate -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#releaseDate">
+        <rdfs:subPropertyOf rdf:resource="http://spdx.org/rdf/terms#date"/>
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#Package"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">This field provides a place for recording the date the package was released.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://spdx.org/rdf/terms#reviewDate -->
 
     <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#reviewDate">
@@ -1367,6 +1429,18 @@ Known issues:</rdfs:comment>
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#CrossRef"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment xml:lang="en">URL Reference</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#validUntilDate -->
+
+    <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#validUntilDate">
+        <rdfs:subPropertyOf rdf:resource="http://spdx.org/rdf/terms#date"/>
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#Package"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">This field provides a place for recording the end of the support period for a package from the supplier.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:DatatypeProperty>
     
 
@@ -1773,7 +1847,7 @@ Known issues:</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#licenseInfoInFile"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
                 <owl:onClass rdf:resource="http://spdx.org/rdf/terms#AnyLicenseInfo"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2048,9 +2122,37 @@ Known issues:</rdfs:comment>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#packagePurpose"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#packageVerificationCode"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                 <owl:onClass rdf:resource="http://spdx.org/rdf/terms#PackageVerificationCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#builtDate"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#releaseDate"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#validUntilDate"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2148,6 +2250,15 @@ Known issues:</rdfs:comment>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A manifest based verification code (the algorithm is defined in section 4.7 of the full specification) of the SPDX Item. This allows consumers of this data and/or database to determine if an SPDX item they have in hand is identical to the SPDX item from which the data was produced. This algorithm works even if the SPDX document is included in the SPDX item.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#Purpose -->
+
+    <owl:Class rdf:about="http://spdx.org/rdf/terms#Purpose">
+        <rdfs:comment>Package Purpose is intrinsic to how the package is being used rather than the content of the package.</rdfs:comment>
+        <ns:term_status>stable</ns:term_status>
     </owl:Class>
     
 
@@ -2455,7 +2566,7 @@ Known issues:</rdfs:comment>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#licenseConcluded"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
                         <owl:onClass rdf:resource="http://spdx.org/rdf/terms#AnyLicenseInfo"/>
                     </owl:Restriction>
                 </owl:unionOf>
@@ -2478,7 +2589,7 @@ Known issues:</rdfs:comment>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#copyrightText"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2671,6 +2782,56 @@ Known issues:</rdfs:comment>
     
 
 
+    <!-- http://spdx.org/rdf/terms#checksumAlgorithm_adler32 -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#checksumAlgorithm_adler32">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#ChecksumAlgorithm"/>
+        <rdfs:comment xml:lang="en">Indicates the algorithm used was ADLER32.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#checksumAlgorithm_blake2b256 -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#checksumAlgorithm_blake2b256">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#ChecksumAlgorithm"/>
+        <rdfs:comment xml:lang="en">Indicates the algorithm used was BLAKE2b-256.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#checksumAlgorithm_blake2b384 -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#checksumAlgorithm_blake2b384">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#ChecksumAlgorithm"/>
+        <rdfs:comment xml:lang="en">Indicates the algorithm used was BLAKE2b-384.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#checksumAlgorithm_blake2b512 -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#checksumAlgorithm_blake2b512">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#ChecksumAlgorithm"/>
+        <rdfs:comment xml:lang="en">Indicates the algorithm used was BLAKE2b-512.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#checksumAlgorithm_blake3 -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#checksumAlgorithm_blake3">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#ChecksumAlgorithm"/>
+        <rdfs:comment xml:lang="en">Indicates the algorithm used was BLAKE3.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://spdx.org/rdf/terms#checksumAlgorithm_md2 -->
 
     <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#checksumAlgorithm_md2">
@@ -2746,6 +2907,36 @@ Known issues:</rdfs:comment>
     <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#checksumAlgorithm_sha384">
         <rdf:type rdf:resource="http://spdx.org/rdf/terms#ChecksumAlgorithm"/>
         <rdfs:comment xml:lang="en">Indicates the algorithm used was SHA384</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#checksumAlgorithm_sha3_256 -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#checksumAlgorithm_sha3_256">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#ChecksumAlgorithm"/>
+        <rdfs:comment xml:lang="en">Indicates the algorithm used was SHA3-256.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#checksumAlgorithm_sha3_384 -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#checksumAlgorithm_sha3_384">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#ChecksumAlgorithm"/>
+        <rdfs:comment xml:lang="en">Indicates the algorithm used was SHA3-384.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#checksumAlgorithm_sha3_512 -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#checksumAlgorithm_sha3_512">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#ChecksumAlgorithm"/>
+        <rdfs:comment xml:lang="en">Indicates the algorithm used was SHA3-512.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:NamedIndividual>
     
@@ -2884,6 +3075,126 @@ IMAGE if the file is assoicated with an picture image file (MIME type of image/*
 
     <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#none">
         <rdfs:comment>Individual to indicate that no value is applicable for the Object.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#purpose_application -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#purpose_application">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+        <rdfs:comment xml:lang="en">The package is a software application.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#purpose_archive -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#purpose_archive">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+        <rdfs:comment xml:lang="en">The package refers to an archived collection of files (.tar, .zip, etc).</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#purpose_container -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#purpose_container">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+        <rdfs:comment xml:lang="en">The package refers to a container image which can be used by a container runtime application.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#purpose_device -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#purpose_device">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+        <rdfs:comment xml:lang="en">The package refers to a chipset, processor, or electronic board.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#purpose_file -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#purpose_file">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+        <rdfs:comment xml:lang="en">The package is a single file which can be independently distributed (configuration file, statically linked binary, Kubernetes deployment, etc).</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#purpose_firmware -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#purpose_firmware">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+        <rdfs:comment xml:lang="en">The package provides low level control over a device&apos;s hardware.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#purpose_framework -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#purpose_framework">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+        <rdfs:comment xml:lang="en">The package is a software framework.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#purpose_install -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#purpose_install">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+        <rdfs:comment xml:lang="en">The package is used to install software on disk.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#purpose_library -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#purpose_library">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+        <rdfs:comment xml:lang="en">The package is a software library.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#purpose_operatingSystem -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#purpose_operatingSystem">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+        <rdfs:comment xml:lang="en">The package refers to an operating system.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#purpose_other -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#purpose_other">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+        <rdfs:comment xml:lang="en">The package doesn&apos;t fit into other purpose defined terms.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#purpose_source -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#purpose_source">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+        <rdfs:comment xml:lang="en">The package is a collection of source files.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:NamedIndividual>
     
 
@@ -3295,11 +3606,31 @@ IMAGE if the file is assoicated with an picture image file (MIME type of image/*
     
 
 
+    <!-- http://spdx.org/rdf/terms#relationshipType_requirementDescriptionFor -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#relationshipType_requirementDescriptionFor">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#RelationshipType"/>
+        <rdfs:comment xml:lang="en">Is to be used when SPDXRef-A describes, illustrates, or specifies a requirement statement for SPDXRef-B.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://spdx.org/rdf/terms#relationshipType_runtimeDependencyOf -->
 
     <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#relationshipType_runtimeDependencyOf">
         <rdf:type rdf:resource="http://spdx.org/rdf/terms#RelationshipType"/>
         <rdfs:comment xml:lang="en">Is to be used when SPDXRef-A is a dependency required for the execution of SPDXRef-B.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#relationshipType_specificationFor -->
+
+    <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#relationshipType_specificationFor">
+        <rdf:type rdf:resource="http://spdx.org/rdf/terms#RelationshipType"/>
+        <rdfs:comment xml:lang="en">Is to be used when SPDXRef-A describes, illustrates, or defines a design specification for SPDXRef-B.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:NamedIndividual>
     
