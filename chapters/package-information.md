@@ -1552,11 +1552,11 @@ Table 39 — Metadata for the valid until date
 | Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
 
 
-### 7.26.2 Intent
+### 7.27.2 Intent
 
 The date when support for the package ends from the supplier.  Usage is considered valid until this date.
 
-### 7.26.3 Examples
+### 7.27.3 Examples
 
 EXAMPLE 1 Tag: `ValidUntilDate:`
 
