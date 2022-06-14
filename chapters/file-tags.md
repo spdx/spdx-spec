@@ -52,7 +52,9 @@ Version 3.0 of the [REUSE Software guidelines](https://reuse.software/spec/) imp
 
 ## H.3 File Tags Within Snippets <a name="H.3"></a>
 
-If SPDX file tag is to apply only to a snippet, not the whole file, the start of such snippet should be marked with `SPDX-SnippetBegin` and its end with `SPDX-SnippetBegin` and apart from `SPDX-License-Identifier` Snippet Information (Clause [9](snippet-information.md)) tags should be used within the beggining and end tag.
+If certain SPDX file tags are to apply only to a certain snippet instead of the whole file, the start of such snippet should be marked with `SPDX-SnippetBegin` and its end with `SPDX-SnippetBegin`.
+
+Any Snippet Information (Clause [9](snippet-information.md)) and short-form license identifiers (Annex [E](using-SPDX-short-identifiers-in-source-files.md)) tags found between begin and end tags mentioned above apply only to such snippet.
 
 Examples:
 
