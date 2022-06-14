@@ -50,10 +50,60 @@ Multiple-line values are not recommended, because doing so will make it harder f
 
 Version 3.0 of the [REUSE Software guidelines](https://reuse.software/spec/) implements this format, via a recommendation to use the tag `SPDX-FileCopyrightText:` to include copyright notices as part of a file's comment headers.
 
-## H.3 Caveats <a name="H.3"></a>
+## H.3 File Tags Within Snippets <a name="H.3"></a>
+
+If SPDX file tag is to apply only to a snippet, not the whole file, the start of such snippet should be marked with `SPDX-SnippetBegin` and its end with `SPDX-SnippetBegin` and apart from `SPDX-License-Identifier` Snippet Information (Clause [9](snippet-information.md)) tags should be used within the beggining and end tag.
+
+Examples:
+
+Simple stand-alone example:
+
+```text
+SPDX-SnippetBegin
+SPDX-License-Identifier: MIT
+SPDX-SnippetCopyrightText: 2022 Jane Doe <jane@example.com>
+
+...
+
+SPDX-SnippetEnd
+```
+
+Two snippets with a different license and additional information in the broader context of a file:
+
+```text
+SPDX-License-Identifier: GPL-2.0-or-later
+SPDX-FileCopyrightText: Copyright contributors to the Foo project.
+
+...
+
+SPDX-SnippetBegin
+SPDX-License-Identifier: MIT
+SPDX-SnippetCopyrightText: 2022 Jane Doe <jane@example.com>
+SDPX—SnippetName: functionX from project Bar
+SPDX-SnippetComment: A complex function X that was copy-pasted from project Bar
+
+...
+
+SPDX-SnippetEnd
+
+...
+
+SPDX-SnippetBegin
+SPDX-License-Identifier: BSD-2-Clause
+SPDX-SnippetCopyrightText: Copyright Example Company
+
+...
+
+SPDX-SnippetEnd
+
+```
+
+## H.4 Caveats <a name="H.4"></a>
 
 A creator of an SPDX document may elect to disregard any or all file tags in any file. SPDX document creators should determine for themselves the extent to which they will rely upon the information specified in a file tag.
 
 Not all fields in the File Information section will be useful or relevant to use as file tags. For example, `SPDX-FileName` is unnecessary as it can be easily derived from the actual file name; `SPDX-SPDXID` is likely to be ignored by an SPDX document creator who may need to define their own SPDXRef- ID system for their document; etc.
+
+Another more complex example are `SPDX-SnippetBegin` and `SPDX-SnippetEnd` where the line number these two tags are found in could be stored to start and end the range in `SnippetLineRange` (see [9.4](snippet-information.md#9.4)).
 
 The short-form license identifiers described in Annex [E](using-SPDX-short-identifiers-in-source-files.md) do not follow the file tag convention described above. The `SPDX-License-Identifier` emerged from the broader community prior to being defined in the SPDX specification, so it does not map to a `License-Identifier` field in the File Information section.
