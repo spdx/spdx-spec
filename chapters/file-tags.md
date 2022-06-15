@@ -1,4 +1,4 @@
-# Annex H SPDX File and Snippet Tags (Informative)
+# Annex H Specifying SPDX information in source files (Informative)
 
 ## H.1 Rationale <a name="H.1"></a>
 
