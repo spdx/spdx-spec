@@ -1421,11 +1421,11 @@ EXAMPLE 2 RDF: Property `spdx:attributionText` in class `spdx:Package`
 </Package>
 ```
 
-## 7.24 Package Purpose field <a name="7.24"></a>
+## 7.24 Primary Package Purpose field <a name="7.24"></a>
 
 ### 7.24.1 Description
 
-This field provides information about the purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package. The options to populated this field are limited to:
+This field provides information about the primary purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package. The options to populated this field are limited to:
 
 `APPLICATION` if the package is a software application;
 `FRAMEWORK` if the package is a software framework;
@@ -1452,11 +1452,11 @@ The metadata for the Package Purpose field is shown in Table 36.
 
 ### 7.24.2 Intent
 
-This field is a reasonable estimate of the package usage from the producer and consumer perspective from which both parties can draw conclusions about the context in which the package exists.
+This field is a reasonable estimate of the most likely package usage from the producer and consumer perspective from which both parties can draw conclusions about the context in which the package exists.
 
 ### 7.24.3 Examples
 
-EXAMPLE 1 Tag: `PackagePurpose:`
+EXAMPLE 1 Tag: `PrimaryPackagePurpose:`
 
 ```text
 PackagePurpose: FRAMEWORK
@@ -1466,7 +1466,7 @@ EXAMPLE 2 RDF: Property `spdx:purpose` in class `spdx:Package`
 
 ```text
 <Package rdf:about="cluster-api">
-    <packagePurpose rdf:resource="packagePurpose_container" />
+    <primaryPackagePurpose rdf:resource="packagePurpose_container" />
 </Package>
 ```
   
