@@ -444,22 +444,22 @@ If the licenseInfoInSnippet field is not present for a snippet, it implies an eq
     
 
 
-    <!-- http://spdx.org/rdf/terms#packagePurpose -->
-
-    <owl:ObjectProperty rdf:about="http://spdx.org/rdf/terms#packagePurpose">
-        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#Package"/>
-        <rdfs:comment xml:lang="en">This field provides information about the purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package.</rdfs:comment>
-        <ns:term_status xml:lang="en">stable</ns:term_status>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://spdx.org/rdf/terms#packageVerificationCode -->
 
     <owl:ObjectProperty rdf:about="http://spdx.org/rdf/terms#packageVerificationCode">
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#Package"/>
         <rdfs:range rdf:resource="http://spdx.org/rdf/terms#PackageVerificationCode"/>
         <rdfs:comment xml:lang="en">A manifest based verification code (the algorithm is defined in section 3.9.4 of the full specification) of the package. This allows consumers of this data and/or database to determine if a package they have in hand is identical to the package from which the data was produced. This algorithm works even if the SPDX document is included in the package.</rdfs:comment>
+        <ns:term_status xml:lang="en">stable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://spdx.org/rdf/terms#primaryPackagePurpose -->
+
+    <owl:ObjectProperty rdf:about="http://spdx.org/rdf/terms#primaryPackagePurpose">
+        <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#Package"/>
+        <rdfs:comment xml:lang="en">This field provides information about the primary purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:ObjectProperty>
     
@@ -1121,7 +1121,7 @@ If the copyrightText field is not present, it implies an equivalent meaning to N
     <owl:DatatypeProperty rdf:about="http://spdx.org/rdf/terms#licenseId">
         <rdfs:domain rdf:resource="http://spdx.org/rdf/terms#SimpleLicensingInfo"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">A human readable short form license identifier for a license. The license ID is either on the standard license list or the form &quot;LicenseRef-&quot;[idString] where [idString] is a unique string containing letters, numbers, &quot;.&quot;, &quot;-&quot; or &quot;+&quot;.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A human readable short form license identifier for a license. The license ID is either on the standard license list or the form &quot;LicenseRef-[idString]&quot; where [idString] is a unique string containing letters, numbers, &quot;.&quot; or &quot;-&quot;.  When used within a license expression, the license ID can optionally include a reference to an external document in the form &quot;DocumentRef-[docrefIdString]:LicenseRef-[idString]&quot; where docRefIdString is an ID for an external document reference.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:DatatypeProperty>
     
@@ -2113,16 +2113,16 @@ If the copyrightText field is not present, it implies an equivalent meaning to N
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#packagePurpose"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#packageVerificationCode"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://spdx.org/rdf/terms#PackageVerificationCode"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#packageVerificationCode"/>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#primaryPackagePurpose"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://spdx.org/rdf/terms#PackageVerificationCode"/>
+                <owl:onClass rdf:resource="http://spdx.org/rdf/terms#Purpose"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
