@@ -68,7 +68,7 @@
       "description" : "One instance is required for each SPDX file produced. It provides the necessary information for forward and backward compatibility for processing tools."
     },
     "dataLicense" : {
-      "description" : "License expression for dataLicense.  Compliance with the SPDX specification includes populating the SPDX fields therein with data related to such fields (\"SPDX-Metadata\"). The SPDX specification contains numerous fields where an SPDX document creator may provide relevant explanatory text in SPDX-Metadata. Without opining on the lawfulness of \"database rights\" (in jurisdictions where applicable), such explanatory text is copyrightable subject matter in most Berne Convention countries. By using the SPDX specification, or any portion hereof, you hereby agree that any copyright rights (as determined by your jurisdiction) in any SPDX-Metadata, including without limitation explanatory text, shall be subject to the terms of the Creative Commons CC0 1.0 Universal license. For SPDX-Metadata not containing any copyright rights, you hereby agree and acknowledge that the SPDX-Metadata is provided to you \"as-is\" and without any representations or warranties of any kind concerning the SPDX-Metadata, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non-infringement, or the absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.",
+      "description" : "License expression for dataLicense. See SPDX Annex D for the license expression syntax.  Compliance with the SPDX specification includes populating the SPDX fields therein with data related to such fields (\"SPDX-Metadata\"). The SPDX specification contains numerous fields where an SPDX document creator may provide relevant explanatory text in SPDX-Metadata. Without opining on the lawfulness of \"database rights\" (in jurisdictions where applicable), such explanatory text is copyrightable subject matter in most Berne Convention countries. By using the SPDX specification, or any portion hereof, you hereby agree that any copyright rights (as determined by your jurisdiction) in any SPDX-Metadata, including without limitation explanatory text, shall be subject to the terms of the Creative Commons CC0 1.0 Universal license. For SPDX-Metadata not containing any copyright rights, you hereby agree and acknowledge that the SPDX-Metadata is provided to you \"as-is\" and without any representations or warranties of any kind concerning the SPDX-Metadata, express, implied, statutory or otherwise, including without limitation warranties of title, merchantability, fitness for a particular purpose, non-infringement, or the absence of latent or other defects, accuracy, or the presence or absence of errors, whether or not discoverable, all to the greatest extent permissible under applicable law.",
       "type" : "string"
     },
     "externalDocumentRefs" : {
@@ -162,7 +162,7 @@
             "type" : "string"
           },
           "licenseId" : {
-            "description" : "A human readable short form license identifier for a license. The license ID is either on the standard license list or the form \"LicenseRef-\"[idString] where [idString] is a unique string containing letters, numbers, \".\", \"-\" or \"+\".",
+            "description" : "A human readable short form license identifier for a license. The license ID is either on the standard license list or the form \"LicenseRef-[idString]\" where [idString] is a unique string containing letters, numbers, \".\" or \"-\".  When used within a license expression, the license ID can optionally include a reference to an external document in the form \"DocumentRef-[docrefIdString]:LicenseRef-[idString]\" where docRefIdString is an ID for an external document reference.",
             "type" : "string"
           },
           "name" : {
@@ -358,18 +358,18 @@
             "type" : "string"
           },
           "licenseConcluded" : {
-            "description" : "License expression for licenseConcluded.  The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the SPDX Item.\n\nIf the licenseConcluded field is not present for an SPDX Item, it implies an equivalent meaning to NOASSERTION.",
+            "description" : "License expression for licenseConcluded. See SPDX Annex D for the license expression syntax.  The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the SPDX Item.\n\nIf the licenseConcluded field is not present for an SPDX Item, it implies an equivalent meaning to NOASSERTION.",
             "type" : "string"
           },
           "licenseDeclared" : {
-            "description" : "License expression for licenseDeclared.  The licensing that the creators of the software in the package, or the packager, have declared. Declarations by the original software creator should be preferred, if they exist.",
+            "description" : "License expression for licenseDeclared. See SPDX Annex D for the license expression syntax.  The licensing that the creators of the software in the package, or the packager, have declared. Declarations by the original software creator should be preferred, if they exist.",
             "type" : "string"
           },
           "licenseInfoFromFiles" : {
             "description" : "The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.\n\nIf the licenseInfoFromFiles field is not present for a package and filesAnalyzed property for that same pacakge is true or omitted, it implies an equivalent meaning to NOASSERTION.",
             "type" : "array",
             "items" : {
-              "description" : "License expression for licenseInfoFromFiles.  The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.\n\nIf the licenseInfoFromFiles field is not present for a package and filesAnalyzed property for that same pacakge is true or omitted, it implies an equivalent meaning to NOASSERTION.",
+              "description" : "License expression for licenseInfoFromFiles. See SPDX Annex D for the license expression syntax.  The licensing information that was discovered directly within the package. There will be an instance of this property for each distinct value of alllicenseInfoInFile properties of all files contained in the package.\n\nIf the licenseInfoFromFiles field is not present for a package and filesAnalyzed property for that same pacakge is true or omitted, it implies an equivalent meaning to NOASSERTION.",
               "type" : "string"
             }
           },
@@ -384,14 +384,6 @@
           "packageFileName" : {
             "description" : "The base name of the package file name. For example, zlib-1.2.5.tar.gz.",
             "type" : "string"
-          },
-          "packagePurposes" : {
-            "description" : "This field provides information about the purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package.",
-            "type" : "array",
-            "items" : {
-              "type" : "object",
-              "description" : "Package Purpose is intrinsic to how the package is being used rather than the content of the package."
-            }
           },
           "packageVerificationCode" : {
             "type" : "object",
@@ -412,6 +404,10 @@
             "required" : [ "packageVerificationCodeValue" ],
             "additionalProperties" : false,
             "description" : "A manifest based verification code (the algorithm is defined in section 4.7 of the full specification) of the SPDX Item. This allows consumers of this data and/or database to determine if an SPDX item they have in hand is identical to the SPDX item from which the data was produced. This algorithm works even if the SPDX document is included in the SPDX item."
+          },
+          "primaryPackagePurpose" : {
+            "type" : "object",
+            "description" : "Package Purpose is intrinsic to how the package is being used rather than the content of the package."
           },
           "releaseDate" : {
             "description" : "This field provides a place for recording the date the package was released.",
@@ -558,14 +554,14 @@
             "type" : "string"
           },
           "licenseConcluded" : {
-            "description" : "License expression for licenseConcluded.  The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the SPDX Item.\n\nIf the licenseConcluded field is not present for an SPDX Item, it implies an equivalent meaning to NOASSERTION.",
+            "description" : "License expression for licenseConcluded. See SPDX Annex D for the license expression syntax.  The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the SPDX Item.\n\nIf the licenseConcluded field is not present for an SPDX Item, it implies an equivalent meaning to NOASSERTION.",
             "type" : "string"
           },
           "licenseInfoInFiles" : {
             "description" : "Licensing information that was discovered directly in the subject file. This is also considered a declared license for the file.\n\nIf the licenseInfoInFile field is not present for a file, it implies an equivalent meaning to NOASSERTION.",
             "type" : "array",
             "items" : {
-              "description" : "License expression for licenseInfoInFile.  Licensing information that was discovered directly in the subject file. This is also considered a declared license for the file.\n\nIf the licenseInfoInFile field is not present for a file, it implies an equivalent meaning to NOASSERTION.",
+              "description" : "License expression for licenseInfoInFile. See SPDX Annex D for the license expression syntax.  Licensing information that was discovered directly in the subject file. This is also considered a declared license for the file.\n\nIf the licenseInfoInFile field is not present for a file, it implies an equivalent meaning to NOASSERTION.",
               "type" : "string"
             }
           },
@@ -636,14 +632,14 @@
             "type" : "string"
           },
           "licenseConcluded" : {
-            "description" : "License expression for licenseConcluded.  The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the SPDX Item.\n\nIf the licenseConcluded field is not present for an SPDX Item, it implies an equivalent meaning to NOASSERTION.",
+            "description" : "License expression for licenseConcluded. See SPDX Annex D for the license expression syntax.  The licensing that the preparer of this SPDX document has concluded, based on the evidence, actually applies to the SPDX Item.\n\nIf the licenseConcluded field is not present for an SPDX Item, it implies an equivalent meaning to NOASSERTION.",
             "type" : "string"
           },
           "licenseInfoInSnippets" : {
             "description" : "Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet.\n\nIf the licenseInfoInSnippet field is not present for a snippet, it implies an equivalent meaning to NOASSERTION.",
             "type" : "array",
             "items" : {
-              "description" : "License expression for licenseInfoInSnippet.  Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet.\n\nIf the licenseInfoInSnippet field is not present for a snippet, it implies an equivalent meaning to NOASSERTION.",
+              "description" : "License expression for licenseInfoInSnippet. See SPDX Annex D for the license expression syntax.  Licensing information that was discovered directly in the subject snippet. This is also considered a declared license for the snippet.\n\nIf the licenseInfoInSnippet field is not present for a snippet, it implies an equivalent meaning to NOASSERTION.",
               "type" : "string"
             }
           },

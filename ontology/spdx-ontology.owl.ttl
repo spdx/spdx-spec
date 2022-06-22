@@ -319,19 +319,19 @@ If the licenseInfoInSnippet field is not present for a snippet, it implies an eq
         ns:term_status "stable"@en .
 
 
-###  http://spdx.org/rdf/terms#packagePurpose
-:packagePurpose rdf:type owl:ObjectProperty ;
-                rdfs:domain :Package ;
-                rdfs:comment "This field provides information about the purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package."@en ;
-                ns:term_status "stable"@en .
-
-
 ###  http://spdx.org/rdf/terms#packageVerificationCode
 :packageVerificationCode rdf:type owl:ObjectProperty ;
                          rdfs:domain :Package ;
                          rdfs:range :PackageVerificationCode ;
                          rdfs:comment "A manifest based verification code (the algorithm is defined in section 3.9.4 of the full specification) of the package. This allows consumers of this data and/or database to determine if a package they have in hand is identical to the package from which the data was produced. This algorithm works even if the SPDX document is included in the package."@en ;
                          ns:term_status "stable"@en .
+
+
+###  http://spdx.org/rdf/terms#primaryPackagePurpose
+:primaryPackagePurpose rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Package ;
+                       rdfs:comment "This field provides information about the primary purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package."@en ;
+                       ns:term_status "stable"@en .
 
 
 ###  http://spdx.org/rdf/terms#range
@@ -836,7 +836,7 @@ If the copyrightText field is not present, it implies an equivalent meaning to N
 :licenseId rdf:type owl:DatatypeProperty ;
            rdfs:domain :SimpleLicensingInfo ;
            rdfs:range xsd:string ;
-           rdfs:comment "A human readable short form license identifier for a license. The license ID is either on the standard license list or the form \"LicenseRef-\"[idString] where [idString] is a unique string containing letters, numbers, \".\", \"-\" or \"+\"."@en ;
+           rdfs:comment "A human readable short form license identifier for a license. The license ID is either on the standard license list or the form \"LicenseRef-[idString]\" where [idString] is a unique string containing letters, numbers, \".\" or \"-\".  When used within a license expression, the license ID can optionally include a reference to an external document in the form \"DocumentRef-[docrefIdString]:LicenseRef-[idString]\" where docRefIdString is an ID for an external document reference."@en ;
            ns:term_status "stable"@en .
 
 
@@ -1541,14 +1541,14 @@ rdfs:seeAlso rdf:type owl:DatatypeProperty .
                            owl:onClass :File
                          ] ,
                          [ rdf:type owl:Restriction ;
-                           owl:onProperty :packagePurpose ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Purpose
-                         ] ,
-                         [ rdf:type owl:Restriction ;
                            owl:onProperty :packageVerificationCode ;
                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                            owl:onClass :PackageVerificationCode
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :primaryPackagePurpose ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Purpose
                          ] ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :downloadLocation ;
