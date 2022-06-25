@@ -1590,6 +1590,9 @@ EXAMPLE 2 RDF: Property `spdx:validUntilDate` in class `spdx:Package`
 [SHA-256]: https://tools.ietf.org/html/rfc6234
 [SHA-384]: https://en.wikipedia.org/wiki/SHA-2
 [SHA-512]: https://en.wikipedia.org/wiki/SHA-2
+[SHA3-256]: https://en.wikipedia.org/wiki/SHA-3
+[SHA3-384]: https://en.wikipedia.org/wiki/SHA-3
+[SHA3-512]: https://en.wikipedia.org/wiki/SHA-3
 [BLAKE2b-256]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
 [BLAKE2b-384]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
 [BLAKE2b-512]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
