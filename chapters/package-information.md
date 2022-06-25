@@ -1440,9 +1440,9 @@ This field provides information about the primary purpose of the identified pack
 `INSTALL` if the package is used to install software on disk;
 `OTHER` if the package doesn't fit into the above categories.
 
-The metadata for the Package Purpose field is shown in Table 36.
+The metadata for the Primary Package Purpose field is shown in Table 36.
 
-**Table 36 — Metadata for the package purpose field**
+**Table 36 — Metadata for the primary package purpose field**
 
 | Attribute | Value |
 | --------- | ----- |
@@ -1459,7 +1459,7 @@ This field is a reasonable estimate of the most likely package usage from the pr
 EXAMPLE 1 Tag: `PrimaryPackagePurpose:`
 
 ```text
-PackagePurpose: FRAMEWORK
+PrimaryPackagePurpose: FRAMEWORK
 ```
 
 EXAMPLE 2 RDF: Property `spdx:purpose` in class `spdx:Package`
