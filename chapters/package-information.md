@@ -703,7 +703,7 @@ Provide an independently reproducible mechanism that permits unique identificati
 | --------- | ----- |
 | Required | No |
 | Cardinality | 0..* |
-| Algorithm | Algorithms that can be used: [`SHA1`][SHA-1], [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6] |
+| Algorithm | Algorithms that can be used: [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`SHA3-256`][SHA3-256], [`SHA3-384`][SHA3-384], [`SHA3-512`][SHA3-512], [`BLAKE2b-256`][BLAKE2b-256], [`BLAKE2b-384`][BLAKE2b-384], [`BLAKE2b-512`][BLAKE2b-512], [`BLAKE3`][BLAKE3], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6], [`ADLER32`][ADLER32] |
 | Format | There are three components, an algorithm identifier (e.g. `SHA1`), a colon separator `:`, and a bit value represented as lowercase hexadecimal digits (appropriate as output to the algorithm). |
 
 ### 7.10.2 Intent
@@ -1590,6 +1590,11 @@ EXAMPLE 2 RDF: Property `spdx:validUntilDate` in class `spdx:Package`
 [SHA-256]: https://tools.ietf.org/html/rfc6234
 [SHA-384]: https://en.wikipedia.org/wiki/SHA-2
 [SHA-512]: https://en.wikipedia.org/wiki/SHA-2
+[BLAKE2b-256]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
+[BLAKE2b-384]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
+[BLAKE2b-512]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
+[BLAKE3]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE3
+[ADLER32]: https://en.wikipedia.org/wiki/Adler-32
 [SourceForge]: https://sourceforge.net/
 [Subversion]: https://subversion.apache.org/
 [doap]: http://usefulinc.com/ns/doap
