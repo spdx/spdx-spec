@@ -179,6 +179,23 @@ One can also use it to refer to guidance related to a vulnerability such as CISA
 } ]
 ```
 
+### G.1.9 Linking to an SBOM vulnerability report for a Software Product (per NIST Executive Order 14028)
+
+The National Institute of Standards and Technology (NIST) describes the concept of correlating vulnerability and SBOM information for a software product at the component level in “[Software Security in Supply Chains: Software Bill of Materials (SBOM)](https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity/software-security-supply-chains-software-1)”. Use the ExternalRefs `SECURITY` category and `advisory` referenceType to report on vulnerabilities related to the components contained in a software product’s SBOM.
+
+This enables a software producer to articulate to software consumers the status of vulnerabilities contained in the software product, by means of reporting vulnerability information at either the SBOM document or component level.
+
+Providing a link to such data at the time the SBOM is published provides a pointer for where to find this relevant vulnerability information without promulgating vulnerability information inside the SBOM. This is advantageous because the vulnerability information has a short shelf-life (it will change frequently) while the SBOM component data isn’t likely to change if the software has not changed.
+
+```
+"externalRefs" : [ {
+  "referenceCategory" : "SECURITY",
+  "referenceLocator" : "https://github.com/rjb4standards/REA-Products/blob/master/SBOM_and_VDRbaseline/sag-pm-118_VDR.json",
+  "referenceType" : "advisory"
+} ]
+```
+
+
 ## G.2 Satisfying NTIA Minimum Elements for an SBOM using SPDX
 
 ### G.2.1 US Executive Order 14028 Minimum Elements for an SBOM
