@@ -695,7 +695,7 @@ EXAMPLE 2 RDF: Properties `spdx:packageVerificationCodeValue`, `spdx:packageVeri
 
 ### 7.10.1 Description
 
-Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX document. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX document is to be included in a package, this value should not be calculated. The [SHA-1][] algorithm shall be used to provide the checksum by default. The metadata for the package checksum field is shown in Table 22.
+Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX document. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX document is to be included in a package, this value should not be calculated. The [SHA1][] algorithm shall be used to provide the checksum by default. The metadata for the package checksum field is shown in Table 22.
 
 **Table 22 — Metadata for the package checksum field**
 
@@ -703,7 +703,7 @@ Provide an independently reproducible mechanism that permits unique identificati
 | --------- | ----- |
 | Required | No |
 | Cardinality | 0..* |
-| Algorithm | Algorithms that can be used: [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`SHA3-256`][SHA3-256], [`SHA3-384`][SHA3-384], [`SHA3-512`][SHA3-512], [`BLAKE2b-256`][BLAKE2b-256], [`BLAKE2b-384`][BLAKE2b-384], [`BLAKE2b-512`][BLAKE2b-512], [`BLAKE3`][BLAKE3], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6], [`ADLER32`][ADLER32] |
+| Algorithm | Algorithms that can be used: [`SHA1`][SHA1],[`SHA1-DC`][SHA1-DC], [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`SHA3-256`][SHA3-256], [`SHA3-384`][SHA3-384], [`SHA3-512`][SHA3-512], [`BLAKE2b-256`][BLAKE2b-256], [`BLAKE2b-384`][BLAKE2b-384], [`BLAKE2b-512`][BLAKE2b-512], [`BLAKE3`][BLAKE3], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6], [`ADLER32`][ADLER32] |
 | Format | There are three components, an algorithm identifier (e.g. `SHA1`), a colon separator `:`, and a bit value represented as lowercase hexadecimal digits (appropriate as output to the algorithm). |
 
 ### 7.10.2 Intent
@@ -1585,7 +1585,8 @@ EXAMPLE 2 RDF: Property `spdx:validUntilDate` in class `spdx:Package`
 [pip-vcs]: https://pip.pypa.io/en/latest/reference/pip_install.html#vcs-support
 [Red Hat]: https://www.redhat.com/
 [rfc3986]: https://tools.ietf.org/html/rfc3986
-[SHA-1]: https://tools.ietf.org/html/rfc3174
+[SHA1]: https://tools.ietf.org/html/rfc3174
+[SHA1-DC]:https://github.com/cr-marcstevens/sha1collisiondetection
 [SHA-224]: https://en.wikipedia.org/wiki/SHA-2
 [SHA-256]: https://tools.ietf.org/html/rfc6234
 [SHA-384]: https://en.wikipedia.org/wiki/SHA-2
