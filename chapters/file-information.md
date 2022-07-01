@@ -171,8 +171,8 @@ The metadata for the file checksum field is shown in Table 39.
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
-| Cardinality | 1..1 for the [`SHA1`][SHA-1] algorithm, 0..* for all other algorithms |
-| Algorithm | [`SHA1`][SHA-1] is to be used on the file. Other algorithms that can be provided optionally include [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`SHA3-256`][SHA3-256], [`SHA3-384`][SHA3-384], [`SHA3-512`][SHA3-512], [`BLAKE2b-256`][BLAKE2b-256], [`BLAKE2b-384`][BLAKE2b-384], [`BLAKE2b-512`][BLAKE2b-512], [`BLAKE3`][BLAKE3], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6], [`ADLER32`][ADLER32] |
+| Cardinality | 1..1 for the [`SHA1`][SHA1] algorithm, 0..* for all other algorithms |
+| Algorithm | [`SHA1`][SHA1] is to be used on the file. Other algorithms that can be provided optionally include [`SHA1-DC`][SHA1-DC],[`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`SHA3-256`][SHA3-256], [`SHA3-384`][SHA3-384], [`SHA3-512`][SHA3-512], [`BLAKE2b-256`][BLAKE2b-256], [`BLAKE2b-384`][BLAKE2b-384], [`BLAKE2b-512`][BLAKE2b-512], [`BLAKE3`][BLAKE3], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6], [`ADLER32`][ADLER32] |
 | Format | In `tag:value` there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF shall also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160-bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected. |
 
 ### 8.4.2 Intent
@@ -795,7 +795,8 @@ EXAMPLE 2 RDF: Property `spdx:fileDependency` in class `spdx:File`
 [pip-vcs]: https://pip.pypa.io/en/latest/reference/pip_install.html#vcs-support
 [Red Hat]: https://www.redhat.com/
 [rfc3986]: https://tools.ietf.org/html/rfc3986
-[SHA-1]: https://tools.ietf.org/html/rfc3174
+[SHA1]: https://tools.ietf.org/html/rfc3174
+[SHA1-DC]: https://github.com/cr-marcstevens/sha1collisiondetection
 [SHA-224]: https://en.wikipedia.org/wiki/SHA-2
 [SHA-256]: https://tools.ietf.org/html/rfc6234
 [SHA-384]: https://en.wikipedia.org/wiki/SHA-2
