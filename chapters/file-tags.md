@@ -54,7 +54,7 @@ Version 3.0 of the [REUSE Software guidelines](https://reuse.software/spec/) imp
 
 If certain SPDX tags are to apply only to a certain snippet instead of the whole file, SPDX snippet tags should be used.
 
-SPDX snippet tags should start with `SPDX-SnippetBegin` to mark the beginning of the snippet and end with `SPDX-SnippetEnd` to mark its end, in the following format:
+SPDX snippet tags should start with `SPDX-SnippetBegin` to mark the beginning of the snippet and `SPDX-SnippetEnd` in the following format:
 
 ```text
 SPDX-SnippetBegin
