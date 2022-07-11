@@ -3,6 +3,10 @@
 The SPDX specification is maintained by the SPDX [legal][spdx-legal] and [tech][spdx-tech] teams.
 Design and planning is primarily done via the team [mailing][spdx-legal-list] [lists][spdx-tech-list] and meetings.
 
+## Contribution License Agreement
+
+Contributions to this repo are made pursuant to the [SPDX Community Specification Contributor License Agreement 1.0][cla]. You do not need to submit a signed copy of the contributor license agreement; by making a contribution to this repo, you agree to the terms set forth in that agreement.
+
 ## Submitting changes
 
 Always write a clear log message for your commits. One-line messages are fine for small changes, but significant changes should look like this:
@@ -28,6 +32,7 @@ Any change that break backwards compatibility or requires significant tooling ch
 You may want to discuss major changes on the mailing list first to get design feedback before investing time in a pull request.
 Please submit all major changes against the `development/v3.0` which is the next major version of the specification. 
 
+[cla]: https://github.com/spdx/governance/blob/main/0._SPDX_Contributor_License_Agreement.md
 [issues]: https://github.com/spdx/spdx-spec/issues/
 [pull-requests]: https://github.com/spdx/spdx-spec/pulls/
 [spdx-legal]: https://wiki.spdx.org/view/Legal_Team
