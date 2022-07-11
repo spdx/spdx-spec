@@ -370,7 +370,7 @@ EXAMPLE 2 RDF: Property `spdx:created` in class `spdx:CreationInfo`
 
 ```text
 <CreationInfo>
-    <created> 2010-01-29T18:30:22Z </created>
+    <created>2010-01-29T18:30:22Z</created>
 </CreationInfo>
 ```
 
