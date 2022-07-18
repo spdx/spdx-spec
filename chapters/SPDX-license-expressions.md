@@ -91,6 +91,12 @@ For example, when given a choice between the LGPL-2.1-only or MIT licenses, a va
 LGPL-2.1-only OR MIT
 ```
 
+The "OR" operator is commutative, meaning that the above expression should be considered equivalent to:
+
+```text
+MIT OR LGPL-2.1-only
+```
+
 An example representing a choice between three different licenses would be:
 
 ```text
@@ -105,6 +111,12 @@ For example, when one is required to comply with both the LGPL-2.1-only or MIT l
 
 ```text
 LGPL-2.1-only AND MIT
+```
+
+The "AND" operator is commutative, meaning that the above expression should be considered equivalent to:
+
+```text
+MIT AND LGPL-2.1-only
 ```
 
 An example where all three different licenses apply would be:
