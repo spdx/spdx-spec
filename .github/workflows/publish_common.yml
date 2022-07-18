@@ -1,0 +1,34 @@
+on:
+  repository_dispatch:
+    types:
+      - publish_spec
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Branch or tag to publish (e.g. refs/heads/development/v2).
+        required: true
+        default: refs/heads/master
+      aliases:
+        description: Space-delimited aliases to publish (e.g. latest v2-latest).
+        required: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: python:3
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.client_payload.ref || github.event.inputs.ref }}
+        fetch-depth: 0 # Because we will be pushing the gh-pages branch
+        token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+    - name: Install pre-requisites
+      run: pip install -r requirements.txt
+    - name: Install mike
+      run: pip install mike==1.2.0
+    - name: Extract branch or tag name
+      id: extract-branch-or-tag-name
+      run: echo "::set-output name=${REF##*/}"
+      with:
+        ref: ${{ github.event.client_payload.ref || github.event.inputs.ref }}
+    - name: Build docs
+      run: mike deploy ${{ steps.outputs.extract-branch-or-tag-name.name }} ${{ github.event.inputs.aliases }}
