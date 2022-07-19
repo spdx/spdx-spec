@@ -26,8 +26,8 @@ jobs:
       run: pip install mike==1.1.2
     - name: Extract branch or tag name
       id: extract-branch-or-tag-name
-      run: echo "::set-output name=${REF##*/}"
+      run: echo "::set-output name=ref_name::${REF##*/}"
       env:
         REF: ${{ github.event.client_payload.ref || github.event.inputs.ref }}
     - name: Build docs
-      run: mike deploy ${{ steps.extract-branch-or-tag-name.outputs.name }} ${{ github.event.inputs.aliases }}
+      run: mike deploy ${{ steps.extract-branch-or-tag-name.outputs.ref_name }} ${{ github.event.inputs.aliases }}
