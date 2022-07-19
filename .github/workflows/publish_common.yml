@@ -29,8 +29,9 @@ jobs:
       run: echo "::set-output name=ref_name::${REF##*/}"
       env:
         REF: ${{ github.event.client_payload.ref || github.event.inputs.ref }}
+    - name: Set Git identity
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
     - name: Build docs
       run: mike deploy ${{ steps.extract-branch-or-tag-name.outputs.ref_name }} ${{ github.event.inputs.aliases }}
-      env:
-          GIT_COMMITTER_NAME: Automatic Publish
-          GIT_COMMITTER_EMAIL: noreply@spdx.dev
