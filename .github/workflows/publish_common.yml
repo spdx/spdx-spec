@@ -31,3 +31,6 @@ jobs:
         REF: ${{ github.event.client_payload.ref || github.event.inputs.ref }}
     - name: Build docs
       run: mike deploy ${{ steps.extract-branch-or-tag-name.outputs.ref_name }} ${{ github.event.inputs.aliases }}
+      env:
+          GIT_COMMITTER_NAME: Automatic Publish
+          GIT_COMMITTER_EMAIL: noreply@spdx.dev
