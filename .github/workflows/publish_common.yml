@@ -28,7 +28,7 @@ jobs:
     - name: Extract branch or tag name
       id: extract-branch-or-tag-name
       run: echo "::set-output name=${REF##*/}"
-      with:
-        ref: ${{ github.event.client_payload.ref || github.event.inputs.ref }}
+      env:
+        REF: ${{ github.event.client_payload.ref || github.event.inputs.ref }}
     - name: Build docs
       run: mike deploy ${{ steps.outputs.extract-branch-or-tag-name.name }} ${{ github.event.inputs.aliases }}
