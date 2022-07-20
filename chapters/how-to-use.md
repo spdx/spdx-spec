@@ -1,6 +1,6 @@
-# Annex G: How To Use SPDX in Different Scenarios
+# Annex K: How To Use SPDX in Different Scenarios
 
-## G.1 Including security information in a SPDX document
+## K.1 Including security information in a SPDX document
 
 SPDX 2.x has the concept of an External Reference for a Package to "reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package." 
 
@@ -14,7 +14,7 @@ This section provides usage scenarios of how to leverage the Security and Persis
 
 Note that identifiers (e.g. CPE, GitBOM, SWID)  are spread throughout Annex F and sometimes locators refer to identifiers.
 
-### G.1.1 Linking to an advisory
+### K.1.1 Linking to an advisory
 
 Including a reference to a Common Vulnerabilities and Exposures (CVE) advisory applicable to a package is shown in the example below. A SPDX creator should include current publicly known vulnerabilities at the time of document creation. SPDX consumers should always assume vulnerabilities enumerated by a SPDX creator to be out-of-date.
 
@@ -35,7 +35,7 @@ Including a reference to a Common Vulnerabilities and Exposures (CVE) advisory a
 } ]
 ```
 
-### G.1.2 Linking to a CSAF
+### K.1.2 Linking to a CSAF
 
 To learn how to reference to [CSAF](https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.html) formatted security information
 applicable to a package see the example below, and additional examples here and here.
@@ -48,7 +48,7 @@ applicable to a package see the example below, and additional examples here and 
 } ]
 ```
 
-### G.1.3 Linking to a CycloneDX
+### K.1.3 Linking to a CycloneDX
 
 To reference to [CycloneDX](https://cyclonedx.org) formatted security information applicable to a package see the example below.
 
@@ -60,7 +60,7 @@ To reference to [CycloneDX](https://cyclonedx.org) formatted security informatio
 } ]
 ```
 
-### G.1.4 Linking to an OSV
+### K.1.4 Linking to an OSV
 
 To learn how to include a reference to [Open Source Vulnerability](https://github.com/google/osv) (OSV) formatted security information applicable to a package see the example below.
 
@@ -72,7 +72,7 @@ To learn how to include a reference to [Open Source Vulnerability](https://githu
 } ]
 ```
 
-### G.1.5 Linking to a GitBOM
+### K.1.5 Linking to a GitBOM
 
 To reference to [GitBOM](https://gitbom.dev) formatted security information applicable to a package see the example below.
 
@@ -91,7 +91,7 @@ To reference to [GitBOM](https://gitbom.dev) formatted security information appl
 } ]
 ```
 
-### G.1.6 Linking to a vulnerability disclosure document
+### K.1.6 Linking to a vulnerability disclosure document
 
 To express a reference to a vulnerability disclosure document for a package such Cisco’s response to Apache log4j vulnerability.
 
@@ -123,7 +123,7 @@ To refer to a security disclosure feed, such as the security bulletins from [CER
 } ]
 ```
 
-### G.1.7 Linking to a code fix for a security issue
+### K.1.7 Linking to a code fix for a security issue
 
 To reference a code fix for a security issue applicable to a package see the example below.
 In this example, the link points to a specific code revision containing the fix for [CVE-2020-28498](https://nvd.nist.gov/vuln/detail/CVE-2020-28498).
@@ -157,7 +157,7 @@ Oracle patch information for [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/C
 } ]
 ```
 
-### G.1.8 Linking to any security related document
+### K.1.8 Linking to any security related document
 
 If you want to reference any security information related to a package but cannot or do not wish to specify its kind, use the `url` referenceType.
 
@@ -179,7 +179,7 @@ One can also use it to refer to guidance related to a vulnerability such as CISA
 } ]
 ```
 
-### G.1.9 Linking to an SBOM vulnerability report for a Software Product (per NIST Executive Order 14028)
+### K.1.9 Linking to an SBOM vulnerability report for a Software Product (per NIST Executive Order 14028)
 
 The National Institute of Standards and Technology (NIST) describes the concept of correlating vulnerability and SBOM information for a software product at the component level in “[Software Security in Supply Chains: Software Bill of Materials (SBOM)](https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity/software-security-supply-chains-software-1)”. Use the ExternalRefs `SECURITY` category and `advisory` referenceType to report on vulnerabilities related to the components contained in a software product’s SBOM.
 
@@ -196,9 +196,9 @@ Providing a link to such data at the time the SBOM is published provides a point
 ```
 
 
-## G.2 Satisfying NTIA Minimum Elements for an SBOM using SPDX
+## K.2 Satisfying NTIA Minimum Elements for an SBOM using SPDX
 
-### G.2.1 US Executive Order 14028 Minimum Elements for an SBOM
+### K.2.1 US Executive Order 14028 Minimum Elements for an SBOM
 
 US Executive Order 14028 in conjunction with the National Telecommunications and Information Administration (NTIA) outlined minimum elements for an SBOM. The minimum elements are detailed in [NTIA's Framing Software Component Transparency: Establishing a Common Software Bill of Maternials](https://www.ntia.gov/files/ntia/publications/framingsbom_20191112.pdf) and [The Minimum Elements for a SBOM](https://www.ntia.doc.gov/files/ntia/publications/sbom_minimum_elements_report.pdf) documents and summarized below:
 
@@ -214,7 +214,7 @@ US Executive Order 14028 in conjunction with the National Telecommunications and
 | Timestamp | Record of the date and time of the SBOM data assembly. |
 
 
-### G.2.2 Mapping NTIA Minimum Elements to SPDX Fields
+### K.2.2 Mapping NTIA Minimum Elements to SPDX Fields
 
 The SPDX Specification contains fields able to address each of the NTIA minimum required data fields.
 
