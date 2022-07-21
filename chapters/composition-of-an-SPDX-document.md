@@ -4,7 +4,7 @@
 
 This document contains the specification for an SPDX document, which is made up of a set of one or more sections, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of sections allowed. The fields for each kind of section are defined in the clause corresponding to that section.  Within an SPDX document, sections may be organized, as follows:
 
-![Overview of SPDX document contents](img/spdx-2.2.2-document.png)
+![Overview of SPDX document contents](img/spdx-2.3-document.png)
 
 The object model is illustrated by [Annex C](RDF-object-model-and-identifier-syntax.md).
 
