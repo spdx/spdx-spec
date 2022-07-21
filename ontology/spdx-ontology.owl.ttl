@@ -140,6 +140,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://spdx.org/rdf/terms#externalDocumentRef
 :externalDocumentRef rdf:type owl:ObjectProperty ;
                      rdfs:domain :SpdxDocument ;
+                     rdfs:range :ExternalDocumentRef ;
                      rdfs:comment "Identify any external SPDX documents referenced within this SPDX document."@en ;
                      ns:term_status "stable"@en .
 
@@ -170,8 +171,8 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://spdx.org/rdf/terms#hasExtractedLicensingInfo
 :hasExtractedLicensingInfo rdf:type owl:ObjectProperty ;
-                           rdfs:domain :ExtractedLicensingInfo ,
-                                       :SpdxDocument ;
+                           rdfs:domain :SpdxDocument ;
+                           rdfs:range :ExtractedLicensingInfo ;
                            rdfs:comment "Indicates that a particular ExtractedLicensingInfo was defined in the subject SpdxDocument."@en ;
                            ns:term_status "stable"@en .
 
@@ -311,6 +312,7 @@ If the licenseInfoInSnippet field is not present for a snippet, it implies an eq
 ###  http://spdx.org/rdf/terms#primaryPackagePurpose
 :primaryPackagePurpose rdf:type owl:ObjectProperty ;
                        rdfs:domain :Package ;
+                       rdfs:range :Purpose ;
                        rdfs:comment "This field provides information about the primary purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package."@en ;
                        ns:term_status "stable"@en .
 
@@ -326,6 +328,7 @@ If the licenseInfoInSnippet field is not present for a snippet, it implies an eq
 ###  http://spdx.org/rdf/terms#referenceCategory
 :referenceCategory rdf:type owl:ObjectProperty ;
                    rdfs:domain :ExternalRef ;
+                   rdfs:range :ReferenceCategory ;
                    rdfs:comment "Category for the external reference"@en ;
                    ns:term_status "stable"@en .
 
@@ -518,10 +521,6 @@ If the licenseInfoInSnippet field is not present for a snippet, it implies an eq
               rdfs:range :SpdxDocument ;
               rdfs:comment "A property containing an SPDX document."@en ;
               ns:term_status "stable"@en .
-
-
-###  http://www.w3.org/2000/01/rdf-schema#member
-rdfs:member rdf:type owl:ObjectProperty .
 
 
 ###  http://www.w3.org/2009/pointers#endPointer
@@ -871,6 +870,7 @@ If the copyrightText field is not present, it implies an equivalent meaning to N
 
 ###  http://spdx.org/rdf/terms#order
 :order rdf:type owl:DatatypeProperty ;
+       rdfs:domain :CrossRef ;
        rdfs:range xsd:nonNegativeInteger ;
        rdfs:comment "The ordinal order of this element within a list"@en .
 
@@ -993,7 +993,7 @@ If the copyrightText field is not present, it implies an equivalent meaning to N
 
 ###  http://spdx.org/rdf/terms#standardLicenseHeaderTemplate
 :standardLicenseHeaderTemplate rdf:type owl:DatatypeProperty ;
-                               rdfs:domain :ListedLicense ;
+                               rdfs:domain :License ;
                                rdfs:range xsd:string ;
                                rdfs:comment "License template which describes sections of the license header which can be varied. See License Template section of the specification for format information."@en ;
                                ns:term_status "stable"@en .
