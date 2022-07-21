@@ -15,13 +15,13 @@ A properly formed Git commit subject line should always be able to complete the 
 
     if applied, this commit will Add chapter on Security Vunerabilities in SPDX
     if applied, this commit will Delete section with deprecated SPDX attributes 
-    if applied, this commit will Fix grammar in SPDX 3.3 Package Version
+    if applied, this commit will Fix grammar in Package Version field description
 
 Git itself uses this approach. When you merge something it will generate a commit message like "Merge branch...", or when reverting "Revert...".
 
 ### Minor Changes
 Minor changes such as markup and typo fixes may be submitted directly to this repository (either as [issues][] or [pull-requests][]) without previous discussion.
-Please submit all minor changes against the `development/v2.2.2` branch which is the draft of the next version of the SPDX specification to be released.
+Please submit all minor changes against the `development/v2.3` branch which is the current version of the SPDX specification.
 
 ### Major Changes
 Any change that break backwards compatibility or requires significant tooling changes is considered a major change.
