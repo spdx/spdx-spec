@@ -14,7 +14,7 @@ To ensure consistent results by different SPDX document creators when matching l
 
 The matching guidelines apply to license and exception text, as well as  official license headers. Official license headers are defined by the SPDX License List as specific text specified within the license itself to be put in the header of files. (see [explantion of SPDX License List fields](https://github.com/spdx/license-list-XML/blob/master/DOCS/license-fields.md) for more info).
 
-The following XML tag is used to implement this guideline:: <standardLicenseHeader>
+The following XML tag is used to implement this guideline: `<standardLicenseHeader>`
 
 ## B.3 Substantive text <a name="B.3"></a>
 
@@ -34,7 +34,15 @@ Matched text should only include that found in the vetted license or exception t
 
 Some licenses include text that refers to the specific copyright holder or author, yet the rest of the license is exactly the same. The intent here is to avoid the inclusion of a specific name in one part of the license resulting in a non-match where the license is otherwise an exact match to the legally substantive terms (e.g., the third clause and disclaimer in the BSD licenses, or the third, fourth, and fifth clauses of Apache-1.1). In these cases, there should be a positive license match.
 
-The text indicated as such can be replaced with similar values (e.g., a different name or generic term; different date) and still be considered a positive match. This rule also applies to text-matching in official license headers (see Guideline #1).
+The text indicated as such can be replaced with similar values (e.g., a different name or generic term; different date) and still be considered a positive match. This rule also applies to text-matching in official license headers (see Guideline: official license headers).
+  
+The following XML element tag is used to implement this guideline.  `<alt>` with 2 attributes:
+* match: a POSIX extended regular expression (ERE) to match the replaceable text
+* name: An identifier for the variable text unique to the license XML document
+The original text is enclosed within the alt tags.
+For example: `<alt match="(?i:copyright.{0,200})." name="copyright1">Copyright Linux Foundation</alt>`
+  
+The original replaceable text appears on the SPDX License List webpage in red text.
 
 ### B.3.5 Guideline: omittable text <a name="B.3.5"></a>
 
