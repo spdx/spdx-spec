@@ -2,7 +2,7 @@
 
 ## B.1 SPDX license list matching guidelines <a name="B.1"></a>
 
-The [SPDX License List Matching Guidelines](https://spdx.org/spdx-license-list/matching-guidelines) provide guidelines to be used for the purposes of matching licenses and license exceptions against those included on the SPDX License List. There is no intent here to make a judgment or interpretation, but merely to ensure that when one SPDX user identifies a license as "BSD-3-Clause," for example, it is indeed the same license as what someone else identifies as "BSD-3-Clause" and the same license as what is listed on the SPDX License List. Examples of how to apply some of the matching guidelines to a license or exception are provided via templates.  Templates are comprised of technical markup within the master license text file to provide further or specific guidance to SPDX document creators or tool makers.  Not all licenses or exceptions will have templates.
+The SPDX License List Matching Guidelines provide guidelines to be used for the purposes of matching licenses and license exceptions against those included on the SPDX License List. There is no intent here to make a judgment or interpretation, but merely to ensure that when one SPDX user identifies a license as "BSD-3-Clause," for example, it is indeed the same license as what someone else identifies as "BSD-3-Clause" and the same license as what is listed on the SPDX License List.  As noted here, some of the matching guidelines are implemented in the XML files of the SPDX License List repository.
 
 ## B.2 How these guidelines are applied <a name="B.2"></a>
 
@@ -12,13 +12,15 @@ To ensure consistent results by different SPDX document creators when matching l
 
 ### B.2.2 Guideline: official license headers <a name="B.2.2"></a>
 
-The same matching guidelines used for license and exception text apply to the official license headers. Where applicable, an official license header template file with markup is included with the SPDX License List. Official license headers are defined by the SPDX License List as specific text specified within the license itself to be put in the header of files. (see https://spdx.org/spdx-license-list/license-list-overview for more info).
+The matching guidelines apply to license and exception text, as well as  official license headers. Official license headers are defined by the SPDX License List as specific text specified within the license itself to be put in the header of files. (see [explantion of SPDX License List fields](https://github.com/spdx/license-list-XML/blob/master/DOCS/license-fields.md) for more info).
+
+The following XML tag is used to implement this guideline:: <standardLicenseHeader>
 
 ## B.3 Substantive text <a name="B.3"></a>
 
 ### B.3.1 Purpose <a name="B.3.1"></a>
 
-To ensure that when matching licenses and exceptions to the SPDX License List, there is an appropriate balance between matching against the substantive text and disregarding parts of the text that do not alter the substantive text. Further guidelines of what can be disregarded or considered replaceable for purposes of matching are listed below here and in the subsequent specific guidelines. A conservative approach is taken in regard to rules about disregarded or replaceable text.
+To ensure that when matching licenses and exceptions to the SPDX License List, there is an appropriate balance between matching against the substantive text and disregarding parts of the text that do not alter the substantive text or legal meaning. Further guidelines of what can be disregarded or considered replaceable for purposes of matching are listed below here and in the subsequent specific guidelines. A conservative approach is taken in regard to rules disregarded or replaceable text.
 
 ### B.3.2 Guideline: verbatim text <a name="B.3.2"></a>
 
@@ -30,9 +32,9 @@ Matched text should only include that found in the vetted license or exception t
 
 ### B.3.4 Guideline: replaceable text <a name="B.3.4"></a>
 
-Some licenses include text that refers to the specific copyright holder or author, yet the rest of the license is exactly the same as a generic version. The intent here is to avoid the inclusion of a specific name in one part of the license resulting in a non-match where the license is otherwise an exact match (e.g., the third clause and disclaimer in the BSD licenses, or the third, fourth, and fifth clauses of Apache-1.1). In these cases, there should be a positive license match.
+Some licenses include text that refers to the specific copyright holder or author, yet the rest of the license is exactly the same. The intent here is to avoid the inclusion of a specific name in one part of the license resulting in a non-match where the license is otherwise an exact match to the legally substantive terms (e.g., the third clause and disclaimer in the BSD licenses, or the third, fourth, and fifth clauses of Apache-1.1). In these cases, there should be a positive license match.
 
-Text that can be considered replaceable for matching purposes is indicated in the SPDX License List template with mark-up and in the corresponding HTML pages with colored text. The text indicated as such can be replaced with similar values (e.g., a different name or generic term; different date) and still be considered a positive match. This rule also applies to text-matching in official license headers (see Guideline #1).
+The text indicated as such can be replaced with similar values (e.g., a different name or generic term; different date) and still be considered a positive match. This rule also applies to text-matching in official license headers (see Guideline #1).
 
 ### B.3.5 Guideline: omittable text <a name="B.3.5"></a>
 
