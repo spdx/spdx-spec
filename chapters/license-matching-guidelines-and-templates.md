@@ -207,18 +207,21 @@ XML files do not require specific markup to implement this guideline.
 
 ### B.15.1 Template access <a name="B.15.1"></a>
 
-The master files for the SPDX License List includes a spreadsheet listing all the licenses, deprecated licenses, and license exceptions; and the text for each license in a .txt file. These files are available in a Git repository at <https://github.com/spdx/license-list-XML>. Text that can be considered replaceable or omittable for matching purposes is indicated in the .txt file with markup as per the description below.
+The license XML can be accessed in the license-list-data repository under the license-list-XML directory.  Although the license list XML files can also be found in the [license-list-XML](https://github.com/spdx/license-list-XML) repo, users are encouraged to use the published versions in the [license-list-data](https://github.com/spdx/license-list-data) repository.  The license-list-data repository is tagged by release.  Only tagged released versions of the license list are considered stable.
 
-RDFa Access: The template text for the license can be accessed using the RDF tag licenseTemplate on the web page containing the license.
+### B.15.2 License List XML format
+  
+A full schema for the License List XML can be found at https://github.com/spdx/license-list-XML/blob/master/schema/ListedLicense.xsd.
+  
+###  B.15.3 Legacy Text Template format <a name="B.15.2"></a>
 
-### B.15.2 Template format <a name="B.15.2"></a>
-
-A template is composed of text with zero or more rules embedded in it.
+Prior to the XML format, a text template was used to express variable and optional text in licenses.  This text template is still supported, however, users are encouraged to use the more expressive XML format.
+  
+A legacy template is composed of text with zero or more rules embedded in it.
 
 A rule is a variable section of a license wrapped between double angle brackets “\<\<\>\>” and is composed of 4 fields. Each field is separated with a semi-colon “;”. Rules cannot be embedded within other rules. Rule fields begin with a case sensitive tag followed by an equal sign “=”.
 
 Rule fields:
-
 
 * type: indicates whether the text is replaceable or omittable as per Matching Guideline #2 (“Substantive Text”).
     * Indicated by `<<var; . . . >>` or...
@@ -234,16 +237,7 @@ Rule fields:
 
 The [POSIX ERE]( http://pubs.opengroup.org/onlinepubs/9699919799/) in the match field has the following restrictions and extensions:
 
-```text
-Semicolons are escaped with \;
-```
+* Semicolons are escaped with \;
+* POSIX Bracket Extensions are not allowed
 
-```text
-POSIX Bracket Extensions are not allowed
-```
-
-EXAMPLE:
-
-```text
-<<var;name=organizationClause3;original=the copyright holder;match=.+>>
-```
+EXAMPLE: `<<var;name=organizationClause3;original=the copyright holder;match=.+>>`
