@@ -40,6 +40,7 @@ The following XML tag is used to implement this guideline.  `<alt>` with 2 attri
 * `match` - a POSIX extended regular expression (ERE) to match the replaceable text
 * `name` - an identifier for the variable text unique to the license XML document
 The original text is enclosed within the alt tags.
+
 For example: `<alt match="(?i:copyright.{0,200})." name="copyright1">Copyright Linux Foundation</alt>`
   
 The original replaceable text appears on the SPDX License List webpage in red text.
@@ -134,7 +135,9 @@ English uses different spelling for some words. By identifying the spelling vari
 
 ### B.9.2  Guideline <a name="B.9.2"></a>
 
-The words in each line of the text file available at <https://spdx.org/licenses/equivalentwords.txt> are considered equivalent and interchangeable. Templates do not include markup for this guideline.
+The words in each line of the text file available at <https://spdx.org/licenses/equivalentwords.txt> are considered equivalent and interchangeable. 
+
+XML files do not require specific markup to implement this guideline.
 
 ## B.10 Copyright symbol <a name="B.10"></a>
 
@@ -144,7 +147,9 @@ By having a rule regarding the use of "©", "(c)", or "copyright", we avoid the 
 
 ### B.10.2 Guideline <a name="B.10.2"></a>
 
-"©", "(c)", or "Copyright" should be considered equivalent and interchangeable. Templates do not include markup for this guideline.
+"©", "(c)", or "Copyright" should be considered equivalent and interchangeable. 
+
+XML files do not require specific markup to implement this guideline. The copyright symbol is part of the copyright notice, see implementation of that guideline below.
 
 ## B.11 Copyright notice <a name="B.11"></a>
 
@@ -154,7 +159,11 @@ To avoid a license mismatch merely because the copyright notice (usually found a
 
 ### B.11.2 Guideline <a name="B.11.2"></a>
 
-Ignore copyright notices. A copyright notice consists of the following elements, for example: "2012 Copyright, John Doe. All rights reserved." or "(c) 2012 John Doe." Templates may or may not include markup for this guideline.
+Ignore copyright notices. A copyright notice consists of the following elements, for example: "2012 Copyright, John Doe. All rights reserved." or "(c) 2012 John Doe." 
+
+The following XML tag is used to implement this guideline: `<copyrightText>`
+
+For example: `<copyrightText>Copyright 2022 Linux Foundation</copyrightText>`
 
 ## B.12 License name or title <a name="B.12"></a>
 
@@ -164,7 +173,11 @@ To avoid a license mismatch merely because the name or title of the license is d
 
 ### B.12.2 Guideline <a name="B.12.2"></a>
 
-Ignore the license name or title for matching purposes, so long as what ignored is the title only and there is no additional substantive text added here. Templates do not include markup for this guideline.
+Ignore the license name or title for matching purposes, so long as what ignored is the title only and there is no additional substantive text added here. 
+
+The following XML tag is used to implement this guideline: `<titleText>` 
+
+For example: `<titleText>Attribution Assurance License</titleText>`
 
 ## B.13 Extraneous text at the end of a license <a name="B.13"></a>
 
@@ -174,7 +187,9 @@ To avoid a license mismatch merely because extraneous text that appears at the e
 
 ### B.13.2 Guideline <a name="B.13.2"></a>
 
-Ignore any text that occurs after the obvious end of the license and does not include substantive text of the license, for example: text that occurs after a statement such as, "END OF TERMS AND CONDITIONS," or an exhibit or appendix that includes an example or instructions on to how to apply the license to your code. Do not apply this guideline or ignore text that is comprised of additional license terms (e.g., permitted additional terms under GPL-3.0, section 7). Templates do not include markup for this guideline.
+Ignore any text that occurs after the obvious end of the license and does not include substantive text of the license, for example: text that occurs after a statement such as, "END OF TERMS AND CONDITIONS," or an exhibit or appendix that includes an example or instructions on to how to apply the license to your code. Do not apply this guideline or ignore text that is comprised of additional license terms (e.g., permitted additional terms under GPL-3.0, section 7). 
+
+To implement this guideline, use the <optional> XML element tag as described in section B.3.5.
 
 ## B.14 HTTP Protocol <a name="B.14"></a>
 
@@ -184,7 +199,9 @@ To avoid a license mismatch due to a difference in a hyperlink protocol (e.g. ht
 
 ### B.14.2 Guideline <a name="B.14.2"></a>
 
-HTTP:// and HTTPS:// should be considered equivalent. Templates may or may not include markup for this guideline.
+HTTP:// and HTTPS:// should be considered equivalent. 
+
+XML files do not require specific markup to implement this guideline.
 
 ## B.15 SPDX License list <a name="B.15"></a>
 
