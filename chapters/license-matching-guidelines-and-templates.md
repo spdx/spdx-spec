@@ -36,9 +36,9 @@ Some licenses include text that refers to the specific copyright holder or autho
 
 The text indicated as such can be replaced with similar values (e.g., a different name or generic term; different date) and still be considered a positive match. This rule also applies to text-matching in official license headers (see Guideline: official license headers).
   
-The following XML element tag is used to implement this guideline.  `<alt>` with 2 attributes:
-* match: a POSIX extended regular expression (ERE) to match the replaceable text
-* name: An identifier for the variable text unique to the license XML document
+The following XML tag is used to implement this guideline.  `<alt>` with 2 attributes:
+* `match` - a POSIX extended regular expression (ERE) to match the replaceable text
+* `name` - an identifier for the variable text unique to the license XML document
 The original text is enclosed within the alt tags.
 For example: `<alt match="(?i:copyright.{0,200})." name="copyright1">Copyright Linux Foundation</alt>`
   
@@ -46,9 +46,15 @@ The original replaceable text appears on the SPDX License List webpage in red te
 
 ### B.3.5 Guideline: omittable text <a name="B.3.5"></a>
 
-Some licenses have text that can simply be ignored. The intent here is to avoid the inclusion of certain text that is superfluous or irrelevant in regards to the substantive license text resulting in a non-match where the license is otherwise an exact match (e.g., directions on how to apply the license or other similar non-substantive exhibits). In these cases, there should be a positive license match.
+Some licenses have text that can simply be ignored. The intent here is to avoid the inclusion of certain text that is superfluous or irrelevant in regards to the substantive license text resulting in a non-match where the license is otherwise an exact match (e.g., directions on how to apply the license or other similar exhibits). In these cases, there should be a positive license match.
 
-Text that can be considered omittable for matching purposes is indicated in the SPDX License List template with mark-up and in the corresponding HTML pages with colored text. The license should be considered a match if the text indicated is present and matches OR the text indicated is missing altogether.
+The license should be considered a match if the text indicated is present and matches OR the text indicated is missing altogether.
+
+The following XML tag is used to implement this guideline: `<optional>`
+  
+For example: `<optional>Apache License Version 2.0, January 2004 http://www.apache.org/licenses/</optional>`
+
+Omittable text appears on the SPDX License List webpage in blue text.
 
 ## B.4 Whitespace <a name="B.4"></a>
 
@@ -58,7 +64,9 @@ To avoid the possibility of a non-match due to different spacing of words, line 
 
 ### B.4.2 Guideline <a name="B.4.2"></a>
 
-All whitespace should be treated as a single blank space. Templates do not include markup for this guideline.
+All whitespace should be treated as a single blank space. 
+
+XML files do not require specific markup to implement this guideline. 
 
 ## B.5 Capitalization <a name="B.5"></a>
 
@@ -68,13 +76,17 @@ To avoid the possibility of a non-match due to lowercase or uppercase letters in
 
 ### B.5.2  Guideline <a name="B.5.2"></a>
 
-All uppercase and lowercase letters should be treated as lowercase letters. Templates do not include markup for this guideline.
+All uppercase and lowercase letters should be treated as lowercase letters. 
+
+XML files do not require specific markup to implement this guideline. 
 
 ## B.6 Punctuation <a name="B.6"></a>
 
 ### B.6.1  Purpose <a name="B.6.1"></a>
 
-Because punctuation can change the meaning of a sentence, punctuation needs to be included in the matching process. License template files do not include markup for this guideline.
+Because punctuation can change the meaning of a sentence, punctuation needs to be included in the matching process. 
+
+XML files do not require specific markup to implement this guideline. 
 
 ### B.6.2  Guideline: punctuation <a name="B.6.2"></a>
 
@@ -96,7 +108,9 @@ To avoid the possibility of a non-match due to the existence or absence of code 
 
 ### B.7.2  Guideline <a name="B.7.2"></a>
 
-Any kind of code comment indicator or prefix which occurs at the beginning of each line in a matchable section should be ignored for matching purposes. Templates do not include markup for this guideline.
+Any kind of code comment indicator or prefix which occurs at the beginning of each line in a matchable section should be ignored for matching purposes. 
+
+XML files do not require specific markup to implement this guideline. 
 
 ## B.8 Bullets and numbering <a name="B.8"></a>
 
@@ -106,7 +120,11 @@ To avoid the possibility of a non-match due to the otherwise same license using 
 
 ### B.8.2  Guideline <a name="B.8.2"></a>
 
-Where a line starts with a bullet, number, letter, or some form of a list item (determined where list item is followed by a space, then the text of the sentence), ignore the list item for matching purposes. Templates do not include markup for this guideline.
+Where a line starts with a bullet, number, letter, or some form of a list item (determined where list item is followed by a space, then the text of the sentence), ignore the list item for matching purposes. 
+
+The following XML tag is used to implement this guideline: `<bullet>`
+
+For example: `<bullet>1.0</bullet>`
 
 ## B.9 Varietal word spelling <a name="B.9"></a>
 
