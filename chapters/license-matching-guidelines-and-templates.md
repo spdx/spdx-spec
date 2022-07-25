@@ -12,7 +12,7 @@ To ensure consistent results by different SPDX document creators when matching l
 
 ### B.2.2 Guideline: official license headers <a name="B.2.2"></a>
 
-The matching guidelines apply to license and exception text, as well as  official license headers. Official license headers are defined by the SPDX License List as specific text specified within the license itself to be put in the header of files. (see [explanation of SPDX License List fields](https://github.com/spdx/license-list-XML/blob/master/DOCS/license-fields.md) for more info).
+The matching guidelines apply to license and exception text, as well as official license headers. Official license headers are defined by the SPDX License List as specific text specified within the license itself to be put in the header of files. (see [explanation of SPDX License List fields](https://github.com/spdx/license-list-XML/blob/master/DOCS/license-fields.md) for more info).
 
 The following XML tag is used to implement this guideline: `<standardLicenseHeader>`
 
@@ -20,7 +20,7 @@ The following XML tag is used to implement this guideline: `<standardLicenseHead
 
 ### B.3.1 Purpose <a name="B.3.1"></a>
 
-To ensure that when matching licenses and exceptions to the SPDX License List, there is an appropriate balance between matching against the substantive text and disregarding parts of the text that do not alter the substantive text or legal meaning. Further guidelines of what can be disregarded or considered replaceable for purposes of matching are listed below here and in the subsequent specific guidelines. A conservative approach is taken in regard to rules disregarded or replaceable text.
+To ensure that when matching licenses and exceptions to the SPDX License List, there is an appropriate balance between matching against the substantive text and disregarding parts of the text that do not alter the substantive text or legal meaning. Further guidelines of what can be disregarded or considered replaceable for purposes of matching are listed below here and in the subsequent specific guidelines. A conservative approach is taken in regard to rules relating to disregarded or replaceable text.
 
 ### B.3.2 Guideline: verbatim text <a name="B.3.2"></a>
 
@@ -39,7 +39,7 @@ The text indicated as such can be replaced with similar values (e.g., a differen
 The following XML tag is used to implement this guideline.  `<alt>` with 2 attributes:
 * `match` - a POSIX extended regular expression (ERE) to match the replaceable text
 * `name` - an identifier for the variable text unique to the license XML document
-The original text is enclosed within the alt tags.
+The original text is enclosed within the beginning and ending alt tags.
 
 For example: `<alt match="(?i:copyright.{0,200})." name="copyright1">Copyright Linux Foundation</alt>`
   
@@ -189,7 +189,7 @@ To avoid a license mismatch merely because extraneous text that appears at the e
 
 Ignore any text that occurs after the obvious end of the license and does not include substantive text of the license, for example: text that occurs after a statement such as, "END OF TERMS AND CONDITIONS," or an exhibit or appendix that includes an example or instructions on to how to apply the license to your code. Do not apply this guideline or ignore text that is comprised of additional license terms (e.g., permitted additional terms under GPL-3.0, section 7). 
 
-To implement this guideline, use the <optional> XML element tag as described in section B.3.5.
+To implement this guideline, use the `<optional>` XML element tag as described in section B.3.5.
 
 ## B.14 HTTP Protocol <a name="B.14"></a>
 
@@ -237,7 +237,7 @@ Rule fields:
 
 The [POSIX ERE]( http://pubs.opengroup.org/onlinepubs/9699919799/) in the match field has the following restrictions and extensions:
 
-* Semicolons are escaped with \;
+* Semicolons are escaped with `\;`
 * POSIX Bracket Extensions are not allowed
 
 EXAMPLE: `<<var;name=organizationClause3;original=the copyright holder;match=.+>>`
