@@ -9,6 +9,7 @@ Key changes include:
 * Added hash algorithms (SHA3-256, SHA3-384, SHA3-512, BLAKE2b-256, BLAKE2b-384, BLAKE2b-512, BLAKE3, ADLER32 ) to the set recognized by 7.10 (Package Checksum field) and 8.4 (File checksum field)
 * Update Clause 7, 8, and 9 to make several of the licensing properties optional rather than requiring the use of "NOASSERTION" when no value is provided.
 * Update Clause 11 to add the new relationship types: REQUIREMENT_DESCRIPTION_FOR and SPECIFICATION_FOR.
+* Update Annex B ( License matching guidelines and templates ) to use the License List XML format
 * Update Annex F ( External Repository Identifiers ) to expand security references to include advisory, fix, URL, SWID.  Expand persistent identifiers to include gitoid.
 * Update Annex G ( SPDX Lite Profile ) to include NTIA SBOM mandatory minimum fields as required.
 * Update Annex H to documented how the snippet information in files to be consistent with REUSE recommendations.
