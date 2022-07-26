@@ -1,0 +1,22 @@
+name: Check for DCO sign-off messages
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  dco:
+    name: Check for DCO sign-off messages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dco-check
+        run: sudo apt install -y python3-pip && pip install dco-check
+      - name: Run `dco-check`
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: dco-check
