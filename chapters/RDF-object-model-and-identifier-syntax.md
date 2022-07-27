@@ -4,7 +4,7 @@
 
 SPDX ® Vocabulary Specification
 
-See: [http://spdx.org/rdf/ontology/spdx-2-2-1](http://spdx.org/rdf/ontology/spdx-2-2-1)
+See: [http://spdx.org/rdf/ontology/spdx-2-3](http://spdx.org/rdf/ontology/spdx-2-3)
 
 Version: 2.3
 
