@@ -920,13 +920,11 @@ This field is to contain a list of all licenses found in the package. The relati
 
 The options to populate this field are limited to:
 
-* The SPDX License List short form identifier, if a detected license is on the SPDX License List;
-* A user defined license reference denoted by `LicenseRef-<idstring>` (for a license not on the SPDX License List);
+* A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md);
 * `NONE`, if no license information is detected in any of the files; or
 * `NOASSERTION`, if:
 
     - the SPDX document creator has made no attempt to determine this field; or
-
     - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If the All Licenses Information from Files field is not present for a package and `FilesAnalyzed` field ([7.8](#7.8)) for that same pacakge is `true` or omitted, it implies an equivalent meaning to `NOASSERTION`. The metadata for all license information from files field is shown in Table 26.
@@ -936,8 +934,8 @@ If the All Licenses Information from Files field is not present for a package an
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 0..* (optional) if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (must be omitted) if `FilesAnalyzed` is `false`. |
-| Format | `<shortIdentifier>` ([Annex A](SPDX-license-list.md#A.1)) \| ["DocumentRef-"`[idstring]`:]"LicenseRef-"`[idstring]` \| `NONE` \| `NOASSERTION`<br>where:<br><ul><li> "DocumentRef-"`[idstring]` is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6).</li><li>`[idstring]` is a unique string containing letters, numbers, `.`, or `-`. </li></ul> |
+| Cardinality | 0..\* (optional) if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (must be omitted) if `FilesAnalyzed` is `false`. |
+| Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md). |
 
 ### 7.14.2 Intent
 
