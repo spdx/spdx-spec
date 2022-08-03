@@ -5,14 +5,23 @@
 V2.3 has added new fields to improve the ability to capture security related information and to improve interoperabiility with other SBOM formats.  
 
 Key changes include:
+
 * Added fields to Clause 7 ( Package Information ) to describe "Primary Package Purpose" and standardize recording of "Built Date", "Release Date", "Valid Until Date".
+
 * Added hash algorithms (SHA3-256, SHA3-384, SHA3-512, BLAKE2b-256, BLAKE2b-384, BLAKE2b-512, BLAKE3, ADLER32 ) to the set recognized by 7.10 (Package Checksum field) and 8.4 (File checksum field)
+
 * Update Clause 7, 8, and 9 to make several of the licensing properties optional rather than requiring the use of "NOASSERTION" when no value is provided.
+
 * Update Clause 11 to add the new relationship types: REQUIREMENT_DESCRIPTION_FOR and SPECIFICATION_FOR.
+
 * Update Annex B ( License matching guidelines and templates ) to use the License List XML format
+
 * Update Annex F ( External Repository Identifiers ) to expand security references to include advisory, fix, URL, SWID.  Expand persistent identifiers to include gitoid.
+
 * Update Annex G ( SPDX Lite Profile ) to include NTIA SBOM mandatory minimum fields as required.
+
 * Update Annex H to documented how the snippet information in files to be consistent with REUSE recommendations.
+
 * Added Annex K ( How To Use SPDX in Different Scenarios ) to illustrate linking to external security information, and illustrate how the NTIA SBOM mandatory minimum elements map to SPDX fields.
 
 
@@ -22,10 +31,15 @@ Key changes include:
 V2.2.2 fixed formatting, grammatical and spelling issues found since ISO/IEC 5962:2021 SPDX v2.2.1 was published.   No new fields were added.
 
 Key changes include:
+
 * Clarify Optional Cardinality contradictions
+
 * Update OWL document
+
 * Update JSON schema to fix typos and add missing required fields.
+
 * Clarify Information on using License List short form identifiers.
+
 * It fixed annex lettering inconsistencies. It also moved CC-BY-3.0 to the end of the spec to keep annex letters more consistent in future versions. Here is the translation between lettering in V2.2.2 and the version that came before it:
 
 **Table I.1 — SPDX V2.2.2 Organizational Changes**
