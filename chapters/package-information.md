@@ -1446,7 +1446,7 @@ The metadata for the Primary Package Purpose field is shown in Table 36.
 | --------- | ----- |
 | Required | No |
 | Cardinality | 0..* |
-| Format | `APPLICATION` \| `FRAMEWORK` \| `LIBRARY` \| `CONTAINER` \| `OPERATING-SYSTEM` \| `DEVICE` \| `FIRMWARE` \| `SOURCE` \| `ARCHIVE` \| `FILE` \| `INSTALL \| `OTHER` \|
+| Format | `APPLICATION` \| `FRAMEWORK` \| `LIBRARY` \| `CONTAINER` \| `OPERATING-SYSTEM` \| `DEVICE` \| `FIRMWARE` \| `SOURCE` \| `ARCHIVE` \| `FILE` \| `INSTALL` \| `OTHER` \|
 
 ### 7.24.2 Intent
 
