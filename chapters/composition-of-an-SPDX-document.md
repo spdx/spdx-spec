@@ -39,7 +39,7 @@ Note that some of these could be represented in SPDX as a file as well.
 
 In an SPDX document, relationship elements can be used to indicate relationships between packages, such as dependency relationships.
 
-Cardinality: Optional, one or many.
+Cardinality: Optional, zero or many.
 
 See [Clause 7](package-information.md) for details of the fields in this kind of section.
 
@@ -55,9 +55,9 @@ In `tag:value` format, the order in which package and files occur is syntactical
 
 ### 5.2.3 File information section <a name="5.2.3"></a>
 
-One instance of the file information shall exist for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
+One instance of the file information may exist for each file in the software package. It provides important meta information about a given file including licenses and copyright. Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
-Cardinality: Optional, one or many.
+Cardinality: Optional, zero or many.
 
 See [Clause 8](file-information.md) for details of the fields in this kind of section.
 
@@ -75,11 +75,11 @@ When implementing file information in RDF, the `spdx:hasFile` property is used t
 
 ### 5.2.4 Snippet information section <a name="5.2.4"></a>
 
-Snippets can optionally be used when a file is known to have some content that has been included from another original source. They are useful for denoting when part of a file may have been originally created under another license.
+Snippets can optionally be used when a file is known to have some content that has been included from another original source. They are useful for denoting when part of a file may have been originally created under another license or copied from a place with a known vulnerability.
 
 Each instance of Snippet Information shall be associated with a specific file in an SPDX document.
 
-Cardinality: Optional, one or many.
+Cardinality: Optional, zero or many.
 
 See [Clause 9](snippet-information.md) for details of the fields in this kind of section.
 
@@ -97,7 +97,7 @@ This section is used for any detected, declared or concluded licenses that are N
 
 One instance shall be created for every unique license or licensing information being referenced that does not match one of the licenses on the SPDX License List. 
 
-Cardinality: Optional, one or many.
+Cardinality: Optional, zero or many.
 
 See [Clause 10](other-licensing-information-detected.md) for details of the fields in this kind of section.
 
@@ -105,7 +105,7 @@ See [Clause 10](other-licensing-information-detected.md) for details of the fiel
 
 Packages, files, and snippets are all considered to be SPDX elements, and relationships can be made explicit between these SPDX elements by using the fields in this section. 
 
-Cardinality: Optional, one or many.
+Cardinality: Optional, zero or many.
 
 See [Clause 11](relationships-between-SPDX-elements.md) for details of the fields in this kind of section.
 
@@ -113,7 +113,7 @@ See [Clause 11](relationships-between-SPDX-elements.md) for details of the field
 
 Annotations permit the addition of information to validate and clarify ambiguous SPDX elements (packages, files or snippets).
 
-Cardinality: Optional, one or many.
+Cardinality: Optional, zero or many.
 
 See [Clause 12](annotations.md) for details of the fields in this kind of section.
 
