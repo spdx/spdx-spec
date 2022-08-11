@@ -1,6 +1,10 @@
 # 7 Package information section
 
+If the SPDX information describes a package, the following fields shall be included per package.
+
 ## 7.1 Package name field <a name="7.1"></a>
+
+The existence of the Package name fields indicates the existence of package information in the SPDX information. Hence in order to describe package information, this field is mandatory.
 
 ### 7.1.1 Description
 
@@ -291,7 +295,7 @@ The metadata for the package download location field is shown in Table 19.
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Format | Uniform resource locator \| VCS location \| `NONE` \| `NOASSERTION`<br><br>For version-controlled files, a VCS location is similar to a URL and has the following syntax:<br><br>`<vcs_tool>+<transport>://<host_name>[/<path_to_repository>][@<revision_tag_or_branch>][#<sub_path>]`<br><br>This VCS location compact notation (inspired and mostly adopted from [pip][pip-vcs] as of 2015-02-20) supports referencing locations in version control systems such as [Git][], [Mercurial][], [Subversion][] and [Bazaar][], and specifies the type of VCS tool using url prefixes: `git+`, `hg+`, `bzr+`, `svn+` and specific transport schemes such as SSH or HTTPS.<br><br>Specifying sub-paths, branch names, a commit hash, a revision or a tag name is recommended, and supported using the `@` delimiter for commits and the `#` delimiter for sub-paths.<br><br>Using user names and password in the `<host_name>` is not supported and should be considered as an error. User access control to URLs or VCS repositories shall be handled outside of an SPDX document.<br><br>In VCS location compact notations, the trailing slashes in `<host_name>`, `<path_to_repository>` are not significant. Leading and trailing slashes in `<sub_path>` are not significant. |
+| Format | Uniform resource locator \| VCS location \| `NONE` \| `NOASSERTION`<br><br>For version-controlled files, a VCS location is similar to a URL and has the following syntax:<br><br>`<vcs_tool>+<transport>://<host_name>[/<path_to_repository>][@<revision_tag_or_branch>][#<sub_path>]`<br><br>For git, `<revision_tag_or_branch>` is a `<rev>` as described by [gitrevisions(1)](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gitrevisions.html). It is RECOMMENDED to use the unambiguous `refs/heads/<branch>` or `refs/tags/<tag>`, rather than only `<branch>` or `<tag>`, in order to prevent issues caused by shadowing. Formats that are local to the client (`...@...` and `:[<n>:]<path>`) or involve regular expressions (`<rev>^{/<text>}` and `:/<text>`) SHOULD NOT be used.<br><br>This VCS location compact notation (inspired and mostly adopted from [pip][pip-vcs] as of 2015-02-20) supports referencing locations in version control systems such as [Git][], [Mercurial][], [Subversion][] and [Bazaar][], and specifies the type of VCS tool using url prefixes: `git+`, `hg+`, `bzr+`, `svn+` and specific transport schemes such as SSH or HTTPS.<br><br>Specifying sub-paths, branch names, a commit hash, a revision or a tag name is recommended, and supported using the `@` delimiter for commits and the `#` delimiter for sub-paths.<br><br>Using user names and password in the `<host_name>` is not supported and should be considered as an error. User access control to URLs or VCS repositories shall be handled outside of an SPDX document.<br><br>In VCS location compact notations, the trailing slashes in `<host_name>`, `<path_to_repository>` are not significant. Leading and trailing slashes in `<sub_path>` are not significant. |
 
 ### 7.7.2 Intent
 
@@ -691,7 +695,7 @@ EXAMPLE 2 RDF: Properties `spdx:packageVerificationCodeValue`, `spdx:packageVeri
 
 ### 7.10.1 Description
 
-Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX document. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX document is to be included in a package, this value should not be calculated. The [SHA-1][] algorithm shall be used to provide the checksum by default. The metadata for the package checksum field is shown in Table 22.
+Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX document. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX document is to be included in a package, this value should not be calculated. The [SHA1][SHA-1] algorithm shall be used to provide the checksum by default. The metadata for the package checksum field is shown in Table 22.
 
 **Table 22 — Metadata for the package checksum field**
 
@@ -699,7 +703,7 @@ Provide an independently reproducible mechanism that permits unique identificati
 | --------- | ----- |
 | Required | No |
 | Cardinality | 0..* |
-| Algorithm | Algorithms that can be used: [`SHA1`][SHA-1], [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6] |
+| Algorithm | Algorithms that can be used: [`SHA1`][SHA-1], [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`SHA3-256`][SHA3-256], [`SHA3-384`][SHA3-384], [`SHA3-512`][SHA3-512], [`BLAKE2b-256`][BLAKE2b-256], [`BLAKE2b-384`][BLAKE2b-384], [`BLAKE2b-512`][BLAKE2b-512], [`BLAKE3`][BLAKE3], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6], [`ADLER32`][ADLER32] |
 | Format | There are three components, an algorithm identifier (e.g. `SHA1`), a colon separator `:`, and a bit value represented as lowercase hexadecimal digits (appropriate as output to the algorithm). |
 
 ### 7.10.2 Intent
@@ -857,7 +861,7 @@ The options to populate this field are limited to:
 
     - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the Concluded License is not the same as the Declared License ([7.15](#7.15)), a written explanation should be provided in the Comments on License field ([7.16](#7.16)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([7.16](#7.16)) is preferred.
+If the Concluded License is not the same as the Declared License ([7.15](#7.15)), a written explanation should be provided in the Comments on License field ([7.16](#7.16)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([7.16](#7.16)) is preferred. If the Concluded License field is not present in a package, it implies an equivalent meaning to `NOASSERTION`.
 
 The metadata for the concluded license field is shown in Table 25.
 
@@ -865,8 +869,8 @@ The metadata for the concluded license field is shown in Table 25.
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..1 |
+| Required | No |
+| Cardinality | 0..1 |
 | Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md). |
 
 ### 7.13.2 Intent
@@ -916,24 +920,22 @@ This field is to contain a list of all licenses found in the package. The relati
 
 The options to populate this field are limited to:
 
-* The SPDX License List short form identifier, if a detected license is on the SPDX License List;
-* A user defined license reference denoted by `LicenseRef-<idstring>` (for a license not on the SPDX License List);
+* A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md);
 * `NONE`, if no license information is detected in any of the files; or
 * `NOASSERTION`, if:
 
     - the SPDX document creator has made no attempt to determine this field; or
-
     - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-The metadata for the all license information from files field is shown in Table 26.
+If the All Licenses Information from Files field is not present for a package and `FilesAnalyzed` field ([7.8](#7.8)) for that same pacakge is `true` or omitted, it implies an equivalent meaning to `NOASSERTION`. The metadata for all license information from files field is shown in Table 26.
 
 **Table 26 — Metadata for the all licenses information from files field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 0..* if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (shall be omitted) if `FilesAnalyzed` is `false`. |
-| Format | `<shortIdentifier>` ([Annex A](SPDX-license-list.md#A.1)) \| ["DocumentRef-"`[idstring]`:]"LicenseRef-"`[idstring]` \| `NONE` \| `NOASSERTION`<br>where:<br><ul><li> "DocumentRef-"`[idstring]` is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6).</li><li>`[idstring]` is a unique string containing letters, numbers, `.`, or `-`. </li></ul> |
+| Required | No |
+| Cardinality | 0..\* (optional) if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (must be omitted) if `FilesAnalyzed` is `false`. |
+| Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md). |
 
 ### 7.14.2 Intent
 
@@ -984,14 +986,14 @@ The options to populate this field are limited to:
 
     - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-The metadata for the declared license field is shown in Table 27.
+If the Declared License field is not present for a package, it implies an equivalent meaning to `NOASSERTION`. The metadata for the declared license field is shown in Table 27.
 
 **Table 27 — Metadata for the declared license field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..1 |
+| Required | No |
+| Cardinality | 0..1 |
 | Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br><ul><li>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md).</li></ul> |
 
 ### 7.15.2 Intent
@@ -1089,14 +1091,14 @@ Identify the copyright holders of the package, as well as any dates present. Thi
 
     - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-The metadata for the copyright text field is shown in Table 29.
+If the Copyright Text field is not present for a package, it implies an equivalent meaning to `NOASSERTION`. The metadata for the copyright text field is shown in Table 29.
 
 **Table 29 — Metadata for the copyright text field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..1 |
+| Required | No |
+| Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines \| `NONE` \| `NOASSERTION` |
 
 ### 7.17.2 Intent
@@ -1417,6 +1419,157 @@ EXAMPLE 2 RDF: Property `spdx:attributionText` in class `spdx:Package`
 </Package>
 ```
 
+## 7.24 Primary Package Purpose field <a name="7.24"></a>
+
+### 7.24.1 Description
+
+This field provides information about the primary purpose of the identified package. Package Purpose is intrinsic to how the package is being used rather than the content of the package. The options to populated this field are limited to:
+
+`APPLICATION` if the package is a software application;
+`FRAMEWORK` if the package is a software framework;
+`LIBRARY` if the package is a software library;
+`CONTAINER` if the package refers to a container image which can be used by a container runtime application;
+`OPERATING-SYSTEM` if the package refers to an operating system;
+`DEVICE` if the package refers to a chipset, processor, or electronic board;
+`FIRMWARE` if the package provides low level control over a device's hardware;
+`SOURCE` if the package is a collection of source files;
+`ARCHIVE` if the package refers to an archived collection of files (.tar, .zip, etc);
+`FILE` if the package is a single file which can be independently distributed (configuration file, statically linked binary, Kubernetes deployment, etc);
+`INSTALL` if the package is used to install software on disk;
+`OTHER` if the package doesn't fit into the above categories.
+
+The metadata for the Primary Package Purpose field is shown in Table 36.
+
+**Table 36 — Metadata for the primary package purpose field**
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..* |
+| Format | `APPLICATION` \| `FRAMEWORK` \| `LIBRARY` \| `CONTAINER` \| `OPERATING-SYSTEM` \| `DEVICE` \| `FIRMWARE` \| `SOURCE` \| `ARCHIVE` \| `FILE` \| `INSTALL` \| `OTHER` \|
+
+### 7.24.2 Intent
+
+This field is a reasonable estimate of the most likely package usage from the producer and consumer perspective from which both parties can draw conclusions about the context in which the package exists.
+
+### 7.24.3 Examples
+
+EXAMPLE 1 Tag: `PrimaryPackagePurpose:`
+
+```text
+PrimaryPackagePurpose: FRAMEWORK
+```
+
+EXAMPLE 2 RDF: Property `spdx:purpose` in class `spdx:Package`
+
+```text
+<Package rdf:about="cluster-api">
+    <primaryPackagePurpose rdf:resource="packagePurpose_container" />
+</Package>
+```
+  
+## 7.25 Release Date <a name="7.25"></a>
+### 7.25.1 Description
+
+This field provides a place for recording the date the package was released.
+
+Table 37 — Metadata for the release date
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
+
+
+### 7.25.2 Intent
+
+The release date is helpful for strict identification of the prerequisite assumptions of usage.
+
+### 7.25.3 Examples
+
+EXAMPLE 1 Tag: `ReleaseDate:`
+
+```text
+ReleaseDate: 2010-01-29T18:30:22Z
+```
+
+EXAMPLE 2 RDF: Property `spdx:releaseDate` in class `spdx:Package`
+
+```text
+<Package rdf:about="...">
+    <releaseDate> 2010-01-29T18:30:22Z </releaseDate>
+</Package>
+```
+
+## 7.26 Built Date <a name="7.26"></a>
+### 7.26.1 Description
+
+This field provides a place for recording the actual date the package was built.
+
+Table 38 — Metadata for the built date
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
+
+
+### 7.26.2 Intent
+
+The date when the package was built is helpful for strict identification of the prerequisite assumptions of usage.  
+Ideally it should be recorded from build system tools directly or the creation date of the package itself.
+
+### 7.26.3 Examples
+
+EXAMPLE 1 Tag: `BuiltDate:`
+
+```text
+BuiltDate: 2010-01-29T18:30:22Z
+```
+
+EXAMPLE 2 RDF: Property `spdx:builtDate` in class `spdx:Package`
+
+```text
+<Package rdf:about="...">
+    <builtDate> 2010-01-29T18:30:22Z </builtDate>
+</Package>
+```
+## 7.27 Valid Until Date <a name="7.27"></a>
+### 7.27.1 Description
+
+This field provides a place for recording the end of the support period for a package from the supplier.
+
+Table 39 — Metadata for the valid until date
+
+| Attribute | Value |
+| --------- | ----- |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | `YYYY-MM-DDThh:mm:ssZ`<br>where:<br><ul><li>`YYYY` is year</li><li>`MM` is month with leading zero</li><li>`DD` is day with leading zero</li><li>`T` is delimiter for time</li><li>`hh` is hours with leading zero in 24 hour time</li><li>`mm` is minutes with leading zero</li><li>`ss` is seconds with leading zero</li><li>`Z` is universal time indicator</li></ul> |
+
+
+### 7.27.2 Intent
+
+The date when support for the package ends from the supplier.  Usage is considered valid until this date.
+
+### 7.27.3 Examples
+
+EXAMPLE 1 Tag: `ValidUntilDate:`
+
+```text
+ValidUntilDate: 2030-12-30T18:00:00Z
+```
+
+EXAMPLE 2 RDF: Property `spdx:validUntilDate` in class `spdx:Package`
+
+```text
+<Package rdf:about="...">
+    <validUntilDate> 2030-12-30T18:00:00Z </validUntilDate>
+</Package>
+```
+  
 [Bazaar]: http://bazaar.canonical.com/
 [FSF]: http://www.fsf.org/
 [Git]: https://git-scm.com/
@@ -1435,6 +1588,14 @@ EXAMPLE 2 RDF: Property `spdx:attributionText` in class `spdx:Package`
 [SHA-256]: https://tools.ietf.org/html/rfc6234
 [SHA-384]: https://en.wikipedia.org/wiki/SHA-2
 [SHA-512]: https://en.wikipedia.org/wiki/SHA-2
+[SHA3-256]: https://en.wikipedia.org/wiki/SHA-3
+[SHA3-384]: https://en.wikipedia.org/wiki/SHA-3
+[SHA3-512]: https://en.wikipedia.org/wiki/SHA-3
+[BLAKE2b-256]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
+[BLAKE2b-384]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
+[BLAKE2b-512]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
+[BLAKE3]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE3
+[ADLER32]: https://en.wikipedia.org/wiki/Adler-32
 [SourceForge]: https://sourceforge.net/
 [Subversion]: https://subversion.apache.org/
 [doap]: http://usefulinc.com/ns/doap

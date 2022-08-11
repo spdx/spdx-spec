@@ -23,14 +23,14 @@ Here, parties exchanging information in accordance with the SPDX specification n
 EXAMPLE 1 Tag: `SPDXVersion:`
 
 ```text
-SPDXVersion: SPDX-2.2
+SPDXVersion: SPDX-2.3
 ```
 
 EXAMPLE 2 RDF: Property spdx:specVersion in class spdx:SpdxDocument
 
 ```text
 <SpdxDocument rdf:about="...">
-   <specVersion>SPDX-2.2</specVersion>
+   <specVersion>SPDX-2.3</specVersion>
 </SpdxDocument>
 ```
 
@@ -178,7 +178,7 @@ The URI shall be unique for the SPDX document including the specific version of 
 
 ### 6.5.2 Intent
 
-The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See [6.6](#6.6) for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `http://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
+The URI provides an unambiguous mechanism for other SPDX documents to reference SPDX elements within this SPDX document. See [6.6](#6.6) for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX document can be found. For example, the URI can be a URL referencing the SPDX document itself, if it is available on the internet. A best practice for creating the URI for SPDX documents available on the public internet is `https://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
 
 * `CreatorWebsite` is a website hosted by the creator of the document. (e.g. an SPDX document provided by SPDX would be spdx.org)
 * `PathToSpdx` is a path to where SPDX documents are stored on the website (e.g. /spdx/spdxdocs)
@@ -198,14 +198,14 @@ NOTE: The URI does not have to be accessible. It is only intended to provide a u
 EXAMPLE 1 Tag: `DocumentNamespace:`
 
 ```text
-DocumentNamespace: http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...
+DocumentNamespace: https://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...
 ```
 
 EXAMPLE 2 RDF: The unique ID is the URI for the SPDX document
 
 ```text
-<SpdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">
-    <rdfs:comment>This document was created using SPDX 2.0 using
+<SpdxDocument rdf:about="https://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82...">
+    <rdfs:comment>This document was created using SPDX 2.3 using
     licenses from the web site.</rdfs:comment>
 </SpdxDocument>
 ```
@@ -239,7 +239,7 @@ SPDX elements within this document may be related to other SPDX elements referen
 EXAMPLE 1 Tag: `ExternalDocumentRef:`
 
 ```text
-ExternalDocumentRef:DocumentRef-spdx-tool-1.2 http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301 SHA1: d6a770ba38583ed4bb4525bd96e50461655d2759
+ExternalDocumentRef:DocumentRef-spdx-tool-1.2 https://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82C3301 SHA1: d6a770ba38583ed4bb4525bd96e50461655d2759
 ```
 
 EXAMPLE 2 RDF: Property `spdx:externalDocumentRef` in class `spdx:SpdxDocument range ExternalDocumentRef`.
@@ -253,7 +253,7 @@ The ExternalDocumentRef contains two properties:
 <SpdxDocument rdf:about="...">
   <externalDocumentRef rdf:ID="DocumentRef-spdx-tool-1.2">
     <ExternalDocumentRef>
-        <spdxDocument rdf:about="http://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..." />
+        <spdxDocument rdf:about="https://spdx.org/spdxdocs/spdx-tools-v1.2-3F2504E0-4F89-41D3-9A0C-0305E82..." />
         <checksum>
             <Checksum>
                 <algorithm rdf:resource="checksumAlgorithm_sha1"/>
@@ -291,14 +291,14 @@ Recognizing that licenses are added to the SPDX License List with each subsequen
 EXAMPLE 1 Tag: `LicenseListVersion:`
 
 ```text
-LicenseListVersion: 3.8
+LicenseListVersion: 3.17
 ```
 
 EXAMPLE 2 RDF: Property `licenseListVersion` in class `spdx:CreationInfo`
 
 ```text
 <CreationInfo>
-    <licenseListVersion>3.8</licenseListVersion>
+    <licenseListVersion>3.17</licenseListVersion>
 </CreationInfo>
 ```
 
@@ -370,7 +370,7 @@ EXAMPLE 2 RDF: Property `spdx:created` in class `spdx:CreationInfo`
 
 ```text
 <CreationInfo>
-    <created> 2010-01-29T18:30:22Z </created>
+    <created>2010-01-29T18:30:22Z</created>
 </CreationInfo>
 ```
 
@@ -435,8 +435,8 @@ Here, the intent is to provide readers/reviewers with comments by the creator of
 EXAMPLE 1 Tag: `DocumentComment:`
 
 ```text
-DocumentComment: <text>This document was created using SPDX 2.0,
-version 2.3 of the SPDX License List and refering to licenses
+DocumentComment: <text>This document was created using SPDX 2.3,
+version 3.17 of the SPDX License List and refering to licenses
 in file MyCompany.Approved.Licenses.spdx.</text>
 ```
 
@@ -445,7 +445,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `SpdxDocument`
 ```text
 <SpdxDocument rdf:about="...">
     <rdfs:comment>
-      This document was created using SPDX 2.0, version 2.3 of the SPDX
+      This document was created using SPDX 2.3, version 3.17 of the SPDX
       License List and refering to licenses in file
       MyCompany.Approved.Licenses.spdx.
     </rdfs:comment>

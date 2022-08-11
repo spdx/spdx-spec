@@ -11,7 +11,7 @@ Provide a locally unique identifier to refer to licenses that are not found on t
 | Attribute | Value |
 | --------- | ----- |
 | Required | Conditional |
-| Cardinality | 0..1 conditional (mandatory, one) if license is not on SPDX License List. |
+| Cardinality | 0..1 conditional (Mandatory, one) if license is not on SPDX License List. |
 | Format | "LicenseRef-"`[idstring]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-`. |
 
 ### 10.1.2 Intent
@@ -27,7 +27,7 @@ LicenseID: LicenseRef-1
 ```
 
 ```text
-LicenseID: LicenseRef-Beerware-4.2
+LicenseID: LicenseRef-Whiskeyware
 ```
 
 EXAMPLE 2 RDF: Property `spdx:licenseID` in class `spdx:ExtractedLicensingInfo`
@@ -39,8 +39,8 @@ EXAMPLE 2 RDF: Property `spdx:licenseID` in class `spdx:ExtractedLicensingInfo`
 ```
 
 ```text
-<ExtractedLicensingInfo rdf:about="licenseRef-Beerware-4.2">
-    <licenseId>LicenseRef-Beerware-4.2</licenseId>
+<ExtractedLicensingInfo rdf:about="licenseRef-Whiskeyware">
+    <licenseId>LicenseRef-Whiskeyware</licenseId>
 </ExtractedLicensingInfo>
 ```
 
@@ -71,7 +71,7 @@ In `tag:value` format multiple lines are delimited by `<text> .. </text>`.
 If only short reference to license present in File:
 
 ```text
-ExtractedText: <text>This software is licensed under the Beer License.</text>
+ExtractedText: <text>This software is licensed under the WHISKEY-WARE LICENSE.</text>
 ```
 
 If indeed full text of license present in File:
@@ -80,7 +80,7 @@ If indeed full text of license present in File:
 ExtractedText: <text>"THE WHISKEY-WARE LICENSE": whiskeyfan@example.com
 wrote this file. As long as you retain this notice you can do whatever
 you want with this stuff. If we meet some day, and you think this stuff
-is worth it, you can buy me a bottle of whiskey in return </text>
+is worth it, you can buy me a bottle of whiskey in return.</text>
 ```
 
 EXAMPLE 2 RDF: Property `spdx:extractedText` in class `spdx:ExtractedLicensingInfo`
@@ -111,17 +111,17 @@ If indeed full text of license present in File:
 
 ### 10.3.1 Description
 
-Provide a common name of the license that is not on the SPDX list.
-
-Use `NOASSERTION` If there is no common name or it is not known. The metadata for the license name field is shown in Table 65.
+Provide a common name of the license that is not on the SPDX list.  If the License Name field is not present for a license, it implies an equivalent meaning to NOASSERTION.
+The metadata for the license name field is shown in Table 65.
 
 **Table 65 — Metadata for the license name field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Conditional |
-| Cardinality | 0..1 conditional (mandatory, one) if license is not on SPDX License List. |
+| Required | No |
+| Cardinality | 0..1 conditional (optional, one) if license is not on SPDX License List. |
 | Format | Single line of text | `NOASSERTION` |
+
 
 ### 10.3.2 Intent
 

@@ -18,6 +18,8 @@ and the locator formats for each of the categories.
 
 ## F.2 Security <a name="F.2"></a>
 
+It’s recommended practice for SPDX SBOM document creators to include one or more package identifiers (e.g.  CPE, GitBOM, PURL or SWID) when using SPDX external references for the purpose of resolving current security vulnerability information. The specified identifiers are contained in this section, F.2 Security, as well as section F.4.
+
 ### F.2.1 cpe22Type <a name="cpe22"></a>
 
 Locator Format:
@@ -32,9 +34,9 @@ Contextual Example:
 cpe:/o:canonical:ubuntu_linux:10.04:-:lts
 ```
 
-External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
+External Reference Site: <https://nvd.nist.gov/cpe>
 
-Documentation: [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
+Documentation: <https://cpe.mitre.org/files/cpe-specification_2.2.pdf>
 
 ### F.2.2 cpe23Type <a name="cpe23"></a>
 
@@ -58,9 +60,45 @@ Contextual Example:
 cpe:2.3:o:canonical:ubuntu_linux:10.04:­:lts:*:*:*:*:*
 ```
 
-External Reference Site: [https://nvd.nist.gov/cpe](https://nvd.nist.gov/cpe)
+External Reference Site: <https://nvd.nist.gov/cpe>
 
-Documentation: [http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf](http://csrc.nist.gov/publications/nistir/ir7695/NISTIR-7695-CPE-Naming.pdf)
+Documentation: <https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7695.pdf>
+
+### F.2.3 advisory <a name="advisory"></a>
+
+Locator Format: URL as defined by <https://www.ietf.org/rfc/rfc1738.txt>.
+
+Contextual Example: <https://nvd.nist.gov/vuln/detail/CVE-2020-28498>.
+
+Documentation: A reference to the published security advisory (where advisory as defined per ISO 29147:2018). It may contain an impact statement whether a package (e.g. a product) is or is not affected by vulnerabilities.
+
+### F.2.4 fix <a name="fix"></a>
+
+Locator Format: URL as defined by <https://www.ietf.org/rfc/rfc1738.txt>
+
+Contextual Example: <https://github.com/indutny/elliptic/commit/441b7428>
+
+Documentation: A reference to the source code with a fix for the vulnerability (e.g., a GitHub commit). 
+
+### F.2.5 url <a name="url"></a>
+
+Locator Format: URL as defined by <https://www.ietf.org/rfc/rfc1738.txt>.
+
+Contextual Example:  <https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/secp256k1_twist_attacks.md>
+
+Documentation: A reference to related security information of unspecified type.
+
+### F.2.6 swid <a name="swid"></a>
+
+Locator format: URI as defined by <https://www.ietf.org/archive/id/draft-ietf-sacm-coswid-21.html#name-uri-schemes>.
+
+Conceptual Example: 2df9de35-0aff-4a86-ace6-f7dddd1ade4c
+
+External Reference Site: <https://csrc.nist.gov/Projects/Software-Identification-SWID>
+
+Documentation: <https://www.ietf.org/archive/id/draft-ietf-sacm-coswid-21.html#section-2.3)>
+
+Note: A binary tag-id should be base64url encoded.
 
 ## F.3 Package-Manager <a name="F.3"></a>
 
@@ -79,9 +117,9 @@ Contextual Example:
 org.apache.tomcat:tomcat:9.0.0.M4
 ```
 
-External Reference Site: [http://repo1.maven.org/maven2/](http://repo1.maven.org/maven2/)
+External Reference Site: <https://repo1.maven.org/maven2/>
 
-Documentation: [https://maven.apache.org](https://maven.apache.org)
+Documentation: <https://maven.apache.org>
 
 ### F.3.2 npm <a name="npm"></a>
 
@@ -98,9 +136,9 @@ Contextual Example:
 http-server@0.3.0
 ```
 
-External Reference Site: [https://www.npmjs.com/](https://www.npmjs.com/)
+External Reference Site: <https://www.npmjs.com>
 
-Documentation: [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
+Documentation: <https://docs.npmjs.com/files/package.json>
 
 ### F.3.3 nuget <a name="nuget"></a>
 
@@ -117,9 +155,9 @@ Contextual Example:
 Microsoft.AspNet.MVC/5.0.0
 ```
 
-External Reference Site: [https://www.nuget.org/](https://www.nuget.org/)
+External Reference Site: <https://www.nuget.org>
 
-Documentation: [https://docs.nuget.org/](https://docs.nuget.org/)
+Documentation: <https://docs.nuget.org>
 
 ### F.3.4 bower <a name="bower"></a>
 
@@ -136,9 +174,9 @@ Contextual Example:
 modernizr#2.6.2
 ```
 
-External Reference Site: [http://bower.io/](http://bower.io/)
+External Reference Site: <https://bower.io>
 
-Documentation: [http://bower.io/docs/api/#install](http://bower.io/docs/api/#install)
+Documentation: <https://bower.io/docs/api/#install>
 
 ### F.3.5 purl <a name="purl"></a>
 
@@ -154,9 +192,9 @@ Contextual Example:
 pkg:docker/debian@sha256:2f04d3d33b6027bb74ecc81397abe780649ec89f1a2af18d7022737d0482cefe
 ```
 
-External Reference Site: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
+External Reference Site: <https://github.com/package-url/purl-spec>
 
-Documentation: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
+Documentation: <https://github.com/package-url/purl-spec>
 
 ## F.4 Persistent-Id <a name="F.4"></a>
 
@@ -198,7 +236,35 @@ Examples:
 * `swh:1:rel:22ece559cc7cc2364edc5e5593d63ae8bd229f9f` points to Darktable release 2.3.0, dated 24 December 2016
 * `swh:1:snp:c7c108084bc0bf3d81436bf980b46e98bd338453` points to a snapshot of the entire Darktable Git repository taken on 4 May 2017 from GitHub
 
-External documentation: [Software Heritage](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
+External Reference Site: [Software Heritage persistent IDentifiers](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
+
+### F.4.2 gitoid <a name="gitoid"></a>
+
+Locator Format:
+
+```
+"gitoid:"<git object type>":"<hash algorithm>":"<hash value>
+```
+
+Locator Format Reference: <https://www.iana.org/assignments/uri-schemes/prov/gitoid>
+
+Grammar for Locator Format:
+
+```
+<git object type>: "blob", "tree", "commit", "tag".
+<hash algorithm>: "sha1", "sha256"
+<hash value> should be expressed as a hexadecimal string in lower case
+```
+
+Contextual Examples:
+* `gitoid:blob:sha1:261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64` is the git identifier of a software artifact using the SHA1 algorithm
+* `gitoid:blob:sha256:3557f7eb43c621c71483743d4b37059bb80933e7f71277c0c3b3846159d1f61c` is the git identifier of a software artifact using the SHA256 algorithm
+
+External Reference Site: <https://gitbom.dev/>
+
+Documentation: 
+`gitoid` stands for Git Object ID. A `gitoid` of type` blob` is a unique hash of a software artifact. Git relies on a Merkle Tree to index stored objects. See <https://git-scm.com/book/en/v2/Git-Internals-Git-Objects>.
+GitBOM is an amalgam of the terms "Git" and "SBOM". GitBOM is a minimalistic schema to describe software dependency graphs using a Merkle Tree, and is inspired by Git. A `gitoid` may refer to either the software artifact or its GitBOM document; this ambiguity exists because the GitBOM document is itself an artifact, and the `gitoid` of that artifact is its valid locator.
 
 ## F.5 Other <a name="F.5"></a>
 

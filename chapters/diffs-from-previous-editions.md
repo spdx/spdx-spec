@@ -1,15 +1,45 @@
 # Annex I Differences from previous editions (Informative)
 
+# I.1 Differences between V2.3 and V2.2.2  <a name="I.1"></a>
 
-# I.1 Differences between V2.2.2 and V2.2.1 <a name="I.1"></a>
+V2.3 has added new fields to improve the ability to capture security related information and to improve interoperabiility with other SBOM formats.  
+
+Key changes include:
+
+* Added fields to Clause 7 ( Package Information ) to describe "Primary Package Purpose" and standardize recording of "Built Date", "Release Date", "Valid Until Date".
+
+* Added hash algorithms (SHA3-256, SHA3-384, SHA3-512, BLAKE2b-256, BLAKE2b-384, BLAKE2b-512, BLAKE3, ADLER32 ) to the set recognized by 7.10 (Package Checksum field) and 8.4 (File checksum field)
+
+* Update Clause 7, 8, and 9 to make several of the licensing properties optional rather than requiring the use of "NOASSERTION" when no value is provided.
+
+* Update Clause 11 to add the new relationship types: REQUIREMENT_DESCRIPTION_FOR and SPECIFICATION_FOR.
+
+* Update Annex B ( License matching guidelines and templates ) to use the License List XML format
+
+* Update Annex F ( External Repository Identifiers ) to expand security references to include advisory, fix, URL, SWID.  Expand persistent identifiers to include gitoid.
+
+* Update Annex G ( SPDX Lite Profile ) to include NTIA SBOM mandatory minimum fields as required.
+
+* Update Annex H to documented how the snippet information in files to be consistent with REUSE recommendations.
+
+* Added Annex K ( How To Use SPDX in Different Scenarios ) to illustrate linking to external security information, and illustrate how the NTIA SBOM mandatory minimum elements map to SPDX fields.
+
+
+
+# I.2 Differences between V2.2.2 and V2.2.1 <a name="I.2"></a>
 
 V2.2.2 fixed formatting, grammatical and spelling issues found since ISO/IEC 5962:2021 SPDX v2.2.1 was published.   No new fields were added.
 
 Key changes include:
+
 * Clarify Optional Cardinality contradictions
+
 * Update OWL document
+
 * Update JSON schema to fix typos and add missing required fields.
+
 * Clarify Information on using License List short form identifiers.
+
 * It fixed annex lettering inconsistencies. It also moved CC-BY-3.0 to the end of the spec to keep annex letters more consistent in future versions. Here is the translation between lettering in V2.2.2 and the version that came before it:
 
 **Table I.1 — SPDX V2.2.2 Organizational Changes**
@@ -23,7 +53,7 @@ Creative Commons Attribution License 3.0 Unported | Annex G    | [omitted] | Ann
 
 *_This edition featured inconsistent lettering._
 
-# I.2 Differences between V2.2.1 and V2.2 <a name="I.2"></a>
+# I.3 Differences between V2.2.1 and V2.2 <a name="I.3"></a>
 
 There were no technical differences; V2.2.1 is V2.2 reformatted for submission to ISO via the PAS process. As a result, new clauses were added causing the previous clause-numbering sequence to change. Also, Annexes went from having Roman numbers to Latin letters. Here is the translation between numbering in V2.2.1 and the version that came before it:
 
@@ -58,7 +88,7 @@ Differences from Earlier SPDX Versions            | N/A           | Annex J/I* |
 
 *_This edition featured inconsistent lettering._
 
-# I.3 Differences from V2.2 and V2.1 <a name="I.3"></a>
+# I.4 Differences from V2.2 and V2.1 <a name="I.4"></a>
 
 * JSON, YAML, and a development version of XML have been added as supported file formats.
 
@@ -70,11 +100,11 @@ Differences from Earlier SPDX Versions            | N/A           | Annex J/I* |
 
 * Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the spdx-spec GitHub repository.
 
-# I.4 Differences between V2.1 and V2.0 <a name="I.4"></a>
+# I.5 Differences between V2.1 and V2.0 <a name="I.5"></a>
 
 * Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in.  The use of snippets is completely optional and it is not mandatory for snippets to be identified. See section 5 Snippet Information for further details on the fields available to describe snippets.
 
-* External Packages can now be refered to in SPDX documents.  When there is no SPDX file information available to document the content of these external packages, then the filesAnnalyzed attribute on a package should be set to false. See section 3.8 Files Analyzed for more information.
+* External Packages can now be referred to in SPDX documents.  When there is no SPDX file information available to document the content of these external packages, then the filesAnalyzed attribute on a package should be set to false. See section 3.8 Files Analyzed for more information.
 
 * Packages are now able to associate with an “External Reference” which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package.   See: section 3.21  External Reference, 3.22 External Reference Comment and Appendix VI:  External Repository Identifiers for
 more information.
@@ -85,7 +115,7 @@ more information.
 
 * Miscellaneous bug fixes.
 
-# I.5 Differences between V2.0 and V1.2 <a name="I.5"></a>
+# I.6 Differences between V2.0 and V1.2 <a name="I.6"></a>
 
 * Abstraction has been applied to the underlying model with the inclusion of SPDX elements. With SPDX 2.0, the concept of an SPDX element is introduced (see Appendix III). This includes SPDX documents, SPDX files, and SPDX packages, each of which gets associated with an SPDX identifier which is denoted by “SPDXRef-”.
 

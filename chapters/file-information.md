@@ -91,7 +91,7 @@ This field provides information about the type of file identified. File Type is 
 * `BINARY` if the file is a compiled object, target image or binary executable (.o, .a, etc.);
 * `ARCHIVE` if the file represents an archive (.tar, .jar, etc.);
 * `APPLICATION` if the file is associated with a specific application type (MIME type of application/\*);
-* `AUDIO` if the file is associated with an audio file (MIME type of audio/* , e.g. .mp3);
+* `AUDIO` if the file is associated with an audio file (MIME type of audio/\* , e.g. .mp3);
 * `IMAGE` if the file is associated with a picture image file (MIME type of image/\*, e.g., .jpg, .gif);
 * `TEXT` if the file is human readable text file (MIME type of text/\*);
 * `VIDEO` if the file is associated with a video file type (MIME type of video/\*);
@@ -106,7 +106,7 @@ The metadata for the file type field is shown in Table 38.
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 0..* |
+| Cardinality | 0..\* |
 | Format | `SOURCE` \| `BINARY` \| `ARCHIVE` \| `APPLICATION` \| `AUDIO` \| `IMAGE` \| `TEXT` \| `VIDEO` \| `DOCUMENTATION` \| `SPDX` \| `OTHER` |
 
 ### 8.3.2 Intent
@@ -171,8 +171,8 @@ The metadata for the file checksum field is shown in Table 39.
 | Attribute | Value |
 | --------- | ----- |
 | Required | Yes |
-| Cardinality | 1..1 for the [`SHA1`][SHA-1] algorithm, 0..* for all other algorithms |
-| Algorithm | [`SHA1`][SHA-1] is to be used on the file. Other algorithms that can be provided optionally include [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6] |
+| Cardinality | 1..1 for the [`SHA1`][SHA-1] algorithm, 0..\* for all other algorithms |
+| Algorithm | [`SHA1`][SHA-1] is to be used on the file. Other algorithms that can be provided optionally include [`SHA224`][SHA-224], [`SHA256`][SHA-256], [`SHA384`][SHA-384], [`SHA512`][SHA-512], [`SHA3-256`][SHA3-256], [`SHA3-384`][SHA3-384], [`SHA3-512`][SHA3-512], [`BLAKE2b-256`][BLAKE2b-256], [`BLAKE2b-384`][BLAKE2b-384], [`BLAKE2b-512`][BLAKE2b-512], [`BLAKE3`][BLAKE3], [`MD2`][MD2], [`MD4`][MD4], [`MD5`][MD5], [`MD6`][MD6], [`ADLER32`][ADLER32] |
 | Format | In `tag:value` there are three components, an algorithm identifier (SHA1), a separator (“:”) and a checksum value. The RDF shall also contain an algorithm identifier and a checksum value. For example, when the algorithm identifier is SHA1, the checksum value should be a 160-bit value represented as 40 lowercase hexadecimal digits. For other algorithms, an appropriate number of hexadecimal digits is expected. |
 
 ### 8.4.2 Intent
@@ -231,26 +231,22 @@ This field contains the license the SPDX document creator has concluded as gover
 
 The options to populate this field are limited to:
 
-A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md);
+* A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md);
+* `NONE`, if the SPDX document creator concludes there is no license available for this file; or
+* `NOASSERTION`, if:
 
-`NONE`, if the SPDX document creator concludes there is no license available for this file; or
+    - the SPDX document creator has attempted to, but cannot reach a reasonable objective determination;
+    - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-`NOASSERTION`, if:
-
-- the SPDX document creator has attempted to, but cannot reach a reasonable objective determination;
-
-- the SPDX document creator has made no attempt to determine this field; or
-
-- the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
-
-If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([8.7](#8.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([8.7](#8.7)) is preferred. The metadata for the concluded license field is shown in Table 40.
+If the Concluded License is not the same as the License Information in File, a written explanation should be provided in the Comments on License field ([8.7](#8.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([8.7](#8.7)) is preferred. If the Concluded License field is not present for a file, it implies an equivalent meaning to `NOASSERTION`. The metadata for the concluded license field is shown in Table 40.
 
 **Table 40 — Metadata for the concluded license field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..1 |
+| Required | No |
+| Cardinality | 0..1 |
 | Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md). |
 
 ### 8.5.2 Intent
@@ -297,26 +293,22 @@ This field contains the license information actually found in the file, if any. 
 
 The options to populate this field are limited to:
 
-The SPDX License List short form identifier, if the license is on the SPDX License List;
-A reference to the license, denoted by LicenseRef-`[idstring]`, if the license is not on the SPDX License List;
+* A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md);
+* `NONE`, if the file contains no license information whatsoever; or
+* `NOASSERTION`, if:
 
-`NONE`, if the file contains no license information whatsoever; or
+    - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-`NOASSERTION`, if:
-
-- the SPDX document creator has made no attempt to determine this field; or
-
-- the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
-
-If license information for more than one license is contained in the file or if the license information offers the package recipient a choice of licenses, then each of the choices should be listed as a separate entry. The metadata for the license information in file field is shown in Table 41.
+If license information for more than one license is contained in the file or if the license information offers the package recipient a choice of licenses, then each of the choices should be listed as a separate entry. If the License Information in File field is not present for a file, it implies an equivalent meaning to `NOASSERTION`. The metadata for the license information in file field is shown in Table 41.
 
 **Table 41 — Metadata for the license information in file field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..* |
-| Format | `<SPDX License Expression>` \|<br>["DocumentRef-"`[idstring]`":"]"LicenseRef-"`[idstring]` \|<br>\| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md).<br>"DocumentRef-"`[idstring]`: is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>`[idstring]` is a unique string containing letters, numbers, `.` and/or `-` |
+| Required | No |
+| Cardinality | 0..\* |
+| Format | `<SPDX License Expression>` \| `NONE` \| `NOASSERTION`<br>where:<br>`<SPDX License Expression>` is a valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md). |
 
 ### 8.6.2 Intent
 
@@ -402,14 +394,14 @@ Any text relating to a copyright notice, even if not complete;
 
 - the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).
 
-The metadata for the copyright text field is shown in Table 43.
+If the Copyright Text field is not present for a file, it implies an equivalent meaning to `NOASSERTION`. The metadata for the copyright text field is shown in Table 43.
 
 **Table 43 — Metadata for the copyright text field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
-| Cardinality | 1..1 |
+| Required | No |
+| Cardinality | 0..1 |
 | Format | Free form text that can span multiple lines \| `NONE` \| `NOASSERTION` |
 
 ### 8.8.2 Intent
@@ -800,3 +792,11 @@ EXAMPLE 2 RDF: Property `spdx:fileDependency` in class `spdx:File`
 [SHA-256]: https://tools.ietf.org/html/rfc6234
 [SHA-384]: https://en.wikipedia.org/wiki/SHA-2
 [SHA-512]: https://en.wikipedia.org/wiki/SHA-2
+[SHA3-256]: https://en.wikipedia.org/wiki/SHA-3
+[SHA3-384]: https://en.wikipedia.org/wiki/SHA-3
+[SHA3-512]: https://en.wikipedia.org/wiki/SHA-3
+[BLAKE2b-256]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
+[BLAKE2b-384]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
+[BLAKE2b-512]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2
+[BLAKE3]: https://en.wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE3
+[ADLER32]: https://en.wikipedia.org/wiki/Adler-32
