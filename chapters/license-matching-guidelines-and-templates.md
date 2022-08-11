@@ -37,8 +37,10 @@ Some licenses include text that refers to the specific copyright holder or autho
 The text indicated as such can be replaced with similar values (e.g., a different name or generic term; different date) and still be considered a positive match. This rule also applies to text-matching in official license headers (see Guideline: official license headers).
   
 The following XML tag is used to implement this guideline.  `<alt>` with 2 attributes:
+
 * `match` - a POSIX extended regular expression (ERE) to match the replaceable text
 * `name` - an identifier for the variable text unique to the license XML document
+
 The original text is enclosed within the beginning and ending alt tags.
 
 For example: `<alt match="(?i:copyright.{0,200})." name="copyright1">Copyright Linux Foundation</alt>`
