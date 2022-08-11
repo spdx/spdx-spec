@@ -28,6 +28,11 @@ Any change that break backwards compatibility or requires significant tooling ch
 You may want to discuss major changes on the mailing list first to get design feedback before investing time in a pull request.
 Please submit all major changes against the `development/v3.0` which is the next major version of the specification. 
 
+### Target Milestones
+When submitting an issue or pull request, please add a suggested release milestone.  This will ensure the issue or pull request is reviewed for inclusion in that release.
+
+If your issue or pull request is independent of a release, you can use the `release-independent` milestone.
+
 [issues]: https://github.com/spdx/spdx-spec/issues/
 [pull-requests]: https://github.com/spdx/spdx-spec/pulls/
 [spdx-legal]: https://wiki.spdx.org/view/Legal_Team
