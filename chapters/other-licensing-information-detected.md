@@ -113,15 +113,15 @@ If indeed full text of license present in File:
 
 Provide a common name of the license that is not on the SPDX list.
 
-Use `NOASSERTION` If there is no common name or it is not known. The metadata for the license name field is shown in Table 65.
+The metadata for the license name field is shown in Table 65.
 
 **Table 65 — Metadata for the license name field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Conditional |
-| Cardinality | 0..1 conditional (Mandatory, one) if license is not on SPDX License List. |
-| Format | Single line of text | `NOASSERTION` |
+| Required | No |
+| Cardinality | 0..1 |
+| Format | Single line of text |
 
 ### 10.3.2 Intent
 
