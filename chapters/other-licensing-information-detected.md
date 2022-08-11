@@ -111,8 +111,7 @@ If indeed full text of license present in File:
 
 ### 10.3.1 Description
 
-Provide a common name of the license that is not on the SPDX list.
-
+Provide a common name of the license that is not on the SPDX list.  If the License Name field is not present for a license, it implies an equivalent meaning to NOASSERTION.
 The metadata for the license name field is shown in Table 65.
 
 **Table 65 — Metadata for the license name field**
@@ -120,8 +119,9 @@ The metadata for the license name field is shown in Table 65.
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 0..1 |
-| Format | Single line of text |
+| Cardinality | 0..1 conditional (optional, one) if license is not on SPDX License List. |
+| Format | Single line of text | `NOASSERTION` |
+
 
 ### 10.3.2 Intent
 
