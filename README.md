@@ -10,8 +10,7 @@ This repository holds under active development version of the specification as:
 
 * [MarkDown](https://github.com/spdx/spdx-spec/tree/master/chapters) (`master` branch)
 * HTML (gh-pages branch, built on every commit to `master` and `development/` branches)
-  * [Current](https://spdx.github.io/spdx-spec/)
-  * [v2 Development](https://spdx.github.io/spdx-spec/v2-draft)
+  * [Current](https://spdx.github.io/spdx-spec/v2.3/)
 
 See for the official [releases of the specification](https://spdx.org/specifications) or additional information also the [SPDX website](https://spdx.org).
 
