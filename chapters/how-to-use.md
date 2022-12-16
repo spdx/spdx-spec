@@ -5,10 +5,11 @@
 SPDX 2.x has the concept of an External Reference for a Package to "reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package." 
 
 The specification for External Reference identifiers (Annex F) has four defined categories:
-- Security: CPE, SWID tag identifier, or reference to security information 
-- Package-Manager: package identifier and locator
-- Persistent-id:  identifier which is guaranteed to remain stable (persistent) over time
-- Other: Use if none of the above match your use case
+
+* Security: CPE, SWID tag identifier, or reference to security information 
+* Package-Manager: package identifier and locator
+* Persistent-id:  identifier which is guaranteed to remain stable (persistent) over time
+* Other: Use if none of the above match your use case
 
 This section provides usage scenarios of how to leverage the Security and Persistent-id category external references specified above to refer to external security information. A complete SPDX document using these can be found in the examples directory within the SPDX code repository. Multiple instances and types of external security information may be included within a SPDX document.
 
