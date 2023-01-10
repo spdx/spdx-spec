@@ -629,7 +629,7 @@ EXAMPLE 2 RDF: Property `spdx:filesAnalyzed` in class `spdx:Package`
 
 ### 7.9.1 Description
 
-This field provides an independently reproducible mechanism identifying specific contents of a package based on the actual files (except the SPDX document itself, if it is included in the package) that make up each package and that correlates to the data in this SPDX document. This identifier enables a recipient to determine if any file in the original package (that the analysis was done on) has been changed and permits inclusion of an SPDX document as part of a package. The metadata for the package verification code field is shown in Table 21.
+This field provides an independently reproducible mechanism that permits unique identification of the contents of the files contained within a package (except the SPDX document itself, if it is included in the package). The metadata for the package verification code field is shown in Table 21. For more specific use cases and examples of how to apply the package verification code field, see [Annex K.3 Verifying SPDX Packages](how-to-use.md#k3-verifying-spdx-packages).
 
 **Table 21 — Metadata for the package verification code field**
 
@@ -662,7 +662,7 @@ Required sort order: '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e'
 
 ### 7.9.2 Intent
 
-Provide a unique identifier based on the files inside each package, eliminating confusion over which version or modification of a specific package the SPDX document refers to. This field also permits embedding the SPDX document within the package without altering the identifier.
+Verify, based on the files inside each package, which version or modification of a specific package the SPDX document references. This field also permits embedding the SPDX document within the package without altering the verification. This verification enables a recipient to determine which, if any, files in the original package have been changed.
 
 ### 7.9.3 Examples
 
@@ -695,7 +695,7 @@ EXAMPLE 2 RDF: Properties `spdx:packageVerificationCodeValue`, `spdx:packageVeri
 
 ### 7.10.1 Description
 
-Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX document. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX document is to be included in a package, this value should not be calculated. The [SHA1][SHA-1] algorithm shall be used to provide the checksum by default. The metadata for the package checksum field is shown in Table 22.
+Provide an independently reproducible mechanism that permits unique identification of a specific package in this SPDX document. If the SPDX document is to be included in the package, the `PackageVerificationCode` field should be used instead. The metadata for the package checksum field is shown in Table 22. For more specific use cases and examples of how to apply the package checksum field, see [Annex K.3 Verifying SPDX Packages](how-to-use.md#k3-verifying-spdx-packages).
 
 **Table 22 — Metadata for the package checksum field**
 
@@ -708,7 +708,7 @@ Provide an independently reproducible mechanism that permits unique identificati
 
 ### 7.10.2 Intent
 
-Eliminate confusion over which version or modification of a specific package the SPDX document references by providing a unique identifier of the package.
+Verify, based on the binary blob, which version or modification of a specific package content the SPDX document references. This verification enables a recipient to determine if any bits in the original package have been changed but does not specify which bits.
 
 ### 7.10.3 Examples
 
