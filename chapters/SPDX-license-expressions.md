@@ -135,7 +135,13 @@ For example, when the Bison exception is to be applied to GPL-2.0-or-later, the 
 GPL-2.0-or-later WITH Bison-exception-2.2
 ```
 
-The current set of valid exceptions can be found in Annex [A.2](SPDX-license-list.md#A.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single `<license-ref>` to represent the entire license terms (including the exception).
+The current set of valid exceptions can be found in Annex [A.2](SPDX-license-list.md#A.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a `<license-ref>` to represent the exception.
+
+For example, with a custom "FOOBAR" exception applied to GPL-2.0-or-later, the expression would be:
+
+```text
+GPL-2.0-or-later WITH LicenseRef-FOOBAR
+```
 
 ### D.4.5 Order of precedence and parentheses <a name="D.4.5"></a>
 
