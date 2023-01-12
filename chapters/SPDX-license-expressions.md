@@ -22,7 +22,7 @@ simple-expression = license-id / license-id"+" / license-ref
 compound-expression = (simple-expression /
 
 
-simple-expression "WITH" license-exception-id /
+simple-expression "WITH" (license-exception-id / license-ref) /
 
   compound-expression "AND" compound-expression /
 
@@ -127,7 +127,7 @@ LGPL-2.1-only AND MIT AND BSD-2-Clause
 
 ### D.4.4 Exception "WITH" operator <a name="D.4.4"></a>
 
-Sometimes a set of license terms apply except under special circumstances. In this case, use the binary "WITH" operator to construct a new license expression to represent the special exception situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<license-exception-id>` that represents the special exception terms.
+Sometimes a set of license terms apply except under special circumstances. In this case, use the binary "WITH" operator to construct a new license expression to represent the special exception situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<license-exception-id>` or a `<license-ref>` that represents the special exception terms.
 
 For example, when the Bison exception is to be applied to GPL-2.0-or-later, the expression would be:
 
