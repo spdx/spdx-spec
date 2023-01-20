@@ -927,7 +927,7 @@ The options to populate this field are limited to:
     - the SPDX document creator has made no attempt to determine this field; or
     - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the All Licenses Information from Files field is not present for a package and `FilesAnalyzed` field ([7.8](#7.8)) for that same pacakge is `true` or omitted, it implies an equivalent meaning to `NOASSERTION`. The metadata for all license information from files field is shown in Table 26.
+If the All Licenses Information from Files field is not present for a package and `FilesAnalyzed` field ([7.8](#7.8)) for that same package is `true` or omitted, it implies an equivalent meaning to `NOASSERTION`. The metadata for all license information from files field is shown in Table 26.
 
 **Table 26 — Metadata for the all licenses information from files field**
 
