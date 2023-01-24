@@ -92,7 +92,11 @@ Documentation: A reference to related security information of unspecified type.
 
 Locator format: URI as defined by <https://www.ietf.org/archive/id/draft-ietf-sacm-coswid-21.html#name-uri-schemes>.
 
-Conceptual Example: 2df9de35-0aff-4a86-ace6-f7dddd1ade4c
+Contextual Example:
+
+```text
+swid:2df9de35-0aff-4a86-ace6-f7dddd1ade4c
+```
 
 External Reference Site: <https://csrc.nist.gov/Projects/Software-Identification-SWID>
 
