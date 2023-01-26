@@ -34,7 +34,7 @@ Contextual Example:
 cpe:/o:canonical:ubuntu_linux:10.04:-:lts
 ```
 
-External Reference Site: <https://nvd.nist.gov/cpe>
+External Reference Site: <https://nvd.nist.gov/products/cpe>
 
 Documentation: <https://cpe.mitre.org/files/cpe-specification_2.2.pdf>
 
@@ -60,15 +60,15 @@ Contextual Example:
 cpe:2.3:o:canonical:ubuntu_linux:10.04:­:lts:*:*:*:*:*
 ```
 
-External Reference Site: <https://nvd.nist.gov/cpe>
+External Reference Site: <https://nvd.nist.gov/products/cpe>
 
 Documentation: <https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7695.pdf>
 
 ### F.2.3 advisory <a name="advisory"></a>
 
-Locator Format: URL as defined by <https://www.ietf.org/rfc/rfc1738.txt>.
+Locator Format: URL as defined by <https://www.ietf.org/rfc/rfc1738.txt>
 
-Contextual Example: <https://nvd.nist.gov/vuln/detail/CVE-2020-28498>.
+Contextual Example: <https://nvd.nist.gov/vuln/detail/CVE-2020-28498>
 
 Documentation: A reference to the published security advisory (where advisory as defined per ISO 29147:2018). It may contain an impact statement whether a package (e.g. a product) is or is not affected by vulnerabilities.
 
@@ -82,7 +82,7 @@ Documentation: A reference to the source code with a fix for the vulnerability (
 
 ### F.2.5 url <a name="url"></a>
 
-Locator Format: URL as defined by <https://www.ietf.org/rfc/rfc1738.txt>.
+Locator Format: URL as defined by <https://www.ietf.org/rfc/rfc1738.txt>
 
 Contextual Example:  <https://github.com/christianlundkvist/blog/blob/master/2020_05_26_secp256k1_twist_attacks/secp256k1_twist_attacks.md>
 
@@ -90,7 +90,7 @@ Documentation: A reference to related security information of unspecified type.
 
 ### F.2.6 swid <a name="swid"></a>
 
-Locator format: URI as defined by <https://www.ietf.org/archive/id/draft-ietf-sacm-coswid-21.html#name-uri-schemes>.
+Locator format: URI as defined by <https://www.ietf.org/archive/id/draft-ietf-sacm-coswid-21.html#name-uri-schemes>
 
 Conceptual Example: 2df9de35-0aff-4a86-ace6-f7dddd1ade4c
 
