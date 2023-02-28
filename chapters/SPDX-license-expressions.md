@@ -17,12 +17,15 @@ license-exception-id = <short form license exception identifier in Annex A.2>
 
 license-ref = ["DocumentRef-"(idstring)":"]"LicenseRef-"(idstring)
 
+addition-ref = ["DocumentRef-"(idstring)":"]"AdditionRef-"(idstring)
+
 simple-expression = license-id / license-id"+" / license-ref
+
+addition-expression = license-exception-id / addition-ref
 
 compound-expression = (simple-expression /
 
-
-simple-expression "WITH" license-exception-id /
+  simple-expression "WITH" addition-expression /
 
   compound-expression "AND" compound-expression /
 
@@ -70,6 +73,9 @@ LicenseRef-MIT-Style-1
 
 DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
 ```
+
+The current set of valid license identifiers can be found in Annex [A.1](SPDX-license-list.md#A.1). For the most up to date set of exceptions please see [spdx.org/licenses](https:/
+/spdx.org/licenses).
 
 ## D.4 Composite license expressions <a name="D.4"></a>
 
@@ -127,7 +133,12 @@ LGPL-2.1-only AND MIT AND BSD-2-Clause
 
 ### D.4.4 Exception "WITH" operator <a name="D.4.4"></a>
 
-Sometimes a set of license terms apply except under special circumstances. In this case, use the binary "WITH" operator to construct a new license expression to represent the special exception situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<license-exception-id>` that represents the special exception terms.
+Sometimes license texts are found with additional text, named "addition", which might or might not modify the original license terms.
+
+In this case, use the binary "WITH" operator to construct a new license expression to represent the special situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<addition-expression>` that represents the additional text.
+
+The `<addition-expression>` can be either a `<license-exception-id>` from the SPDX License List, or a user defined addition reference in the form ["DocumentRef-"(idstring)":"]"AdditonRef-"(idstring)
+
 
 For example, when the Bison exception is to be applied to GPL-2.0-or-later, the expression would be:
 
@@ -135,7 +146,7 @@ For example, when the Bison exception is to be applied to GPL-2.0-or-later, the 
 GPL-2.0-or-later WITH Bison-exception-2.2
 ```
 
-The current set of valid exceptions can be found in Annex [A.2](SPDX-license-list.md#A.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single `<license-ref>` to represent the entire license terms (including the exception).
+The current set of valid license exceptions identifiers can be found in Annex [A.2](SPDX-license-list.md#A.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses).
 
 ### D.4.5 Order of precedence and parentheses <a name="D.4.5"></a>
 
