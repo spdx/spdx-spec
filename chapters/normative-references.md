@@ -32,7 +32,7 @@ RFC-6234, *US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)*, The Int
 
 *SoftWare Heritage persistent IDentifiers (SWHIDs)*, [https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
 
-*SPDX and RDF Ontology*, [http://spdx.org/rdf/ontology/spdx-2-2](http://spdx.org/rdf/ontology/spdx-2-2)
+*SPDX and RDF Ontology*, [http://spdx.org/rdf/ontology/spdx-2-3](http://spdx.org/rdf/ontology/spdx-2-3)
 
 *SPDX License list*, Linux Foundation, [https://spdx.org/licenses/](https://spdx.org/licenses/)
 
