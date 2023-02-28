@@ -17,12 +17,15 @@ license-exception-id = <short form license exception identifier in Annex A.2>
 
 license-ref = ["DocumentRef-"(idstring)":"]"LicenseRef-"(idstring)
 
+exception-ref = ["DocumentRef-"(idstring)":"]"ExceptionRef-"(idstring)
+
 simple-expression = license-id / license-id"+" / license-ref
+
+exception-expression = license-exception-id / exception-ref
 
 compound-expression = (simple-expression /
 
-
-simple-expression "WITH" license-exception-id /
+  simple-expression "WITH" exception-expression /
 
   compound-expression "AND" compound-expression /
 
@@ -57,9 +60,9 @@ However, please be aware that it is often important to match with the case of th
 
 A simple `<license-expression>` is composed one of the following:
 
-* An SPDX License List Short Form Identifier. For example: CDDL-1.0
-* An SPDX License List Short Form Identifier with a unary "+" operator suffix to represent the current version of the license or any later version. For example: CDDL-1.0+
-* An SPDX user defined license reference: ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
+* An SPDX License List Short License Identifier. For example: CDDL-1.0
+* An SPDX License List Short License Identifier with a unary "+" operator suffix to represent the current version of the license or any later version. For example: CDDL-1.0+
+* An SPDX user defined license reference: ["DocumentRef-"(idstring)":"]"LicenseRef-"(idstring)
 
 Some examples:
 
@@ -70,6 +73,7 @@ LicenseRef-MIT-Style-1
 
 DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
 ```
+The current set of valid license identifiers can be found in Annex [A.1](SPDX-license-list.md#A.1). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses).
 
 ## D.4 Composite license expressions <a name="D.4"></a>
 
@@ -127,7 +131,11 @@ LGPL-2.1-only AND MIT AND BSD-2-Clause
 
 ### D.4.4 Exception "WITH" operator <a name="D.4.4"></a>
 
-Sometimes a set of license terms apply except under special circumstances. In this case, use the binary "WITH" operator to construct a new license expression to represent the special exception situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<license-exception-id>` that represents the special exception terms.
+Sometimes a set of license terms are modified by additional terms, which grant an exception to a license condition, or grant additional permissions beyond those granted in the license terms. These additional terms are not stand-alone licenses and are called an "exception".
+
+In this case, use the binary "WITH" operator to construct a new license expression to represent the special exception situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<exception-expression>` that represents the special exception terms.
+
+The `<exception-expression>` can be either a Short Exception Identifier from the SPDX License List, or a user defined exception reference in the form ["DocumentRef-"(idstring)":"]"ExceptionRef-"(idstring)
 
 For example, when the Bison exception is to be applied to GPL-2.0-or-later, the expression would be:
 
@@ -135,7 +143,7 @@ For example, when the Bison exception is to be applied to GPL-2.0-or-later, the 
 GPL-2.0-or-later WITH Bison-exception-2.2
 ```
 
-The current set of valid exceptions can be found in Annex [A.2](SPDX-license-list.md#A.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single `<license-ref>` to represent the entire license terms (including the exception).
+The current set of valid exception identifiers can be found in Annex [A.2](SPDX-license-list.md#A.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses).
 
 ### D.4.5 Order of precedence and parentheses <a name="D.4.5"></a>
 

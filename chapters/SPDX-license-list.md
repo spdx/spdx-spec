@@ -25,7 +25,7 @@ The OSI column in Table A.1 refers to Open Source Initiative licenses [see Refer
 
 **Table A.1 — License names and corresponding short identifiers**
 
-| Full Name of License                                                         | Short Identifier                                                                                            | FSF? |OSI? |
+| Full Name of License                                                         | Short License Identifier                                                                                    | FSF? |OSI? |
 |------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|------|-----|
 | BSD Zero Clause License                                                      | [0BSD](https://spdx.org/licenses/0BSD.html)                                                                 |      | Y   |
 | Attribution Assurance License                                                | [AAL](https://spdx.org/licenses/AAL.html)                                                                   |      | Y   |
@@ -48,7 +48,7 @@ The OSI column in Table A.1 refers to Open Source Initiative licenses [see Refer
 | Apple MIT License                                                            | [AML](https://spdx.org/licenses/AML.html)                                                                   |      |     |
 | Academy of Motion Picture Arts and Sciences BSD                              | [AMPAS](https://spdx.org/licenses/AMPAS.html)                                                               |      |     |
 | ANTLR Software Rights Notice                                                 | [ANTLR-PD](https://spdx.org/licenses/ANTLR-PD.html)                                                         |      |     |
-| ANTLR Software Rights Notice with license fallback                           | [ANTLR-PD-fallback](https://spdx.org/licenses/ANTLR-PD-fallback.html)                                                         |      |     |
+| ANTLR Software Rights Notice with license fallback                           | [ANTLR-PD-fallback](https://spdx.org/licenses/ANTLR-PD-fallback.html)                                       |      |     |
 | Apache License 1.0                                                           | [Apache-1.0](https://spdx.org/licenses/Apache-1.0.html)                                                     | Y    |     |
 | Apache License 1.1                                                           | [Apache-1.1](https://spdx.org/licenses/Apache-1.1.html)                                                     | Y    | Y   |
 | Apache License 2.0                                                           | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html)                                                     | Y    | Y   |
@@ -251,7 +251,7 @@ The OSI column in Table A.1 refers to Open Source Initiative licenses [see Refer
 | GNU General Public License v3.0 or later                                     | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later.html)                                         | Y    | Y   |
 | gSOAP Public License v1.3b                                                   | [gSOAP-1.3b](https://spdx.org/licenses/gSOAP-1.3b.html)                                                     |      |     |
 | Haskell Language Report License                                              | [HaskellReport](https://spdx.org/licenses/HaskellReport.html)                                               |      |     |
-| Hippocratic License 2.1                                                      | [Hippocratic-2.1](https://spdx.org/licenses/Hippocratic-2.1.html)                                                |      |     |
+| Hippocratic License 2.1                                                      | [Hippocratic-2.1](https://spdx.org/licenses/Hippocratic-2.1.html)                                           |      |     |
 | Historical Permission Notice and Disclaimer                                  | [HPND](https://spdx.org/licenses/HPND.html)                                                                 | Y    | Y   |
 | Historical Permission Notice and Disclaimer - sell variant                   | [HPND-sell-variant](https://spdx.org/licenses/HPND-sell-variant.html)                                       |      |     |
 | HTML Tidy License                                                            | [HTMLTIDY](https://spdx.org/licenses/HTMLTIDY.html)                                                         |      |     |
@@ -335,8 +335,8 @@ The OSI column in Table A.1 refers to Open Source Initiative licenses [see Refer
 | NetCDF license                                                               | [NetCDF](https://spdx.org/licenses/NetCDF.html)                                                             |      |     |
 | Newsletr License                                                             | [Newsletr](https://spdx.org/licenses/Newsletr.html)                                                         |      |     |
 | Nethack General Public License                                               | [NGPL](https://spdx.org/licenses/NGPL.html)                                                                 |      | Y   |
-| NIST Public Domain Notice                                                    | [NIST-PD](https://spdx.org/licenses/NIST-PD.html)                                                            |      |     |
-| NIST Public Domain Notice with license fallback                              | [NIST-PD-fallback](https://spdx.org/licenses/NIST-PD-fallback.html)                                           |      |     |
+| NIST Public Domain Notice                                                    | [NIST-PD](https://spdx.org/licenses/NIST-PD.html)                                                           |      |     |
+| NIST Public Domain Notice with license fallback                              | [NIST-PD-fallback](https://spdx.org/licenses/NIST-PD-fallback.html)                                         |      |     |
 | Norwegian Licence for Open Government Data (NLOD) 1.0                        | [NLOD-1.0](https://spdx.org/licenses/NLOD-1.0.html)                                                         |      |     |
 | Norwegian Licence for Open Government Data (NLOD) 2.0                        | [NLOD-2.0](https://spdx.org/licenses/NLOD-2.0.html)                                                         |      |     |
 | No Limit Public License                                                      | [NLPL](https://spdx.org/licenses/NLPL.html)                                                                 |      |     |
@@ -360,7 +360,7 @@ The OSI column in Table A.1 refers to Open Source Initiative licenses [see Refer
 | SIL Open Font License 1.1                                                    | [OFL-1.1](https://spdx.org/licenses/OFL-1.1.html)                                                           | Y    | Y   |
 | SIL Open Font License 1.1 with no Reserved Font Name                         | [OFL-1.1-no-RFN](https://spdx.org/licenses/OFL-1.1-no-RFN.html)                                             |      | Y   |
 | SIL Open Font License 1.1 with Reserved Font Name                            | [OFL-1.1-RFN](https://spdx.org/licenses/OFL-1.1-RFN.html)                                                   |      | Y   |
-| OGC Software License, Version 1.0                                            | [OGC-1.0](https://spdx.org/licenses/OGC-1.0.html)                                             |      |     |
+| OGC Software License, Version 1.0                                            | [OGC-1.0](https://spdx.org/licenses/OGC-1.0.html)                                                           |      |     |
 | Taiwan Open Government Data License, version 1.0                             | [OGDL-Taiwan-1.0](https://spdx.org/licenses/OGDL-Taiwan-1.0.html)                                           |      |     |
 | Open Government Licence - Canada                                             | [OGL-Canada-2.0](https://spdx.org/licenses/OGL-Canada-2.0.html)                                             |      |     |
 | Open Government Licence v1.0                                                 | [OGL-UK-1.0](https://spdx.org/licenses/OGL-UK-1.0.html)                                                     |      |     |
@@ -386,7 +386,7 @@ The OSI column in Table A.1 refers to Open Source Initiative licenses [see Refer
 | Open Market License                                                          | [OML](https://spdx.org/licenses/OML.html)                                                                   |      |     |
 | OpenSSL License                                                              | [OpenSSL](https://spdx.org/licenses/OpenSSL.html)                                                           | Y    |     |
 | Open Public License v1.0                                                     | [OPL-1.0](https://spdx.org/licenses/OPL-1.0.html)                                                           |      |     |
-| Open Publication License v1.0                                                | [OPUBL-1.0](https://spdx.org/licenses/OPUBL-1.0.html)                                                         |      |     |
+| Open Publication License v1.0                                                | [OPUBL-1.0](https://spdx.org/licenses/OPUBL-1.0.html)                                                       |      |     |
 | OSET Public License version 2.1                                              | [OSET-PL-2.1](https://spdx.org/licenses/OSET-PL-2.1.html)                                                   |      | Y   |
 | Open Software License 1.0                                                    | [OSL-1.0](https://spdx.org/licenses/OSL-1.0.html)                                                           | Y    | Y   |
 | Open Software License 1.1                                                    | [OSL-1.1](https://spdx.org/licenses/OSL-1.1.html)                                                           | Y    |     |
@@ -465,7 +465,7 @@ The OSI column in Table A.1 refers to Open Source Initiative licenses [see Refer
 | W3C Software Notice and Document License (2015-05-13)                        | [W3C-20150513](https://spdx.org/licenses/W3C-20150513.html)                                                 |      |     |
 | Sybase Open Watcom Public License 1.0                                        | [Watcom-1.0](https://spdx.org/licenses/Watcom-1.0.html)                                                     |      | Y   |
 | Wsuipa License                                                               | [Wsuipa](https://spdx.org/licenses/Wsuipa.html)                                                             |      |     |
-| Do What The F\*ck You Want To Public License                                  | [WTFPL](https://spdx.org/licenses/WTFPL.html)                                                               | Y    |     |
+| Do What The F\*ck You Want To Public License                                  | [WTFPL](https://spdx.org/licenses/WTFPL.html)                                                              | Y    |     |
 | X11 License                                                                  | [X11](https://spdx.org/licenses/X11.html)                                                                   | Y    |     |
 | X11 License Distribution Modification Variant                                | [X11-distribute-modifications-variant](https://spdx.org/licenses/X11-distribute-modifications-variant.html) |      |     |
 | Xerox License                                                                | [Xerox](https://spdx.org/licenses/Xerox.html)                                                               |      |     |
@@ -492,7 +492,7 @@ The SPDX License List includes a list of exceptions. These exceptions grant an e
 
 **Table A.2 — Exception names and license links**
 
-| Full Name of Exception                                | SPDX License Exception                                                                                |
+| Full Name of Exception                                | Short Exception Identifier                                                                            |
 |-------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | 389 Directory Server Exception                        | [389-exception](https://spdx.org/licenses/389-exception.html)                                         |
 | Autoconf exception 2.0                                | [Autoconf-exception-2.0](https://spdx.org/licenses/Autoconf-exception-2.0.html)                       |
@@ -574,3 +574,4 @@ SPDX endeavors to never change the SPDX license identifiers. However, sometimes 
 | Nunit License                                                   | [Nunit](https://spdx.org/licenses/Nunit.html)                                                       |
 | Standard ML of New Jersey License                               | [StandardML-NJ](https://spdx.org/licenses/StandardML-NJ.html)                                       |
 | wxWindows Library License                                       | [wxWindows](https://spdx.org/licenses/wxWindows.html)                                               |
+
