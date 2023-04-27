@@ -131,7 +131,7 @@ An example where all three different licenses apply would be:
 LGPL-2.1-only AND MIT AND BSD-2-Clause
 ```
 
-### D.4.4 Exception "WITH" operator <a name="D.4.4"></a>
+### D.4.4 Additive "WITH" operator <a name="D.4.4"></a>
 
 Sometimes license texts are found with additional text, named "addition", which might or might not modify the original license terms.
 
