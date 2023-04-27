@@ -133,7 +133,7 @@ LGPL-2.1-only AND MIT AND BSD-2-Clause
 
 ### D.4.4 Additive "WITH" operator <a name="D.4.4"></a>
 
-Sometimes license texts are found with additional text, named "addition", which might or might not modify the original license terms.
+Sometimes license texts are found with additional text, which might or might not modify the original license terms.
 
 In this case, use the binary "WITH" operator to construct a new license expression to represent the special situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<addition-expression>` that represents the additional text.
 
