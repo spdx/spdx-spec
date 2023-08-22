@@ -21,7 +21,7 @@ This standard contains more than a few *cardinality assertions*, each of which i
 * Cardinality: 1..1
 * Cardinality: 1..\*
 
-Each of these assertions can easily be understood as to whether a feature is required, and if so, how many occurrences are required; also, whether a feature is permitted, and if so, in what number. As this is the format long familiar to the SPDX community, it has been preserved in this document.
+Each of these assertions can easily be understood as to whether a feature is required, and if so, how many occurrences are required; also, whether a feature is permitted, and if so, in what number. As this is the format long familiar to the SPDX community, it has been preserved in this document. Unless specified otherwise, omission of an optional field should be interpretted as signaling NOASSERTION.
 
 ## 4.4 Standard data format requirements <a name="4.4"></a>
 
