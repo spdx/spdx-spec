@@ -1,5 +1,7 @@
 # Annex D SPDX license expressions (Normative)
 
+TODO: update for SPDXv3
+
 ## D.1 Overview <a name="D.1"></a>
 
 Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0-only OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1-only AND BSD-3-Clause).

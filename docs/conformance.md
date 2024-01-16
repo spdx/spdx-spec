@@ -1,5 +1,7 @@
 # 4 Conformance
 
+TODO: update for SPDXv3
+
 ## 4.1 SPDX Current and Previous Versions <a name="4.1"></a>
 
 This edition has the version number 2.3 as part of its title. This is a follow on from [ISO/IEC 5962:2021

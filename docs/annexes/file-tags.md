@@ -1,4 +1,6 @@
-# Annex H Specifying SPDX information in source files (Informative)
+# Specifying SPDX information in source files (Informative)
+
+TODO: re-write for SPDXv3
 
 ## H.1 Rationale <a name="H.1"></a>
 

@@ -1,5 +1,7 @@
 # Annex K: How To Use SPDX in Different Scenarios
 
+TODO: re-write for SPDXv3
+
 ## K.1 Including security information in a SPDX document
 
 SPDX 2.x has the concept of an External Reference for a Package to "reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package." 

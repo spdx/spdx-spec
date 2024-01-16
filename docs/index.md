@@ -1,7 +1,11 @@
-# The Software Package Data Exchange® (SPDX®) Specification Version 2.3
+# The Software Package Data Exchange® (SPDX®) Specification Version 3.0-DRAFT
 
-Copyright © 2010-2022 Linux Foundation and its Contributors.
-This work is licensed under the Creative Commons Attribution License 3.0 Unported (CC-BY-3.0) reproduced in its entirety in [Annex J](creative-commons-attribution-license-3.0-unported.md) herein. All other rights are expressly reserved.
+Copyright © 2010-2023 Linux Foundation and its Contributors.
+
+This work is licensed under the
+Creative Commons Attribution License 3.0 Unported (CC-BY-3.0)
+and the Community specification License 1.0,
+both reproduced in their entirety in annexes herein.
 
 With thanks to
 Adam Cohn,

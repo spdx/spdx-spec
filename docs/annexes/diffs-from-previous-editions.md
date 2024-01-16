@@ -1,5 +1,7 @@
 # Annex I Differences from previous editions (Informative)
 
+TODO: re-write for SPDXv3
+
 # I.1 Differences between V2.3 and V2.2.2  <a name="I.1"></a>
 
 V2.3 has added new fields to improve the ability to capture security related information and to improve interoperabiility with other SBOM formats.  

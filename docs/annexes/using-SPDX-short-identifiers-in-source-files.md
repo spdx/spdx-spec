@@ -1,5 +1,7 @@
 # Annex E Using SPDX license list short identifiers in source files (Informative)
 
+TODO: update for SPDXv3
+
 ## E.1 Introduction <a name="E.1"></a>
 
 Identifying the license for open source software is critical for both reporting purposes and license compliance. However, determining the license can sometimes be difficult due to a lack of information or ambiguous information. Even when licensing information is present, a lack of consistent notation can make automating the task of license detection very difficult, thus requiring vast amounts of human effort.

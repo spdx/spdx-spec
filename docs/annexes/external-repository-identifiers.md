@@ -1,5 +1,7 @@
 # Annex F External repository identifiers (Normative)
 
+TODO: re-write for SPDXv3 (if needed)
+
 ## F.1 Introduction <a name="F.1"></a>
 
 This specification allows external resources
