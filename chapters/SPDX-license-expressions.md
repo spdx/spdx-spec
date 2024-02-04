@@ -22,11 +22,17 @@ simple-expression = license-id / license-id"+" / license-ref
 compound-expression = (simple-expression /
 
 
-simple-expression "WITH" license-exception-id /
+  simple-expression "WITH" license-exception-id /
+
+  simple-expression "with" license-exception-id /
 
   compound-expression "AND" compound-expression /
 
+  compound-expression "and" compound-expression /
+
   compound-expression "OR" compound-expression /
+
+  compound-expression "or" compound-expression /
 
   "(" compound-expression ")" )
 
@@ -47,7 +53,7 @@ In the `tag:value` format, a license expression MUST be on a single line, and MU
 
 ## D.2 Case sensitivity <a name="D.2"></a>
 
-License expression operators (`AND`, `OR` and `WITH`) should be matched in a *case-sensitive* manner.
+License expression operators (`AND`, `and`, `OR`, `or`, `WITH` and `with`) should be matched in a *case-sensitive* manner. I.e., variations `And`, `oR` are not allowed.
 
 License identifiers (including license exception identifiers) used in SPDX documents or source code files should be matched in a *case-insensitive* manner. In other words, `MIT`, `Mit` and `mIt` should all be treated as the same identifier and referring to the same license.
 
@@ -103,6 +109,8 @@ An example representing a choice between three different licenses would be:
 LGPL-2.1-only OR MIT OR BSD-3-Clause
 ```
 
+It is allowed to use the operator in lower case form `or`.
+
 ### D.4.3 Conjunctive "AND" operator <a name="D.4.3"></a>
 
 If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are a valid license expression values.
@@ -125,6 +133,8 @@ An example where all three different licenses apply would be:
 LGPL-2.1-only AND MIT AND BSD-2-Clause
 ```
 
+It is allowed to use the operator in lower case form `and`.
+
 ### D.4.4 Exception "WITH" operator <a name="D.4.4"></a>
 
 Sometimes a set of license terms apply except under special circumstances. In this case, use the binary "WITH" operator to construct a new license expression to represent the special exception situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<license-exception-id>` that represents the special exception terms.
@@ -136,6 +146,8 @@ GPL-2.0-or-later WITH Bison-exception-2.2
 ```
 
 The current set of valid exceptions can be found in Annex [A.2](SPDX-license-list.md#A.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses). If the applicable exception is not found on the SPDX License Exception List, then use a single `<license-ref>` to represent the entire license terms (including the exception).
+
+It is allowed to use the operator in lower case form `with`.
 
 ### D.4.5 Order of precedence and parentheses <a name="D.4.5"></a>
 
