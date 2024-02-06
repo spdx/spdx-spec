@@ -146,7 +146,7 @@ For example, when the Bison exception is to be applied to GPL-2.0-or-later, the 
 GPL-2.0-or-later WITH Bison-exception-2.2
 ```
 
-The current set of valid license exceptions identifiers can be found in Annex [A.2](SPDX-license-list.md#A.2). For the most up to date set of exceptions please see [spdx.org/licenses](https://spdx.org/licenses).
+The current set of valid license exceptions identifiers can be found in [spdx.org/licenses](https://spdx.org/licenses).
 
 ### D.4.5 Order of precedence and parentheses <a name="D.4.5"></a>
 
