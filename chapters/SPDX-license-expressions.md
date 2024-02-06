@@ -74,7 +74,7 @@ LicenseRef-MIT-Style-1
 DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
 ```
 
-The current set of valid license identifiers can be found in Annex [A.1](SPDX-license-list.md#A.1). For the most up to date set of exceptions please see [spdx.org/licenses](https:/
+The current set of valid license identifiers can be found in [spdx.org/licenses](https:/
 /spdx.org/licenses).
 
 ## D.4 Composite license expressions <a name="D.4"></a>
