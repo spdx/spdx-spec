@@ -1,8 +1,10 @@
 # Annex I Differences from previous editions (Informative)
 
-TODO: re-write for SPDXv3
+# I.1 Differences between V3.0 and V2.3 <a name="I.1"></a>
 
-# I.1 Differences between V2.3 and V2.2.2  <a name="I.1"></a>
+TODO: This will be updated before the final release
+
+# I.2 Differences between V2.3 and V2.2.2  <a name="I.2"></a>
 
 V2.3 has added new fields to improve the ability to capture security related information and to improve interoperabiility with other SBOM formats.  
 
@@ -28,7 +30,7 @@ Key changes include:
 
 
 
-# I.2 Differences between V2.2.2 and V2.2.1 <a name="I.2"></a>
+# I.3 Differences between V2.2.2 and V2.2.1 <a name="I.3"></a>
 
 V2.2.2 fixed formatting, grammatical and spelling issues found since ISO/IEC 5962:2021 SPDX v2.2.1 was published.   No new fields were added.
 
@@ -55,7 +57,7 @@ Creative Commons Attribution License 3.0 Unported | Annex G    | [omitted] | Ann
 
 *_This edition featured inconsistent lettering._
 
-# I.3 Differences between V2.2.1 and V2.2 <a name="I.3"></a>
+# I.4 Differences between V2.2.1 and V2.2 <a name="I.4"></a>
 
 There were no technical differences; V2.2.1 is V2.2 reformatted for submission to ISO via the PAS process. As a result, new clauses were added causing the previous clause-numbering sequence to change. Also, Annexes went from having Roman numbers to Latin letters. Here is the translation between numbering in V2.2.1 and the version that came before it:
 
@@ -90,7 +92,7 @@ Differences from Earlier SPDX Versions            | N/A           | Annex J/I* |
 
 *_This edition featured inconsistent lettering._
 
-# I.4 Differences from V2.2 and V2.1 <a name="I.4"></a>
+# I.5 Differences from V2.2 and V2.1 <a name="I.5"></a>
 
 * JSON, YAML, and a development version of XML have been added as supported file formats.
 
@@ -102,7 +104,7 @@ Differences from Earlier SPDX Versions            | N/A           | Annex J/I* |
 
 * Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the spdx-spec GitHub repository.
 
-# I.5 Differences between V2.1 and V2.0 <a name="I.5"></a>
+# I.6 Differences between V2.1 and V2.0 <a name="I.6"></a>
 
 * Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in.  The use of snippets is completely optional and it is not mandatory for snippets to be identified. See section 5 Snippet Information for further details on the fields available to describe snippets.
 
@@ -117,7 +119,7 @@ more information.
 
 * Miscellaneous bug fixes.
 
-# I.6 Differences between V2.0 and V1.2 <a name="I.6"></a>
+# I.7 Differences between V2.0 and V1.2 <a name="I.7"></a>
 
 * Abstraction has been applied to the underlying model with the inclusion of SPDX elements. With SPDX 2.0, the concept of an SPDX element is introduced (see Appendix III). This includes SPDX documents, SPDX files, and SPDX packages, each of which gets associated with an SPDX identifier which is denoted by “SPDXRef-”.
 
