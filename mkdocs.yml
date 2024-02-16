@@ -13,11 +13,10 @@ nav:
 - 'Scope': scope.md
 - 'Normative references': normative-references.md
 - 'Terms and definitions': terms-and-definitions.md
-- 'Conformance': conformance.md
 - 'Bibliography': bibliography.md
 - model:
   - Core:
-    - model/Core/Core.md
+    - 'Description': model/Core/Core.md
     - Classes:
       - model/Core/Classes/Agent.md
       - model/Core/Classes/Annotation.md
@@ -36,6 +35,7 @@ nav:
       - model/Core/Classes/LifecycleScopedRelationship.md
       - model/Core/Classes/NamespaceMap.md
       - model/Core/Classes/Organization.md
+      - model/Core/Classes/PackageVerificationCode.md
       - model/Core/Classes/Person.md
       - model/Core/Classes/PositiveIntegerRange.md
       - model/Core/Classes/Relationship.md
@@ -45,7 +45,7 @@ nav:
     - Properties:
       - model/Core/Properties/algorithm.md
       - model/Core/Properties/annotationType.md
-      - model/Core/Properties/begin.md
+      - model/Core/Properties/beginIntegerRange.md
       - model/Core/Properties/builtTime.md
       - model/Core/Properties/comment.md
       - model/Core/Properties/completeness.md
@@ -59,7 +59,7 @@ nav:
       - model/Core/Properties/definingArtifact.md
       - model/Core/Properties/description.md
       - model/Core/Properties/element.md
-      - model/Core/Properties/end.md
+      - model/Core/Properties/endIntegerRange.md
       - model/Core/Properties/endTime.md
       - model/Core/Properties/extension.md
       - model/Core/Properties/externalIdentifier.md
@@ -80,6 +80,7 @@ nav:
       - model/Core/Properties/namespace.md
       - model/Core/Properties/namespaceMap.md
       - model/Core/Properties/originatedBy.md
+      - model/Core/Properties/packageVerificationCodeExcludedFile.md
       - model/Core/Properties/prefix.md
       - model/Core/Properties/profileConformance.md
       - model/Core/Properties/relationshipType.md
@@ -88,12 +89,13 @@ nav:
       - model/Core/Properties/scope.md
       - model/Core/Properties/spdxId.md
       - model/Core/Properties/specVersion.md
-      - model/Core/Properties/standard.md
+      - model/Core/Properties/standardName.md
       - model/Core/Properties/startTime.md
       - model/Core/Properties/statement.md
       - model/Core/Properties/subject.md
       - model/Core/Properties/summary.md
       - model/Core/Properties/suppliedBy.md
+      - model/Core/Properties/supportLevel.md
       - model/Core/Properties/to.md
       - model/Core/Properties/validUntilTime.md
       - model/Core/Properties/value.md
@@ -108,12 +110,13 @@ nav:
       - model/Core/Vocabularies/ProfileIdentifierType.md
       - model/Core/Vocabularies/RelationshipCompleteness.md
       - model/Core/Vocabularies/RelationshipType.md
+      - model/Core/Vocabularies/SupportType.md
     - Datatypes:
       - model/Core/Datatypes/DateTime.md
       - model/Core/Datatypes/MediaType.md
       - model/Core/Datatypes/SemVer.md
   - Software:
-    - model/Software/Software.md
+    - 'Description': model/Software/Software.md
     - Classes:
       - model/Software/Classes/File.md
       - model/Software/Classes/Package.md
@@ -124,11 +127,12 @@ nav:
       - model/Software/Properties/additionalPurpose.md
       - model/Software/Properties/attributionText.md
       - model/Software/Properties/byteRange.md
-      - model/Software/Properties/contentIdentifier.md
       - model/Software/Properties/contentType.md
       - model/Software/Properties/copyrightText.md
       - model/Software/Properties/downloadLocation.md
+      - model/Software/Properties/gitoid.md
       - model/Software/Properties/homePage.md
+      - model/Software/Properties/isDirectory.md
       - model/Software/Properties/lineRange.md
       - model/Software/Properties/packageUrl.md
       - model/Software/Properties/packageVersion.md
@@ -140,7 +144,7 @@ nav:
       - model/Software/Vocabularies/SbomType.md
       - model/Software/Vocabularies/SoftwarePurpose.md
   - Security:
-    - model/Security/Security.md
+    - 'Description': model/Security/Security.md
     - Classes:
       - model/Security/Classes/CvssV2VulnAssessmentRelationship.md
       - model/Security/Classes/CvssV3VulnAssessmentRelationship.md
@@ -182,9 +186,9 @@ nav:
       - model/Security/Vocabularies/SsvcDecisionType.md
       - model/Security/Vocabularies/VexJustificationType.md
   - Licensing:
-    - model/Licensing/Licensing.md
+    - 'Description': model/Licensing/Licensing.md
   - SimpleLicensing:
-    - model/SimpleLicensing/SimpleLicensing.md
+    - 'Description': model/SimpleLicensing/SimpleLicensing.md
     - Classes:
       - model/SimpleLicensing/Classes/AnyLicenseInfo.md
       - model/SimpleLicensing/Classes/LicenseExpression.md
@@ -195,13 +199,14 @@ nav:
       - model/SimpleLicensing/Properties/licenseListVersion.md
       - model/SimpleLicensing/Properties/licenseText.md
   - ExpandedLicensing:
-    - model/ExpandedLicensing/ExpandedLicensing.md
+    - 'Description': model/ExpandedLicensing/ExpandedLicensing.md
     - Classes:
       - model/ExpandedLicensing/Classes/ConjunctiveLicenseSet.md
       - model/ExpandedLicensing/Classes/CustomLicense.md
       - model/ExpandedLicensing/Classes/CustomLicenseAddition.md
       - model/ExpandedLicensing/Classes/DisjunctiveLicenseSet.md
       - model/ExpandedLicensing/Classes/ExtendableLicense.md
+      - model/ExpandedLicensing/Classes/IndividualLicensingInfo.md
       - model/ExpandedLicensing/Classes/License.md
       - model/ExpandedLicensing/Classes/LicenseAddition.md
       - model/ExpandedLicensing/Classes/ListedLicense.md
@@ -209,18 +214,12 @@ nav:
       - model/ExpandedLicensing/Classes/OrLaterOperator.md
       - model/ExpandedLicensing/Classes/WithAdditionOperator.md
     - Properties:
-      - model/ExpandedLicensing/Properties/additionComment.md
-      - model/ExpandedLicensing/Properties/additionId.md
-      - model/ExpandedLicensing/Properties/additionName.md
       - model/ExpandedLicensing/Properties/additionText.md
       - model/ExpandedLicensing/Properties/deprecatedVersion.md
       - model/ExpandedLicensing/Properties/isDeprecatedAdditionId.md
       - model/ExpandedLicensing/Properties/isDeprecatedLicenseId.md
       - model/ExpandedLicensing/Properties/isFsfLibre.md
       - model/ExpandedLicensing/Properties/isOsiApproved.md
-      - model/ExpandedLicensing/Properties/licenseComment.md
-      - model/ExpandedLicensing/Properties/licenseId.md
-      - model/ExpandedLicensing/Properties/licenseName.md
       - model/ExpandedLicensing/Properties/licenseXml.md
       - model/ExpandedLicensing/Properties/listVersionAdded.md
       - model/ExpandedLicensing/Properties/member.md
@@ -230,12 +229,13 @@ nav:
       - model/ExpandedLicensing/Properties/standardLicenseHeader.md
       - model/ExpandedLicensing/Properties/standardLicenseTemplate.md
       - model/ExpandedLicensing/Properties/subjectAddition.md
+      - model/ExpandedLicensing/Properties/subjectExtendableLicense.md
       - model/ExpandedLicensing/Properties/subjectLicense.md
     - Individuals:
       - model/ExpandedLicensing/Individuals/NoAssertionLicense.md
       - model/ExpandedLicensing/Individuals/NoneLicense.md
   - Dataset:
-    - model/Dataset/Dataset.md
+    - 'Description': model/Dataset/Dataset.md
     - Classes:
       - model/Dataset/Classes/Dataset.md
     - Properties:
@@ -257,7 +257,7 @@ nav:
       - model/Dataset/Vocabularies/DatasetAvailabilityType.md
       - model/Dataset/Vocabularies/DatasetType.md
   - AI:
-    - model/AI/AI.md
+    - 'Description': model/AI/AI.md
     - Classes:
       - model/AI/Classes/AIPackage.md
     - Properties:
@@ -279,7 +279,7 @@ nav:
     - Vocabularies:
       - model/AI/Vocabularies/SafetyRiskAssessmentType.md
   - Build:
-    - model/Build/Build.md
+    - 'Description': model/Build/Build.md
     - Classes:
       - model/Build/Classes/Build.md
     - Properties:
@@ -293,16 +293,16 @@ nav:
       - model/Build/Properties/environment.md
       - model/Build/Properties/parameters.md
   - Lite:
-    - model/Lite/Lite.md
+    - 'Descrption': model/Lite/Lite.md
+  - Extension:
+    - 'Description': model/Extension/Extension.md
+    - Classes:
+      - model/Extension/Classes/Extension.md
 - annexes:
+  - 'Diffs from Previous Editions': annexes/diffs-from-previous-editions.md
   - 'RDF Object Model and Identifier Syntax': annexes/RDF-object-model-and-identifier-syntax.md
   - 'SPDX License Expressions': annexes/SPDX-license-expressions.md
   - 'Using SPDX short identifiers in Source Files': annexes/using-SPDX-short-identifiers-in-source-files.md
-  - 'SPDX File Tags': annexes/file-tags.md
-  - 'External Repository Identifiers': annexes/external-repository-identifiers.md
-  - 'Using SPDX Lite': annexes/using-SPDX-lite.md
-  - 'How To Use SPDX in Different Scenarios': annexes/how-to-use.md
-  - 'Differences from Earlier SPDX Versions': annexes/diffs-from-previous-editions.md
 - licenses:
   - 'Creative Commons Attribution License 3.0 Unported': licenses/cc-by-3.0-unported.md
   - 'Community Spec License 1.0': licenses/community-spec.md
