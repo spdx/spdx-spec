@@ -19,18 +19,15 @@ license-ref = ["DocumentRef-"(idstring)":"]"LicenseRef-"(idstring)
 
 simple-expression = license-id / license-id"+" / license-ref
 
-compound-expression = (simple-expression /
+license-expression = (simple-expression /
 
+  simple-expression "WITH" license-exception-id /
 
-simple-expression "WITH" license-exception-id /
+  license-expression "AND" license-expression /
 
-  compound-expression "AND" compound-expression /
+  license-expression "OR" license-expression /
 
-  compound-expression "OR" compound-expression /
-
-  "(" compound-expression ")" )
-
-license-expression = (simple-expression / compound-expression)
+  "(" license-expression ")" )
 ```
 
 In the following sections we describe in more detail `<license-expression>` construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern-day software.
