@@ -35,6 +35,9 @@ jobs:
       - name: Set git identity
         run: git config user.name ci-bot; git config user.email ci-bot@spdx.dev
         working-directory: spdx-spec
+      - name: Sync gh-pages
+        run: git checkout gh-pages && git pull && git checkout development/v3.0
+        working-directory: spdx-spec
       - name: Build docs
         run: mike deploy v3.0 v3-draft -b gh-pages -p
         working-directory: spdx-spec
