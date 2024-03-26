@@ -32,6 +32,16 @@ jobs:
         run: pip install -r spec-parser/requirements.txt
       - name: Build model
         run: python3 spec-parser/main.py spdx-3-model/model spdx-spec/docs/model
+      - name: Copy JSON annotations
+        run: cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/model/jsonld-annotations.ttl
+      - name: Generate JSON schema
+        run: |
+          shacl2code generate \
+            --input spdx-spec/docs/model/ontology.rdf.ttl \
+            --input spdx-spec/docs/model/jsonld-annotations.ttl \
+            --context-url spdx-spec/docs/model/context.jsonld https://spdx.org/rdf/3.0.0/spdx-context.jsonld \
+            jsonschema \
+            --output spdx-spec/docs/model/schema.json
       - name: Set git identity
         run: git config user.name ci-bot; git config user.email ci-bot@spdx.dev
         working-directory: spdx-spec
