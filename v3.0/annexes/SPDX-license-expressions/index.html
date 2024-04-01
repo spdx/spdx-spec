@@ -309,7 +309,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../model/Software/Properties/homePage/">homePage</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../model/Software/Properties/isDirectory/">isDirectory</a>
+<li class="toctree-l3"><a class="" href="../../model/Software/Properties/isDirectory.md">None</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../model/Software/Properties/lineRange/">lineRange</a>
 </li>
@@ -549,7 +549,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#">Classes</a>
 <ul>
-<li class="toctree-l3"><a class="reference internal" href="../../model/Dataset/Classes/Dataset/">Dataset</a>
+<li class="toctree-l3"><a class="" href="../../model/Dataset/Classes/Dataset.md">None</a>
 </li>
 </ul>
 </li>
@@ -577,7 +577,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../model/Dataset/Properties/knownBias/">knownBias</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../model/Dataset/Properties/sensitivePersonalInformation/">sensitivePersonalInformation</a>
+<li class="toctree-l3"><a class="" href="../../model/Dataset/Properties/sensitivePersonalInformation.md">None</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../model/Dataset/Properties/sensor/">Sensor</a>
 </li>
@@ -631,7 +631,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../model/AI/Properties/safetyRiskAssessment/">safetyRiskAssessment</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../model/AI/Properties/sensitivePersonalInformation/">sensitivePersonalInformation</a>
+<li class="toctree-l3"><a class="" href="../../model/AI/Properties/sensitivePersonalInformation.md">None</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../model/AI/Properties/standardCompliance/">standardCompliance</a>
 </li>
@@ -708,25 +708,25 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current" href="./">SPDX License Expressions</a>
 <ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="#d1-overview">D.1 Overview </a>
+<li class="toctree-l2"><a class="reference internal" href="#d1-overview">D.1 Overview</a>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#d2-case-sensitivity">D.2 Case sensitivity </a>
+<li class="toctree-l2"><a class="reference internal" href="#d2-case-sensitivity">D.2 Case sensitivity</a>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#d3-simple-license-expressions">D.3 Simple license expressions </a>
+<li class="toctree-l2"><a class="reference internal" href="#d3-simple-license-expressions">D.3 Simple license expressions</a>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#d4-composite-license-expressions">D.4 Composite license expressions </a>
+<li class="toctree-l2"><a class="reference internal" href="#d4-composite-license-expressions">D.4 Composite license expressions</a>
 <ul>
-<li class="toctree-l3"><a class="reference internal" href="#d41-introduction">D.4.1 Introduction </a>
+<li class="toctree-l3"><a class="reference internal" href="#d41-introduction">D.4.1 Introduction</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#d42-disjunctive-or-operator">D.4.2 Disjunctive "OR" operator </a>
+<li class="toctree-l3"><a class="reference internal" href="#d42-disjunctive-or-operator">D.4.2 Disjunctive "OR" operator</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#d43-conjunctive-and-operator">D.4.3 Conjunctive "AND" operator </a>
+<li class="toctree-l3"><a class="reference internal" href="#d43-conjunctive-and-operator">D.4.3 Conjunctive "AND" operator</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#d44-additive-with-operator">D.4.4 Additive "WITH" operator </a>
+<li class="toctree-l3"><a class="reference internal" href="#d44-additive-with-operator">D.4.4 Additive "WITH" operator</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#d45-order-of-precedence-and-parentheses">D.4.5 Order of precedence and parentheses </a>
+<li class="toctree-l3"><a class="reference internal" href="#d45-order-of-precedence-and-parentheses">D.4.5 Order of precedence and parentheses</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#d46-license-expressions-in-rdf">D.4.6 License expressions in RDF </a>
+<li class="toctree-l3"><a class="reference internal" href="#d46-license-expressions-in-rdf">D.4.6 License expressions in RDF</a>
 </li>
 </ul>
 </li>
@@ -784,11 +784,11 @@ addition-expression = license-exception-id / addition-ref
 
 compound-expression = (simple-expression /
 
-  simple-expression "WITH" addition-expression /
+  simple-expression ( "WITH" / "with" ) addition-expression /
 
-  compound-expression "AND" compound-expression /
+  compound-expression ( "AND" / "and" ) compound-expression /
 
-  compound-expression "OR" compound-expression /
+  compound-expression ( "OR" / "or" ) compound-expression /
 
   "(" compound-expression ")" )
 
@@ -801,7 +801,7 @@ license-expression = (simple-expression / compound-expression)
 <p>There MUST NOT be white space between a license-id and any following <code>+</code>. This supports easy parsing and backwards compatibility. There MUST be white space on either side of the operator "WITH". There MUST be white space and/or parentheses on either side of the operators <code>AND</code> and <code>OR</code>.</p>
 <p>In the <code>tag:value</code> format, a license expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.</p>
 <h2 id="d2-case-sensitivity">D.2 Case sensitivity <a name="D.2"></a></h2>
-<p>License expression operators (<code>AND</code>, <code>OR</code> and <code>WITH</code>) should be matched in a <em>case-sensitive</em> manner.</p>
+<p>License expression operators (<code>AND</code>, <code>and</code>, <code>OR</code>, <code>or</code>, <code>WITH</code> and <code>with</code>) should be matched in a <em>case-sensitive</em> manner, i.e., letters must be all upper case or all lower case.</p>
 <p>License identifiers (including license exception identifiers) used in SPDX documents or source code files should be matched in a <em>case-insensitive</em> manner. In other words, <code>MIT</code>, <code>Mit</code> and <code>mIt</code> should all be treated as the same identifier and referring to the same license.</p>
 <p>However, please be aware that it is often important to match with the case of the canonical identifier on the <a href="https://spdx.org/licenses">SPDX License List</a>. This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.</p>
 <h2 id="d3-simple-license-expressions">D.3 Simple license expressions <a name="D.3"></a></h2>
@@ -836,6 +836,7 @@ DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
 <p>An example representing a choice between three different licenses would be:</p>
 <div class="codehilite"><pre><span></span><code>LGPL-2.1-only OR MIT OR BSD-3-Clause
 </code></pre></div>
+<p>It is allowed to use the operator in lower case form <code>or</code>.</p>
 <h3 id="d43-conjunctive-and-operator">D.4.3 Conjunctive "AND" operator <a name="D.4.3"></a></h3>
 <p>If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are a valid license expression values.</p>
 <p>For example, when one is required to comply with both the LGPL-2.1-only or MIT licenses, a valid expression would be:</p>
@@ -847,6 +848,7 @@ DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
 <p>An example where all three different licenses apply would be:</p>
 <div class="codehilite"><pre><span></span><code>LGPL-2.1-only AND MIT AND BSD-2-Clause
 </code></pre></div>
+<p>It is allowed to use the operator in lower case form <code>and</code>.</p>
 <h3 id="d44-additive-with-operator">D.4.4 Additive "WITH" operator <a name="D.4.4"></a></h3>
 <p>Sometimes license texts are found with additional text, which might or might not modify the original license terms.</p>
 <p>In this case, use the binary "WITH" operator to construct a new license expression to represent the special situation. A valid <code>&lt;license-expression&gt;</code> is where the left operand is a <code>&lt;simple-expression&gt;</code> value and the right operand is a <code>&lt;addition-expression&gt;</code> that represents the additional text.</p>
@@ -855,6 +857,7 @@ DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
 <div class="codehilite"><pre><span></span><code>GPL-2.0-or-later WITH Bison-exception-2.2
 </code></pre></div>
 <p>The current set of valid license exceptions identifiers can be found in <a href="https://spdx.org/licenses">spdx.org/licenses</a>.</p>
+<p>It is allowed to use the operator in lower case form <code>with</code>.</p>
 <h3 id="d45-order-of-precedence-and-parentheses">D.4.5 Order of precedence and parentheses <a name="D.4.5"></a></h3>
 <p>The order of application of the operators in an expression matters (similar to mathematical operators). The default operator order of precedence of a <code>&lt;license-expression&gt;</code> a is:</p>
 <div class="codehilite"><pre><span></span><code>+
