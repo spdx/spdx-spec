@@ -3589,7 +3589,7 @@
           "name": "copyrightText",
           "fqname": "/Software/copyrightText",
           "summary": "Identifies the text of one or more copyright notices for a software Package,\nFile or Snippet, if any.",
-          "description": "A copyrightText consists of the text(s) of the copyright notice(s) found\nfor a software Package, File or Snippet, if any.\n\nIf a copyrightText contains text, then it may contain any text related to\none or more copyright notices (even if not complete) for that software\nPackage, File or Snippet.\n\nIf a copyrightText has a \"NONE\" value, this indicates that the software\nPackage, File or Snippet contains no copyright notice whatsoever.\n\nIf a copyrightText has a \"NOASSERTION\" value, this indicates that one of the\nfollowing applies:\n* the SPDX data creator has attempted to but cannot reach a reasonable\n  objective determination;\n* the SPDX data creator has made no attempt to determine this field; or\n* the SPDX data creator has intentionally provided no information (no\n  meaning should be implied by doing so).",
+          "description": "A copyrightText consists of the text(s) of the copyright notice(s) found\nfor a software Package, File or Snippet, if any.\n\nIf a copyrightText contains text, then it may contain any text related to\none or more copyright notices (even if not complete) for that software\nPackage, File or Snippet.\n\nIf a copyrightText has a \"NONE\" value, this indicates that the software\nPackage, File or Snippet contains no copyright notice whatsoever.\n\nIf a copyrightText has a \"NOASSERTION\" value, this indicates that one of the\nfollowing applies:\n* the SPDX data creator has attempted to but cannot reach a reasonable\n  objective determination;\n* the SPDX data creator has made no attempt to determine this field; or\n* the SPDX data creator has intentionally provided no information (no\n  meaning should be implied by doing so).\n\nIf a copyrightText is present, but consists of solely an empty string or a\nstring with no substantive content (e.g., a string that contains only\nwhitespace), then this should be interpreted as equivalent to a \"NOASSERTION\"\nvalue as described above.",
           "metadata": {
             "name": "copyrightText",
             "Nature": "DataProperty",
@@ -4065,7 +4065,7 @@
           "name": "Relationship",
           "fqname": "/Core/Relationship",
           "summary": "Describes a relationship between one or more elements.",
-          "description": "A Relationship is a grouping of characteristics unique to an assertion\nthat one Element is related to one or more other Elements in some way.",
+          "description": "A Relationship is a grouping of characteristics unique to an assertion\nthat one Element is related to one or more other Elements in some way.\n\nTo explicitly assert that no such relationships exist, the `to` property \nshould contain the 'NONE' individual and no other elements.\nA relationship that contains 'NONE' and additional elements in the `to` property is not valid.\n\nTo explicitly assert that no assertions are being made regarding the \nexistence of such relationships, the `to` property should contain the 'NOASSERTION' individual.",
           "metadata": {
             "name": "Relationship",
             "SubclassOf": "Element",
@@ -4080,7 +4080,7 @@
             },
             "to": {
               "type": "Element",
-              "minCount": "0",
+              "minCount": "1",
               "fqname": "/Core/to",
               "maxCount": "*"
             },
@@ -6073,7 +6073,46 @@
           "iri": "https://rdf.spdx.org/v3/Core/ExternalRefType"
         }
       },
-      "individuals": {},
+      "individuals": {
+        "/Core/NoAssertionElement": {
+          "py/object": "spec_parser.model.Individual",
+          "ns": {
+            "py/id": 615
+          },
+          "license": "Community-Spec-1.0",
+          "name": "NoAssertionElement",
+          "fqname": "/Core/NoAssertionElement",
+          "summary": "An Individual Value for Element representing a set of Elements of unknown \nidentify or cardinality (number).",
+          "description": "NoAssertionElement should be used if \nthe SPDX creator has attempted to but cannot reach a reasonable objective determination;\nthe SPDX creator has made no attempt to determine this field; or\nthe SPDX creator has intentionally provided no information (no meaning should be implied by doing so).\n\nFor example, a Relationship with `from`=Element1, `relationshipType`=\"ancestorOf\", \nand `to`=NOASSERTION is explicitly expressing that no assertion is being made about any potential descendents of Element1.",
+          "metadata": {
+            "name": "NoAssertionElement",
+            "type": "Element"
+          },
+          "values": {
+            "name": "\"NOASSERTION\""
+          },
+          "iri": "https://rdf.spdx.org/v3/Core/NoAssertionElement"
+        },
+        "/Core/NoneElement": {
+          "py/object": "spec_parser.model.Individual",
+          "ns": {
+            "py/id": 615
+          },
+          "license": "Community-Spec-1.0",
+          "name": "NoneElement",
+          "fqname": "/Core/NoneElement",
+          "summary": "An Individual Value for Element representing a set of Elements with \ncardinality (number/count) of zero.",
+          "description": "NoneLicenseElement should be used if the SPDX creator desires to assert that \nthere are NO elements for the given context of use.\n\nFor example, a Relationship with `from`=Element1, `relationshipType`=\"ancestorOf\", \nand `to`=NONE is explicitly expressing an assertion that Element1 has no descendents.",
+          "metadata": {
+            "name": "NoneElement",
+            "type": "Element"
+          },
+          "values": {
+            "name": "\"NONE\""
+          },
+          "iri": "https://rdf.spdx.org/v3/Core/NoneElement"
+        }
+      },
       "datatypes": {
         "/Core/MediaType": {
           "py/object": "spec_parser.model.Datatype",
@@ -6855,17 +6894,23 @@
     },
     "/ExpandedLicensing/NoneLicense": {
       "py/id": 498
+    },
+    "/Core/NoAssertionElement": {
+      "py/id": 957
+    },
+    "/Core/NoneElement": {
+      "py/id": 960
     }
   },
   "datatypes": {
     "/Core/MediaType": {
-      "py/id": 958
+      "py/id": 964
     },
     "/Core/SemVer": {
-      "py/id": 961
+      "py/id": 967
     },
     "/Core/DateTime": {
-      "py/id": 964
+      "py/id": 970
     }
   },
   "toplevel": {
@@ -7129,13 +7174,13 @@
       "py/id": 953
     },
     "/Core/MediaType": {
-      "py/id": 958
+      "py/id": 964
     },
     "/Core/SemVer": {
-      "py/id": 961
+      "py/id": 967
     },
     "/Core/DateTime": {
-      "py/id": 964
+      "py/id": 970
     }
   }
 }
