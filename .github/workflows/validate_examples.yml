@@ -1,0 +1,29 @@
+on:
+  - pull_request
+  - push
+
+jobs:
+  validate-examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - name: Install dependencies
+        run: |
+          python3 -m pip install pyshacl==0.25.0 check-jsonschema==0.28.1
+      - name: Check files
+        run: |
+          set -e
+          for f in examples/jsonld/*.json; do
+            echo "Checking $f"
+
+            check-jsonschema \
+              -v \
+              --schemafile https://spdx.org/schema/3.0.0/spdx-json-schema.json \
+              $f
+
+            pyshacl \
+              -s https://spdx.org/rdf/3.0.0/spdx-model.ttl \
+              -e https://spdx.org/rdf/3.0.0/spdx-model.ttl \
+              $f
+          done
+
