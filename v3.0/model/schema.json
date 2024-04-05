@@ -1250,6 +1250,52 @@
         "prop_expandedlicensing_ListedLicenseException_expandedlicensing_listVersionAdded": {
                     "type": "string"
         },
+        "extension_CdxPropertyEntry": {
+            "allOf": [
+                {
+                    "properties": {
+                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                        "type": {
+                            "oneOf": [
+                                { "const": "extension_CdxPropertyEntry" }
+                            ]
+                        }
+                    }
+                },
+                { "$ref": "#/$defs/extension_CdxPropertyEntry_props" }
+            ]
+        },
+        "extension_CdxPropertyEntry_derived": {
+            "unevaluatedProperties": false,
+            "anyOf": [
+                { "$ref": "#/$defs/extension_CdxPropertyEntry" },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "extension_CdxPropertyEntry_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "properties": {
+                        "extension_cdxPropName": {
+                            "$ref": "#/$defs/prop_extension_CdxPropertyEntry_extension_cdxPropName"
+                        },
+                        "extension_cdxPropValue": {
+                            "$ref": "#/$defs/prop_extension_CdxPropertyEntry_extension_cdxPropValue"
+                        }
+                    },
+                    "required": [
+                        "extension_cdxPropName"
+                    ]
+                }
+            ]
+        },
+        "prop_extension_CdxPropertyEntry_extension_cdxPropName": {
+                    "type": "string"
+        },
+        "prop_extension_CdxPropertyEntry_extension_cdxPropValue": {
+                    "type": "string"
+        },
         "extension_Extension": {
             "allOf": [
                 {
@@ -1269,6 +1315,7 @@
         },
         "extension_Extension_derived": {
             "anyOf": [
+                { "$ref": "#/$defs/extension_CdxPropertiesExtension" },
                 { "$ref": "#/$defs/extension_Extension" },
                 { "$ref": "#/$defs/BlankNodeOrIRI" }
             ]
@@ -2552,6 +2599,54 @@
         },
         "prop_expandedlicensing_WithAdditionOperator_expandedlicensing_subjectExtendableLicense": {
                 "$ref": "#/$defs/expandedlicensing_ExtendableLicense_derived"
+        },
+        "extension_CdxPropertiesExtension": {
+            "allOf": [
+                {
+                    "properties": {
+                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                        "type": {
+                            "oneOf": [
+                                { "const": "extension_CdxPropertiesExtension" }
+                            ]
+                        }
+                    }
+                },
+                { "$ref": "#/$defs/extension_CdxPropertiesExtension_props" }
+            ]
+        },
+        "extension_CdxPropertiesExtension_derived": {
+            "unevaluatedProperties": false,
+            "anyOf": [
+                { "$ref": "#/$defs/extension_CdxPropertiesExtension" },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "extension_CdxPropertiesExtension_props": {
+            "allOf": [
+                { "$ref": "#/$defs/extension_Extension_props" },
+                {
+                    "properties": {
+                        "extension_cdxProperty": {
+                            "oneOf": [
+                                {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                        "$ref": "#/$defs/prop_extension_CdxPropertiesExtension_extension_cdxProperty"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "extension_cdxProperty"
+                    ]
+                }
+            ]
+        },
+        "prop_extension_CdxPropertiesExtension_extension_cdxProperty": {
+                "$ref": "#/$defs/extension_CdxPropertyEntry_derived"
         },
         "security_CvssV2VulnAssessmentRelationship": {
             "allOf": [
@@ -4073,6 +4168,7 @@
                                 "Tool",
                                 "expandedlicensing_LicenseAddition",
                                 "expandedlicensing_ListedLicenseException",
+                                "extension_CdxPropertyEntry",
                                 "extension_Extension",
                                 "security_VulnAssessmentRelationship",
                                 "simplelicensing_AnyLicenseInfo",
@@ -4097,6 +4193,7 @@
                                 "expandedlicensing_ListedLicense",
                                 "expandedlicensing_OrLaterOperator",
                                 "expandedlicensing_WithAdditionOperator",
+                                "extension_CdxPropertiesExtension",
                                 "security_CvssV2VulnAssessmentRelationship",
                                 "security_CvssV3VulnAssessmentRelationship",
                                 "security_CvssV4VulnAssessmentRelationship",
@@ -4143,6 +4240,7 @@
                 { "$ref": "#/$defs/Tool" },
                 { "$ref": "#/$defs/expandedlicensing_LicenseAddition" },
                 { "$ref": "#/$defs/expandedlicensing_ListedLicenseException" },
+                { "$ref": "#/$defs/extension_CdxPropertyEntry" },
                 { "$ref": "#/$defs/extension_Extension" },
                 { "$ref": "#/$defs/security_VulnAssessmentRelationship" },
                 { "$ref": "#/$defs/simplelicensing_AnyLicenseInfo" },
@@ -4167,6 +4265,7 @@
                 { "$ref": "#/$defs/expandedlicensing_ListedLicense" },
                 { "$ref": "#/$defs/expandedlicensing_OrLaterOperator" },
                 { "$ref": "#/$defs/expandedlicensing_WithAdditionOperator" },
+                { "$ref": "#/$defs/extension_CdxPropertiesExtension" },
                 { "$ref": "#/$defs/security_CvssV2VulnAssessmentRelationship" },
                 { "$ref": "#/$defs/security_CvssV3VulnAssessmentRelationship" },
                 { "$ref": "#/$defs/security_CvssV4VulnAssessmentRelationship" },
