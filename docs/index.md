@@ -3,9 +3,9 @@
 Copyright © 2010-2024 Linux Foundation and its Contributors.
 
 This work is licensed under the
-Creative Commons Attribution License 3.0 Unported (CC-BY-3.0)
-and the Community specification License 1.0,
-both reproduced in their entirety in annexes herein.
+Community Specification License 1.0 (Community-Spec-1.0).
+Pre-existing portions of this work from copyright holders who have not subsequently contributed under the Community-Spec-1.0 are provided under Creative Commons Attribution License 3.0 Unported (CC-BY-3.0).
+Copies of these licenses are reproduced in their entirety herein.
 
 With thanks to
 Adam Cohn,
