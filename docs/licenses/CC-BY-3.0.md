@@ -1,4 +1,4 @@
-# Annex J Creative Commons Attribution License 3.0 Unported (Informative)
+# Creative Commons Attribution License 3.0 Unported
 
 **License**
 
