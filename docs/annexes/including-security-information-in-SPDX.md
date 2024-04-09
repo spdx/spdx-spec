@@ -1,41 +1,46 @@
-# 1. Including security information in a SPDX document
+# Annex G: Including Security Information in a SPDX document
 
-SPDX 3.0 has the concept of an [__External Reference__](https://github.com/spdx/spdx-3-model/blob/main/model/Core/Classes/ExternalRef.md) for an Element which points to "a resource outside the scope of the SPDX-3.0 content that provides additional characteristics of an Element." 
+The flexibility of SPDX 3.0 allows users to either link SBOMs to external security vulnerability data or to embed security vulnerability information in the SPDX 3.0 data format. For more details about the differences, read ["Capturing Software Vulnerability Data in SPDX 3.0"](https://spdx.dev/capturing-software-vulnerability-data-in-spdx-3-0/).
+
+## G.1 External References and External Identifiers
+SPDX 3.0 has the concept of an [__External Reference__](https://github.com/spdx/spdx-3-model/blob/main/model/Core/Classes/ExternalRef.md) for an Element which points to a general resource outside the scope of the SPDX-3.0 content that provides additional context or information about an Element. 
 
 The specification for External Reference types has many [type options](https://github.com/spdx/spdx-3-model/blob/main/model/Core/Vocabularies/ExternalRefType.md), a large handful of which pertain specifically to security use cases:
 
-* secureSoftwareAttestation: A reference to information assuring that the software is developed using security practices as defined by [NIST SP 800-218 Secure Software Development Framework (SSDF)](https://csrc.nist.gov/publications/detail/sp/800-218/final) or [CISA Secure Software Development Attestation Form](https://www.cisa.gov/sites/default/files/2023-04/secure-software-self-attestation_common-form_508.pdf).
-* securityAdvisory: A reference to a published security advisory (where advisory as defined per ISO 29147:2018) that may affect one or more elements, e.g., vendor advisories or specific NVD entries.
-* securityAdversaryModel: A reference to the security adversary model for a package.
-* securityFix: A reference to the patch or source code that fixes a vulnerability.
-* securityOther: A reference to related security information of unspecified type.
-* securityPenTestReport: A reference to a [penetration test](https://en.wikipedia.org/wiki/Penetration_test) report for a package.
-* securityPolicy: A reference to instructions for reporting newly discovered security vulnerabilities for a package.
-* securityThreatModel: A reference the [security threat model](https://en.wikipedia.org/wiki/Threat_model) for a package.
-* vulnerabilityDisclosureReport: A reference to a Vulnerability Disclosure Report (VDR) which provides the software supplier's analysis and findings describing the impact (or lack of impact) that reported vulnerabilities have on packages or products in the supplier's SBOM as defined in [NIST SP 800-161](https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final).
-* vulnerabilityExploitabilityAssessment: A reference to a Vulnerability Exploitability eXchange (VEX) statement which provides information on whether a product is impacted by a specific vulnerability in an included package and, if affected, whether there are actions recommended to remediate.
+* cwe
+* secureSoftwareAttestation
+* securityAdvisory
+* securityAdversaryModel
+* securityFix
+* securityOther
+* securityPenTestReport
+* securityPolicy
+* securityThreatModel
+* vulnerabilityDisclosureReport
+* vulnerabilityExploitabilityAssessment
 
 
-SPDX 3.0 also has the concept of [__External Identifier__](https://github.com/spdx/spdx-3-model/blob/main/model/Core/Classes/ExternalIdentifier.md) which should be used to "...".
+SPDX 3.0 also has the concept of [__External Identifier__](https://github.com/spdx/spdx-3-model/blob/main/model/Core/Classes/ExternalIdentifier.md) which should be used in cases where an identifier scheme exists and is already defined for an Element outside of SPDX-3.0.
 
 There are several External Identifier [types](https://github.com/spdx/spdx-3-model/blob/main/model/Core/Vocabularies/ExternalIdentifierType.md) that may be used in a security context:
 
-* cpe22: https://cpe.mitre.org/files/cpe-specification_2.2.pdf
-* cpe23: https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7695.pdf
-* cve: An identifier for a specific software flaw defined within the official CVE Dictionary and that conforms to the CVE specification as defined by https://csrc.nist.gov/glossary/term/cve_id. 
-* securityOther: Used when there is a security related identifier of unspecified type.
+* cpe22
+* cpe23
+* cve
+* packageUrl
+* securityOther
 
 
 This section provides usage scenarios of how to leverage the Security External References and External Identifiers specified above to refer to external security information. Examples of how to use each category can be found in the [Security/Classes](https://github.com/spdx/spdx-3-model/tree/main/model/Security/Classes) pages. Multiple instances and types of external security information may be included within a SPDX document.
 
-## 1.1 Linking to an advisory
+## G.1.1 Linking to an Advisory
 
 To reference a Common Vulnerabilities and Exposures (CVE) advisory applicable to a package, you must first create a [Vulnerability Element](https://github.com/spdx/spdx-3-model/blob/main/model/Security/Classes/Vulnerability.md). You can then use ExternalIdentifiers or ExternalRefs to supplement the CVE with associated external metadata.
 
 ```json
 {
   "@type": "Vulnerability",
-  "@id": "urn:spdx.dev:vuln-1",
+  "@id": "urn:spdx.dev:cve-2020-2849",
   "summary": "Use of a Broken or Risky Cryptographic Algorithm",
   "description": "The npm package `elliptic` before version 6.5.4 are vulnerable to Cryptographic Issues via the secp256k1 implementation in elliptic/ec/key.js. There is no check to confirm that the public key point passed into the derive function actually exists on the secp256k1 curve. This results in the potential for the private key used in this implementation to be revealed after a number of ECDH operations are performed.",      
   "modified": "2021-03-08T16:06:43Z",
@@ -53,7 +58,7 @@ To reference a Common Vulnerabilities and Exposures (CVE) advisory applicable to
     },
     {
       "type": "ExternalIdentifier",
-      "externalIdentifierType": "securityOther",
+      "externalIdentifierType": "securityAdvisory",
       "identifier": "GHSA-r9p9-mrjm-926w",
       "identifierLocator": "https://github.com/advisories/GHSA-r9p9-mrjm-926w"
     }
@@ -78,15 +83,69 @@ To reference a Common Vulnerabilities and Exposures (CVE) advisory applicable to
 }
 ```
 
-## 1.2 Linking to a CSAF
+## G.1.2 Linking to a CSAF Document
 
-To reference [CSAF](https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.html) formatted security information, you would 
-applicable to a package see the example below.
+To reference [CSAF](https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.html) formatted security information see below for examples.
+
+### G.1.2.1 Linking to a CSAF VEX
+To reference a CSAF VEX document, include an external reference of type `vulnerabilityExploitabilityAssessment` on the Vulnerability Element that encapsulates the CVE described in the CSAF VEX document.
 
 
-## 1.3 Linking to a CycloneDX
+```json
+{
+  "@type": "Vulnerability",
+  "@id": "urn:spdx.dev:vuln-2",
+  "name": "cve-2021-44228",
+  "description": "Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases 2.12.2, 2.12.3, and 2.3.1) JNDI features used in configuration, log messages, and parameters do not protect against attacker controlled LDAP and other JNDI related endpoints. An attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers when message lookup substitution is enabled.", 
+  "modifiedTime": "2021-03-08T16:02:43Z",
+  "publishedTime": "2021-03-08T16:06:50Z",
+  "externalIdentifiers": [
+    {
+      "@type": "ExternalIdentifier",
+      "externalIdentifierType": "cve",
+      "identifier": "CVE-2021-44228",
+      "identifierLocator": [
+        "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228",
+        "https://www.cve.org/CVERecord?id=CVE-2021-44228"
+      ],
+      "issuingAuthority": "urn:spdx.dev:agent-cve.org"
+    }
+  ]
+  "externalRefs": [
+    {
+      "@type": "ExternalRef",
+      "externalRefType": "vulnerabilityExploitabilityAssessment",
+      "locator": "https://github.com/oasis-tcs/csaf/blob/master/csaf_2.0/examples/csaf/csaf_vex/2022-evd-uc-01-a-001.json"
+    }
+  ]
+}
+```
 
-To reference to [CycloneDX](https://cyclonedx.org) formatted security information applicable to a package you need to first create a Package Element. Then use an External Reference to link to the CycloneDX document which contains information about the package.
+### G.1.2.2 Linking to a CSAF Advisory
+To reference a CSAF Advisory document, include the document locator as an external reference of type `securityAdvisory` on a Package Element.
+
+```json
+{
+  "@type": "Package",
+  "@id": "urn:spdx.dev:pkg-rh-open-shift",
+  "name": "Red Hat OpenShift Enterprise",
+  "packageVersion": "3.6",
+  "externalRefs": [
+    {
+      "@type": "ExternalRef",
+      "externalRefType": "securityAdvisory",
+      "locator": "https://github.com/oasis-tcs/csaf/blob/master/csaf_2.0/examples/csaf/rhsa-2019_1862.json"
+    }
+  ]
+}
+```
+
+
+## G.1.3 Linking to CycloneDX Security Data
+
+To reference to [CycloneDX](https://cyclonedx.org) formatted security information applicable to a package you need to first create a Package Element.
+
+Using an External Reference, link the package to the matching component in the CycloneDX BOM. Link to it using its [BOM link](https://cyclonedx.org/capabilities/bomlink/), a URN formed by combining the CycloneDX serial number, version and bom-ref which contains the security information about the package.
 
 ```json
 {
@@ -98,14 +157,13 @@ To reference to [CycloneDX](https://cyclonedx.org) formatted security informatio
     {
       "@type": "ExternalRef",
       "externalRefType": "securityOther",
-      "locator": "https://raw.githubusercontent.com/CycloneDX/bom-examples/ed522d1f051c364e045b87c20665003a0c4ea777/SBOM/laravel-7.12.0/bom.json"
+      "locator": "urn:cdx:17cfc349-c637-4685-856c-81196420c7f5/2#componentRef"
     }
   ]
 }
 ```
 
-## 1.4 Linking to an OSV
-**TODO: Do we create a vulnerability element from the OSV then use ExternalRef on the vulnerability or do we create a package and reference the OSV from there?**
+## G.1.4 Linking to an OSV
 
 To include a reference to [Open Source Vulnerability](https://github.com/google/osv) (OSV) formatted security information applicable to a package you need to first create a Package Element. Then use an External Reference to link to the OSV advisory.
 
@@ -126,10 +184,10 @@ To include a reference to [Open Source Vulnerability](https://github.com/google/
 ```
 
 
-## 1.5 Linking to an OmniBOR (formerly known as GitBOM)
+## G.1.5 Linking to an OmniBOR (formerly known as GitBOM)
 
-To reference an [OmniBOR](https://omnibor.io/) (Universal Bill Of Receipts) formatted security information applicable to a package you must first create a Package Element. Then use an External Identifier to link to the OmniBOR document.
-**TODO: Why do we use External Identifier vs Ref here? and what's the identifier locator? do we want a different example here?**
+To identify a Package with an [OmniBOR](https://omnibor.io/) (Universal Bill Of Receipts, formerly known as GitBOM) gitoid, use an External Identifier to add gitoid to the package.
+
 
 ```json
 {
@@ -147,14 +205,14 @@ To reference an [OmniBOR](https://omnibor.io/) (Universal Bill Of Receipts) form
 }
 ```
 
-## 1.6 Linking to a vulnerability disclosure document
+## G.1.6 Linking to a vulnerability disclosure document
 
-To express a reference to a vulnerability disclosure document for a package such Cisco’s response to Apache log4j vulnerability. First create a package element, then use an External Reference to refer to the vulnerability disclosure document.
+To express a reference to a vulnerability disclosure document for a package, use an External Reference for a Package Element. The example below shows Cisco’s response to Apache log4j vulnerability.
 
 ```json
 {
   "@type": "Package",
-  "@id": "urn:spdx.dev:apache-log4j",
+  "@id": "urn:spdx.dev:pkg-apache-log4j",
   "name": "log4j",
   "packageVersion": "2.14.0",
   "externalRefs": [
@@ -187,7 +245,6 @@ To communicate that a package is not vulnerable to a specific vulnerability it i
 
 To refer to a security disclosure feed, such as the security bulletins from [CERT-EU](https://cert.europa.eu), include an External Reference in the package Element.
 
-**TODO: is this on the package element? We also need a new link as current one is invalid**
 
 ```json
 {
@@ -205,7 +262,7 @@ To refer to a security disclosure feed, such as the security bulletins from [CER
 }
 ```
 
-## 1.7 Linking to a code fix for a security issue
+## G.1.7 Linking to a Code Fix for a Security Issue
 
 You can include a reference to a code fix for a security issue applicable to a Package or Vulnerability Element. 
 
@@ -247,7 +304,7 @@ Alternatively, it may also link to a landing page with patches for a variety of 
 ```
 
 
-## 1.8 Linking to any security related document
+## G.1.8 Linking to any Security Related Document
 
 If you want to reference any security information related to a package but cannot or do not wish to specify its kind, use the `securityOther` externalRefType.
 
@@ -269,10 +326,13 @@ If you want to reference any security information related to a package but canno
 ```
 
 One can also use it to refer to guidance related to a vulnerability such as CISA guidance for Apache Log4j.
-**TODO: Is this still for the pakage element?**
 
 ```json
-"externalRefs": [
+  "@type": "Package",
+  "@id": "urn:spdx.dev:pkg-apache-log4j",
+  "name": "log4j",
+  "packageVersion": "2.14.0",
+  "externalRefs": [
     {
       "@type": "ExternalRef",
       "externalRefType": "securityOther",
@@ -281,7 +341,7 @@ One can also use it to refer to guidance related to a vulnerability such as CISA
   ]
 ```
 
-## 1.9 Linking to an SBOM vulnerability report for a Software Product (per NIST Executive Order 14028)
+## G.1.9 Linking to a Vulnerability Disclosure Report (VDR)
 
 The National Institute of Standards and Technology (NIST) describes the concept of correlating vulnerability and SBOM information for a software product at the component level in “[Software Security in Supply Chains: Software Bill of Materials (SBOM)](https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity/software-security-supply-chains-software-1)”. Use the External Reference `vulnerabilityDisclosureReport` type to report on vulnerabilities related to the components contained in a software product’s SBOM.
 
