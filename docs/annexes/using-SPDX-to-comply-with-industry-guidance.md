@@ -31,20 +31,20 @@ The SPDX Specification contains fields able to address each of the NTIA minimum 
 
 # F.2 BSI TR-03183 - Technical Guideline Cyber Resilience Requirements for Manufacturers and Products <a name="F.2"></a>
 
-The German BSI is actively propagating its technical guideline in preparation for adopting and detailing the
-requirements of the [EU Cyber Resilience Act](https://www.europarl.europa.eu/doceo/document/TA-9-2024-0130_EN.html)
+The German BSI is actively propagating its technical guideline in preparation for adopting and detailing the 
+requirements of the [EU Cyber Resilience Act](https://www.europarl.europa.eu/doceo/document/TA-9-2024-0130_EN.html) 
 becoming effective in 2027.
 
 The guideline can be regarded as German equivalent of the US Executive Order 14028. Nevertheless, BSI is exploring
 various options and recommendations to further detail the content of SBOMs.
 
-Important elements of the guideline in the context of SPDX:
+Important elements of the guideline with regards to SPDX: 
 * The guideline references SPDX as one of the exchange formats for SBOMs.
 * It defines levels of details as well as mandatory and optional data fields.
 * The guideline scopes the content (dependency relationships) of an SBOM (top-level, n-level, transitive, delivery item, complete).
 * Different types of SBOMs (design, source, build, analysed, deployed, runtime) are defined.
 
-The guideline (available in version 1.1) is currently being revised by the BSI. Draft versions of the future 2.0 document
+The guideline (available in version 1.1) is currently being revised by the BSI. Draft versions of the future 2.0 document 
 are circulated by the BSI to collect review comments.
 
 See [BSI Technical Guideline TR-03183](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TR03183/BSI-TR-03183-2.html).
