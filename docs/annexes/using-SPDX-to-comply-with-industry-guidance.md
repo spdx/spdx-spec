@@ -38,7 +38,7 @@ becoming effective in 2027.
 The guideline can be regarded as German equivalent of the US Executive Order 14028. Nevertheless, BSI is exploring
 various options and recommendations to further detail the content of SBOMs.
 
-Important elements of the guideline with regards to SPDX: 
+Important elements of the guideline in the context of SPDX: 
 * The guideline references SPDX as one of the exchange formats for SBOMs.
 * It defines levels of details as well as mandatory and optional data fields.
 * The guideline scopes the content (dependency relationships) of an SBOM (top-level, n-level, transitive, delivery item, complete).
