@@ -70,7 +70,7 @@ A SPDX document with the Lite profile must include properties for each class lis
    | 2 | /Core/ExternalIdentifier/identifier		        | 1..1	| |  
 
 7. For a /Software/Package to be conformant with this profile, the following has to hold:  
-And all /Software/Package objects MUST have “downloadLocation” AND/OR “packageUrl” if present.  
+And all /Software/Package objects MUST have “downloadLocation” OR “packageUrl” if present.  
 
    | # | Property Name | Cardinality | Comments |  
    |:-:|:--|:--|:--|  
