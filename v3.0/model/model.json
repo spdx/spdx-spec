@@ -1197,6 +1197,37 @@
           },
           "iri": "https://spdx.org/rdf/3.0.0/terms/Software/Package"
         },
+        "/Software/ContentIdentifier": {
+          "py/object": "spec_parser.model.Class",
+          "ns": {
+            "py/id": 185
+          },
+          "license": "Community-Spec-1.0",
+          "name": "ContentIdentifier",
+          "fqname": "/Software/ContentIdentifier",
+          "summary": "A canonical, unique, immutable identifier",
+          "description": "A ContentIdentifier is a canonical, unique, immutable identifier of the content of a software artifact, such as a package, a file, or a snippet.\nIt can be used for verifying its identity and integrity.",
+          "metadata": {
+            "name": "ContentIdentifier",
+            "SubclassOf": "/Core/IntegrityMethod",
+            "Instantiability": "Concrete"
+          },
+          "properties": {
+            "contentIdentifierType": {
+              "type": "ContentIdentifierType",
+              "minCount": "1",
+              "maxCount": "1",
+              "fqname": "/Software/contentIdentifierType"
+            },
+            "contentIdentifierValue": {
+              "type": "xsd:anyURI",
+              "minCount": "1",
+              "maxCount": "1",
+              "fqname": "/Software/contentIdentifierValue"
+            }
+          },
+          "iri": "https://spdx.org/rdf/3.0.0/terms/Software/ContentIdentifier"
+        },
         "/Software/Sbom": {
           "py/object": "spec_parser.model.Class",
           "ns": {
@@ -1238,12 +1269,6 @@
             "Instantiability": "Abstract"
           },
           "properties": {
-            "gitoid": {
-              "type": "xsd:anyURI",
-              "minCount": "0",
-              "maxCount": "2",
-              "fqname": "/Software/gitoid"
-            },
             "primaryPurpose": {
               "type": "SoftwarePurpose",
               "minCount": "0",
@@ -1266,6 +1291,12 @@
               "type": "xsd:string",
               "minCount": "0",
               "fqname": "/Software/attributionText",
+              "maxCount": "*"
+            },
+            "contentIdentifier": {
+              "type": "ContentIdentifier",
+              "minCount": "0",
+              "fqname": "/Software/contentIdentifier",
               "maxCount": "*"
             }
           },
@@ -1322,6 +1353,26 @@
           "iri": "https://spdx.org/rdf/3.0.0/terms/Software/attributionText",
           "used_in": [
             "/Software/SoftwareArtifact"
+          ]
+        },
+        "/Software/contentIdentifierValue": {
+          "py/object": "spec_parser.model.Property",
+          "ns": {
+            "py/id": 185
+          },
+          "license": "Community-Spec-1.0",
+          "name": "contentIdentifierValue",
+          "fqname": "/Software/contentIdentifierValue",
+          "summary": "Specifies the value of the content identifier.",
+          "description": "A contentIdentifierValue specifies the value of a content identifier.",
+          "metadata": {
+            "name": "contentIdentifierValue",
+            "Nature": "DataProperty",
+            "Range": "xsd:anyURI"
+          },
+          "iri": "https://spdx.org/rdf/3.0.0/terms/Software/contentIdentifierValue",
+          "used_in": [
+            "/Software/ContentIdentifier"
           ]
         },
         "/Software/homePage": {
@@ -1484,26 +1535,6 @@
             "/Software/Snippet"
           ]
         },
-        "/Software/gitoid": {
-          "py/object": "spec_parser.model.Property",
-          "ns": {
-            "py/id": 185
-          },
-          "license": "Community-Spec-1.0",
-          "name": "gitoid",
-          "fqname": "/Software/gitoid",
-          "summary": "Used to record the artifact\u2019s gitoid: a canonical, unique, immutable identifier that can be used for software integrity verification.",
-          "description": "The gitoid is a canonical, unique, immutable artifact identifier for each software artifact.\nThe gitoid for any software artifact can be calculated and recorded in SPDX 3.0 Snippet, File, or Package Elements.\n\nThe gitoid is defined as the Git Object Identifier of type `blob` of the software artifact, expressed in the [gitoid URI scheme](https://www.iana.org/assignments/uri-schemes/prov/gitoid).\n\nThe OmniBOR ID for the OmniBOR Document associated with a software artifact should not be recorded in this field. Rather, OmniBOR IDs should be recorded in the SPDX Element's ExternalIdentifier property.",
-          "metadata": {
-            "name": "gitoid",
-            "Nature": "DataProperty",
-            "Range": "xsd:anyURI"
-          },
-          "iri": "https://spdx.org/rdf/3.0.0/terms/Software/gitoid",
-          "used_in": [
-            "/Software/SoftwareArtifact"
-          ]
-        },
         "/Software/fileKind": {
           "py/object": "spec_parser.model.Property",
           "ns": {
@@ -1524,6 +1555,26 @@
             "/Software/File"
           ]
         },
+        "/Software/contentIdentifierType": {
+          "py/object": "spec_parser.model.Property",
+          "ns": {
+            "py/id": 185
+          },
+          "license": "Community-Spec-1.0",
+          "name": "contentIdentifierType",
+          "fqname": "/Software/contentIdentifierType",
+          "summary": "Specifies the type of the content identifier.",
+          "description": "A contentIdentifierType specifies the type of the content identifier.",
+          "metadata": {
+            "name": "contentIdentifierType",
+            "Nature": "ObjectProperty",
+            "Range": "ContentIdentifierType"
+          },
+          "iri": "https://spdx.org/rdf/3.0.0/terms/Software/contentIdentifierType",
+          "used_in": [
+            "/Software/ContentIdentifier"
+          ]
+        },
         "/Software/additionalPurpose": {
           "py/object": "spec_parser.model.Property",
           "ns": {
@@ -1540,6 +1591,26 @@
             "Range": "SoftwarePurpose"
           },
           "iri": "https://spdx.org/rdf/3.0.0/terms/Software/additionalPurpose",
+          "used_in": [
+            "/Software/SoftwareArtifact"
+          ]
+        },
+        "/Software/contentIdentifier": {
+          "py/object": "spec_parser.model.Property",
+          "ns": {
+            "py/id": 185
+          },
+          "license": "Community-Spec-1.0",
+          "name": "contentIdentifier",
+          "fqname": "/Software/contentIdentifier",
+          "summary": "A canonical, unique, immutable identifier of the artifact content, that may be used for verifying its identity and/or integrity.",
+          "description": "A contentIdentifier is a canonical, unique, immutable identifier of the content of a software artifact, such as a package, a file, or a snippet.\nIt may be used for verifying its identity and/or integrity.",
+          "metadata": {
+            "name": "contentIdentifier",
+            "Nature": "DataProperty",
+            "Range": "ContentIdentifier"
+          },
+          "iri": "https://spdx.org/rdf/3.0.0/terms/Software/contentIdentifier",
           "used_in": [
             "/Software/SoftwareArtifact"
           ]
@@ -1713,6 +1784,25 @@
             "directory": "The file represents a directory and all content stored in that directory."
           },
           "iri": "https://spdx.org/rdf/3.0.0/terms/Software/FileKindType"
+        },
+        "/Software/ContentIdentifierType": {
+          "py/object": "spec_parser.model.Vocabulary",
+          "ns": {
+            "py/id": 185
+          },
+          "license": "Community-Spec-1.0",
+          "name": "ContentIdentifierType",
+          "fqname": "/Software/ContentIdentifierType",
+          "summary": "Specifies the type of a content identifier.",
+          "description": "ContentIdentifierType specifies the type of a content identifier.",
+          "metadata": {
+            "name": "ContentIdentifierType"
+          },
+          "entries": {
+            "gitoid": "Gitoid stands for [Git Object ID](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects) and a gitoid of type blob is a unique hash of a binary artifact. A gitoid may represent the software [Artifact ID](https://github.com/omnibor/spec/blob/main/spec/SPEC.md#artifact-id) or the [OmniBOR Identifier](https://github.com/omnibor/spec/blob/main/spec/SPEC.md#omnibor-identifier) for the software artifact's associated [OmniBOR Document](https://github.com/omnibor/spec/blob/main/spec/SPEC.md#omnibor-document).",
+            "swhid": "SoftWare Hash IDentifier, persistent intrinsic identifiers for digital artifacts. The syntax of the identifiers is defined in the [SWHID specification](https://www.swhid.org/specification/v1.1/4.Syntax) and in the case of filess they typically look like `swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2`."
+          },
+          "iri": "https://spdx.org/rdf/3.0.0/terms/Software/ContentIdentifierType"
         }
       },
       "individuals": {},
@@ -1733,7 +1823,7 @@
         "/AI/EnergyConsumptionDescription": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "EnergyConsumptionDescription",
@@ -1763,7 +1853,7 @@
         "/AI/AIPackage": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "AIPackage",
@@ -1872,7 +1962,7 @@
         "/AI/EnergyConsumption": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "EnergyConsumption",
@@ -1910,7 +2000,7 @@
         "/AI/typeOfModel": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "typeOfModel",
@@ -1930,7 +2020,7 @@
         "/AI/autonomyType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "autonomyType",
@@ -1950,7 +2040,7 @@
         "/AI/limitation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "limitation",
@@ -1970,7 +2060,7 @@
         "/AI/useSensitivePersonalInformation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "useSensitivePersonalInformation",
@@ -1990,7 +2080,7 @@
         "/AI/metric": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "metric",
@@ -2010,7 +2100,7 @@
         "/AI/trainingEnergyConsumption": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "trainingEnergyConsumption",
@@ -2030,7 +2120,7 @@
         "/AI/energyUnit": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "energyUnit",
@@ -2050,7 +2140,7 @@
         "/AI/energyQuantity": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "energyQuantity",
@@ -2070,7 +2160,7 @@
         "/AI/informationAboutTraining": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "informationAboutTraining",
@@ -2090,7 +2180,7 @@
         "/AI/hyperparameter": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "hyperparameter",
@@ -2110,7 +2200,7 @@
         "/AI/metricDecisionThreshold": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "metricDecisionThreshold",
@@ -2130,7 +2220,7 @@
         "/AI/energyConsumption": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "energyConsumption",
@@ -2150,7 +2240,7 @@
         "/AI/modelDataPreprocessing": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "modelDataPreprocessing",
@@ -2170,7 +2260,7 @@
         "/AI/informationAboutApplication": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "informationAboutApplication",
@@ -2190,7 +2280,7 @@
         "/AI/inferenceEnergyConsumption": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "inferenceEnergyConsumption",
@@ -2210,7 +2300,7 @@
         "/AI/modelExplainability": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "modelExplainability",
@@ -2230,7 +2320,7 @@
         "/AI/standardCompliance": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "standardCompliance",
@@ -2250,7 +2340,7 @@
         "/AI/safetyRiskAssessment": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "safetyRiskAssessment",
@@ -2270,7 +2360,7 @@
         "/AI/domain": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "domain",
@@ -2290,7 +2380,7 @@
         "/AI/finetuningEnergyConsumption": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "finetuningEnergyConsumption",
@@ -2312,7 +2402,7 @@
         "/AI/EnergyUnitType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "EnergyUnitType",
@@ -2332,7 +2422,7 @@
         "/AI/SafetyRiskAssessmentType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 280
+            "py/id": 294
           },
           "license": "Community-Spec-1.0",
           "name": "SafetyRiskAssessmentType",
@@ -2369,7 +2459,7 @@
         "/SimpleLicensing/LicenseExpression": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 382
+            "py/id": 396
           },
           "license": "Community-Spec-1.0",
           "name": "LicenseExpression",
@@ -2406,7 +2496,7 @@
         "/SimpleLicensing/SimpleLicensingText": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 382
+            "py/id": 396
           },
           "license": "Community-Spec-1.0",
           "name": "SimpleLicensingText",
@@ -2431,7 +2521,7 @@
         "/SimpleLicensing/AnyLicenseInfo": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 382
+            "py/id": 396
           },
           "license": "Community-Spec-1.0",
           "name": "AnyLicenseInfo",
@@ -2451,7 +2541,7 @@
         "/SimpleLicensing/customIdToUri": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 382
+            "py/id": 396
           },
           "license": "Community-Spec-1.0",
           "name": "customIdToUri",
@@ -2471,7 +2561,7 @@
         "/SimpleLicensing/licenseListVersion": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 382
+            "py/id": 396
           },
           "license": "Community-Spec-1.0",
           "name": "licenseListVersion",
@@ -2491,7 +2581,7 @@
         "/SimpleLicensing/licenseText": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 382
+            "py/id": 396
           },
           "license": "Community-Spec-1.0",
           "name": "licenseText",
@@ -2512,7 +2602,7 @@
         "/SimpleLicensing/licenseExpression": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 382
+            "py/id": 396
           },
           "license": "Community-Spec-1.0",
           "name": "licenseExpression",
@@ -2549,7 +2639,7 @@
         "/ExpandedLicensing/ConjunctiveLicenseSet": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "ConjunctiveLicenseSet",
@@ -2574,7 +2664,7 @@
         "/ExpandedLicensing/WithAdditionOperator": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "WithAdditionOperator",
@@ -2605,7 +2695,7 @@
         "/ExpandedLicensing/IndividualLicensingInfo": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "IndividualLicensingInfo",
@@ -2623,7 +2713,7 @@
         "/ExpandedLicensing/License": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "License",
@@ -2696,7 +2786,7 @@
         "/ExpandedLicensing/OrLaterOperator": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "OrLaterOperator",
@@ -2721,7 +2811,7 @@
         "/ExpandedLicensing/DisjunctiveLicenseSet": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "DisjunctiveLicenseSet",
@@ -2746,7 +2836,7 @@
         "/ExpandedLicensing/LicenseAddition": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "LicenseAddition",
@@ -2801,7 +2891,7 @@
         "/ExpandedLicensing/CustomLicenseAddition": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "CustomLicenseAddition",
@@ -2819,7 +2909,7 @@
         "/ExpandedLicensing/ListedLicense": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "ListedLicense",
@@ -2850,7 +2940,7 @@
         "/ExpandedLicensing/CustomLicense": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "CustomLicense",
@@ -2868,7 +2958,7 @@
         "/ExpandedLicensing/ListedLicenseException": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "ListedLicenseException",
@@ -2899,7 +2989,7 @@
         "/ExpandedLicensing/ExtendableLicense": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "ExtendableLicense",
@@ -2919,7 +3009,7 @@
         "/ExpandedLicensing/standardAdditionTemplate": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "standardAdditionTemplate",
@@ -2939,7 +3029,7 @@
         "/ExpandedLicensing/subjectExtendableLicense": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "subjectExtendableLicense",
@@ -2959,7 +3049,7 @@
         "/ExpandedLicensing/subjectAddition": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "subjectAddition",
@@ -2979,7 +3069,7 @@
         "/ExpandedLicensing/isDeprecatedLicenseId": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "isDeprecatedLicenseId",
@@ -2999,7 +3089,7 @@
         "/ExpandedLicensing/standardLicenseHeader": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "standardLicenseHeader",
@@ -3019,7 +3109,7 @@
         "/ExpandedLicensing/listVersionAdded": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "listVersionAdded",
@@ -3040,7 +3130,7 @@
         "/ExpandedLicensing/seeAlso": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "seeAlso",
@@ -3061,7 +3151,7 @@
         "/ExpandedLicensing/licenseXml": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "licenseXml",
@@ -3082,7 +3172,7 @@
         "/ExpandedLicensing/member": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "member",
@@ -3103,7 +3193,7 @@
         "/ExpandedLicensing/additionText": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "additionText",
@@ -3123,7 +3213,7 @@
         "/ExpandedLicensing/isOsiApproved": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "isOsiApproved",
@@ -3143,7 +3233,7 @@
         "/ExpandedLicensing/standardLicenseTemplate": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "standardLicenseTemplate",
@@ -3163,7 +3253,7 @@
         "/ExpandedLicensing/isDeprecatedAdditionId": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "isDeprecatedAdditionId",
@@ -3183,7 +3273,7 @@
         "/ExpandedLicensing/obsoletedBy": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "obsoletedBy",
@@ -3204,7 +3294,7 @@
         "/ExpandedLicensing/isFsfLibre": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "isFsfLibre",
@@ -3224,7 +3314,7 @@
         "/ExpandedLicensing/deprecatedVersion": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "deprecatedVersion",
@@ -3245,7 +3335,7 @@
         "/ExpandedLicensing/subjectLicense": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "subjectLicense",
@@ -3268,7 +3358,7 @@
         "/ExpandedLicensing/NoneLicense": {
           "py/object": "spec_parser.model.Individual",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "NoneLicense",
@@ -3288,7 +3378,7 @@
         "/ExpandedLicensing/NoAssertionLicense": {
           "py/object": "spec_parser.model.Individual",
           "ns": {
-            "py/id": 414
+            "py/id": 428
           },
           "license": "Community-Spec-1.0",
           "name": "NoAssertionLicense",
@@ -3323,7 +3413,7 @@
         "/Core/Hash": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "Hash",
@@ -3354,7 +3444,7 @@
         "/Core/SpdxDocument": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "SpdxDocument",
@@ -3391,13 +3481,13 @@
         "/Core/ExternalRef": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "ExternalRef",
           "fqname": "/Core/ExternalRef",
-          "summary": "A reference to a resource outside the scope of SPDX-3.0 content.",
-          "description": "An External Reference points to a resource outside the scope of the SPDX-3.0 content\nthat provides additional characteristics of an Element.",
+          "summary": "A reference to a resource outside the scope of SPDX-3.0 content related to an Element.",
+          "description": "An External Reference points to a general resource outside the scope of the SPDX-3.0 content\nthat provides additional context, characteristics or related information about an Element.",
           "metadata": {
             "name": "ExternalRef",
             "Instantiability": "Concrete"
@@ -3433,7 +3523,7 @@
         "/Core/IntegrityMethod": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "IntegrityMethod",
@@ -3457,7 +3547,7 @@
         "/Core/SoftwareAgent": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "SoftwareAgent",
@@ -3475,7 +3565,7 @@
         "/Core/ExternalMap": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "ExternalMap",
@@ -3517,7 +3607,7 @@
         "/Core/Organization": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "Organization",
@@ -3535,7 +3625,7 @@
         "/Core/PositiveIntegerRange": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "PositiveIntegerRange",
@@ -3565,7 +3655,7 @@
         "/Core/Bundle": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "Bundle",
@@ -3590,7 +3680,7 @@
         "/Core/DictionaryEntry": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "DictionaryEntry",
@@ -3620,13 +3710,13 @@
         "/Core/ExternalIdentifier": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "ExternalIdentifier",
           "fqname": "/Core/ExternalIdentifier",
-          "summary": "A reference to a resource outside the scope of SPDX-3.0 content that uniquely identifies an Element.",
-          "description": "An ExternalIdentifier is a reference to a resource outside the scope of SPDX-3.0 content\nthat uniquely identifies an Element.",
+          "summary": "A reference to a resource identifier defined outside the scope of SPDX-3.0 content that uniquely identifies an Element.",
+          "description": "An ExternalIdentifier is a reference to a resource outside the scope of SPDX-3.0 content\nthat provides a unique key within an established domain that can uniquely identify an Element.",
           "metadata": {
             "name": "ExternalIdentifier",
             "Instantiability": "Concrete"
@@ -3668,7 +3758,7 @@
         "/Core/Element": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "Element",
@@ -3746,7 +3836,7 @@
         "/Core/Annotation": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "Annotation",
@@ -3789,7 +3879,7 @@
         "/Core/PackageVerificationCode": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "PackageVerificationCode",
@@ -3826,7 +3916,7 @@
         "/Core/ElementCollection": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "ElementCollection",
@@ -3863,7 +3953,7 @@
         "/Core/Person": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "Person",
@@ -3881,7 +3971,7 @@
         "/Core/NamespaceMap": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "NamespaceMap",
@@ -3911,7 +4001,7 @@
         "/Core/Bom": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "Bom",
@@ -3929,7 +4019,7 @@
         "/Core/Agent": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "Agent",
@@ -3947,7 +4037,7 @@
         "/Core/Tool": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "Tool",
@@ -3965,7 +4055,7 @@
         "/Core/Artifact": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "Artifact",
@@ -4026,7 +4116,7 @@
         "/Core/CreationInfo": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "CreationInfo",
@@ -4074,7 +4164,7 @@
         "/Core/LifecycleScopedRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "LifecycleScopedRelationship",
@@ -4099,7 +4189,7 @@
         "/Core/Relationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "Relationship",
@@ -4156,7 +4246,7 @@
         "/Core/createdBy": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "createdBy",
@@ -4176,7 +4266,7 @@
         "/Core/specVersion": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "specVersion",
@@ -4196,7 +4286,7 @@
         "/Core/extension": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "extension",
@@ -4216,7 +4306,7 @@
         "/Core/beginIntegerRange": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "beginIntegerRange",
@@ -4236,7 +4326,7 @@
         "/Core/externalRefType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "externalRefType",
@@ -4256,7 +4346,7 @@
         "/Core/locationHint": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "locationHint",
@@ -4276,7 +4366,7 @@
         "/Core/hashValue": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "hashValue",
@@ -4297,7 +4387,7 @@
         "/Core/spdxId": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "spdxId",
@@ -4317,7 +4407,7 @@
         "/Core/packageVerificationCodeExcludedFile": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "packageVerificationCodeExcludedFile",
@@ -4337,7 +4427,7 @@
         "/Core/suppliedBy": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "suppliedBy",
@@ -4358,7 +4448,7 @@
         "/Core/locator": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "locator",
@@ -4378,7 +4468,7 @@
         "/Core/key": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "key",
@@ -4398,7 +4488,7 @@
         "/Core/originatedBy": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "originatedBy",
@@ -4418,7 +4508,7 @@
         "/Core/dataLicense": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "dataLicense",
@@ -4438,7 +4528,7 @@
         "/Core/createdUsing": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "createdUsing",
@@ -4458,7 +4548,7 @@
         "/Core/statement": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "statement",
@@ -4478,7 +4568,7 @@
         "/Core/contentType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "contentType",
@@ -4499,7 +4589,7 @@
         "/Core/relationshipType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "relationshipType",
@@ -4519,7 +4609,7 @@
         "/Core/standardName": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "standardName",
@@ -4539,7 +4629,7 @@
         "/Core/verifiedUsing": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "verifiedUsing",
@@ -4560,7 +4650,7 @@
         "/Core/prefix": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "prefix",
@@ -4580,7 +4670,7 @@
         "/Core/endTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "endTime",
@@ -4600,7 +4690,7 @@
         "/Core/issuingAuthority": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "issuingAuthority",
@@ -4620,7 +4710,7 @@
         "/Core/created": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "created",
@@ -4640,7 +4730,7 @@
         "/Core/summary": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "summary",
@@ -4660,7 +4750,7 @@
         "/Core/releaseTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "releaseTime",
@@ -4680,7 +4770,7 @@
         "/Core/externalIdentifierType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "externalIdentifierType",
@@ -4700,7 +4790,7 @@
         "/Core/name": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "name",
@@ -4720,7 +4810,7 @@
         "/Core/to": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "to",
@@ -4740,7 +4830,7 @@
         "/Core/externalRef": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "externalRef",
@@ -4760,7 +4850,7 @@
         "/Core/externalSpdxId": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "externalSpdxId",
@@ -4780,7 +4870,7 @@
         "/Core/identifier": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "identifier",
@@ -4800,7 +4890,7 @@
         "/Core/namespace": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "namespace",
@@ -4820,7 +4910,7 @@
         "/Core/namespaceMap": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "namespaceMap",
@@ -4840,7 +4930,7 @@
         "/Core/from": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "from",
@@ -4860,7 +4950,7 @@
         "/Core/definingArtifact": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "definingArtifact",
@@ -4880,7 +4970,7 @@
         "/Core/creationInfo": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "creationInfo",
@@ -4900,7 +4990,7 @@
         "/Core/comment": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "comment",
@@ -4924,7 +5014,7 @@
         "/Core/value": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "value",
@@ -4944,7 +5034,7 @@
         "/Core/startTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "startTime",
@@ -4964,7 +5054,7 @@
         "/Core/externalIdentifier": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "externalIdentifier",
@@ -4984,7 +5074,7 @@
         "/Core/profileConformance": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "profileConformance",
@@ -5004,7 +5094,7 @@
         "/Core/imports": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "imports",
@@ -5024,7 +5114,7 @@
         "/Core/element": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "element",
@@ -5044,7 +5134,7 @@
         "/Core/rootElement": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "rootElement",
@@ -5064,7 +5154,7 @@
         "/Core/identifierLocator": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "identifierLocator",
@@ -5084,7 +5174,7 @@
         "/Core/algorithm": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "algorithm",
@@ -5105,7 +5195,7 @@
         "/Core/annotationType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "annotationType",
@@ -5125,7 +5215,7 @@
         "/Core/completeness": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "completeness",
@@ -5145,7 +5235,7 @@
         "/Core/subject": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "subject",
@@ -5165,7 +5255,7 @@
         "/Core/builtTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "builtTime",
@@ -5185,7 +5275,7 @@
         "/Core/endIntegerRange": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "endIntegerRange",
@@ -5205,7 +5295,7 @@
         "/Core/description": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "description",
@@ -5225,7 +5315,7 @@
         "/Core/context": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "context",
@@ -5245,7 +5335,7 @@
         "/Core/validUntilTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "validUntilTime",
@@ -5265,7 +5355,7 @@
         "/Core/scope": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "scope",
@@ -5285,7 +5375,7 @@
         "/Core/supportLevel": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "supportLevel",
@@ -5307,7 +5397,7 @@
         "/Core/SupportType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "SupportType",
@@ -5331,7 +5421,7 @@
         "/Core/ProfileIdentifierType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "ProfileIdentifierType",
@@ -5358,7 +5448,7 @@
         "/Core/HashAlgorithm": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "HashAlgorithm",
@@ -5396,7 +5486,7 @@
         "/Core/RelationshipCompleteness": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "RelationshipCompleteness",
@@ -5416,7 +5506,7 @@
         "/Core/ExternalIdentifierType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "ExternalIdentifierType",
@@ -5444,7 +5534,7 @@
         "/Core/ExternalRefType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "ExternalRefType",
@@ -5506,7 +5596,7 @@
         "/Core/LifecycleScopeType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "LifecycleScopeType",
@@ -5529,7 +5619,7 @@
         "/Core/PresenceType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "PresenceType",
@@ -5549,7 +5639,7 @@
         "/Core/RelationshipType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "RelationshipType",
@@ -5625,7 +5715,7 @@
         "/Core/AnnotationType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "AnnotationType",
@@ -5646,7 +5736,7 @@
         "/Core/NoneElement": {
           "py/object": "spec_parser.model.Individual",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "NoneElement",
@@ -5665,7 +5755,7 @@
         "/Core/NoAssertionElement": {
           "py/object": "spec_parser.model.Individual",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "NoAssertionElement",
@@ -5686,7 +5776,7 @@
         "/Core/DateTime": {
           "py/object": "spec_parser.model.Datatype",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "DateTime",
@@ -5705,7 +5795,7 @@
         "/Core/SemVer": {
           "py/object": "spec_parser.model.Datatype",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "SemVer",
@@ -5724,7 +5814,7 @@
         "/Core/MediaType": {
           "py/object": "spec_parser.model.Datatype",
           "ns": {
-            "py/id": 538
+            "py/id": 552
           },
           "license": "Community-Spec-1.0",
           "name": "MediaType",
@@ -5757,7 +5847,7 @@
         "/Dataset/DatasetPackage": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "DatasetPackage",
@@ -5856,7 +5946,7 @@
         "/Dataset/datasetAvailability": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "datasetAvailability",
@@ -5876,7 +5966,7 @@
         "/Dataset/datasetType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "datasetType",
@@ -5896,7 +5986,7 @@
         "/Dataset/datasetNoise": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "datasetNoise",
@@ -5916,7 +6006,7 @@
         "/Dataset/intendedUse": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "intendedUse",
@@ -5936,7 +6026,7 @@
         "/Dataset/hasSensitivePersonalInformation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "hasSensitivePersonalInformation",
@@ -5956,7 +6046,7 @@
         "/Dataset/knownBias": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "knownBias",
@@ -5976,7 +6066,7 @@
         "/Dataset/dataCollectionProcess": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "dataCollectionProcess",
@@ -5996,7 +6086,7 @@
         "/Dataset/datasetUpdateMechanism": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "datasetUpdateMechanism",
@@ -6016,7 +6106,7 @@
         "/Dataset/datasetSize": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "datasetSize",
@@ -6036,7 +6126,7 @@
         "/Dataset/anonymizationMethodUsed": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "anonymizationMethodUsed",
@@ -6056,7 +6146,7 @@
         "/Dataset/confidentialityLevel": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "confidentialityLevel",
@@ -6076,7 +6166,7 @@
         "/Dataset/sensor": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "sensor",
@@ -6096,7 +6186,7 @@
         "/Dataset/dataPreprocessing": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "dataPreprocessing",
@@ -6118,7 +6208,7 @@
         "/Dataset/ConfidentialityLevelType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "ConfidentialityLevelType",
@@ -6139,7 +6229,7 @@
         "/Dataset/DatasetAvailabilityType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "DatasetAvailabilityType",
@@ -6161,7 +6251,7 @@
         "/Dataset/DatasetType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 898
+            "py/id": 912
           },
           "license": "Community-Spec-1.0",
           "name": "DatasetType",
@@ -6225,7 +6315,7 @@
         "/Build/Build": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 976
+            "py/id": 990
           },
           "license": "Community-Spec-1.0",
           "name": "Build",
@@ -6300,7 +6390,7 @@
         "/Build/buildEndTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 976
+            "py/id": 990
           },
           "license": "Community-Spec-1.0",
           "name": "buildEndTime",
@@ -6320,7 +6410,7 @@
         "/Build/environment": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 976
+            "py/id": 990
           },
           "license": "Community-Spec-1.0",
           "name": "environment",
@@ -6340,7 +6430,7 @@
         "/Build/buildId": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 976
+            "py/id": 990
           },
           "license": "Community-Spec-1.0",
           "name": "buildId",
@@ -6360,7 +6450,7 @@
         "/Build/configSourceDigest": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 976
+            "py/id": 990
           },
           "license": "Community-Spec-1.0",
           "name": "configSourceDigest",
@@ -6380,7 +6470,7 @@
         "/Build/buildStartTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 976
+            "py/id": 990
           },
           "license": "Community-Spec-1.0",
           "name": "buildStartTime",
@@ -6400,7 +6490,7 @@
         "/Build/configSourceEntrypoint": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 976
+            "py/id": 990
           },
           "license": "Community-Spec-1.0",
           "name": "configSourceEntrypoint",
@@ -6420,7 +6510,7 @@
         "/Build/parameters": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 976
+            "py/id": 990
           },
           "license": "Community-Spec-1.0",
           "name": "parameters",
@@ -6440,7 +6530,7 @@
         "/Build/buildType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 976
+            "py/id": 990
           },
           "license": "Community-Spec-1.0",
           "name": "buildType",
@@ -6460,7 +6550,7 @@
         "/Build/configSourceUri": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 976
+            "py/id": 990
           },
           "license": "Community-Spec-1.0",
           "name": "configSourceUri",
@@ -6547,146 +6637,149 @@
     "/Software/Package": {
       "py/id": 193
     },
-    "/Software/Sbom": {
+    "/Software/ContentIdentifier": {
       "py/id": 201
     },
+    "/Software/Sbom": {
+      "py/id": 206
+    },
     "/Software/SoftwareArtifact": {
-      "py/id": 205
+      "py/id": 210
     },
     "/Software/File": {
-      "py/id": 213
+      "py/id": 218
     },
     "/AI/EnergyConsumptionDescription": {
-      "py/id": 282
+      "py/id": 296
     },
     "/AI/AIPackage": {
-      "py/id": 287
+      "py/id": 301
     },
     "/AI/EnergyConsumption": {
-      "py/id": 305
+      "py/id": 319
     },
     "/SimpleLicensing/LicenseExpression": {
-      "py/id": 384
+      "py/id": 398
     },
     "/SimpleLicensing/SimpleLicensingText": {
-      "py/id": 390
+      "py/id": 404
     },
     "/SimpleLicensing/AnyLicenseInfo": {
-      "py/id": 394
+      "py/id": 408
     },
     "/ExpandedLicensing/ConjunctiveLicenseSet": {
-      "py/id": 416
+      "py/id": 430
     },
     "/ExpandedLicensing/WithAdditionOperator": {
-      "py/id": 420
+      "py/id": 434
     },
     "/ExpandedLicensing/IndividualLicensingInfo": {
-      "py/id": 425
+      "py/id": 439
     },
     "/ExpandedLicensing/License": {
-      "py/id": 428
+      "py/id": 442
     },
     "/ExpandedLicensing/OrLaterOperator": {
-      "py/id": 440
+      "py/id": 454
     },
     "/ExpandedLicensing/DisjunctiveLicenseSet": {
-      "py/id": 444
+      "py/id": 458
     },
     "/ExpandedLicensing/LicenseAddition": {
-      "py/id": 448
+      "py/id": 462
     },
     "/ExpandedLicensing/CustomLicenseAddition": {
-      "py/id": 457
+      "py/id": 471
     },
     "/ExpandedLicensing/ListedLicense": {
-      "py/id": 460
+      "py/id": 474
     },
     "/ExpandedLicensing/CustomLicense": {
-      "py/id": 465
+      "py/id": 479
     },
     "/ExpandedLicensing/ListedLicenseException": {
-      "py/id": 468
+      "py/id": 482
     },
     "/ExpandedLicensing/ExtendableLicense": {
-      "py/id": 473
+      "py/id": 487
     },
     "/Core/Hash": {
-      "py/id": 540
+      "py/id": 554
     },
     "/Core/SpdxDocument": {
-      "py/id": 545
+      "py/id": 559
     },
     "/Core/ExternalRef": {
-      "py/id": 551
-    },
-    "/Core/IntegrityMethod": {
-      "py/id": 558
-    },
-    "/Core/SoftwareAgent": {
-      "py/id": 562
-    },
-    "/Core/ExternalMap": {
       "py/id": 565
     },
-    "/Core/Organization": {
+    "/Core/IntegrityMethod": {
       "py/id": 572
     },
+    "/Core/SoftwareAgent": {
+      "py/id": 576
+    },
+    "/Core/ExternalMap": {
+      "py/id": 579
+    },
+    "/Core/Organization": {
+      "py/id": 586
+    },
     "/Core/PositiveIntegerRange": {
-      "py/id": 575
-    },
-    "/Core/Bundle": {
-      "py/id": 580
-    },
-    "/Core/DictionaryEntry": {
-      "py/id": 584
-    },
-    "/Core/ExternalIdentifier": {
       "py/id": 589
     },
+    "/Core/Bundle": {
+      "py/id": 594
+    },
+    "/Core/DictionaryEntry": {
+      "py/id": 598
+    },
+    "/Core/ExternalIdentifier": {
+      "py/id": 603
+    },
     "/Core/Element": {
-      "py/id": 597
+      "py/id": 611
     },
     "/Core/Annotation": {
-      "py/id": 610
+      "py/id": 624
     },
     "/Core/PackageVerificationCode": {
-      "py/id": 617
+      "py/id": 631
     },
     "/Core/ElementCollection": {
-      "py/id": 623
-    },
-    "/Core/Person": {
-      "py/id": 629
-    },
-    "/Core/NamespaceMap": {
-      "py/id": 632
-    },
-    "/Core/Bom": {
       "py/id": 637
     },
-    "/Core/Agent": {
-      "py/id": 640
-    },
-    "/Core/Tool": {
+    "/Core/Person": {
       "py/id": 643
     },
-    "/Core/Artifact": {
+    "/Core/NamespaceMap": {
       "py/id": 646
     },
+    "/Core/Bom": {
+      "py/id": 651
+    },
+    "/Core/Agent": {
+      "py/id": 654
+    },
+    "/Core/Tool": {
+      "py/id": 657
+    },
+    "/Core/Artifact": {
+      "py/id": 660
+    },
     "/Core/CreationInfo": {
-      "py/id": 656
+      "py/id": 670
     },
     "/Core/LifecycleScopedRelationship": {
-      "py/id": 664
+      "py/id": 678
     },
     "/Core/Relationship": {
-      "py/id": 668
+      "py/id": 682
     },
     "/Dataset/DatasetPackage": {
-      "py/id": 900
+      "py/id": 914
     },
     "/Build/Build": {
-      "py/id": 978
+      "py/id": 992
     }
   },
   "properties": {
@@ -6760,412 +6853,418 @@
       "py/id": 166
     },
     "/Software/attributionText": {
-      "py/id": 219
+      "py/id": 224
+    },
+    "/Software/contentIdentifierValue": {
+      "py/id": 227
     },
     "/Software/homePage": {
-      "py/id": 222
+      "py/id": 230
     },
     "/Software/copyrightText": {
-      "py/id": 225
+      "py/id": 233
     },
     "/Software/contentType": {
-      "py/id": 228
+      "py/id": 236
     },
     "/Software/downloadLocation": {
-      "py/id": 231
+      "py/id": 239
     },
     "/Software/snippetFromFile": {
-      "py/id": 234
+      "py/id": 242
     },
     "/Software/sourceInfo": {
-      "py/id": 237
+      "py/id": 245
     },
     "/Software/packageVersion": {
-      "py/id": 240
+      "py/id": 248
     },
     "/Software/lineRange": {
-      "py/id": 243
-    },
-    "/Software/gitoid": {
-      "py/id": 246
+      "py/id": 251
     },
     "/Software/fileKind": {
-      "py/id": 249
+      "py/id": 254
+    },
+    "/Software/contentIdentifierType": {
+      "py/id": 257
     },
     "/Software/additionalPurpose": {
-      "py/id": 252
+      "py/id": 260
+    },
+    "/Software/contentIdentifier": {
+      "py/id": 263
     },
     "/Software/packageUrl": {
-      "py/id": 255
+      "py/id": 266
     },
     "/Software/primaryPurpose": {
-      "py/id": 258
+      "py/id": 269
     },
     "/Software/sbomType": {
-      "py/id": 261
+      "py/id": 272
     },
     "/Software/byteRange": {
-      "py/id": 264
+      "py/id": 275
     },
     "/AI/typeOfModel": {
-      "py/id": 312
+      "py/id": 326
     },
     "/AI/autonomyType": {
-      "py/id": 315
+      "py/id": 329
     },
     "/AI/limitation": {
-      "py/id": 318
+      "py/id": 332
     },
     "/AI/useSensitivePersonalInformation": {
-      "py/id": 321
+      "py/id": 335
     },
     "/AI/metric": {
-      "py/id": 324
+      "py/id": 338
     },
     "/AI/trainingEnergyConsumption": {
-      "py/id": 327
+      "py/id": 341
     },
     "/AI/energyUnit": {
-      "py/id": 330
+      "py/id": 344
     },
     "/AI/energyQuantity": {
-      "py/id": 333
+      "py/id": 347
     },
     "/AI/informationAboutTraining": {
-      "py/id": 336
+      "py/id": 350
     },
     "/AI/hyperparameter": {
-      "py/id": 339
+      "py/id": 353
     },
     "/AI/metricDecisionThreshold": {
-      "py/id": 342
+      "py/id": 356
     },
     "/AI/energyConsumption": {
-      "py/id": 345
+      "py/id": 359
     },
     "/AI/modelDataPreprocessing": {
-      "py/id": 348
+      "py/id": 362
     },
     "/AI/informationAboutApplication": {
-      "py/id": 351
+      "py/id": 365
     },
     "/AI/inferenceEnergyConsumption": {
-      "py/id": 354
+      "py/id": 368
     },
     "/AI/modelExplainability": {
-      "py/id": 357
+      "py/id": 371
     },
     "/AI/standardCompliance": {
-      "py/id": 360
+      "py/id": 374
     },
     "/AI/safetyRiskAssessment": {
-      "py/id": 363
+      "py/id": 377
     },
     "/AI/domain": {
-      "py/id": 366
+      "py/id": 380
     },
     "/AI/finetuningEnergyConsumption": {
-      "py/id": 369
+      "py/id": 383
     },
     "/SimpleLicensing/customIdToUri": {
-      "py/id": 398
+      "py/id": 412
     },
     "/SimpleLicensing/licenseListVersion": {
-      "py/id": 401
+      "py/id": 415
     },
     "/SimpleLicensing/licenseText": {
-      "py/id": 404
+      "py/id": 418
     },
     "/SimpleLicensing/licenseExpression": {
-      "py/id": 407
+      "py/id": 421
     },
     "/ExpandedLicensing/standardAdditionTemplate": {
-      "py/id": 477
+      "py/id": 491
     },
     "/ExpandedLicensing/subjectExtendableLicense": {
-      "py/id": 480
+      "py/id": 494
     },
     "/ExpandedLicensing/subjectAddition": {
-      "py/id": 483
+      "py/id": 497
     },
     "/ExpandedLicensing/isDeprecatedLicenseId": {
-      "py/id": 486
+      "py/id": 500
     },
     "/ExpandedLicensing/standardLicenseHeader": {
-      "py/id": 489
+      "py/id": 503
     },
     "/ExpandedLicensing/listVersionAdded": {
-      "py/id": 492
+      "py/id": 506
     },
     "/ExpandedLicensing/seeAlso": {
-      "py/id": 495
+      "py/id": 509
     },
     "/ExpandedLicensing/licenseXml": {
-      "py/id": 498
+      "py/id": 512
     },
     "/ExpandedLicensing/member": {
-      "py/id": 501
+      "py/id": 515
     },
     "/ExpandedLicensing/additionText": {
-      "py/id": 504
+      "py/id": 518
     },
     "/ExpandedLicensing/isOsiApproved": {
-      "py/id": 507
+      "py/id": 521
     },
     "/ExpandedLicensing/standardLicenseTemplate": {
-      "py/id": 510
+      "py/id": 524
     },
     "/ExpandedLicensing/isDeprecatedAdditionId": {
-      "py/id": 513
+      "py/id": 527
     },
     "/ExpandedLicensing/obsoletedBy": {
-      "py/id": 516
+      "py/id": 530
     },
     "/ExpandedLicensing/isFsfLibre": {
-      "py/id": 519
+      "py/id": 533
     },
     "/ExpandedLicensing/deprecatedVersion": {
-      "py/id": 522
+      "py/id": 536
     },
     "/ExpandedLicensing/subjectLicense": {
-      "py/id": 525
+      "py/id": 539
     },
     "/Core/createdBy": {
-      "py/id": 678
+      "py/id": 692
     },
     "/Core/specVersion": {
-      "py/id": 681
+      "py/id": 695
     },
     "/Core/extension": {
-      "py/id": 684
+      "py/id": 698
     },
     "/Core/beginIntegerRange": {
-      "py/id": 687
+      "py/id": 701
     },
     "/Core/externalRefType": {
-      "py/id": 690
+      "py/id": 704
     },
     "/Core/locationHint": {
-      "py/id": 693
+      "py/id": 707
     },
     "/Core/hashValue": {
-      "py/id": 696
+      "py/id": 710
     },
     "/Core/spdxId": {
-      "py/id": 699
+      "py/id": 713
     },
     "/Core/packageVerificationCodeExcludedFile": {
-      "py/id": 702
+      "py/id": 716
     },
     "/Core/suppliedBy": {
-      "py/id": 705
+      "py/id": 719
     },
     "/Core/locator": {
-      "py/id": 708
+      "py/id": 722
     },
     "/Core/key": {
-      "py/id": 711
+      "py/id": 725
     },
     "/Core/originatedBy": {
-      "py/id": 714
+      "py/id": 728
     },
     "/Core/dataLicense": {
-      "py/id": 717
+      "py/id": 731
     },
     "/Core/createdUsing": {
-      "py/id": 720
+      "py/id": 734
     },
     "/Core/statement": {
-      "py/id": 723
+      "py/id": 737
     },
     "/Core/contentType": {
-      "py/id": 726
+      "py/id": 740
     },
     "/Core/relationshipType": {
-      "py/id": 729
+      "py/id": 743
     },
     "/Core/standardName": {
-      "py/id": 732
+      "py/id": 746
     },
     "/Core/verifiedUsing": {
-      "py/id": 735
+      "py/id": 749
     },
     "/Core/prefix": {
-      "py/id": 738
+      "py/id": 752
     },
     "/Core/endTime": {
-      "py/id": 741
+      "py/id": 755
     },
     "/Core/issuingAuthority": {
-      "py/id": 744
+      "py/id": 758
     },
     "/Core/created": {
-      "py/id": 747
+      "py/id": 761
     },
     "/Core/summary": {
-      "py/id": 750
+      "py/id": 764
     },
     "/Core/releaseTime": {
-      "py/id": 753
+      "py/id": 767
     },
     "/Core/externalIdentifierType": {
-      "py/id": 756
+      "py/id": 770
     },
     "/Core/name": {
-      "py/id": 759
+      "py/id": 773
     },
     "/Core/to": {
-      "py/id": 762
+      "py/id": 776
     },
     "/Core/externalRef": {
-      "py/id": 765
+      "py/id": 779
     },
     "/Core/externalSpdxId": {
-      "py/id": 768
+      "py/id": 782
     },
     "/Core/identifier": {
-      "py/id": 771
+      "py/id": 785
     },
     "/Core/namespace": {
-      "py/id": 774
+      "py/id": 788
     },
     "/Core/namespaceMap": {
-      "py/id": 777
+      "py/id": 791
     },
     "/Core/from": {
-      "py/id": 780
+      "py/id": 794
     },
     "/Core/definingArtifact": {
-      "py/id": 783
+      "py/id": 797
     },
     "/Core/creationInfo": {
-      "py/id": 786
+      "py/id": 800
     },
     "/Core/comment": {
-      "py/id": 789
+      "py/id": 803
     },
     "/Core/value": {
-      "py/id": 792
+      "py/id": 806
     },
     "/Core/startTime": {
-      "py/id": 795
+      "py/id": 809
     },
     "/Core/externalIdentifier": {
-      "py/id": 798
+      "py/id": 812
     },
     "/Core/profileConformance": {
-      "py/id": 801
+      "py/id": 815
     },
     "/Core/imports": {
-      "py/id": 804
+      "py/id": 818
     },
     "/Core/element": {
-      "py/id": 807
+      "py/id": 821
     },
     "/Core/rootElement": {
-      "py/id": 810
+      "py/id": 824
     },
     "/Core/identifierLocator": {
-      "py/id": 813
+      "py/id": 827
     },
     "/Core/algorithm": {
-      "py/id": 816
+      "py/id": 830
     },
     "/Core/annotationType": {
-      "py/id": 819
+      "py/id": 833
     },
     "/Core/completeness": {
-      "py/id": 822
+      "py/id": 836
     },
     "/Core/subject": {
-      "py/id": 825
+      "py/id": 839
     },
     "/Core/builtTime": {
-      "py/id": 828
+      "py/id": 842
     },
     "/Core/endIntegerRange": {
-      "py/id": 831
+      "py/id": 845
     },
     "/Core/description": {
-      "py/id": 834
+      "py/id": 848
     },
     "/Core/context": {
-      "py/id": 837
+      "py/id": 851
     },
     "/Core/validUntilTime": {
-      "py/id": 840
+      "py/id": 854
     },
     "/Core/scope": {
-      "py/id": 843
+      "py/id": 857
     },
     "/Core/supportLevel": {
-      "py/id": 846
+      "py/id": 860
     },
     "/Dataset/datasetAvailability": {
-      "py/id": 917
+      "py/id": 931
     },
     "/Dataset/datasetType": {
-      "py/id": 920
+      "py/id": 934
     },
     "/Dataset/datasetNoise": {
-      "py/id": 923
+      "py/id": 937
     },
     "/Dataset/intendedUse": {
-      "py/id": 926
+      "py/id": 940
     },
     "/Dataset/hasSensitivePersonalInformation": {
-      "py/id": 929
+      "py/id": 943
     },
     "/Dataset/knownBias": {
-      "py/id": 932
+      "py/id": 946
     },
     "/Dataset/dataCollectionProcess": {
-      "py/id": 935
+      "py/id": 949
     },
     "/Dataset/datasetUpdateMechanism": {
-      "py/id": 938
+      "py/id": 952
     },
     "/Dataset/datasetSize": {
-      "py/id": 941
+      "py/id": 955
     },
     "/Dataset/anonymizationMethodUsed": {
-      "py/id": 944
+      "py/id": 958
     },
     "/Dataset/confidentialityLevel": {
-      "py/id": 947
+      "py/id": 961
     },
     "/Dataset/sensor": {
-      "py/id": 950
+      "py/id": 964
     },
     "/Dataset/dataPreprocessing": {
-      "py/id": 953
+      "py/id": 967
     },
     "/Build/buildEndTime": {
-      "py/id": 991
+      "py/id": 1005
     },
     "/Build/environment": {
-      "py/id": 994
+      "py/id": 1008
     },
     "/Build/buildId": {
-      "py/id": 997
+      "py/id": 1011
     },
     "/Build/configSourceDigest": {
-      "py/id": 1000
+      "py/id": 1014
     },
     "/Build/buildStartTime": {
-      "py/id": 1003
+      "py/id": 1017
     },
     "/Build/configSourceEntrypoint": {
-      "py/id": 1006
+      "py/id": 1020
     },
     "/Build/parameters": {
-      "py/id": 1009
+      "py/id": 1023
     },
     "/Build/buildType": {
-      "py/id": 1012
+      "py/id": 1026
     },
     "/Build/configSourceUri": {
-      "py/id": 1015
+      "py/id": 1029
     }
   },
   "vocabularies": {
@@ -7182,83 +7281,86 @@
       "py/id": 179
     },
     "/Software/SoftwarePurpose": {
-      "py/id": 268
+      "py/id": 279
     },
     "/Software/SbomType": {
-      "py/id": 271
+      "py/id": 282
     },
     "/Software/FileKindType": {
-      "py/id": 274
+      "py/id": 285
+    },
+    "/Software/ContentIdentifierType": {
+      "py/id": 288
     },
     "/AI/EnergyUnitType": {
-      "py/id": 373
+      "py/id": 387
     },
     "/AI/SafetyRiskAssessmentType": {
-      "py/id": 376
+      "py/id": 390
     },
     "/Core/SupportType": {
-      "py/id": 850
+      "py/id": 864
     },
     "/Core/ProfileIdentifierType": {
-      "py/id": 853
+      "py/id": 867
     },
     "/Core/HashAlgorithm": {
-      "py/id": 856
+      "py/id": 870
     },
     "/Core/RelationshipCompleteness": {
-      "py/id": 859
+      "py/id": 873
     },
     "/Core/ExternalIdentifierType": {
-      "py/id": 862
+      "py/id": 876
     },
     "/Core/ExternalRefType": {
-      "py/id": 865
+      "py/id": 879
     },
     "/Core/LifecycleScopeType": {
-      "py/id": 868
+      "py/id": 882
     },
     "/Core/PresenceType": {
-      "py/id": 871
+      "py/id": 885
     },
     "/Core/RelationshipType": {
-      "py/id": 874
+      "py/id": 888
     },
     "/Core/AnnotationType": {
-      "py/id": 877
+      "py/id": 891
     },
     "/Dataset/ConfidentialityLevelType": {
-      "py/id": 957
+      "py/id": 971
     },
     "/Dataset/DatasetAvailabilityType": {
-      "py/id": 960
+      "py/id": 974
     },
     "/Dataset/DatasetType": {
-      "py/id": 963
+      "py/id": 977
     }
   },
   "individuals": {
     "/ExpandedLicensing/NoneLicense": {
-      "py/id": 530
+      "py/id": 544
     },
     "/ExpandedLicensing/NoAssertionLicense": {
-      "py/id": 533
+      "py/id": 547
     },
     "/Core/NoneElement": {
-      "py/id": 881
+      "py/id": 895
     },
     "/Core/NoAssertionElement": {
-      "py/id": 884
+      "py/id": 898
     }
   },
   "datatypes": {
     "/Core/DateTime": {
-      "py/id": 888
+      "py/id": 902
     },
     "/Core/SemVer": {
-      "py/id": 891
+      "py/id": 905
     },
     "/Core/MediaType": {
-      "py/id": 894
+      "py/id": 908
     }
   },
   "toplevel": {
@@ -7329,146 +7431,149 @@
     "/Software/Package": {
       "py/id": 193
     },
-    "/Software/Sbom": {
+    "/Software/ContentIdentifier": {
       "py/id": 201
     },
+    "/Software/Sbom": {
+      "py/id": 206
+    },
     "/Software/SoftwareArtifact": {
-      "py/id": 205
+      "py/id": 210
     },
     "/Software/File": {
-      "py/id": 213
+      "py/id": 218
     },
     "/AI/EnergyConsumptionDescription": {
-      "py/id": 282
+      "py/id": 296
     },
     "/AI/AIPackage": {
-      "py/id": 287
+      "py/id": 301
     },
     "/AI/EnergyConsumption": {
-      "py/id": 305
+      "py/id": 319
     },
     "/SimpleLicensing/LicenseExpression": {
-      "py/id": 384
+      "py/id": 398
     },
     "/SimpleLicensing/SimpleLicensingText": {
-      "py/id": 390
+      "py/id": 404
     },
     "/SimpleLicensing/AnyLicenseInfo": {
-      "py/id": 394
+      "py/id": 408
     },
     "/ExpandedLicensing/ConjunctiveLicenseSet": {
-      "py/id": 416
+      "py/id": 430
     },
     "/ExpandedLicensing/WithAdditionOperator": {
-      "py/id": 420
+      "py/id": 434
     },
     "/ExpandedLicensing/IndividualLicensingInfo": {
-      "py/id": 425
+      "py/id": 439
     },
     "/ExpandedLicensing/License": {
-      "py/id": 428
+      "py/id": 442
     },
     "/ExpandedLicensing/OrLaterOperator": {
-      "py/id": 440
+      "py/id": 454
     },
     "/ExpandedLicensing/DisjunctiveLicenseSet": {
-      "py/id": 444
+      "py/id": 458
     },
     "/ExpandedLicensing/LicenseAddition": {
-      "py/id": 448
+      "py/id": 462
     },
     "/ExpandedLicensing/CustomLicenseAddition": {
-      "py/id": 457
+      "py/id": 471
     },
     "/ExpandedLicensing/ListedLicense": {
-      "py/id": 460
+      "py/id": 474
     },
     "/ExpandedLicensing/CustomLicense": {
-      "py/id": 465
+      "py/id": 479
     },
     "/ExpandedLicensing/ListedLicenseException": {
-      "py/id": 468
+      "py/id": 482
     },
     "/ExpandedLicensing/ExtendableLicense": {
-      "py/id": 473
+      "py/id": 487
     },
     "/Core/Hash": {
-      "py/id": 540
+      "py/id": 554
     },
     "/Core/SpdxDocument": {
-      "py/id": 545
+      "py/id": 559
     },
     "/Core/ExternalRef": {
-      "py/id": 551
-    },
-    "/Core/IntegrityMethod": {
-      "py/id": 558
-    },
-    "/Core/SoftwareAgent": {
-      "py/id": 562
-    },
-    "/Core/ExternalMap": {
       "py/id": 565
     },
-    "/Core/Organization": {
+    "/Core/IntegrityMethod": {
       "py/id": 572
     },
+    "/Core/SoftwareAgent": {
+      "py/id": 576
+    },
+    "/Core/ExternalMap": {
+      "py/id": 579
+    },
+    "/Core/Organization": {
+      "py/id": 586
+    },
     "/Core/PositiveIntegerRange": {
-      "py/id": 575
-    },
-    "/Core/Bundle": {
-      "py/id": 580
-    },
-    "/Core/DictionaryEntry": {
-      "py/id": 584
-    },
-    "/Core/ExternalIdentifier": {
       "py/id": 589
     },
+    "/Core/Bundle": {
+      "py/id": 594
+    },
+    "/Core/DictionaryEntry": {
+      "py/id": 598
+    },
+    "/Core/ExternalIdentifier": {
+      "py/id": 603
+    },
     "/Core/Element": {
-      "py/id": 597
+      "py/id": 611
     },
     "/Core/Annotation": {
-      "py/id": 610
+      "py/id": 624
     },
     "/Core/PackageVerificationCode": {
-      "py/id": 617
+      "py/id": 631
     },
     "/Core/ElementCollection": {
-      "py/id": 623
-    },
-    "/Core/Person": {
-      "py/id": 629
-    },
-    "/Core/NamespaceMap": {
-      "py/id": 632
-    },
-    "/Core/Bom": {
       "py/id": 637
     },
-    "/Core/Agent": {
-      "py/id": 640
-    },
-    "/Core/Tool": {
+    "/Core/Person": {
       "py/id": 643
     },
-    "/Core/Artifact": {
+    "/Core/NamespaceMap": {
       "py/id": 646
     },
+    "/Core/Bom": {
+      "py/id": 651
+    },
+    "/Core/Agent": {
+      "py/id": 654
+    },
+    "/Core/Tool": {
+      "py/id": 657
+    },
+    "/Core/Artifact": {
+      "py/id": 660
+    },
     "/Core/CreationInfo": {
-      "py/id": 656
+      "py/id": 670
     },
     "/Core/LifecycleScopedRelationship": {
-      "py/id": 664
+      "py/id": 678
     },
     "/Core/Relationship": {
-      "py/id": 668
+      "py/id": 682
     },
     "/Dataset/DatasetPackage": {
-      "py/id": 900
+      "py/id": 914
     },
     "/Build/Build": {
-      "py/id": 978
+      "py/id": 992
     },
     "/Security/ExploitCatalogType": {
       "py/id": 170
@@ -7483,67 +7588,70 @@
       "py/id": 179
     },
     "/Software/SoftwarePurpose": {
-      "py/id": 268
+      "py/id": 279
     },
     "/Software/SbomType": {
-      "py/id": 271
+      "py/id": 282
     },
     "/Software/FileKindType": {
-      "py/id": 274
+      "py/id": 285
+    },
+    "/Software/ContentIdentifierType": {
+      "py/id": 288
     },
     "/AI/EnergyUnitType": {
-      "py/id": 373
+      "py/id": 387
     },
     "/AI/SafetyRiskAssessmentType": {
-      "py/id": 376
+      "py/id": 390
     },
     "/Core/SupportType": {
-      "py/id": 850
+      "py/id": 864
     },
     "/Core/ProfileIdentifierType": {
-      "py/id": 853
+      "py/id": 867
     },
     "/Core/HashAlgorithm": {
-      "py/id": 856
+      "py/id": 870
     },
     "/Core/RelationshipCompleteness": {
-      "py/id": 859
+      "py/id": 873
     },
     "/Core/ExternalIdentifierType": {
-      "py/id": 862
+      "py/id": 876
     },
     "/Core/ExternalRefType": {
-      "py/id": 865
+      "py/id": 879
     },
     "/Core/LifecycleScopeType": {
-      "py/id": 868
+      "py/id": 882
     },
     "/Core/PresenceType": {
-      "py/id": 871
+      "py/id": 885
     },
     "/Core/RelationshipType": {
-      "py/id": 874
-    },
-    "/Core/AnnotationType": {
-      "py/id": 877
-    },
-    "/Dataset/ConfidentialityLevelType": {
-      "py/id": 957
-    },
-    "/Dataset/DatasetAvailabilityType": {
-      "py/id": 960
-    },
-    "/Dataset/DatasetType": {
-      "py/id": 963
-    },
-    "/Core/DateTime": {
       "py/id": 888
     },
-    "/Core/SemVer": {
+    "/Core/AnnotationType": {
       "py/id": 891
     },
+    "/Dataset/ConfidentialityLevelType": {
+      "py/id": 971
+    },
+    "/Dataset/DatasetAvailabilityType": {
+      "py/id": 974
+    },
+    "/Dataset/DatasetType": {
+      "py/id": 977
+    },
+    "/Core/DateTime": {
+      "py/id": 902
+    },
+    "/Core/SemVer": {
+      "py/id": 905
+    },
     "/Core/MediaType": {
-      "py/id": 894
+      "py/id": 908
     }
   }
 }
