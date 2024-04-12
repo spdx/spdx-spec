@@ -14,14 +14,13 @@ setup(
     version = "3.0",
     author = "Linux Foundation and SPDX Contributors",
     author_email = "spdx-tech@lists.spdx.org",
-    description = ("The Software Package Data Exchange® (SPDX®) specification is a standard format for communicating the components, licenses and copyrights associated with software packages."),
+    description = ("The System Package Data Exchange (SPDX®) specification is an open standard capable of representing systems with software components in as SBOMs (Software Bill of Materials) and other AI, data and security references supporting a range of risk management use cases."),
     license = "Community-Spec-1.0 AND CC-BY-3.0 AND MIT",
-    keywords = "SPDX Software Package Data Exchange SPDX-License-Identifier specification licenses license",
+    keywords = "SPDX SBOM Software System Package Data Exchange SPDX-License-Identifier specification licenses license",
     url = "https://spdx.org",
     long_description=read('README.md'),
     classifiers=[
         "Topic :: Dcoumentation",
-        "License :: Other/Proprietary License",
     ],
     python_requires='>=2.7.9,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*',
 )
