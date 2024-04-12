@@ -1,4 +1,4 @@
-# The Software Package Data Exchange® (SPDX®) Specification Version 3.0-DRAFT
+# The System Package Data Exchange® (SPDX®) Specification Version 3.0
 
 Copyright © 2010-2024 Linux Foundation and its Contributors.
 

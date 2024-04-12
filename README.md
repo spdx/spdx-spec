@@ -1,8 +1,6 @@
-# The Software Package Data Exchange (SPDX®) Specification
+# The System Package Data Exchange (SPDX®) Specification
 
-[![Build Status](https://travis-ci.org/spdx/spdx-spec.svg?branch=master)](https://travis-ci.org/spdx/spdx-spec)
-
-The Software Package Data Exchange® (SPDX®) specification is a standard format for communicating the components, licenses and copyrights associated with software packages.
+The System Package Data Exchange (SPDX®) specification is an open standard capable of representing systems with software components in as SBOMs (Software Bill of Materials) and other AI, data and security references supporting a range of risk management use cases.
 
 The SPDX standard helps facilitate compliance with free and open source software licenses by standardizing the way license information is shared across the software supply chain. SPDX reduces redundant work by providing a common format for companies and communities to share important data about software licenses and copyrights, thereby streamlining and improving compliance.
 
