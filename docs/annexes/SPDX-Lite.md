@@ -24,7 +24,7 @@ A SPDX document with the Lite profile must include properties for each class lis
    | 4 | /Core/SpdxDocument/creationInfo	| 1..1	| |  
    | 5 | /Core/SpdxDocument/verifiedUsing	| 0..1	| This should be an object of /Core/Hash |  
    | 6 | /Core/SpdxDocument/element			| 1..*	| MUST have at least one element |  
-   | 7 | /Core/SpdxDocument/rootElement		| 0..*	| |  
+   | 7 | /Core/SpdxDocument/rootElement		| 1..1	| This should be an object of /Core/Sbom |  
    | 8 | /Core/SpdxDocument/namespaceMap	| 0..*	| |  
    | 9 | /Core/SpdxDocument/dataLicense		| 0..1	| |  
 
@@ -42,7 +42,8 @@ A SPDX document with the Lite profile must include properties for each class lis
    | 1 | /Software/Sbom/spdxId			| 1..1	| |  
    | 2 | /Software/Sbom/creationInfo	| 1..1	| |  
    | 3 | /Software/Sbom/element			| 1..*	| MUST have at least one element |  
-   | 4 | /Software/Sbom/sbomType		| 0..1	| |  
+   | 4 | /Software/Sbom/rootElement    | 1..1	| This should be an object of /Software/Package |  
+   | 5 | /Software/Sbom/sbomType		   | 0..1	| |  
 
 4. For a /Core/CreationInfo to be conformant with this profile, the following has to hold:  
 
