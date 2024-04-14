@@ -881,12 +881,12 @@
 <h4 id="description-of-change_3">Description of Change</h4>
 <p>The packageFileName property and packageChecksum property has been replaced by a relationship from a Package to a File.  A relationship type of hasDistributionArtifact should be used.</p>
 <h4 id="translating-from-23-to-30_3">Translating from 2.3 to 3.0</h4>
-<p>Create an SPDX File with the name from the packageFileName and a verifiedUsing value from the packageChecksum for a single file.  If the packageFileName is a directory, then the SPDX File is created with the directory name and is verified using the gitoid property on the File and a fileKind of directory.  Create a hasDistributionArifact relationship from the SPDX Package to the SPDX File.</p>
+<p>Create an SPDX File with the name from the packageFileName and a verifiedUsing value from the packageChecksum for a single file.  If the packageFileName is a directory, then the SPDX File is created with the directory name and is verified using the contentIdentifier property on the File and a fileKind of directory.  Create a hasDistributionArifact relationship from the SPDX Package to the SPDX File.</p>
 <h4 id="rationale_3">Rationale</h4>
 <p>Providing a File relationship to the download location will include more detailed and complete information about the package file name used.</p>
 <h3 id="external-identifiers">External Identifiers</h3>
 <h4 id="description-of-change_4">Description of Change</h4>
-<p>In SPDX 3.0, a new property externalIdentifiers and a new type ExternalIdentifier is introduced.  This is in addition to retaining the ExternalRef property and classes.</p>
+<p>In SPDX 3.0, a properties externalIdentifier and contentIdentifier with types ExternalIdentifier and ContentIdentifier were introduced.  This is in addition to retaining the ExternalRef property and classes.</p>
 <p>In SPDX 2.3, both identifiers and references were captured in the externalRef property for packages.</p>
 <p>In addition to the structural changes, the “url” ExternalRef type was removed and is replaced by the “securityOther” ExternalRef type.</p>
 <h4 id="translating-from-23-to-30_4">Translating from 2.3 to 3.0</h4>
@@ -896,8 +896,11 @@
 <li>cpe23Type</li>
 <li>swid</li>
 <li>purl</li>
-<li>swh</li>
+</ul>
+<p>The following ExternalRef Types should be converted to ContentIdentifers:</p>
+<ul>
 <li>gitoid</li>
+<li>swh</li>
 </ul>
 <p>All other ExternalRef types should remain as ExternalRef’s.</p>
 <p>The url ExternalRef type should be converted to a “securityOther”.</p>
