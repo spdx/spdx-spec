@@ -113,7 +113,7 @@ The packageFileName property and packageChecksum property has been replaced by a
 
 #### Translating from 2.3 to 3.0
 
-Create an SPDX File with the name from the packageFileName and a verifiedUsing value from the packageChecksum for a single file.  If the packageFileName is a directory, then the SPDX File is created with the directory name and is verified using the gitoid property on the File and a fileKind of directory.  Create a hasDistributionArifact relationship from the SPDX Package to the SPDX File.
+Create an SPDX File with the name from the packageFileName and a verifiedUsing value from the packageChecksum for a single file.  If the packageFileName is a directory, then the SPDX File is created with the directory name and is verified using the contentIdentifier property on the File and a fileKind of directory.  Create a hasDistributionArifact relationship from the SPDX Package to the SPDX File.
 
 #### Rationale
 
@@ -123,7 +123,7 @@ Providing a File relationship to the download location will include more detaile
 
 #### Description of Change
 
-In SPDX 3.0, a new property externalIdentifiers and a new type ExternalIdentifier is introduced.  This is in addition to retaining the ExternalRef property and classes.
+In SPDX 3.0, a properties externalIdentifier and contentIdentifier with types ExternalIdentifier and ContentIdentifier were introduced.  This is in addition to retaining the ExternalRef property and classes.
 
 In SPDX 2.3, both identifiers and references were captured in the externalRef property for packages.
 
@@ -137,8 +137,11 @@ The following ExternalRef Types should be converted to ExternalIdentifiers:
 * cpe23Type
 * swid
 * purl
-* swh
+
+The following ExternalRef Types should be converted to ContentIdentifers:
+
 * gitoid
+* swh
 
 All other ExternalRef types should remain as ExternalRef’s.
 
