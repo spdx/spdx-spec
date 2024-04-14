@@ -1,4 +1,4 @@
-# Annex J: Getting started writing SPDX 3 (Informative)
+# Annex B: Getting started writing SPDX 3 (Informative)
 ## (a.k.a My First SPDX File)
 
 This guide is designed to walk you through the concepts behind an SPDX
