@@ -1,4 +1,4 @@
-# Annex D SPDX license expressions (Normative)
+# Annex D: SPDX license expressions (Normative)
 
 ## D.1 Overview <a name="D.1"></a>
 

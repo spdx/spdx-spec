@@ -1,4 +1,4 @@
-# Annex C RDF object model and identifier syntax (Normative)
+# Annex C: RDF object model and identifier syntax (Normative)
 
 TODO: update for SPDXv3
 
