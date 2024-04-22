@@ -285,7 +285,6 @@ Changing the snippetFromFile from a property to a relationship [to be filled in]
 
 ### SpecVersion
 
-
 #### Description of Change
 
 The type of SpecVerion is changed from a simple string without constraints to a SemVer string which must follow the [Semantic Versioning format](https://semver.org/).
@@ -330,7 +329,7 @@ example
 
 Not used
 
-#### Range / Where Used 
+#### Range / Where Used
 
 LicenseException
 
@@ -344,13 +343,11 @@ This field has not been used.
 
 licenseInfoInFiles
 
-
 #### Tag/Value Name
 
 LicenseInfoInFiles
 
-
-#### Range / Where Used 
+#### Range / Where Used
 
 Package
 
@@ -368,7 +365,7 @@ filesAnalyzed
 
 FilesAnalyzed
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package
 
@@ -396,7 +393,7 @@ ReleaseDate
 
 releaseTime
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package
 
@@ -418,7 +415,7 @@ BuildDate
 
 buildTime
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package
 
@@ -440,7 +437,7 @@ ValidUntilDate
 
 validUntilTime
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package
 
@@ -462,7 +459,7 @@ ExternalDocumentRef
 
 import
 
-#### Range / Where Used 
+#### Range / Where Used
 
 SpdxDocument (Creation Information)
 
@@ -486,7 +483,7 @@ FileChecksum, PackageChecksum
 
 verifiedUsing property and Hash class
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package, File
 
@@ -508,7 +505,7 @@ N/A - parsed from a string following the Checksum: keyword.
 
 hashAlgorithm
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package, File
 
@@ -530,7 +527,7 @@ PackageName, FileName
 
 name
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package, File
 
@@ -576,7 +573,7 @@ PackageHomePage
 
 homePage
 
-#### Range / Where Used 
+#### Range / Where Used
 
 #### Rationale
 
@@ -635,7 +632,6 @@ Package, File, Snippet
 Custom Additions have been added in SPDX 3.0 which operate in a similar manner to listed License Exceptions.  The new type and property names are more general to accommodate both custom additions and listed license Exceptions.
 
 ### License Exception
-
 
 #### SPDX 2.3 Model Name
 
@@ -879,7 +875,6 @@ Creative Commons Attribution License 3.0 Unported | Appendix VII  | Annex G    |
 SPDX Lite                                         | Appendix VIII | Annex H/G* | Annex G
 SPDX File Tags                                    | Appendix IX   | Annex I/H* | Annex H
 Differences from Earlier SPDX Versions            | N/A           | Annex J/I* | Annex I
-
 
 *_This edition featured inconsistent lettering._
 

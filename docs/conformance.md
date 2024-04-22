@@ -15,13 +15,13 @@ Over the life of a standard, some older approaches can become obsolete and are d
 
 This standard contains more than a few *cardinality assertions*, each of which indicates absolute, optional, or conditional requirements. Here are some examples:
 
-* Cardinality: Mandatory, one.
-* Cardinality: Optional, one or many.
-* Cardinality: Mandatory, one if {condition} is true or {feature} omitted, zero (shall be omitted) if {condition} is false.
-* Cardinality: 0..1
-* Cardinality: 0..\*
-* Cardinality: 1..1
-* Cardinality: 1..\*
+- Cardinality: Mandatory, one.
+- Cardinality: Optional, one or many.
+- Cardinality: Mandatory, one if {condition} is true or {feature} omitted, zero (shall be omitted) if {condition} is false.
+- Cardinality: 0..1
+- Cardinality: 0..\*
+- Cardinality: 1..1
+- Cardinality: 1..\*
 
 Each of these assertions can easily be understood as to whether a feature is required, and if so, how many occurrences are required; also, whether a feature is permitted, and if so, in what number. As this is the format long familiar to the SPDX community, it has been preserved in this document.
 
@@ -29,32 +29,32 @@ Each of these assertions can easily be understood as to whether a feature is req
 
 The data format specification and recommendations are subject to the following constraints:
 
-* Shall be in a human readable form.
+- Shall be in a human readable form.
 
-* Shall be in a syntax that a software tool can read and write.
+- Shall be in a syntax that a software tool can read and write.
 
-* Shall be suitable to be checked for syntactic correctness automatically, independent of how it was generated (human or tool).
+- Shall be suitable to be checked for syntactic correctness automatically, independent of how it was generated (human or tool).
 
-* The SPDX document character set shall support UTF-8 encoding.
+- The SPDX document character set shall support UTF-8 encoding.
 
-* Multiple serialization formats may be used to represent the information being exchanged. Current supported formats include:
+- Multiple serialization formats may be used to represent the information being exchanged. Current supported formats include:
 
-    * **YAML 1.2** see: <https://yaml.org/spec/1.2/spec.html>
-    * **JavaScript Object Notation** (JSON) see: [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
-        * The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)
-    * **Resource Description Framework** (RDF also referred to as RDF/XML) see: <https://www.w3.org/TR/rdf-syntax-grammar/>
-    * **tag:value** flat text file as described in this specification
-    * **.xls** spreadsheets
+    - **YAML 1.2** see: <https://yaml.org/spec/1.2/spec.html>
+    - **JavaScript Object Notation** (JSON) see: [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
+        - The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)
+    - **Resource Description Framework** (RDF also referred to as RDF/XML) see: <https://www.w3.org/TR/rdf-syntax-grammar/>
+    - **tag:value** flat text file as described in this specification
+    - **.xls** spreadsheets
 
-* In addition to the supported formats, the following format is in development with a plan to complete the specification in the next release:
+- In addition to the supported formats, the following format is in development with a plan to complete the specification in the next release:
 
-    * **Extensible Markup Language** (XML) see: <https://www.w3.org/TR/2008/REC-xml-20081126/>
+    - **Extensible Markup Language** (XML) see: <https://www.w3.org/TR/2008/REC-xml-20081126/>
 
-* Interoperability between all the supported file formats shall be preserved. SPDX defines how to validate a document in each supported format, and how to translate a valid document without loss to each other supported format.
+- Interoperability between all the supported file formats shall be preserved. SPDX defines how to validate a document in each supported format, and how to translate a valid document without loss to each other supported format.
 
-* Tags and format properties are case sensitive.
+- Tags and format properties are case sensitive.
 
-* Should be easy to recognize in a file system without opening the file. A suggested naming convention is:
+- Should be easy to recognize in a file system without opening the file. A suggested naming convention is:
 
 | Format      | Extension   |
 | ----------- | ----------- |
@@ -64,7 +64,7 @@ The data format specification and recommendations are subject to the following c
 | XML         | \*.spdx.xml  |
 | YAML        | \*.spdx.yaml or \*.spdx.yml |
 
-* The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Uniform Resource Indicator (URI) should be present.
+- The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Uniform Resource Indicator (URI) should be present.
 
 ## 4.5 Trademark Compliance <a name="4.5"></a>
 
