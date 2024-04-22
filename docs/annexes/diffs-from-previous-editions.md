@@ -211,12 +211,11 @@ The completeness property would be constructed based on the following:
 
 Relationship migration is being worked out in the relationships spreadsheet.  Once completed, the following table will reflect the translation for relationship types from SPDX 2.3 to SPDX 3.0:
 
-
 | SPDX 2.3 Relationship Type | SPDX 3.0 Relationship Type | Swap to and from? | LifecycleScopeType |
 |----------------------------|----------------------------|-------------------|--------------------|
 | AMENDS | amendedBy | Y | |
 | ANCESTOR_OF | ancestorOf | | |
-| BUILD_DEPENDENCY_OF | dependsOn | | | build |
+| BUILD_DEPENDENCY_OF | dependsOn | | build |
 | BUILD_TOOL_OF | usesTool | | build (all lifecycle scope could be appropriate) |
 | CONTAINED_BY | contains | Y | |
 | CONTAINS | contains | | |
@@ -247,7 +246,7 @@ Relationship migration is being worked out in the relationships spreadsheet.  On
 | OTHER | other | | |
 | PACKAGE_OF | packagedBy | | |
 | ~~PATCH_FOR~~ | [removed] | | |
-| ~~PREREQUISITE_FOR | [removed] | | |
+| ~~PREREQUISITE_FOR~~ | [removed] | | |
 | PROVIDED_DEPENDENCY_OF | hasProvidedDependency | | lifecycle scope |
 | REQUIREMENT_DESCRIPTION_FOR | hasRequirement | | lifecycle scope |
 | RUNTIME_DEPENDENCY_OF | dependsOn | | runtime |
