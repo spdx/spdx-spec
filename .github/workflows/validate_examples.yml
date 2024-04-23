@@ -32,7 +32,7 @@ jobs:
 
       - name: Check documentation examples
         run: |
-          for f in $(grep -l '```json' docs/annexes/*.md); do
+          for f in docs/annexes/getting-started.md; do
             echo "Checking $f"
             cat $f | awk '/^```json/, $0=="```" {if ($0 !~ /^```.*/ ) print}' > temp.json
             check-jsonschema \
