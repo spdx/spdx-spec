@@ -39,14 +39,14 @@ jobs:
           shacl2code generate \
             --input spdx-spec/docs/model/spdx-model.ttl \
             --input spdx-spec/docs/model/jsonld-annotations.ttl \
-            --context-url spdx-spec/docs/model/spdx-context.jsonld https://spdx.org/rdf/3.0.0/spdx-context.jsonld \
+            --context-url spdx-spec/docs/model/spdx-context.jsonld https://spdx.org/rdf/3.0.1/spdx-context.jsonld \
             jsonschema \
             --output spdx-spec/docs/model/schema.json
       - name: Set git identity
         run: git config user.name ci-bot; git config user.email ci-bot@spdx.dev
         working-directory: spdx-spec
       - name: Sync gh-pages
-        run: git checkout gh-pages && git pull && git checkout development/v3.0
+        run: git checkout gh-pages && git pull && git checkout development/v3.0.1
         working-directory: spdx-spec
       - name: Build docs
         run: mike deploy v3.0.1 v3-draft -b gh-pages -p
