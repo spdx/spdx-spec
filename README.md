@@ -47,41 +47,77 @@ This repository consists of these files and directories:
   inclusion of model files and the order of chapters are defined here.
 
 The specification consists of a model which is generated from Markdown files in
-the [spdx-3-model](https://github.com/spdx/spdx-3-model) repository and
-additional information in the `docs` directory from this repository.
+the [`spdx-3-model`](https://github.com/spdx/spdx-3-model) repository and
+additional information in the `docs` directory from this `spdx-spec` repository.
 
 ## Building the specification
 
+The specification building flow looks like this:
+
+```text
+  +-------------------+
+  |[spdx-3-model]     |
+  | |                 |
+  | +-- model/       --------------------+
+  | |                 |                  |
+  | +-- model.drawio --------+           |
+  +-------------------+      |           |
+                             |           |
+                             |           |
+  +-------------------+      |           |
+  |[spdx-spec]        |   draw.io        |
+  | |                 |   (manual)       |
+  | +-- annexes/      |      |           |
+  | |                 |      |     spec-parser
+  | +-- images/  <-----------+           |
+  | |                 |                  |
+  | +-- licenses/     |                  |
+  | |                 |                  |
+  | +-- model/   <-----------------------+
+  | |                 |
+  | +-- index.md      |
+  | |                 |
+  | +-- *.md          |
+  +-------------------+                         
+          |                                     
+        mkdocs                                  
+          |                                     
+          v                      
+  +-------------------+                         
+  |   HTML website    | 
+  +-------------------+
+```
+
 ### Prerequisites
 
-You have to have [MkDocs](http://mkdocs.org) installed on your machine.
-If you don't have it yet installed please follow these
-[installation instructions](http://www.mkdocs.org/#installation).
+Apart from Git and Python, you have to have [MkDocs](http://mkdocs.org)
+installed on your machine. If you don't have it yet installed please follow
+these [installation instructions](http://www.mkdocs.org/#installation).
 
-Then preparing model files, model parser, and other specification files
-by cloning these repositoriess:
+Next, you have to prepare the model files, the other specification files,
+and the model parser, by cloning these repositoriess:
 [`spdx/spdx-3-model`](https://github.com/spdx/spdx-3-model),
-[`spdx/spec-parser`](https://github.com/spdx/spec-parser), and
-[`spdx/spdx-spec`](https://github.com/spdx/spdx-spec)
-to these paths: `spdx-3-model`, `spec-parser`, and `spdx-spec`, respectively:
+[`spdx/spdx-spec`](https://github.com/spdx/spdx-spec), and
+[`spdx/spec-parser`](https://github.com/spdx/spec-parser)
+to these paths: `spdx-3-model`, `spdx-spec`, and `spec-parser`, respectively:
 
 ```shell
 git clone https://github.com/spdx/spdx-3-model.git
-git clone https://github.com/spdx/spec-parser.git
 git clone https://github.com/spdx/spdx-spec.git
+git clone https://github.com/spdx/spec-parser.git
 ```
 
-Install pre-requisites:
+Install prerequisites for Python:
 
 ```shell
-pip3 install -r spec-parser/requirements.txt
 pip3 install -r spdx-spec/requirements.txt
+pip3 install -r spec-parser/requirements.txt
 ```
 
-### Generating intermediate files
+### Generating intermediate Markdown files for MkDocs
 
-Validate and generate intermediate files to be used by the spec HTML builder
-(MkDocs):
+Validate model files and generate intermediate files to be used by the HTML
+builder (MkDocs):
 
 ```shell
 python3 spec-parser/main.py spdx-3-model/model spdx-spec/docs/model
