@@ -67,12 +67,12 @@ The specification building flow looks like this:
   +-------------------+      |           |
                              |           |
                              |           |
-  +-------------------+      |           |
+  +-------------------+      v           |
   |[spdx-spec]        |   draw.io        |
   | |                 |   (manual)       |
   | +- docs/          |      |           |
   |    |              |      |           |
-  |    +- annexes/    |      |           |
+  |    +- annexes/    |      |           v
   |    |              |      |     spec-parser
   |    +- images/  <---------+           |
   |    |              |                  |
@@ -83,13 +83,13 @@ The specification building flow looks like this:
   |    +- index.md    |
   |    |              |
   |    +- *.md        |
-  +-------------------+                         
-          |                                     
-        mkdocs                                  
-          |                                     
-          v                      
-  +-------------------+                         
-  |   HTML website    | 
+  +-------------------+
+          |
+        mkdocs
+          |
+          v
+  +-------------------+
+  |   HTML website    |
   +-------------------+
 ```
 
