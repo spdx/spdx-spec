@@ -74,8 +74,7 @@ LicenseRef-MIT-Style-1
 DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
 ```
 
-The current set of valid license identifiers can be found in [spdx.org/licenses](https:/
-/spdx.org/licenses).
+The current set of valid license identifiers can be found in [spdx.org/licenses](https://spdx.org/licenses).
 
 ## D.4 Composite license expressions <a name="D.4"></a>
 
@@ -191,7 +190,7 @@ A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet
 
 ```text
 <spdx:ConjunctiveLicenseSet>
-    <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
+    <spdx:member rdf:resource="https://spdx.org/licenses/GPL-2.0-only"/>
     <spdx:ExtractedLicensingInfo rdf:about
       ="http://example.org#LicenseRef-EternalSurrender">
         <spdx:extractedText>
@@ -210,7 +209,7 @@ A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet
 
 ```text
 <spdx:DisjunctiveLicenseSet>
-    <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
+    <spdx:member rdf:resource="https://spdx.org/licenses/GPL-2.0-only"/>
     <spdx:member>
         <spdx:ExtractedLicensingInfo rdf:about
           ="http://example.org#LicenseRef-EternalSurrender">
@@ -253,6 +252,6 @@ A License Exception can be expressed in RDF via a `<spdx:LicenseException>` elem
     <spdx:name>&quot;But I Don&apos;t Want To&quot; Exception</spdx:name>
     <spdx:licenseExceptionId>SPDXRef-ButIdDontWantToException</spdx:licenseExceptionId>
     <rdf:type rdf:resource
-      ="http://spdx.org/rdf/terms#LicenseException"/>
+      ="https://spdx.org/rdf/terms#LicenseException"/>
 </rdf:Description>
 ```
