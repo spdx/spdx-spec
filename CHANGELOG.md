@@ -1,9 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## 3.0 (TBD)
+## 3.0
 
-* Refactored the build process and mkdocs process.
+See the [v3.0 GitHub release notes](https://github.com/spdx/spdx-spec/releases/tag/v3.0) for changes.
+
+## 2.3
+
+See the [v2.3 GitHub release notes](https://github.com/spdx/spdx-spec/releases/tag/v2.3) for changes.
 
 ## 2.2 (2020-05-02)
 
