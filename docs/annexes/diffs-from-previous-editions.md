@@ -6,7 +6,7 @@
 
 In previous editions of the specification, SPDX meant "Software Package Data Exchange".
 
-Starting with V3.0, SPDX means "System Package Data Exchange".
+Starting with V3.0, the scope of SPDX has expanded beyond software and now means "System Package Data Exchange".
 
 ## Structural Differences
 
