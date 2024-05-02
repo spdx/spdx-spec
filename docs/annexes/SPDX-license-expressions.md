@@ -190,7 +190,7 @@ A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet
 
 ```text
 <spdx:ConjunctiveLicenseSet>
-    <spdx:member rdf:resource="https://spdx.org/licenses/GPL-2.0-only"/>
+    <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
     <spdx:ExtractedLicensingInfo rdf:about
       ="http://example.org#LicenseRef-EternalSurrender">
         <spdx:extractedText>
@@ -209,7 +209,7 @@ A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet
 
 ```text
 <spdx:DisjunctiveLicenseSet>
-    <spdx:member rdf:resource="https://spdx.org/licenses/GPL-2.0-only"/>
+    <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
     <spdx:member>
         <spdx:ExtractedLicensingInfo rdf:about
           ="http://example.org#LicenseRef-EternalSurrender">
@@ -252,6 +252,6 @@ A License Exception can be expressed in RDF via a `<spdx:LicenseException>` elem
     <spdx:name>&quot;But I Don&apos;t Want To&quot; Exception</spdx:name>
     <spdx:licenseExceptionId>SPDXRef-ButIdDontWantToException</spdx:licenseExceptionId>
     <rdf:type rdf:resource
-      ="https://spdx.org/rdf/terms#LicenseException"/>
+      ="http://spdx.org/rdf/terms#LicenseException"/>
 </rdf:Description>
 ```
