@@ -286,7 +286,7 @@ Changing the snippetFromFile from a property to a relationship [to be filled in]
 
 #### Description of Change
 
-The type of SpecVerion is changed from a simple string without constraints to a SemVer string which must follow the [Semantic Versioning format](https://semver.org/).
+The type of SpecVersion is changed from a simple string without constraints to a SemVer string which must follow the [Semantic Versioning format](https://semver.org/).
 
 This adds a constraint where a patch version is required.  Previous usage of the SpecVersiononly included the major and minor version.
 
@@ -784,7 +784,7 @@ Note that additional purposes can be added using the additionalPurpose property.
 
 ## Serialization Formats
 
-SPDX 3.0 implements a JSON-LD format which has consistent class and property names with the model.  
+SPDX 3.0 implements a JSON-LD format which has consistent class and property names with the model.
 
 See the SPDX 3.0 JSON Schema for the format specifics.
 
@@ -792,9 +792,9 @@ The Tag/Value, YAML, RDF/XML and Spreadsheet formats are not supported.
 
 Additional serialization formats are being considered for the SPDX 3.1 release.
 
-# A.2 Differences between V2.3 and V2.2.2  <a name="A.2"></a>
+# A.2 Differences between V2.3 and V2.2.2 <a name="A.2"></a>
 
-V2.3 has added new fields to improve the ability to capture security related information and to improve interoperabiility with other SBOM formats.  
+V2.3 has added new fields to improve the ability to capture security related information and to improve interoperability with other SBOM formats.
 
 Key changes include:
 
