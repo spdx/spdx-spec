@@ -4,8 +4,8 @@ TODO: update for SPDXv3
 
 ## 4.1 SPDX Current and Previous Versions <a name="4.1"></a>
 
-This edition has the version number 2.3 as part of its title. This is a follow on from [ISO/IEC 5962:2021
-Information technology — SPDX® Specification V2.2.1](https://www.iso.org/standard/81870.html), and includes new fields.  Earlier editions were published by the SPDX workgroup via the Linux Foundation. The SPDX Specification was subsequently transposed into the Joint Development Foundation. [Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012), 1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), and 2.2 (May 2020).] Differences between this edition and earlier ones are reported in [Annex J](annexes/diffs-from-previous-editions.md); see also [[1]](bibliography.md).
+This edition has the version number 2.3 as part of its title.
+This is a follow on from [ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1](https://www.iso.org/standard/81870.html), and includes new fields.  Earlier editions were published by the SPDX workgroup via the Linux Foundation. The SPDX Specification was subsequently transposed into the Joint Development Foundation. [Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012), 1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), and 2.2 (May 2020).] Differences between this edition and earlier ones are reported in [Annex J](annexes/diffs-from-previous-editions.md); see also [[1]](bibliography.md).
 
 ## 4.2 Obsolete features <a name="4.2"></a>
 
@@ -39,16 +39,16 @@ The data format specification and recommendations are subject to the following c
 
 * Multiple serialization formats may be used to represent the information being exchanged. Current supported formats include:
 
-    * **YAML 1.2** see: <https://yaml.org/spec/1.2/spec.html>
-    * **JavaScript Object Notation** (JSON) see: [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
-        * The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)
-    * **Resource Description Framework** (RDF also referred to as RDF/XML) see: <https://www.w3.org/TR/rdf-syntax-grammar/>
-    * **tag:value** flat text file as described in this specification
-    * **.xls** spreadsheets
+  * **YAML 1.2** see: <https://yaml.org/spec/1.2/spec.html>
+  * **JavaScript Object Notation** (JSON) see: [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
+    * The JSON Schema for SPDX can be found in the [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)
+  * **Resource Description Framework** (RDF also referred to as RDF/XML) see: <https://www.w3.org/TR/rdf-syntax-grammar/>
+  * **tag:value** flat text file as described in this specification
+  * **.xls** spreadsheets
 
 * In addition to the supported formats, the following format is in development with a plan to complete the specification in the next release:
 
-    * **Extensible Markup Language** (XML) see: <https://www.w3.org/TR/2008/REC-xml-20081126/>
+  * **Extensible Markup Language** (XML) see: <https://www.w3.org/TR/2008/REC-xml-20081126/>
 
 * Interoperability between all the supported file formats shall be preserved. SPDX defines how to validate a document in each supported format, and how to translate a valid document without loss to each other supported format.
 
