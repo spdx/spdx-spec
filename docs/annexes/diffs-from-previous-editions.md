@@ -211,7 +211,6 @@ The completeness property would be constructed based on the following:
 
 Relationship migration is being worked out in the relationships spreadsheet.  Once completed, the following table will reflect the translation for relationship types from SPDX 2.3 to SPDX 3.0:
 
-
 | SPDX 2.3 Relationship Type | SPDX 3.0 Relationship Type | Swap to and from? | LifecycleScopeType |
 |----------------------------|----------------------------|-------------------|--------------------|
 | AMENDS | amendedBy | Y | |
@@ -285,10 +284,9 @@ Changing the snippetFromFile from a property to a relationship [to be filled in]
 
 ### SpecVersion
 
-
 #### Description of Change
 
-The type of SpecVerion is changed from a simple string without constraints to a SemVer string which must follow the [Semantic Versioning format](https://semver.org/).
+The type of SpecVersion is changed from a simple string without constraints to a SemVer string which must follow the [Semantic Versioning format](https://semver.org/).
 
 This adds a constraint where a patch version is required.  Previous usage of the SpecVersiononly included the major and minor version.
 
@@ -330,7 +328,7 @@ example
 
 Not used
 
-#### Range / Where Used 
+#### Range / Where Used
 
 LicenseException
 
@@ -344,13 +342,11 @@ This field has not been used.
 
 licenseInfoInFiles
 
-
 #### Tag/Value Name
 
 LicenseInfoInFiles
 
-
-#### Range / Where Used 
+#### Range / Where Used
 
 Package
 
@@ -368,7 +364,7 @@ filesAnalyzed
 
 FilesAnalyzed
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package
 
@@ -396,7 +392,7 @@ ReleaseDate
 
 releaseTime
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package
 
@@ -418,7 +414,7 @@ BuildDate
 
 buildTime
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package
 
@@ -440,7 +436,7 @@ ValidUntilDate
 
 validUntilTime
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package
 
@@ -462,7 +458,7 @@ ExternalDocumentRef
 
 import
 
-#### Range / Where Used 
+#### Range / Where Used
 
 SpdxDocument (Creation Information)
 
@@ -486,7 +482,7 @@ FileChecksum, PackageChecksum
 
 verifiedUsing property and Hash class
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package, File
 
@@ -508,7 +504,7 @@ N/A - parsed from a string following the Checksum: keyword.
 
 hashAlgorithm
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package, File
 
@@ -530,7 +526,7 @@ PackageName, FileName
 
 name
 
-#### Range / Where Used 
+#### Range / Where Used
 
 Package, File
 
@@ -576,7 +572,7 @@ PackageHomePage
 
 homePage
 
-#### Range / Where Used 
+#### Range / Where Used
 
 #### Rationale
 
@@ -635,7 +631,6 @@ Package, File, Snippet
 Custom Additions have been added in SPDX 3.0 which operate in a similar manner to listed License Exceptions.  The new type and property names are more general to accommodate both custom additions and listed license Exceptions.
 
 ### License Exception
-
 
 #### SPDX 2.3 Model Name
 
@@ -789,7 +784,7 @@ Note that additional purposes can be added using the additionalPurpose property.
 
 ## Serialization Formats
 
-SPDX 3.0 implements a JSON-LD format which has consistent class and property names with the model.  
+SPDX 3.0 implements a JSON-LD format which has consistent class and property names with the model.
 
 See the SPDX 3.0 JSON Schema for the format specifics.
 
@@ -797,9 +792,9 @@ The Tag/Value, YAML, RDF/XML and Spreadsheet formats are not supported.
 
 Additional serialization formats are being considered for the SPDX 3.1 release.
 
-# A.2 Differences between V2.3 and V2.2.2  <a name="A.2"></a>
+# A.2 Differences between V2.3 and V2.2.2 <a name="A.2"></a>
 
-V2.3 has added new fields to improve the ability to capture security related information and to improve interoperabiility with other SBOM formats.  
+V2.3 has added new fields to improve the ability to capture security related information and to improve interoperability with other SBOM formats.
 
 Key changes include:
 
@@ -879,7 +874,6 @@ Creative Commons Attribution License 3.0 Unported | Appendix VII  | Annex G    |
 SPDX Lite                                         | Appendix VIII | Annex H/G* | Annex G
 SPDX File Tags                                    | Appendix IX   | Annex I/H* | Annex H
 Differences from Earlier SPDX Versions            | N/A           | Annex J/I* | Annex I
-
 
 *_This edition featured inconsistent lettering._
 
