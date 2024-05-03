@@ -143,7 +143,6 @@ In this case, use the binary "WITH" operator to construct a new license expressi
 
 The `<addition-expression>` can be either a `<license-exception-id>` from the SPDX License List, or a user defined addition reference in the form ["DocumentRef-"(idstring)":"]"AdditonRef-"(idstring)
 
-
 For example, when the Bison exception is to be applied to GPL-2.0-or-later, the expression would be:
 
 ```text

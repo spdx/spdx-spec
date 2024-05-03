@@ -21,4 +21,3 @@ Version: 3.0
 ![SPDX 3.0 model Licensing Model Diagram](../images/model Licensing.png)
 
 ![SPDX 3.0 Security Model Diagram](../images/model Security.png)
-

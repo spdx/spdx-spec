@@ -1,4 +1,4 @@
-## Examples
+# Examples
 
 All of the examples in this directory are for the same SPDX document.  Most of the supported document elements are present.
 

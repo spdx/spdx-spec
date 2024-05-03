@@ -215,7 +215,7 @@ Relationship migration is being worked out in the relationships spreadsheet.  On
 |----------------------------|----------------------------|-------------------|--------------------|
 | AMENDS | amendedBy | Y | |
 | ANCESTOR_OF | ancestorOf | | |
-| BUILD_DEPENDENCY_OF | dependsOn | | | build |
+| BUILD_DEPENDENCY_OF | dependsOn | | build |
 | BUILD_TOOL_OF | usesTool | | build (all lifecycle scope could be appropriate) |
 | CONTAINED_BY | contains | Y | |
 | CONTAINS | contains | | |
@@ -246,7 +246,7 @@ Relationship migration is being worked out in the relationships spreadsheet.  On
 | OTHER | other | | |
 | PACKAGE_OF | packagedBy | | |
 | ~~PATCH_FOR~~ | [removed] | | |
-| ~~PREREQUISITE_FOR | [removed] | | |
+| ~~PREREQUISITE_FOR~~ | [removed] | | |
 | PROVIDED_DEPENDENCY_OF | hasProvidedDependency | | lifecycle scope |
 | REQUIREMENT_DESCRIPTION_FOR | hasRequirement | | lifecycle scope |
 | RUNTIME_DEPENDENCY_OF | dependsOn | | runtime |

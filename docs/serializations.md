@@ -9,6 +9,7 @@ The data may be serialized in a variety of formats for storage and transmission.
 ## 4.2 RDF Serialization
 
 Since the data model is based on RDF, any SPDX data can be serialized in any of the multiple RDF serialization formats, including but not limited to:
+
 - JSON-LD format as defined in [JSON-LD 1.1](https://www.w3.org/TR/json-ld11/);
 - Turtle (Terse RDF Triple Language) format as defined in [RDF 1.1 Turtle](https://www.w3.org/TR/turtle/);
 - N-Triples format as defined in [RDF 1.1 N-Triples](https://www.w3.org/TR/n-triples/); and

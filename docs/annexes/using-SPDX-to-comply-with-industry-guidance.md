@@ -15,16 +15,15 @@ US Executive Order 14028 in conjunction with the National Telecommunications and
 | Relationship | Characterizing the relationship that an upstream component X is included in software Y. |
 | Timestamp | Record of the date and time of the SBOM data assembly. |
 
-
 The SPDX Specification contains fields able to address each of the NTIA minimum required data fields.
 
 | NTIA SBOM Minimum Field | Satisfying SPDX field model location |
 | ----------- | :----------- |
 | Author Name | [Core/Classes/CreationInfo.createdBy](https://spdx.github.io/spdx-spec/v3.0/model/Core/Classes/CreationInfo/) |
-| Supplier Name | [Core/Classes/Artifact.suppliedBy ](https://spdx.github.io/spdx-spec/v3.0/model/Core/Classes/Artifact/) |
+| Supplier Name | [Core/Classes/Artifact.suppliedBy](https://spdx.github.io/spdx-spec/v3.0/model/Core/Classes/Artifact/) |
 | Component Name | [Software/Classes/Package.name](https://spdx.github.io/spdx-spec/v3.0/model/Software/Classes/Package/) inherited from [Core/Classes/Element.name](https://spdx.github.io/spdx-spec/v3.0/model/Core/Classes/Element/) |
 | Version String | [Software/Classes/Package.packageVersion](https://spdx.github.io/spdx-spec/v3.0/model/Software/Classes/Package/) |
-| Component Hash | [Core/Classes/Element.verifiedUsing](https://spdx.github.io/spdx-spec/v3.0/model/Core/Classes/Element/) | 
+| Component Hash | [Core/Classes/Element.verifiedUsing](https://spdx.github.io/spdx-spec/v3.0/model/Core/Classes/Element/) |
 | Unique Identifier | [Software/Classes/SoftwareArtifact.contentIdentifier](https://spdx.github.io/spdx-spec/v3.0/model/Software/Classes/SoftwareArtifact/) for SPDX Software Artifacts or [Software/Classes/Package.packageUrl](https://spdx.github.io/spdx-spec/v3.0/model/Software/Classes/Package/) if the packageUrl is considered to be unique,<br>or [Core/Classes/Element.externalIdentifier](https://spdx.github.io/spdx-spec/v3.0/model/Core/Classes/Element/) for resources outside the scope of SPDX-3.0 content </br> |
 | Relationship | [Core/Classes/Relationship](https://spdx.github.io/spdx-spec/v3.0/model/Core/Classes/Relationship/) |
 | Timestamp | [Core/Classes/CreationInfo.created](https://spdx.github.io/spdx-spec/v3.0/model/Core/Classes/CreationInfo/) |
@@ -38,13 +37,14 @@ becoming effective in 2027.
 The guideline can be regarded as German equivalent of the US Executive Order 14028. Nevertheless, BSI is exploring
 various options and recommendations to further detail the content of SBOMs.
 
-Important elements of the guideline in the context of SPDX: 
+Important elements of the guideline in the context of SPDX:
+
 * The guideline references SPDX as one of the exchange formats for SBOMs.
 * It defines levels of details as well as mandatory and optional data fields.
 * The guideline scopes the content (dependency relationships) of an SBOM (top-level, n-level, transitive, delivery item, complete).
 * Different types of SBOMs (design, source, build, analysed, deployed, runtime) are defined.
 
-The guideline (available in version 1.1) is currently being revised by the BSI. Draft versions of the future 2.0 document 
+The guideline (available in version 1.1) is currently being revised by the BSI. Draft versions of the future 2.0 document
 are circulated by the BSI to collect review comments.
 
 See [BSI Technical Guideline TR-03183](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TR03183/BSI-TR-03183-2.html).

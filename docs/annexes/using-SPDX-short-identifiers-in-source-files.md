@@ -22,7 +22,7 @@ If using SPDX short identifiers in individual files, it is recommended to reprod
 
 ## E.2 Format for SPDX-License-Identifier <a name="E.2"></a>
 
-The SPDX-License-Identifier tag declares the license the file is under and should be placed at or near the top of the file in a comment. 
+The SPDX-License-Identifier tag declares the license the file is under and should be placed at or near the top of the file in a comment.
 
 The SPDX License Identifier syntax may consist of a single license (represented by a short identifier from the [SPDX license list](https://spdx.org/licenses/)) or a compound set of licenses (represented by joining together multiple licenses using the license expression syntax).
 
