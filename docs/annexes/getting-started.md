@@ -16,7 +16,7 @@ If you do would like to construct the complete example from this Markdown file,
 use the following command:
 
 ```shell
-cat getting-started.md | awk '/^```json/, $0=="```" {if ($0 !~ /^```.*/ ) print}'
+cat getting-started.md | awk 'BEGIN{flag=0} /^```json/, $0=="```" { if (/^---$/){flag++} else if ($0 !~ /^```.*/ ) print $0 > "doc-" flag ".spdx.json"}'
 ```
 
 Please note that all descriptions of properties, classes, etc. are
