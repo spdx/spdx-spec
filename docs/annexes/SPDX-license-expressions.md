@@ -6,7 +6,7 @@ Often a single license can be used to represent the licensing terms of a source 
 
 SPDX License Expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-`[idString]`; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., `AND`, `OR`, `WITH` and `+`). We provide the definition of what constitutes a valid SPDX License Expression in this section.
 
-The exact syntax of license expressions is described below in [ABNF](http://tools.ietf.org/html/rfc5234).
+The exact syntax of license expressions is described below in ABNF, as defined in [RFC5234](http://tools.ietf.org/html/rfc5234) and expanded in [RFC7405](http://tools.ietf.org/html/rfc7405).
 
 ```text
 idstring = 1*(ALPHA / DIGIT / "-" / "." )
@@ -15,9 +15,9 @@ license-id = <short form license identifier in Annex A.1>
 
 license-exception-id = <short form license exception identifier in Annex A.2>
 
-license-ref = ["DocumentRef-"(idstring)":"]"LicenseRef-"(idstring)
+license-ref = [%s"DocumentRef-"(idstring)":"]%s"LicenseRef-"(idstring)
 
-addition-ref = ["DocumentRef-"(idstring)":"]"AdditionRef-"(idstring)
+addition-ref = [%s"DocumentRef-"(idstring)":"]%s"AdditionRef-"(idstring)
 
 simple-expression = license-id / license-id"+" / license-ref
 
@@ -25,11 +25,11 @@ addition-expression = license-exception-id / addition-ref
 
 compound-expression = (simple-expression /
 
-  simple-expression ( "WITH" / "with" ) addition-expression /
+  simple-expression ( %s"WITH" / %s"with" ) addition-expression /
 
-  compound-expression ( "AND" / "and" ) compound-expression /
+  compound-expression ( %s"AND" / %s"and" ) compound-expression /
 
-  compound-expression ( "OR" / "or" ) compound-expression /
+  compound-expression ( %s"OR" / %s"or" ) compound-expression /
 
   "(" compound-expression ")" )
 
@@ -74,8 +74,7 @@ LicenseRef-MIT-Style-1
 DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
 ```
 
-The current set of valid license identifiers can be found in [spdx.org/licenses](https:/
-/spdx.org/licenses).
+The current set of valid license identifiers can be found in [spdx.org/licenses](https://spdx.org/licenses).
 
 ## D.4 Composite license expressions <a name="D.4"></a>
 
