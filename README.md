@@ -32,14 +32,15 @@ or additional information also the [SPDX website](https://spdx.org).
 This repository consists of these files and directories:
 
 - `bin/` - Scripts for spec generation.
-- `docs/` - Additional documentations:
+- `docs/` - Specification content:
   - `annexes/` - Annexes for the specification.
   - `css/` - Style sheets for HTML.
-  - `images/` - Model diagrams. These files are to be generated from a diagram
-    file [model.drawio](https://github.com/spdx/spdx-3-model/blob/main/model.drawio)
+  - `images/` - Model diagrams. These image files are to be generated from a
+    diagram description file
+    [model.drawio](https://github.com/spdx/spdx-3-model/blob/main/model.drawio)
     in `spdx/spdx-3-model` repo and manually copied here.
   - `licenses/` - Licenses that used by the SPDX specifications.
-  - `model/` - Model files. *This subdirectory _is to be created_ by a script
+  - `model/` - Model files*. This subdirectory _is to be created_ by a script
     from `spdx/spec-parser` repo, using model information from
     `spdx/spdx-3-model` repo (see the build instructions below).
 - `examples/` - Examples of various SPDX serializations for the current version
@@ -47,10 +48,13 @@ This repository consists of these files and directories:
 - `mkdocs.yml` - MkDocs recipe for the spec documentation generation. The
   inclusion of model files and the order of chapters are defined here.
 
-The specification consists of a model which is generated from Markdown files in
-the [`spdx/spdx-3-model`](https://github.com/spdx/spdx-3-model) repository and
-additional information in the `docs` directory from this `spdx/spdx-spec`
-repository.
+The specification consists of documents in the `docs/` directory from this
+`spdx/spdx-spec` repository and a model which is generated from Markdown files
+in the `spdx/spdx-3-model` repository.
+
+Note: The model Markdown files in the `spdx/spdx-3-model` repository use a
+constrained format. Only a limited set of headings are allowed for processing
+by the spec-parser.
 
 ## Building the specification
 
@@ -60,24 +64,24 @@ The specification building flow looks like this:
   +-------------------+
   |[spdx-3-model]     |
   | |                 |
-  | +- model/        ---- Constrainted-Markdown files ----+
-  | |                 |                                   |
-  | +- model.drawio  -----------------+                   |
-  +-------------------+               |                   |
-                                      |                   |
-                                      |                   |
-  +-------------------+               v                   |
-  |[spdx-spec]        |            draw.io                |
-  | |                 |            (manual)               |
-  | +- docs/          |               |                   |
-  |    |              |               |                   |
-  |    +- annexes/    |               |                   v
-  |    |              |               |             spec-parser
-  |    +- images/  <---- PNG images --+                   |
-  |    |              |                                   |
-  |    +- licenses/   |                                   |
-  |    |              |                                   |
-  |    +- model/   <--------- Processed Markdown files ---+
+  | +- model/        ---- Constrained-Markdown files -+
+  | |                 |                               |
+  | +- model.drawio  -----------------+               |
+  +-------------------+               |               |
+                                      |               |
+                                      |               |
+  +-------------------+               v               |
+  |[spdx-spec]        |            draw.io            |
+  | |                 |            (manual)           |
+  | +- docs/          |               |               |
+  |    |              |               |               |
+  |    +- annexes/    |               |               v
+  |    |              |               |         spec-parser
+  |    +- images/  <---- PNG images --+               |
+  |    |              |                               |
+  |    +- licenses/   |                               |
+  |    |              |                               |
+  |    +- model/   <----- Processed Markdown files ---+
   |    |              |
   |    +- index.md    |
   |    |              |
