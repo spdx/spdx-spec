@@ -13,35 +13,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt install -y gawk
-      - name: Check files
+
+      - name: Check examples
         run: |
-          set -e
-          for f in examples/jsonld/*.json; do
-            echo "Checking $f"
-
-            check-jsonschema \
-              -v \
-              --schemafile https://spdx.org/schema/3.0.0/spdx-json-schema.json \
-              $f
-
-            pyshacl \
-              -s https://spdx.org/rdf/3.0.0/spdx-model.ttl \
-              -e https://spdx.org/rdf/3.0.0/spdx-model.ttl \
-              $f
-          done
-
-      - name: Check documentation examples
-        run: |
-          for f in docs/annexes/getting-started.md; do
-            echo "Checking $f"
-            cat $f | awk '/^```json/, $0=="```" {if ($0 !~ /^```.*/ ) print}' > temp.json
-            check-jsonschema \
-              -v \
-              --schemafile https://spdx.org/schema/3.0.0/spdx-json-schema.json \
-              temp.json
-
-            pyshacl \
-              -s https://spdx.org/rdf/3.0.0/spdx-model.ttl \
-              -e https://spdx.org/rdf/3.0.0/spdx-model.ttl \
-              temp.json
-          done
+          ./bin/check-examples.sh
