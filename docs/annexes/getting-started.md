@@ -16,7 +16,7 @@ If you do would like to construct the complete example from this Markdown file,
 use the following command:
 
 ```shell
-cat getting-started.md | awk '/^```json/, $0=="```" {if ($0 !~ /^```.*/ ) print}'
+cat getting-started.md | awk 'BEGIN{flag=0} /^```json/, $0=="```" { if (/^---$/){flag++} else if ($0 !~ /^```.*/ ) print $0 > "doc-" flag ".spdx.json"}'
 ```
 
 Please note that all descriptions of properties, classes, etc. are
@@ -720,6 +720,7 @@ walk through has been instructive and you are ready to get started with SPDX!
 [Property_creationInfo]: https://spdx.github.io/spdx-spec/v3.0/model/Core/Properties/creationInfo
 [Property_element]: https://spdx.github.io/spdx-spec/v3.0/model/Core/Properties/element
 [Property_externalIdentifier]: https://spdx.github.io/spdx-spec/v3.0/model/Core/Properties/externalIdentifier
+[Property_externalIdentifierType]: https://spdx.github.io/spdx-spec/v3.0/model/Core/Properties/externalIdentifierType
 [Property_from]: https://spdx.github.io/spdx-spec/v3.0/model/Core/Properties/from
 [Property_identifier]: https://spdx.github.io/spdx-spec/v3.0/model/Core/Properties/identifier
 [Property_name]: https://spdx.github.io/spdx-spec/v3.0/model/Core/Properties/name
