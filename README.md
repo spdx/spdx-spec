@@ -102,6 +102,17 @@ Apart from Git and Python, you have to have [MkDocs](http://mkdocs.org)
 installed on your machine. If you don't have it yet installed please follow
 these [installation instructions](http://www.mkdocs.org/#installation).
 
+[WeasyPrint](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation)
+is also required for generating PDF files. To disable PDF generation, comment
+out the these lines in your `mkdocs.yml` configuration file:
+
+```yaml
+#- pdf-export:
+#    combined: true
+```
+
+### Preparing input files
+
 Next, you have to prepare the model files, the other specification files,
 and the model parser, by cloning these repositoriess:
 [`spdx/spdx-3-model`](https://github.com/spdx/spdx-3-model),
@@ -145,14 +156,27 @@ Inside this directory there will be two components:
 
 ### Building HTML
 
-Execute a built-in dev-server that let you preview the specification:
+Once all the spec and model files are ready, we will use MkDocs to put them
+together as a website.
+
+In side `spdx-spec/` directory, execute a built-in dev-server that let you
+preview the specification:
 
 ```shell
 mkdocs serve
 ```
 
-Building a static HTML site:
+Or building a static HTML site:
 
 ```shell
 mkdocs build
 ```
+
+## Configuring the website
+
+Inside `spdx-spec/` directory, there is a file `mkdocs.yml`. This is a
+configuration file for MkDocs.
+
+Files intended for display and linking in the navigation bar should be
+included in the `nav:` section. The order of filenames in this section
+determines their order on the navigation bar.
