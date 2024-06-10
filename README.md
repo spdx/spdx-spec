@@ -163,6 +163,14 @@ directory. This directory contains two components:
 - Formatted Makdown files: These files (`.md` extension) are located in various
   subdirectories and are intended for processing by MkDocs in the next step.
 
+If the output directory already exists, the `spec-parser` will not overwrite
+it. If you edited a model file and want to regenerate the formatted files, you
+have to delete the existing `spdx-spec/docs/model` directory first:
+
+```shell
+rm -rf spdx-spec/docs/model
+```
+
 ### Building HTML
 
 With all spec and model files prepared, we will use MkDocs to assemble them
