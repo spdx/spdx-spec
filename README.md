@@ -190,17 +190,18 @@ Files intended for display and linking in the navigation bar should be
 included in the `nav:` section. The order of filenames in this section
 determines their order on the navigation bar.
 
-## Specifications on spdx.github.io/spdx-spec/
+## Specification versions on spdx.github.io/spdx-spec/
 
 The SPDX specifications on <https://spdx.github.io/spdx-spec/> are built
 by using a workflow in
 [`.github/workflows/publish_v3.yml`](/.github/workflows/publish_v3.yml).
-This workflow uses [mike](https://github.com/jimporter/mike) to deploy multiple
-versions of MkDocs-powered documentation.
+This workflow uses [mike](https://github.com/jimporter/mike) to publish
+multiple versions of MkDocs-powered documentation.
 
-Deployed versions, their titles, and their aliases, can be seen in the file
+The published versions, their titles, and aliases are listed in the file
 [versions.json](https://github.com/spdx/spdx-spec/blob/gh-pages/versions.json)
-in the `gh-pages` branch.
+located in the `gh-pages` branch. These versions populate the version selector
+dropdown on the website. The line `run: mike deploy` in the GitHub workflow
+file determines the title and alias.
 
-mike is not required for local testing of a specific version of the
-specification.
+mike is not needed for local testing of a specific spec version.
