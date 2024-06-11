@@ -189,6 +189,18 @@ Or building a static HTML site:
 mkdocs build
 ```
 
+To abort the build immediately when there is a warning, enables strict mode:
+
+```shell
+mkdocs build --strict
+```
+
+To get debug messages, enables verbose output:
+
+```shell
+mkdocs build --verbose
+```
+
 ## Configuring the website
 
 Inside `spdx-spec/` directory, there is a file `mkdocs.yml`. This is a
