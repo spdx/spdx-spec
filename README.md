@@ -18,7 +18,7 @@ This repository holds under active development version of the specification as:
   branch
 - HTML: `gh-pages` branch, built on every commit to the development branch,
   see the workflow in
-  [`.github/workflows/publish_v3.yml`](/.github/workflows/publish_v3.yml)
+  [`.github/workflows/publish_v3.yml`](.github/workflows/publish_v3.yml)
   - Current (3.0): <https://spdx.github.io/spdx-spec/v3.0/>
 
 The model itself is under active development at
@@ -54,8 +54,8 @@ The specification consists of documents in the `docs/` directory from this
 `spdx/spdx-spec` repository and a model which is generated from Markdown files
 in the `spdx/spdx-3-model` repository.
 
-Note: The model Markdown files in the `spdx/spdx-3-model` repository use a
-constrained format. Only a limited set of headings are allowed for processing
+Note: The model files in the `spdx/spdx-3-model` repository use a constrained
+format of Markdown. Only a limited set of headings are allowed to be processed
 by the spec-parser.
 
 ## Building the specification
@@ -214,7 +214,7 @@ determines their order on the navigation bar.
 
 The SPDX specifications on <https://spdx.github.io/spdx-spec/> are built
 by using a workflow in
-[`.github/workflows/publish_v3.yml`](/.github/workflows/publish_v3.yml).
+[`.github/workflows/publish_v3.yml`](.github/workflows/publish_v3.yml).
 This workflow uses [mike](https://github.com/jimporter/mike) to publish
 multiple versions of MkDocs-powered documentation.
 
