@@ -1,11 +1,12 @@
 # Change Log
+
 All notable changes to this project will be documented in this file.
 
-## 3.0
+## 3.0 (2024-04-15)
 
 See the [v3.0 GitHub release notes](https://github.com/spdx/spdx-spec/releases/tag/v3.0) for changes.
 
-## 2.3
+## 2.3 (2022-11-03)
 
 See the [v2.3 GitHub release notes](https://github.com/spdx/spdx-spec/releases/tag/v2.3) for changes.
 
