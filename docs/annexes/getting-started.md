@@ -17,7 +17,7 @@ If you do would like to construct the complete example from this Markdown file,
 use the following command:
 
 ```shell
-cat getting-started.md | awk '/^```json/, $0=="```" {if ($0 !~ /^```.*/ ) print}'
+cat getting-started.md | awk 'BEGIN{flag=0} /^```json/, $0=="```" { if (/^---$/){flag++} else if ($0 !~ /^```.*/ ) print $0 > "doc-" flag ".spdx.json"}'
 ```
 
 Please note that all descriptions of properties, classes, etc. are
@@ -80,7 +80,7 @@ Next, we need to name our object:
 
 ```json
 
-            "spdxId": "http://spdx.example.com/Person/JoshuaWatt",
+            "spdxId": "http://spdx.org/spdxdocs/Person/JoshuaWatt-141ec767-40f2-4aad-9658-ac2703f3a7d9",
 ```
 
 Most objects can have some sort of "ID" property that gives it a name. In the
@@ -100,7 +100,7 @@ are considered to be the same object, and any references to this URI is a
 reference to this _specific_ object we are creating.
 
 If you work for a company, own a domain, etc. it is encouraged to use that (or
-some subdomain of it) in place of `spdx.example.com`.
+some subdomain of it) in place of `spdx.org/spdxdocs`.
 
 In practice, many `spdxId` values will have some sort of hash or random
 UUID-like string incorporated to make them unique.
@@ -236,7 +236,7 @@ who (or what) created the elements that are linked to this
 
 ```json
             "createdBy": [
-                "http://spdx.example.com/Person/JoshuaWatt"
+                "http://spdx.org/spdxdocs/Person/JoshuaWatt-141ec767-40f2-4aad-9658-ac2703f3a7d9"
             ],
 ```
 
@@ -274,7 +274,7 @@ do that now:
 ```json
         {
             "type": "SpdxDocument",
-            "spdxId": "http://spdx.example.com/Document1",
+            "spdxId": "https://spdx.org/spdxdocs/Document1-d078aed9-384d-4a64-87cb-99c79647c8c9",
             "creationInfo": "_:creationinfo",
 ```
 
@@ -310,7 +310,7 @@ Element) references. Add this now and close our our
 
 ```json
             "rootElement": [
-                "http://spdx.example.com/BOM1"
+                "https://spdx.org/spdxdocs/BOM-e2e955f5-c50e-4a3a-8c69-db152f0f4615"
             ]
         },
 ```
@@ -369,7 +369,7 @@ Lets define our package:
 ```json
         {
             "type": "software_Package",
-            "spdxId": "http://spdx.example.com/amazing-widget",
+            "spdxId": "https://spdx.org/spdxdocs/Package-d1db6e61-aebe-4b13-ae73-d0f66018dbe0",
             "creationInfo": "_:creationinfo",
 ```
 
@@ -428,7 +428,7 @@ property:
 
 ```json
             "originatedBy": [
-                "http://spdx.example.com/Person/JoshuaWatt"
+                "http://spdx.org/spdxdocs/Person/JoshuaWatt-141ec767-40f2-4aad-9658-ac2703f3a7d9"
             ],
 ```
 
@@ -474,7 +474,7 @@ Lets get started with our first file, the program executable:
 ```json
         {
             "type": "software_File",
-            "spdxId": "http://spdx.example.com/amazing-widget/main",
+            "spdxId": "https://spdx.org/spdxdocs/File-8f79956e-4089-4166-9a71-457de77e4846",
             "creationInfo": "_:creationinfo",
             "name": "/usr/bin/amazing-widget",
             "verifiedUsing": [
@@ -486,7 +486,7 @@ Lets get started with our first file, the program executable:
             ],
             "builtTime": "2024-03-05T00:00:00Z",
             "originatedBy": [
-                "http://spdx.example.com/Person/JoshuaWatt"
+                "http://spdx.org/spdxdocs/Person/JoshuaWatt-141ec767-40f2-4aad-9658-ac2703f3a7d9"
             ],
 ```
 
@@ -529,7 +529,7 @@ program:
 ```json
         {
             "type": "software_File",
-            "spdxId": "http://spdx.example.com/amazing-widget/config",
+            "spdxId": "https://spdx.org/spdxdocs/File-77808a5c-7a1b-43d1-9fa9-410a309ca9f3",
             "creationInfo": "_:creationinfo",
             "name": "/etc/amazing-widget.cfg",
             "verifiedUsing": [
@@ -541,7 +541,7 @@ program:
             ],
             "builtTime": "2024-03-05T00:00:00Z",
             "originatedBy": [
-                "http://spdx.example.com/Person/JoshuaWatt"
+                "http://spdx.org/spdxdocs/Person/JoshuaWatt-141ec767-40f2-4aad-9658-ac2703f3a7d9"
             ],
             "software_primaryPurpose": "configuration"
         },
@@ -566,7 +566,7 @@ new one:
 ```json
         {
             "type": "Relationship",
-            "spdxId": "http://spdx.example.com/amazing-widet-contains",
+            "spdxId": "https://spdx.org/spdxdocs/Relationship/contains-6b0b7ce4-a069-406d-9088-9e91f65b79f0",
             "creationInfo": "_:creationinfo",
 ```
 
@@ -594,10 +594,10 @@ with them: you can think of them as an arrow pointing from their
 express this:
 
 ```json
-            "from": "http://spdx.example.com/amazing-widget",
+            "from": "https://spdx.org/spdxdocs/Package-d1db6e61-aebe-4b13-ae73-d0f66018dbe0",
             "to": [
-                "http://spdx.example.com/amazing-widget/config",
-                "http://spdx.example.com/amazing-widget/main"
+                "https://spdx.org/spdxdocs/File-8f79956e-4089-4166-9a71-457de77e4846",
+                "https://spdx.org/spdxdocs/File-77808a5c-7a1b-43d1-9fa9-410a309ca9f3"
             ],
 ```
 
@@ -633,7 +633,7 @@ This is done by creating a [software_Sbom][Class_software_Sbom] object:
 ```json
         {
             "type": "software_Sbom",
-            "spdxId": "http://spdx.example.com/BOM1",
+            "spdxId": "https://spdx.org/spdxdocs/BOM-e2e955f5-c50e-4a3a-8c69-db152f0f4615",
             "creationInfo": "_:creationinfo",
 ```
 
@@ -649,7 +649,7 @@ of the SBOM, which is our [software_Package][Class_software_Package]:
 
 ```json
             "rootElement": [
-                "http://spdx.example.com/amazing-widget"
+                "https://spdx.org/spdxdocs/Package-d1db6e61-aebe-4b13-ae73-d0f66018dbe0"
             ],
 ```
 
@@ -663,8 +663,8 @@ included:
 
 ```json
             "element": [
-                "http://spdx.example.com/amazing-widget/main",
-                "http://spdx.example.com/amazing-widget/config"
+                "https://spdx.org/spdxdocs/File-8f79956e-4089-4166-9a71-457de77e4846",
+                "https://spdx.org/spdxdocs/File-77808a5c-7a1b-43d1-9fa9-410a309ca9f3"
             ],
 ```
 

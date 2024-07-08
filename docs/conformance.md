@@ -5,7 +5,7 @@ TODO: update for SPDXv3
 ## 4.1 SPDX Current and Previous Versions <a name="4.1"></a>
 
 This edition has the version number 2.3 as part of its title. This is a follow on from [ISO/IEC 5962:2021
-Information technology — SPDX® Specification V2.2.1](https://www.iso.org/standard/81870.html), and includes new fields.  Earlier editions were published by the SPDX workgroup via the Linux Foundation. The SPDX Specification was subsequently transposed into the Joint Development Foundation. [Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012), 1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), and 2.2 (May 2020).] Differences between this edition and earlier ones are reported in [Annex J](diffs-from-previous-editions.md); see also [[1]](bibliography.md).
+Information technology — SPDX® Specification V2.2.1](https://www.iso.org/standard/81870.html), and includes new fields.  Earlier editions were published by the SPDX workgroup via the Linux Foundation. The SPDX Specification was subsequently transposed into the Joint Development Foundation. [Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012), 1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), and 2.2 (May 2020).] Differences between this edition and earlier ones are reported in [Annex J](annexes/diffs-from-previous-editions.md); see also [[1]](bibliography.md).
 
 ## 4.2 Obsolete features <a name="4.2"></a>
 
@@ -80,4 +80,4 @@ The official copyright notice that shall be used with any non-verbatim reproduct
 
 ## 4.6 The SPDX Lite profile <a name="4.6"></a>
 
-Rather than conforming to this whole specification, an implementation may conform with SPDX Lite only, a profile that defines a subset of the SPDX specification. SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries. See [Annex G](SPDX-Lite.md) for more information.
+Rather than conforming to this whole specification, an implementation may conform with SPDX Lite only, a profile that defines a subset of the SPDX specification. SPDX Lite aims at the balance between the SPDX standard and actual workflows in some industries. See [Annex G](annexes/SPDX-Lite.md) for more information.

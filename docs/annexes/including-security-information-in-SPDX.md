@@ -4,7 +4,7 @@ The flexibility of SPDX 3.0 allows users to either link SBOMs to external securi
 
 ## G.1 External References and External Identifiers
 
-SPDX 3.0 has the concept of an [__External Reference__](https://github.com/spdx/spdx-3-model/blob/main/model/Core/Classes/ExternalRef.md) for an Element which points to a general resource outside the scope of the SPDX-3.0 content that provides additional context or information about an Element. 
+SPDX 3.0 has the concept of an [__External Reference__](https://github.com/spdx/spdx-3-model/blob/main/model/Core/Classes/ExternalRef.md) for an Element which points to a general resource outside the scope of the SPDX 3.0 content that provides additional context or information about an Element.
 
 The specification for External Reference types has many [type options](https://github.com/spdx/spdx-3-model/blob/main/model/Core/Vocabularies/ExternalRefType.md), a large handful of which pertain specifically to security use cases:
 
@@ -38,15 +38,16 @@ To reference a Common Vulnerabilities and Exposures (CVE) advisory applicable to
 
 ```json
 {
-  "@type": "Vulnerability",
-  "@id": "urn:spdx.dev:cve-2020-2849",
+  "type": "security_Vulnerability",
+  "spdxId": "urn:spdx.dev:cve-2020-2849",
+  "creationInfo": "_:creationInfo",
   "summary": "Use of a Broken or Risky Cryptographic Algorithm",
-  "description": "The npm package `elliptic` before version 6.5.4 are vulnerable to Cryptographic Issues via the secp256k1 implementation in elliptic/ec/key.js. There is no check to confirm that the public key point passed into the derive function actually exists on the secp256k1 curve. This results in the potential for the private key used in this implementation to be revealed after a number of ECDH operations are performed.",      
-  "modified": "2021-03-08T16:06:43Z",
-  "published": "2021-03-08T16:02:50Z",
-  "externalIdentifiers": [
+  "description": "The npm package `elliptic` before version 6.5.4 are vulnerable to Cryptographic Issues via the secp256k1 implementation in elliptic/ec/key.js. There is no check to confirm that the public key point passed into the derive function actually exists on the secp256k1 curve. This results in the potential for the private key used in this implementation to be revealed after a number of ECDH operations are performed.",
+  "security_modifiedTime": "2021-03-08T16:06:43Z",
+  "security_publishedTime": "2021-03-08T16:02:50Z",
+  "externalIdentifier": [
     {
-      "@type": "ExternalIdentifier",
+      "type": "ExternalIdentifier",
       "externalIdentifierType": "cve",
       "identifier": "CVE-2020-2849",
       "identifierLocator": [
@@ -57,29 +58,29 @@ To reference a Common Vulnerabilities and Exposures (CVE) advisory applicable to
     },
     {
       "type": "ExternalIdentifier",
-      "externalIdentifierType": "securityAdvisory",
+      "externalIdentifierType": "securityOther",
       "identifier": "GHSA-r9p9-mrjm-926w",
-      "identifierLocator": "https://github.com/advisories/GHSA-r9p9-mrjm-926w"
+      "identifierLocator": ["https://github.com/advisories/GHSA-r9p9-mrjm-926w"]
     }
   ],
-  "externalRefs": [
+  "externalRef": [
     {
-        "@type": "ExternalRef",
+        "type": "ExternalRef",
         "externalRefType": "securityAdvisory",
-        "locator": "https://nvd.nist.gov/vuln/detail/CVE-2020-28498"
+        "locator": ["https://nvd.nist.gov/vuln/detail/CVE-2020-28498"]
     },
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "securityAdvisory",
-      "locator": "https://ubuntu.com/security/CVE-2020-28498"
+      "locator": ["https://ubuntu.com/security/CVE-2020-28498"]
     },
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "securityOther",
-      "locator": "https://github.com/indutny/elliptic/pull/244/commits"
+      "locator": ["https://github.com/indutny/elliptic/pull/244/commits"]
     }
   ]
-}
+},
 ```
 
 ## G.1.2 Linking to a CSAF Document
@@ -92,32 +93,33 @@ To reference a CSAF VEX document, include an external reference of type `vulnera
 
 ```json
 {
-  "@type": "Vulnerability",
-  "@id": "urn:spdx.dev:vuln-2",
+  "type": "security_Vulnerability",
+  "spdxId": "urn:spdx.dev:vuln-2",
+  "creationInfo": "_:creationInfo",
   "name": "cve-2021-44228",
-  "description": "Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases 2.12.2, 2.12.3, and 2.3.1) JNDI features used in configuration, log messages, and parameters do not protect against attacker controlled LDAP and other JNDI related endpoints. An attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers when message lookup substitution is enabled.", 
-  "modifiedTime": "2021-03-08T16:02:43Z",
-  "publishedTime": "2021-03-08T16:06:50Z",
-  "externalIdentifiers": [
+  "description": "Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases 2.12.2, 2.12.3, and 2.3.1) JNDI features used in configuration, log messages, and parameters do not protect against attacker controlled LDAP and other JNDI related endpoints. An attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers when message lookup substitution is enabled.",
+  "security_modifiedTime": "2021-03-08T16:02:43Z",
+  "security_publishedTime": "2021-03-08T16:06:50Z",
+  "externalIdentifier": [
     {
-      "@type": "ExternalIdentifier",
+      "type": "ExternalIdentifier",
       "externalIdentifierType": "cve",
       "identifier": "CVE-2021-44228",
       "identifierLocator": [
         "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228",
         "https://www.cve.org/CVERecord?id=CVE-2021-44228"
       ],
-      "issuingAuthority": "urn:spdx.dev:agent-cve.org"
+      "issuingAuthority": "http://spdx.dev/agent-cve.org"
     }
-  ]
-  "externalRefs": [
+  ],
+  "externalRef": [
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "vulnerabilityExploitabilityAssessment",
-      "locator": "https://github.com/oasis-tcs/csaf/blob/master/csaf_2.0/examples/csaf/csaf_vex/2022-evd-uc-01-a-001.json"
+      "locator": ["https://github.com/oasis-tcs/csaf/blob/master/csaf_2.0/examples/csaf/csaf_vex/2022-evd-uc-01-a-001.json"]
     }
   ]
-}
+},
 ```
 
 ### G.1.2.2 Linking to a CSAF Advisory
@@ -126,18 +128,19 @@ To reference a CSAF Advisory document, include the document locator as an extern
 
 ```json
 {
-  "@type": "Package",
-  "@id": "urn:spdx.dev:pkg-rh-open-shift",
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:pkg-rh-open-shift",
+  "creationInfo": "_:creationInfo",
   "name": "Red Hat OpenShift Enterprise",
-  "packageVersion": "3.6",
-  "externalRefs": [
+  "software_packageVersion": "3.6",
+  "externalRef": [
     {
-      "@type": "ExternalRef",
-      "externalRefType": "securityAdvisory",
-      "locator": "https://github.com/oasis-tcs/csaf/blob/master/csaf_2.0/examples/csaf/rhsa-2019_1862.json"
+      "type": "ExternalRef",
+      "externalRefType": "securityOther",
+      "locator": ["https://github.com/oasis-tcs/csaf/blob/master/csaf_2.0/examples/csaf/rhsa-2019_1862.json"]
     }
   ]
-}
+},
 ```
 
 ## G.1.3 Linking to CycloneDX Security Data
@@ -148,18 +151,19 @@ Using an External Reference, link the package to the matching component in the C
 
 ```json
 {
-  "@type": "Package",
-  "@id": "urn:spdx.dev:pkg-stack-cors",
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:pkg-stack-cors",
+  "creationInfo": "_:creationInfo",
   "name": "stack-cors",
-  "packageVersion": "1.3.0",
-  "externalRefs": [
+  "software_packageVersion": "1.3.0",
+  "externalRef": [
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "securityOther",
-      "locator": "urn:cdx:17cfc349-c637-4685-856c-81196420c7f5/2#componentRef"
+      "locator": ["https://cyclonedx.org/capabilities/bomlink/17cfc349-c637-4685-856c-81196420c7f5/2#componentRef"]
     }
   ]
-}
+},
 ```
 
 ## G.1.4 Linking to an OSV
@@ -168,18 +172,19 @@ To include a reference to [Open Source Vulnerability](https://github.com/google/
 
 ```json
 {
-  "@type": "Package",
-  "@id": "urn:spdx.dev:pkg-Django",
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:pkg-Django",
+  "creationInfo": "_:creationInfo",
   "name": "Django",
-  "packageVersion": "2.2",
-  "externalRefs": [
+  "software_packageVersion": "2.2",
+  "externalRef": [
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "securityAdvisory",
-      "locator": "https://github.com/github/advisory-database/blob/6b9d5bc96a62bb845ee71e4551a214eb1457e2c6/advisories/github-reviewed/2022/04/GHSA-2gwj-7jmv-h26r/GHSA-2gwj-7jmv-h26r.json"
+      "locator": ["https://github.com/github/advisory-database/blob/6b9d5bc96a62bb845ee71e4551a214eb1457e2c6/advisories/github-reviewed/2022/04/GHSA-2gwj-7jmv-h26r/GHSA-2gwj-7jmv-h26r.json"]
     }
   ]
-}
+},
 ```
 
 ## G.1.5 Linking to an OmniBOR (formerly known as GitBOM)
@@ -188,18 +193,19 @@ To identify a Package with an [OmniBOR](https://omnibor.io/) (Universal Bill Of 
 
 ```json
 {
-  "@type": "Package",
-  "@id": "urn:spdx.dev:pkg-example",
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:pkg-example",
+  "creationInfo": "_:creationInfo",
   "name": "Example",
-  "packageVersion": "1.2.3",
-  "externalIdentifiers": [
+  "software_packageVersion": "1.2.3",
+  "externalIdentifier": [
     {
-      "@type": "ExternalIdentifier",
+      "type": "ExternalIdentifier",
       "externalIdentifierType": "gitoid",
       "identifier": "gitoid:blob:sha1:bcb99b819dadaebdf2c8f88d92ee9024c45f9df3"
     }
   ]
-}
+},
 ```
 
 ## G.1.6 Linking to a vulnerability disclosure document
@@ -208,54 +214,57 @@ To express a reference to a vulnerability disclosure document for a package, use
 
 ```json
 {
-  "@type": "Package",
-  "@id": "urn:spdx.dev:pkg-apache-log4j",
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:pkg-apache-log4j",
+  "creationInfo": "_:creationInfo",
   "name": "log4j",
-  "packageVersion": "2.14.0",
-  "externalRefs": [
+  "software_packageVersion": "2.14.0",
+  "externalRef": [
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "securityAdvisory",
-      "locator": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-log4j-qRuKNEbd"
+      "locator": ["https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-log4j-qRuKNEbd"]
     }
   ]
-}
+},
 ```
 
 To communicate that a package is not vulnerable to a specific vulnerability it is recommended to reference a web page indicating why given vulnerabilities are not applicable using an External Reference on the package.
 
 ```json
 {
-  "@type": "Package",
-  "@id": "urn:spdx.dev:example-1",
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:example-1",
+  "creationInfo": "_:creationInfo",
   "name": "example",
-  "packageVersion": "1.0.0",
-  "externalRefs": [
+  "software_packageVersion": "1.0.0",
+  "externalRef": [
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "securityAdvisory",
-      "locator": "https://example.com/product-x/security-info-not-affected.html"
+      "locator": ["https://example.com/product-x/security-info-not-affected.html"]
     }
   ]
-}
+},
 ```
 
 To refer to a security disclosure feed, such as the security bulletins from [CERT-EU](https://cert.europa.eu), include an External Reference in the package Element.
 
 ```json
 {
-  "@type": "Package",
-  "@id": "urn:spdx.dev:example-2",
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:example-2",
+  "creationInfo": "_:creationInfo",
   "name": "example",
-  "packageVersion": "2.0.0",
-  "externalRefs": [
+  "software_packageVersion": "2.0.0",
+  "externalRef": [
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "securityAdvisory",
-      "locator": "https://cert.europa.eu/cert/Data/newsletter/reviewlatest-SecurityBulletins.xml"
+      "locator": ["https://cert.europa.eu/cert/Data/newsletter/reviewlatest-SecurityBulletins.xml"]
     }
   ]
-}
+},
 ```
 
 ## G.1.7 Linking to a Code Fix for a Security Issue
@@ -265,38 +274,59 @@ You can include a reference to a code fix for a security issue applicable to a P
 Using the Vulnerability Element from example 1.1 above or a Package Element, you would add a code fix External Reference to the Element as follows. In this example, the link points to a specific code revision containing the fix for [CVE-2020-28498](https://nvd.nist.gov/vuln/detail/CVE-2020-28498).
 
 ```json
-  "externalRefs": [
+{
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:example-2",
+  "creationInfo": "_:creationInfo",
+  "name": "example",
+  "software_packageVersion": "2.0.0",
+  "externalRef": [
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "securityFix",
-      "locator": "https://github.com/indutny/elliptic/commit/441b7428b0e8f6636c42118ad2aaa186d3c34c3f",
+      "locator": ["https://github.com/indutny/elliptic/commit/441b7428b0e8f6636c42118ad2aaa186d3c34c3f"],
       "comment": "elliptic before version 6.5.4 are vulnerable to Cryptographic Issues via the secp256k1 implementation in elliptic/ec/key.js. This patch fixes CVE-2020-28498."
     }
   ]
+},
 ```
 
 A fix reference may point to a configuration change for example the patch file as one of the fixes for [CVE-2022-26499](https://nvd.nist.gov/vuln/detail/CVE-2022-26499).
 
 ```json
-  "externalRefs": [
+{
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:example-2",
+  "creationInfo": "_:creationInfo",
+  "name": "example",
+  "software_packageVersion": "2.0.0",
+  "externalRef": [
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "securityFix",
-      "locator": "https://downloads.digium.com/pub/security/AST-2022-002-16.diff"
+      "locator": ["https://downloads.digium.com/pub/security/AST-2022-002-16.diff"]
     }
   ]
+},
 ```
 
 Alternatively, it may also link to a landing page with patches for a variety of products such as Oracle patch information for [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228).
 
 ```json
-  "externalRefs": [
+{
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:example-2",
+  "creationInfo": "_:creationInfo",
+  "name": "example",
+  "software_packageVersion": "2.0.0",
+  "externalRef": [
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "securityFix",
-      "locator": "https://www.oracle.com/security-alerts/cpujan2022.html"
+      "locator": ["https://www.oracle.com/security-alerts/cpujan2022.html"]
     }
   ]
+},
 ```
 
 ## G.1.8 Linking to any Security Related Document
@@ -305,35 +335,39 @@ If you want to reference any security information related to a package but canno
 
 ```json
 {
-  "@type": "Package",
-  "@id": "urn:spdx.dev:pkg-elliptic",
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:pkg-elliptic",
+  "creationInfo": "_:creationInfo",
   "name": "elliptic",
-  "packageVersion": "6.5.4",
-  "externalRefs": [
+  "software_packageVersion": "6.5.4",
+  "externalRef": [
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "securityOther",
-      "locator": "https://github.com/christianlundkvist/blog/blob/aa3a69b5e4c06e4435070610c0c4a2b1e8731783/2020_05_26_secp256k1_twist_attacks/secp256k1_twist_attacks.md",
+      "locator": ["https://github.com/christianlundkvist/blog/blob/aa3a69b5e4c06e4435070610c0c4a2b1e8731783/2020_05_26_secp256k1_twist_attacks/secp256k1_twist_attacks.md"],
       "comment": "Blog post from author who wrote fix for CVE-2020-28498."
     }
   ]
-}
+},
 ```
 
 One can also use it to refer to guidance related to a vulnerability such as CISA guidance for Apache Log4j.
 
 ```json
-  "@type": "Package",
-  "@id": "urn:spdx.dev:pkg-apache-log4j",
+{
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:pkg-apache-log4j",
+  "creationInfo": "_:creationInfo",
   "name": "log4j",
-  "packageVersion": "2.14.0",
-  "externalRefs": [
+  "software_packageVersion": "2.14.0",
+  "externalRef": [
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "securityOther",
-      "locator": "https://www.cisa.gov/uscert/apache-log4j-vulnerability-guidance"
+      "locator": ["https://www.cisa.gov/uscert/apache-log4j-vulnerability-guidance"]
     }
   ]
+},
 ```
 
 ## G.1.9 Linking to a Vulnerability Disclosure Report (VDR)
@@ -346,16 +380,17 @@ Providing a link to such data at the time the SBOM is published provides a point
 
 ```json
 {
-  "@type": "Package",
-  "@id": "urn:spdx.dev:sag-pm",
+  "type": "software_Package",
+  "spdxId": "urn:spdx.dev:sag-pm",
+  "creationInfo": "_:creationInfo",
   "name": "SAG-PM (TM)",
-  "packageVersion": "1.1.8",
-  "externalRefs": [
+  "software_packageVersion": "1.1.8",
+  "externalRef": [
     {
-      "@type": "ExternalRef",
+      "type": "ExternalRef",
       "externalRefType": "vulnerabilityDisclosureReport",
-      "locator": "https://github.com/rjb4standards/REA-Products/blob/master/SBOM_and_VDRbaseline/sag-pm-118_VDR.json"
+      "locator": ["https://github.com/rjb4standards/REA-Products/blob/master/SBOM_and_VDRbaseline/sag-pm-118_VDR.json"]
     }
   ]
-}
+},
 ```
