@@ -23,7 +23,7 @@ A SPDX document with the Lite profile must include properties for each class lis
    | 3 | /Core/SpdxDocument/comment			| 0..1	| |  
    | 4 | /Core/SpdxDocument/creationInfo	| 1..1	| |  
    | 5 | /Core/SpdxDocument/verifiedUsing	| 0..*	| This should be objects of /Core/Hash |  
-   | 6 | /Core/SpdxDocument/element			| 1..*	| MUST have at least one element |  
+   | 6 | /Core/SpdxDocument/element			| 1..*	| MUST have at least one /Core/Sbom object |  
    | 7 | /Core/SpdxDocument/rootElement		| 1..*	| This should be objects of /Core/Sbom |  
    | 8 | /Core/SpdxDocument/namespaceMap	| 0..*	| |  
    | 9 | /Core/SpdxDocument/dataLicense		| 0..1	| |  
@@ -41,7 +41,7 @@ A SPDX document with the Lite profile must include properties for each class lis
    |:-:|:--|:--|:--|  
    | 1 | /Software/Sbom/spdxId			| 1..1	| |  
    | 2 | /Software/Sbom/creationInfo	| 1..1	| |  
-   | 3 | /Software/Sbom/element			| 1..*	| MUST have at least one element |  
+   | 3 | /Software/Sbom/element			| 1..*	| MUST have at least one /Software/Package object |  
    | 4 | /Software/Sbom/rootElement    | 1..*	| This should be objects of /Software/Package |  
    | 5 | /Software/Sbom/sbomType		   | 0..*	| |  
 
@@ -80,7 +80,7 @@ And all /Software/Package objects MUST have “downloadLocation” OR “package
    | 3 | /Software/Package/comment			    | 0..1	| |  
    | 4 | /Software/Package/creationInfo			| 1..1	| |  
    | 5 | /Software/Package/verifiedUsing		| 0..*	| This should be objects of /Core/Hash |  
-   | 6 | /Software/Package/originatedBy		    | 0..*	| This should be an object of /Core/Agent |  
+   | 6 | /Software/Package/originatedBy		    | 0..*	| This should be objects of /Core/Agent |  
    | 7 | /Software/Package/suppliedBy			| 1..1	| This should be an object of /Core/Agent |  
    | 8 | /Software/Package/builtTime			| 0..1	| |  
    | 9 | /Software/Package/releaseTime			| 0..1	| |  
