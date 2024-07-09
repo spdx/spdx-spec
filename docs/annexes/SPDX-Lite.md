@@ -49,7 +49,7 @@ A SPDX document with the Lite profile must include properties for each class lis
 
    | # | Property Name | Cardinality | Comments |  
    |:-:|:--|:--|:--|  
-   | 1 | /Core/CreationInfo/specVersion | 1..1	| This should be a fixed string, “3.0”. |  
+   | 1 | /Core/CreationInfo/specVersion | 1..1	| This should be a fixed string, “3.0.0”. |  
    | 2 | /Core/CreationInfo/comment 	| 0..1	| |  
    | 3 | /Core/CreationInfo/created 	| 1..1	| |  
    | 4 | /Core/CreationInfo/createdBy	| 1..*	| This should be objects of /Core/Agent |  
