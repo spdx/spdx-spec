@@ -29,6 +29,8 @@ jobs:
         run: pip install -r spec-parser/requirements.txt
       - name: Build model
         run: python3 spec-parser/main.py spdx-3-model/model spdx-spec/docs/model
+      - name: Disable time-consuming PDF build
+        run: sed -i '/pdf-export:/,/combined:/ d' spdx-spec/mkdocs.yml  # Remove 2 lines in config
       - name: Build docs
         run: mkdocs build -v --clean
         working-directory: spdx-spec
