@@ -11,9 +11,9 @@ The exact syntax of license expressions is described below in [ABNF](http://tool
 ```text
 idstring = 1*(ALPHA / DIGIT / "-" / "." )
 
-license-id = <short form license identifier in Annex A.1>
+license-id = <short form license identifier from SPDX License List>
 
-license-exception-id = <short form license exception identifier in Annex A.2>
+license-exception-id = <short form license exception identifier from SPDX License List>
 
 license-ref = ["DocumentRef-"(idstring)":"]"LicenseRef-"(idstring)
 
