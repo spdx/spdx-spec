@@ -11,7 +11,7 @@ The exact syntax of license expressions is described below in [ABNF](http://tool
 ```text
 idstring = 1*(ALPHA / DIGIT / "-" / "." )
 
-license-id = <short form license identifier from SPDX License list (spdx.org/licenses)>
+license-id = <short form license identifier from SPDX License List>
 
 license-exception-id = <short form license exception identifier from SPDX License Exceptions list (spdx.org/licenses/exception-index.html)>
 
