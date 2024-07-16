@@ -1,8 +1,8 @@
-# Annex C: RDF object model and identifier syntax (Normative)
+# Annex B RDF object model and identifier syntax (Normative)
 
 TODO: update for SPDXv3
 
-## C.1 Introduction <a name="C.1"></a>
+## B.1 Introduction <a name="C.1"></a>
 
 SPDX ® Vocabulary Specification
 

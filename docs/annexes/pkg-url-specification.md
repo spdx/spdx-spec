@@ -1,4 +1,4 @@
-# Annex E: Package URL specification v1 (Normative)
+# Annex E Package URL specification v1 (Normative)
 
 ## E.1 Introduction
 

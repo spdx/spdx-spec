@@ -1,4 +1,4 @@
-# Annex A: Differences from previous editions (Informative)
+# Annex A Differences from previous editions (Informative)
 
 # A.1 Differences between V3.0 and V2.3 <a name="A.1"></a>
 
