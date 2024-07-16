@@ -13,7 +13,7 @@ idstring = 1*(ALPHA / DIGIT / "-" / "." )
 
 license-id = <short form license identifier from SPDX License List>
 
-license-exception-id = <short form license exception identifier from SPDX License Exceptions list (spdx.org/licenses/exception-index.html)>
+license-exception-id = <short form license exception identifier from SPDX License List>
 
 license-ref = ["DocumentRef-"(idstring)":"]"LicenseRef-"(idstring)
 
