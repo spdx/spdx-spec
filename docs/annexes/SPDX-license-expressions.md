@@ -58,7 +58,7 @@ However, please be aware that it is often important to match with the case of th
 
 For license identifiers, only the variable part (after `LicenseRef-`) is case insensitive.
 
-So, `LicenseRef-Beerware-4.2` and `LicenseRef-beerware-4.2` are the same identifier, and `licenseref-beerware-4.2` is not a valid license identifier.
+This means, for example, that `LicenseRef-Name` and `LicenseRef-name` should be treated as the same identifier and considered to refer to the same license, while `licenseref-name` is not a valid license identifier.
 
 The same applies to `AdditionRef-`.
 
