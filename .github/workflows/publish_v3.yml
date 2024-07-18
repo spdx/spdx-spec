@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: spdx/spdx-3-model
-          ref: main
+          ref: v3.0
           path: spdx-3-model
       - name: Install pre-requisites
         run: pip install -r spdx-spec/requirements.txt
@@ -49,5 +49,5 @@ jobs:
         run: git checkout gh-pages && git pull && git checkout development/v3.0
         working-directory: spdx-spec
       - name: Build docs
-        run: mike deploy v3.0 latest -b gh-pages -p
+        run: mike deploy v3.0 latest -u -b gh-pages -p
         working-directory: spdx-spec
