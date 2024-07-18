@@ -24,7 +24,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: spdx/spdx-3-model
-          ref: main
+          ref: main  # for v3.0.1-draft, during development
+          # ref: 3.0.1  # for v3.0.1 final release
           path: spdx-3-model
       - name: Install pre-requisites
         run: pip install -r spdx-spec/requirements.txt
@@ -50,6 +51,6 @@ jobs:
         working-directory: spdx-spec
       - name: Build docs
         run: mike deploy -b gh-pages -p v3.0.1-draft
-        # Once 3.0.1 stable, use the following command to deploy 3.0.1 as latest version
+        # Once 3.0.1 released, use the following command to deploy 3.0.1 as latest version
         # run: mike deploy -u -b gh-pages -p v3.0.1 latest
         working-directory: spdx-spec
