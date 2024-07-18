@@ -11,9 +11,9 @@ The exact syntax of license expressions is described below in ABNF, as defined i
 ```text
 idstring = 1*(ALPHA / DIGIT / "-" / "." )
 
-license-id = <short form license identifier in Annex A.1>
+license-id = <short form license identifier from SPDX License List>
 
-license-exception-id = <short form license exception identifier in Annex A.2>
+license-exception-id = <short form license exception identifier from SPDX License List>
 
 license-ref = [%s"DocumentRef-"(idstring)":"]%s"LicenseRef-"(idstring)
 
@@ -55,6 +55,10 @@ License expression operators (`AND`, `and`, `OR`, `or`, `WITH` and `with`) shoul
 License identifiers (including license exception identifiers) used in SPDX documents or source code files should be matched in a *case-insensitive* manner. In other words, `MIT`, `Mit` and `mIt` should all be treated as the same identifier and referring to the same license.
 
 However, please be aware that it is often important to match with the case of the canonical identifier on the [SPDX License List](https://spdx.org/licenses). This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.
+
+For user defined license identifiers, only the variable part (after `LicenseRef-`) is case insensitive.  This means, for example, that `LicenseRef-Name` and `LicenseRef-name` should be treated as the same identifier and considered to refer to the same license, while `licenseref-name` is not a valid license identifier.
+
+The same applies to `AdditionRef-` user defined identifiers.
 
 ## D.3 Simple license expressions <a name="D.3"></a>
 
