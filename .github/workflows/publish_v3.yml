@@ -59,6 +59,7 @@ jobs:
           echo "Build $FINAL_MKDOCS_YML from $BASE_MKDOCS_YML and $MODEL_YML"
           sed -e "\|- model.*#.*[MODEL_PLACEHOLDER].*|{
               r $MODEL_YML
+              a\\
               d
           }" "$BASE_MKDOCS_YML" > "$FINAL_MKDOCS_YML"
           echo "====================="
