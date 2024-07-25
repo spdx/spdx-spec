@@ -1,4 +1,4 @@
-Copyright © 2010-2024 Linux Foundation and its Contributors
+Copyright © 2010-2024, Linux Foundation and its Contributors
 Copyright © 2024, CAST Software
 Copyright © 2024, The MITRE Corporation
 Copyright © 2024, OMG
