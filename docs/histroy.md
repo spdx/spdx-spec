@@ -120,14 +120,14 @@ that would be extremely burdensome to implement.
 
 Based on the comments and change requests from the initial candidate release
 several areas of the model were revised and reworked, resulting in a release
-candidate 2 of SPDX in February of 2024. This release candidate will give tool
-creators and those who maintain the support libraries for working with SPDX
-time to start revising their projects in advance of the final version of the
-specification. For those not following the inner workings, debates, and
+candidate 2 of SPDX 3.0 in February of 2024. This release candidate will give
+tool creators and those who maintain the support libraries for working with
+SPDX time to start revising their projects in advance of the final version of
+the specification. For those not following the inner workings, debates, and
 discussion of the combined 3T-SBOM and SPDX 3.0 working group for the last 3
 years there will be a dramatic change in the SPDX model as it goes from SPDX
 2.3 to SPDX 3.0, as shown by looking at Figure 16’s left-side (SPDX 2.3 model)
-compared to its right-side (SPDX 3.0). shifting the SPDX name from Software
+compared to its right-side (SPDX 3.0), shifting the SPDX name from Software
 Package Data eXchange to System Package Data eXchange and the scope of items it
 can convey in a Bill of Materials.
 
