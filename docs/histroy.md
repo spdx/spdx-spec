@@ -7,18 +7,19 @@ to a need that came from the several years of work in the Department of
 Commerce’s National Telecommunications and Information Administration (NTIA) in
 creating an Initiative to Improve Software Component Transparency in July of
 2018 [6]. That effort actually was the culmination of several earlier attempts
-to get software transparency, updatability and bill of material as requirements
-in safety critical sectors like automotive and healthcare as early as 2013/2014
-[2, 3] with many talks and papers written for and against them and discussions.
-With the launch of the NTIA Software Component Transparency Initiative there
-was a major increase in the energy and coordination of those proposing Software
-Bill of Material (SBOM) as a key element of communication across the different
-participants in software supply chains. These meetings, which started with a
-public meeting in Washington DC consisted primarily of vendors of software and
-customers of those vendors. It was this mix of participants that struck us that
-these efforts were missing an important community member if they were to make
-SBOMs successful and useful – they seemed to be missing the organizations who
-create the tools for developing software.
+to get software transparency, updatability and bill of materials as
+requirements in safety critical sectors like automotive and healthcare as early
+as 2013/2014 [2, 3] with many talks and papers written for and against them and
+discussions. With the launch of the NTIA Software Component Transparency
+Initiative there was a major increase in the energy and coordination of those
+proposing Software Bill of Materials (SBOM) as a key element of communication
+across the different participants in software supply chains.
+These meetings, which started with a public meeting in Washington DC consisted
+primarily of vendors of software and customers of those vendors.
+It was this mix of participants that struck us that these efforts were missing
+an important community member if they were to make SBOMs successful and useful
+– they seemed to be missing the organizations who create the tools for
+developing software.
 
 To address this gap, over the winter and spring of 2019, we crafted a market
 analysis of the software development tooling ecosystem and documented usage
@@ -129,7 +130,7 @@ years there will be a dramatic change in the SPDX model as it goes from SPDX
 2.3 to SPDX 3.0, as shown by looking at Figure 16’s left-side (SPDX 2.3 model)
 compared to its right-side (SPDX 3.0), shifting the SPDX name from Software
 Package Data eXchange to System Package Data eXchange and the scope of items it
-can convey in a Bill of Materials.
+can convey in a bill of materials.
 
 ![Figure 16 – SPDX 2.3 Model compared to the SPDX 3.0 Model](images/spdx23-spdx30-comparison.png "Figure 16 – SPDX 2.3 Model compared to the SPDX 3.0 Model")
 **Figure 16 – SPDX 2.3 Model compared to the SPDX 3.0 Model**
