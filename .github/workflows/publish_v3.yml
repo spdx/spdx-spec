@@ -61,11 +61,10 @@ jobs:
           echo "$MODEL_CONTENT" > "$TEMP_FILE"
           echo "Build $FINAL_MKDOCS_YML from $BASE_MKDOCS_YML and $MODEL_YML"
           sed "/- model.*#.*[MODEL_PLACEHOLDER].*/{r $TEMP_FILE; d}" "$BASE_MKDOCS_YML" > "$FINAL_MKDOCS_YML"
-          sed "/- model.*#.*[MODEL_PLACEHOLDER].*/{\
-              r $TEMP_FILE\
-              d\
-          }" "$BASE_MKDOCS_YML" > "$FINAL_MKDOCS_YML"
           rm "$TEMP_FILE"
+          echo "====================="
+          echo "Start mike deploy"
+          echo "====================="
           mike deploy --update-aliase --config-file "$FINAL_MKDOCS_YML" --branch gh-pages --push v3.0.1-draft
         # Once 3.0.1 released, use the following command to deploy 3.0.1 as latest version
         # mike deploy --update-aliase --config-file "$FINAL_MKDOCS_YML" --branch gh-pages --push v3.0.1 latest
