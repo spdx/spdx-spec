@@ -31,7 +31,7 @@ POSIX.1-2017 *The Open Group Base Specifications Issue 7*, 2018 edition,
 IEEE/Open Group,
 [https://pubs.opengroup.org/onlinepubs/9699919799/](https://pubs.opengroup.org/onlinepubs/9699919799/)
 
-*purl (package URL)*,
+*Package URL specification*,
 [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
 
 *Resource Description Framework (RDF)*, 2014-02-25, W3C,
@@ -97,7 +97,7 @@ The following documents are referred to in the text.
   [https://www.ntia.gov/federal-register-notice/notice-071918-meeting-multistakeholder-process-promoting-software-component](https://www.ntia.gov/federal-register-notice/notice-071918-meeting-multistakeholder-process-promoting-software-component)
 1. NTIA Software Bill Of Materials web page,
   [https://ntia.gov/sbom/](https://ntia.gov/sbom/)
-1. Open Source Initiative (OSI);
+1. Open Source Initiative (OSI) Approved Licenses;
   [https://opensource.org/licenses](https://opensource.org/licenses)
 1. Software Package Data Exchange (SPDX®) Specification Version 1.0 and 1.1,
   1.2, 2.0, 2.1, 2.2 and 2.3; SPDX.dev,
