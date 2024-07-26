@@ -29,9 +29,7 @@ jobs:
         run: pip install -r spec-parser/requirements.txt
       - name: Build model files
         run: python3 spec-parser/main.py spdx-3-model/model spdx-spec/docs/model
-      - name: Disable time-consuming PDF build in this PR validation workflow
-        run: sed -i '/pdf-export:/,/combined:/ d' spdx-spec/mkdocs.yml  # Remove 2 lines in config
-      - name: Build docs to validate
+      - name: Build the site to validate
         working-directory: spdx-spec
         run: |
           MODEL_YML="docs/model/mkdocs-files.yml"
@@ -47,4 +45,5 @@ jobs:
           echo "====================="
           echo "Start mkdocs build"
           echo "====================="
-          mkdocs build --config-file "$FINAL_MKDOCS_YML" --verbose --clean
+          ENABLE_PDF_EXPORT=0 mkdocs build --clean --config-file "$FINAL_MKDOCS_YML" --verbose
+        # Build without the time-consuming PDF export
