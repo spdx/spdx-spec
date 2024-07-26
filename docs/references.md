@@ -39,23 +39,23 @@ IEEE/Open Group,
 
 RFC-1321, *The MD5 Message-Digest Algorithm*,
 The Internet Society Network Working Group,
-[https://tools.ietf.org/html/rfc1321](https://tools.ietf.org/html/rfc1321)
+[https://www.rfc-editor.org/info/rfc1321](https://www.rfc-editor.org/info/rfc1321)
 
 RFC-3174, *US Secure Hash Algorithm 1 (SHA1)*,
 The Internet Society Network Working Group,
-[https://tools.ietf.org/html/rfc3174](https://tools.ietf.org/html/rfc3174)
+[https://www.rfc-editor.org/info/rfc3174](https://www.rfc-editor.org/info/rfc3174)
 
 RFC-3986, *Uniform Resource Identifier (URI): Generic Syntax*,
 The Internet Society Network Working Group,
-[https://tools.ietf.org/html/rfc3986](https://tools.ietf.org/html/rfc3986)
+[https://www.rfc-editor.org/info/rfc3986](https://www.rfc-editor.org/info/rfc3986)
 
 RFC-5234, *Augmented BNF for Syntax Specifications: ABNF*,
 The Internet Society Network Working Group,
-[https://tools.ietf.org/html/rfc5234](https://tools.ietf.org/html/rfc5234)
+[https://www.rfc-editor.org/info/rfc5234](https://www.rfc-editor.org/info/rfc5234)
 
 RFC-6234, *US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)*,
 The Internet Society Network Working Group,
-[https://tools.ietf.org/html/rfc6234](https://tools.ietf.org/html/rfc6234)
+[https://www.rfc-editor.org/info/rfc6234](https://www.rfc-editor.org/info/rfc6234)
 
 *SoftWare Heritage persistent IDentifiers (SWHIDs)*,
 [https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
