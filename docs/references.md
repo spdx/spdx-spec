@@ -13,7 +13,7 @@ edition of the referenced document (including any amendments) applies.
 *Bower API*,
 [https://bower.io/docs/api/](https://bower.io/docs/api/)
 
-*Common Platform Enumeration (CPE) – Specification*,
+*Common Platform Enumeration (CPE) – Specification 2.2*,
 The MITRE Corporation,
 [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
 
@@ -37,23 +37,23 @@ IEEE/Open Group,
 *Resource Description Framework (RDF)*, 2014-02-25, W3C,
 [http://www.w3.org/standards/techs/rdf](http://www.w3.org/standards/techs/rdf)
 
-RFC-1321, *The MD5 Message-Digest Algorithm*,
+RFC 1321, *The MD5 Message-Digest Algorithm*,
 The Internet Society Network Working Group,
 [https://www.rfc-editor.org/info/rfc1321](https://www.rfc-editor.org/info/rfc1321)
 
-RFC-3174, *US Secure Hash Algorithm 1 (SHA1)*,
+RFC 3174, *US Secure Hash Algorithm 1 (SHA1)*,
 The Internet Society Network Working Group,
 [https://www.rfc-editor.org/info/rfc3174](https://www.rfc-editor.org/info/rfc3174)
 
-RFC-3986, *Uniform Resource Identifier (URI): Generic Syntax*,
+RFC 3986, *Uniform Resource Identifier (URI): Generic Syntax*,
 The Internet Society Network Working Group,
 [https://www.rfc-editor.org/info/rfc3986](https://www.rfc-editor.org/info/rfc3986)
 
-RFC-5234, *Augmented BNF for Syntax Specifications: ABNF*,
+RFC 5234, *Augmented BNF for Syntax Specifications: ABNF*,
 The Internet Society Network Working Group,
 [https://www.rfc-editor.org/info/rfc5234](https://www.rfc-editor.org/info/rfc5234)
 
-RFC-6234, *US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)*,
+RFC 6234, *US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)*,
 The Internet Society Network Working Group,
 [https://www.rfc-editor.org/info/rfc6234](https://www.rfc-editor.org/info/rfc6234)
 
@@ -66,7 +66,7 @@ The Internet Society Network Working Group,
 *SPDX License List*, Linux Foundation,
 [https://spdx.org/licenses/](https://spdx.org/licenses/)
 
-*SPDX License Exceptions list*, Linux Foundation,
+*SPDX License Exceptions*, Linux Foundation,
 [https://spdx.org/licenses/exceptions-index.html](https://spdx.org/licenses/exceptions-index.html)
 
 ## 2.2 Non-normative References <a name="2.2"></a>
