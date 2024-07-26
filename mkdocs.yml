@@ -14,6 +14,8 @@ plugins:
     canonical_version: latest  # tell search engines to prefer the latest version
 - pdf-export:
     combined: true
+    media_type: print
+    enabled_if_env: ENABLE_PDF_EXPORT  # only export PDF if this is set to 1
 extra_css:
 - css/style.css
 markdown_extensions:
@@ -22,8 +24,8 @@ markdown_extensions:
 strict: true
 validation:
   nav:
-    omitted_files: warn
-    not_found: warn
+    omitted_files: info  # allow during development where there are moving parts
+    not_found: info      # allow during development where there are moving parts
     absolute_links: warn
   links:
     not_found: warn
