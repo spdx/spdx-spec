@@ -11,7 +11,7 @@ edition of the referenced document (including any amendments) applies.
 [https://maven.apache.org/](https://maven.apache.org/)
 
 *Bower API*,
-[https://bower.io/docs/api/](https://bower.io/docs/api/)
+[https://bower.io/docs/api/#install](https://bower.io/docs/api/#install)
 
 *Common Platform Enumeration (CPE) – Specification 2.2*,
 The MITRE Corporation,
@@ -25,7 +25,7 @@ NIST,
 [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
 
 *NuGet documentation*, Microsoft,
-[https://learn.microsoft.com/en-us/nuget/](https://learn.microsoft.com/en-us/nuget/)
+[https://docs.nuget.org/](https://docs.nuget.org/)
 
 POSIX.1-2017 *The Open Group Base Specifications Issue 7*, 2018 edition,
 IEEE/Open Group,
