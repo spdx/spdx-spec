@@ -39,7 +39,7 @@ The Core and Software Profiles are mandatory. All others are optional.
 
 ## 5.3 Core Profile compliance point <a name="5.3"></a>
 
-The Core profile includes the definitions of classes properties and
+The Core Profile includes the definitions of classes properties and
 vocabularies usable by all SPDX profiles when producing or consuming SPDX
 content. Although the classes, properties and vocabularies are somewhat
 extensive, the required fields are rather minimal to allow maximum flexibility
@@ -57,17 +57,17 @@ bills of materials information produced by tools supporting SPDX.
 
 ## 5.4 Software Profile compliance point <a name="5.4"></a>
 
-The Software profile includes the definitions of classes, properties and
+The Software Profile includes the definitions of classes, properties and
 vocabularies for refering to and conveying information about software and is
 usable by all SPDX profiles when producing or consuming SPDX content.
 
-Software that conforms to the SPDX specification at the Software profile
+Software that conforms to the SPDX specification at the Software Profile
 compliance point shall be able to import and export serialized documents that
 conform with one of the SPDX serialization formats defined SPDX serialization
 formats.
 
-Conformance to the security profile compliance point does not entail support
-for the Licencing, Data Set, AI, Build, Lite, or Extension profiles of the
+Conformance to the Software Profile compliance point does not entail support
+for the Licencing, Dataset, AI, Build, Lite, or Extension profiles of the
 SPDX.
 
 This compliance point, in combination with the Core Profile compliance point,
@@ -76,7 +76,7 @@ of materials information produced by tools supporting SPDX.
 
 ## 5.5 Security Profile compliance point <a name="5.5"></a>
 
-The security profile captures security-related information when producing or
+The Security Profile captures security-related information when producing or
 consuming SPDX content.
 
 Software that conforms to the SPDX specification at the security profile
@@ -88,8 +88,8 @@ vulnerabilities that may exist, the severity of those vulnerabilities, and a
 mechanism to express how a vulnerability may affect a specific software element
 including if a fix is available.
 
-Conformance to the security profile compliance point does not entail support
-for the Licencing, Data Set, AI, Build, Lite, or Extension profiles of the
+Conformance to the Security Profile compliance point does not entail support
+for the Licencing, Dataset, AI, Build, Lite, or Extension profiles of the
 SPDX.
 
 This compliance point facilitates interchange of the security information
@@ -97,16 +97,17 @@ produced by tools supporting SPDX.
 
 ## 5.6 Licencing Profile compliance point <a name="5.6"></a>
 
-The licensing profile includes capturing details relevant to software licensing
+The Licensing Profile includes capturing details relevant to software licensing
 and intellectual property information when producing or consuming SPDX content.
 Specifically, software that conforms to the SPDX specification at the Licencing
 profile compliance point shall be able to import and export serialized
 documents that conform with one of the SPDX serialization formats defined SPDX
 serialization formats, including the classes and fields that comprise the SPDX
-License Expression syntax and that relate to the SPDX License List.
+License Expression syntax and that relate to the
+[SPDX License List](https://spdx.org/licenses/).
 
-Conformance to the Licencing profile compliance point does not entail support
-for the Software, Security, Data Set, AI, Build, Lite, or Extension profiles of
+Conformance to the Licencing Profile compliance point does not entail support
+for the Software, Security, Dataset, AI, Build, Lite, or Extension profiles of
 the SPDX.
 
 This compliance point facilitates interchange of the licencing documents
@@ -114,36 +115,36 @@ expressing which licenses and copyright notices are determined by persons or
 automated tooling to apply to distributions of software that are produced by
 tools supporting SPDX.
 
-## 5.7 Data Set Profile compliance point <a name="5.7"></a>
+## 5.7 Dataset Profile compliance point <a name="5.7"></a>
 
-The data set profile captures the relevant information about the datasets used
+The Dataset Profile captures the relevant information about the datasets used
 in an AI system or other applications when producing or consuming SPDX content.
 
-Software that conforms to the SPDX specification at the data set profile
+Software that conforms to the SPDX specification at the Dataset Profile
 compliance point shall be able to import and export serialized documents that
 conform with one of the SPDX serialization formats defined SPDX serialization
 formats, including details such as dataset names, versions, sources, associated
 metadata, licensing information, and any other relevant attributes.
-The data set profile can covey a description or summary of a dataset, including
+The Dataset Profile can covey a description or summary of a dataset, including
 metadata, characteristics, and statistical information about the data.
-The data set profile can convey insights into the structure, format, content,
+The Dataset Profile can convey insights into the structure, format, content,
 and properties of a dataset, helping users understand and analyze the data more
 effectively.
 
-Conformance to the data set profile compliance point does not entail support
+Conformance to the Dataset Profile compliance point does not entail support
 for the Software, Licencing, Security, AI, Build, Lite, or Extension profiles
 of the SPDX.
 
 This compliance point facilitates interchange of the information about
-data sets produced by tools supporting SPDX.
+datasets produced by tools supporting SPDX.
 
 ## 5.8 AI Profile compliance point <a name="5.8"></a>
 
-The AI profile captures an inventory list of software components and
+The AI Profile captures an inventory list of software components and
 dependencies associated with an AI system when producing or consuming SPDX
 content.
 
-Software that conforms to the SPDX specification at the AI profile compliance
+Software that conforms to the SPDX specification at the AI Profile compliance
 point shall be able to import and export serialized documents that conform with
 one of the SPDX serialization formats defined SPDX serialization formats,
 including the information about software components and dependencies associated
@@ -153,8 +154,8 @@ components used to build or deploy the AI system, along with relevant
 information about their versions, licenses, and useful security references
 including ethical and security information.
 
-Conformance to the ai profile compliance point does not entail support for the
-Software, Licencing, Security, Data Set, Build, Lite, or Extension profiles of
+Conformance to the AI Profile compliance point does not entail support for the
+Software, Licencing, Security, Dataset, Build, Lite, or Extension profiles of
 the SPDX.
 
 This compliance point facilitates interchange of the AI model related
@@ -162,10 +163,10 @@ information produced by tools supporting SPDX.
 
 ## 5.9 Build Profile compliance point <a name="5.9"></a>
 
-The build profile captures build-related information when producing or
+The Build Profile captures build-related information when producing or
 consuming SPDX content.
 
-Software that conforms to the SPDX specification at the Security profile
+Software that conforms to the SPDX specification at the Security Profile
 compliance point shall be able to import and export serialized documents that
 conform with one of the SPDX serialization formats defined SPDX serialization
 formats, including associated definitions to help express how software is
@@ -173,8 +174,8 @@ generated and transformed. This includes encoding the inputs, outputs,
 procedures/instructions, environments and actors from the build process along
 with the associated evidence.
 
-Conformance to the Build profile compliance point does not entail support for
-the Software, Licencing, Security, Data Set, AI, Lite, or Extension profiles of
+Conformance to the Build Profile compliance point does not entail support for
+the Software, Licencing, Security, Dataset, AI, Lite, or Extension profiles of
 the SPDX.
 
 This compliance point facilitates interchange of the build information produced
@@ -182,18 +183,18 @@ by tools supporting SPDX.
 
 ## 5.10 Lite Profile compliance point <a name="5.10"></a>
 
-The lite profile captures the minimum set of information required for license
+The Lite Profile captures the minimum set of information required for license
 compliance in the software supply chain for producing or consuming SPDX
 content.
 
-Software that conforms to the SPDX specification at the Security profile
+Software that conforms to the SPDX specification at the Security Profile
 compliance point shall be able to import and export serialized documents that
 conform with one of the SPDX serialization formats defined SPDX serialization
 formats, including creation of the SBOM, package lists with licensing and other
 related items, and their relationships.
 
-Conformance to the Lite profile compliance point does not entail support for
-the Software, Licencing, Security, Data Set, AI, Build, or Extension profiles
+Conformance to the Lite Profile compliance point does not entail support for
+the Software, Licencing, Security, Dataset, AI, Build, or Extension profiles
 of the SPDX.
 
 This compliance point facilitates interchange of minimal licencing information
@@ -201,10 +202,10 @@ when produced by tools supporting SPDX.
 
 ## 5.11 Extension Profile compliance point <a name="5.11"></a>
 
-The Extension profile captures extended tailored information when producing or
+The Extension Profile captures extended tailored information when producing or
 consuming non-standard SPDX content in three ways:
 
-- Support profile-based extended characterization of Elements. Enables
+- Support Profile-based extended characterization of Elements. Enables
   specification and expression of Element characterization extensions within
   any profile and namespace of SPDX without requiring changes to other profiles
   or namespaces and without requiring local subclassing of remote classes
@@ -227,14 +228,14 @@ consuming non-standard SPDX content in three ways:
   definition of gap solution that can be used as submission for revision to the
   SPDX standard.
 
-Software that conforms to the SPDX specification at the extension profile
+Software that conforms to the SPDX specification at the Extension Profile
 compliance point shall be able to import and export serialized documents that
 conform with one of the SPDX serialization formats defined SPDX serialization
 formats, including the abstract Extension class serving as the base for all
-defined extension subclasses.
+defined Extension subclasses.
 
-Conformance to the extension profile compliance point does not entail support
-for the Licencing, Security, Data Set, AI, Build, or profiles of the SPDX but
+Conformance to the Extension Profile compliance point does not entail support
+for the Licencing, Security, Dataset, AI, Build, or profiles of the SPDX but
 is expected to be used in combination with the other profiles to extend them.
 
 This compliance point facilitates interchange of extended information that goes
@@ -255,13 +256,17 @@ following constraints:
 - Multiple serialization formats may be used to represent the information being
   exchanged. Current supported formats include:
 
-  - **YAML 1.2** see: [yaml.org/spec/1.2/spec/](https://yaml.org/spec/1.2/spec/)
+  - **YAML 1.2**
+    see:
+    [YAML Ain’t Markup Language (YAML™) version 1.2](https://yaml.org/spec/1.2/)
   - **JavaScript Object Notation** (JSON)
-    see: [ECMA-404](https://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
+    see:
+    [ECMA-404](https://ecma-international.org/publications-and-standards/standards/ecma-404/)
     - The JSON Schema for SPDX can be found in the
-      [SPDX Spec Git Repository Schema directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)
-  - **Resource Description Framework** (RDF also referred to as RDF/XML)
-    see: [www.w3.org/TR/rdf-syntax-grammar/](https://www.w3.org/TR/rdf-syntax-grammar/)
+      [SPDX specification Git repository schemas directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)
+  - **Resource Description Framework** (RDF, also referred to as RDF/XML)
+    see:
+    [RDF 1.1 XML Syntax](https://www.w3.org/TR/rdf-syntax-grammar/)
   - **tag:value** flat text file as described in this specification
   - **.xls** spreadsheets
 
@@ -269,7 +274,8 @@ following constraints:
   with a plan to complete the specification in the next release:
 
   - **Extensible Markup Language** (XML)
-    see: [www.w3.org/TR/2008/REC-xml-20081126/](https://www.w3.org/TR/2008/REC-xml-20081126/)
+    see:
+    [Extensible Markup Language (XML) 1.0 (Fifth Edition)](https://www.w3.org/TR/2008/REC-xml-20081126/)
 
 - Interoperability between all the supported file formats shall be preserved.
   SPDX defines how to validate a document in each supported format, and how to
