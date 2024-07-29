@@ -14,7 +14,7 @@ but little infrastructure exists to facilitate collaboration on the analysis or
 share the results of these analysis activities. As a result, many groups are
 performing the same work leading to duplicated efforts and redundant
 information. With this document, the SPDX workgroup, a combined effort of the
-Linux Foundation SPDX group and the OMG/CISQ Tool to Tool effort, has created a
+Linux Foundation SPDX group and the OMG/CISQ Tool-to-Tool effort, has created a
 data exchange format so that information about software packages and related
 content may be collected and shared in a common format with the goal of saving
 time and improving data accuracy.
@@ -41,6 +41,6 @@ the SPDX 3.0 specification. For those not following the inner workings,
 debates, and discussion of the combined 3T-SBOM and SPDX 3.0 working group for
 the last 3 years there has been a dramatic change in the SPDX model as it goes
 from SPDX 2.3 to SPDX 3.0, shifting the SPDX name from Software Package Data
-eXchange to System Package Data eXchange and expanding the scope of items it
+Exchange to System Package Data Exchange and expanding the scope of items it
 can now convey in a bill of materials from software, security, and licensing to
 many additional aspects like data sets, AI models, and build information.
