@@ -38,7 +38,7 @@ Milford, MA 01757
 USA  
 Tel: +1-781-444-0404  
 Fax: +1-781-444-0320  
-Email: <pubs@omg.org>
+Email: [pubs@omg.org](mailto:pubs@omg.org)
 
 Certain OMG specifications are also available as ISO standards.
 Please consult <https://www.iso.org>
