@@ -12,7 +12,7 @@ requirements in safety critical sectors like automotive and healthcare as early
 as 2013/2014 [2, 3] with many talks and papers written for and against them and
 discussions. With the launch of the NTIA Software Component Transparency
 Initiative there was a major increase in the energy and coordination of those
-proposing Software Bill of Materials (SBOM) as a key element of communication
+proposing software bill of materials (SBOM) as a key element of communication
 across the different participants in software supply chains.
 These meetings, which started with a public meeting in Washington DC consisted
 primarily of vendors of software and customers of those vendors.
@@ -129,17 +129,17 @@ discussion of the combined 3T-SBOM and SPDX 3.0 working group for the last 3
 years there will be a dramatic change in the SPDX model as it goes from SPDX
 2.3 to SPDX 3.0, as shown by looking at Figure 16’s left-side (SPDX 2.3 model)
 compared to its right-side (SPDX 3.0), shifting the SPDX name from Software
-Package Data eXchange to System Package Data eXchange and the scope of items it
+Package Data Exchange to System Package Data Exchange and the scope of items it
 can convey in a bill of materials.
 
 ![Figure 16 – SPDX 2.3 Model compared to the SPDX 3.0 Model](images/spdx23-spdx30-comparison.png "Figure 16 – SPDX 2.3 Model compared to the SPDX 3.0 Model")
 **Figure 16 – SPDX 2.3 Model compared to the SPDX 3.0 Model**
 
 The SPDX 3.0 model is available at:
-<https://github.com/spdx/spdx-3-model>
+[https://github.com/spdx/spdx-3-model](https://github.com/spdx/spdx-3-model)
 
 The SPDX 3.0 ontology is available at:
-<https://github.com/spdx/spdx-spec/tree/development/v3.0/ontology>
+[https://github.com/spdx/spdx-spec/tree/development/v3.0/ontology](https://github.com/spdx/spdx-spec/tree/development/v3.0/ontology)
 
 The SPDX 3.0 specification is available as web pages at:
-<https://spdx.github.io/spdx-spec/v3.0/>
+[https://spdx.github.io/spdx-spec/v3.0/](https://spdx.github.io/spdx-spec/v3.0/)
