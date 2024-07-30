@@ -56,6 +56,12 @@ License identifiers (including license exception identifiers) used in SPDX docum
 
 However, please be aware that it is often important to match with the case of the canonical identifier on the [SPDX License List](https://spdx.org/licenses). This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.
 
+For license identifiers, only the variable part (after `LicenseRef-`) is case insensitive.
+
+This means, for example, that `LicenseRef-Name` and `LicenseRef-name` should be treated as the same identifier and considered to refer to the same license, while `licenseref-name` is not a valid license identifier.
+
+The same applies to `AdditionRef-`.
+
 ## D.3 Simple license expressions <a name="D.3"></a>
 
 A simple `<license-expression>` is composed one of the following:
