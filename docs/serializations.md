@@ -48,11 +48,11 @@ model.
 A Relationship of type serializedInArtifact links an SpdxDocument to one or
 more serialized forms of itself.
 
-When serializing an SpdxDocument, properties of the logical element that can be
-represented using native mechanisms of the specific serialization format
-(e.g., @context prefixes in JSON-LD in place of namespaceMap) shall use these
-mechanisms. Remaining properties shall be serialized within the “XCollection”
-element.
+When serializing a physical SpdxDocument, any property of the logical element
+that can be natively represented within the chosen serialization format
+(e.g., @context prefixes in JSON-LD instead of the namespaceMap) shall utilize
+these native mechanisms. All remaining properties shall be serialized within
+the SpdxDocument element itself.
 
 A serialization shall contain at most one SpdxDocument.
 
