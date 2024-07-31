@@ -183,7 +183,7 @@ To generate a complete MkDocs documentation, combine the existing `mkdocs.yml`
 with the generated `mkdocs-files.yml` from the previous step.
 
 ```shell
-sed -e "\|- model.*#.*|{
+sed -e "\|__MODEL_PLACEHOLDER__|{
     r docs/model/mkdocs-files.yml
     a\\
 
@@ -252,8 +252,8 @@ To include a page in the navigation bar, list its filename under the `nav:`
 section. The order of filenames in this section determines the order of the
 page in the navigation bar.
 
-Please do not modify the line starting with `- model`. This line is essential
-for the script that combines model files to function correctly.
+Please avoid modifying the line beginning with `- model`. This line is
+essential for the script that combines model files to function correctly.
 
 You might need to
 [regenerate the full configuration file](#generating-mkdocs-configuration-file)
