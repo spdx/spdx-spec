@@ -255,6 +255,10 @@ page in the navigation bar.
 Please do not modify the line starting with `- model`. This line is essential
 for the script that combines model files to function correctly.
 
+You might need to
+[regenerate the full configuration file](#generating-mkdocs-configuration-file)
+after making changes to `mkdocs.yml`.
+
 ## Specification versions on spdx.github.io/spdx-spec/
 
 The SPDX specifications on <https://spdx.github.io/spdx-spec/> are built
