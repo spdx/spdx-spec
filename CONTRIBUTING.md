@@ -3,7 +3,7 @@
 The SPDX specification is maintained by the SPDX [legal][spdx-legal] and
 [tech][spdx-tech] teams.
 Design and planning is primarily done via the team [mailing][spdx-legal-list]
-[lists][spdx-tech-list] and meetings.
+[lists][spdx-tech-list] and [meetings][meetings].
 
 ## Contribution License Agreement
 
@@ -77,6 +77,7 @@ If your issue or pull request is independent of a release, you can use the
 
 [cla]: https://github.com/spdx/governance/blob/main/0._SPDX_Contributor_License_Agreement.md
 [issues]: https://github.com/spdx/spdx-spec/issues/
+[meetings]: https://github.com/spdx/meetings/
 [pull-requests]: https://github.com/spdx/spdx-spec/pulls/
 [spdx-legal]: https://wiki.spdx.org/view/Legal_Team
 [spdx-legal-list]: https://lists.spdx.org/mailman/listinfo/spdx-legal
