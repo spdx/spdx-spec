@@ -2,20 +2,35 @@ site_name: SPDX v3 Specification
 site_description: The System Package Data Exchange (SPDX) Specification Version 3.0
 site_author: Linux Foundation and its Contributors
 site_url: https://spdx.github.io/spdx-spec/v3.0/
-#copyright: DRAFT version generated from d25ae89 (model) by 85e8d65 (parser)
+repo_url: https://github.com/spdx/spdx-spec/
+edit_uri: ""  # set to an empty string to disable edit links; to enable, set to blob/development/v3.0.1/docs/
+copyright: SPDX v3.0 Copyright © 2010-2024 Linux Foundation and its Contributors.
 use_directory_urls: true
 theme: readthedocs
 plugins:
 - search
 - mike:
-    canonical_version: latest
+    canonical_version: latest  # tell search engines to prefer the latest version
 - pdf-export:
     combined: true
+    media_type: print
+    enabled_if_env: ENABLE_PDF_EXPORT  # only export PDF if this is set to 1
 extra_css:
 - css/style.css
 markdown_extensions:
 - codehilite:
     guess_lang: false
+strict: true
+validation:
+  nav:
+    omitted_files: info  # allow during development where there are moving parts
+    not_found: info      # allow during development where there are moving parts
+    absolute_links: warn
+  links:
+    not_found: warn
+    anchors: warn
+    absolute_links: warn
+    unrecognized_links: warn
 nav:
 - 'Copyright': index.md
 - 'Introduction': introduction.md

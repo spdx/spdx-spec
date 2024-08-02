@@ -11,17 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     container: python:3
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
           ref: development/v3.0
           path: spdx-spec
-          fetch-depth: 0 # Because we will be pushing the gh-pages branch
-      - uses: actions/checkout@v4
+          fetch-depth: 0  # Because we will be pushing the gh-pages branch
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
           repository: spdx/spec-parser
           ref: main
           path: spec-parser
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
           repository: spdx/spdx-3-model
           ref: v3.0  # Use the v3.0 tag release
@@ -42,12 +42,12 @@ jobs:
             --context-url spdx-spec/docs/model/spdx-context.jsonld https://spdx.org/rdf/3.0.0/spdx-context.jsonld \
             jsonschema \
             --output spdx-spec/docs/model/schema.json
-      - name: Set git identity
+      - name: Set Git identity
+        working-directory: spdx-spec
         run: git config user.name ci-bot; git config user.email ci-bot@spdx.dev
-        working-directory: spdx-spec
       - name: Sync gh-pages
+        working-directory: spdx-spec
         run: git checkout gh-pages && git pull && git checkout development/v3.0
+      - name: Deploy the v3.0 site and set aliases (v3.0.0, v3.0-RC1, v3.0-RC2)
         working-directory: spdx-spec
-      - name: Build docs
-        run: mike deploy -u -b gh-pages -p v3.0 latest
-        working-directory: spdx-spec
+        run: mike deploy --update-aliase --branch gh-pages --push v3.0 v3.0.0 v3.0-RC1 v3.0-RC2

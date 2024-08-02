@@ -6,10 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     container: python:3
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout spdx-spec
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
       with:
         fetch-depth: 1
     - name: Install pre-requisites
       run: pip install -r requirements.txt
-    - name: Build
-      run: mkdocs build -v --clean
+    - name: Build the site to validate (no PDF export)
+      run: ENABLE_PDF_EXPORT=0 mkdocs build --clean --verbose
+      # To validate the PR from within spdx-spec repo, build using mkdocs.yml
+      # (no model files) and without the time-consuming PDF export
