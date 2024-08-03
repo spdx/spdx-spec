@@ -48,7 +48,7 @@ jobs:
       - name: Sync gh-pages
         working-directory: spdx-spec
         run: git checkout gh-pages && git pull && git checkout development/v3.0
-      - name: Deploy the v3.0 site and set aliases (v3.0-RC1, v3.0-RC2, v3.0.0)
+      - name: Deploy the site
         working-directory: spdx-spec
         run: |
           MODEL_YML="docs/model/mkdocs-files.yml"
@@ -62,6 +62,11 @@ jobs:
               d
           }" "$BASE_MKDOCS_YML" > "$FULL_MKDOCS_YML"
           echo "====================="
+          echo "$FULL_MKDOCS_YML"
+          echo "---------------------"
+          cat "$FULL_MKDOCS_YML"
+          echo "[End of File]"
+          echo "====================="
           echo "Deploy using $FULL_MKDOCS_YML"
           echo "====================="
-          mike deploy --update-aliase --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0 v3.0-RC1 v3.0-RC2 v3.0.0
+          mike deploy --update-aliase --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0.0
