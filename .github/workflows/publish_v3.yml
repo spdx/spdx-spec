@@ -14,7 +14,7 @@ jobs:
       - name: Prepare - Checkout spdx-spec
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
-          ref: development/v3.0.1
+          ref: test-publish-301-on-bact
           path: spdx-spec
           fetch-depth: 0  # Because we will be pushing the gh-pages branch
       - name: Prepare - Checkout spdx-parser
@@ -51,10 +51,10 @@ jobs:
         # https://github.com/spdx/spdx-spec/issues/979
       - name: Deploy - Set Git identity
         working-directory: spdx-spec
-        run: git config user.name ci-bot; git config user.email ci-bot@spdx.dev
+        run: git config user.name bact; git config user.email arthit@gmail.com
       - name: Deploy - Sync gh-pages
         working-directory: spdx-spec
-        run: git checkout gh-pages && git pull && git checkout development/v3.0.1
+        run: git checkout gh-pages && git pull && git checkout test-publish-301-on-bact
       - name: Deploy - Deploy the site, set aliases, and set default version
         working-directory: spdx-spec
         run: |
@@ -69,10 +69,19 @@ jobs:
               d
           }" "$BASE_MKDOCS_YML" > "$FULL_MKDOCS_YML"
           echo "====================="
+          echo "$FULL_MKDOCS_YML"
+          echo "---------------------"
+          cat "$FULL_MKDOCS_YML"
+          echo "[End of File]"
+          echo "====================="
           echo "Deploy using $FULL_MKDOCS_YML"
           echo "====================="
-          mike deploy --update-aliase --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0.1-draft
-          mike set-default --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0.1-draft
-        # Once 3.0.1 released, use the following command to deploy 3.0.1 as latest version
-        # mike deploy --update-aliase --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0.1 v3.0.1-draft latest
+          mike delete --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push --allow-empty v3.0
+          mike deploy --update-aliase --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0.1 v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2 latest
+          mike set-default --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0.1
+        # Once 3.0.1 released, use the following commands to deploy v3.0.1,
+        # and set aliases (v3.0, v3.0.1-draft, v3-draft, v3.0-RC1, v3.0-RC2, latest) to point to v3.0.1
+        # and set v3.0.1 as the default version:
+        #
+        # mike deploy --update-aliase --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0.1 v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2 latest
         # mike set-default --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0.1
