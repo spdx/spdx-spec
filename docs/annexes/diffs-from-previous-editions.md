@@ -222,7 +222,7 @@ Relationship migration is being worked out in the relationships spreadsheet.  On
 | COPY_OF | copiedTo | | |
 | DATA_FILE_OF | hasDataFile | | |
 | DEPENDENCY_MANIFEST_OF | hasDependencyManifest | | |
-| *DEPENDENCY_OF* | [removed] | | |
+| DEPENDENCY_OF | [removed] | | |
 | DEPENDS_ON | dependsOn | | various LifecycleScopeType |
 | DESCENDANT_OF | decendentOf | | |
 | *DESCRIBED_BY* | [removed] | | |
