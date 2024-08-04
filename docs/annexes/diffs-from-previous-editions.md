@@ -222,10 +222,10 @@ Relationship migration is being worked out in the relationships spreadsheet.  On
 | COPY_OF | copiedTo | | |
 | DATA_FILE_OF | hasDataFile | | |
 | DEPENDENCY_MANIFEST_OF | hasDependencyManifest | | |
-| ~~DEPENDENCY_OF~~ | [removed] | | |
+| DEPENDENCY_OF | dependsOn | Y | |
 | DEPENDS_ON | dependsOn | | various LifecycleScopeType |
 | DESCENDANT_OF | decendentOf | | |
-| ~~DESCRIBED_BY~~ | [removed] | | |
+| DESCRIBED_BY | describes | Y | |
 | DESCRIBES | describes | | |
 | DEV_DEPENDENCY_OF | dependsOn | | development |
 | DEV_TOOL_OF | usesTool | | development |
@@ -245,8 +245,9 @@ Relationship migration is being worked out in the relationships spreadsheet.  On
 | OPTIONAL_DEPENDENCY_OF | hasOptionalDependency | | lifecycle scope |
 | OTHER | other | | |
 | PACKAGE_OF | packagedBy | | |
-| ~~PATCH_FOR~~ | [removed] | | |
-| ~~PREREQUISITE_FOR~~ | [removed] | | |
+| PATCH_FOR | patchedBy | Y | |
+| PATCH_APPLIED | patchedBy | | |
+| PREREQUISITE_FOR | hasPrerequisite | Y | |
 | PROVIDED_DEPENDENCY_OF | hasProvidedDependency | | lifecycle scope |
 | REQUIREMENT_DESCRIPTION_FOR | hasRequirement | | lifecycle scope |
 | RUNTIME_DEPENDENCY_OF | dependsOn | | runtime |
