@@ -225,7 +225,7 @@ Relationship migration is being worked out in the relationships spreadsheet.  On
 | DEPENDENCY_OF | [removed] | | |
 | DEPENDS_ON | dependsOn | | various LifecycleScopeType |
 | DESCENDANT_OF | decendentOf | | |
-| *DESCRIBED_BY* | [removed] | | |
+| DESCRIBED_BY | [removed] | | |
 | DESCRIBES | describes | | |
 | DEV_DEPENDENCY_OF | dependsOn | | development |
 | DEV_TOOL_OF | usesTool | | development |
@@ -245,8 +245,8 @@ Relationship migration is being worked out in the relationships spreadsheet.  On
 | OPTIONAL_DEPENDENCY_OF | hasOptionalDependency | | lifecycle scope |
 | OTHER | other | | |
 | PACKAGE_OF | packagedBy | | |
-| *PATCH_FOR* | [removed] | | |
-| *PREREQUISITE_FOR* | [removed] | | |
+| PATCH_FOR | [removed] | | |
+| PREREQUISITE_FOR | [removed] | | |
 | PROVIDED_DEPENDENCY_OF | hasProvidedDependency | | lifecycle scope |
 | REQUIREMENT_DESCRIPTION_FOR | hasRequirement | | lifecycle scope |
 | RUNTIME_DEPENDENCY_OF | dependsOn | | runtime |
