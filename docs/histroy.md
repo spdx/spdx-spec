@@ -1,6 +1,4 @@
-# Annex F: History, Motivation and Rational
-
-(Informative)
+# Annex F: History, Motivation and Rational (Informative)
 
 The OMG and CISQ involvement in developing this specification had its start due
 to a need that came from the several years of work in the Department of
@@ -135,11 +133,11 @@ can convey in a bill of materials.
 ![Figure 16 – SPDX 2.3 Model compared to the SPDX 3.0 Model](images/spdx23-spdx30-comparison.png "Figure 16 – SPDX 2.3 Model compared to the SPDX 3.0 Model")
 **Figure 16 – SPDX 2.3 Model compared to the SPDX 3.0 Model**
 
-The SPDX 3.0 model is available at:
+The SPDX 3.0.1 model is available at:
 [https://github.com/spdx/spdx-3-model](https://github.com/spdx/spdx-3-model)
 
-The SPDX 3.0 ontology is available at:
-[https://github.com/spdx/spdx-spec/tree/development/v3.0/ontology](https://github.com/spdx/spdx-spec/tree/development/v3.0/ontology)
+The SPDX 3.0.1 ontology is available at:
+[https://github.com/spdx/spdx-spec/tree/development/v3.0/ontology](https://github.com/spdx/spdx-spec/tree/development/v3.0.1/ontology)
 
-The SPDX 3.0 specification is available as web pages at:
-[https://spdx.github.io/spdx-spec/v3.0/](https://spdx.github.io/spdx-spec/v3.0/)
+The SPDX 3.0.1 specification is available as web pages at:
+[https://spdx.github.io/spdx-spec/v3.0/](https://spdx.github.io/spdx-spec/v3.0.1/)
