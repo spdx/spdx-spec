@@ -209,7 +209,7 @@ The completeness property would be constructed based on the following:
 - “to” value is NOASSERTION: noAssertion
 - “to” value is an SPDX element: No value for the completeness - uses the default
 
-Relationship migration is being worked out in the relationships spreadsheet.  Once completed, the following table will reflect the translation for relationship types from SPDX 2.3 to SPDX 3.0:
+The following table reflects the translation for relationship types from SPDX 2.3 to SPDX 3.0:
 
 | SPDX 2.3 Relationship Type | SPDX 3.0 Relationship Type | Swap to and from? | LifecycleScopeType |
 |----------------------------|----------------------------|-------------------|--------------------|
