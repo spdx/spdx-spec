@@ -215,49 +215,49 @@ Relationship migration is being worked out in the relationships spreadsheet.  On
 |----------------------------|----------------------------|-------------------|--------------------|
 | AMENDS | amendedBy | Y | |
 | ANCESTOR_OF | ancestorOf | | |
-| BUILD_DEPENDENCY_OF | dependsOn | | build |
-| BUILD_TOOL_OF | usesTool | | build (all lifecycle scope could be appropriate) |
+| BUILD_DEPENDENCY_OF | dependsOn | Y | build |
+| BUILD_TOOL_OF | usesTool | Y | build |
 | CONTAINED_BY | contains | Y | |
 | CONTAINS | contains | | |
-| COPY_OF | copiedTo | | |
-| DATA_FILE_OF | hasDataFile | | |
-| DEPENDENCY_MANIFEST_OF | hasDependencyManifest | | |
+| COPY_OF | copiedTo | Y | |
+| DATA_FILE_OF | hasDataFile | Y | |
+| DEPENDENCY_MANIFEST_OF | hasDependencyManifest | Y | |
 | DEPENDENCY_OF | dependsOn | Y | |
-| DEPENDS_ON | dependsOn | | various LifecycleScopeType |
+| DEPENDS_ON | dependsOn | | |
 | DESCENDANT_OF | decendentOf | | |
 | DESCRIBED_BY | describes | Y | |
 | DESCRIBES | describes | | |
-| DEV_DEPENDENCY_OF | dependsOn | | development |
-| DEV_TOOL_OF | usesTool | | development |
+| DEV_DEPENDENCY_OF | dependsOn | Y | development |
+| DEV_TOOL_OF | usesTool | Y | development |
 | DISTRIBUTION_ARTIFACT | hasDistributionArtifact | | |
-| DOCUMENTATION_OF | hasDocumentation | | |
-| DYNAMIC_LINK | hasDynamicLink | | build, runtime |
-| EXAMPLE_OF | hasExample | | |
-| EXPANDED_FROM_ARCHIVE | expandsTo | | |
-| FILE_ADDED | hasAddedFile | | |
-| FILE_DELETED | hasDeletedFile | | |
+| DOCUMENTATION_OF | hasDocumentation | Y | |
+| DYNAMIC_LINK | hasDynamicLink | Y | build, runtime |
+| EXAMPLE_OF | hasExample | Y | |
+| EXPANDED_FROM_ARCHIVE | expandsTo | Y | |
+| FILE_ADDED | hasAddedFile | Y | |
+| FILE_DELETED | hasDeletedFile | Y | |
 | FILE_MODIFIED | modifiedBy | | |
 | GENERATED_FROM | generates | Y | |
 | GENERATES | generates | | |
 | HAS_PREREQUISITE | hasPrerequisite | | lifecycle scope |
-| METAFILE_OF | hasMetadata | | |
-| OPTIONAL_COMPONENT_OF | hasOptionalComponent | | |
-| OPTIONAL_DEPENDENCY_OF | hasOptionalDependency | | lifecycle scope |
+| METAFILE_OF | hasMetadata | Y | |
+| OPTIONAL_COMPONENT_OF | hasOptionalComponent | Y | |
+| OPTIONAL_DEPENDENCY_OF | hasOptionalDependency | Y | lifecycle scope |
 | OTHER | other | | |
-| PACKAGE_OF | packagedBy | | |
+| PACKAGE_OF | packagedBy | Y | |
 | PATCH_FOR | patchedBy | Y | |
-| PATCH_APPLIED | patchedBy | | |
+| PATCH_APPLIED | patchedBy | Y | |
 | PREREQUISITE_FOR | hasPrerequisite | Y | |
-| PROVIDED_DEPENDENCY_OF | hasProvidedDependency | | lifecycle scope |
-| REQUIREMENT_DESCRIPTION_FOR | hasRequirement | | lifecycle scope |
-| RUNTIME_DEPENDENCY_OF | dependsOn | | runtime |
-| SPECIFICATION_FOR | hasSpecification | | lifecycle scope |
+| PROVIDED_DEPENDENCY_OF | hasProvidedDependency | Y | lifecycle scope |
+| REQUIREMENT_DESCRIPTION_FOR | hasRequirement | Y | lifecycle scope |
+| RUNTIME_DEPENDENCY_OF | dependsOn | Y | runtime |
+| SPECIFICATION_FOR | hasSpecification | Y | lifecycle scope |
 | STATIC_LINK | hasStaticLink | | lifecycle scope |
-| TEST_CASE_OF | hasTestCase | | |
-| TEST_DEPENDENCY_OF | dependsOn | | test |
-| TEST_OF | hasTest | | lifecycle scope |
-| TEST_TOOL_OF | usesTool | | test |
-| VARIANT_OF | hasVarient | | |
+| TEST_CASE_OF | hasTestCase | Y | |
+| TEST_DEPENDENCY_OF | dependsOn | Y | test |
+| TEST_OF | hasTest | Y | lifecycle scope |
+| TEST_TOOL_OF | usesTool | Y | test |
+| VARIANT_OF | hasVarient | Y | |
 
 ##### Rationale
 
