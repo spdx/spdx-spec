@@ -222,9 +222,9 @@ Relationship migration is being worked out in the relationships spreadsheet.  On
 | COPY_OF | copiedTo | Y | |
 | DATA_FILE_OF | hasDataFile | Y | |
 | DEPENDENCY_MANIFEST_OF | hasDependencyManifest | Y | |
-| DEPENDENCY_OF | dependsOn | Y | |
-| DEPENDS_ON | dependsOn | | |
-| DESCENDANT_OF | decendentOf | | |
+| DEPENDENCY_OF | dependsOn | Y | various lifecycle scope |
+| DEPENDS_ON | dependsOn | | various lifecycle scope |
+| DESCENDANT_OF | descendantOf | | |
 | DESCRIBED_BY | describes | Y | |
 | DESCRIBES | describes | | |
 | DEV_DEPENDENCY_OF | dependsOn | Y | development |
@@ -239,25 +239,25 @@ Relationship migration is being worked out in the relationships spreadsheet.  On
 | FILE_MODIFIED | modifiedBy | | |
 | GENERATED_FROM | generates | Y | |
 | GENERATES | generates | | |
-| HAS_PREREQUISITE | hasPrerequisite | | lifecycle scope |
+| HAS_PREREQUISITE | hasPrerequisite | | various lifecycle scope |
 | METAFILE_OF | hasMetadata | Y | |
 | OPTIONAL_COMPONENT_OF | hasOptionalComponent | Y | |
-| OPTIONAL_DEPENDENCY_OF | hasOptionalDependency | Y | lifecycle scope |
+| OPTIONAL_DEPENDENCY_OF | hasOptionalDependency | Y | various lifecycle scope |
 | OTHER | other | | |
 | PACKAGE_OF | packagedBy | Y | |
 | PATCH_FOR | patchedBy | Y | |
 | PATCH_APPLIED | patchedBy | Y | |
-| PREREQUISITE_FOR | hasPrerequisite | Y | |
-| PROVIDED_DEPENDENCY_OF | hasProvidedDependency | Y | lifecycle scope |
-| REQUIREMENT_DESCRIPTION_FOR | hasRequirement | Y | lifecycle scope |
+| PREREQUISITE_FOR | hasPrerequisite | Y | various lifecycle scope |
+| PROVIDED_DEPENDENCY_OF | hasProvidedDependency | Y | various lifecycle scope |
+| REQUIREMENT_DESCRIPTION_FOR | hasRequirement | Y | various lifecycle scope |
 | RUNTIME_DEPENDENCY_OF | dependsOn | Y | runtime |
-| SPECIFICATION_FOR | hasSpecification | Y | lifecycle scope |
-| STATIC_LINK | hasStaticLink | | lifecycle scope |
+| SPECIFICATION_FOR | hasSpecification | Y | various lifecycle scope |
+| STATIC_LINK | hasStaticLink | | various lifecycle scope |
 | TEST_CASE_OF | hasTestCase | Y | |
 | TEST_DEPENDENCY_OF | dependsOn | Y | test |
 | TEST_OF | hasTest | Y | lifecycle scope |
 | TEST_TOOL_OF | usesTool | Y | test |
-| VARIANT_OF | hasVarient | Y | |
+| VARIANT_OF | hasVariant | Y | |
 
 ##### Rationale
 
