@@ -239,7 +239,7 @@ Relationship migration is being worked out in the relationships spreadsheet.  On
 | FILE_MODIFIED | modifiedBy | | |
 | GENERATED_FROM | generates | Y | |
 | GENERATES | generates | | |
-| HAS_PREREQUISITE | hasPrequisite | | lifecycle scope |
+| HAS_PREREQUISITE | hasPrerequisite | | lifecycle scope |
 | METAFILE_OF | hasMetadata | | |
 | OPTIONAL_COMPONENT_OF | hasOptionalComponent | | |
 | OPTIONAL_DEPENDENCY_OF | hasOptionalDependency | | lifecycle scope |
