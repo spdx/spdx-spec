@@ -38,8 +38,8 @@ The text indicated as such can be replaced with similar values (e.g., a differen
 
 The following XML tag is used to implement this guideline. `<alt>` with 2 attributes:
 
-* `match` - a POSIX extended regular expression (ERE) to match the replaceable text
-* `name` - an identifier for the variable text unique to the license XML document
+- `match` - a POSIX extended regular expression (ERE) to match the replaceable text
+- `name` - an identifier for the variable text unique to the license XML document
 
 The original text is enclosed within the beginning and ending alt tags.
 
@@ -232,21 +232,21 @@ A rule is a variable section of a license wrapped between double angle brackets 
 
 Rule fields:
 
-* type: indicates whether the text is replaceable or omittable as per Matching Guideline #2 (“Substantive Text”).
-  * Indicated by `<<var; . . . >>` or...
-  * Indicated by `<<beginOptional; . . .>>` and `<<endOptional>>` respectively.
-  * This field is the first field and is required.
-* name: name of the field in the template.
-  * This field is unique within each license template.
-  * This field is required.
-* original: the original text of the rule.
-  * This field is required for a rule type: `<<var; . . . >>`
-* match: a POSIX extended regular expression (ERE).
-  * This field is required for a rule type: `<<var; . . . >>`
+- **type:** indicates whether the text is replaceable or omittable as per [Substantive Text section](#C.3) in the Mactching Guidelines.
+  - Indicated by `<<var; . . . >>` or
+  - Indicated by `<<beginOptional; . . .>>` and `<<endOptional>>` respectively.
+  - This field is the first field and is required.
+- **name:** name of the field in the template.
+  - This field is unique within each license template.
+  - This field is required.
+- **original:** the original text of the rule.
+  - This field is required for a rule type: `<<var; . . . >>`
+- **match:** a POSIX extended regular expression (ERE).
+  - This field is required for a rule type: `<<var; . . . >>`
 
 The [POSIX ERE](http://pubs.opengroup.org/onlinepubs/9699919799/) in the match field has the following restrictions and extensions:
 
-* Semicolons are escaped with `\;`
-* POSIX Bracket Extensions are not allowed
+- Semicolons are escaped with `\;`
+- POSIX Bracket Extensions are not allowed
 
 EXAMPLE: `<<var;name=organizationClause3;original=the copyright holder;match=.+>>`
