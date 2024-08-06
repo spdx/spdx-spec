@@ -1,4 +1,4 @@
-# Annex C License matching guidelines and templates (Informative)
+# Annex C SPDX License List Matching Guidelines and Templates (Informative)
 
 ## C.1 SPDX license list matching guidelines <a name="C.1"></a>
 
