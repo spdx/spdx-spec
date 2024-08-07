@@ -54,7 +54,7 @@ that can be natively represented within the chosen serialization format
 these native mechanisms. All remaining properties shall be serialized within
 the SpdxDocument element itself.
 
-A serialization shall contain at most one SpdxDocument.
+A serialization must not contain more than one SpdxDocument.
 
 A given instance of serialization shall define at most one SpdxDocument
 element.
