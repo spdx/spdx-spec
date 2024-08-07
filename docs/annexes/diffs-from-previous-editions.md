@@ -255,7 +255,7 @@ The following table reflects the translation for relationship types from SPDX 2.
 | STATIC_LINK | hasStaticLink | | various lifecycle scope |
 | TEST_CASE_OF | hasTestCase | Y | |
 | TEST_DEPENDENCY_OF | dependsOn | Y | test |
-| TEST_OF | hasTest | Y | lifecycle scope |
+| TEST_OF | hasTest | Y | various lifecycle scope |
 | TEST_TOOL_OF | usesTool | Y | test |
 | VARIANT_OF | hasVariant | Y | |
 
