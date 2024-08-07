@@ -224,11 +224,16 @@ A full schema for the License List XML can be found at
 
 ### C.15.3 Legacy Text Template format <a name="C.15.3"></a>
 
-Prior to the XML format, a text template was used to express variable and optional text in licenses. This text template is still supported, however, users are encouraged to use the more expressive XML format.
+Prior to the XML format, a text template was used to express variable and
+optional text in licenses. This text template is still supported, however,
+users are encouraged to use the more expressive XML format.
 
 A legacy template is composed of text with zero or more rules embedded in it.
 
-A rule is a variable section of a license wrapped between double angle brackets “\<\<\>\>” and is composed of 4 fields. Each field is separated with a semi-colon “;”. Rules cannot be embedded within other rules. Rule fields begin with a case sensitive tag followed by an equal sign “=”.
+A rule is a variable section of a license wrapped between double angle brackets
+`\<\<\>\>` and is composed of 4 fields. Each field is separated with a
+semi-colon `;`. Rules cannot be embedded within other rules. Rule fields begin
+with a case sensitive tag followed by an equal sign `=`.
 
 Rule fields:
 
