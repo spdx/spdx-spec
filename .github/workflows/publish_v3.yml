@@ -60,22 +60,22 @@ jobs:
         run: |
           PUBLICATION_DATETIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           echo "Current date and time: $PUBLICATION_DATETIME"
-          sed -i "s/__PUBLICATION_DATETIME_/  publication_datetime: '$DATETIME'/" spdx-spec/mkdocs.yml
+          sed -i "s/.*__PUBLICATION_DATETIME_.*/  publication_datetime: '$PUBLICATION_DATETIME'/" spdx-spec/mkdocs.yml
           cd spec-parser
-          COMMIT_HASH_SPEC=$(git rev-parse HEAD)
+          COMMIT_HASH_SPEC=$(git rev-parse --short HEAD)
           echo "spdx-spec commit hash: $COMMIT_HASH_SPEC"
           cd ..
-          sed -i "s/__COMMIT_HASH_SPEC__/  commit_hash_spec: '$COMMIT_HASH_SPEC'/" spdx-spec/mkdocs.yml
+          sed -i "s/.*__COMMIT_HASH_SPEC__.*/  commit_hash_spec: '$COMMIT_HASH_SPEC'/" spdx-spec/mkdocs.yml
           cd spdx-3-model
-          COMMIT_HASH_MODEL=$(git rev-parse HEAD)
+          COMMIT_HASH_MODEL=$(git rev-parse --short HEAD)
           echo "spdx-3-model commit hash: $COMMIT_HASH_MODEL"
           cd ..
-          sed -i "s/__COMMIT_HASH_MODEL__/ commit_hash_model: '$COMMIT_HASH_MODEL'/" spdx-spec/mkdocs.yml
+          sed -i "s/.*__COMMIT_HASH_MODEL__.*/ commit_hash_model: '$COMMIT_HASH_MODEL'/" spdx-spec/mkdocs.yml
           cd spec-parser
-          COMMIT_HASH_PARSER=$(git rev-parse HEAD)
+          COMMIT_HASH_PARSER=$(git rev-parse --short HEAD)
           echo "spec-parser commit hash: $COMMIT_HASH_PARSER"
           cd ..
-          sed -i "s/__COMMIT_HASH_PARSER__/  commit_hash_spec:  '$COMMIT_HASH_PARSER'/" spdx-spec/mkdocs.yml
+          sed -i "s/.*__COMMIT_HASH_PARSER__.*/  commit_hash_spec:  '$COMMIT_HASH_PARSER'/" spdx-spec/mkdocs.yml
       - name: Deploy - Deploy the site, set aliases, and set default version
         working-directory: spdx-spec
         run: |
