@@ -56,6 +56,26 @@ jobs:
       - name: Deploy - Sync gh-pages
         working-directory: spdx-spec
         run: git checkout gh-pages && git pull && git checkout test-publish-301-on-bact
+      - name: Get current date, time, and commit hashes
+        run: |
+          PUBLICATION_DATETIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          echo "Current date and time: $PUBLICATION_DATETIME"
+          sed -i "s/__PUBLICATION_DATETIME_/  publication_datetime: '$DATETIME'/" spdx-spec/mkdocs.yml
+          cd spec-parser
+          COMMIT_HASH_SPEC=$(git rev-parse HEAD)
+          echo "spdx-spec commit hash: $COMMIT_HASH_SPEC"
+          cd ..
+          sed -i "s/__COMMIT_HASH_SPEC__/  commit_hash_spec: '$COMMIT_HASH_SPEC'/" spdx-spec/mkdocs.yml
+          cd spdx-3-model
+          COMMIT_HASH_MODEL=$(git rev-parse HEAD)
+          echo "spdx-3-model commit hash: $COMMIT_HASH_MODEL"
+          cd ..
+          sed -i "s/__COMMIT_HASH_MODEL__/ commit_hash_model: '$COMMIT_HASH_MODEL'/" spdx-spec/mkdocs.yml
+          cd spec-parser
+          COMMIT_HASH_PARSER=$(git rev-parse HEAD)
+          echo "spec-parser commit hash: $COMMIT_HASH_PARSER"
+          cd ..
+          sed -i "s/__COMMIT_HASH_PARSER__/  commit_hash_spec:  '$COMMIT_HASH_PARSER'/" spdx-spec/mkdocs.yml
       - name: Deploy - Deploy the site, set aliases, and set default version
         working-directory: spdx-spec
         run: |
