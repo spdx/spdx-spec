@@ -2,7 +2,7 @@
 
 ## C.1 SPDX license list matching guidelines <a name="C.1"></a>
 
-The SPDX License List Matching Guidelines provide guidelines to be used for the purposes of matching licenses and license exceptions against those included on the SPDX License List. There is no intent here to make a judgment or interpretation, but merely to ensure that when one SPDX user identifies a license as "BSD-3-Clause," for example, it is indeed the same license as what someone else identifies as "BSD-3-Clause" and the same license as what is listed on the SPDX License List. As noted here, some of the matching guidelines are implemented in the XML files of the SPDX License List repository.
+The SPDX License List Matching Guidelines provide guidelines to be used for the purposes of matching licenses and license exceptions against those included on the [SPDX License List](https://spdx.org/licenses/). There is no intent here to make a judgment or interpretation, but merely to ensure that when one SPDX user identifies a license as "BSD-3-Clause," for example, it is indeed the same license as what someone else identifies as "BSD-3-Clause" and the same license as what is listed on the SPDX License List. As noted here, some of the matching guidelines are implemented in the XML files of the SPDX License List repository.
 
 ## C.2 How these guidelines are applied <a name="C.2"></a>
 
@@ -107,7 +107,7 @@ Any variation of quotations (single, double, curly, etc.) should be considered e
 
 ### C.7.1 Purpose <a name="C.7.1"></a>
 
-To avoid the possibility of a non-match due to the existence or absence of code comment indicators placed within the license text, e.g., at the start of each line of text, or repetitive characters to establish a separation of text, e.g., ---, ===, ___, or ***.
+To avoid the possibility of a non-match due to the existence or absence of code comment indicators placed within the license text, e.g., at the start of each line of text, or repetitive characters to establish a separation of text, e.g., `---`, `===`, `___`, or `***`.
 
 ### C.7.2 Guideline <a name="C.7.2"></a>
 
@@ -197,7 +197,8 @@ To avoid a license mismatch merely because extraneous text that appears at the e
 
 Ignore any text that occurs after the obvious end of the license and does not include substantive text of the license, for example: text that occurs after a statement such as, "END OF TERMS AND CONDITIONS," or an exhibit or appendix that includes an example or instructions on to how to apply the license to your code. Do not apply this guideline or ignore text that is comprised of additional license terms (e.g., permitted additional terms under GPL-3.0, section 7).
 
-To implement this guideline, use the `<optional>` XML element tag as described in section C.3.5.
+To implement this guideline, use the `<optional>` XML element tag as described
+in [section C.3.5](#C.3.5).
 
 ## C.14 HTTP Protocol <a name="C.14"></a>
 
@@ -215,7 +216,7 @@ XML files do not require specific markup to implement this guideline.
 
 ### C.15.1 Template access <a name="C.15.1"></a>
 
-The license XML can be accessed in the license-list-data repository under the license-list-XML directory. Although the license list XML files can also be found in the [license-list-XML](https://github.com/spdx/license-list-XML) repo, users are encouraged to use the published versions in the [license-list-data](https://github.com/spdx/license-list-data) repository. The license-list-data repository is tagged by release. Only tagged released versions of the license list are considered stable.
+The license XML can be accessed in the license-list-data repository under the license-list-XML directory. Although the license list XML files can also be found in the [license-list-XML](https://github.com/spdx/license-list-XML) repository, users are encouraged to use the published versions in the [license-list-data](https://github.com/spdx/license-list-data) repository. The license-list-data repository is tagged by release. Only tagged released versions of the license list are considered stable.
 
 ### C.15.2 License List XML format <a name="C.15.2"></a>
 
@@ -225,19 +226,22 @@ A full schema for the License List XML can be found at
 ### C.15.3 Legacy Text Template format <a name="C.15.3"></a>
 
 Prior to the XML format, a text template was used to express variable and
-optional text in licenses. This text template is still supported, however,
-users are encouraged to use the more expressive XML format.
+optional text in licenses.
+This text template is still supported, however, users are encouraged to use
+the more expressive XML format.
 
 A legacy template is composed of text with zero or more rules embedded in it.
 
 A rule is a variable section of a license wrapped between double angle brackets
-`\<\<\>\>` and is composed of 4 fields. Each field is separated with a
-semi-colon `;`. Rules cannot be embedded within other rules. Rule fields begin
-with a case sensitive tag followed by an equal sign `=`.
+`<<>>` and is composed of 4 fields.
+Each field is separated with a semi-colon `;`.
+Rules cannot be embedded within other rules.
+Rule fields begin with a case sensitive tag followed by an equal sign `=`.
 
 Rule fields:
 
-- **type:** indicates whether the text is replaceable or omittable as per [Substantive Text section](#C.3) in the Mactching Guidelines.
+- **type:** indicates whether the text is replaceable or omittable as per
+  [Substantive Text section](#C.3) in the Matching Guidelines.
   - Indicated by `<<var; . . . >>` or
   - Indicated by `<<beginOptional; . . .>>` and `<<endOptional>>` respectively.
   - This field is the first field and is required.
@@ -249,9 +253,11 @@ Rule fields:
 - **match:** a POSIX extended regular expression (ERE).
   - This field is required for a rule type: `<<var; . . . >>`
 
-The [POSIX ERE](http://pubs.opengroup.org/onlinepubs/9699919799/) in the match field has the following restrictions and extensions:
+The [POSIX ERE](http://pubs.opengroup.org/onlinepubs/9699919799/) in the match
+field has the following restrictions and extensions:
 
 - Semicolons are escaped with `\;`
 - POSIX Bracket Extensions are not allowed
 
-For example: `<<var;name=organizationClause3;original=the copyright holder;match=.+>>`
+For example:
+`<<var;name=organizationClause3;original=the copyright holder;match=.+>>`
