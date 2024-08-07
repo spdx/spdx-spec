@@ -1,4 +1,4 @@
-# Annex C SPDX License List Matching Guidelines and Templates (Informative)
+# Annex C License List Matching Guidelines and Templates (Informative)
 
 ## C.1 SPDX license list matching guidelines <a name="C.1"></a>
 
@@ -249,4 +249,4 @@ The [POSIX ERE](http://pubs.opengroup.org/onlinepubs/9699919799/) in the match f
 - Semicolons are escaped with `\;`
 - POSIX Bracket Extensions are not allowed
 
-EXAMPLE: `<<var;name=organizationClause3;original=the copyright holder;match=.+>>`
+For example: `<<var;name=organizationClause3;original=the copyright holder;match=.+>>`
