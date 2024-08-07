@@ -51,7 +51,7 @@ more serialized forms of itself.
 
 When serializing a physical SpdxDocument, any property of the logical element
 that can be natively represented within the chosen serialization format
-(e.g., @context prefixes in JSON-LD instead of the namespaceMap) shall utilize
+(e.g., @context prefixes in JSON-LD instead of the namespaceMap) may utilize
 these native mechanisms. All remaining properties shall be serialized within
 the SpdxDocument element itself.
 
