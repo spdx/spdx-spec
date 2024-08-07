@@ -70,12 +70,12 @@ jobs:
           COMMIT_HASH_MODEL=$(git rev-parse --short HEAD)
           echo "spdx-3-model commit hash: $COMMIT_HASH_MODEL"
           cd ..
-          sed -i "s/.*__COMMIT_HASH_MODEL__.*/ commit_hash_model: '$COMMIT_HASH_MODEL'/" spdx-spec/mkdocs.yml
+          sed -i "s/.*__COMMIT_HASH_MODEL__.*/  commit_hash_model: '$COMMIT_HASH_MODEL'/" spdx-spec/mkdocs.yml
           cd spec-parser
           COMMIT_HASH_PARSER=$(git rev-parse --short HEAD)
           echo "spec-parser commit hash: $COMMIT_HASH_PARSER"
           cd ..
-          sed -i "s/.*__COMMIT_HASH_PARSER__.*/  commit_hash_spec:  '$COMMIT_HASH_PARSER'/" spdx-spec/mkdocs.yml
+          sed -i "s/.*__COMMIT_HASH_PARSER__.*/  commit_hash_parser: '$COMMIT_HASH_PARSER'/" spdx-spec/mkdocs.yml
       - name: Deploy - Deploy the site, set aliases, and set default version
         working-directory: spdx-spec
         run: |
