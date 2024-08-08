@@ -70,6 +70,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#43-canonical-serialization">4.3 Canonical serialization</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#44-serialization-information">4.4 Serialization information</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -818,17 +820,19 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="4-model-and-serializations">4 Model and serializations</h1>
-<h2 id="41-overview">4.1 Overview</h2>
+<h2 id="41-overview">4.1 Overview <a name="4.1"></a></h2>
 <p>This specification defines the data model of the SPDX standard, describing every piece of information about systems with software components. The data model is based on the Resource Description Framework (RDF) extensible knowledge representation data model, which provides a flexible and extensible way to represent and exchange information.</p>
 <p>The data may be serialized in a variety of formats for storage and transmission.</p>
-<h2 id="42-rdf-serialization">4.2 RDF Serialization</h2>
-<p>Since the data model is based on RDF, any SPDX data can be serialized in any of the multiple RDF serialization formats, including but not limited to:
-- JSON-LD format as defined in <a href="https://www.w3.org/TR/json-ld11/">JSON-LD 1.1</a>;
-- Turtle (Terse RDF Triple Language) format as defined in <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a>;
-- N-Triples format as defined in <a href="https://www.w3.org/TR/n-triples/">RDF 1.1 N-Triples</a>; and
-- RDF/XML format as defined in <a href="https://www.w3.org/TR/rdf-syntax-grammar/">RDF 1.1 XML Syntax</a>.</p>
+<h2 id="42-rdf-serialization">4.2 RDF Serialization <a name="4.2"></a></h2>
+<p>Since the data model is based on RDF, any SPDX data can be serialized in any of the multiple RDF serialization formats, including but not limited to:</p>
+<ul>
+<li>JSON-LD format as defined in <a href="https://www.w3.org/TR/json-ld11/">JSON-LD 1.1</a>;</li>
+<li>Turtle (Terse RDF Triple Language) format as defined in <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a>;</li>
+<li>N-Triples format as defined in <a href="https://www.w3.org/TR/n-triples/">RDF 1.1 N-Triples</a>; and</li>
+<li>RDF/XML format as defined in <a href="https://www.w3.org/TR/rdf-syntax-grammar/">RDF 1.1 XML Syntax</a>.</li>
+</ul>
 <p>The SPDX specification is accompanied by a <a href="https://www.w3.org/TR/json-ld11/#the-context">JSON-LD context</a> definition file that can be used to serialize SPDX in a much simpler and more human-readable JSON-LD format.</p>
-<h2 id="43-canonical-serialization">4.3 Canonical serialization</h2>
+<h2 id="43-canonical-serialization">4.3 Canonical serialization <a name="4.3"></a></h2>
 <p>Canonical serialization is single, consistent, normalized, deterministic, and reproducible form.</p>
 <p>Such a canonical form normalizes things like ordering and formatting.</p>
 <p>The content of the canonical serialization is exactly the same as the JSON-LD serialization of RDF data (see 4.2), just represented in a consistent way.</p>
@@ -843,6 +847,22 @@
 <li>arrays: An array structure is represented as square brackets surrounding zero or more items. Items are separated by commas.</li>
 <li>objects: An object structure is represented as a pair of curly brackets surrounding zero or more name/value pairs (or members). A name is a string containing only ASCII characters (0x21-0x7F). The names within an object must be unique. A single colon comes after each name, separating the name from the value. A single comma separates a value from a following name. The name/value pairs are ordered by name.</li>
 </ul>
+<h2 id="44-serialization-information">4.4 Serialization information <a name="4.4"></a></h2>
+<p>A collection of elements may be serialized in multiple formats.</p>
+<p>An SpdxDocument element represents a collection of
+elements across all serialization data formats within the model.</p>
+<p>The actual serialized bytes is represented by an Artifact element within the
+model.</p>
+<p>A Relationship of type serializedInArtifact links an SpdxDocument to one or
+more serialized forms of itself.</p>
+<p>When serializing a physical SpdxDocument, any property of the logical element
+that can be natively represented within the chosen serialization format
+(e.g., @context prefixes in JSON-LD instead of the namespaceMap) may utilize
+these native mechanisms. All remaining properties shall be serialized within
+the SpdxDocument element itself.</p>
+<p>A serialization must not contain more than one SpdxDocument.</p>
+<p>A given instance of serialization must not define more than one SpdxDocument
+element.</p>
               
             </div>
           </div><footer>
