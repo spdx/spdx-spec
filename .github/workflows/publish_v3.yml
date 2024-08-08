@@ -11,35 +11,32 @@ jobs:
     runs-on: ubuntu-latest
     container: python:3
     steps:
-      - name: Prepare - Checkout spdx-spec
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
           ref: development/v3.0.1
           path: spdx-spec
           fetch-depth: 0  # Because we will be pushing the gh-pages branch
-      - name: Prepare - Checkout spdx-parser
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
           repository: spdx/spec-parser
           ref: main
           path: spec-parser
-      - name: Prepare - Checkout spdx-3-model
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
           repository: spdx/spdx-3-model
           ref: main  # for v3.0.1-draft, checkout latest from main (development)
           # Once 3.0.1 model is frozen, use the following ref to checkout from the release tag to publish v3.0.1
           # ref: 3.0.1  # for v3.0.1 final release
           path: spdx-3-model
-      - name: Prepare - Install pre-requisites for spdx-spec
+      - name: Install pre-requisites for spdx-spec
         run: pip install -r spdx-spec/requirements.txt
-      - name: Prepare - Install pre-requisites for spec-parser
+      - name: Install pre-requisites for spec-parser
         run: pip install -r spec-parser/requirements.txt
-      - name: Build - Build model files
+      - name: Build model files
         run: python3 spec-parser/main.py spdx-3-model/model spdx-spec/docs/model
-      - name: Build - Copy JSON annotations
+      - name: Copy JSON annotations
         run: cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/model/jsonld-annotations.ttl
-      - name: Build - Generate JSON schema
+      - name: Generate JSON schema
         run: |
           shacl2code generate \
             --input spdx-spec/docs/model/spdx-model.ttl \
@@ -49,13 +46,13 @@ jobs:
             --output spdx-spec/docs/model/schema.json
         # TODO: Copy the generated ontology to a public location
         # https://github.com/spdx/spdx-spec/issues/979
-      - name: Deploy - Set Git identity
+      - name: Set git identity
         working-directory: spdx-spec
         run: git config user.name ci-bot; git config user.email ci-bot@spdx.dev
-      - name: Deploy - Sync gh-pages
+      - name: Sync gh-pages
         working-directory: spdx-spec
         run: git checkout gh-pages && git pull && git checkout development/v3.0.1
-      - name: Deploy - Deploy the site, set aliases, and set default version
+      - name: Build docs and set aliases
         working-directory: spdx-spec
         run: |
           MODEL_YML="docs/model/mkdocs-files.yml"
