@@ -40,7 +40,7 @@ Canonical serialization is in JSON format, as defined in RFC 8259 (IETF STD 90),
 
 A collection of elements may be serialized in multiple formats.
 
-An SpdxDocument element represents the common properties of a collection of
+An SpdxDocument element represents a collection of
 elements across all serialization data formats within the model.
 
 The actual serialized bytes is represented by an Artifact element within the
