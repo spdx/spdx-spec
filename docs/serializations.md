@@ -1,12 +1,12 @@
 # 4 Model and serializations
 
-## 4.1 Overview
+## 4.1 Overview <a name="4.1"></a>
 
 This specification defines the data model of the SPDX standard, describing every piece of information about systems with software components. The data model is based on the Resource Description Framework (RDF) extensible knowledge representation data model, which provides a flexible and extensible way to represent and exchange information.
 
 The data may be serialized in a variety of formats for storage and transmission.
 
-## 4.2 RDF Serialization
+## 4.2 RDF Serialization <a name="4.2"></a>
 
 Since the data model is based on RDF, any SPDX data can be serialized in any of the multiple RDF serialization formats, including but not limited to:
 
@@ -17,7 +17,7 @@ Since the data model is based on RDF, any SPDX data can be serialized in any of 
 
 The SPDX specification is accompanied by a [JSON-LD context](https://www.w3.org/TR/json-ld11/#the-context) definition file that can be used to serialize SPDX in a much simpler and more human-readable JSON-LD format.
 
-## 4.3 Canonical serialization
+## 4.3 Canonical serialization <a name="4.3"></a>
 
 Canonical serialization is single, consistent, normalized, deterministic, and reproducible form.
 
@@ -36,11 +36,11 @@ Canonical serialization is in JSON format, as defined in RFC 8259 (IETF STD 90),
 - arrays: An array structure is represented as square brackets surrounding zero or more items. Items are separated by commas.
 - objects: An object structure is represented as a pair of curly brackets surrounding zero or more name/value pairs (or members). A name is a string containing only ASCII characters (0x21-0x7F). The names within an object must be unique. A single colon comes after each name, separating the name from the value. A single comma separates a value from a following name. The name/value pairs are ordered by name.
 
-## 4.4 Serialization information
+## 4.4 Serialization information <a name="4.4"></a>
 
 A collection of elements may be serialized in multiple formats.
 
-An SpdxDocument element represents the common properties of a collection of
+An SpdxDocument element represents a collection of
 elements across all serialization data formats within the model.
 
 The actual serialized bytes is represented by an Artifact element within the
