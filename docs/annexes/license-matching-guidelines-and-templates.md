@@ -1,8 +1,10 @@
-# Annex C License List Matching Guidelines and Templates (Informative)
+# Annex C SPDX License List Matching Guidelines and Templates (Informative)
 
 ## C.1 SPDX license list matching guidelines <a name="C.1"></a>
 
-The SPDX License List Matching Guidelines provide guidelines to be used for the purposes of matching licenses and license exceptions against those included on the [SPDX License List](https://spdx.org/licenses/). There is no intent here to make a judgment or interpretation, but merely to ensure that when one SPDX user identifies a license as "BSD-3-Clause," for example, it is indeed the same license as what someone else identifies as "BSD-3-Clause" and the same license as what is listed on the SPDX License List. As noted here, some of the matching guidelines are implemented in the XML files of the SPDX License List repository.
+The SPDX License List Matching Guidelines provide guidelines to be used for the purposes of matching licenses and license exceptions against those included on the [SPDX License List](https://spdx.org/licenses/).
+There is no intent here to make a judgment or interpretation, but merely to ensure that when one SPDX user identifies a license as "BSD-3-Clause," for example, it is indeed the same license as what someone else identifies as "BSD-3-Clause" and the same license as what is listed on the SPDX License List.
+As noted here, some of the matching guidelines are implemented in the XML files of the SPDX License List repository.
 
 ## C.2 How these guidelines are applied <a name="C.2"></a>
 
@@ -34,7 +36,9 @@ Matched text should only include that found in the vetted license or exception t
 
 Some licenses include text that refers to the specific copyright holder or author, yet the rest of the license is exactly the same. The intent here is to avoid the inclusion of a specific name in one part of the license resulting in a non-match where the license is otherwise an exact match to the legally substantive terms (e.g., the third clause and disclaimer in the BSD licenses, or the third, fourth, and fifth clauses of Apache-1.1). In these cases, there should be a positive license match.
 
-The text indicated as such can be replaced with similar values (e.g., a different name or generic term; different date) and still be considered a positive match. This rule also applies to text-matching in official license headers (see [Guideline: official license headers](#C.2.2)).
+The text indicated as such can be replaced with similar values (e.g., a different name or generic term; different date) and still be considered a positive match.
+This rule also applies to text-matching in official license headers
+(see [Guideline: official license headers](#C.2.2)).
 
 The following XML tag is used to implement this guideline. `<alt>` with 2 attributes:
 
@@ -43,7 +47,8 @@ The following XML tag is used to implement this guideline. `<alt>` with 2 attrib
 
 The original text is enclosed within the beginning and ending alt tags.
 
-For example: `<alt match="(?i:copyright.{0,200})." name="copyright1">Copyright Linux Foundation</alt>`
+For example:
+`<alt match="(?i:copyright.{0,200})." name="copyright1">Copyright Linux Foundation</alt>`
 
 The original replaceable text appears on the SPDX License List webpage in red text.
 
@@ -55,7 +60,8 @@ The license should be considered a match if the text indicated is present and ma
 
 The following XML tag is used to implement this guideline: `<optional>`
 
-For example: `<optional>Apache License Version 2.0, January 2004 http://www.apache.org/licenses/</optional>`
+For example:
+`<optional>Apache License Version 2.0, January 2004 http://www.apache.org/licenses/</optional>`
 
 Omittable text appears on the SPDX License List webpage in blue text.
 
@@ -107,7 +113,10 @@ Any variation of quotations (single, double, curly, etc.) should be considered e
 
 ### C.7.1 Purpose <a name="C.7.1"></a>
 
-To avoid the possibility of a non-match due to the existence or absence of code comment indicators placed within the license text, e.g., at the start of each line of text, or repetitive characters to establish a separation of text, e.g., `---`, `===`, `___`, or `***`.
+To avoid the possibility of a non-match due to the existence or absence of code
+comment indicators placed within the license text, e.g., at the start of each
+line of text, or repetitive characters to establish a separation of text,
+e.g., `---`, `===`, `___`, or `***`.
 
 ### C.7.2 Guideline <a name="C.7.2"></a>
 
@@ -143,7 +152,9 @@ English uses different spelling for some words. By identifying the spelling vari
 
 ### C.9.2 Guideline <a name="C.9.2"></a>
 
-The words in each line of the text file available at the [equivalent words list](https://spdx.org/licenses/equivalentwords.txt) are considered equivalent and interchangeable.
+The words in each line of the text file available at the
+[equivalent words list](https://spdx.org/licenses/equivalentwords.txt)
+are considered equivalent and interchangeable.
 
 XML files do not require specific markup to implement this guideline.
 
@@ -157,7 +168,9 @@ By having a rule regarding the use of "©", "(c)", or "copyright", we avoid the 
 
 "©", "(c)", or "Copyright" should be considered equivalent and interchangeable.
 
-XML files do not require specific markup to implement this guideline. The copyright symbol is part of the copyright notice, see implementation of that guideline below.
+XML files do not require specific markup to implement this guideline.
+The copyright symbol is part of the copyright notice,
+see implementation of that guideline in [Copyright notice](#C.11).
 
 ## C.11 Copyright notice <a name="C.11"></a>
 
@@ -198,7 +211,7 @@ To avoid a license mismatch merely because extraneous text that appears at the e
 Ignore any text that occurs after the obvious end of the license and does not include substantive text of the license, for example: text that occurs after a statement such as, "END OF TERMS AND CONDITIONS," or an exhibit or appendix that includes an example or instructions on to how to apply the license to your code. Do not apply this guideline or ignore text that is comprised of additional license terms (e.g., permitted additional terms under GPL-3.0, section 7).
 
 To implement this guideline, use the `<optional>` XML element tag as described
-in [section C.3.5](#C.3.5).
+in [Guideline: omittable text](#C.3.5).
 
 ## C.14 HTTP Protocol <a name="C.14"></a>
 
@@ -241,7 +254,7 @@ Rule fields begin with a case sensitive tag followed by an equal sign `=`.
 Rule fields:
 
 - **type:** indicates whether the text is replaceable or omittable as per
-  [Substantive Text section](#C.3) in the Matching Guidelines.
+  [Substantive text guidelines](#C.3).
   - Indicated by `<<var; . . . >>` or
   - Indicated by `<<beginOptional; . . .>>` and `<<endOptional>>` respectively.
   - This field is the first field and is required.
