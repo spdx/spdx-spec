@@ -209,54 +209,55 @@ The completeness property would be constructed based on the following:
 - “to” value is NOASSERTION: noAssertion
 - “to” value is an SPDX element: No value for the completeness - uses the default
 
-Relationship migration is being worked out in the relationships spreadsheet.  Once completed, the following table will reflect the translation for relationship types from SPDX 2.3 to SPDX 3.0:
+The following table reflects the translation for relationship types from SPDX 2.3 to SPDX 3.0:
 
 | SPDX 2.3 Relationship Type | SPDX 3.0 Relationship Type | Swap to and from? | LifecycleScopeType |
 |----------------------------|----------------------------|-------------------|--------------------|
 | AMENDS | amendedBy | Y | |
 | ANCESTOR_OF | ancestorOf | | |
-| BUILD_DEPENDENCY_OF | dependsOn | | build |
-| BUILD_TOOL_OF | usesTool | | build (all lifecycle scope could be appropriate) |
+| BUILD_DEPENDENCY_OF | dependsOn | Y | build |
+| BUILD_TOOL_OF | usesTool | Y | build |
 | CONTAINED_BY | contains | Y | |
 | CONTAINS | contains | | |
-| COPY_OF | copiedTo | | |
-| DATA_FILE_OF | hasDataFile | | |
-| DEPENDENCY_MANIFEST_OF | hasDependencyManifest | | |
-| ~~DEPENDENCY_OF~~ | [removed] | | |
-| DEPENDS_ON | dependsOn | | various LifecycleScopeType |
-| DESCENDANT_OF | decendentOf | | |
-| ~~DESCRIBED_BY~~ | [removed] | | |
+| COPY_OF | copiedTo | Y | |
+| DATA_FILE_OF | hasDataFile | Y | |
+| DEPENDENCY_MANIFEST_OF | hasDependencyManifest | Y | |
+| DEPENDENCY_OF | dependsOn | Y | various lifecycle scope |
+| DEPENDS_ON | dependsOn | | various lifecycle scope |
+| DESCENDANT_OF | descendantOf | | |
+| DESCRIBED_BY | describes | Y | |
 | DESCRIBES | describes | | |
-| DEV_DEPENDENCY_OF | dependsOn | | development |
-| DEV_TOOL_OF | usesTool | | development |
+| DEV_DEPENDENCY_OF | dependsOn | Y | development |
+| DEV_TOOL_OF | usesTool | Y | development |
 | DISTRIBUTION_ARTIFACT | hasDistributionArtifact | | |
-| DOCUMENTATION_OF | hasDocumentation | | |
-| DYNAMIC_LINK | hasDynamicLink | | build, runtime |
-| EXAMPLE_OF | hasExample | | |
-| EXPANDED_FROM_ARCHIVE | expandsTo | | |
-| FILE_ADDED | hasAddedFile | | |
-| FILE_DELETED | hasDeletedFile | | |
+| DOCUMENTATION_OF | hasDocumentation | Y | |
+| DYNAMIC_LINK | hasDynamicLink | Y | build, runtime |
+| EXAMPLE_OF | hasExample | Y | |
+| EXPANDED_FROM_ARCHIVE | expandsTo | Y | |
+| FILE_ADDED | hasAddedFile | Y | |
+| FILE_DELETED | hasDeletedFile | Y | |
 | FILE_MODIFIED | modifiedBy | | |
 | GENERATED_FROM | generates | Y | |
 | GENERATES | generates | | |
-| HAS_PREREQUISITE | hasPrequisite | | lifecycle scope |
-| METAFILE_OF | hasMetadata | | |
-| OPTIONAL_COMPONENT_OF | hasOptionalComponent | | |
-| OPTIONAL_DEPENDENCY_OF | hasOptionalDependency | | lifecycle scope |
+| HAS_PREREQUISITE | hasPrerequisite | | various lifecycle scope |
+| METAFILE_OF | hasMetadata | Y | |
+| OPTIONAL_COMPONENT_OF | hasOptionalComponent | Y | |
+| OPTIONAL_DEPENDENCY_OF | hasOptionalDependency | Y | various lifecycle scope |
 | OTHER | other | | |
-| PACKAGE_OF | packagedBy | | |
-| ~~PATCH_FOR~~ | [removed] | | |
-| ~~PREREQUISITE_FOR~~ | [removed] | | |
-| PROVIDED_DEPENDENCY_OF | hasProvidedDependency | | lifecycle scope |
-| REQUIREMENT_DESCRIPTION_FOR | hasRequirement | | lifecycle scope |
-| RUNTIME_DEPENDENCY_OF | dependsOn | | runtime |
-| SPECIFICATION_FOR | hasSpecification | | lifecycle scope |
-| STATIC_LINK | hasStaticLink | | lifecycle scope |
-| TEST_CASE_OF | hasTestCase | | |
-| TEST_DEPENDENCY_OF | dependsOn | | test |
-| TEST_OF | hasTest | | lifecycle scope |
-| TEST_TOOL_OF | usesTool | | test |
-| VARIANT_OF | hasVarient | | |
+| PACKAGE_OF | packagedBy | Y | |
+| PATCH_FOR | patchedBy | Y | |
+| PATCH_APPLIED | patchedBy | Y | |
+| PREREQUISITE_FOR | hasPrerequisite | Y | various lifecycle scope |
+| PROVIDED_DEPENDENCY_OF | hasProvidedDependency | Y | various lifecycle scope |
+| REQUIREMENT_DESCRIPTION_FOR | hasRequirement | Y | various lifecycle scope |
+| RUNTIME_DEPENDENCY_OF | dependsOn | Y | runtime |
+| SPECIFICATION_FOR | hasSpecification | Y | various lifecycle scope |
+| STATIC_LINK | hasStaticLink | | various lifecycle scope |
+| TEST_CASE_OF | hasTestCase | Y | |
+| TEST_DEPENDENCY_OF | dependsOn | Y | test |
+| TEST_OF | hasTest | Y | various lifecycle scope |
+| TEST_TOOL_OF | usesTool | Y | test |
+| VARIANT_OF | hasVariant | Y | |
 
 ##### Rationale
 
