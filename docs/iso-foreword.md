@@ -35,12 +35,16 @@ principles in the Technical Barriers to Trade (TBT), see
 In the IEC, see
 [www.iec.ch/understanding-standards](https://www.iec.ch/understanding-standards).
 
-This document was prepared by the Linux Foundation and its Contributors,
-including contributions from the Object Management Group (OMG) and its
-Contributors (as SPDX® Specification V3.0.1) and drafted in accordance with
-their editorial rules.
-It was adopted, under the JTC 1 PAS procedure, by Joint Technical Committee
-ISO/IEC JTC 1, Information technology.
+This document was prepared by
+[The Linux Foundation](https://www.linuxfoundation.org/) and its Contributors
+under the [SPDX Working Group](https://spdx.dev/)
+(as SPDX® Specification v3.0.1)
+and drafted in accordance with its editorial rules.
+Its preparation and publication has been made in coordination with related
+efforts with the [Object Management Group (OMG)](https://www.omg.org/).
+It was adopted, under the JTC 1 PAS (“Publicly Available Specification”)
+procedure, by
+[Joint Technical Committee ISO/IEC JTC 1, Information technology](https://jtc1info.org/).
 
 Any feedback or questions on this document should be directed to the user’s
 national standards body. A complete listing of these bodies can be found at
