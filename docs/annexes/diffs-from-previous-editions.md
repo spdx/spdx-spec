@@ -2,6 +2,12 @@
 
 ## A.1 Differences between V3.0 and V2.3 <a name="A.1"></a>
 
+### SPDX meaning
+
+In previous editions of the specification, SPDX meant "Software Package Data Exchange".
+
+Starting with V3.0, the scope of SPDX has expanded beyond software and now means "System Package Data Exchange".
+
 ### Structural Differences
 
 These are the most significant breaking changes requiring a change in logic to handle a different model or structure for the information.  Each structural difference will describe the change, describe an approach to translate from 2.3 to 3.0, and provide a rationale for the change.
