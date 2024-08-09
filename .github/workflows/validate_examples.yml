@@ -6,42 +6,13 @@ jobs:
   validate-examples:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
       - name: Install python dependencies
         run: |
-          python3 -m pip install pyshacl==0.25.0 check-jsonschema==0.28.1
+          python3 -m pip install pyshacl==0.26.0 check-jsonschema==0.29.1
       - name: Install dependencies
         run: |
           sudo apt install -y gawk
-      - name: Check files
+      - name: Check examples
         run: |
-          set -e
-          for f in examples/jsonld/*.json; do
-            echo "Checking $f"
-
-            check-jsonschema \
-              -v \
-              --schemafile https://spdx.org/schema/3.0.0/spdx-json-schema.json \
-              $f
-
-            pyshacl \
-              -s https://spdx.org/rdf/3.0.0/spdx-model.ttl \
-              -e https://spdx.org/rdf/3.0.0/spdx-model.ttl \
-              $f
-          done
-
-      - name: Check documentation examples
-        run: |
-          for f in $(grep -l '```json' docs/annexes/*.md); do
-            echo "Checking $f"
-            cat $f | awk '/^```json/, $0=="```" {if ($0 !~ /^```.*/ ) print}' > temp.json
-            check-jsonschema \
-              -v \
-              --schemafile https://spdx.org/schema/3.0.0/spdx-json-schema.json \
-              temp.json
-
-            pyshacl \
-              -s https://spdx.org/rdf/3.0.0/spdx-model.ttl \
-              -e https://spdx.org/rdf/3.0.0/spdx-model.ttl \
-              temp.json
-          done
+          ./bin/check-examples.sh
