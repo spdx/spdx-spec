@@ -66,7 +66,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#41-overview">4.1 Overview</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#42-rdf-serialization">4.2 RDF Serialization</a>
+    <li class="toctree-l2"><a class="reference internal" href="#42-rdf-serialization">4.2 RDF serialization</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#43-canonical-serialization">4.3 Canonical serialization</a>
     </li>
@@ -821,31 +821,61 @@
               
                 <h1 id="4-model-and-serializations">4 Model and serializations</h1>
 <h2 id="41-overview">4.1 Overview <a name="4.1"></a></h2>
-<p>This specification defines the data model of the SPDX standard, describing every piece of information about systems with software components. The data model is based on the Resource Description Framework (RDF) extensible knowledge representation data model, which provides a flexible and extensible way to represent and exchange information.</p>
-<p>The data may be serialized in a variety of formats for storage and transmission.</p>
-<h2 id="42-rdf-serialization">4.2 RDF Serialization <a name="4.2"></a></h2>
-<p>Since the data model is based on RDF, any SPDX data can be serialized in any of the multiple RDF serialization formats, including but not limited to:</p>
+<p>This specification defines the data model of the SPDX standard, describing
+every piece of information about systems with software components. The data
+model is based on the Resource Description Framework (RDF) extensible
+knowledge representation data model, which provides a flexible and extensible
+way to represent and exchange information.</p>
+<p>The data may be serialized in a variety of formats for storage and
+transmission.</p>
+<h2 id="42-rdf-serialization">4.2 RDF serialization <a name="4.2"></a></h2>
+<p>Since the data model is based on RDF, any SPDX data can be serialized in any of
+the multiple RDF serialization formats, including but not limited to:</p>
 <ul>
-<li>JSON-LD format as defined in <a href="https://www.w3.org/TR/json-ld11/">JSON-LD 1.1</a>;</li>
-<li>Turtle (Terse RDF Triple Language) format as defined in <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a>;</li>
-<li>N-Triples format as defined in <a href="https://www.w3.org/TR/n-triples/">RDF 1.1 N-Triples</a>; and</li>
-<li>RDF/XML format as defined in <a href="https://www.w3.org/TR/rdf-syntax-grammar/">RDF 1.1 XML Syntax</a>.</li>
+<li>JSON-LD format as defined in
+  <a href="https://www.w3.org/TR/json-ld11/">JSON-LD 1.1</a>;</li>
+<li>Turtle (Terse RDF Triple Language) format as defined in
+  <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a>;</li>
+<li>N-Triples format as defined in
+  <a href="https://www.w3.org/TR/n-triples/">RDF 1.1 N-Triples</a>; and</li>
+<li>RDF/XML format as defined in
+  <a href="https://www.w3.org/TR/rdf-syntax-grammar/">RDF 1.1 XML Syntax</a>.</li>
 </ul>
-<p>The SPDX specification is accompanied by a <a href="https://www.w3.org/TR/json-ld11/#the-context">JSON-LD context</a> definition file that can be used to serialize SPDX in a much simpler and more human-readable JSON-LD format.</p>
+<p>The SPDX specification is accompanied by a
+<a href="https://www.w3.org/TR/json-ld11/#the-context">JSON-LD context</a> definition file
+that can be used to serialize SPDX in a much simpler and more human-readable
+JSON-LD format.</p>
 <h2 id="43-canonical-serialization">4.3 Canonical serialization <a name="4.3"></a></h2>
-<p>Canonical serialization is single, consistent, normalized, deterministic, and reproducible form.</p>
+<p>Canonical serialization is a single, consistent, normalized, deterministic, and
+reproducible form.</p>
 <p>Such a canonical form normalizes things like ordering and formatting.</p>
-<p>The content of the canonical serialization is exactly the same as the JSON-LD serialization of RDF data (see 4.2), just represented in a consistent way.</p>
-<p>Canonical serialization is in JSON format, as defined in RFC 8259 (IETF STD 90), with the following additional characteristics:</p>
+<p>The content of the canonical serialization is exactly the same as the JSON-LD
+serialization of RDF data (see 4.2), just represented in a consistent way.</p>
+<p>Canonical serialization is in JSON format, as defined in
+<a href="https://www.rfc-editor.org/info/rfc8259">RFC 8259 (IETF STD 90)</a>,
+with the following additional characteristics:</p>
 <ul>
-<li>no line breaks</li>
-<li>key names MUST be wrapped in double quotes</li>
-<li>no whitespace outside of strings</li>
-<li>true, false and null: the literal names must be lowercase; no other literal names are allowed</li>
-<li>integers: represented in base 10 using decimal digits. This designates an integer component that may be prefixed with an optional minus sign. Leading zeros are not allowed.</li>
-<li>strings: UTF-8 representation without specific canonicalisation. A string begins and ends with quotation marks (%x22). Any Unicode characters may be placed within the quotation marks, except for the two characters that MUST be escaped by a reverse solidus: quotation mark, reverse solidus, and the control characters (U+0000 through U+001F).</li>
-<li>arrays: An array structure is represented as square brackets surrounding zero or more items. Items are separated by commas.</li>
-<li>objects: An object structure is represented as a pair of curly brackets surrounding zero or more name/value pairs (or members). A name is a string containing only ASCII characters (0x21-0x7F). The names within an object must be unique. A single colon comes after each name, separating the name from the value. A single comma separates a value from a following name. The name/value pairs are ordered by name.</li>
+<li>No line breaks</li>
+<li>Key names MUST be wrapped in double quotes</li>
+<li>No whitespace outside of strings</li>
+<li><code>true</code>, <code>false</code> and <code>null</code>: the literal names must be lowercase; no other
+  literal names are allowed</li>
+<li>Integers: represented in base 10 using decimal digits. This designates an
+  integer component that may be prefixed with an optional minus sign.
+  Leading zeros are not allowed.</li>
+<li>Strings: UTF-8 representation without specific canonicalisation. A string
+  begins and ends with quotation marks (%x22). Any Unicode characters may be
+  placed within the quotation marks, except for the two characters that MUST be
+  escaped by a reverse solidus: quotation mark, reverse solidus, and the
+  control characters (U+0000 through U+001F).</li>
+<li>Arrays: An array structure is represented as square brackets surrounding zero
+  or more items. Items are separated by commas.</li>
+<li>Objects: An object structure is represented as a pair of curly brackets
+  surrounding zero or more name/value pairs (or members). A name is a string
+  containing only ASCII characters (0x21-0x7F). The names within an object must
+  be unique. A single colon comes after each name, separating the name from the
+  value. A single comma separates a value from a following name. The name/value
+  pairs are ordered by name.</li>
 </ul>
 <h2 id="44-serialization-information">4.4 Serialization information <a name="4.4"></a></h2>
 <p>A collection of elements may be serialized in multiple formats.</p>
@@ -857,7 +887,7 @@ model.</p>
 more serialized forms of itself.</p>
 <p>When serializing a physical SpdxDocument, any property of the logical element
 that can be natively represented within the chosen serialization format
-(e.g., @context prefixes in JSON-LD instead of the namespaceMap) may utilize
+(e.g., <code>@context</code> prefixes in JSON-LD instead of the namespaceMap) may utilize
 these native mechanisms. All remaining properties shall be serialized within
 the SpdxDocument element itself.</p>
 <p>A serialization must not contain more than one SpdxDocument.</p>
