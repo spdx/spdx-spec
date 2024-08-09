@@ -1,11 +1,16 @@
 # Change Log
+
 All notable changes to this project will be documented in this file.
 
-## 3.0
+## 3.0 (2024-04-15)
 
-See the [v3.0 GitHub release notes](https://github.com/spdx/spdx-spec/releases/tag/v3.0) for changes.
+See the v3.0 GitHub release notes for changes
+[in the spec](https://github.com/spdx/spdx-spec/releases/tag/v3.0) and
+[in the model](https://github.com/spdx/spdx-3-model/releases/tag/3.0).
 
-## 2.3
+See also the [SPDX specification 3.0 release announcement](https://www.linuxfoundation.org/press/spdx-3-revolutionizes-software-management-in-systems-with-enhanced-functionality-and-streamlined-use-cases)
+
+## 2.3 (2022-11-03)
 
 See the [v2.3 GitHub release notes](https://github.com/spdx/spdx-spec/releases/tag/v2.3) for changes.
 
