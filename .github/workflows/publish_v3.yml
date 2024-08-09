@@ -74,9 +74,11 @@ jobs:
           echo "Deploy using $FULL_MKDOCS_YML"
           echo "====================="
           mike deploy --update-aliase --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0.1-draft
-        # Once 3.0.1 released, use the following commands to deploy v3.0.1,
-        # and set aliases (v3.0, v3.0.1-draft, v3-draft, v3.0-RC1, v3.0-RC2, latest) to point to v3.0.1
-        # and set v3.0.1 as the default version:
+        # Once 3.0.1 released, use the following commands to deploy v3.0.1 and set aliases:
+        # 1) delete existing v3.0 alias/deployment
+        # 2) delete existing v3.0.1-draft alias/deployment
+        # 3) deploy v3.0.1, with aliases (v3.0.1-draft, v3-draft, v3.0-RC1, v3.0-RC2, v3.0 latest)
+        # 4) set default version to v3.0.1
         #
         # mike delete --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push --allow-empty v3.0 || true
         # mike delete --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push --allow-empty v3.0.1-draft || true
