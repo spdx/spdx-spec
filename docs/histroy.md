@@ -74,7 +74,7 @@ offerings, the SPDX community developed a series of software products,
 specifications, and capabilities to address this area. The first published work
 was a version 1.0 specification in August of 2011; followed by 1.1 version a
 year later; a 1.2 version in October 2013; a 2.0 version in 2015; and 2.1
-version in 2016. The 2.1 version of SPDX was published through the Linux
+version in 2016. The 2.2 version of the specification was published in 2020 to address the required SBOM minimum elements. The 2.2.1 version of SPDX specification was published through the Linux
 Foundation’s new Joint Development Foundation and sent to ISO under the
 Publicly Available Standard (PAS) process with it eventually being republished
 as “ISO/IEC 5962:2021 - Information technology — SPDX®” in 2021.
