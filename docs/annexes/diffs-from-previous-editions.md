@@ -71,7 +71,7 @@ Note that in 3.0 the createdBy is a required field.  There will be situations wh
 
 The 3.0 format is more machine readable and structured (e.g. you do not need to parse the type from the string value).  It is also more flexible in that an Agent can be used even if it is not known what the Agent type is.
 
-#### fileContributor
+#### File Contributor
 
 ##### Description of Change
 
