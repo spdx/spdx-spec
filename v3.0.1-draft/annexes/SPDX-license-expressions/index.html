@@ -841,9 +841,9 @@
 <p>The exact syntax of license expressions is described below in ABNF, as defined in <a href="http://tools.ietf.org/html/rfc5234">RFC5234</a> and expanded in <a href="http://tools.ietf.org/html/rfc7405">RFC7405</a>.</p>
 <div class="codehilite"><pre><span></span><code>idstring = 1*(ALPHA / DIGIT / &quot;-&quot; / &quot;.&quot; )
 
-license-id = &lt;short form license identifier in Annex A.1&gt;
+license-id = &lt;short form license identifier from SPDX License List&gt;
 
-license-exception-id = &lt;short form license exception identifier in Annex A.2&gt;
+license-exception-id = &lt;short form license exception identifier from SPDX License List&gt;
 
 license-ref = [%s&quot;DocumentRef-&quot;(idstring)&quot;:&quot;]%s&quot;LicenseRef-&quot;(idstring)
 
@@ -876,9 +876,8 @@ license-expression = (simple-expression / compound-expression)
 <p>License expression operators (<code>AND</code>, <code>and</code>, <code>OR</code>, <code>or</code>, <code>WITH</code> and <code>with</code>) should be matched in a <em>case-sensitive</em> manner, i.e., letters must be all upper case or all lower case.</p>
 <p>License identifiers (including license exception identifiers) used in SPDX documents or source code files should be matched in a <em>case-insensitive</em> manner. In other words, <code>MIT</code>, <code>Mit</code> and <code>mIt</code> should all be treated as the same identifier and referring to the same license.</p>
 <p>However, please be aware that it is often important to match with the case of the canonical identifier on the <a href="https://spdx.org/licenses">SPDX License List</a>. This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.</p>
-<p>For license identifiers, only the variable part (after <code>LicenseRef-</code>) is case insensitive.</p>
-<p>This means, for example, that <code>LicenseRef-Name</code> and <code>LicenseRef-name</code> should be treated as the same identifier and considered to refer to the same license, while <code>licenseref-name</code> is not a valid license identifier.</p>
-<p>The same applies to <code>AdditionRef-</code>.</p>
+<p>For user defined license identifiers, only the variable part (after <code>LicenseRef-</code>) is case insensitive.  This means, for example, that <code>LicenseRef-Name</code> and <code>LicenseRef-name</code> should be treated as the same identifier and considered to refer to the same license, while <code>licenseref-name</code> is not a valid license identifier.</p>
+<p>The same applies to <code>AdditionRef-</code> user defined identifiers.</p>
 <h2 id="d3-simple-license-expressions">D.3 Simple license expressions <a name="D.3"></a></h2>
 <p>A simple <code>&lt;license-expression&gt;</code> is composed one of the following:</p>
 <ul>
