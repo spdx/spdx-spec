@@ -71,6 +71,20 @@ Note that in 3.0 the createdBy is a required field.  There will be situations wh
 
 The 3.0 format is more machine readable and structured (e.g. you do not need to parse the type from the string value).  It is also more flexible in that an Agent can be used even if it is not known what the Agent type is.
 
+#### File Contributor
+
+##### Description of Change
+
+The fileContributor property on File has been replaced by the originatedBy property on Artifact.
+
+##### Translating from 2.3 to 3.0
+
+For each fileContributor string in SPDX 2.3, an Person should be created and added to the originatedBy list for the File artifact.
+
+##### Rationale
+
+The Artifact property originatedBy should be used to describe file contributor information in place of the fileContributor property.
+
 #### File Type
 
 ##### Description of Change
@@ -693,11 +707,11 @@ Package, File, Snippet, Document
 
 The SPDX 2.X term implied that the only property was text when in fact there are several properties in common with the listed licenses.  See [model issue #233](https://github.com/spdx/spdx-3-model/issues/223) for context.
 
-#### licenseComment
+#### licenseName
 
 ##### SPDX 2.3 Model Name
 
-licenseComment
+licenseName
 
 ##### Tag/Value Name
 
