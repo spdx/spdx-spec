@@ -48,7 +48,7 @@ The following XML tag is used to implement this guideline. `<alt>` with 2 attrib
 The original text is enclosed within the beginning and ending alt tags.
 
 For example:
-`<alt match="(?i:copyright.{0,200})." name="copyright1">Copyright Linux Foundation</alt>`
+`<alt match="(?i:copyright.{0,200})." name="copyright1">Copyright The Linux Foundation</alt>`
 
 The original replaceable text appears on the SPDX License List webpage in red text.
 
@@ -184,7 +184,7 @@ Ignore copyright notices. A copyright notice consists of the following elements,
 
 The following XML tag is used to implement this guideline: `<copyrightText>`
 
-For example: `<copyrightText>Copyright 2022 Linux Foundation</copyrightText>`
+For example: `<copyrightText>Copyright 2022 The Linux Foundation</copyrightText>`
 
 ## C.12 License name or title <a name="C.12"></a>
 
