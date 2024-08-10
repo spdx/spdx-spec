@@ -707,11 +707,11 @@ Package, File, Snippet, Document
 
 The SPDX 2.X term implied that the only property was text when in fact there are several properties in common with the listed licenses.  See [model issue #233](https://github.com/spdx/spdx-3-model/issues/223) for context.
 
-#### licenseComment
+#### licenseName
 
 ##### SPDX 2.3 Model Name
 
-licenseComment
+licenseName
 
 ##### Tag/Value Name
 
