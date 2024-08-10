@@ -768,6 +768,8 @@
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#agent">Agent</a>
     </li>
+    <li class="toctree-l4"><a class="reference internal" href="#file-contributor">File Contributor</a>
+    </li>
     <li class="toctree-l4"><a class="reference internal" href="#file-type">File Type</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#package-file-name">Package File Name</a>
@@ -953,12 +955,19 @@
 <p>Note that in 3.0 the createdBy is a required field.  There will be situations where only a Tool is provided.  In that case, createdBy should point to a SoftwareAgent should be created using the same information as the Tool.</p>
 <h5 id="rationale_1">Rationale</h5>
 <p>The 3.0 format is more machine readable and structured (e.g. you do not need to parse the type from the string value).  It is also more flexible in that an Agent can be used even if it is not known what the Agent type is.</p>
-<h4 id="file-type">File Type</h4>
+<h4 id="file-contributor">File Contributor</h4>
 <h5 id="description-of-change_2">Description of Change</h5>
+<p>The fileContributor property on File has been replaced by the originatedBy property on Artifact.</p>
+<h5 id="translating-from-23-to-30_2">Translating from 2.3 to 3.0</h5>
+<p>For each fileContributor string in SPDX 2.3, an Person should be created and added to the originatedBy list for the File artifact.</p>
+<h5 id="rationale_2">Rationale</h5>
+<p>The Artifact property originatedBy should be used to describe file contributor information in place of the fileContributor property.</p>
+<h4 id="file-type">File Type</h4>
+<h5 id="description-of-change_3">Description of Change</h5>
 <p>The FileType enumeration has been replaced by two fields, the <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">media type</a> string as maintained by IANA for the content of the file and an enumeration of SoftwarePurpose for the purpose of the file.</p>
 <p>The property name fileType has been replaced by a property name contentType.</p>
-<h5 id="translating-from-23-to-30_2">Translating from 2.3 to 3.0</h5>
-<h5 id="rationale_2">Rationale</h5>
+<h5 id="translating-from-23-to-30_3">Translating from 2.3 to 3.0</h5>
+<h5 id="rationale_3">Rationale</h5>
 <p>One of the things that we identified is that <code>FileType</code> was being used for two things:</p>
 <ol>
 <li>Describing the purpose of the file.</li>
@@ -1038,18 +1047,18 @@
 </tbody>
 </table>
 <h4 id="package-file-name">Package File Name</h4>
-<h5 id="description-of-change_3">Description of Change</h5>
+<h5 id="description-of-change_4">Description of Change</h5>
 <p>The packageFileName property and packageChecksum property has been replaced by a relationship from a Package to a File.  A relationship type of hasDistributionArtifact should be used.</p>
-<h5 id="translating-from-23-to-30_3">Translating from 2.3 to 3.0</h5>
+<h5 id="translating-from-23-to-30_4">Translating from 2.3 to 3.0</h5>
 <p>Create an SPDX File with the name from the packageFileName and a verifiedUsing value from the packageChecksum for a single file.  If the packageFileName is a directory, then the SPDX File is created with the directory name and is verified using the contentIdentifier property on the File and a fileKind of directory.  Create a hasDistributionArifact relationship from the SPDX Package to the SPDX File.</p>
-<h5 id="rationale_3">Rationale</h5>
+<h5 id="rationale_4">Rationale</h5>
 <p>Providing a File relationship to the download location will include more detailed and complete information about the package file name used.</p>
 <h4 id="external-identifiers">External Identifiers</h4>
-<h5 id="description-of-change_4">Description of Change</h5>
+<h5 id="description-of-change_5">Description of Change</h5>
 <p>In SPDX 3.0, a properties externalIdentifier and contentIdentifier with types ExternalIdentifier and ContentIdentifier were introduced.  This is in addition to retaining the ExternalRef property and classes.</p>
 <p>In SPDX 2.3, both identifiers and references were captured in the externalRef property for packages.</p>
 <p>In addition to the structural changes, the “url” ExternalRef type was removed and is replaced by the “securityOther” ExternalRef type.</p>
-<h5 id="translating-from-23-to-30_4">Translating from 2.3 to 3.0</h5>
+<h5 id="translating-from-23-to-30_5">Translating from 2.3 to 3.0</h5>
 <p>The following ExternalRef Types should be converted to ExternalIdentifiers:</p>
 <ul>
 <li>cpe22Type</li>
@@ -1064,32 +1073,32 @@
 </ul>
 <p>All other ExternalRef types should remain as ExternalRef’s.</p>
 <p>The url ExternalRef type should be converted to a “securityOther”.</p>
-<h5 id="rationale_4">Rationale</h5>
+<h5 id="rationale_5">Rationale</h5>
 <p>Distinguishing identifiers from references is key to several integrity and provenance use cases.  Creating a separate property and type enables easier identification of identifiers.</p>
 <h4 id="package-url">Package URL</h4>
-<h5 id="description-of-change_5">Description of Change</h5>
+<h5 id="description-of-change_6">Description of Change</h5>
 <p>In SPDX 3.0, Package URL is a new property for Artifact which is a superclass of Package.</p>
 <p>Package URL is an External Ref type in SPDX 2.3.</p>
-<h5 id="translating-from-23-to-30_5">Translating from 2.3 to 3.0</h5>
+<h5 id="translating-from-23-to-30_6">Translating from 2.3 to 3.0</h5>
 <p>If there is a single ExternalReference of type purl without the optional ExternalRef comment property, place that in the packageUrl property.</p>
-<h5 id="rationale_5">Rationale</h5>
+<h5 id="rationale_6">Rationale</h5>
 <p>Package URL is  a very common method of identifying software packages.  Moving this to a property makes it significantly simpler to find and correlate Package URL identifiers.</p>
 <h4 id="annotation">Annotation</h4>
-<h5 id="description-of-change_6">Description of Change</h5>
+<h5 id="description-of-change_7">Description of Change</h5>
 <p>Annotations are now subclasses of Element, so it inherits a number of new optional properties including names, annotations, and its own relationships.</p>
 <p>Annotations are no longer a property of an Element.  It is now a standalone element with a “subject”  field which points to the Element being annotated.</p>
-<h5 id="translating-from-23-to-30_6">Translating from 2.3 to 3.0</h5>
+<h5 id="translating-from-23-to-30_7">Translating from 2.3 to 3.0</h5>
 <p>A new Annotation element would be created for every annotation property in an element (Package, File or Snippet).  The subject property would point to the Element which has the Annotation as a property.</p>
 <p>The annotator from SPDX 2.3 should be translated to one of the creators for the creationInfo for the Annotation and the annotationDate should be translated to the created field in the same creationInfo.  The creationInfo for the Annotation should be the creationInfo of the SPDX 2.3 document.</p>
 <p>The SPDX 2.3 “comment” should use the statement field in SPDX 3.0.</p>
-<h5 id="rationale_6">Rationale</h5>
+<h5 id="rationale_7">Rationale</h5>
 <p>Changing from a property to a standalone element allows for relationships to exist outside the element itself (e.g. you can now create an amended SPDX document which has a new annotation for an element defined in the original document). This also supports third parties' ability to assert Annotations on Elements that they did not create.</p>
 <h4 id="relationship">Relationship</h4>
-<h5 id="description-of-change_7">Description of Change</h5>
+<h5 id="description-of-change_8">Description of Change</h5>
 <p>The structure of the Relationship class has changed to have a single direction and allow more than one related SPDX Elements.  Relationships are now subclasses of Element, so it inherits a number of new optional properties including names, annotations, and its own relationships.</p>
 <p>Relationships are no longer a property of an Element.  It is now a standalone element with a “from” and “to” field.</p>
 <p>A new property “completeness' ' complements the use of NONE and NOASSERTION for the related SPDX elements.</p>
-<h5 id="translating-from-23-to-30_7">Translating from 2.3 to 3.0</h5>
+<h5 id="translating-from-23-to-30_8">Translating from 2.3 to 3.0</h5>
 <p>The “from” property would be populated by the SPDX Element which has the relationship property.  The “to” property will be the relatedSpdxElement.</p>
 <p>When translating the relationshipType, the “from” and “to” may need to be swapped - the table below will have a “Y” in the “Swap to and from?” column when this is necessary.</p>
 <p>The completeness property would be constructed based on the following:</p>
@@ -1381,33 +1390,33 @@
 </tr>
 </tbody>
 </table>
-<h5 id="rationale_7">Rationale</h5>
+<h5 id="rationale_8">Rationale</h5>
 <p>The addition of the completeness attribute is clearer than the use of NONE and NOASSERTION.</p>
 <p>Changing from a property to a standalone element allows for relationships to exist outside the element itself (e.g. you can now create an amended SPDX document which has a new relationship for an element defined in the original document). This enables primary Element creating parties as well as third parties to express significantly greater contextual detail among content they create as well as content created by others.</p>
 <h4 id="snippet">Snippet</h4>
-<h5 id="description-of-change_8">Description of Change</h5>
+<h5 id="description-of-change_9">Description of Change</h5>
 <p>Byte and line range types have been changed from a StartEndPointer type to a PositiveIntegerRange.  Byte range is now optional.</p>
-<h5 id="translating-from-23-to-30_8">Translating from 2.3 to 3.0</h5>
+<h5 id="translating-from-23-to-30_9">Translating from 2.3 to 3.0</h5>
 <p>Iterate through the “ranges” property.  Any startPointer and endPointer with a property of “offset” would be translated to a snippetByteRange property.  Any startPointer and endPointer with a property of “lineNumber” would translate to a snippetLineRange property.</p>
 <p>A new Relationship would be created with the “from” pointing to the snippetFromFile and the “to” pointing to the Snippet.  They relationshipType would be CONTAINS.</p>
-<h5 id="rationale_8">Rationale</h5>
+<h5 id="rationale_9">Rationale</h5>
 <p>Using the W3C Pointer standard introduced significant complexity in the SPDX 2.X specification.  Although there may be some benefit in using a published standard, we have not found any instances where the W3C Pointer ontology was useful for SPDX use cases.</p>
 <p>Changing the snippetFromFile from a property to a relationship [to be filled in].</p>
 <h4 id="specversion">SpecVersion</h4>
-<h5 id="description-of-change_9">Description of Change</h5>
+<h5 id="description-of-change_10">Description of Change</h5>
 <p>The type of SpecVersion is changed from a simple string without constraints to a SemVer string which must follow the <a href="https://semver.org/">Semantic Versioning format</a>.</p>
 <p>This adds a constraint where a patch version is required.  Previous usage of the SpecVersiononly included the major and minor version.</p>
-<h5 id="translating-from-23-to-30_9">Translating from 2.3 to 3.0</h5>
+<h5 id="translating-from-23-to-30_10">Translating from 2.3 to 3.0</h5>
 <p>Add a patch version of “0” to any previous spec version.</p>
-<h5 id="rationale_9">Rationale</h5>
+<h5 id="rationale_10">Rationale</h5>
 <h4 id="the-additional-constraints-align-with-best-practices-for-versioning-strings">The additional constraints align with best practices for versioning strings</h4>
 <h4 id="licenselistversion">LicenseListVersion</h4>
-<h5 id="description-of-change_10">Description of Change</h5>
+<h5 id="description-of-change_11">Description of Change</h5>
 <p>The type of LicenseListVersion is changed from a simple string without constraints to a SemVer string which must follow the <a href="https://semver.org/">Semantic Versioning format</a>.</p>
 <p>This adds a constraint where a patch version is required.  Previous usage of the SPDX license list only included the major and minor version.</p>
-<h5 id="translating-from-23-to-30_10">Translating from 2.3 to 3.0</h5>
+<h5 id="translating-from-23-to-30_11">Translating from 2.3 to 3.0</h5>
 <p>Add a patch version of “0” to any previous license list version.</p>
-<h5 id="rationale_10">Rationale</h5>
+<h5 id="rationale_11">Rationale</h5>
 <p>The additional constraints align with best practices for versioning strings.</p>
 <h3 id="properties-removed">Properties Removed</h3>
 <p>Below is a list of properties present in 2.3 and not present in 3.0.  The Range / Where used is where the property was used in the SPDX 2.3 model.</p>
@@ -1418,7 +1427,7 @@
 <p>Not used</p>
 <h5 id="range-where-used">Range / Where Used</h5>
 <p>LicenseException</p>
-<h5 id="rationale_11">Rationale</h5>
+<h5 id="rationale_12">Rationale</h5>
 <p>This field has not been used.</p>
 <h4 id="licenseinfoinfiles">LicenseInfoInFiles</h4>
 <h5 id="spdx-23-model-name_1">SPDX 2.3 Model Name</h5>
@@ -1427,7 +1436,7 @@
 <p>LicenseInfoInFiles</p>
 <h5 id="range-where-used_1">Range / Where Used</h5>
 <p>Package</p>
-<h5 id="rationale_12">Rationale</h5>
+<h5 id="rationale_13">Rationale</h5>
 <p>This field is redundant with the declaredLicense property in the Files contained in the Package.  It is recommended that the licenseInfoInFiles can be added as an Annotation to the Package in the format: “SPDX 2.X LicenseInfoInFiles: [expression1], [expression2]”  where the [expressions] are the string representation of the license expressions.</p>
 <h4 id="filesanalyzed">FilesAnalyzed</h4>
 <h5 id="spdx-23-model-name_2">SPDX 2.3 Model Name</h5>
@@ -1436,7 +1445,7 @@
 <p>FilesAnalyzed</p>
 <h5 id="range-where-used_2">Range / Where Used</h5>
 <p>Package</p>
-<h5 id="rationale_13">Rationale</h5>
+<h5 id="rationale_14">Rationale</h5>
 <p>Many users of the SPDX 2.X spec reported this property as very confusing.</p>
 <p>NOTE: There is no longer a way to specific checksums are required for files.  This is being tracked in <a href="https://github.com/spdx/spdx-3-model/issues/84">Issue #84</a>.</p>
 <h3 id="naming-differences">Naming Differences</h3>
@@ -1450,7 +1459,7 @@
 <p>releaseTime</p>
 <h5 id="range-where-used_3">Range / Where Used</h5>
 <p>Package</p>
-<h5 id="rationale_14">Rationale</h5>
+<h5 id="rationale_15">Rationale</h5>
 <p>Better reflects the granularity of the field.</p>
 <h4 id="build-date">Build Date</h4>
 <h5 id="spdx-23-model-name_4">SPDX 2.3 Model Name</h5>
@@ -1461,7 +1470,7 @@
 <p>buildTime</p>
 <h5 id="range-where-used_4">Range / Where Used</h5>
 <p>Package</p>
-<h5 id="rationale_15">Rationale</h5>
+<h5 id="rationale_16">Rationale</h5>
 <p>Better reflects the granularity of the field.</p>
 <h4 id="valid-until-date">Valid Until Date</h4>
 <h5 id="spdx-23-model-name_5">SPDX 2.3 Model Name</h5>
@@ -1472,7 +1481,7 @@
 <p>validUntilTime</p>
 <h5 id="range-where-used_5">Range / Where Used</h5>
 <p>Package</p>
-<h5 id="rationale_16">Rationale</h5>
+<h5 id="rationale_17">Rationale</h5>
 <p>Better reflects the granularity of the field.</p>
 <h4 id="external-document-reference_1">External Document Reference</h4>
 <h5 id="spdx-23-model-name_6">SPDX 2.3 Model Name</h5>
@@ -1483,7 +1492,7 @@
 <p>import</p>
 <h5 id="range-where-used_6">Range / Where Used</h5>
 <p>SpdxDocument (Creation Information)</p>
-<h5 id="rationale_17">Rationale</h5>
+<h5 id="rationale_18">Rationale</h5>
 <p>Feedback from SPDX 2.X usage is that externalDocumentRef is confusing due to the similar externalRef property.</p>
 <p>NOTE: See structural changes related to this property</p>
 <h4 id="checksum-class-data-type">Checksum Class / Data Type</h4>
@@ -1495,7 +1504,7 @@
 <p>verifiedUsing property and Hash class</p>
 <h5 id="range-where-used_7">Range / Where Used</h5>
 <p>Package, File</p>
-<h5 id="rationale_18">Rationale</h5>
+<h5 id="rationale_19">Rationale</h5>
 <p>More general concept allowing for different verification algorithms for different scenarios.</p>
 <h4 id="checksum-algorithm">Checksum Algorithm</h4>
 <h5 id="spdx-23-model-name_8">SPDX 2.3 Model Name</h5>
@@ -1506,7 +1515,7 @@
 <p>hashAlgorithm</p>
 <h5 id="range-where-used_8">Range / Where Used</h5>
 <p>Package, File</p>
-<h5 id="rationale_19">Rationale</h5>
+<h5 id="rationale_20">Rationale</h5>
 <p>The term “hash” better represents the intent of this property which is to validate the integrity of the data whereas the term “checksum” is typically for the purpose of error checking.</p>
 <h4 id="name">Name</h4>
 <h5 id="spdx-23-model-name_9">SPDX 2.3 Model Name</h5>
@@ -1517,7 +1526,7 @@
 <p>name</p>
 <h5 id="range-where-used_9">Range / Where Used</h5>
 <p>Package, File</p>
-<h5 id="rationale_20">Rationale</h5>
+<h5 id="rationale_21">Rationale</h5>
 <p>In the SPDX 2.3 RDF Ontology, both spdx:fileName and spdx:packageName are sub-properties of spdx:name.  The OWL has a restriction that spdx:File has exactly one spdx:fileName and spdx:Package has exactly one spdx:packageName.</p>
 <p>Changing these restrictions to just spdx:name would simplify the model.</p>
 <h4 id="version">Version</h4>
@@ -1529,7 +1538,7 @@
 <p>packageVersion</p>
 <h5 id="range-where-used_10">Range / Where Used</h5>
 <p>Package</p>
-<h5 id="rationale_21">Rationale</h5>
+<h5 id="rationale_22">Rationale</h5>
 <p>This change would make the Tag/Value and RDF values consistent.</p>
 <h4 id="home-page">Home Page</h4>
 <h5 id="spdx-23-model-name_11">SPDX 2.3 Model Name</h5>
@@ -1539,7 +1548,7 @@
 <h5 id="new-name_8">New Name</h5>
 <p>homePage</p>
 <h5 id="range-where-used_11">Range / Where Used</h5>
-<h5 id="rationale_22">Rationale</h5>
+<h5 id="rationale_23">Rationale</h5>
 <p>Uses a consistent namespace for SPDX properties.</p>
 <h4 id="annotation-comment">Annotation Comment</h4>
 <h5 id="spdx-23-model-name_12">SPDX 2.3 Model Name</h5>
@@ -1550,7 +1559,7 @@
 <p>statement</p>
 <h5 id="range-where-used_12">Range / Where Used</h5>
 <p>Element (Package, File, Snippet)</p>
-<h5 id="rationale_23">Rationale</h5>
+<h5 id="rationale_24">Rationale</h5>
 <p>The rdfs:comment property is optional and has slightly different semantics in other uses (e.g. comments on Elements).  Changing the property name clearly distinguishes this usage as a mandatory property for an Annotation.</p>
 <h4 id="with-exception-operator">With Exception Operator</h4>
 <h5 id="spdx-23-model-name_13">SPDX 2.3 Model Name</h5>
@@ -1565,7 +1574,7 @@
 <p>subjectAddition</p>
 <h5 id="range-where-used_13">Range / Where Used</h5>
 <p>Package, File, Snippet</p>
-<h5 id="rationale_24">Rationale</h5>
+<h5 id="rationale_25">Rationale</h5>
 <p>Custom Additions have been added in SPDX 3.0 which operate in a similar manner to listed License Exceptions.  The new type and property names are more general to accommodate both custom additions and listed license Exceptions.</p>
 <h4 id="license-exception">License Exception</h4>
 <h5 id="spdx-23-model-name_14">SPDX 2.3 Model Name</h5>
@@ -1582,7 +1591,7 @@
 <p>additionName</p>
 <h5 id="range-where-used_14">Range / Where Used</h5>
 <p>Package, File, Snippet</p>
-<h5 id="rationale_25">Rationale</h5>
+<h5 id="rationale_26">Rationale</h5>
 <p>Custom Additions have been added in SPDX 3.0 which operate in a similar manner to listed License Exceptions.  The new type and property names are more general to accommodate both custom additions and listed license Exceptions.</p>
 <h4 id="extractedlicenseinfo">ExtractedLicenseInfo</h4>
 <h5 id="spdx-23-model-name_15">SPDX 2.3 Model Name</h5>
@@ -1593,7 +1602,7 @@
 <p>CustomLicense</p>
 <h5 id="range-where-used_15">Range / Where Used</h5>
 <p>Package, File, Snippet, Document</p>
-<h5 id="rationale_26">Rationale</h5>
+<h5 id="rationale_27">Rationale</h5>
 <p>The SPDX 2.X term implied that the only property was text when in fact there are several properties in common with the listed licenses.  See <a href="https://github.com/spdx/spdx-3-model/issues/223">model issue #233</a> for context.</p>
 <h4 id="licensecomment">licenseComment</h4>
 <h5 id="spdx-23-model-name_16">SPDX 2.3 Model Name</h5>
@@ -1604,7 +1613,7 @@
 <p>name</p>
 <h5 id="range-where-used_16">Range / Where Used</h5>
 <p>License, ListedLicense, ExtractedText</p>
-<h5 id="rationale_27">Rationale</h5>
+<h5 id="rationale_28">Rationale</h5>
 <p>“name” is used in the Element class.  Since License is a type of (subclass of) Element, it should use the same field otherwise there would be redundant fields for the same purpose.</p>
 <h4 id="licensecomment_1">LicenseComment</h4>
 <h5 id="spdx-23-model-name_17">SPDX 2.3 Model Name</h5>
@@ -1615,7 +1624,7 @@
 <p>comment</p>
 <h5 id="range-where-used_17">Range / Where Used</h5>
 <p>License, ListedLicense</p>
-<h5 id="rationale_28">Rationale</h5>
+<h5 id="rationale_29">Rationale</h5>
 <p>“comment” is used in the Element class.  Since License is a type of (subclass of) Element, it should use the same field otherwise there would be redundant fields for the same purpose.</p>
 <h4 id="licenseid">LicenseID</h4>
 <h5 id="spdx-23-model-name_18">SPDX 2.3 Model Name</h5>
@@ -1626,11 +1635,11 @@
 <p>spdxId</p>
 <h5 id="range-where-used_18">Range / Where Used</h5>
 <p>License, ListedLicense</p>
-<h5 id="rationale_29">Rationale</h5>
+<h5 id="rationale_30">Rationale</h5>
 <p>“spdxId” is used in the Element class.  Since License is a type of (subclass of) Element, it should use the same field otherwise there would be redundant fields for the same purpose.</p>
 <h5 id="range-where-used_19">Range / Where Used</h5>
 <p>License, ListedLicense</p>
-<h5 id="rationale_30">Rationale</h5>
+<h5 id="rationale_31">Rationale</h5>
 <h4 id="primary-package-purpose">Primary Package Purpose</h4>
 <h5 id="spdx-23-model-name_19">SPDX 2.3 Model Name</h5>
 <p>primaryPackagePurpose</p>
@@ -1640,7 +1649,7 @@
 <p>primaryPurpose</p>
 <h5 id="range-where-used_20">Range / Where Used</h5>
 <p>Package</p>
-<h5 id="rationale_31">Rationale</h5>
+<h5 id="rationale_32">Rationale</h5>
 <p>The purpose property is now available for files and snippets in addition to Package resulting in a more general name of primaryPurpose.</p>
 <p>Note that additional purposes can be added using the additionalPurpose property.</p>
 <h3 id="serialization-formats">Serialization Formats</h3>
