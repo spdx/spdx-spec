@@ -22,7 +22,7 @@ the SPDX community, it has been preserved in this specification.
 
 ## 5.2 Introduction to Profiles <a name="5.2"></a>
 
-Profile is the term for a compliance point within the SPDX community across the
+Profile is the term for a compliance point within the SPDX community across The
 Linux Foundation and OMG. The System Package Data Exchange (SPDX) specification
 defines the following six compliance points, defined as “Profiles”:
 
