@@ -4,7 +4,9 @@
 **Official SPDX specification is at <http://spdx.org/specifications>.**
 
 Copyright © 2010-2024, The Linux Foundation and its Contributors,
-including SPDX Model contributions from OMG and its Contributors
+including SPDX Model contributions from OMG and its Contributors.
+
+## Use of Specification - Terms, Conditions & Notices
 
 This work is licensed under the
 [Community Specification License 1.0](./licenses/Community-Spec-1.0.md)
@@ -14,8 +16,6 @@ subsequently contributed under the Community-Spec-1.0 are provided under
 [Creative Commons Attribution License 3.0 Unported](./licenses/CC-BY-3.0.md)
 (CC-BY-3.0).
 Copies of these licenses are reproduced in their entirety herein.
-
-## Use of Specification - Terms, Conditions & Notices
 
 ### Trademarks
 
