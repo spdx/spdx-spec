@@ -63,10 +63,10 @@ The Internet Society Network Working Group,
 *SPDX and RDF Ontology*,
 [http://spdx.org/rdf/ontology/spdx-3-0-1](http://spdx.org/rdf/ontology/spdx-3-0-1)
 
-*SPDX License List*, Linux Foundation,
+*SPDX License List*, The Linux Foundation,
 [https://spdx.org/licenses/](https://spdx.org/licenses/)
 
-*SPDX License Exceptions*, Linux Foundation,
+*SPDX License Exceptions*, The Linux Foundation,
 [https://spdx.org/licenses/exceptions-index.html](https://spdx.org/licenses/exceptions-index.html)
 
 ## 2.2 Non-normative References <a name="2.2"></a>
