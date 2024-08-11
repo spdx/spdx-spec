@@ -1,4 +1,4 @@
-# 4 Symbols
+# Symbols
 
 List of symbols/abbreviations.
 
