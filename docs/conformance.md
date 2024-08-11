@@ -1,6 +1,6 @@
-# 5 Conformance
+# Conformance
 
-## 5.1 Alternate notation for some conformance requirements <a name="5.1"></a>
+## Alternate notation for some conformance requirements <a name="5.1"></a>
 
 This standard contains more than a few cardinality assertions, each of which
 indicates absolute, optional, or conditional requirements.
@@ -20,7 +20,7 @@ required, and if so, how many occurrences are required; also, whether a feature
 is permitted, and if so, in what number. As this is the format long familiar to
 the SPDX community, it has been preserved in this specification.
 
-## 5.2 Introduction to Profiles <a name="5.2"></a>
+## Introduction to Profiles <a name="5.2"></a>
 
 Profile is the term for a compliance point within the SPDX community across The
 Linux Foundation and OMG. The System Package Data Exchange (SPDX) specification
@@ -37,7 +37,7 @@ defines the following six compliance points, defined as “Profiles”:
 
 The Core and Software Profiles are mandatory. All others are optional.
 
-## 5.3 Core Profile compliance point <a name="5.3"></a>
+## Core Profile compliance point <a name="5.3"></a>
 
 The Core Profile includes the definitions of classes properties and
 vocabularies usable by all SPDX profiles when producing or consuming SPDX
@@ -55,7 +55,7 @@ This compliance point, in combination with the Software Profile compliance
 point, provides a baseline of functionality that facilitates interchange of the
 bills of materials information produced by tools supporting SPDX.
 
-## 5.4 Software Profile compliance point <a name="5.4"></a>
+## Software Profile compliance point <a name="5.4"></a>
 
 The Software Profile includes the definitions of classes, properties and
 vocabularies for refering to and conveying information about software and is
@@ -74,7 +74,7 @@ This compliance point, in combination with the Core Profile compliance point,
 provides a baseline of functionality that facilitates interchange of the bills
 of materials information produced by tools supporting SPDX.
 
-## 5.5 Security Profile compliance point <a name="5.5"></a>
+## Security Profile compliance point <a name="5.5"></a>
 
 The Security Profile captures security-related information when producing or
 consuming SPDX content.
@@ -95,7 +95,7 @@ SPDX.
 This compliance point facilitates interchange of the security information
 produced by tools supporting SPDX.
 
-## 5.6 Licencing Profile compliance point <a name="5.6"></a>
+## Licencing Profile compliance point <a name="5.6"></a>
 
 The Licensing Profile includes capturing details relevant to software licensing
 and intellectual property information when producing or consuming SPDX content.
@@ -115,7 +115,7 @@ expressing which licenses and copyright notices are determined by persons or
 automated tooling to apply to distributions of software that are produced by
 tools supporting SPDX.
 
-## 5.7 Dataset Profile compliance point <a name="5.7"></a>
+## Dataset Profile compliance point <a name="5.7"></a>
 
 The Dataset Profile captures the relevant information about the datasets used
 in an AI system or other applications when producing or consuming SPDX content.
@@ -138,7 +138,7 @@ of the SPDX.
 This compliance point facilitates interchange of the information about
 datasets produced by tools supporting SPDX.
 
-## 5.8 AI Profile compliance point <a name="5.8"></a>
+## AI Profile compliance point <a name="5.8"></a>
 
 The AI Profile captures an inventory list of software components and
 dependencies associated with an AI system when producing or consuming SPDX
@@ -161,7 +161,7 @@ the SPDX.
 This compliance point facilitates interchange of the AI model related
 information produced by tools supporting SPDX.
 
-## 5.9 Build Profile compliance point <a name="5.9"></a>
+## Build Profile compliance point <a name="5.9"></a>
 
 The Build Profile captures build-related information when producing or
 consuming SPDX content.
@@ -181,7 +181,7 @@ the SPDX.
 This compliance point facilitates interchange of the build information produced
 by tools supporting SPDX.
 
-## 5.10 Lite Profile compliance point <a name="5.10"></a>
+## Lite Profile compliance point <a name="5.10"></a>
 
 The Lite Profile captures the minimum set of information required for license
 compliance in the software supply chain for producing or consuming SPDX
@@ -200,7 +200,7 @@ of the SPDX.
 This compliance point facilitates interchange of minimal licencing information
 when produced by tools supporting SPDX.
 
-## 5.11 Extension Profile compliance point <a name="5.11"></a>
+## Extension Profile compliance point <a name="5.11"></a>
 
 The Extension Profile captures extended tailored information when producing or
 consuming non-standard SPDX content in three ways:
@@ -243,7 +243,7 @@ beyond the standard SPDX produced by tools supporting SPDX and is used between
 cooperating parties that understand the form of the extension and can produce
 and consume its non-standard content.
 
-## 5.12 Standard data format requirements <a name="5.12"></a>
+## Standard data format requirements <a name="5.12"></a>
 
 The data format specification and recommendations are subject to the
 following constraints:
@@ -256,10 +256,10 @@ following constraints:
 - Multiple serialization formats may be used to represent the information being
   exchanged. Current supported formats include:
 
-  - **YAML 1.2**
+  - *YAML 1.2*
     see:
     [YAML Ain’t Markup Language (YAML™) version 1.2](https://yaml.org/spec/1.2/)
-  - **JavaScript Object Notation** (JSON)
+  - *JavaScript Object Notation* (JSON)
     see:
     [ECMA-404](https://ecma-international.org/publications-and-standards/standards/ecma-404/)
     - The JSON Schema for SPDX can be found in the
@@ -267,13 +267,13 @@ following constraints:
   - **Resource Description Framework** (RDF, also referred to as RDF/XML)
     see:
     [RDF 1.1 XML Syntax](https://www.w3.org/TR/rdf-syntax-grammar/)
-  - **tag:value** flat text file as described in this specification
-  - **.xls** spreadsheets
+  - *tag:value* flat text file as described in this specification
+  - *.xls* spreadsheets
 
 - In addition to the supported formats, the following format is in development
   with a plan to complete the specification in the next release:
 
-  - **Extensible Markup Language** (XML)
+  - *Extensible Markup Language* (XML)
     see:
     [Extensible Markup Language (XML) 1.0 (Fifth Edition)](https://www.w3.org/TR/2008/REC-xml-20081126/)
 

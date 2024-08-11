@@ -1,6 +1,6 @@
-# Annex H: SPDX Lite  
+# SPDX Lite  
 
-## H.1 Definition of the Lite profile <a name="H.1"></a>  
+## Definition of the Lite profile
 
 The Lite profile is designed to make it quick and easy to start a Software Bill of Materials in situations where a company may have limited capacity for introducing new items into its process.  
 The Lite profile captures the minimum set of information required for license compliance in the software supply chain. It contains information about the creation of the SBOM, package lists with licensing and other related items, and their relationships.  
@@ -8,11 +8,10 @@ The Lite profile captures the minimum set of information required for license co
 All elements in Lite profile are essential for complying with licenses. It is easy to use a SPDX document with the Lite profile for anyone who does not have enough knowledge about licensing information and easy to import license information from former versions of SPDX Lite format files.  
 The Lite profile offers the flexibility to be used either alone or in combination with other SPDX profiles as a SPDX document in the software supply chain.  
 
-## H.2 Table of the Lite profile elements <a name="H.2"></a>  
+## Table of the Lite profile elements
 
 A SPDX document with the Lite profile must include properties for each class listed in **Table H.1**. And ```Cardinality 1..``` means a **REQUIRED** element, and the others **SHOULD** be filled in as much as possible if necessary.  
 
-**Table H.1 — the Lite profile elements**  
 
 1. For a /Core/SpdxDocument to be conformant with this profile, the following has to hold:  
 

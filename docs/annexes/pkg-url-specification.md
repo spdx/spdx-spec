@@ -1,6 +1,6 @@
-# Annex E: Package URL specification v1 (Normative)
+# Package URL specification v1 (Normative)
 
-## E.1 Introduction
+## Introduction
 
 The Package URL core specification defines a versioned and formalized
 format, syntax, and rules used to represent and validate package URLs.
@@ -17,7 +17,7 @@ Such a package URL is useful to reliably reference the same software
 package using a simple and expressive syntax and conventions based on
 familiar URLs.
 
-## E.2 Syntax definition
+## Syntax definition
 
 _purl_ stands for **package URL**.
 
@@ -55,7 +55,7 @@ The _purl_ components are mapped to the following URL components:
 - _purl_ qualifiers: this maps to a URL query
 - _purl_ subpath: this is a URL fragment
 
-## E.3 Character encoding
+## Character encoding
 
 For clarity and simplicity a _purl_ is always an ASCII string.
 To ensure that there is no ambiguity when parsing a _purl_,
@@ -80,7 +80,7 @@ must always percent-decode and percent-encode
 components and component segments
 as explained in the "How to produce and consume _purl_ data" section.
 
-## E.4 Rules for each component
+## Rules for each component
 
 A _purl_ string is an ASCII URL string composed of seven components.
 
@@ -90,7 +90,7 @@ defined in the "Character encoding" section.
 
 The rules for each component are:
 
-### E.4.1 Rules for scheme
+### Rules for scheme
 
 - The scheme is a constant with the value "`pkg`"
 - Since a _purl_ never contains a URL Authority, its scheme must not be suffixed with double slash as in `pkg://` and should use instead `pkg:`.
@@ -99,7 +99,7 @@ The rules for each component are:
 - The scheme is followed by a ':' separator.
 - For example, the two purls `pkg:gem/ruby-advisory-db-check@0.12.4` and `pkg://gem/ruby-advisory-db-check@0.12.4` are strictly equivalent. The first is in canonical form while the second is an acceptable _purl_ but is an invalid URI/URL per RFC3986.
 
-### E.4.2 Rules for type
+### Rules for type
 
 - The package type is composed only of ASCII letters and numbers, `.`, `+` and `-` (period, plus, and dash).
 - The type cannot start with a number.
@@ -107,7 +107,7 @@ The rules for each component are:
 - The type must not be percent-encoded.
 - The type is case insensitive, with the canonical form being lowercase.
 
-### E.4.3 Rules for namespace
+### Rules for namespace
 
 - The optional namespace contains zero or more segments, separated by slash `/`.
 - Leading and trailing slashes `/` are not significant and should be stripped in the canonical form. They are not part of the namespace.
@@ -115,20 +115,20 @@ The rules for each component are:
 - When percent-decoded, a segment must not contain a slash `/` and must not be empty.
 - A URL host or Authority must NOT be used as a namespace. Use instead a `repository_url` qualifier. Note however that for some types, the namespace may look like a host.
 
-### E.4.4 Rules for name
+### Rules for name
 
 - The name is prefixed by a slash `/` separator when the namespace is not empty.
 - This slash `/` is not part of the name.
 - A name must be a percent-encoded string.
 
-### E.4.5 Rules for version
+### Rules for version
 
 - The version is prefixed by a at-sign `@` separator when not empty.
 - This at-sign `@` is not part of the version.
 - A version must be a percent-encoded string.
 - A version is a plain and opaque string. Some package types use versioning conventions such as semver for NPMs or nevra conventions for RPMS. A type may define a procedure to compare and sort versions, but there is no reliable and uniform way to do such comparison consistently.
 
-### E.4.6 Rules for qualifiers
+### Rules for qualifiers
 
 - The qualifiers string is prefixed by a `?` separator when not empty.
 - This `?` is not part of the qualifiers.
@@ -144,7 +144,7 @@ The rules for each component are:
 - A value must be a percent-encoded string.
 - The `=` separator is neither part of the key nor of the value.
 
-### E.4.7 Rules for subpath
+### Rules for subpath
 
 - The subpath string is prefixed by a `#` separator when not empty.
 - This `#` is not part of the subpath.
@@ -154,7 +154,7 @@ The rules for each component are:
 - When percent-decoded, a segment must not contain a `/`, must not be any of `..` or `.`, and must not be empty.
 - The subpath must be interpreted as relative to the root of the package.
 
-## E.5 Known types
+## Known types
 
 There are several known _purl_ package type definitions.
 The current list of known types is:
@@ -196,7 +196,7 @@ is maintained in the file named `PURL-TYPES.rst`
 in the online repository
 https://github.com/package-url/purl-spec.
 
-## E.6 Known qualifiers key/value pairs
+## Known qualifiers key/value pairs
 
 Qualifiers should be limited to the bare minimum
 for proper package identification,
@@ -216,12 +216,12 @@ The following keys are valid for use in all package types:
   Each item in the list is in form of algorithm:hex\_value (all lowercase),
   such as `sha1:ad9503c3e994a4f611a4892f2e67ac82df727086`.
 
-## E.7 How to produce and consume _purl_ data
+## How to produce and consume _purl_ data
 
 The following provides rules to be followed
 when building or deconstructing _purl_ instances.
 
-### E.7.1 How to build _purl_ string from its components
+### How to build _purl_ string from its components
 
 Building a _purl_ ASCII string works from left to right, from type to subpath.
 
@@ -275,7 +275,7 @@ To build a _purl_ string from its components:
     1. Join the segments with `/`
     1. Append this string to the _purl_
 
-### E.7.2 How to parse a _purl_ string to its components
+### How to parse a _purl_ string to its components
 
 Parsing a _purl_ ASCII string into its components works
 by splitting the string on different characters.
@@ -333,7 +333,7 @@ To parse a _purl_ string in its components:
     1. Join segments with `/`.
     1. This is the namespace.
 
-## E.8 Examples
+## Examples
 
 The following list includes some valid _purl_ examples:
 
@@ -348,7 +348,7 @@ The following list includes some valid _purl_ examples:
 - `pkg:pypi/django@1.11.1`
 - `pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&distro=fedora-25`
 
-## E.9 Original license
+## Original license
 
 This specification is based on the texts published
 in the https://github.com/package-url/purl-spec online repository.
