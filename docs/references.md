@@ -1,6 +1,6 @@
-# 2 References
+# References
 
-## 2.1 Normative References <a name="2.1"></a>
+## Normative References <a name="2.1"></a>
 
 The following documents are referred to in the text in such a way that some or
 all of their content constitutes requirements of this document. For dated
@@ -69,7 +69,7 @@ The Internet Society Network Working Group,
 *SPDX License Exceptions*, The Linux Foundation,
 [https://spdx.org/licenses/exceptions-index.html](https://spdx.org/licenses/exceptions-index.html)
 
-## 2.2 Non-normative References <a name="2.2"></a>
+## Non-normative References <a name="2.2"></a>
 
 The following documents are referred to in the text.
 
