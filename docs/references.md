@@ -17,7 +17,7 @@ edition of the referenced document (including any amendments) applies.
 The MITRE Corporation,
 [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
 
-*Common Platform Enumeration: Naming Specification Version 2.3*, NIST IR 7695,
+*Common Platform Enumeration (CPE): Naming Specification Version 2.3*, NIST IR 7695,
 NIST,
 [https://csrc.nist.gov/pubs/ir/7695/final](https://csrc.nist.gov/pubs/ir/7695/final)
 
