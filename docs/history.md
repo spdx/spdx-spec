@@ -1,4 +1,4 @@
-# Annex F: History, Motivation and Rational (Informative)
+#History with OMG, Motivation and Rational (Informative)
 
 The OMG and CISQ involvement in developing this specification had its start due
 to a need that came from the several years of work in the Department of
