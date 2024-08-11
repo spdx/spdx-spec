@@ -21,7 +21,7 @@ The MITRE Corporation,
 NIST,
 [https://csrc.nist.gov/pubs/ir/7695/final](https://csrc.nist.gov/pubs/ir/7695/final)
 
-*Common Vulnerability Scoring System v3.0: Specification Document*,
+*Common Vulnerability Scoring System v3.0 (CVSS v3.0): Specification Document*,
 Forum of Incident Response and Security Teams, Inc (FIRST),
 [https://www.first.org/cvss/v3.0/specification-document](https://www.first.org/cvss/v3.0/specification-document)
 
