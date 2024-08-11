@@ -11,5 +11,4 @@ in 2021.
 The present chapter outlines the changes that the current version
 introduces related to that previous edition.
 
-## TODO: Kate to fill in ...
 
