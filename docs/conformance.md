@@ -270,4 +270,3 @@ Specification 3.0.1 found at spdx.dev. These portions are Copyright © 2010--202
 its Contributors, and are licensed under the Community Specification License 1.0 by the
 Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and
 its Contributors."
-
