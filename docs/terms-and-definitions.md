@@ -1,4 +1,4 @@
-# 3 Terms and definitions
+# Terms and definitions
 
 To do:  Need to fill this in to align to the terms and definitions that apply in this revision of the specification. 
 
