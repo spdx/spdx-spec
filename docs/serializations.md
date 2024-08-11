@@ -1,6 +1,6 @@
-# 4 Model and serializations
+# Model and serializations
 
-## 4.1 Overview <a name="4.1"></a>
+## Overview <a name="4.1"></a>
 
 This specification defines the data model of the SPDX standard, describing
 every piece of information about systems with software components. The data
@@ -11,7 +11,7 @@ way to represent and exchange information.
 The data may be serialized in a variety of formats for storage and
 transmission.
 
-## 4.2 RDF serialization <a name="4.2"></a>
+## RDF serialization <a name="4.2"></a>
 
 Since the data model is based on RDF, any SPDX data can be serialized in any of
 the multiple RDF serialization formats, including but not limited to:
@@ -30,7 +30,7 @@ The SPDX specification is accompanied by a
 that can be used to serialize SPDX in a much simpler and more human-readable
 JSON-LD format.
 
-## 4.3 Canonical serialization <a name="4.3"></a>
+## Canonical serialization <a name="4.3"></a>
 
 Canonical serialization is a single, consistent, normalized, deterministic, and
 reproducible form.
@@ -66,7 +66,7 @@ with the following additional characteristics:
   value. A single comma separates a value from a following name. The name/value
   pairs are ordered by name.
 
-## 4.4 Serialization information <a name="4.4"></a>
+## Serialization information <a name="4.4"></a>
 
 A collection of elements may be serialized in multiple formats.
 

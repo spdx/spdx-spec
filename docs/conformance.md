@@ -1,15 +1,17 @@
-# 5 Conformance
+# Conformance
 
-## 5.1 Alternate notation for some conformance requirements <a name="5.1"></a>
+## Alternate notation for some conformance requirements <a name="5.1"></a>
 
 This standard contains more than a few cardinality assertions, each of which
-indicates absolute, optional, or conditional requirements.
+indicates the minimum and maximum number of times a property may appear.
+These are represented by using "minCount" and "maxCount" respectively.
+The absolute minimum number of occurrences is zero (0),
+while for an unbounded maximum number of occurrences a star (\*) is being used.
+
 Here are some examples:
 
-- Cardinality: Mandatory, one.
-- Cardinality: Optional, one or many.
-- Cardinality: Mandatory, one if {condition} is true or {feature} omitted, zero
-  (shall be omitted) if {condition} is false.
+- minCount: 1
+- maxCount: *
 - Cardinality: 0..1
 - Cardinality: 0..*
 - Cardinality: 1..1
@@ -20,24 +22,24 @@ required, and if so, how many occurrences are required; also, whether a feature
 is permitted, and if so, in what number. As this is the format long familiar to
 the SPDX community, it has been preserved in this specification.
 
-## 5.2 Introduction to Profiles <a name="5.2"></a>
+## Introduction to Profiles <a name="5.2"></a>
 
 Profile is the term for a compliance point within the SPDX community across The
 Linux Foundation and OMG. The System Package Data Exchange (SPDX) specification
 defines the following six compliance points, defined as “Profiles”:
 
-- Core and Software Profiles (Clauses 6 & 7)
-- Security Profile (Clause 8)
-- Licencing Profile (Clause 9)
-- Dataset Profile (Clause 10)
-- AI Profile (Clause 11)
-- Build Profile (Clause 12)
-- Lite Profile (Clause 13)
-- Extension Profile (Clause 14)
+- Core and Software Profiles
+- Security Profile
+- Licencing Profile
+- Dataset Profile
+- AI Profile
+- Build Profile
+- Lite Profile
+- Extension Profile
 
-The Core and Software Profiles are mandatory. All others are optional.
+The Core Profile is mandatory. All others are optional.
 
-## 5.3 Core Profile compliance point <a name="5.3"></a>
+## Core Profile compliance point <a name="5.3"></a>
 
 The Core Profile includes the definitions of classes properties and
 vocabularies usable by all SPDX profiles when producing or consuming SPDX
@@ -55,7 +57,7 @@ This compliance point, in combination with the Software Profile compliance
 point, provides a baseline of functionality that facilitates interchange of the
 bills of materials information produced by tools supporting SPDX.
 
-## 5.4 Software Profile compliance point <a name="5.4"></a>
+## Software Profile compliance point <a name="5.4"></a>
 
 The Software Profile includes the definitions of classes, properties and
 vocabularies for refering to and conveying information about software and is
@@ -74,7 +76,7 @@ This compliance point, in combination with the Core Profile compliance point,
 provides a baseline of functionality that facilitates interchange of the bills
 of materials information produced by tools supporting SPDX.
 
-## 5.5 Security Profile compliance point <a name="5.5"></a>
+## Security Profile compliance point <a name="5.5"></a>
 
 The Security Profile captures security-related information when producing or
 consuming SPDX content.
@@ -95,7 +97,7 @@ SPDX.
 This compliance point facilitates interchange of the security information
 produced by tools supporting SPDX.
 
-## 5.6 Licencing Profile compliance point <a name="5.6"></a>
+## Licencing Profile compliance point <a name="5.6"></a>
 
 The Licensing Profile includes capturing details relevant to software licensing
 and intellectual property information when producing or consuming SPDX content.
@@ -106,6 +108,11 @@ serialization formats, including the classes and fields that comprise the SPDX
 License Expression syntax and that relate to the
 [SPDX License List](https://spdx.org/licenses/).
 
+There are two associated profiles, the SimpleLicensing Profile
+and the ExpandedLicensing profiles.
+Both allow expression of the same information,
+albeit in different ways.
+
 Conformance to the Licencing Profile compliance point does not entail support
 for the Software, Security, Dataset, AI, Build, Lite, or Extension profiles of
 the SPDX.
@@ -115,7 +122,7 @@ expressing which licenses and copyright notices are determined by persons or
 automated tooling to apply to distributions of software that are produced by
 tools supporting SPDX.
 
-## 5.7 Dataset Profile compliance point <a name="5.7"></a>
+## Dataset Profile compliance point <a name="5.7"></a>
 
 The Dataset Profile captures the relevant information about the datasets used
 in an AI system or other applications when producing or consuming SPDX content.
@@ -138,7 +145,7 @@ of the SPDX.
 This compliance point facilitates interchange of the information about
 datasets produced by tools supporting SPDX.
 
-## 5.8 AI Profile compliance point <a name="5.8"></a>
+## AI Profile compliance point <a name="5.8"></a>
 
 The AI Profile captures an inventory list of software components and
 dependencies associated with an AI system when producing or consuming SPDX
@@ -161,7 +168,7 @@ the SPDX.
 This compliance point facilitates interchange of the AI model related
 information produced by tools supporting SPDX.
 
-## 5.9 Build Profile compliance point <a name="5.9"></a>
+## Build Profile compliance point <a name="5.9"></a>
 
 The Build Profile captures build-related information when producing or
 consuming SPDX content.
@@ -181,7 +188,7 @@ the SPDX.
 This compliance point facilitates interchange of the build information produced
 by tools supporting SPDX.
 
-## 5.10 Lite Profile compliance point <a name="5.10"></a>
+## Lite Profile compliance point <a name="5.10"></a>
 
 The Lite Profile captures the minimum set of information required for license
 compliance in the software supply chain for producing or consuming SPDX
@@ -200,7 +207,7 @@ of the SPDX.
 This compliance point facilitates interchange of minimal licencing information
 when produced by tools supporting SPDX.
 
-## 5.11 Extension Profile compliance point <a name="5.11"></a>
+## Extension Profile compliance point <a name="5.11"></a>
 
 The Extension Profile captures extended tailored information when producing or
 consuming non-standard SPDX content in three ways:
@@ -243,57 +250,23 @@ beyond the standard SPDX produced by tools supporting SPDX and is used between
 cooperating parties that understand the form of the extension and can produce
 and consume its non-standard content.
 
-## 5.12 Standard data format requirements <a name="5.12"></a>
+## Trademark Compliance
 
-The data format specification and recommendations are subject to the
-following constraints:
+To be designated an SPDX document, a file shall comply with the requirements of the SPDX Trademark
+License, as stated in the [the SPDX Trademark Page](https://spdx.dev/trademark).
 
-- Shall be in a human readable form.
-- Shall be in a syntax that a software tool can read and write.
-- Shall be suitable to be checked for syntactic correctness automatically,
-  independent of how it was generated (human or tool).
-- The SPDX document character set shall support UTF-8 encoding.
-- Multiple serialization formats may be used to represent the information being
-  exchanged. Current supported formats include:
+The official copyright notice that shall be used with any verbatim reproduction and/or distribution of
+this SPDX Specification 3.0.1 is:
 
-  - **YAML 1.2**
-    see:
-    [YAML Ain’t Markup Language (YAML™) version 1.2](https://yaml.org/spec/1.2/)
-  - **JavaScript Object Notation** (JSON)
-    see:
-    [ECMA-404](https://ecma-international.org/publications-and-standards/standards/ecma-404/)
-    - The JSON Schema for SPDX can be found in the
-      [SPDX specification Git repository schemas directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)
-  - **Resource Description Framework** (RDF, also referred to as RDF/XML)
-    see:
-    [RDF 1.1 XML Syntax](https://www.w3.org/TR/rdf-syntax-grammar/)
-  - **tag:value** flat text file as described in this specification
-  - **.xls** spreadsheets
+"Official SPDX® Specification 3.0.1 Copyright © 2010--2024 Linux Foundation and its Contributors.
+Licensed under the Community Specification License 1.0. All other rights are expressly reserved."
 
-- In addition to the supported formats, the following format is in development
-  with a plan to complete the specification in the next release:
+The official copyright notice that shall be used with any non-verbatim reproduction and/or distribution
+of this SPDX Specification 3.0.1, including without limitation any partial use or combining this SPDX
+Specification with another work, is:
 
-  - **Extensible Markup Language** (XML)
-    see:
-    [Extensible Markup Language (XML) 1.0 (Fifth Edition)](https://www.w3.org/TR/2008/REC-xml-20081126/)
-
-- Interoperability between all the supported file formats shall be preserved.
-  SPDX defines how to validate a document in each supported format, and how to
-  translate a valid document without loss to each other supported format.
-
-- Tags and format properties are case sensitive.
-
-- Should be easy to recognize in a file system without opening the file.
-  A suggested naming convention is:
-
-  | Format      | Extension    |
-  | ----------- | ------------ |
-  | tag:value   | \*.spdx      |
-  | RDF         | \*.spdx.rdf  |
-  | JSON        | \*.spdx.json |
-  | XML         | \*.spdx.xml  |
-  | YAML        | \*.spdx.yaml or \*.spdx.yml |
-
-- The convention in this specification is for the RDF examples to use
-  `rdf:about="..."` to represent that a proper Uniform Resource Indicator (URI)
-  should be present.
+"This is not an official SPDX Specification. Portions herein have been reproduced from SPDX®
+Specification 3.0.1 found at spdx.dev. These portions are Copyright © 2010--2024 Linux Foundation and
+its Contributors, and are licensed under the Community Specification License 1.0 by the
+Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and
+its Contributors."

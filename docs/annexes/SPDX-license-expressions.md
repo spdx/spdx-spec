@@ -1,6 +1,6 @@
-# Annex D: SPDX license expressions (Normative)
+# SPDX license expressions (Normative)
 
-## D.1 Overview <a name="D.1"></a>
+## Overview <a name="D.1"></a>
 
 Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0-only OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1-only AND BSD-3-Clause).
 
@@ -48,7 +48,7 @@ There MUST NOT be white space between a license-id and any following `+`. This s
 
 In the `tag:value` format, a license expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.
 
-## D.2 Case sensitivity <a name="D.2"></a>
+## Case sensitivity <a name="D.2"></a>
 
 License expression operators (`AND`, `and`, `OR`, `or`, `WITH` and `with`) should be matched in a *case-sensitive* manner, i.e., letters must be all upper case or all lower case.
 
@@ -60,7 +60,7 @@ For user defined license identifiers, only the variable part (after `LicenseRef-
 
 The same applies to `AdditionRef-` user defined identifiers.
 
-## D.3 Simple license expressions <a name="D.3"></a>
+## Simple license expressions <a name="D.3"></a>
 
 A simple `<license-expression>` is composed one of the following:
 
@@ -80,9 +80,9 @@ DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
 
 The current set of valid license identifiers can be found in [spdx.org/licenses](https://spdx.org/licenses).
 
-## D.4 Composite license expressions <a name="D.4"></a>
+## Composite license expressions <a name="D.4"></a>
 
-### D.4.1 Introduction <a name="D.4.1"></a>
+### Introduction <a name="D.4.1"></a>
 
 More expressive composite license expressions can be constructed using "OR", "AND", and "WITH" operators similar to constructing mathematical expressions using arithmetic operators.
 
@@ -90,7 +90,7 @@ For the `tag:value` format, any license expression that consists of more than on
 
 Nested parentheses can also be used to specify an order of precedence which is discussed in more detail in [D.4.5](#D.4.5).
 
-### D.4.2 Disjunctive "OR" operator <a name="D.4.2"></a>
+### Disjunctive "OR" operator <a name="D.4.2"></a>
 
 If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new license expression, where both the left and right operands are valid license expression values.
 
@@ -114,7 +114,7 @@ LGPL-2.1-only OR MIT OR BSD-3-Clause
 
 It is allowed to use the operator in lower case form `or`.
 
-### D.4.3 Conjunctive "AND" operator <a name="D.4.3"></a>
+### Conjunctive "AND" operator <a name="D.4.3"></a>
 
 If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are a valid license expression values.
 
@@ -138,7 +138,7 @@ LGPL-2.1-only AND MIT AND BSD-2-Clause
 
 It is allowed to use the operator in lower case form `and`.
 
-### D.4.4 Additive "WITH" operator <a name="D.4.4"></a>
+### Additive "WITH" operator <a name="D.4.4"></a>
 
 Sometimes license texts are found with additional text, which might or might not modify the original license terms.
 
@@ -157,7 +157,7 @@ The current set of valid license exceptions identifiers can be found in [spdx.or
 
 It is allowed to use the operator in lower case form `with`.
 
-### D.4.5 Order of precedence and parentheses <a name="D.4.5"></a>
+### Order of precedence and parentheses <a name="D.4.5"></a>
 
 The order of application of the operators in an expression matters (similar to mathematical operators). The default operator order of precedence of a `<license-expression>` a is:
 
@@ -188,7 +188,7 @@ MIT AND (LGPL-2.1-or-later OR BSD-3-Clause)
 
 states the OR operator should be applied before the AND operator. That is, one should first select between the LGPL-2.1-or-later or the BSD-3-Clause license before applying the MIT license.
 
-### D.4.6 License expressions in RDF <a name="D.4.6"></a>
+### License expressions in RDF <a name="D.4.6"></a>
 
 A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet>` element, with an spdx:member property for each element in the conjunctive license. Two or more members are required.
 

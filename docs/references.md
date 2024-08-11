@@ -1,6 +1,6 @@
-# 2 References
+# References
 
-## 2.1 Normative References <a name="2.1"></a>
+## Normative References <a name="2.1"></a>
 
 The following documents are referred to in the text in such a way that some or
 all of their content constitutes requirements of this document. For dated
@@ -17,47 +17,137 @@ edition of the referenced document (including any amendments) applies.
 The MITRE Corporation,
 [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
 
-NIST IR 7695, *Common Platform Enumeration: Naming Specification Version 2.3*,
+*Common Platform Enumeration (CPE): Naming Specification Version 2.3*, NIST IR 7695,
 NIST,
 [https://csrc.nist.gov/pubs/ir/7695/final](https://csrc.nist.gov/pubs/ir/7695/final)
 
+*Common Vulnerability Scoring System v3.0 (CVSS v3.0): Specification Document*,
+Forum of Incident Response and Security Teams, Inc (FIRST),
+[https://www.first.org/cvss/v3.0/specification-document](https://www.first.org/cvss/v3.0/specification-document)
+
+*Common Vulnerability Scoring System v3.1 (CVSS v3.1): Specification Document*,
+Forum of Incident Response and Security Teams, Inc (FIRST),
+[https://www.first.org/cvss/v3.1/specification-document](https://www.first.org/cvss/v3.1/specification-document).
+
+*Common Vulnerability Scoring System version 4.0 (CVSS v4.0): Specification Document*,
+Forum of Incident Response and Security Teams, Inc (FIRST),
+[https://www.first.org/cvss/v4.0/specification-document](https://www.first.org/cvss/v4.0/specification-document).
+
+*CVSS 3.0 schema*,
+Forum of Incident Response and Security Teams, Inc (FIRST),
+[https://www.first.org/cvss/cvss-v3.0.json](https://www.first.org/cvss/cvss-v3.0.json).
+
+*CVSS 3.1 schema*,
+Forum of Incident Response and Security Teams, Inc (FIRST),
+[https://www.first.org/cvss/cvss-v3.1.json](https://www.first.org/cvss/cvss-v3.1.json).
+
+*CVSS 4.0 schema*,
+Forum of Incident Response and Security Teams, Inc (FIRST),
+[https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
+
+*EU general risk assessment methodology*,
+European Commission,
+[https://ec.europa.eu/docsroom/documents/17107](https://ec.europa.eu/docsroom/documents/17107).
+
 *npm-package.json*, npm Inc.,
-[https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json)
+[https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json).
 
 *NuGet documentation*, Microsoft,
-[https://docs.nuget.org/](https://docs.nuget.org/)
+[https://docs.nuget.org/](https://docs.nuget.org/).
 
 POSIX.1-2017 *The Open Group Base Specifications Issue 7*, 2018 edition,
 IEEE/Open Group,
-[https://pubs.opengroup.org/onlinepubs/9699919799/](https://pubs.opengroup.org/onlinepubs/9699919799/)
-
-*Package URL specification*,
-[https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
+[https://pubs.opengroup.org/onlinepubs/9699919799/](https://pubs.opengroup.org/onlinepubs/9699919799/).
 
 *Resource Description Framework (RDF)*, 2014-02-25, W3C,
-[http://www.w3.org/standards/techs/rdf](http://www.w3.org/standards/techs/rdf)
+[http://www.w3.org/standards/techs/rdf](http://www.w3.org/standards/techs/rdf).
 
-RFC 1321, *The MD5 Message-Digest Algorithm*,
-The Internet Society Network Working Group,
-[https://www.rfc-editor.org/info/rfc1321](https://www.rfc-editor.org/info/rfc1321)
+RFC 1319,
+*The MD2 Message-Digest Algorithm*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc1319/](https://datatracker.ietf.org/doc/rfc1319/).
 
-RFC 3174, *US Secure Hash Algorithm 1 (SHA1)*,
-The Internet Society Network Working Group,
-[https://www.rfc-editor.org/info/rfc3174](https://www.rfc-editor.org/info/rfc3174)
+RFC 1320,
+*The MD4 Message-Digest Algorithm*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc1320](https://datatracker.ietf.org/doc/rfc1320).
 
-RFC 3986, *Uniform Resource Identifier (URI): Generic Syntax*,
-The Internet Society Network Working Group,
-[https://www.rfc-editor.org/info/rfc3986](https://www.rfc-editor.org/info/rfc3986)
+RFC 1321,
+*The MD5 Message-Digest Algorithm*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc1321](https://datatracker.ietf.org/doc/rfc1321).
 
-RFC 5234, *Augmented BNF for Syntax Specifications: ABNF*,
-The Internet Society Network Working Group,
-[https://www.rfc-editor.org/info/rfc5234](https://www.rfc-editor.org/info/rfc5234)
+RFC 1950,
+*ZLIB Compressed Data Format Specification version 3.3*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc1950](https://datatracker.ietf.org/doc/rfc1950).
 
-RFC 6234, *US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)*,
-The Internet Society Network Working Group,
-[https://www.rfc-editor.org/info/rfc6234](https://www.rfc-editor.org/info/rfc6234)
+RFC 2046,
+*Multipurpose Internet Mail Extensions (https://datatracker.ietf.org/doc/rfcMIME) Part Two: Media Types*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc2046](https://datatracker.ietf.org/doc/rfc2046).
 
-*SoftWare Heritage persistent IDentifiers (SWHIDs)*,
+RFC 3174,
+*US Secure Hash Algorithm 1 (https://datatracker.ietf.org/doc/rfcSHA1)*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc3174](https://datatracker.ietf.org/doc/rfc3174).
+
+RFC 3696,
+*Application Techniques for Checking and Transformation of Names*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc3696](https://datatracker.ietf.org/doc/rfc3696).
+
+RFC 3874,
+*A 224-bit One-way Hash Function: SHA-224*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc3874](https://datatracker.ietf.org/doc/rfc3874).
+
+RFC 3986,
+*Uniform Resource Identifier (https://datatracker.ietf.org/doc/rfcURI): Generic Syntax*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc3986](https://datatracker.ietf.org/doc/rfc3986).
+
+RFC 5234,
+*Augmented BNF for Syntax Specifications: ABNF*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc5234](https://datatracker.ietf.org/doc/rfc5234).
+
+RFC 6234,
+*US Secure Hash Algorithms (https://datatracker.ietf.org/doc/rfcSHA and SHA-based HMAC and HKDF)*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc6234](https://datatracker.ietf.org/doc/rfc6234).
+
+RFC 7405,
+*Case-Sensitive String Support in ABNF*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc7405](https://datatracker.ietf.org/doc/rfc7405).
+
+RFC 7693,
+*The BLAKE2 Cryptographic Hash and Message Authentication Code (https://datatracker.ietf.org/doc/rfcMAC)*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc7693](https://datatracker.ietf.org/doc/rfc7693).
+
+RFC 8259,
+*The JavaScript Object Notation (https://datatracker.ietf.org/doc/rfcJSON) Data Interchange Format*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc8259](https://datatracker.ietf.org/doc/rfc8259).
+
+RFC 9393,
+*Concise Software Identification Tags*,
+Internet Engineering Task Force,
+[https://datatracker.ietf.org/doc/rfc9393](https://datatracker.ietf.org/doc/rfc9393).
+
+*Semantic Versioning 2.0.0*,
+Tom Preston-Werner and SemVer contributors,
+[https://semver.org](https://semver.org).
+
+*SLSA Provenance v0.2*, The Linux Foundation,
+[https://slsa.dev/provenance/v0.2](https://slsa.dev/provenance/v0.2).
+
+SoftWare Heritage persistent IDentifiers (SWHIDs), in
+Draft International Standard 
+*ISO/IEC DIS 18670 Information technology — SoftWare Hash IDentifier (SWHID) Specification V1.2*[https://www.iso.org/standard/89985.html](https://www.iso.org/standard/89985.html),
+also available at
 [https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
 
 *SPDX and RDF Ontology*,
@@ -69,7 +159,19 @@ The Internet Society Network Working Group,
 *SPDX License Exceptions*, The Linux Foundation,
 [https://spdx.org/licenses/exceptions-index.html](https://spdx.org/licenses/exceptions-index.html)
 
-## 2.2 Non-normative References <a name="2.2"></a>
+*Stakeholder-Specific Vulnerability Categorization Guide*,
+CISA,
+[https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc).
+
+*The EPSS Model*,
+Forum of Incident Response and Security Teams, Inc (FIRST),
+[https://www.first.org/epss/model](https://www.first.org/epss/model).
+
+*Types of Software Bill of Material (SBOM) Documents*,
+CISA,
+[https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
+
+## Non-normative References <a name="2.2"></a>
 
 The following documents are referred to in the text.
 
