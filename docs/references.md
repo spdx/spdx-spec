@@ -1,6 +1,6 @@
-# 2 References
+# References
 
-## 2.1 Normative References <a name="2.1"></a>
+## Normative References <a name="2.1"></a>
 
 The following documents are referred to in the text in such a way that some or
 all of their content constitutes requirements of this document. For dated
@@ -171,7 +171,7 @@ Forum of Incident Response and Security Teams, Inc (FIRST),
 CISA,
 [https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
-## 2.2 Non-normative References <a name="2.2"></a>
+## Non-normative References <a name="2.2"></a>
 
 The following documents are referred to in the text.
 
