@@ -29,7 +29,7 @@ Forum of Incident Response and Security Teams, Inc (FIRST),
 Forum of Incident Response and Security Teams, Inc (FIRST),
 [https://www.first.org/cvss/v3.1/specification-document](https://www.first.org/cvss/v3.1/specification-document).
 
-*Common Vulnerability Scoring System version 4.0: Specification Document*,
+*Common Vulnerability Scoring System version 4.0 (CVSS v4.0): Specification Document*,
 Forum of Incident Response and Security Teams, Inc (FIRST),
 [https://www.first.org/cvss/v4.0/specification-document](https://www.first.org/cvss/v4.0/specification-document).
 
