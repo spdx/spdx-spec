@@ -207,6 +207,49 @@ of the SPDX.
 This compliance point facilitates interchange of minimal licencing information
 when produced by tools supporting SPDX.
 
+## 5.11 Extension Profile compliance point <a name="5.11"></a>
+
+The Extension Profile captures extended tailored information when producing or
+consuming non-standard SPDX content in three ways:
+
+- Support Profile-based extended characterization of Elements. Enables
+  specification and expression of Element characterization extensions within
+  any profile and namespace of SPDX without requiring changes to other profiles
+  or namespaces and without requiring local subclassing of remote classes
+  (which could inhibit ecosystem interoperability in some cases).
+
+- Support extension of SPDX by adopting individuals or communities with Element
+  characterization details uniquely specialized to their particular context.
+  Enables adopting individuals or communities to utilize SPDX expressive
+  capabilities along with expressing more arcane Element characterization
+  details specific to them and not appropriate for standardization across SPDX.
+
+- Support structured capture of expressive solutions for gaps in SPDX coverage
+  from real-world use. Enables adopting individuals or communities to express
+  Element characterization details they require that are not currently defined
+  in SPDX but likely should be. Enables a practical pipeline that identifies
+  gaps in SPDX that should be filled, expresses solutions to those gaps in a
+  way that allows the identifying adopters to use the extended solutions with
+  SPDX and does not conflict with current SPDX, can be clearly detected among
+  the SPDX content exchange ecosystem, provides a clear and structured
+  definition of gap solution that can be used as submission for revision to the
+  SPDX standard.
+
+Software that conforms to the SPDX specification at the Extension Profile
+compliance point shall be able to import and export serialized documents that
+conform with one of the SPDX serialization formats defined SPDX serialization
+formats, including the abstract Extension class serving as the base for all
+defined Extension subclasses.
+
+Conformance to the Extension Profile compliance point does not entail support
+for the Licencing, Security, Dataset, AI, Build, or profiles of the SPDX but
+is expected to be used in combination with the other profiles to extend them.
+
+This compliance point facilitates interchange of extended information that goes
+beyond the standard SPDX produced by tools supporting SPDX and is used between
+cooperating parties that understand the form of the extension and can produce
+and consume its non-standard content.
+
 ## Trademark Compliance
 
 To be designated an SPDX document, a file shall comply with the requirements of the SPDX Trademark
