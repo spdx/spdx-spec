@@ -263,8 +263,8 @@ following constraints:
     see:
     [ECMA-404](https://ecma-international.org/publications-and-standards/standards/ecma-404/)
     - The JSON Schema for SPDX can be found in the
-      [SPDX specification Git repository schemas directory](https://github.com/spdx/spdx-spec/blob/master/schemas/spdx-schema.json)
-  - *Resource Description Framework* (RDF, also referred to as RDF/XML)
+      [SPDX specification GitHub pages](https://spdx.github.io/spdx-spec/v3.0.1/rdf/schema.json)
+  - **Resource Description Framework** (RDF, also referred to as RDF/XML)
     see:
     [RDF 1.1 XML Syntax](https://www.w3.org/TR/rdf-syntax-grammar/)
   - *tag:value* flat text file as described in this specification
