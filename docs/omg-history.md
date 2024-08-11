@@ -137,7 +137,7 @@ The SPDX 3.0.1 model is available at:
 [https://github.com/spdx/spdx-3-model](https://github.com/spdx/spdx-3-model)
 
 The SPDX 3.0.1 ontology is available at:
-[https://github.com/spdx/spdx-spec/tree/development/v3.0/ontology](https://github.com/spdx/spdx-spec/tree/development/v3.0.1/ontology)
+[https://github.com/spdx/spdx-spec/tree/development/v3.0.1/ontology](https://github.com/spdx/spdx-spec/tree/development/v3.0.1/ontology)
 
 The SPDX 3.0.1 specification is available as web pages at:
-[https://spdx.github.io/spdx-spec/v3.0/](https://spdx.github.io/spdx-spec/v3.0.1/)
+[https://spdx.github.io/spdx-spec/v3.0.1/](https://spdx.github.io/spdx-spec/v3.0.1/)
