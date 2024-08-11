@@ -25,7 +25,7 @@ NIST,
 Forum of Incident Response and Security Teams, Inc (FIRST),
 [https://www.first.org/cvss/v3.0/specification-document](https://www.first.org/cvss/v3.0/specification-document)
 
-*Common Vulnerability Scoring System v3.1: Specification Document*,
+*Common Vulnerability Scoring System v3.1 (CVSS v3.1): Specification Document*,
 Forum of Incident Response and Security Teams, Inc (FIRST),
 [https://www.first.org/cvss/v3.1/specification-document](https://www.first.org/cvss/v3.1/specification-document).
 
