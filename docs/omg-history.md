@@ -134,7 +134,7 @@ can convey in a bill of materials.
 **Figure 16 – SPDX 2.3 Model compared to the SPDX 3.0 Model**
 
 The SPDX 3.0.1 model is available at:
-[https://github.com/spdx/spdx-3-model](https://github.com/spdx/spdx-3-model)
+[https://spdx.github.io/spdx-spec/v3.0.1/rdf/schema.json](https://spdx.github.io/spdx-spec/v3.0.1/rdf/schema.json)
 
 The SPDX 3.0.1 ontology is available at:
 [https://github.com/spdx/spdx-spec/tree/development/v3.0.1/ontology](https://github.com/spdx/spdx-spec/tree/development/v3.0.1/ontology)
