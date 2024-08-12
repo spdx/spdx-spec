@@ -81,13 +81,13 @@ more serialized forms of itself.
 
 When serializing a physical SpdxDocument, any property of the logical element
 that can be natively represented within the chosen serialization format
-(e.g., `@context` prefixes in JSON-LD instead of the namespaceMap) may utilize
+(e.g., `@context` prefixes in JSON-LD instead of the namespaceMap) MAY utilize
 these native mechanisms. All remaining properties shall be serialized within
 the SpdxDocument element itself.
 
-A serialization must not contain more than one SpdxDocument.
+A serialization MUST NOT contain more than one SpdxDocument.
 
-A given instance of serialization must not define more than one SpdxDocument
+A given instance of serialization MUST NOT define more than one SpdxDocument
 element.
 
 ## Serialization in JSON-LD
@@ -97,20 +97,25 @@ element.
 JSON-LD contexts allow JSON documents to use simple, human-readable, locally
 defined terms while ensuring data interoperability across different systems.
 
-The SPDX organization provides a global JSON-LD context file that MUST be used
-universally for all SPDX JSON-LD files of a given SPDX version.
+The SPDX global JSON-LD context file MUST be used universally for all SPDX
+documents in JSON-LD format that adhere to a specific SPDX version.
 
-The context is available under
+SPDX global JSON-LD context file is available at:
 [https://spdx.org/rdf/3.0.1/spdx-context.jsonld](https://spdx.org/rdf/3.0.1/spdx-context.jsonld)
-and should be included in serialized files on top-level via
+
+All SPDX documents in JSON-LD format MUST include a reference to the SPDX
+global context file at the top level.
+This reference is achieved using the following JSON construct:
 
 ```json
 "@context": "https://spdx.org/rdf/3.0.1/spdx-context.jsonld"
 ```
 
-Take special note that this context defines aliases for better compatibility
-with the SPDX model.
-In particular, these are "spdxId" for "@id" and "type" for "@type".
+The SPDX context file defines aliases for specific JSON-LD properties to
+improve compatibility with the SPDX model.  These aliases are:
+
+- `spdxId`: An alias for the `@id` property.
+- `type`: An alias for the `@type` property.
 
 ### JSON-LD validation
 
@@ -126,8 +131,8 @@ specification if it adheres to the following two validation criteria:
   the JSON-LD document, including the required elements, data types, and
   permissible values.
 
-SPDX OWL ontology is available at
+SPDX OWL ontology is available at:
 [https://spdx.org/rdf/3.0.1/spdx-model.ttl](https://spdx.org/rdf/3.0.1/spdx-model.ttl)
 
-SPDX JSON Schema is available at
+SPDX JSON Schema is available at:
 [https://spdx.org/schema/3.0.1/spdx-json-schema.json](https://spdx.org/schema/3.0.1/spdx-json-schema.json)
