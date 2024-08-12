@@ -12,7 +12,6 @@ The Lite profile offers the flexibility to be used either alone or in combinatio
 
 A SPDX document with the Lite profile must include properties for each class listed in **Table H.1**. And ```Cardinality 1..``` means a **REQUIRED** element, and the others **SHOULD** be filled in as much as possible if necessary.  
 
-
 1. For a /Core/SpdxDocument to be conformant with this profile, the following has to hold:  
 
    | # | Property Name | Cardinality | Comments |  
