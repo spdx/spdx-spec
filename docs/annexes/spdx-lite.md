@@ -1,131 +1,137 @@
-# SPDX Lite  
+# SPDX Lite
 
-## Definition of the Lite profile
+## Explanation of the Lite profile
 
-The Lite profile is designed to make it quick and easy to start a Software Bill of Materials in situations where a company may have limited capacity for introducing new items into its process.  
-The Lite profile captures the minimum set of information required for license compliance in the software supply chain. It contains information about the creation of the SBOM, package lists with licensing and other related items, and their relationships.  
+The Lite profile is designed to make it quick and easy to start a Software Bill of Materials
+in situations where a company may have limited capacity for introducing new items into their processes.
+The Lite profile captures the minimum set of information required
+for license compliance in the software supply chain.
+It contains information about the creation of the SBOM,
+package lists with licensing and other related information,
+and their relationships.
 
-All elements in Lite profile are essential for complying with licenses. It is easy to use a SPDX document with the Lite profile for anyone who does not have enough knowledge about licensing information and easy to import license information from former versions of SPDX Lite format files.  
-The Lite profile offers the flexibility to be used either alone or in combination with other SPDX profiles as a SPDX document in the software supply chain.  
+All elements in Lite profile are essential for complying with licenses.
+It is easy to use a SPDX document with the Lite profile
+for anyone who does not have enough knowledge about licensing information
+and easy to import license information from former versions of SPDX Lite format files.
+The Lite profile offers the flexibility to be used either alone
+or in combination with other SPDX profiles
+as a SPDX document in the software supply chain.
 
-## Table of the Lite profile elements
+## Mandatory and recommended properties
 
-A SPDX document with the Lite profile must include properties for each class listed in **Table H.1**. And ```Cardinality 1..``` means a **REQUIRED** element, and the others **SHOULD** be filled in as much as possible if necessary.  
+The Lite profile specifies that some properties MUST be present
+and some others SHOULD be present, as much as possible.
 
-1. For a /Core/SpdxDocument to be conformant with this profile, the following has to hold:  
+The following lists collect and present this information
+for every class present in the SPDX data,
+in a concise and easy-to-follow format.
+The lists of properties are in alphabetical order, for easy reference.
 
-   | # | Property Name | Cardinality | Comments |  
-   |:-:|:--|:--|:--|  
-   | 1 | /Core/SpdxDocument/spdxId    		| 1..1	| |  
-   | 2 | /Core/SpdxDocument/name            | 0..1	| |  
-   | 3 | /Core/SpdxDocument/comment			| 0..1	| |  
-   | 4 | /Core/SpdxDocument/creationInfo	| 1..1	| |  
-   | 5 | /Core/SpdxDocument/verifiedUsing	| 0..*	| This should be objects of /Core/Hash |  
-   | 6 | /Core/SpdxDocument/element			| 1..*	| MUST have at least one /Core/Sbom object |  
-   | 7 | /Core/SpdxDocument/rootElement		| 1..*	| This should be objects of /Core/Sbom |  
-   | 8 | /Core/SpdxDocument/namespaceMap	| 0..*	| |  
-   | 9 | /Core/SpdxDocument/dataLicense		| 0..1	| |  
+### /Core/SpdxDocument
+   * Mandatory
+     1. creationInfo
+     1. element (may be multiple), MUST have at least one /Core/Sbom object
+     1. rootElement (may be multiple), SHOULD be objects of type /Core/Sbom
+     1. spdxId
+   * Recommended
+     1. comment
+     1. dataLicense
+     1. name
+     1. namespaceMap (may be multiple)
+     1. verifiedUsing (may be multiple), SHOULD be objects of type /Core/Hash
 
-2. For a /Core/NameSpaceMap to be conformant with this profile, the following has to hold:  
+### /Software/Sbom
+   * Mandatory
+     1. creationInfo
+     1. element (may be multiple), MUST have at least one /Software/Package object
+     1. rootElement (may be multiple), SHOULD be objects of type /Software/Package
+     1. spdxId
+   * Recommended
+     1. sbomType (may be multiple)
 
-   | # | Property Name | Cardinality | Comments |  
-   |:-:|:--|:--|:--|  
-   | 1 | /Core/NameSpaceMap/prefix		| 1..1	| |  
-   | 2 | /Core/NameSpaceMap/namespace	| 1..1	| |  
+### /Software/Package
+   * Mandatory
+     1. copyrightText
+     1. creationInfo
+     1. name
+     1. packageVersion
+     1. spdxId
+     1. suppliedBy, SHOULD be an object of type /Core/Agent
+   * Recommended
+     1. attributionText (may be multiple)
+     1. builtTime
+     1. comment
+     1. downloadLocation
+     1. homepage
+     1. originatedBy (may be multiple), SHOULD be objects of type /Core/Agent
+     1. packageUrl
+     1. releaseTime
+     1. supportLevel (may be multiple)
+     1. validUntilTime
+     1. verifiedUsing (may be multiple), SHOULD be objects of type /Core/Hash
 
-3. For a /Software/Sbom to be conformant with this profile, the following has to hold:  
+However, there MUST be at least a “downloadLocation” or “packageUrl” property.
 
-   | # | Property Name | Cardinality | Comments |  
-   |:-:|:--|:--|:--|  
-   | 1 | /Software/Sbom/spdxId			| 1..1	| |  
-   | 2 | /Software/Sbom/creationInfo	| 1..1	| |  
-   | 3 | /Software/Sbom/element			| 1..*	| MUST have at least one /Software/Package object |  
-   | 4 | /Software/Sbom/rootElement    | 1..*	| This should be objects of /Software/Package |  
-   | 5 | /Software/Sbom/sbomType		   | 0..*	| |  
+Additionally:
 
-4. For a /Core/CreationInfo to be conformant with this profile, the following has to hold:  
+   1. for every /Software/Package object MUST exist exactly one /Core/Relationship object of type `concludedLicense` having that element as its `from` property and an /SimpleLicensing/AnyLicenseInfo as its `to` property.
+   2. for every /Software/Package object MUST exist exactly one /Core/Relationship object of type `declaredLicense` having that element as its `from` property and  /SimpleLicensing/AnyLicenseInfo object as its `to` property.
 
-   | # | Property Name | Cardinality | Comments |  
-   |:-:|:--|:--|:--|  
-   | 1 | /Core/CreationInfo/specVersion | 1..1	| This should be a fixed string, “3.0.0”. |  
-   | 2 | /Core/CreationInfo/comment 	| 0..1	| |  
-   | 3 | /Core/CreationInfo/created 	| 1..1	| |  
-   | 4 | /Core/CreationInfo/createdBy	| 1..*	| This should be objects of /Core/Agent |  
+### /Core/Hash
+   * Mandatory
+     1. algorithm
+     1. hashValue
+   * Recommended
+     1. comment
 
-5. For a /Core/Agent (createdBy, suppliedBy, originatedBy) to be conformant with this profile, the following has to hold:  
+### /SimpleLicensing/LicenseExpression
+   * Mandatory
+     1. creationInfo
+     1. licenseExpression
+     1. spdxId
+   * Recommended
+     1. licenseListVersion
 
-   | # | Property Name | Cardinality | Comments |  
-   |:-:|:--|:--|:--|  
-   | 1 | /Core/Agent/spdxId				| 1..1	| |  
-   | 2 | /Core/Agent/name			    | 1..1	| |  
-   | 3 | /Core/Agent/creationInfo		| 1..1	| This should be “BlankNode” |  
-   | 4 | /Core/Agent/externalIdentifier	| 0..*	| |  
+### /SimpleLicensing/SimpleLicensingText
+   * Mandatory
+     1. creationInfo
+     1. licenseText
+     1. spdxId
+   * Recommended
+     1. comment
 
-6. For a /Core/ExternalIdentifier to be conformant with this profile, the following has to hold:  
+### /Core/Agent (createdBy, suppliedBy, originatedBy)
+   * Mandatory
+     1. creationInfo, SHOULD be “BlankNode”
+     1. name
+     1. spdxId
+   * Recommended
+     1. externalIdentifier (may be multiple)
 
-   | # | Property Name | Cardinality | Comments |  
-   |:-:|:--|:--|:--|  
-   | 1 | /Core/ExternalIdentifier/externalIdentifierType	| 1..1	| |  
-   | 2 | /Core/ExternalIdentifier/identifier		        | 1..1	| |  
+### /Core/CreationInfo
+   * Mandatory
+     1. created
+     1. createdBy (may be multiple), SHOULD be objects of type /Core/Agent
+     1. specVersion, MUST be a fixed string, “3.0.0”.
+   * Recommended
+     1. comment
 
-7. For a /Software/Package to be conformant with this profile, the following has to hold:  
-And all /Software/Package objects MUST have “downloadLocation” OR “packageUrl” if present.  
+### /Core/ExternalIdentifier
+   * Mandatory
+     1. externalIdentifierType
+     1. identifier
 
-   | # | Property Name | Cardinality | Comments |  
-   |:-:|:--|:--|:--|  
-   | 1 | /Software/Package/spdxId			    | 1..1	| |  
-   | 2 | /Software/Package/name			        | 1..1	| |  
-   | 3 | /Software/Package/comment			    | 0..1	| |  
-   | 4 | /Software/Package/creationInfo			| 1..1	| |  
-   | 5 | /Software/Package/verifiedUsing		| 0..*	| This should be objects of /Core/Hash |  
-   | 6 | /Software/Package/originatedBy		    | 0..*	| This should be objects of /Core/Agent |  
-   | 7 | /Software/Package/suppliedBy			| 1..1	| This should be an object of /Core/Agent |  
-   | 8 | /Software/Package/builtTime			| 0..1	| |  
-   | 9 | /Software/Package/releaseTime			| 0..1	| |  
-   | 10 | /Software/Package/validUntilTime		| 0..1	| |  
-   | 11 | /Software/Package/supportLevel		| 0..*	| |  
-   | 12 | /Software/Package/copyrightText		| 1..1	| |  
-   | 13 | /Software/Package/attributionText		| 0..*	| |  
-   | 14 | /Software/Package/packageVersion		| 1..1	| |  
-   | 15 | /Software/Package/downloadLocation	| 0..1	| |  
-   | 16 | /Software/Package/packageUrl			| 0..1	| |  
-   | 17 | /Software/Package/homepage			| 0..1	| |  
+### /Core/NameSpaceMap
+   * Mandatory
+     1. namespace
+     1. prefix
 
-8. For a /Core/Hash to be conformant with this profile, the following has to hold:  
+### /Core/Relationship
+   * Mandatory
+     1. creationInfo
+     1. from
+     1. relationshipType
+     1. spdxId
+     1. to (may be multiple)
 
-   | # | Property Name | Cardinality | Comments |  
-   |:-:|:--|:--|:--|  
-   | 1 | /Core/Hash/algorithm	| 1..1	| |  
-   | 2 | /Core/Hash/hashValue	| 1..1	| |  
-   | 3 | /Core/Hash/comment		| 0..1	| |  
-
-9. For a /Core/Relationship to be conformant with this profile, the following has to hold:  
-
-   1. for every /Software/Package object MUST exist exactly one /Core/Relationship object of type ```concludedLicense``` having that element as its ```from``` property and an /SimpleLicensing/AnyLicenseInfo as its ```to``` property.  
-   2. for every /Software/Package object MUST exist exactly one /Core/Relationship object of type ```declaredLicense``` having that element as its ```from``` property and  /SimpleLicensing/AnyLicenseInfo object as its ```to``` property.  
-
-   | # | Property Name | Cardinality | Comments |  
-   |:-:|:--|:--|:--|  
-   | 1 | /Core/Relationship/spdxId			    | 1..1	| |  
-   | 2 | /Core/Relationship/creationInfo		| 1..1	| |  
-   | 3 | /Core/Relationship/from 				| 1..1	| |  
-   | 4 | /Core/Relationship/to 			    	| 1..*	| |  
-   | 5 | /Core/Relationship/relationshipType	| 1..1	| |  
-
-10. For a /SimpleLicensing/LicenseExpression to be conformant with this profile, the following has to hold:  
-
-    | # | Property Name | Cardinality | Comments |  
-    |:-:|:--|:--|:--|  
-    | 1 | /SimpleLicensing/LicenseExpression/spdxId			| 1..1	| |  
-    | 2 | /SimpleLicensing/LicenseExpression/creationInfo		| 1..1	| |  
-    | 3 | /SimpleLicensing/LicenseExpression/licenseExpression	| 1..1	| |  
-    | 4 | /SimpleLicensing/LicenseExpression/licenseListVersion	| 0..1	| |  
-
-11. For a /SimpleLicensing/SimpleLicensingText to be conformant with this profile, the following has to hold:  
-
-    | # | Property Name | Cardinality | Comments |  
-    |:-:|:--|:--|:--|  
-    | 1 | /SimpleLicensing/SimpleLicensingText/spdxId			| 1..1	| |  
-    | 2 | /SimpleLicensing/SimpleLicensingText/creationInfo		| 1..1	| |  
-    | 3 | /SimpleLicensing/SimpleLicensingText/licenseText		| 1..1	| |  
-    | 4 | /SimpleLicensing/SimpleLicensingText/comment		| 0..1	| |  
