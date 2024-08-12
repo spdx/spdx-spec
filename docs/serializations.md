@@ -122,17 +122,17 @@ improve compatibility with the SPDX model.  These aliases are:
 An SPDX serialization in JSON-LD format is considered conformant to the SPDX
 specification if it adheres to the following two validation criteria:
 
-- Semantic validation: The JSON-LD document must successfully validate against
-  the SPDX OWL ontology. This ontology defines the expected relationships and
-  constraints between SPDX elements. The SPDX OWL ontology also incorporates
-  SHACL shape restrictions to further specify these constraints.
 - Structural validation: The JSON-LD document must structurally validate
   against the SPDX JSON Schema. This schema defines the expected structure of
   the JSON-LD document, including the required elements, data types, and
   permissible values.
-
-SPDX OWL ontology is available at:
-[https://spdx.org/rdf/3.0.1/spdx-model.ttl](https://spdx.org/rdf/3.0.1/spdx-model.ttl)
+- Semantic validation: The JSON-LD document must successfully validate against
+  the SPDX OWL ontology. This ontology defines the expected relationships and
+  constraints between SPDX elements. The SPDX OWL ontology also incorporates
+  SHACL shape restrictions to further specify these constraints.
 
 SPDX JSON Schema is available at:
 [https://spdx.org/schema/3.0.1/spdx-json-schema.json](https://spdx.org/schema/3.0.1/spdx-json-schema.json)
+
+SPDX OWL ontology is available at:
+[https://spdx.org/rdf/3.0.1/spdx-model.ttl](https://spdx.org/rdf/3.0.1/spdx-model.ttl)
