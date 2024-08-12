@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors." /><link rel="canonical" href="https://spdx.github.io/spdx-spec/v3.0.1/annexes/SPDX-Lite/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors." /><link rel="canonical" href="https://spdx.github.io/spdx-spec/v3.0.1/annexes/spdx-license-expressions/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>E. SPDX Lite - SPDX v3 Specification</title>
+    <title>C. SPDX license expressions - SPDX v3 Specification</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -14,9 +14,9 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "E. SPDX Lite";
-        var mkdocs_page_input_path = "annexes/SPDX-Lite.md";
-        var mkdocs_page_url = "/spdx-spec/v3.0.1/annexes/SPDX-Lite/";
+        var mkdocs_page_name = "C. SPDX license expressions";
+        var mkdocs_page_input_path = "annexes/spdx-license-expressions.md";
+        var mkdocs_page_url = "/spdx-spec/v3.0.1/annexes/spdx-license-expressions/";
       </script>
     
     <!--[if lt IE 9]>
@@ -760,21 +760,39 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../rdf-model/">B. RDF model definition and diagrams</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../SPDX-license-expressions/">C. SPDX license expressions</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../license-matching-guidelines-and-templates/">D. SPDX license list matching guidelines</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">E. SPDX Lite</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">C. SPDX license expressions</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#definition-of-the-lite-profile">Definition of the Lite profile</a>
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#table-of-the-lite-profile-elements">Table of the Lite profile elements</a>
+    <li class="toctree-l2"><a class="reference internal" href="#case-sensitivity">Case sensitivity</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-license-expressions">Simple license expressions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#composite-license-expressions">Composite license expressions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#disjunctive-or-operator">Disjunctive "OR" operator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#conjunctive-and-operator">Conjunctive "AND" operator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#additive-with-operator">Additive "WITH" operator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#order-of-precedence-and-parentheses">Order of precedence and parentheses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#license-expressions-in-rdf">License expressions in RDF</a>
+    </li>
+        </ul>
     </li>
     </ul>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../license-matching-guidelines-and-templates/">D. SPDX license list matching guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spdx-lite/">E. SPDX Lite</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../pkg-url-specification/">F. Package URL specification</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../../omg-history.md">G. History with OMG</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../omg-history/">G. History with OMG</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">licenses</span></p>
@@ -799,7 +817,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">annexes</li>
-      <li class="breadcrumb-item active">E. SPDX Lite</li>
+      <li class="breadcrumb-item active">C. SPDX license expressions</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -808,548 +826,202 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="spdx-lite">SPDX Lite</h1>
-<h2 id="definition-of-the-lite-profile">Definition of the Lite profile</h2>
-<p>The Lite profile is designed to make it quick and easy to start a Software Bill of Materials in situations where a company may have limited capacity for introducing new items into its process.<br />
-The Lite profile captures the minimum set of information required for license compliance in the software supply chain. It contains information about the creation of the SBOM, package lists with licensing and other related items, and their relationships.  </p>
-<p>All elements in Lite profile are essential for complying with licenses. It is easy to use a SPDX document with the Lite profile for anyone who does not have enough knowledge about licensing information and easy to import license information from former versions of SPDX Lite format files.<br />
-The Lite profile offers the flexibility to be used either alone or in combination with other SPDX profiles as a SPDX document in the software supply chain.  </p>
-<h2 id="table-of-the-lite-profile-elements">Table of the Lite profile elements</h2>
-<p>A SPDX document with the Lite profile must include properties for each class listed in <strong>Table H.1</strong>. And <code>Cardinality 1..</code> means a <strong>REQUIRED</strong> element, and the others <strong>SHOULD</strong> be filled in as much as possible if necessary.  </p>
-<ol>
-<li>For a /Core/SpdxDocument to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/SpdxDocument/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/SpdxDocument/name</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Core/SpdxDocument/comment</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/Core/SpdxDocument/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">5</td>
-<td style="text-align: left;">/Core/SpdxDocument/verifiedUsing</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;">This should be objects of /Core/Hash</td>
-</tr>
-<tr>
-<td style="text-align: center;">6</td>
-<td style="text-align: left;">/Core/SpdxDocument/element</td>
-<td style="text-align: left;">1..*</td>
-<td style="text-align: left;">MUST have at least one /Core/Sbom object</td>
-</tr>
-<tr>
-<td style="text-align: center;">7</td>
-<td style="text-align: left;">/Core/SpdxDocument/rootElement</td>
-<td style="text-align: left;">1..*</td>
-<td style="text-align: left;">This should be objects of /Core/Sbom</td>
-</tr>
-<tr>
-<td style="text-align: center;">8</td>
-<td style="text-align: left;">/Core/SpdxDocument/namespaceMap</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">9</td>
-<td style="text-align: left;">/Core/SpdxDocument/dataLicense</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Core/NameSpaceMap to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/NameSpaceMap/prefix</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/NameSpaceMap/namespace</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Software/Sbom to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Software/Sbom/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Software/Sbom/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Software/Sbom/element</td>
-<td style="text-align: left;">1..*</td>
-<td style="text-align: left;">MUST have at least one /Software/Package object</td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/Software/Sbom/rootElement</td>
-<td style="text-align: left;">1..*</td>
-<td style="text-align: left;">This should be objects of /Software/Package</td>
-</tr>
-<tr>
-<td style="text-align: center;">5</td>
-<td style="text-align: left;">/Software/Sbom/sbomType</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Core/CreationInfo to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/CreationInfo/specVersion</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;">This should be a fixed string, “3.0.0”.</td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/CreationInfo/comment</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Core/CreationInfo/created</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/Core/CreationInfo/createdBy</td>
-<td style="text-align: left;">1..*</td>
-<td style="text-align: left;">This should be objects of /Core/Agent</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Core/Agent (createdBy, suppliedBy, originatedBy) to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/Agent/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/Agent/name</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Core/Agent/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;">This should be “BlankNode”</td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/Core/Agent/externalIdentifier</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Core/ExternalIdentifier to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/ExternalIdentifier/externalIdentifierType</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/ExternalIdentifier/identifier</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Software/Package to be conformant with this profile, the following has to hold:<br />
-And all /Software/Package objects MUST have “downloadLocation” OR “packageUrl” if present.  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Software/Package/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Software/Package/name</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Software/Package/comment</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/Software/Package/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">5</td>
-<td style="text-align: left;">/Software/Package/verifiedUsing</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;">This should be objects of /Core/Hash</td>
-</tr>
-<tr>
-<td style="text-align: center;">6</td>
-<td style="text-align: left;">/Software/Package/originatedBy</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;">This should be objects of /Core/Agent</td>
-</tr>
-<tr>
-<td style="text-align: center;">7</td>
-<td style="text-align: left;">/Software/Package/suppliedBy</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;">This should be an object of /Core/Agent</td>
-</tr>
-<tr>
-<td style="text-align: center;">8</td>
-<td style="text-align: left;">/Software/Package/builtTime</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">9</td>
-<td style="text-align: left;">/Software/Package/releaseTime</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">10</td>
-<td style="text-align: left;">/Software/Package/validUntilTime</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">11</td>
-<td style="text-align: left;">/Software/Package/supportLevel</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">12</td>
-<td style="text-align: left;">/Software/Package/copyrightText</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">13</td>
-<td style="text-align: left;">/Software/Package/attributionText</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">14</td>
-<td style="text-align: left;">/Software/Package/packageVersion</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">15</td>
-<td style="text-align: left;">/Software/Package/downloadLocation</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">16</td>
-<td style="text-align: left;">/Software/Package/packageUrl</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">17</td>
-<td style="text-align: left;">/Software/Package/homepage</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Core/Hash to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/Hash/algorithm</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/Hash/hashValue</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Core/Hash/comment</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>
-<p>For a /Core/Relationship to be conformant with this profile, the following has to hold:  </p>
-</li>
-<li>
-<p>for every /Software/Package object MUST exist exactly one /Core/Relationship object of type <code>concludedLicense</code> having that element as its <code>from</code> property and an /SimpleLicensing/AnyLicenseInfo as its <code>to</code> property.  </p>
-</li>
-<li>for every /Software/Package object MUST exist exactly one /Core/Relationship object of type <code>declaredLicense</code> having that element as its <code>from</code> property and  /SimpleLicensing/AnyLicenseInfo object as its <code>to</code> property.  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/Relationship/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/Relationship/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Core/Relationship/from</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/Core/Relationship/to</td>
-<td style="text-align: left;">1..*</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">5</td>
-<td style="text-align: left;">/Core/Relationship/relationshipType</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>
-<p>For a /SimpleLicensing/LicenseExpression to be conformant with this profile, the following has to hold:  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/SimpleLicensing/LicenseExpression/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/SimpleLicensing/LicenseExpression/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/SimpleLicensing/LicenseExpression/licenseExpression</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/SimpleLicensing/LicenseExpression/licenseListVersion</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>For a /SimpleLicensing/SimpleLicensingText to be conformant with this profile, the following has to hold:  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/SimpleLicensing/SimpleLicensingText/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/SimpleLicensing/SimpleLicensingText/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/SimpleLicensing/SimpleLicensingText/licenseText</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/SimpleLicensing/SimpleLicensingText/comment</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ol>
+                <h1 id="spdx-license-expressions-normative">SPDX license expressions (Normative)</h1>
+<h2 id="overview">Overview <a name="D.1"></a></h2>
+<p>Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0-only OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1-only AND BSD-3-Clause).</p>
+<p>SPDX License Expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-<code>[idString]</code>; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., <code>AND</code>, <code>OR</code>, <code>WITH</code> and <code>+</code>). We provide the definition of what constitutes a valid SPDX License Expression in this section.</p>
+<p>The exact syntax of license expressions is described below in ABNF, as defined in <a href="http://tools.ietf.org/html/rfc5234">RFC5234</a> and expanded in <a href="http://tools.ietf.org/html/rfc7405">RFC7405</a>.</p>
+<div class="codehilite"><pre><span></span><code>idstring = 1*(ALPHA / DIGIT / &quot;-&quot; / &quot;.&quot; )
+
+license-id = &lt;short form license identifier from SPDX License List&gt;
+
+license-exception-id = &lt;short form license exception identifier from SPDX License List&gt;
+
+license-ref = [%s&quot;DocumentRef-&quot;(idstring)&quot;:&quot;]%s&quot;LicenseRef-&quot;(idstring)
+
+addition-ref = [%s&quot;DocumentRef-&quot;(idstring)&quot;:&quot;]%s&quot;AdditionRef-&quot;(idstring)
+
+simple-expression = license-id / license-id&quot;+&quot; / license-ref
+
+addition-expression = license-exception-id / addition-ref
+
+compound-expression = (simple-expression /
+
+  simple-expression ( %s&quot;WITH&quot; / %s&quot;with&quot; ) addition-expression /
+
+  compound-expression ( %s&quot;AND&quot; / %s&quot;and&quot; ) compound-expression /
+
+  compound-expression ( %s&quot;OR&quot; / %s&quot;or&quot; ) compound-expression /
+
+  &quot;(&quot; compound-expression &quot;)&quot; )
+
+license-expression = (simple-expression / compound-expression)
+</code></pre></div>
+
+<p>In the following sections we describe in more detail <code>&lt;license-expression&gt;</code> construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern-day software.</p>
+<p>A valid <code>&lt;license-expression&gt;</code> string consists of either:</p>
+<p>(i) a simple license expression, such as a single license identifier; or</p>
+<p>(ii) a more complex expression constructed by combining smaller valid expressions using Boolean license operators.</p>
+<p>There MUST NOT be white space between a license-id and any following <code>+</code>. This supports easy parsing and backwards compatibility. There MUST be white space on either side of the operator "WITH". There MUST be white space and/or parentheses on either side of the operators <code>AND</code> and <code>OR</code>.</p>
+<p>In the <code>tag:value</code> format, a license expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.</p>
+<h2 id="case-sensitivity">Case sensitivity <a name="D.2"></a></h2>
+<p>License expression operators (<code>AND</code>, <code>and</code>, <code>OR</code>, <code>or</code>, <code>WITH</code> and <code>with</code>) should be matched in a <em>case-sensitive</em> manner, i.e., letters must be all upper case or all lower case.</p>
+<p>License identifiers (including license exception identifiers) used in SPDX documents or source code files should be matched in a <em>case-insensitive</em> manner. In other words, <code>MIT</code>, <code>Mit</code> and <code>mIt</code> should all be treated as the same identifier and referring to the same license.</p>
+<p>However, please be aware that it is often important to match with the case of the canonical identifier on the <a href="https://spdx.org/licenses">SPDX License List</a>. This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.</p>
+<p>For user defined license identifiers, only the variable part (after <code>LicenseRef-</code>) is case insensitive.  This means, for example, that <code>LicenseRef-Name</code> and <code>LicenseRef-name</code> should be treated as the same identifier and considered to refer to the same license, while <code>licenseref-name</code> is not a valid license identifier.</p>
+<p>The same applies to <code>AdditionRef-</code> user defined identifiers.</p>
+<h2 id="simple-license-expressions">Simple license expressions <a name="D.3"></a></h2>
+<p>A simple <code>&lt;license-expression&gt;</code> is composed one of the following:</p>
+<ul>
+<li>An SPDX License List Short Form Identifier. For example: CDDL-1.0</li>
+<li>An SPDX License List Short Form Identifier with a unary "+" operator suffix to represent the current version of the license or any later version. For example: CDDL-1.0+</li>
+<li>An SPDX user defined license reference: ["DocumentRef-"1*(idstring)":"]"LicenseRef-"1*(idstring)</li>
+</ul>
+<p>Some examples:</p>
+<div class="codehilite"><pre><span></span><code>LicenseRef-23
+
+LicenseRef-MIT-Style-1
+
+DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
+</code></pre></div>
+
+<p>The current set of valid license identifiers can be found in <a href="https://spdx.org/licenses">spdx.org/licenses</a>.</p>
+<h2 id="composite-license-expressions">Composite license expressions <a name="D.4"></a></h2>
+<h3 id="introduction">Introduction <a name="D.4.1"></a></h3>
+<p>More expressive composite license expressions can be constructed using "OR", "AND", and "WITH" operators similar to constructing mathematical expressions using arithmetic operators.</p>
+<p>For the <code>tag:value</code> format, any license expression that consists of more than one license identifier and/or LicenseRef, may optionally be encapsulated by parentheses: "( )".</p>
+<p>Nested parentheses can also be used to specify an order of precedence which is discussed in more detail in <a href="#D.4.5">D.4.5</a>.</p>
+<h3 id="disjunctive-or-operator">Disjunctive "OR" operator <a name="D.4.2"></a></h3>
+<p>If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new license expression, where both the left and right operands are valid license expression values.</p>
+<p>For example, when given a choice between the LGPL-2.1-only or MIT licenses, a valid expression would be:</p>
+<div class="codehilite"><pre><span></span><code>LGPL-2.1-only OR MIT
+</code></pre></div>
+
+<p>The "OR" operator is commutative, meaning that the above expression should be considered equivalent to:</p>
+<div class="codehilite"><pre><span></span><code>MIT OR LGPL-2.1-only
+</code></pre></div>
+
+<p>An example representing a choice between three different licenses would be:</p>
+<div class="codehilite"><pre><span></span><code>LGPL-2.1-only OR MIT OR BSD-3-Clause
+</code></pre></div>
+
+<p>It is allowed to use the operator in lower case form <code>or</code>.</p>
+<h3 id="conjunctive-and-operator">Conjunctive "AND" operator <a name="D.4.3"></a></h3>
+<p>If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are a valid license expression values.</p>
+<p>For example, when one is required to comply with both the LGPL-2.1-only or MIT licenses, a valid expression would be:</p>
+<div class="codehilite"><pre><span></span><code>LGPL-2.1-only AND MIT
+</code></pre></div>
+
+<p>The "AND" operator is commutative, meaning that the above expression should be considered equivalent to:</p>
+<div class="codehilite"><pre><span></span><code>MIT AND LGPL-2.1-only
+</code></pre></div>
+
+<p>An example where all three different licenses apply would be:</p>
+<div class="codehilite"><pre><span></span><code>LGPL-2.1-only AND MIT AND BSD-2-Clause
+</code></pre></div>
+
+<p>It is allowed to use the operator in lower case form <code>and</code>.</p>
+<h3 id="additive-with-operator">Additive "WITH" operator <a name="D.4.4"></a></h3>
+<p>Sometimes license texts are found with additional text, which might or might not modify the original license terms.</p>
+<p>In this case, use the binary "WITH" operator to construct a new license expression to represent the special situation. A valid <code>&lt;license-expression&gt;</code> is where the left operand is a <code>&lt;simple-expression&gt;</code> value and the right operand is a <code>&lt;addition-expression&gt;</code> that represents the additional text.</p>
+<p>The <code>&lt;addition-expression&gt;</code> can be either a <code>&lt;license-exception-id&gt;</code> from the SPDX License List, or a user defined addition reference in the form ["DocumentRef-"(idstring)":"]"AdditonRef-"(idstring)</p>
+<p>For example, when the Bison exception is to be applied to GPL-2.0-or-later, the expression would be:</p>
+<div class="codehilite"><pre><span></span><code>GPL-2.0-or-later WITH Bison-exception-2.2
+</code></pre></div>
+
+<p>The current set of valid license exceptions identifiers can be found in <a href="https://spdx.org/licenses">spdx.org/licenses</a>.</p>
+<p>It is allowed to use the operator in lower case form <code>with</code>.</p>
+<h3 id="order-of-precedence-and-parentheses">Order of precedence and parentheses <a name="D.4.5"></a></h3>
+<p>The order of application of the operators in an expression matters (similar to mathematical operators). The default operator order of precedence of a <code>&lt;license-expression&gt;</code> a is:</p>
+<div class="codehilite"><pre><span></span><code>+
+WITH
+AND
+OR
+</code></pre></div>
+
+<p>where a lower order operator is applied before a higher order operator.</p>
+<p>For example, the following expression:</p>
+<div class="codehilite"><pre><span></span><code>LGPL-2.1-only OR BSD-3-Clause AND MIT
+</code></pre></div>
+
+<p>represents a license choice between either LGPL-2.1-only and the expression BSD-3-Clause AND MIT because the AND operator takes precedence over (is applied before) the OR operator.</p>
+<p>When required to express an order of precedence that is different from the default order a <code>&lt;license-expression&gt;</code> can be encapsulated in pairs of parentheses: ( ), to indicate that the operators found inside the parentheses takes precedence over operators outside. This is also similar to the use of parentheses in an algebraic expression e.g., (5+7)/2.</p>
+<p>For instance, the following expression:</p>
+<div class="codehilite"><pre><span></span><code>MIT AND (LGPL-2.1-or-later OR BSD-3-Clause)
+</code></pre></div>
+
+<p>states the OR operator should be applied before the AND operator. That is, one should first select between the LGPL-2.1-or-later or the BSD-3-Clause license before applying the MIT license.</p>
+<h3 id="license-expressions-in-rdf">License expressions in RDF <a name="D.4.6"></a></h3>
+<p>A conjunctive license can be expressed in RDF via a <code>&lt;spdx:ConjunctiveLicenseSet&gt;</code> element, with an spdx:member property for each element in the conjunctive license. Two or more members are required.</p>
+<div class="codehilite"><pre><span></span><code>&lt;spdx:ConjunctiveLicenseSet&gt;
+    &lt;spdx:member rdf:resource=&quot;http://spdx.org/licenses/GPL-2.0-only&quot;/&gt;
+    &lt;spdx:ExtractedLicensingInfo rdf:about
+      =&quot;http://example.org#LicenseRef-EternalSurrender&quot;&gt;
+        &lt;spdx:extractedText&gt;
+            In exchange for using this software, you agree to give
+            its author all your worldly possessions. You will not
+            hold the author liable for all the damage this software
+            will inevitably cause not only to your person and
+            property, but to the entire fabric of the cosmos.
+        &lt;/spdx:extractedText&gt;
+        &lt;spdx:licenseId&gt;LicenseRef-EternalSurrender&lt;/spdx:licenseId&gt;
+    &lt;/spdx:ExtractedLicensingInfo&gt;
+&lt;/spdx:ConjunctiveLicenseSet&gt;
+</code></pre></div>
+
+<p>A disjunctive license can be expressed in RDF via a <code>&lt;spdx:DisjunctiveLicenseSet&gt;</code> element, with an spdx:member property for each element in the disjunctive license. Two or more members are required.</p>
+<div class="codehilite"><pre><span></span><code>&lt;spdx:DisjunctiveLicenseSet&gt;
+    &lt;spdx:member rdf:resource=&quot;http://spdx.org/licenses/GPL-2.0-only&quot;/&gt;
+    &lt;spdx:member&gt;
+        &lt;spdx:ExtractedLicensingInfo rdf:about
+          =&quot;http://example.org#LicenseRef-EternalSurrender&quot;&gt;
+            &lt;spdx:extractedText&gt;
+                In exchange for using this software, you agree to
+                give its author all your worldly possessions. You
+                will not hold the author liable for all the damage
+                this software will inevitably cause not only to
+                your person and property, but to the entire fabric
+                of the cosmos.
+            &lt;/spdx:extractedText&gt;
+            &lt;spdx:licenseId&gt;LicenseRef-EternalSurrender&lt;/spdx:licenseId&gt;
+        &lt;/spdx:ExtractedLicensingInfo&gt;
+    &lt;/spdx:member&gt;
+&lt;/spdx:DisjunctiveLicenseSet&gt;
+</code></pre></div>
+
+<p>A License Exception can be expressed in RDF via a <code>&lt;spdx:LicenseException&gt;</code> element. This element has the following unique mandatory (unless specified otherwise) attributes:</p>
+<ul>
+<li><code>comment</code> - An <code>rdfs:comment</code> element describing the nature of the exception.</li>
+<li><code>seeAlso</code> (optional, one or more)- An <code>rdfs:seeAlso</code> element referencing external sources of information on the exception.</li>
+<li><code>example</code> (optional) - Text describing examples of this exception.</li>
+<li><code>name</code> - The full human readable name of the item.</li>
+<li><code>licenseExceptionId</code> -  The identifier of an exception in the SPDX License List to which the exception applies.</li>
+<li><code>licenseExceptionText</code> - Full text of the license exception.</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>&lt;rdf:Description rdf:about
+  =&quot;http://example.org#SPDXRef-ButIdDontWantToException&quot;&gt;
+    &lt;rdfs:comment&gt;This exception may be invalid in some
+      jurisdictions.&lt;/rdfs:comment&gt;
+    &lt;rdfs:seeAlso&gt;http://dilbert.com/strip/1997-01-15&lt;/rdfs:seeAlso&gt;
+    &lt;spdx:example&gt;So this one time, I had a license exception
+      …&lt;/spdx:example&gt;
+    &lt;spdx:licenseExceptionText&gt;
+        A user of this software may decline to follow any subset of
+        the terms of this license upon finding any or all such terms
+        unfavorable.
+    &lt;/spdx:licenseExceptionText&gt;
+    &lt;spdx:name&gt;&amp;quot;But I Don&amp;apos;t Want To&amp;quot; Exception&lt;/spdx:name&gt;
+    &lt;spdx:licenseExceptionId&gt;SPDXRef-ButIdDontWantToException&lt;/spdx:licenseExceptionId&gt;
+    &lt;rdf:type rdf:resource
+      =&quot;http://spdx.org/rdf/terms#LicenseException&quot;/&gt;
+&lt;/rdf:Description&gt;
+</code></pre></div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../license-matching-guidelines-and-templates/" class="btn btn-neutral float-left" title="D. SPDX license list matching guidelines"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../pkg-url-specification/" class="btn btn-neutral float-right" title="F. Package URL specification">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../rdf-model/" class="btn btn-neutral float-left" title="B. RDF model definition and diagrams"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../license-matching-guidelines-and-templates/" class="btn btn-neutral float-right" title="D. SPDX license list matching guidelines">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -1377,10 +1049,10 @@ And all /Software/Package objects MUST have “downloadLocation” OR “package
         </span>
     
     
-      <span><a href="../license-matching-guidelines-and-templates/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../rdf-model/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../pkg-url-specification/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../license-matching-guidelines-and-templates/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
