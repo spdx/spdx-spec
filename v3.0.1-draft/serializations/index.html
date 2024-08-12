@@ -76,6 +76,14 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#serialization-information">Serialization information</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#serialization-in-json-ld">Serialization in JSON-LD</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#json-ld-context-file">JSON-LD context file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#json-ld-validation">JSON-LD validation</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -885,6 +893,43 @@ the SpdxDocument element itself.</p>
 <p>A serialization must not contain more than one SpdxDocument.</p>
 <p>A given instance of serialization must not define more than one SpdxDocument
 element.</p>
+<h2 id="serialization-in-json-ld">Serialization in JSON-LD</h2>
+<h3 id="json-ld-context-file">JSON-LD context file</h3>
+<p>JSON-LD contexts allow JSON documents to use simple, human-readable, locally
+defined terms while ensuring data interoperability across different systems.</p>
+<p>The SPDX global JSON-LD context file must be used universally for all SPDX
+documents in JSON-LD format that adhere to a specific SPDX version.</p>
+<p>SPDX global JSON-LD context file is available at:
+<a href="https://spdx.org/rdf/3.0.1/spdx-context.jsonld">https://spdx.org/rdf/3.0.1/spdx-context.jsonld</a></p>
+<p>All SPDX documents in JSON-LD format must include a reference to the SPDX
+global context file at the top level.
+This reference is achieved using the following JSON construct:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;@context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://spdx.org/rdf/3.0.1/spdx-context.jsonld&quot;</span>
+</code></pre></div>
+
+<p>The SPDX context file defines aliases for specific JSON-LD properties to
+improve compatibility with the SPDX model.  These aliases are:</p>
+<ul>
+<li><code>spdxId</code>: An alias for the <code>@id</code> property.</li>
+<li><code>type</code>: An alias for the <code>@type</code> property.</li>
+</ul>
+<h3 id="json-ld-validation">JSON-LD validation</h3>
+<p>An SPDX serialization in JSON-LD format is considered conformant to the SPDX
+specification if it adheres to the following two validation criteria:</p>
+<ul>
+<li>Structural validation: The JSON-LD document must structurally validate
+  against the SPDX JSON Schema. This schema defines the expected structure of
+  the JSON-LD document, including the required elements, data types, and
+  permissible values.</li>
+<li>Semantic validation: The JSON-LD document must successfully validate against
+  the SPDX OWL ontology. This ontology defines the expected relationships and
+  constraints between SPDX elements. The SPDX OWL ontology also incorporates
+  SHACL shape restrictions to further specify these constraints.</li>
+</ul>
+<p>The SPDX JSON Schema is available at:
+<a href="https://spdx.org/schema/3.0.1/spdx-json-schema.json">https://spdx.org/schema/3.0.1/spdx-json-schema.json</a></p>
+<p>The SPDX OWL ontology is available at:
+<a href="https://spdx.org/rdf/3.0.1/spdx-model.ttl">https://spdx.org/rdf/3.0.1/spdx-model.ttl</a></p>
               
             </div>
           </div><footer>
