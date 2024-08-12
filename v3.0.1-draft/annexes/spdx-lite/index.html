@@ -766,9 +766,33 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">E. SPDX Lite</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#definition-of-the-lite-profile">Definition of the Lite profile</a>
+    <li class="toctree-l2"><a class="reference internal" href="#explanation-of-the-lite-profile">Explanation of the Lite profile</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#table-of-the-lite-profile-elements">Table of the Lite profile elements</a>
+    <li class="toctree-l2"><a class="reference internal" href="#mandatory-and-recommended-properties">Mandatory and recommended properties</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#corespdxdocument">/Core/SpdxDocument</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#softwaresbom">/Software/Sbom</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#softwarepackage">/Software/Package</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#corehash">/Core/Hash</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simplelicensinglicenseexpression">/SimpleLicensing/LicenseExpression</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simplelicensingsimplelicensingtext">/SimpleLicensing/SimpleLicensingText</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#coreagent-createdby-suppliedby-originatedby">/Core/Agent (createdBy, suppliedBy, originatedBy)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#corecreationinfo">/Core/CreationInfo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#coreexternalidentifier">/Core/ExternalIdentifier</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#corenamespacemap">/Core/NameSpaceMap</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#corerelationship">/Core/Relationship</a>
+    </li>
+        </ul>
     </li>
     </ul>
                   </li>
@@ -808,542 +832,184 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="spdx-lite">SPDX Lite</h1>
-<h2 id="definition-of-the-lite-profile">Definition of the Lite profile</h2>
-<p>The Lite profile is designed to make it quick and easy to start a Software Bill of Materials in situations where a company may have limited capacity for introducing new items into its process.<br />
-The Lite profile captures the minimum set of information required for license compliance in the software supply chain. It contains information about the creation of the SBOM, package lists with licensing and other related items, and their relationships.  </p>
-<p>All elements in Lite profile are essential for complying with licenses. It is easy to use a SPDX document with the Lite profile for anyone who does not have enough knowledge about licensing information and easy to import license information from former versions of SPDX Lite format files.<br />
-The Lite profile offers the flexibility to be used either alone or in combination with other SPDX profiles as a SPDX document in the software supply chain.  </p>
-<h2 id="table-of-the-lite-profile-elements">Table of the Lite profile elements</h2>
-<p>A SPDX document with the Lite profile must include properties for each class listed in <strong>Table H.1</strong>. And <code>Cardinality 1..</code> means a <strong>REQUIRED</strong> element, and the others <strong>SHOULD</strong> be filled in as much as possible if necessary.  </p>
-<ol>
-<li>For a /Core/SpdxDocument to be conformant with this profile, the following has to hold:  </li>
+                <h1 id="spdx-lite-normative">SPDX Lite (Normative)</h1>
+<h2 id="explanation-of-the-lite-profile">Explanation of the Lite profile</h2>
+<p>The Lite profile is designed to make it quick and easy to start a Software Bill of Materials
+in situations where a company may have limited capacity for introducing new items into their processes.
+The Lite profile captures the minimum set of information required
+for license compliance in the software supply chain.
+It contains information about the creation of the SBOM,
+package lists with licensing and other related information,
+and their relationships.</p>
+<p>All elements in Lite profile are essential for complying with licenses.
+It is easy to use a SPDX document with the Lite profile
+for anyone who does not have enough knowledge about licensing information
+and easy to import license information from former versions of SPDX Lite format files.
+The Lite profile offers the flexibility to be used either alone
+or in combination with other SPDX profiles
+as a SPDX document in the software supply chain.</p>
+<h2 id="mandatory-and-recommended-properties">Mandatory and recommended properties</h2>
+<p>The Lite profile specifies that some properties MUST be present
+and some others SHOULD be present, as much as possible.</p>
+<p>The following lists collect and present this information
+for every class present in the SPDX data,
+in a concise and easy-to-follow format.
+The lists of properties are in alphabetical order, for easy reference.</p>
+<h3 id="corespdxdocument">/Core/SpdxDocument</h3>
+<ul>
+<li>Mandatory<ol>
+<li>creationInfo</li>
+<li>element (may be multiple), MUST have at least one /Core/Sbom object</li>
+<li>rootElement (may be multiple), SHOULD be objects of type /Core/Sbom</li>
+<li>spdxId</li>
 </ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/SpdxDocument/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/SpdxDocument/name</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Core/SpdxDocument/comment</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/Core/SpdxDocument/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">5</td>
-<td style="text-align: left;">/Core/SpdxDocument/verifiedUsing</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;">This should be objects of /Core/Hash</td>
-</tr>
-<tr>
-<td style="text-align: center;">6</td>
-<td style="text-align: left;">/Core/SpdxDocument/element</td>
-<td style="text-align: left;">1..*</td>
-<td style="text-align: left;">MUST have at least one /Core/Sbom object</td>
-</tr>
-<tr>
-<td style="text-align: center;">7</td>
-<td style="text-align: left;">/Core/SpdxDocument/rootElement</td>
-<td style="text-align: left;">1..*</td>
-<td style="text-align: left;">This should be objects of /Core/Sbom</td>
-</tr>
-<tr>
-<td style="text-align: center;">8</td>
-<td style="text-align: left;">/Core/SpdxDocument/namespaceMap</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">9</td>
-<td style="text-align: left;">/Core/SpdxDocument/dataLicense</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Core/NameSpaceMap to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/NameSpaceMap/prefix</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/NameSpaceMap/namespace</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Software/Sbom to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Software/Sbom/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Software/Sbom/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Software/Sbom/element</td>
-<td style="text-align: left;">1..*</td>
-<td style="text-align: left;">MUST have at least one /Software/Package object</td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/Software/Sbom/rootElement</td>
-<td style="text-align: left;">1..*</td>
-<td style="text-align: left;">This should be objects of /Software/Package</td>
-</tr>
-<tr>
-<td style="text-align: center;">5</td>
-<td style="text-align: left;">/Software/Sbom/sbomType</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Core/CreationInfo to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/CreationInfo/specVersion</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;">This should be a fixed string, “3.0.0”.</td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/CreationInfo/comment</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Core/CreationInfo/created</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/Core/CreationInfo/createdBy</td>
-<td style="text-align: left;">1..*</td>
-<td style="text-align: left;">This should be objects of /Core/Agent</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Core/Agent (createdBy, suppliedBy, originatedBy) to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/Agent/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/Agent/name</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Core/Agent/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;">This should be “BlankNode”</td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/Core/Agent/externalIdentifier</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Core/ExternalIdentifier to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/ExternalIdentifier/externalIdentifierType</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/ExternalIdentifier/identifier</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Software/Package to be conformant with this profile, the following has to hold:<br />
-And all /Software/Package objects MUST have “downloadLocation” OR “packageUrl” if present.  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Software/Package/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Software/Package/name</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Software/Package/comment</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/Software/Package/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">5</td>
-<td style="text-align: left;">/Software/Package/verifiedUsing</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;">This should be objects of /Core/Hash</td>
-</tr>
-<tr>
-<td style="text-align: center;">6</td>
-<td style="text-align: left;">/Software/Package/originatedBy</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;">This should be objects of /Core/Agent</td>
-</tr>
-<tr>
-<td style="text-align: center;">7</td>
-<td style="text-align: left;">/Software/Package/suppliedBy</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;">This should be an object of /Core/Agent</td>
-</tr>
-<tr>
-<td style="text-align: center;">8</td>
-<td style="text-align: left;">/Software/Package/builtTime</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">9</td>
-<td style="text-align: left;">/Software/Package/releaseTime</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">10</td>
-<td style="text-align: left;">/Software/Package/validUntilTime</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">11</td>
-<td style="text-align: left;">/Software/Package/supportLevel</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">12</td>
-<td style="text-align: left;">/Software/Package/copyrightText</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">13</td>
-<td style="text-align: left;">/Software/Package/attributionText</td>
-<td style="text-align: left;">0..*</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">14</td>
-<td style="text-align: left;">/Software/Package/packageVersion</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">15</td>
-<td style="text-align: left;">/Software/Package/downloadLocation</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">16</td>
-<td style="text-align: left;">/Software/Package/packageUrl</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">17</td>
-<td style="text-align: left;">/Software/Package/homepage</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>For a /Core/Hash to be conformant with this profile, the following has to hold:  </li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/Hash/algorithm</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/Hash/hashValue</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Core/Hash/comment</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>
-<p>For a /Core/Relationship to be conformant with this profile, the following has to hold:  </p>
 </li>
-<li>
-<p>for every /Software/Package object MUST exist exactly one /Core/Relationship object of type <code>concludedLicense</code> having that element as its <code>from</code> property and an /SimpleLicensing/AnyLicenseInfo as its <code>to</code> property.  </p>
-</li>
-<li>for every /Software/Package object MUST exist exactly one /Core/Relationship object of type <code>declaredLicense</code> having that element as its <code>from</code> property and  /SimpleLicensing/AnyLicenseInfo object as its <code>to</code> property.  </li>
+<li>Recommended<ol>
+<li>comment</li>
+<li>dataLicense</li>
+<li>name</li>
+<li>namespaceMap (may be multiple)</li>
+<li>verifiedUsing (may be multiple), SHOULD be objects of type /Core/Hash</li>
 </ol>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/Core/Relationship/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/Core/Relationship/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/Core/Relationship/from</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/Core/Relationship/to</td>
-<td style="text-align: left;">1..*</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">5</td>
-<td style="text-align: left;">/Core/Relationship/relationshipType</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
+<h3 id="softwaresbom">/Software/Sbom</h3>
+<ul>
+<li>Mandatory<ol>
+<li>creationInfo</li>
+<li>element (may be multiple), MUST have at least one /Software/Package object</li>
+<li>rootElement (may be multiple), SHOULD be objects of type /Software/Package</li>
+<li>spdxId</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>sbomType (may be multiple)</li>
+</ol>
+</li>
+</ul>
+<h3 id="softwarepackage">/Software/Package</h3>
+<ul>
+<li>Mandatory<ol>
+<li>copyrightText</li>
+<li>creationInfo</li>
+<li>name</li>
+<li>packageVersion</li>
+<li>spdxId</li>
+<li>suppliedBy, SHOULD be an object of type /Core/Agent</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>attributionText (may be multiple)</li>
+<li>builtTime</li>
+<li>comment</li>
+<li>downloadLocation</li>
+<li>homepage</li>
+<li>originatedBy (may be multiple), SHOULD be objects of type /Core/Agent</li>
+<li>packageUrl</li>
+<li>releaseTime</li>
+<li>supportLevel (may be multiple)</li>
+<li>validUntilTime</li>
+<li>verifiedUsing (may be multiple), SHOULD be objects of type /Core/Hash</li>
+</ol>
+</li>
+</ul>
+<p>However, there MUST be at least a “downloadLocation” or “packageUrl” property.</p>
+<p>Additionally:</p>
 <ol>
-<li>
-<p>For a /SimpleLicensing/LicenseExpression to be conformant with this profile, the following has to hold:  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/SimpleLicensing/LicenseExpression/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/SimpleLicensing/LicenseExpression/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/SimpleLicensing/LicenseExpression/licenseExpression</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/SimpleLicensing/LicenseExpression/licenseListVersion</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>For a /SimpleLicensing/SimpleLicensingText to be conformant with this profile, the following has to hold:  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">#</th>
-<th style="text-align: left;">Property Name</th>
-<th style="text-align: left;">Cardinality</th>
-<th style="text-align: left;">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">/SimpleLicensing/SimpleLicensingText/spdxId</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">/SimpleLicensing/SimpleLicensingText/creationInfo</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">/SimpleLicensing/SimpleLicensingText/licenseText</td>
-<td style="text-align: left;">1..1</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">/SimpleLicensing/SimpleLicensingText/comment</td>
-<td style="text-align: left;">0..1</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</li>
+<li>for every /Software/Package object MUST exist exactly one /Core/Relationship object of type <code>concludedLicense</code> having that element as its <code>from</code> property and an /SimpleLicensing/AnyLicenseInfo as its <code>to</code> property.</li>
+<li>for every /Software/Package object MUST exist exactly one /Core/Relationship object of type <code>declaredLicense</code> having that element as its <code>from</code> property and  /SimpleLicensing/AnyLicenseInfo object as its <code>to</code> property.</li>
 </ol>
+<h3 id="corehash">/Core/Hash</h3>
+<ul>
+<li>Mandatory<ol>
+<li>algorithm</li>
+<li>hashValue</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>comment</li>
+</ol>
+</li>
+</ul>
+<h3 id="simplelicensinglicenseexpression">/SimpleLicensing/LicenseExpression</h3>
+<ul>
+<li>Mandatory<ol>
+<li>creationInfo</li>
+<li>licenseExpression</li>
+<li>spdxId</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>licenseListVersion</li>
+</ol>
+</li>
+</ul>
+<h3 id="simplelicensingsimplelicensingtext">/SimpleLicensing/SimpleLicensingText</h3>
+<ul>
+<li>Mandatory<ol>
+<li>creationInfo</li>
+<li>licenseText</li>
+<li>spdxId</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>comment</li>
+</ol>
+</li>
+</ul>
+<h3 id="coreagent-createdby-suppliedby-originatedby">/Core/Agent (createdBy, suppliedBy, originatedBy)</h3>
+<ul>
+<li>Mandatory<ol>
+<li>creationInfo, SHOULD be “BlankNode”</li>
+<li>name</li>
+<li>spdxId</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>externalIdentifier (may be multiple)</li>
+</ol>
+</li>
+</ul>
+<h3 id="corecreationinfo">/Core/CreationInfo</h3>
+<ul>
+<li>Mandatory<ol>
+<li>created</li>
+<li>createdBy (may be multiple), SHOULD be objects of type /Core/Agent</li>
+<li>specVersion, MUST be a fixed string, “3.0.0”.</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>comment</li>
+</ol>
+</li>
+</ul>
+<h3 id="coreexternalidentifier">/Core/ExternalIdentifier</h3>
+<ul>
+<li>Mandatory<ol>
+<li>externalIdentifierType</li>
+<li>identifier</li>
+</ol>
+</li>
+</ul>
+<h3 id="corenamespacemap">/Core/NameSpaceMap</h3>
+<ul>
+<li>Mandatory<ol>
+<li>namespace</li>
+<li>prefix</li>
+</ol>
+</li>
+</ul>
+<h3 id="corerelationship">/Core/Relationship</h3>
+<ul>
+<li>Mandatory<ol>
+<li>creationInfo</li>
+<li>from</li>
+<li>relationshipType</li>
+<li>spdxId</li>
+<li>to (may be multiple)</li>
+</ol>
+</li>
+</ul>
               
             </div>
           </div><footer>
