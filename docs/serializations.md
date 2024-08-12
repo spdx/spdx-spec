@@ -81,13 +81,13 @@ more serialized forms of itself.
 
 When serializing a physical SpdxDocument, any property of the logical element
 that can be natively represented within the chosen serialization format
-(e.g., `@context` prefixes in JSON-LD instead of the namespaceMap) MAY utilize
+(e.g., `@context` prefixes in JSON-LD instead of the namespaceMap) may utilize
 these native mechanisms. All remaining properties shall be serialized within
 the SpdxDocument element itself.
 
-A serialization MUST NOT contain more than one SpdxDocument.
+A serialization must not contain more than one SpdxDocument.
 
-A given instance of serialization MUST NOT define more than one SpdxDocument
+A given instance of serialization must not define more than one SpdxDocument
 element.
 
 ## Serialization in JSON-LD
@@ -97,13 +97,13 @@ element.
 JSON-LD contexts allow JSON documents to use simple, human-readable, locally
 defined terms while ensuring data interoperability across different systems.
 
-The SPDX global JSON-LD context file MUST be used universally for all SPDX
+The SPDX global JSON-LD context file must be used universally for all SPDX
 documents in JSON-LD format that adhere to a specific SPDX version.
 
 SPDX global JSON-LD context file is available at:
 [https://spdx.org/rdf/3.0.1/spdx-context.jsonld](https://spdx.org/rdf/3.0.1/spdx-context.jsonld)
 
-All SPDX documents in JSON-LD format MUST include a reference to the SPDX
+All SPDX documents in JSON-LD format must include a reference to the SPDX
 global context file at the top level.
 This reference is achieved using the following JSON construct:
 
@@ -131,8 +131,8 @@ specification if it adheres to the following two validation criteria:
   constraints between SPDX elements. The SPDX OWL ontology also incorporates
   SHACL shape restrictions to further specify these constraints.
 
-SPDX JSON Schema is available at:
+The SPDX JSON Schema is available at:
 [https://spdx.org/schema/3.0.1/spdx-json-schema.json](https://spdx.org/schema/3.0.1/spdx-json-schema.json)
 
-SPDX OWL ontology is available at:
+The SPDX OWL ontology is available at:
 [https://spdx.org/rdf/3.0.1/spdx-model.ttl](https://spdx.org/rdf/3.0.1/spdx-model.ttl)
