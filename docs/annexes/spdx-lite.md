@@ -1,4 +1,4 @@
-# SPDX Lite
+# SPDX Lite (Normative)
 
 ## Explanation of the Lite profile
 
