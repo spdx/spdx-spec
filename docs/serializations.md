@@ -89,3 +89,45 @@ A serialization must not contain more than one SpdxDocument.
 
 A given instance of serialization must not define more than one SpdxDocument
 element.
+
+## Serialization in JSON-LD
+
+### JSON-LD context file
+
+JSON-LD contexts allow JSON documents to use simple, human-readable, locally
+defined terms while ensuring data interoperability across different systems.
+
+The SPDX organization provides a global JSON-LD context file that MUST be used
+universally for all SPDX JSON-LD files of a given SPDX version.
+
+The context is available under
+[https://spdx.org/rdf/3.0.1/spdx-context.jsonld](https://spdx.org/rdf/3.0.1/spdx-context.jsonld)
+and should be included in serialized files on top-level via
+
+```json
+"@context": "https://spdx.org/rdf/3.0.1/spdx-context.jsonld"
+```
+
+Take special note that this context defines aliases for better compatibility
+with the SPDX model.
+In particular, these are "spdxId" for "@id" and "type" for "@type".
+
+### JSON-LD validation
+
+An SPDX serialization in JSON-LD format is considered conformant to the SPDX
+specification if it adheres to the following two validation criteria:
+
+- Semantic validation: The JSON-LD document must successfully validate against
+  the SPDX OWL ontology. This ontology defines the expected relationships and
+  constraints between SPDX elements. The SPDX OWL ontology also incorporates
+  SHACL shape restrictions to further specify these constraints.
+- Structural validation: The JSON-LD document must structurally validate
+  against the SPDX JSON Schema. This schema defines the expected structure of
+  the JSON-LD document, including the required elements, data types, and
+  permissible values.
+
+SPDX OWL ontology is available at
+[https://spdx.org/rdf/3.0.1/spdx-model.ttl](https://spdx.org/rdf/3.0.1/spdx-model.ttl)
+
+SPDX JSON Schema is available at
+[https://spdx.org/schema/3.0.1/spdx-json-schema.json](https://spdx.org/schema/3.0.1/spdx-json-schema.json)
