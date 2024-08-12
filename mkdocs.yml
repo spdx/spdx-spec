@@ -26,8 +26,8 @@ markdown_extensions:
 strict: true
 validation:
   nav:
-    omitted_files: warn  
-    not_found: info       # model will not exist for PR validation
+    omitted_files: info  # only give an info, if there's a file in docs/ but not in nav:
+    not_found: warn      # warn if a file is referenced in the nav but not included in the build
     absolute_links: warn
   links:
     not_found: warn
@@ -44,11 +44,11 @@ nav:
 - '5. Model and serializations': serializations.md
 - model:  # [MODEL_PLACEHOLDER], to be replaced by content from mkdocs-files.yml
 - annexes:
-  - 'A. Changes from the previous standard': annexes/diffs-from-previous-iso.md
+  - 'A. Changes from the previous standard': annexes/changes-from-previous-iso.md
   - 'B. RDF model definition and diagrams': annexes/rdf-model.md
-  - 'C. SPDX license expressions': annexes/SPDX-license-expressions.md
+  - 'C. SPDX license expressions': annexes/spdx-license-expressions.md
   - 'D. SPDX license list matching guidelines': annexes/license-matching-guidelines-and-templates.md
-  - 'E. SPDX Lite': annexes/SPDX-Lite.md
+  - 'E. SPDX Lite': annexes/spdx-lite.md
   - 'F. Package URL specification': annexes/pkg-url-specification.md
   - 'G. History with OMG': omg-history.md
 - licenses:
@@ -57,4 +57,3 @@ nav:
 draft_docs: |  # for preview with `mkdocs serve`, but excluded from `mkdocs build`
   omg-preface.md
   iso-foreword.md
-  conformance.md
