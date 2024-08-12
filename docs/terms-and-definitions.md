@@ -1,4 +1,4 @@
-# 3 Terms and Definitions
+# Terms and definitions
 
 For the purposes of this specification, the following terms and definitions
 apply.
