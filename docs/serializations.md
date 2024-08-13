@@ -107,7 +107,7 @@ JSON-LD format.
 Entries appearing in the [SPDX License List](https://spdx.org/licenses/) are
 not under this namespace and use a separate mechanism for identification.
 
-### Resources
+### RDF resources
 
 1. The SPDX ontology is available at:
   [https://spdx.org/rdf/3.0.1/spdx-model.ttl](https://spdx.org/rdf/3.0.1/spdx-model.ttl)
