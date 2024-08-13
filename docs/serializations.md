@@ -32,7 +32,7 @@ JSON-LD format.
 
 ### RDF namespace and IRIs
 
-1. Namespace Identifier:
+1. Namespace identifier:
 
     The SPDX v3.0.1 namespace identifier (IRI) is:
 
@@ -81,7 +81,7 @@ JSON-LD format.
       profile name associated with the vocabulary.
     - `{Vocabularyname}` shall be replaced with the specific vocabulary name.
 
-1. Enumerated Value IRIs:
+1. Enumerated value IRIs:
 
     IRIs for individual enumerated values within a vocabulary of the SPDX
     v3.0.1 vocabulary shall be constructed using the following format:
@@ -93,7 +93,7 @@ JSON-LD format.
     - `{Vocabularyname}` shall be replaced with the specific vocabulary name.
     - `{Entryname}` shall be replaced with the specific enumerated value name.
 
-1. Individual Value List IRIs:
+1. Individual value list IRIs:
 
     IRIs for individual value lists within the SPDX v3.0.1 vocabulary shall be constructed using the following format:
 
