@@ -1,6 +1,6 @@
 # Model and serializations
 
-## Overview <a name="4.1"></a>
+## Overview
 
 This specification defines the data model of the SPDX standard, describing
 every piece of information about systems with software components. The data
@@ -11,7 +11,7 @@ way to represent and exchange information.
 The data may be serialized in a variety of formats for storage and
 transmission.
 
-## RDF serialization <a name="4.2"></a>
+## RDF serialization
 
 Since the data model is based on RDF, any SPDX data can be serialized in any of
 the multiple RDF serialization formats, including but not limited to:
@@ -26,11 +26,48 @@ the multiple RDF serialization formats, including but not limited to:
   [RDF 1.1 XML Syntax](https://www.w3.org/TR/rdf-syntax-grammar/).
 
 The SPDX specification is accompanied by a
-[JSON-LD context](https://www.w3.org/TR/json-ld11/#the-context) definition file
+[JSON-LD context file](#json-ld-context-file)
 that can be used to serialize SPDX in a much simpler and more human-readable
 JSON-LD format.
 
-## Canonical serialization <a name="4.3"></a>
+### RDF namespace and IRIs
+
+1. The namespace for SPDX v3.0.1 is
+  `https://spdx.org/rdf/3.0.1/terms`
+
+1. IRIs for a namespace/profile are of the form:
+  `https://spdx.org/rdf/3.0.1/terms/{Namespacename}`
+
+1. IRIs for a class are of the form:
+  `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Classname}`
+
+1. IRIs for a property are of the form:
+  `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Propertyname}`
+
+1. IRIs for a vocabulary (an enumerated value list) are of the form:
+  `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Vocabularyname}`
+
+1. IRIs for an enumerated value are of the form:
+  `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Vocabularyname}/{Entryname}`
+
+1. IRIs for an individual value list are of the form:
+  `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Individualname}`
+
+Please note that entries appearing in the
+[SPDX License List](https://spdx.org/licenses/) are not under this namespace.
+
+### Resources
+
+1. The SPDX ontology is available at:
+  [https://spdx.org/rdf/3.0.1/spdx-model.ttl](https://spdx.org/rdf/3.0.1/spdx-model.ttl)
+
+1. The SPDX global JSON-LD context file is available at:
+  [https://spdx.org/rdf/3.0.1/spdx-context.jsonld](https://spdx.org/rdf/3.0.1/spdx-context.jsonld)
+
+1. The SPDX JSON Schema is available at:
+  [https://spdx.org/schema/3.0.1/spdx-json-schema.json](https://spdx.org/schema/3.0.1/spdx-json-schema.json)
+
+## Canonical serialization
 
 Canonical serialization is a single, consistent, normalized, deterministic, and
 reproducible form.
@@ -66,7 +103,7 @@ with the following additional characteristics:
   value. A single comma separates a value from a following name. The name/value
   pairs are ordered by name.
 
-## Serialization information <a name="4.4"></a>
+## Serialization information
 
 A collection of elements may be serialized in multiple formats.
 
@@ -92,16 +129,56 @@ element.
 
 ## Serialization in JSON-LD
 
+JSON-LD is a JSON-based format to encode RDF graphs.
+The JSON-LD is an RDF format and follows the serialization rules of the
+[RDF serialization](#rdf-serialization) mentioned above.
+
+### Serializing SpdxDocument
+
+The following SpdxDocument properties shall be mapped to native JSON-LD
+mechanisms as defined within the JSON-LD syntax specification.
+
+Any properties not explicitly listed below must be serialized as part of the
+SpdxDocument element within the JSON-LD serialized data.
+
+Deserialization of any JSON-LD serialized SPDX content shall expand the
+inverse of these native mappings such that the logical SpdxDocument element
+directly contains its complete set of properties.
+
+#### namespaceMap
+
+The namespaceMap element utilizes the mechanism as defined in the
+[term-to-IRI expansion](https://www.w3.org/TR/json-ld11/#example-11-term-expansion-from-context-definition)
+of the JSON-LD specification.
+
+#### element
+
+The [graph objects](https://www.w3.org/TR/json-ld11/#graph-objects) `@graph`,
+as defined in the JSON-LD specification, enumerates the elements of an
+SpdxDocument.
+
+The RDF graph representing an instance of the SPDX model shall adhere to the
+following structure:
+
+- All nodes representing Elements (i.e., objects that are subclasses of
+  Element) must be included as a top-level list under the `@graph` key.
+- References to Element nodes must utilize the corresponding URIs of the
+  referenced Elements.
+
+Inlining or embedding of Element nodes within other nodes is strictly
+prohibited.
+
+Non-Element nodes, such as those of type `ExternalRef` or similar complex data
+classes, shall be inlined within the `@graph`.
+
 ### JSON-LD context file
 
-JSON-LD contexts allow JSON documents to use simple, human-readable, locally
+[JSON-LD contexts](https://www.w3.org/TR/json-ld11/#the-context)
+allow JSON documents to use simple, human-readable, locally
 defined terms while ensuring data interoperability across different systems.
 
 The SPDX global JSON-LD context file must be used universally for all SPDX
 documents in JSON-LD format that adhere to a specific SPDX version.
-
-SPDX global JSON-LD context file is available at:
-[https://spdx.org/rdf/3.0.1/spdx-context.jsonld](https://spdx.org/rdf/3.0.1/spdx-context.jsonld)
 
 All SPDX documents in JSON-LD format must include a reference to the SPDX
 global context file at the top level.
@@ -117,6 +194,9 @@ improve compatibility with the SPDX model.  These aliases are:
 - `spdxId`: An alias for the `@id` property.
 - `type`: An alias for the `@type` property.
 
+Additional namespace mappings may be defined within a separate object within
+the context.
+
 ### JSON-LD validation
 
 An SPDX serialization in JSON-LD format is considered conformant to the SPDX
@@ -130,9 +210,3 @@ specification if it adheres to the following two validation criteria:
   the SPDX OWL ontology. This ontology defines the expected relationships and
   constraints between SPDX elements. The SPDX OWL ontology also incorporates
   SHACL shape restrictions to further specify these constraints.
-
-The SPDX JSON Schema is available at:
-[https://spdx.org/schema/3.0.1/spdx-json-schema.json](https://spdx.org/schema/3.0.1/spdx-json-schema.json)
-
-The SPDX OWL ontology is available at:
-[https://spdx.org/rdf/3.0.1/spdx-model.ttl](https://spdx.org/rdf/3.0.1/spdx-model.ttl)
