@@ -139,7 +139,7 @@ Yev Bronshteyn,
 Yoshiko Ouchi,
 Yoshiyuki Ito,
 Yuji Nomura,
-Yumi Tomita
+Yumi Tomita,
 and
 Zachary McFarland
 for their contributions and assistance.
