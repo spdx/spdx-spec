@@ -1,6 +1,6 @@
-# SPDX License List Matching Guidelines and Templates (Normative)
+# SPDX License List matching guidelines and templates (Normative)
 
-## SPDX license list matching guidelines <a name="C.1"></a>
+## SPDX License List matching guidelines <a name="C.1"></a>
 
 The SPDX License List Matching Guidelines provide guidelines to be used for the purposes of matching licenses and license exceptions against those included on the [SPDX License List](https://spdx.org/licenses/).
 There is no intent here to make a judgment or interpretation, but merely to ensure that when one SPDX user identifies a license as "BSD-3-Clause," for example, it is indeed the same license as what someone else identifies as "BSD-3-Clause" and the same license as what is listed on the SPDX License List.
@@ -14,7 +14,7 @@ To ensure consistent results by different SPDX document creators when matching l
 
 ### Guideline: official license headers <a name="C.2.2"></a>
 
-The matching guidelines apply to license and exception text, as well as official license headers. Official license headers are defined by the SPDX License List as specific text specified within the license itself to be put in the header of files. (see [explanation of SPDX License List fields](https://github.com/spdx/license-list-XML/blob/master/DOCS/license-fields.md) for more info).
+The matching guidelines apply to license and exception text, as well as official license headers. Official license headers are defined by the SPDX License List as specific text specified within the license itself to be put in the header of files. (see [explanation of SPDX License List fields](https://github.com/spdx/license-list-XML/blob/v3.24.0/DOCS/license-fields.md) for more info).
 
 The following XML tag is used to implement this guideline: `<standardLicenseHeader>`
 
@@ -213,28 +213,35 @@ Ignore any text that occurs after the obvious end of the license and does not in
 To implement this guideline, use the `<optional>` XML element tag as described
 in [Guideline: omittable text](#C.3.5).
 
-## HTTP Protocol <a name="C.14"></a>
+## HTTP protocol <a name="C.14"></a>
 
 ### Purpose <a name="C.14.1"></a>
 
-To avoid a license mismatch due to a difference in a hyperlink protocol (e.g. http vs. https).
+To avoid a license mismatch due to a difference in a hyperlink protocol (e.g. HTTP vs. HTTPS).
 
 ### Guideline <a name="C.14.2"></a>
 
-HTTP:// and HTTPS:// should be considered equivalent.
+`http://` and `https://` should be considered equivalent.
 
 XML files do not require specific markup to implement this guideline.
 
-## SPDX License list <a name="C.15"></a>
+## SPDX License List <a name="C.15"></a>
 
 ### Template access <a name="C.15.1"></a>
 
-The license XML can be accessed in the license-list-data repository under the license-list-XML directory. Although the license list XML files can also be found in the [license-list-XML](https://github.com/spdx/license-list-XML) repository, users are encouraged to use the published versions in the [license-list-data](https://github.com/spdx/license-list-data) repository. The license-list-data repository is tagged by release. Only tagged released versions of the license list are considered stable.
+The license XML can be accessed in the license-list-data repository under the
+license-list-XML directory. Although the license list XML files can also be
+found in the
+[license-list-XML](https://github.com/spdx/license-list-XML) repository,
+users are encouraged to use the published versions in the
+[license-list-data](https://github.com/spdx/license-list-data) repository.
+The license-list-data repository is tagged by release.
+Only tagged released versions of the license list are considered stable.
 
 ### License List XML format <a name="C.15.2"></a>
 
 A full schema for the License List XML can be found at
-[SPDX License List XML Schema](https://github.com/spdx/license-list-XML/blob/master/schema/ListedLicense.xsd).
+[SPDX License List XML Schema](https://github.com/spdx/license-list-XML/blob/v3.24.0/schema/ListedLicense.xsd).
 
 ### Legacy Text Template format <a name="C.15.3"></a>
 
