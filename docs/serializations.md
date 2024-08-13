@@ -32,29 +32,80 @@ JSON-LD format.
 
 ### RDF namespace and IRIs
 
-1. The namespace for SPDX v3.0.1 is
-  `https://spdx.org/rdf/3.0.1/terms`
+1. Namespace Identifier:
 
-1. IRIs for a namespace/profile are of the form:
-  `https://spdx.org/rdf/3.0.1/terms/{Namespacename}`
+    The SPDX v3.0.1 namespace identifier (IRI) is:
 
-1. IRIs for a class are of the form:
-  `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Classname}`
+    `https://spdx.org/rdf/3.0.1/terms`
 
-1. IRIs for a property are of the form:
-  `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Propertyname}`
+1. Namespace/Profile IRIs:
 
-1. IRIs for a vocabulary (an enumerated value list) are of the form:
-  `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Vocabularyname}`
+    IRIs for a namespace or profile within the SPDX v3.0.1 vocabulary shall be
+    constructed using the following format:
 
-1. IRIs for an enumerated value are of the form:
-  `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Vocabularyname}/{Entryname}`
+    `https://spdx.org/rdf/3.0.1/terms/{Namespacename}`
 
-1. IRIs for an individual value list are of the form:
-  `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Individualname}`
+    - `{Namespacename}` shall be replaced with the specific namespace or
+      profile name.
 
-Please note that entries appearing in the
-[SPDX License List](https://spdx.org/licenses/) are not under this namespace.
+1. Class IRIs:
+
+    IRIs for classes within the SPDX v3.0.1 vocabulary shall be constructed
+    using the following format:
+
+    `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Classname}`
+
+    - `{Namespacename}` shall be replaced with the specific namespace or
+      profile name associated with the class.
+    - `{Classname}` shall be replaced with the specific class name.
+
+1. Property IRIs:
+
+    IRIs for properties within the SPDX v3.0.1 vocabulary shall be constructed
+    using the following format:
+
+    `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Propertyname}`
+
+    - `{Namespacename}` shall be replaced with the specific namespace or
+      profile name associated with the property.
+    - `{Propertyname}` shall be replaced with the specific property name.
+
+1. Vocabulary IRIs:
+
+    IRIs for vocabularies (enumerated value lists) within the SPDX v3.0.1
+    vocabulary shall be constructed using the following format:
+
+    `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Vocabularyname}`
+
+    - `{Namespacename}` shall be replaced with the specific namespace or
+      profile name associated with the vocabulary.
+    - `{Vocabularyname}` shall be replaced with the specific vocabulary name.
+
+1. Enumerated Value IRIs:
+
+    IRIs for individual enumerated values within a vocabulary of the SPDX
+    v3.0.1 vocabulary shall be constructed using the following format:
+
+    `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Vocabularyname}/{Entryname}`
+
+    - `{Namespacename}` shall be replaced with the specific namespace or
+      profile name associated with the vocabulary.
+    - `{Vocabularyname}` shall be replaced with the specific vocabulary name.
+    - `{Entryname}` shall be replaced with the specific enumerated value name.
+
+1. Individual Value List IRIs:
+
+    IRIs for individual value lists within the SPDX v3.0.1 vocabulary shall be constructed using the following format:
+
+    `https://spdx.org/rdf/3.0.1/terms/{Namespacename}/{Individualname}`
+
+    - `{Namespacename}` shall be replaced with the specific namespace or
+      profile name associated with the individual value list.
+    - `{Individualname}` shall be replaced with the specific individual value
+      list name.
+
+Entries appearing in the [SPDX License List](https://spdx.org/licenses/) are
+not under this namespace and use a separate mechanism for identification.
 
 ### Resources
 
