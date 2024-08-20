@@ -14,7 +14,9 @@ To ensure consistent results by different SPDX document creators when matching l
 
 ### Guideline: official license headers <a name="C.2.2"></a>
 
-The matching guidelines apply to license and exception text, as well as official license headers. Official license headers are defined by the SPDX License List as specific text specified within the license itself to be put in the header of files. (see [explanation of SPDX License List fields](https://github.com/spdx/license-list-XML/blob/v3.25.0/DOCS/license-fields.md) for more info).
+The matching guidelines apply to license and exception text, as well as official license headers.
+Official license headers are defined by the SPDX License List as specific text specified within the license itself to be put in the header of files.
+(see [explanation of SPDX License List fields](https://github.com/spdx/license-list-XML/blob/v3.25.0/DOCS/license-fields.md) for more info).
 
 The following XML tag is used to implement this guideline: `<standardLicenseHeader>`
 
