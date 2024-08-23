@@ -35,7 +35,7 @@ List of symbols/abbreviations.
 | SHACL | Shapes Constraint Language |
 | SPDX | System Package Data Exchange (previously Software Package Data Exchange) |
 | SSVC | Stakeholder-Specific Vulnerability Categorization |
-| SWHID | SoftWare Hash IDentifiers |
+| SWHID | SoftWare Hash IDentifier |
 | URI | Uniform Resource Identifier |
 | URL | Uniform Resource Locator |
 | VEX | Vulnerability Exploitability eXchange |
