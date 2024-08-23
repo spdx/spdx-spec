@@ -28,7 +28,8 @@ Profile is the term for a compliance point within the SPDX community across The
 Linux Foundation and OMG. The System Package Data Exchange (SPDX) specification
 defines the following nine compliance points, defined as “Profiles”:
 
-- Core and Software Profiles
+- Core Profile
+- Software Profile
 - Security Profile
 - Licensing Profile
 - Dataset Profile
