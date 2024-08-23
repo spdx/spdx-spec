@@ -6,9 +6,9 @@ List of symbols/abbreviations.
 |-|-|
 | 3T-SBOM | Tool-to-Tool Software Bill of Materials Exchange |
 | ABNF | Augmented Backus–Naur form |
-| AI | Artificial intelligence |
+| AI | Artificial Intelligence |
 | BNF | Backus–Naur form |
-| BOM | Bill of materials |
+| BOM | Bill of Materials |
 | CISA | Cybersecurity and Infrastructure Security Agency |
 | CISQ | Consortium for Information & Software Quality |
 | CPE | Common Platform Enumeration |
@@ -18,7 +18,7 @@ List of symbols/abbreviations.
 | ISO | International Organization for Standardization |
 | JSON-LD | JavaScript Object Notation for Linking Data |
 | KEV | Known Exploited Vulnerabilities |
-| ML | Machine learning |
+| ML | Machine Learning |
 | NIST | National Institute of Standards and Technology |
 | NISTIR | NIST Internal or Interagency Report |
 | NTIA | National Telecommunications and Information Administration |
@@ -30,7 +30,7 @@ List of symbols/abbreviations.
 | PURL | Package URL |
 | RDF | Resource Description Framework |
 | RFC | Request For Comments |
-| SBOM | Software bill of materials |
+| SBOM | Software Bill of Materials |
 | SHA | Secure Hash Algorithms |
 | SHACL | Shapes Constraint Language |
 | SPDX | System Package Data Exchange (previously Software Package Data Exchange) |
