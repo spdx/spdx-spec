@@ -177,9 +177,6 @@ improve compatibility with the SPDX model.  These aliases are:
 - `spdxId`: An alias for the `@id` property.
 - `type`: An alias for the `@type` property.
 
-Additional namespace mappings may be defined within a separate object within
-the context.
-
 ### JSON-LD validation
 
 An SPDX serialization in JSON-LD format is considered conformant to the SPDX
