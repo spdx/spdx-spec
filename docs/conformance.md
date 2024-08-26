@@ -173,7 +173,7 @@ information produced by tools supporting SPDX.
 The Build Profile captures build-related information when producing or
 consuming SPDX content.
 
-Software that conforms to the SPDX specification at the Security Profile
+Software that conforms to the SPDX specification at the Build Profile
 compliance point shall be able to import and export serialized documents that
 conform with one of the SPDX serialization formats defined SPDX serialization
 formats, including associated definitions to help express how software is
@@ -194,7 +194,7 @@ The Lite Profile captures the minimum set of information required for license
 compliance in the software supply chain for producing or consuming SPDX
 content.
 
-Software that conforms to the SPDX specification at the Security Profile
+Software that conforms to the SPDX specification at the Lite Profile
 compliance point shall be able to import and export serialized documents that
 conform with one of the SPDX serialization formats defined SPDX serialization
 formats, including creation of the SBOM, package lists with licensing and other
