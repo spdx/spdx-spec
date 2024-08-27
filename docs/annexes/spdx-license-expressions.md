@@ -144,7 +144,7 @@ Sometimes license texts are found with additional text, which might or might not
 
 In this case, use the binary "WITH" operator to construct a new license expression to represent the special situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<addition-expression>` that represents the additional text.
 
-The `<addition-expression>` can be either a `<license-exception-id>` from the SPDX License List, or a user defined addition reference in the form ["DocumentRef-"(idstring)":"]"AdditonRef-"(idstring)
+The `<addition-expression>` can be either a `<license-exception-id>` from the SPDX License List, or a user defined addition reference in the form ["DocumentRef-"(idstring)":"]"AdditionRef-"(idstring)
 
 For example, when the Bison exception is to be applied to GPL-2.0-or-later, the expression would be:
 
