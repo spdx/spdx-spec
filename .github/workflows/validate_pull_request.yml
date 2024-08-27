@@ -14,7 +14,7 @@ jobs:
       run: pip install -r requirements.txt
     - name: Build the site to validate (use mkdocs.yml, no model files, no PDF export)
       run: |
-        sed -i "" "/__MODEL_PLACEHOLDER__/d" mkdocs.yml
+        sed -i "/__MODEL_PLACEHOLDER__/d" mkdocs.yml
         ENABLE_PDF_EXPORT=0 mkdocs build --clean --verbose
       # To validate the PR from within spdx-spec repo, build using mkdocs.yml
       # (no model files) and without the time-consuming PDF export
