@@ -26,11 +26,12 @@ the SPDX community, it has been preserved in this specification.
 
 Profile is the term for a compliance point within the SPDX community across The
 Linux Foundation and OMG. The System Package Data Exchange (SPDX) specification
-defines the following six compliance points, defined as “Profiles”:
+defines the following nine compliance points, defined as “Profiles”:
 
-- Core and Software Profiles
+- Core Profile
+- Software Profile
 - Security Profile
-- Licencing Profile
+- Licensing Profile
 - Dataset Profile
 - AI Profile
 - Build Profile
@@ -69,7 +70,7 @@ conform with one of the SPDX serialization formats defined SPDX serialization
 formats.
 
 Conformance to the Software Profile compliance point does not entail support
-for the Licencing, Dataset, AI, Build, Lite, or Extension profiles of the
+for the Licensing, Dataset, AI, Build, Lite, or Extension profiles of the
 SPDX.
 
 This compliance point, in combination with the Core Profile compliance point,
@@ -91,17 +92,17 @@ mechanism to express how a vulnerability may affect a specific software element
 including if a fix is available.
 
 Conformance to the Security Profile compliance point does not entail support
-for the Licencing, Dataset, AI, Build, Lite, or Extension profiles of the
+for the Licensing, Dataset, AI, Build, Lite, or Extension profiles of the
 SPDX.
 
 This compliance point facilitates interchange of the security information
 produced by tools supporting SPDX.
 
-## Licencing Profile compliance point <a name="5.6"></a>
+## Licensing Profile compliance point <a name="5.6"></a>
 
 The Licensing Profile includes capturing details relevant to software licensing
 and intellectual property information when producing or consuming SPDX content.
-Specifically, software that conforms to the SPDX specification at the Licencing
+Specifically, software that conforms to the SPDX specification at the Licensing
 profile compliance point shall be able to import and export serialized
 documents that conform with one of the SPDX serialization formats defined SPDX
 serialization formats, including the classes and fields that comprise the SPDX
@@ -113,11 +114,11 @@ and the ExpandedLicensing profiles.
 Both allow expression of the same information,
 albeit in different ways.
 
-Conformance to the Licencing Profile compliance point does not entail support
+Conformance to the Licensing Profile compliance point does not entail support
 for the Software, Security, Dataset, AI, Build, Lite, or Extension profiles of
 the SPDX.
 
-This compliance point facilitates interchange of the licencing documents
+This compliance point facilitates interchange of the licensing documents
 expressing which licenses and copyright notices are determined by persons or
 automated tooling to apply to distributions of software that are produced by
 tools supporting SPDX.
@@ -139,7 +140,7 @@ and properties of a dataset, helping users understand and analyze the data more
 effectively.
 
 Conformance to the Dataset Profile compliance point does not entail support
-for the Software, Licencing, Security, AI, Build, Lite, or Extension profiles
+for the Software, Licensing, Security, AI, Build, Lite, or Extension profiles
 of the SPDX.
 
 This compliance point facilitates interchange of the information about
@@ -162,7 +163,7 @@ information about their versions, licenses, and useful security references
 including ethical and security information.
 
 Conformance to the AI Profile compliance point does not entail support for the
-Software, Licencing, Security, Dataset, Build, Lite, or Extension profiles of
+Software, Licensing, Security, Dataset, Build, Lite, or Extension profiles of
 the SPDX.
 
 This compliance point facilitates interchange of the AI model related
@@ -182,7 +183,7 @@ procedures/instructions, environments and actors from the build process along
 with the associated evidence.
 
 Conformance to the Build Profile compliance point does not entail support for
-the Software, Licencing, Security, Dataset, AI, Lite, or Extension profiles of
+the Software, Licensing, Security, Dataset, AI, Lite, or Extension profiles of
 the SPDX.
 
 This compliance point facilitates interchange of the build information produced
@@ -201,10 +202,10 @@ formats, including creation of the SBOM, package lists with licensing and other
 related items, and their relationships.
 
 Conformance to the Lite Profile compliance point does not entail support for
-the Software, Licencing, Security, Dataset, AI, Build, or Extension profiles
+the Software, Licensing, Security, Dataset, AI, Build, or Extension profiles
 of the SPDX.
 
-This compliance point facilitates interchange of minimal licencing information
+This compliance point facilitates interchange of minimal licensing information
 when produced by tools supporting SPDX.
 
 ## Extension Profile compliance point <a name="5.11"></a>
@@ -242,7 +243,7 @@ formats, including the abstract Extension class serving as the base for all
 defined Extension subclasses.
 
 Conformance to the Extension Profile compliance point does not entail support
-for the Licencing, Security, Dataset, AI, Build, or profiles of the SPDX but
+for the Licensing, Security, Dataset, AI, Build, or profiles of the SPDX but
 is expected to be used in combination with the other profiles to extend them.
 
 This compliance point facilitates interchange of extended information that goes
