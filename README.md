@@ -19,7 +19,8 @@ This repository holds under active development version of the specification as:
 - HTML: `gh-pages` branch, built on every commit to the development branch,
   see the workflow in
   [`.github/workflows/publish_v3.yml`](.github/workflows/publish_v3.yml)
-  - Current (3.0): <https://spdx.github.io/spdx-spec/v3.0/>
+  - Current stable (v3.0.1): <https://spdx.github.io/spdx-spec/v3.0.1/>
+<!--  - Development (v3.1): <https://spdx.github.io/spdx-spec/v3.1-draft/> -->
 
 The model itself is under active development at
 [spdx/spdx-3-model](https://github.com/spdx/spdx-3-model/)
@@ -28,6 +29,16 @@ repo (`main` branch).
 See for the official
 [releases of the specification](https://spdx.org/specifications)
 or additional information also the SPDX website at <https://spdx.org>.
+
+Information on how to use the SPDX specification is available at
+[spdx/using](https://github.com/spdx/using/) repo.
+Demonstrations of SPDX for various scenarios and use cases are available at
+[spdx/spdx-examples](https://github.com/spdx/spdx-examples).
+
+See [change log](./CHANGELOG.md) for changes between versions.
+Contributions are welcome,
+please see the [contributing guidelines](./CONTRIBUTING.md)
+and [governance practices](https://github.com/spdx/governance/).
 
 ## Specification structure
 
