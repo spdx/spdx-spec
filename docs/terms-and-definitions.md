@@ -8,7 +8,7 @@ at the following addresses:
 - IEC Electropedia: available at
   [http://www.electropedia.org/](http://www.electropedia.org/)
 
-## Profile
+** profile **
 
 A scope of usage for SPDX targeting support for particular use cases and
 scenarios (e.g., software, licensing, security, etc.).
