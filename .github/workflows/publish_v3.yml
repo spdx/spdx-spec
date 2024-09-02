@@ -130,7 +130,6 @@ jobs:
           echo "---------------------"
           cat "$FULL_MKDOCS_YML"
           echo "[End of File]"
-          rm $MKDOCS_MODEL_YML
       - name: Deploy and set aliases
         working-directory: spdx-spec
         run: |
@@ -143,8 +142,6 @@ jobs:
         # 2) delete existing v3.0.1-draft alias/deployment, if exists
         # 3) deploy v3.0.1, with aliases (v3.0.1-draft, v3-draft, v3.0-RC1, v3.0-RC2, v3.0 latest)
         # 4) set default version to v3.0.1
-      # A script for additional redirections will be run after this point
-      # See https://github.com/spdx/spdx-spec/issues/1069
       - name: Copy JSON annotations, JSON schema, JSON-LD context, and RDFs to alias directories
         # Fallback for backward compatibility with old URLs before v3.0.1
         working-directory: spdx-spec
@@ -155,4 +152,9 @@ jobs:
             mkdir -p "$dir"/rdf
             cp v3.0.1/rdf/* "$dir"/rdf
             cp v3.0.1/rdf/* "$dir"/model
+            git add "$dir"/rdf/* "$dir"/model/*
           done
+          git commit -m "Copy schema and RDFs to alias directories: $VERSION_ALIASES"
+          git push origin $GH_PAGES_BRANCH
+      # A script for additional redirections for properties with new name will be run after this point
+      # See https://github.com/spdx/spdx-spec/issues/1069
