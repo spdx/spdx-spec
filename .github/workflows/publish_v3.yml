@@ -11,12 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     container: python:3
     env:
-      PARSER_OUTPUT_DIR: "__parser_output"
-      RDF_BASE_DIR: "model"                # change to "rdf" in new structure
-      MKDOCS_BASE_DIR: "model"             # change to "mkdocs" in new structure
-      MKDOCS_MODEL_YML: "mkdocs-files.yml"
-      BASE_MKDOCS_YML: "mkdocs.yml"
-      FULL_MKDOCS_YML: "__mkdocs-full.yml"
+      PARSER_OUTPUT_DIR: "__parser_output"  # temp dir for output from spec-parser
+      RDF_BASE_DIR: ""                      # change to "rdf" in new structure
+      MKDOCS_BASE_DIR: ""                   # change to "mkdocs" in new structure
+      MKDOCS_MODEL_YML: "mkdocs-files.yml"  # contains list of model Markdown files
+      BASE_MKDOCS_YML: "mkdocs.yml"         # initial MkDocs configuration
+      FULL_MKDOCS_YML: "__mkdocs-full.yml"  # MkDocs configuration combined with model list
+      GIT_USER_NAME: "ci-bot"               # for gh-pages commit
+      GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
     steps:
       - name: Checkout spdx-spec
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
@@ -91,7 +93,7 @@ jobs:
           cp $PARSER_OUTPUT_DIR/$MKDOCS_MODEL_YML spdx-spec
       - name: Set Git identity
         working-directory: spdx-spec
-        run: git config user.name ci-bot; git config user.email ci-bot@spdx.dev
+        run: git config user.name $GIT_USER_NAME; git config user.email $GIT_USER_EMAIL
       - name: Sync gh-pages
         working-directory: spdx-spec
         run: git checkout gh-pages && git pull && git checkout development/v3.0.1
