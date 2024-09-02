@@ -11,34 +11,36 @@ jobs:
     runs-on: ubuntu-latest
     container: python:3
     env:
+      REF_SPEC: "development/v3.0.1"        # spec branch/tag release
+      REF_MODEL: "main"                     # model branch/tag release
+      REF_PARSER: "main"                    # parser branch/tag release
+      GH_PAGES_BRANCH: "gh-pages"           # branch name to publish HTML to
+      GIT_USER_NAME: "ci-bot"               # for gh-pages commit
+      GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
       PARSER_OUTPUT_DIR: "__parser_output"  # temp dir for output from spec-parser
       RDF_BASE_DIR: ""                      # change to "rdf" in new structure
       MKDOCS_BASE_DIR: ""                   # change to "mkdocs" in new structure
       MKDOCS_MODEL_YML: "mkdocs-files.yml"  # contains list of model Markdown files
       BASE_MKDOCS_YML: "mkdocs.yml"         # initial MkDocs configuration
       FULL_MKDOCS_YML: "__mkdocs-full.yml"  # MkDocs configuration combined with model list
-      GIT_USER_NAME: "ci-bot"               # for gh-pages commit
-      GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
     steps:
       - name: Checkout spdx-spec
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
-          ref: development/v3.0.1
+          ref: ${{ env.REF_SPEC }}
           path: spdx-spec
           fetch-depth: 0  # Because we will be pushing the gh-pages branch
       - name: Checkout spdx-3-model
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
           repository: spdx/spdx-3-model
-          ref: main  # for v3.0.1-draft, checkout latest from main (development)
-          # Once 3.0.1 released, use the following ref to checkout from the release tag
-          # ref: 3.0.1  # for v3.0.1 final release
+          ref: ${{ env.REF_MODEL }}
           path: spdx-3-model
       - name: Checkout spec-parser
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
           repository: spdx/spec-parser
-          ref: main
+          ref: ${{ env.REF_PARSER }}
           path: spec-parser
       - name: Install pre-requisites for spdx-spec
         run: pip install -r spdx-spec/requirements.txt
@@ -89,7 +91,7 @@ jobs:
           echo "---------------------"
           ls spdx-spec/docs/model
           echo "====================="
-      - name: Generate JSON schema -- OLD DIR STRUCTURE
+      - name: Generate JSON schema
         # Will be redirected from https://spdx.org/schema/3.0.0/spdx-json-schema.json
         # and available at https://spdx.github.io/spdx-spec/v3.0/model/schema.json
         run: |
@@ -108,9 +110,9 @@ jobs:
       - name: Set Git identity
         working-directory: spdx-spec
         run: git config user.name $GIT_USER_NAME; git config user.email $GIT_USER_EMAIL
-      - name: Sync gh-pages
+      - name: Sync GitHub Pages
         working-directory: spdx-spec
-        run: git checkout gh-pages && git pull && git checkout development/v3.0.1
+        run: git checkout $GH_PAGES_BRANCH && git pull && git checkout $REF_SPEC
       - name: Build complete MkDocs configuration
         working-directory: spdx-spec
         run: |
