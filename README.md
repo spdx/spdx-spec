@@ -53,7 +53,7 @@ This repository consists of these files and directories:
     [model.drawio](https://github.com/spdx/spdx-3-model/blob/main/model.drawio)
     in `spdx/spdx-3-model` repo and manually copied here.
   - `licenses/` - Licenses that used by the SPDX specifications.
-  - `model/` - Model files*. This subdirectory _is to be created_ by a script
+  - `model/` - Model files. This subdirectory _is to be created_ by a script
     from `spdx/spec-parser` repo, using model information from
     `spdx/spdx-3-model` repo (see the build instructions below).
 - `examples/` - Examples of various SPDX serializations for the current version
@@ -116,13 +116,8 @@ installed on your machine. If you don't have it yet installed please follow
 these [installation instructions](http://www.mkdocs.org/#installation).
 
 [WeasyPrint](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation)
-is also required for generating PDF files. To disable PDF generation, comment
-out the these lines in your `mkdocs.yml` configuration file:
-
-```yaml
-#- pdf-export:
-#    combined: true
-```
+is also required for generating PDF files. To enable PDF generation, set the
+`ENABLE_PDF_EXPORT` environment variable to `1`.
 
 ### Preparing input files
 
@@ -146,7 +141,7 @@ pip3 install -r spdx-spec/requirements.txt
 pip3 install -r spec-parser/requirements.txt
 ```
 
-### Generating formatted Markdown files for MkDocs
+### Generating model and formatted Markdown files for MkDocs
 
 Model files in `spdx/spdx-3-model` repo are written in a specific format of
 Markdown, with a limited set of allowed headings. The `spec-parser` processes
@@ -174,52 +169,106 @@ directory. This directory contains two components:
 - Formatted Makdown files: These files (`.md` extension) are located in various
   subdirectories and are intended for processing by MkDocs in the next step.
 
-If the output directory already exists, the `spec-parser` will not overwrite
-it. If you edited a model file and want to regenerate the formatted files, you
-have to delete the existing `spdx-spec/docs/model` directory first:
+There will be also a file called `mkdocs-files.yml` which will contain a list
+of all model files. This file will be used later in the next step for
+specification publication process.
+
+Note: If the output directory already exists, the `spec-parser` will not
+overwrite it. If you edited a model file and want to regenerate the formatted
+one, you have to delete the existing `spdx-spec/docs/model` directory first:
 
 ```shell
 rm -rf spdx-spec/docs/model
 ```
+
+### Generating MkDocs configuration file
+
+MkDocs needs a special file to know what to include in the documentation.
+
+The provided default `mkdocs.yml` file only covers content from the `spdx-spec`
+repository. It doesn't include information about the model files from the
+`spdx-3-model` repository. You can still use it, but you will not get the full
+documentation.
+
+To generate a complete MkDocs documentation, combine the existing `mkdocs.yml`
+with the generated `mkdocs-files.yml` from the previous step.
+
+```shell
+sed -e "\|__MODEL_PLACEHOLDER__|{
+    r docs/model/mkdocs-files.yml
+    a\\
+
+    d
+}" "mkdocs.yml" > "__mkdocs-full.yml"
+```
+
+The merged configuration file will be saved as `__mkdocs-full.yml`.
 
 ### Building HTML
 
 With all spec and model files prepared, we will use MkDocs to assemble them
 into a website.
 
-In side `spdx-spec/` directory, execute a built-in dev-server that let you
-preview the specification:
+Make sure to use the `--config-file __mkdocs-full.yml` option when running
+MkDocs. This tells MkDocs to use the combined configuration file we created
+earlier. If you don't use this option, MkDocs will use the default
+`mkdocs.yml` file instead.
 
-```shell
-mkdocs serve
-```
+These following commands should run inside the `spdx-spec/` directory.
 
-Or building a static HTML site:
+- To preview the specification in a web browser:
 
-```shell
-mkdocs build
-```
+  ```shell
+  mkdocs serve --config-file __mkdocs-full.yml 
+  ```
 
-To abort the build immediately when there is a warning, enables strict mode:
+- To build a static HTML site:
 
-```shell
-mkdocs build --strict
-```
+  ```shell
+  mkdocs build --config-file __mkdocs-full.yml 
+  ```
 
-To get debug messages, enables verbose output:
+  Once complete, you'll find the site in the `spdx-spec/site/` directory.
 
-```shell
-mkdocs build --verbose
-```
+- To build a PDF as well:
+
+  ```shell
+  ENABLE_PDF_EXPORT=1 mkdocs build --config-file __mkdocs-full.yml
+  ```
+
+  Generating the PDF can take up to 20 minutes. Once complete, you'll find the
+  PDF file in the `spdx-spec/site/pdf/` directory.
+
+- To get debug messages, enables verbose output:
+
+  ```shell
+  mkdocs build --config-file __mkdocs-full.yml --verbose
+  ```
+
+- To let the build continue even there is a warning, disables strict mode:
+
+  ```shell
+  mkdocs build --config-file __mkdocs-full.yml --no-strict
+  ```
 
 ## Configuring the website
 
 Inside `spdx-spec/` directory, there is a file `mkdocs.yml`. This is a
 configuration file for MkDocs.
 
-Files intended for display and linking in the navigation bar should be
-included in the `nav:` section. The order of filenames in this section
-determines their order on the navigation bar.
+You can customize website details like the site name and main URL (canonical
+URL) in this file.
+
+To include a page in the navigation bar, list its filename under the `nav:`
+section. The order of filenames in this section determines the order of the
+page in the navigation bar.
+
+Please avoid modifying the line beginning with `- model`. This line is
+essential for the script that combines model files to function correctly.
+
+You might need to
+[regenerate the full configuration file](#generating-mkdocs-configuration-file)
+after making changes to `mkdocs.yml`.
 
 ## Specification versions on spdx.github.io/spdx-spec/
 
