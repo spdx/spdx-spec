@@ -15,11 +15,12 @@ jobs:
       REF_MODEL: "main"                     # model branch/tag release
       REF_PARSER: "main"                    # parser branch/tag release
       GH_PAGES_BRANCH: "gh-pages"           # branch name to publish HTML to
+      VERSION_ALIASES: "latest v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2"  # list of aliases for v3.0.1
       GIT_USER_NAME: "ci-bot"               # for gh-pages commit
       GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
       PARSER_OUTPUT_DIR: "__parser_output"  # temp dir for output from spec-parser
-      RDF_BASE_DIR: ""                      # change to "rdf" in new structure
-      MKDOCS_BASE_DIR: ""                   # change to "mkdocs" in new structure
+      RDF_BASE_DIR: ""                      # change to "rdf" in new spec-parser output dir structure
+      MKDOCS_BASE_DIR: ""                   # change to "mkdocs" in new spec-parser output dir structure
       MKDOCS_MODEL_YML: "mkdocs-files.yml"  # contains list of model Markdown files
       BASE_MKDOCS_YML: "mkdocs.yml"         # initial MkDocs configuration
       FULL_MKDOCS_YML: "__mkdocs-full.yml"  # MkDocs configuration combined with model list
@@ -129,12 +130,13 @@ jobs:
           echo "---------------------"
           cat "$FULL_MKDOCS_YML"
           echo "[End of File]"
+          rm $MKDOCS_MODEL_YML
       - name: Deploy and set aliases
         working-directory: spdx-spec
         run: |
           mike delete --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push --allow-empty v3.0 || true
           mike delete --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push --allow-empty v3.0.1-draft || true
-          mike deploy --update-aliase --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0.1 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2 v3.0 latest
+          mike deploy --update-aliase --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0.1 $VERSION_ALIASES
           mike set-default --config-file "$FULL_MKDOCS_YML" --branch gh-pages --push v3.0.1
         # Explanations of the above mike steps:
         # 1) delete existing v3.0 alias/deployment, if exists
@@ -143,3 +145,14 @@ jobs:
         # 4) set default version to v3.0.1
       # A script for additional redirections will be run after this point
       # See https://github.com/spdx/spdx-spec/issues/1069
+      - name: Copy JSON annotations, JSON schema, JSON-LD context, and RDFs to alias directories
+        # Fallback for backward compatibility with old URLs before v3.0.1
+        working-directory: spdx-spec
+        run: |
+          git checkout $GH_PAGES_BRANCH
+          dirs="$VERSION_ALIASES"
+          for dir in $dirs; do
+            mkdir -p "$dir"/rdf
+            cp v3.0.1/rdf/* "$dir"/rdf
+            cp v3.0.1/rdf/* "$dir"/model
+          done
