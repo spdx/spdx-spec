@@ -60,21 +60,35 @@ jobs:
         # Will be redirected from https://spdx.org/rdf/3.0.0/spdx-context.jsonld, spdx-model.ttl, etc.
         # and available at https://spdx.github.io/spdx-spec/v3.0/model/spdx-context.jsonld
         run: |
+          echo "====================="
+          echo "Source: $PARSER_OUTPUT_DIR/$RDF_BASE_DIR"
+          echo "---------------------"
           ls $PARSER_OUTPUT_DIR/$RDF_BASE_DIR
+          echo "====================="
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-context.jsonld spdx-spec/docs/rdf/
           cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.dot spdx-spec/docs/rdf/
           cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.json-ld spdx-spec/docs/rdf/
           cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.pretty-xml spdx-spec/docs/rdf/
           cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.ttl spdx-spec/docs/rdf/
           cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.xml spdx-spec/docs/rdf/
           cp spdx-spec/docs/rdf/spdx-model.json-ld spdx-spec/docs/rdf/spdx-model.jsonld
+          echo "====================="
+          echo "Target (after copy): spdx-spec/docs/rdf"
+          echo "---------------------"
           ls spdx-spec/docs/rdf
+          echo "====================="
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-context.jsonld spdx-spec/docs/model/
           cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.dot spdx-spec/docs/model/
           cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.json-ld spdx-spec/docs/model/
           cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.pretty-xml spdx-spec/docs/model/
           cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.ttl spdx-spec/docs/model/
           cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.xml spdx-spec/docs/model/
           cp spdx-spec/docs/model/spdx-model.json-ld spdx-spec/docs/model/spdx-model.jsonld
+          echo "====================="
+          echo "Target (after copy): spdx-spec/docs/model"
+          echo "---------------------"
           ls spdx-spec/docs/model
+          echo "====================="
       - name: Generate JSON schema -- OLD DIR STRUCTURE
         # Will be redirected from https://spdx.org/schema/3.0.0/spdx-json-schema.json
         # and available at https://spdx.github.io/spdx-spec/v3.0/model/schema.json
