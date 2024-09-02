@@ -21,16 +21,15 @@ jobs:
       - name: Checkout spdx-spec
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
-          repository: bact/spdx-spec
-          ref: test-publish-301-on-bact
+          ref: development/v3.0.1
           path: spdx-spec
           fetch-depth: 0  # Because we will be pushing the gh-pages branch
       - name: Checkout spdx-3-model
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
-          repository: bact/spdx-3-model
-          ref: main-with-selected-commits   # for v3.0.1-draft, checkout latest from main (development)
-          # Once 3.0.1 model is frozen, use the following ref to checkout from the release tag to publish v3.0.1
+          repository: spdx/spdx-3-model
+          ref: main  # for v3.0.1-draft, checkout latest from main (development)
+          # Once 3.0.1 released, use the following ref to checkout from the release tag
           # ref: 3.0.1  # for v3.0.1 final release
           path: spdx-3-model
       - name: Checkout spec-parser
@@ -41,7 +40,7 @@ jobs:
           path: spec-parser
       - name: Install pre-requisites for spdx-spec
         run: pip install -r spdx-spec/requirements.txt
-      - name: Prepare - Install pre-requisites for spec-parser
+      - name: Install pre-requisites for spec-parser
         run: pip install -r spec-parser/requirements.txt
       - name: Build model files
         run: python3 spec-parser/main.py spdx-3-model/model $PARSER_OUTPUT_DIR
@@ -92,8 +91,8 @@ jobs:
           cp $PARSER_OUTPUT_DIR/$MKDOCS_MODEL_YML spdx-spec
       - name: Set Git identity
         working-directory: spdx-spec
-        run: git config user.name bact; git config user.email arthit@gmail.com
-      - name: Deploy - Sync gh-pages
+        run: git config user.name ci-bot; git config user.email ci-bot@spdx.dev
+      - name: Sync gh-pages
         working-directory: spdx-spec
         run: git checkout gh-pages && git pull && git checkout development/v3.0.1
       - name: Build complete MkDocs configuration
