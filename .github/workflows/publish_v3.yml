@@ -62,7 +62,7 @@ jobs:
           cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/model/jsonld-annotations.ttl
       - name: Copy JSON-LD context and RDFs
         # Will be redirected from https://spdx.org/rdf/3.0.0/spdx-context.jsonld, spdx-model.ttl, etc.
-        # and available at https://spdx.github.io/spdx-spec/v3.0/model/spdx-context.jsonld
+        # and available at https://spdx.github.io/spdx-spec/v3.0/rdf/spdx-context.jsonld
         run: |
           echo "===================="
           echo "Source: $PARSER_OUTPUT_DIR/$RDF_BASE_DIR"
@@ -95,7 +95,7 @@ jobs:
           echo "===================="
       - name: Generate JSON schema
         # Will be redirected from https://spdx.org/schema/3.0.0/spdx-json-schema.json
-        # and available at https://spdx.github.io/spdx-spec/v3.0/model/schema.json
+        # and available at https://spdx.github.io/spdx-spec/v3.0/rdf/schema.json
         run: |
           shacl2code generate \
             --input spdx-spec/docs/rdf/spdx-model.ttl \
@@ -109,6 +109,7 @@ jobs:
         run: |
           cp -R $PARSER_OUTPUT_DIR/$MKDOCS_BASE_DIR/* spdx-spec/docs/model
           cp $PARSER_OUTPUT_DIR/$MKDOCS_MODEL_YML spdx-spec
+      # Do we need plantuml file here as well?
       - name: Set Git identity
         working-directory: spdx-spec
         run: git config user.name $GIT_USER_NAME; git config user.email $GIT_USER_EMAIL
