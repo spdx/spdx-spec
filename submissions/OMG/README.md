@@ -1,4 +1,3 @@
-
 Here are files that are only relevant to the production of the PDF
 that will be submitted to OMG.
 
@@ -32,4 +31,3 @@ The structure of the PDF will include the following (in order):
 
 - licenses/Community-Spec-1.0
 - licenses/CC-BY-3.0
-
