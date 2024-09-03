@@ -15,8 +15,9 @@ jobs:
       REF_MODEL: "main"                     # model branch/tag release
       REF_PARSER: "main"                    # parser branch/tag release
       GH_PAGES_BRANCH: "gh-pages"           # branch name to publish HTML to
-      VERSION: "v3.0.1"                     # current version (default)
-      VERSION_ALIASES: "latest v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2"  # list of aliases for v3.0.1
+      VERSION: "v3.0.1"                     # publishing version
+      VERSION_DEFAULT: "v3.0.1"             # default version (be redirected from https://spdx.github.io/spdx-spec/)
+      VERSION_ALIASES: "latest v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2"  # aliases for VERSION
       GIT_USER_NAME: "ci-bot"               # for gh-pages commit
       GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
       PARSER_OUTPUT_DIR: "__parser_output"  # temp dir for output from spec-parser
@@ -109,7 +110,10 @@ jobs:
         run: |
           cp -R $PARSER_OUTPUT_DIR/$MKDOCS_BASE_DIR/* spdx-spec/docs/model
           cp $PARSER_OUTPUT_DIR/$MKDOCS_MODEL_YML spdx-spec
-      # Do we need plantuml file here as well?
+        # mkdir -p spdx-spec/docs/diagram
+        # cp $PARSER_OUTPUT_DIR/diagram/model.plantuml spdx-spec/docs/diagram
+        # mkdir -p spdx-spec/docs/jsondump
+        # cp $PARSER_OUTPUT_DIR/jsondump/model.json spdx-spec/docs/jsondump
       - name: Set Git identity
         working-directory: spdx-spec
         run: git config user.name $GIT_USER_NAME; git config user.email $GIT_USER_EMAIL
@@ -139,11 +143,11 @@ jobs:
             mike delete --config-file "$FULL_MKDOCS_YML" --branch $GH_PAGES_BRANCH --push --allow-empty "$alias" || true
           done
           mike deploy --update-aliase --config-file "$FULL_MKDOCS_YML" --branch $GH_PAGES_BRANCH --push $VERSION $VERSION_ALIASES
-          mike set-default --config-file "$FULL_MKDOCS_YML" --branch $GH_PAGES_BRANCH --push $VERSION
+          mike set-default --config-file "$FULL_MKDOCS_YML" --branch $GH_PAGES_BRANCH --push $VERSION_DEFAULT
         # Explanations of the above mike steps:
         # 1) delete existing aliases, if exists
         # 2) deploy VERSION, with aliases (see VERSION_ALIASES)
-        # 3) set default version to VERSION
+        # 3) set default version to VERSION_DEFAULT
       - name: Copy JSON annotations, JSON schema, JSON-LD context, and RDFs to alias directories
         # Fallback for backward compatibility with old URLs before v3.0.1
         working-directory: spdx-spec
