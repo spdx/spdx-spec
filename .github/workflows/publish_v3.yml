@@ -160,8 +160,9 @@ jobs:
           git push origin $GH_PAGES_BRANCH
       - name: Make model redirections (for name changes)
         # Fallback for backward compatibility with old URLs before v3.0.1
-        # See name changes in https://github.com/spdx/spdx-3-model/blob/main/CHANGELOG.md
+        # See name changes in model at https://github.com/spdx/spdx-3-model/blob/main/CHANGELOG.md
         # More details at https://github.com/spdx/spdx-spec/issues/1069
+        # Add more redirections in etc/model-redirect-map.csv
         working-directory: spdx-spec
         run: |
           ALL_VERSIONS=$(echo "$VERSION" "$VERSION_ALIASES")
@@ -184,25 +185,34 @@ jobs:
           git checkout $GH_PAGES_BRANCH
           for alias in $ALL_VERSIONS; do
             echo "$maps" | while read -r line; do
-                from=$(echo "$line" | cut -d',' -f1)
-                to=$(echo "$line" | cut -d',' -f2)
-                msg="Redirect: $alias/model/$from -> $VERSION/model/$to"
-                echo "$msg"
-                slash_count=$(echo "$from" | tr -cd '/' | wc -c)
-                upper_dirs="../.."
-                if [ -n "$from" ]; then
-                  for i in $(seq 0 $slash_count); do
-                    upper_dirs="$upper_dirs/.."
-                  done
-                fi
-                escaped_upper=$(echo "$upper_dirs" | sed 's/[\/&]/\\&/g')
-                escaped_version=$(echo "$VERSION" | sed 's/[\/&]/\\&/g')
-                escaped_to=$(echo "$to" | sed 's/[\/&]/\\&/g')
-                html=$(echo "$template" | sed -e "s/__UPPER__/$escaped_upper/g" -e "s/__VERSION__/$escaped_version/g" -e "s/__TO__/$escaped_to/g")
-                mkdir -p "$alias/model/$from"
-                echo "$html" > "$alias/model/$from/$INDEX_HTML"
-                git add "$alias/model/$from/$INDEX_HTML"
-              done
+              from=$(echo "$line" | cut -d',' -f1)
+              to=$(echo "$line" | cut -d',' -f2)
+              slash_count=$(echo "$from" | tr -cd '/' | wc -c)
+              upper_dirs=".."
+              if [ -n "$from" ]; then
+                for i in $(seq 0 $slash_count); do
+                  upper_dirs="$upper_dirs/.."
+                done
+              fi
+              escaped_upper=$(echo "$upper_dirs" | sed 's/[\/&]/\\&/g')
+              escaped_version=$(echo "$VERSION" | sed 's/[\/&]/\\&/g')
+              html=""
+              case "$to" in
+                http://*|https://*)
+                  echo "Redirect: $alias/$from -> $to"
+                  escaped_to=$(echo "$to" | sed 's/[\/&]/\\&/g')
+                  html=$(echo "$template" | sed -e "s|__UPPER__/__VERSION__/__TO__|$escaped_to|g")
+                  ;;
+                *)
+                  echo "Redirect: $alias/$from -> $VERSION/$to"
+                  escaped_to=$(echo "$to" | sed 's/[\/&]/\\&/g')
+                  html=$(echo "$template" | sed -e "s/__UPPER__/$escaped_upper/g" -e "s/__VERSION__/$escaped_version/g" -e "s/__TO__/$escaped_to/g")
+                  ;;
+              esac
+              mkdir -p "$alias/$from"
+              echo "$html" > "$alias/$from/$INDEX_HTML"
+              git add "$alias/$from/$INDEX_HTML"
+            done
           done
-          git commit -m "Add model redirections for: $ALL_VERSIONS"
+          git commit -m "Add redirections for: $ALL_VERSIONS"
           git push origin $GH_PAGES_BRANCH
