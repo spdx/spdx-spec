@@ -6,11 +6,11 @@ including SPDX Model contributions from OMG and its Contributors.
 ## Use of Specification - Terms, Conditions & Notices
 
 This work is licensed under the
-[Community Specification License 1.0](./licenses/Community-Spec-1.0.md)
+[Community Specification License 1.0](../licenses/Community-Spec-1.0.md)
 (Community-Spec-1.0).
 Pre-existing portions of this work from copyright holders who have not
 subsequently contributed under the Community-Spec-1.0 are provided under
-[Creative Commons Attribution License 3.0 Unported](./licenses/CC-BY-3.0.md)
+[Creative Commons Attribution License 3.0 Unported](../licenses/CC-BY-3.0.md)
 (CC-BY-3.0).
 Copies of these licenses are reproduced in their entirety herein.
 
