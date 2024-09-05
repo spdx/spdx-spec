@@ -30,7 +30,7 @@ The lists of properties are in alphabetical order, for easy reference.
 
 ### /Core/SpdxDocument
 
-* Mandatory
+- Mandatory
     1. creationInfo
     1. element (may be multiple), MUST have at least one /Core/Sbom object
     1. rootElement (may be multiple), SHOULD be objects of type /Core/Sbom
@@ -78,8 +78,8 @@ However, there MUST be at least a “downloadLocation” or “packageUrl” pro
 
 Additionally:
 
-1. for every /Software/Package object MUST exist exactly one /Core/Relationship object of type `concludedLicense` having that element as its `from` property and an /SimpleLicensing/AnyLicenseInfo as its `to` property.
-1. for every /Software/Package object MUST exist exactly one /Core/Relationship object of type `declaredLicense` having that element as its `from` property and  /SimpleLicensing/AnyLicenseInfo object as its `to` property.
+1. for every /Software/Package object MUST exist exactly one /Core/Relationship object of type `hasConcludedLicense` having that element as its `from` property and an /SimpleLicensing/AnyLicenseInfo as its `to` property.
+1. for every /Software/Package object MUST exist exactly one /Core/Relationship object of type `hasDeclaredLicense` having that element as its `from` property and  /SimpleLicensing/AnyLicenseInfo object as its `to` property.
 
 ### /Core/Hash
 
@@ -121,7 +121,7 @@ Additionally:
 - Mandatory
     1. created
     1. createdBy (may be multiple), SHOULD be objects of type /Core/Agent
-    1. specVersion, MUST be a fixed string, “3.0.0”.
+    1. specVersion, MUST be a fixed string, “3.0.1”.
 - Recommended
     1. comment
 
@@ -145,4 +145,3 @@ Additionally:
     1. relationshipType
     1. spdxId
     1. to (may be multiple)
-
