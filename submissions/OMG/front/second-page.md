@@ -28,3 +28,4 @@ Software developed under the terms of the licenses under which this
 specification is issued may claim compliance or conformance with this
 specification if and only if the software provider complies with the
 SPDX Trademark License given above.
+
