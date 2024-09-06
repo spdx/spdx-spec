@@ -20,7 +20,7 @@ setup(
     url = "https://spdx.org",
     long_description=read('README.md'),
     classifiers=[
-        "Topic :: Dcoumentation",
+        "Topic :: Documentation",
     ],
     python_requires='>=2.7.9,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*',
 )
