@@ -90,7 +90,7 @@ For the `tag:value` format, any license expression that consists of more than on
 
 Nested parentheses can also be used to specify an order of precedence which is
 discussed in more detail in
-*[Order of precedence and parentheses](#order-of-precedence-and-parentheses)*.
+[Order of precedence and parentheses](#order-of-precedence-and-parentheses).
 
 ### Disjunctive "OR" operator
 
