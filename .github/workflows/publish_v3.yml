@@ -28,6 +28,7 @@ jobs:
       MKDOCS_FULL_YML: "__mkdocs-full.yml"  # MkDocs configuration combined with model list
       REDIRECT_MAP_PATH: "etc/redirect-map.csv"             # redirect map
       REDIRECT_TEMPLATE_PATH: "etc/redirect-template.html"  # redirect HTML template
+      PANDOC_DEB_URL: "https://github.com/jgm/pandoc/releases/download/3.3/pandoc-3.3-1-amd64.deb"  # pandoc Debian package
     steps:
       - name: Checkout spdx-spec
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
@@ -51,10 +52,13 @@ jobs:
         run: pip install -r spdx-spec/requirements.txt
       - name: Install pre-requisites for spec-parser
         run: pip install -r spec-parser/requirements.txt
-      - name: Build model files
+      - name: Install pandoc (required by spec-parser to generate Tex)
         run: |
-          python3 spec-parser/main.py spdx-3-model/model $PARSER_OUT_BASE_DIR
-          tree $PARSER_OUT_BASE_DIR
+          wget -q -O __pandoc.deb $PANDOC_DEB_URL
+          dpkg --no-triggers -i __pandoc.deb
+          rm __pandoc.deb
+      - name: Build model files
+        run: python3 spec-parser/main.py spdx-3-model/model $PARSER_OUT_BASE_DIR
       - name: Create directories for model (MkDocs) and RDF files
         run: |
           mkdir spdx-spec/docs/rdf
@@ -75,11 +79,7 @@ jobs:
           ls $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR
           echo "===================="
           cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-context.jsonld spdx-spec/docs/rdf/
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.dot spdx-spec/docs/rdf/
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.json-ld spdx-spec/docs/rdf/
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.pretty-xml spdx-spec/docs/rdf/
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.ttl spdx-spec/docs/rdf/
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.xml spdx-spec/docs/rdf/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.* spdx-spec/docs/rdf/
           cp spdx-spec/docs/rdf/spdx-model.json-ld spdx-spec/docs/rdf/spdx-model.jsonld
           echo "===================="
           echo "Target (after copy): spdx-spec/docs/rdf"
@@ -87,11 +87,7 @@ jobs:
           ls spdx-spec/docs/rdf
           echo "===================="
           cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-context.jsonld spdx-spec/docs/model/
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.dot spdx-spec/docs/model/
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.json-ld spdx-spec/docs/model/
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.pretty-xml spdx-spec/docs/model/
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.ttl spdx-spec/docs/model/
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.xml spdx-spec/docs/model/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.* spdx-spec/docs/model/
           cp spdx-spec/docs/model/spdx-model.json-ld spdx-spec/docs/model/spdx-model.jsonld
           echo "===================="
           echo "Target (after copy): spdx-spec/docs/model"
@@ -109,7 +105,7 @@ jobs:
             jsonschema \
             --output spdx-spec/docs/rdf/schema.json
           cp spdx-spec/docs/rdf/schema.json spdx-spec/docs/model/schema.json
-      - name: Copy model files and file list for MkDocs
+      - name: Copy model Markdown files and a model file list for MkDocs
         # Will be available at https://spdx.github.io/spdx-spec/v3.0.x/model/*
         run: |
           cp -R $PARSER_OUT_BASE_DIR/$PARSER_OUT_MKDOCS_DIR/* spdx-spec/docs/model
