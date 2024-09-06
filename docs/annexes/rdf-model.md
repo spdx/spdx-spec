@@ -32,9 +32,9 @@ and is published in online at
 
 [![Build Profile diagram][fig_build]][fig_build]
 
-[fig_core_software]: ../images/model-core-software.png "SPDX 3.0 Core and Software Profiles diagram"
-[fig_ai]: ../images/model-ai.png "SPDX 3.0 AI Profile diagram"
-[fig_build]: ../images/model-build.png "SPDX 3.0 Build Profile diagram"
-[fig_dataset]: ../images/model-dataset.png "SPDX 3.0 Dataset Profile diagram"
-[fig_licensing]: ../images/model-licensing.png "SPDX 3.0 Licensing Profile diagram"
-[fig_security]: ../images/model-security.png "SPDX 3.0 Security Profile diagram"
+[fig_core_software]: ../images/model-core-software.png "SPDX 3.0.1 Core and Software Profiles diagram"
+[fig_ai]: ../images/model-ai.png "SPDX 3.0.1 AI Profile diagram"
+[fig_build]: ../images/model-build.png "SPDX 3.0.1 Build Profile diagram"
+[fig_dataset]: ../images/model-dataset.png "SPDX 3.0.1 Dataset Profile diagram"
+[fig_licensing]: ../images/model-licensing.png "SPDX 3.0.1 Licensing Profile diagram"
+[fig_security]: ../images/model-security.png "SPDX 3.0.1 Security Profile diagram"
