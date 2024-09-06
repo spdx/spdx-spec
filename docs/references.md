@@ -1,6 +1,6 @@
 # References
 
-## Normative References <a name="2.1"></a>
+## Normative References
 
 The following documents are referred to in the text in such a way that some or
 all of their content constitutes requirements of this document. For dated
@@ -8,22 +8,22 @@ references, only the edition cited applies. For undated references, the latest
 edition of the referenced document (including any amendments) applies.
 
 *Apache Maven*, Apache Software Foundation,
-[https://maven.apache.org/](https://maven.apache.org/)
+[https://maven.apache.org/](https://maven.apache.org/).
 
 *Bower API*,
-[https://bower.io/docs/api/#install](https://bower.io/docs/api/#install)
+[https://bower.io/docs/api/#install](https://bower.io/docs/api/#install).
 
 *Common Platform Enumeration (CPE) – Specification 2.2*,
 The MITRE Corporation,
-[https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)
+[https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf).
 
 *Common Platform Enumeration (CPE): Naming Specification Version 2.3*, NIST IR 7695,
 NIST,
-[https://csrc.nist.gov/pubs/ir/7695/final](https://csrc.nist.gov/pubs/ir/7695/final)
+[https://csrc.nist.gov/pubs/ir/7695/final](https://csrc.nist.gov/pubs/ir/7695/final).
 
 *Common Vulnerability Scoring System v3.0 (CVSS v3.0): Specification Document*,
 Forum of Incident Response and Security Teams, Inc (FIRST),
-[https://www.first.org/cvss/v3.0/specification-document](https://www.first.org/cvss/v3.0/specification-document)
+[https://www.first.org/cvss/v3.0/specification-document](https://www.first.org/cvss/v3.0/specification-document).
 
 *Common Vulnerability Scoring System v3.1 (CVSS v3.1): Specification Document*,
 Forum of Incident Response and Security Teams, Inc (FIRST),
@@ -83,12 +83,12 @@ Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc1950](https://datatracker.ietf.org/doc/rfc1950).
 
 RFC 2046,
-*Multipurpose Internet Mail Extensions (https://datatracker.ietf.org/doc/rfcMIME) Part Two: Media Types*,
+*Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types*,
 Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc2046](https://datatracker.ietf.org/doc/rfc2046).
 
 RFC 3174,
-*US Secure Hash Algorithm 1 (https://datatracker.ietf.org/doc/rfcSHA1)*,
+*US Secure Hash Algorithm 1 (SHA1)*,
 Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc3174](https://datatracker.ietf.org/doc/rfc3174).
 
@@ -103,7 +103,7 @@ Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc3874](https://datatracker.ietf.org/doc/rfc3874).
 
 RFC 3986,
-*Uniform Resource Identifier (https://datatracker.ietf.org/doc/rfcURI): Generic Syntax*,
+*Uniform Resource Identifier (URI): Generic Syntax*,
 Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc3986](https://datatracker.ietf.org/doc/rfc3986).
 
@@ -113,7 +113,7 @@ Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc5234](https://datatracker.ietf.org/doc/rfc5234).
 
 RFC 6234,
-*US Secure Hash Algorithms (https://datatracker.ietf.org/doc/rfcSHA and SHA-based HMAC and HKDF)*,
+*US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)*,
 Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc6234](https://datatracker.ietf.org/doc/rfc6234).
 
@@ -123,12 +123,12 @@ Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc7405](https://datatracker.ietf.org/doc/rfc7405).
 
 RFC 7693,
-*The BLAKE2 Cryptographic Hash and Message Authentication Code (https://datatracker.ietf.org/doc/rfcMAC)*,
+*The BLAKE2 Cryptographic Hash and Message Authentication Code (MAC)*,
 Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc7693](https://datatracker.ietf.org/doc/rfc7693).
 
 RFC 8259,
-*The JavaScript Object Notation (https://datatracker.ietf.org/doc/rfcJSON) Data Interchange Format*,
+*The JavaScript Object Notation (JSON) Data Interchange Format*,
 Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc8259](https://datatracker.ietf.org/doc/rfc8259).
 
@@ -168,7 +168,7 @@ Forum of Incident Response and Security Teams, Inc (FIRST),
 CISA,
 [https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
-## Non-normative References <a name="2.2"></a>
+## Non-normative References
 
 The following documents are referred to in the text.
 
