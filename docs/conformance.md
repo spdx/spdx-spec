@@ -1,6 +1,6 @@
 # Conformance
 
-## Alternate notation for some conformance requirements <a name="5.1"></a>
+## Alternate notation for some conformance requirements
 
 This standard contains more than a few cardinality assertions, each of which
 indicates the minimum and maximum number of times a property may appear.
@@ -22,7 +22,7 @@ required, and if so, how many occurrences are required; also, whether a feature
 is permitted, and if so, in what number. As this is the format long familiar to
 the SPDX community, it has been preserved in this specification.
 
-## Introduction to Profiles <a name="5.2"></a>
+## Introduction to Profiles
 
 Profile is the term for a compliance point within the SPDX community across The
 Linux Foundation and OMG. The System Package Data Exchange (SPDX) specification
@@ -40,7 +40,7 @@ defines the following nine compliance points, defined as “Profiles”:
 
 The Core Profile is mandatory. All others are optional.
 
-## Core Profile compliance point <a name="5.3"></a>
+## Core Profile compliance point
 
 The Core Profile includes the definitions of classes properties and
 vocabularies usable by all SPDX profiles when producing or consuming SPDX
@@ -58,7 +58,7 @@ This compliance point, in combination with the Software Profile compliance
 point, provides a baseline of functionality that facilitates interchange of the
 bills of materials information produced by tools supporting SPDX.
 
-## Software Profile compliance point <a name="5.4"></a>
+## Software Profile compliance point
 
 The Software Profile includes the definitions of classes, properties and
 vocabularies for refering to and conveying information about software and is
@@ -77,7 +77,7 @@ This compliance point, in combination with the Core Profile compliance point,
 provides a baseline of functionality that facilitates interchange of the bills
 of materials information produced by tools supporting SPDX.
 
-## Security Profile compliance point <a name="5.5"></a>
+## Security Profile compliance point
 
 The Security Profile captures security-related information when producing or
 consuming SPDX content.
@@ -98,7 +98,7 @@ SPDX.
 This compliance point facilitates interchange of the security information
 produced by tools supporting SPDX.
 
-## Licensing Profile compliance point <a name="5.6"></a>
+## Licensing Profile compliance point
 
 The Licensing Profile includes capturing details relevant to software licensing
 and intellectual property information when producing or consuming SPDX content.
@@ -123,7 +123,7 @@ expressing which licenses and copyright notices are determined by persons or
 automated tooling to apply to distributions of software that are produced by
 tools supporting SPDX.
 
-## Dataset Profile compliance point <a name="5.7"></a>
+## Dataset Profile compliance point
 
 The Dataset Profile captures the relevant information about the datasets used
 in an AI system or other applications when producing or consuming SPDX content.
@@ -146,7 +146,7 @@ of the SPDX.
 This compliance point facilitates interchange of the information about
 datasets produced by tools supporting SPDX.
 
-## AI Profile compliance point <a name="5.8"></a>
+## AI Profile compliance point
 
 The AI Profile captures an inventory list of software components and
 dependencies associated with an AI system when producing or consuming SPDX
@@ -169,7 +169,7 @@ the SPDX.
 This compliance point facilitates interchange of the AI model related
 information produced by tools supporting SPDX.
 
-## Build Profile compliance point <a name="5.9"></a>
+## Build Profile compliance point
 
 The Build Profile captures build-related information when producing or
 consuming SPDX content.
@@ -189,7 +189,7 @@ the SPDX.
 This compliance point facilitates interchange of the build information produced
 by tools supporting SPDX.
 
-## Lite Profile compliance point <a name="5.10"></a>
+## Lite Profile compliance point
 
 The Lite Profile captures the minimum set of information required for license
 compliance in the software supply chain for producing or consuming SPDX
@@ -208,7 +208,7 @@ of the SPDX.
 This compliance point facilitates interchange of minimal licensing information
 when produced by tools supporting SPDX.
 
-## Extension Profile compliance point <a name="5.11"></a>
+## Extension Profile compliance point
 
 The Extension Profile captures extended tailored information when producing or
 consuming non-standard SPDX content in three ways:
@@ -253,11 +253,12 @@ and consume its non-standard content.
 
 ## Trademark Compliance
 
-To be designated an SPDX document, a file shall comply with the requirements of the SPDX Trademark
-License, as stated in the [the SPDX Trademark Page](https://spdx.dev/trademark).
+To be designated an SPDX document, a file shall comply with the requirements of
+the SPDX Trademark License, as stated in the
+[the SPDX Trademark Page](https://spdx.dev/trademark).
 
-The official copyright notice that shall be used with any verbatim reproduction and/or distribution of
-this SPDX Specification 3.0.1 is:
+The official copyright notice that shall be used with any verbatim reproduction
+and/or distribution of this SPDX Specification 3.0.1 is:
 
 "Official SPDX® Specification 3.0.1 Copyright © 2010--2024 Linux Foundation and its Contributors.
 Licensed under the Community Specification License 1.0. All other rights are expressly reserved."

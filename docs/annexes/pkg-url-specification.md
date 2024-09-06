@@ -41,7 +41,8 @@ Components are designed such that they form a hierarchy from the most
 significant on the left to the least significant components on the right.
 
 A _purl_ is a valid URL and URI that conforms to the URL definitions
-and specifications in RFC 3986 <https://datatracker.ietf.org/doc/html/rfc3986>.
+and specifications in RFC 3986
+[https://datatracker.ietf.org/doc/rfc3986](https://datatracker.ietf.org/doc/rfc3986).
 
 A _purl_ must not contain a URL Authority i.e. there is no
 support for username, password, host and port components.
@@ -60,7 +61,8 @@ The _purl_ components are mapped to the following URL components:
 For clarity and simplicity a _purl_ is always an ASCII string.
 To ensure that there is no ambiguity when parsing a _purl_,
 separator characters and non-ASCII characters must be encoded in UTF-8,
-and then percent-encoded as defined in RFC 3986 <https://datatracker.ietf.org/doc/html/rfc3986>.
+and then percent-encoded as defined in RFC 3986
+[https://datatracker.ietf.org/doc/rfc3986](https://datatracker.ietf.org/doc/rfc3986).
 
 Use these rules for percent-encoding and decoding _purl_ components:
 
