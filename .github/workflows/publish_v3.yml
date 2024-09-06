@@ -20,9 +20,9 @@ jobs:
       VERSION_ALIASES: "latest v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2"  # aliases for VERSION
       GIT_USER_NAME: "ci-bot"               # for gh-pages commit
       GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
-      PARSER_OUTPUT_DIR: "__parser_output"  # temp dir for output from spec-parser
-      RDF_BASE_DIR: "rdf"                   # spec-parser output dir: contains JSON-LD context, RDFs, and JSON schema
-      MKDOCS_BASE_DIR: "mkdocs"             # spec-parser output dir: contains model Markdown files for MkDocs
+      PARSER_OUT_BASE_DIR: "__parser_output"  # spec-parser output directory
+      PARSER_OUT_RDF_DIR: "rdf"               # contains JSON-LD context, RDFs, and JSON schema. Relative to PARSER_OUT_BASE_DIR.
+      PARSER_OUT_MKDOCS_DIR: "mkdocs"         # contains model Markdown files for MkDocs. Relative to PARSER_OUT_BASE_DIR.
       MKDOCS_MODEL_YML: "model-files.yml"   # contains list of model Markdown files
       MKDOCS_BASE_YML: "mkdocs.yml"         # initial MkDocs configuration
       MKDOCS_FULL_YML: "__mkdocs-full.yml"  # MkDocs configuration combined with model list
@@ -52,7 +52,9 @@ jobs:
       - name: Install pre-requisites for spec-parser
         run: pip install -r spec-parser/requirements.txt
       - name: Build model files
-        run: python3 spec-parser/main.py spdx-3-model/model $PARSER_OUTPUT_DIR
+        run: |
+          python3 spec-parser/main.py spdx-3-model/model $PARSER_OUT_BASE_DIR
+          tree $PARSER_OUT_BASE_DIR
       - name: Create directories for model (MkDocs) and RDF files
         run: |
           mkdir spdx-spec/docs/rdf
@@ -68,28 +70,28 @@ jobs:
         # and available at https://spdx.github.io/spdx-spec/v3.0/rdf/spdx-context.jsonld
         run: |
           echo "===================="
-          echo "Source: $PARSER_OUTPUT_DIR/$RDF_BASE_DIR"
+          echo "Source: $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR"
           echo "--------------------"
-          ls $PARSER_OUTPUT_DIR/$RDF_BASE_DIR
+          ls $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR
           echo "===================="
-          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-context.jsonld spdx-spec/docs/rdf/
-          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.dot spdx-spec/docs/rdf/
-          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.json-ld spdx-spec/docs/rdf/
-          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.pretty-xml spdx-spec/docs/rdf/
-          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.ttl spdx-spec/docs/rdf/
-          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.xml spdx-spec/docs/rdf/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-context.jsonld spdx-spec/docs/rdf/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.dot spdx-spec/docs/rdf/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.json-ld spdx-spec/docs/rdf/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.pretty-xml spdx-spec/docs/rdf/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.ttl spdx-spec/docs/rdf/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.xml spdx-spec/docs/rdf/
           cp spdx-spec/docs/rdf/spdx-model.json-ld spdx-spec/docs/rdf/spdx-model.jsonld
           echo "===================="
           echo "Target (after copy): spdx-spec/docs/rdf"
           echo "--------------------"
           ls spdx-spec/docs/rdf
           echo "===================="
-          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-context.jsonld spdx-spec/docs/model/
-          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.dot spdx-spec/docs/model/
-          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.json-ld spdx-spec/docs/model/
-          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.pretty-xml spdx-spec/docs/model/
-          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.ttl spdx-spec/docs/model/
-          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.xml spdx-spec/docs/model/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-context.jsonld spdx-spec/docs/model/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.dot spdx-spec/docs/model/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.json-ld spdx-spec/docs/model/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.pretty-xml spdx-spec/docs/model/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.ttl spdx-spec/docs/model/
+          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.xml spdx-spec/docs/model/
           cp spdx-spec/docs/model/spdx-model.json-ld spdx-spec/docs/model/spdx-model.jsonld
           echo "===================="
           echo "Target (after copy): spdx-spec/docs/model"
@@ -110,12 +112,12 @@ jobs:
       - name: Copy model files and file list for MkDocs
         # Will be available at https://spdx.github.io/spdx-spec/v3.0/model/*
         run: |
-          cp -R $PARSER_OUTPUT_DIR/$MKDOCS_BASE_DIR/* spdx-spec/docs/model
-          cp $PARSER_OUTPUT_DIR/$MKDOCS_MODEL_YML spdx-spec
+          cp -R $PARSER_OUT_BASE_DIR/$PARSER_OUT_MKDOCS_DIR/* spdx-spec/docs/model
+          cp $PARSER_OUT_BASE_DIR/$MKDOCS_MODEL_YML spdx-spec
         # mkdir -p spdx-spec/docs/diagram
-        # cp $PARSER_OUTPUT_DIR/diagram/model.plantuml spdx-spec/docs/diagram
+        # cp $PARSER_OUT_BASE_DIR/diagram/model.plantuml spdx-spec/docs/diagram
         # mkdir -p spdx-spec/docs/jsondump
-        # cp $PARSER_OUTPUT_DIR/jsondump/model.json spdx-spec/docs/jsondump
+        # cp $PARSER_OUT_BASE_DIR/jsondump/model.json spdx-spec/docs/jsondump
       - name: Set Git identity
         working-directory: spdx-spec
         run: git config user.name $GIT_USER_NAME; git config user.email $GIT_USER_EMAIL
