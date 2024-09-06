@@ -19,7 +19,8 @@ This repository holds under active development version of the specification as:
 - HTML: `gh-pages` branch, built on every commit to the development branch,
   see the workflow in
   [`.github/workflows/publish_v3.yml`](.github/workflows/publish_v3.yml)
-  - Current (3.0): <https://spdx.github.io/spdx-spec/v3.0/>
+  - Current stable (v3.0.1): <https://spdx.github.io/spdx-spec/v3.0.1/>
+<!--  - Development (v3.1): <https://spdx.github.io/spdx-spec/v3.1-draft/> -->
 
 The model itself is under active development at
 [spdx/spdx-3-model](https://github.com/spdx/spdx-3-model/)
@@ -28,6 +29,16 @@ repo (`main` branch).
 See for the official
 [releases of the specification](https://spdx.org/specifications)
 or additional information also the SPDX website at <https://spdx.org>.
+
+Information on how to use the SPDX specification is available at
+[spdx/using](https://github.com/spdx/using/) repo.
+Demonstrations of SPDX for various scenarios and use cases are available at
+[spdx/spdx-examples](https://github.com/spdx/spdx-examples).
+
+See [change log](./CHANGELOG.md) for changes between versions.
+Contributions are welcome,
+please see the [contributing guidelines](./CONTRIBUTING.md)
+and [governance practices](https://github.com/spdx/governance/).
 
 ## Specification structure
 
@@ -42,7 +53,7 @@ This repository consists of these files and directories:
     [model.drawio](https://github.com/spdx/spdx-3-model/blob/main/model.drawio)
     in `spdx/spdx-3-model` repo and manually copied here.
   - `licenses/` - Licenses that used by the SPDX specifications.
-  - `model/` - Model files*. This subdirectory _is to be created_ by a script
+  - `model/` - Model files. This subdirectory _is to be created_ by a script
     from `spdx/spec-parser` repo, using model information from
     `spdx/spdx-3-model` repo (see the build instructions below).
 - `examples/` - Examples of various SPDX serializations for the current version
@@ -105,13 +116,8 @@ installed on your machine. If you don't have it yet installed please follow
 these [installation instructions](http://www.mkdocs.org/#installation).
 
 [WeasyPrint](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation)
-is also required for generating PDF files. To disable PDF generation, comment
-out the these lines in your `mkdocs.yml` configuration file:
-
-```yaml
-#- pdf-export:
-#    combined: true
-```
+is also required for generating PDF files. To enable PDF generation, set the
+`ENABLE_PDF_EXPORT` environment variable to `1`.
 
 ### Preparing input files
 
@@ -135,7 +141,7 @@ pip3 install -r spdx-spec/requirements.txt
 pip3 install -r spec-parser/requirements.txt
 ```
 
-### Generating formatted Markdown files for MkDocs
+### Generating model and formatted Markdown files for MkDocs
 
 Model files in `spdx/spdx-3-model` repo are written in a specific format of
 Markdown, with a limited set of allowed headings. The `spec-parser` processes
@@ -179,36 +185,37 @@ into a website.
 In side `spdx-spec/` directory, execute a built-in dev-server that let you
 preview the specification:
 
-```shell
-mkdocs serve
-```
+These following commands should run inside the `spdx-spec/` directory.
 
-Or building a static HTML site:
+- To preview the specification in a web browser:
 
-```shell
-mkdocs build
-```
+  ```shell
+  mkdocs serve
+  ```
 
-To abort the build immediately when there is a warning, enables strict mode:
+- To build a static HTML site:
 
-```shell
-mkdocs build --strict
-```
+  ```shell
+  mkdocs build
+  ```
 
-To get debug messages, enables verbose output:
+- To get debug messages, enables verbose output:
 
-```shell
-mkdocs build --verbose
-```
+  ```shell
+  mkdocs build --verbose
+  ```
 
 ## Configuring the website
 
 Inside `spdx-spec/` directory, there is a file `mkdocs.yml`. This is a
 configuration file for MkDocs.
 
-Files intended for display and linking in the navigation bar should be
-included in the `nav:` section. The order of filenames in this section
-determines their order on the navigation bar.
+You can customize website details like the site name and main URL (canonical
+URL) in this file.
+
+To include a page in the navigation bar, list its filename under the `nav:`
+section. The order of filenames in this section determines the order of the
+page in the navigation bar.
 
 ## Specification versions on spdx.github.io/spdx-spec/
 

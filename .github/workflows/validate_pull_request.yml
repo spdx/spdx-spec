@@ -6,44 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     container: python:3
     steps:
-      - name: Checkout spdx-spec
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
-        with:
-          path: spdx-spec
-          fetch-depth: 1
-      - name: Checkout spdx-3-model
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
-        with:
-          repository: spdx/spdx-3-model
-          ref: main
-          path: spdx-3-model
-      - name: Checkout spec-parser
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
-        with:
-          repository: spdx/spec-parser
-          ref: main
-          path: spec-parser
-      - name: Install pre-requisites for spdx-spec
-        run: pip install -r spdx-spec/requirements.txt
-      - name: Install pre-requisites for spec-parser
-        run: pip install -r spec-parser/requirements.txt
-      - name: Build model files
-        run: python3 spec-parser/main.py spdx-3-model/model spdx-spec/docs/model
-      - name: Build the site to validate
-        working-directory: spdx-spec
-        run: |
-          MODEL_YML="docs/model/mkdocs-files.yml"
-          BASE_MKDOCS_YML="mkdocs.yml"
-          FINAL_MKDOCS_YML="mkdocs-final.yml"
-          echo "Build $FINAL_MKDOCS_YML from $BASE_MKDOCS_YML and $MODEL_YML"
-          sed -e "\|- model.*#.*[MODEL_PLACEHOLDER].*|{
-              r $MODEL_YML
-              a\\
-
-              d
-          }" "$BASE_MKDOCS_YML" > "$FINAL_MKDOCS_YML"
-          echo "====================="
-          echo "Start mkdocs build"
-          echo "====================="
-          ENABLE_PDF_EXPORT=0 mkdocs build --clean --config-file "$FINAL_MKDOCS_YML" --verbose
-        # Build without the time-consuming PDF export
+    - name: Checkout spdx-spec
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
+      with:
+        fetch-depth: 1
+    - name: Install pre-requisites
+      run: pip install -r requirements.txt
+    - name: Build the site to validate (use mkdocs.yml, no model files, no PDF export)
+      run: ENABLE_PDF_EXPORT=0 mkdocs build --clean --verbose
+      # To validate the PR from within spdx-spec repo, build using mkdocs.yml
+      # (no model files) and without the time-consuming PDF export
