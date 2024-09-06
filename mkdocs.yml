@@ -1,20 +1,23 @@
-site_name: SPDX v3 Specification
-site_description: The System Package Data Exchange (SPDX) Specification Version 3.0.1
+site_name: SPDX Specification 3.0.1
+site_description: The System Package Data Exchange (SPDX) Specification Version 3.0.1 - Open standard for creating Software Bills of Materials (SBOMs)
 site_author: The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.
-site_url: https://spdx.github.io/spdx-spec/
+site_url: https://spdx.github.io/spdx-spec/  # set to the "root" of the site, to be combined with canonical_version
 repo_url: https://github.com/spdx/spdx-spec/
 edit_uri: ""  # set to an empty string to disable edit links; to enable, set to blob/development/v3.0.1/docs/
 copyright: SPDX v3.0.1 Copyright © 2010-2024, The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.
 use_directory_urls: true
-theme: readthedocs
+theme:
+  name: readthedocs
+  sticky_navigation: true
 plugins:
 - search
 - mike:
-    canonical_version: v3.0.1  # tell search engines to prefer the latest version
-- pdf-export:
-    combined: true
-    media_type: print
-    enabled_if_env: ENABLE_PDF_EXPORT  # only export PDF if this is set to 1
+    canonical_version: v3.0.1  # tell search engines to prefer the URL of v3.0.1
+    alias_type: redirect  # use redirect so it can redirect every pages (not just the root of the version)
+# - pdf-export:
+#     combined: true
+#     media_type: print
+#     enabled_if_env: ENABLE_PDF_EXPORT  # only export PDF if this is set to 1
 extra_css:
 - css/style.css
 markdown_extensions:
@@ -23,7 +26,7 @@ markdown_extensions:
 strict: true
 validation:
   nav:
-    omitted_files: info  # allow during development where there are moving parts
+    omitted_files: warn  # use "info" to relax during development where there are moving parts
     not_found: warn      # warn if a file is referenced in the nav but not included in the build
     absolute_links: warn
   links:
@@ -41,7 +44,8 @@ nav:
 - '4. Terms and definitions': terms-and-definitions.md
 - '5. Conformance': conformance.md
 - '6. Model and serializations': serializations.md
-- model:  # [MODEL_PLACEHOLDER], to be replaced by content from mkdocs-files.yml
+- model:  # __MODEL_PLACEHOLDER__, to be replaced by content from mkdocs-files.yml. Please do not edit this line.
+  - "__MODEL_PLACEHOLDER__": "https://example.com"  # allows mkdocs.yml to be build/tested without full model list. Please do not edit this line.
 - annexes:
   - 'A. RDF model definition and diagrams': annexes/rdf-model.md
   - 'B. SPDX license expressions': annexes/spdx-license-expressions.md

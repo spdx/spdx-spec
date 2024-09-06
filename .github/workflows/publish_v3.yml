@@ -10,67 +10,249 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: python:3
+    env:
+      REF_SPEC: "development/v3.0.1"        # spec branch/tag release
+      REF_MODEL: "main"                     # model branch/tag release
+      REF_PARSER: "main"                    # parser branch/tag release
+      GH_PAGES_BRANCH: "gh-pages"           # branch name to publish HTML to
+      VERSION: "v3.0.1"                     # publishing version
+      VERSION_DEFAULT: "v3.0.1"             # default version (be redirected from https://spdx.github.io/spdx-spec/)
+      VERSION_ALIASES: "latest v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2"  # aliases for VERSION
+      GIT_USER_NAME: "ci-bot"               # for gh-pages commit
+      GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
+      PARSER_OUTPUT_DIR: "__parser_output"  # temp dir for output from spec-parser
+      RDF_BASE_DIR: ""                      # change to "rdf" in new spec-parser output dir structure
+      MKDOCS_BASE_DIR: ""                   # change to "mkdocs" in new spec-parser output dir structure
+      MKDOCS_MODEL_YML: "mkdocs-files.yml"  # contains list of model Markdown files
+      MKDOCS_BASE_YML: "mkdocs.yml"         # initial MkDocs configuration
+      MKDOCS_FULL_YML: "__mkdocs-full.yml"  # MkDocs configuration combined with model list
+      REDIRECT_MAP_PATH: "etc/redirect-map.csv"             # redirect map
+      REDIRECT_TEMPLATE_PATH: "etc/redirect-template.html"  # redirect HTML template
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
+      - name: Checkout spdx-spec
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
-          ref: development/v3.0.1
+          ref: ${{ env.REF_SPEC }}
           path: spdx-spec
           fetch-depth: 0  # Because we will be pushing the gh-pages branch
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
-        with:
-          repository: spdx/spec-parser
-          ref: main
-          path: spec-parser
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
+      - name: Checkout spdx-3-model
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
         with:
           repository: spdx/spdx-3-model
-          ref: main  # for v3.0.1-draft, checkout latest from main (development)
-          # Once 3.0.1 released, use the following ref to checkout from the release tag
-          # ref: 3.0.1  # for v3.0.1 final release
+          ref: ${{ env.REF_MODEL }}
           path: spdx-3-model
+      - name: Checkout spec-parser
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  #v4.1.7
+        with:
+          repository: spdx/spec-parser
+          ref: ${{ env.REF_PARSER }}
+          path: spec-parser
       - name: Install pre-requisites for spdx-spec
         run: pip install -r spdx-spec/requirements.txt
       - name: Install pre-requisites for spec-parser
         run: pip install -r spec-parser/requirements.txt
       - name: Build model files
-        run: python3 spec-parser/main.py spdx-3-model/model spdx-spec/docs/model
+        run: python3 spec-parser/main.py spdx-3-model/model $PARSER_OUTPUT_DIR
+      - name: Create directories for model (MkDocs) and RDF files
+        run: |
+          mkdir spdx-spec/docs/rdf
+          mkdir spdx-spec/docs/model
       - name: Copy JSON annotations
-        run: cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/model/jsonld-annotations.ttl
+        # Will be redirected from https://spdx.org/rdf/3.0.0/spdx-json-serialize-annotations.ttl
+        # and available at https://spdx.github.io/spdx-spec/v3.0/rdf/jsonld-annotations.ttl
+        run: |
+          cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/rdf/jsonld-annotations.ttl
+          cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/model/jsonld-annotations.ttl
+      - name: Copy JSON-LD context and RDFs
+        # Will be redirected from https://spdx.org/rdf/3.0.0/spdx-context.jsonld, spdx-model.ttl, etc.
+        # and available at https://spdx.github.io/spdx-spec/v3.0/rdf/spdx-context.jsonld
+        run: |
+          echo "===================="
+          echo "Source: $PARSER_OUTPUT_DIR/$RDF_BASE_DIR"
+          echo "--------------------"
+          ls $PARSER_OUTPUT_DIR/$RDF_BASE_DIR
+          echo "===================="
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-context.jsonld spdx-spec/docs/rdf/
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.dot spdx-spec/docs/rdf/
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.json-ld spdx-spec/docs/rdf/
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.pretty-xml spdx-spec/docs/rdf/
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.ttl spdx-spec/docs/rdf/
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.xml spdx-spec/docs/rdf/
+          cp spdx-spec/docs/rdf/spdx-model.json-ld spdx-spec/docs/rdf/spdx-model.jsonld
+          echo "===================="
+          echo "Target (after copy): spdx-spec/docs/rdf"
+          echo "--------------------"
+          ls spdx-spec/docs/rdf
+          echo "===================="
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-context.jsonld spdx-spec/docs/model/
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.dot spdx-spec/docs/model/
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.json-ld spdx-spec/docs/model/
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.pretty-xml spdx-spec/docs/model/
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.ttl spdx-spec/docs/model/
+          cp $PARSER_OUTPUT_DIR/$RDF_BASE_DIR/spdx-model.xml spdx-spec/docs/model/
+          cp spdx-spec/docs/model/spdx-model.json-ld spdx-spec/docs/model/spdx-model.jsonld
+          echo "===================="
+          echo "Target (after copy): spdx-spec/docs/model"
+          echo "--------------------"
+          ls spdx-spec/docs/model
+          echo "===================="
       - name: Generate JSON schema
+        # Will be redirected from https://spdx.org/schema/3.0.0/spdx-json-schema.json
+        # and available at https://spdx.github.io/spdx-spec/v3.0/rdf/schema.json
         run: |
           shacl2code generate \
-            --input spdx-spec/docs/model/spdx-model.ttl \
-            --input spdx-spec/docs/model/jsonld-annotations.ttl \
-            --context-url spdx-spec/docs/model/spdx-context.jsonld https://spdx.org/rdf/3.0.1/spdx-context.jsonld \
+            --input spdx-spec/docs/rdf/spdx-model.ttl \
+            --input spdx-spec/docs/rdf/jsonld-annotations.ttl \
+            --context-url spdx-spec/docs/rdf/spdx-context.jsonld https://spdx.org/rdf/3.0.1/spdx-context.jsonld \
             jsonschema \
-            --output spdx-spec/docs/model/schema.json
-      - name: Set git identity
+            --output spdx-spec/docs/rdf/schema.json
+          cp spdx-spec/docs/rdf/schema.json spdx-spec/docs/model/schema.json
+      - name: Copy model files and file list for MkDocs
+        # Will be available at https://spdx.github.io/spdx-spec/v3.0/model/*
+        run: |
+          cp -R $PARSER_OUTPUT_DIR/$MKDOCS_BASE_DIR/* spdx-spec/docs/model
+          cp $PARSER_OUTPUT_DIR/$MKDOCS_MODEL_YML spdx-spec
+        # mkdir -p spdx-spec/docs/diagram
+        # cp $PARSER_OUTPUT_DIR/diagram/model.plantuml spdx-spec/docs/diagram
+        # mkdir -p spdx-spec/docs/jsondump
+        # cp $PARSER_OUTPUT_DIR/jsondump/model.json spdx-spec/docs/jsondump
+      - name: Set Git identity
         working-directory: spdx-spec
-        run: git config user.name ci-bot; git config user.email ci-bot@spdx.dev
-      - name: Sync gh-pages
+        run: git config user.name $GIT_USER_NAME; git config user.email $GIT_USER_EMAIL
+      - name: Sync GitHub Pages
         working-directory: spdx-spec
-        run: git checkout gh-pages && git pull && git checkout development/v3.0.1
-      - name: Build docs and set aliases
+        run: git checkout $GH_PAGES_BRANCH && git pull && git checkout $REF_SPEC
+      - name: Build complete MkDocs configuration
+        # Combines model file list (MKDOCS_MODEL_YML, generated by spec-parser)
+        # with the base MkDocs configuration file (MKDOCS_BASE_YML),
+        # to produce the full MkDocs configuration file (MKDOCS_FULL_YML).
+        # The script below finds "__MODEL_PLACEHOLDER__" string in
+        # MKDOCS_BASE_YML, replaces it with the content from MKDOCS_MODEL_YML.
+        # MKDOCS_FULL_YML will be used by mike in the deploy step.
         working-directory: spdx-spec
         run: |
-          MODEL_YML="docs/model/mkdocs-files.yml"
-          BASE_MKDOCS_YML="mkdocs.yml"
-          FINAL_MKDOCS_YML="mkdocs-final.yml"
-          echo "Build $FINAL_MKDOCS_YML from $BASE_MKDOCS_YML and $MODEL_YML"
-          sed -e "\|- model.*#.*[MODEL_PLACEHOLDER].*|{
-              r $MODEL_YML
-              a\\
-
-              d
-          }" "$BASE_MKDOCS_YML" > "$FINAL_MKDOCS_YML"
-          echo "====================="
-          echo "Start mike deploy"
-          echo "====================="
-          mike deploy --update-aliase --config-file "$FINAL_MKDOCS_YML" --branch gh-pages --push v3.0.1-draft
-        # Once 3.0.1 released, use the following command to deploy 3.0.1 as latest version
-        # mike deploy --update-aliase --config-file "$FINAL_MKDOCS_YML" --branch gh-pages --push v3.0.1 latest
-#      - name: Set default version
-#        working-directory: spdx-spec
-#        run: mike set-default v3.0
-        # Once 3.0.1 released, use the following command to set 3.0.1 as default version
-        # run: mike set-default v3.0.1
+          echo "Build $MKDOCS_FULL_YML from $MKDOCS_BASE_YML and $MKDOCS_MODEL_YML"
+          bin/make-mkdocs-config.sh \
+            -b "$MKDOCS_BASE_YML" \
+            -m "$MKDOCS_MODEL_YML" \
+            -f "$MKDOCS_FULL_YML" \
+            -p "__MODEL_PLACEHOLDER__"
+          echo "===================="
+          echo "Full MkDocs configuration: $MKDOCS_FULL_YML"
+          echo "--------------------"
+          cat "$MKDOCS_FULL_YML"
+          echo "===================="
+      - name: Deploy and set aliases
+        # mike is used here to manage multiple versions of MkDocs-powered documentation
+        # This step does 3 things:
+        # 1) delete existing aliases (in VERSION_ALIASES), if exists
+        # 2) deploy as VERSION, with aliases
+        # 3) set default version to VERSION_DEFAULT
+        working-directory: spdx-spec
+        run: |
+          for alias in $VERSION_ALIASES; do
+            mike delete --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push --allow-empty "$alias" || true
+          done
+          mike deploy --update-aliase --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push $VERSION $VERSION_ALIASES
+          mike set-default --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push $VERSION_DEFAULT
+      - name: Copy JSON annotations, JSON schema, JSON-LD context, and RDFs to alias directories
+        # Fallback for backward compatibility with old URLs before v3.0.1
+        # This step creates copies of annotations/schema/RDFs to all alias
+        # directories, so they can be accessible from all old URLs.
+        # For example,
+        # - https://spdx.github.io/spdx-spec/v3.0/model/schema.json
+        # - https://spdx.github.io/spdx-spec/v3.0.1/rdf/schema.json
+        # will all accessible and have the same content.
+        working-directory: spdx-spec
+        run: |
+          git checkout $GH_PAGES_BRANCH
+          dirs="$VERSION_ALIASES"
+          for dir in $dirs; do
+            mkdir -p "$dir"/rdf
+            cp $VERSION/rdf/* "$dir"/rdf
+            cp $VERSION/rdf/* "$dir"/model
+            git add "$dir"/rdf/* "$dir"/model/*
+          done
+          git commit -m "Copy schema and RDFs to alias directories: $VERSION_ALIASES"
+          git push origin $GH_PAGES_BRANCH
+      - name: Make redirections (for renamed model elements and moved annexes)
+        # Fallback for backward compatibility with old URLs before v3.0.1
+        # More redirections can be added in etc/redirect-map.csv (from,to)
+        # See name changes in model at
+        # https://github.com/spdx/spdx-3-model/blob/main/CHANGELOG.md
+        #
+        # This step creates a HTML files to facilitate additional directions.
+        # It reads a redirect map from etc/redirect-map.csv; in the CSV,
+        # first value is 'from' (source) and second value is 'to' (target).
+        #
+        # The 'from' and 'to' values will be inserted into a HTML template at
+        # from etc/redirect-template.html, to create a redirect HTML
+        # page (index.html) under a subdirectory with the name of 'from'
+        # that will refresh the browser to a URL of 'to'.
+        #
+        # For example, given
+        #     VERSION          = "v3.0.1"
+        #     VERSION_ALIASES  = "latest v3.0"
+        #     from             = "model/Core/Properties/imports"
+        #     to               = "model/Core/Properties/import"
+        #
+        # these HTML files will be created for every aliases:
+        #
+        #     v3.0.1/model/Core/Properties/imports/index.html
+        #     latest/model/Core/Properties/imports/index.html
+        #     v3.0/model/Core/Properties/imports/index.html
+        # 
+        # and all of them will redirect to
+        #
+        #     v3.0.1/model/Core/Properties/import/
+        working-directory: spdx-spec
+        run: |
+          ALL_VERSIONS=$(echo "$VERSION" "$VERSION_ALIASES")
+          INDEX_HTML="index.html"
+          git checkout $REF_SPEC
+          maps=$(cat "$REDIRECT_MAP_PATH")
+          template=$(cat "$REDIRECT_TEMPLATE_PATH")
+          echo "===================="
+          echo "Redirect map: $REDIRECT_MAP_PATH"
+          echo "--------------------"
+          echo "$maps"
+          echo "===================="
+          echo "===================="
+          echo "Redirect HTML template: $REDIRECT_TEMPLATE_PATH"
+          echo "--------------------"
+          echo "$template"
+          echo "===================="
+          git checkout $GH_PAGES_BRANCH
+          for alias in $ALL_VERSIONS; do
+            echo "$maps" | while read -r line; do
+              from=$(echo "$line" | cut -d',' -f1)
+              to=$(echo "$line" | cut -d',' -f2)
+              slash_count=$(echo "$from" | tr -cd '/' | wc -c)
+              upper_dirs=".."
+              if [ -n "$from" ]; then
+                for i in $(seq 0 $slash_count); do
+                  upper_dirs="$upper_dirs/.."
+                done
+              fi
+              escaped_upper=$(echo "$upper_dirs" | sed 's/[\/&]/\\&/g')
+              escaped_version=$(echo "$VERSION" | sed 's/[\/&]/\\&/g')
+              html=""
+              case "$to" in
+                http://*|https://*)
+                  echo "Redirect: $alias/$from -> $to"
+                  escaped_to=$(echo "$to" | sed 's/[\/&]/\\&/g')
+                  html=$(echo "$template" | sed -e "s|__UPPER__/__VERSION__/__TO__|$escaped_to|g")
+                  ;;
+                *)
+                  echo "Redirect: $alias/$from -> $VERSION/$to"
+                  escaped_to=$(echo "$to" | sed 's/[\/&]/\\&/g')
+                  html=$(echo "$template" | sed -e "s/__UPPER__/$escaped_upper/g" -e "s/__VERSION__/$escaped_version/g" -e "s/__TO__/$escaped_to/g")
+                  ;;
+              esac
+              mkdir -p "$alias/$from"
+              echo "$html" > "$alias/$from/$INDEX_HTML"
+              git add "$alias/$from/$INDEX_HTML"
+            done
+          done
+          git commit -m "Add redirections for: $ALL_VERSIONS"
+          git push origin $GH_PAGES_BRANCH
