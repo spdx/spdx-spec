@@ -38,8 +38,8 @@ fi
 
 TEMP=$(mktemp -d)
 
-# Check examples in JSON code snippets in Markdown files in docs/ directory
-for f in $THIS_DIR/../docs/*.md; do
+# Check examples in JSON code snippets in Markdown files in docs/annexes/ directory
+for f in $THIS_DIR/../docs/annexes/*.md; do
     if ! grep -q '^```json' $f; then
         continue
     fi
