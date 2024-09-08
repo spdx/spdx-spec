@@ -20,9 +20,9 @@ jobs:
       VERSION_ALIASES: "latest v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2"  # aliases for VERSION
       GIT_USER_NAME: "ci-bot"               # for gh-pages commit
       GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
-      PARSER_OUT_BASE_DIR: "__parser_output"  # temp dir for output from spec-parser
-      PARSER_OUT_RDF_DIR: "rdf"               # contains RDFs and schema; relative to PARSER_OUT_BASE_DIR
-      PARSER_OUT_MKDOCS_DIR: "mkdocs"         # contains model Markdown files; relative to PARSER_OUT_BASE_DIR
+      PARSER_OUT_BASE_DIR: "__parser_out"   # temp dir for output from spec-parser
+      PARSER_OUT_RDF_DIR: "rdf"             # contains RDFs and schema; relative to PARSER_OUT_BASE_DIR
+      PARSER_OUT_MKDOCS_DIR: "mkdocs"       # contains model Markdown files; relative to PARSER_OUT_BASE_DIR
       MKDOCS_MODEL_YML: "model-files.yml"   # contains list of model Markdown files
       MKDOCS_BASE_YML: "mkdocs.yml"         # initial MkDocs configuration
       MKDOCS_FULL_YML: "__mkdocs-full.yml"  # MkDocs configuration combined with model list
@@ -65,6 +65,7 @@ jobs:
       - name: Copy JSON annotations
         # Will be redirected from https://spdx.org/rdf/3.0.x/spdx-json-serialize-annotations.ttl
         # and available at https://spdx.github.io/spdx-spec/v3.0.x/rdf/jsonld-annotations.ttl
+        # Note: When release a new version, update the content of annotations.ttl to match the version
         run: |
           cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/rdf/jsonld-annotations.ttl
           cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/model/jsonld-annotations.ttl
@@ -96,6 +97,7 @@ jobs:
       - name: Generate JSON schema
         # Will be redirected from https://spdx.org/schema/3.0.x/spdx-json-schema.json
         # and available at https://spdx.github.io/spdx-spec/v3.0.x/rdf/schema.json
+        # Note: When release a new version, update URL in --context-url line to match the version 
         run: |
           shacl2code generate \
             --input spdx-spec/docs/rdf/spdx-model.ttl \
@@ -160,6 +162,8 @@ jobs:
         # - https://spdx.github.io/spdx-spec/v3.0/model/schema.json
         # - https://spdx.github.io/spdx-spec/v3.0.1/rdf/schema.json
         # will all accessible and have the same content.
+        # Unlike HTML files, these files have to be a copy,
+        # since it cannot use the HTML refresh mechanism.
         working-directory: spdx-spec
         run: |
           git checkout $GH_PAGES_BRANCH
