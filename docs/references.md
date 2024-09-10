@@ -142,7 +142,7 @@ Tom Preston-Werner and SemVer contributors,
 [https://semver.org](https://semver.org).
 
 *SLSA Provenance v0.2*, The Linux Foundation,
-[https://slsa.dev/provenance/v0.2](https://slsa.dev/provenance/v0.2).
+[https://slsa.dev/spec/v0.2/provenance](https://slsa.dev/spec/v0.2/provenance).
 
 SoftWare Heritage persistent IDentifiers (SWHIDs), in
 Draft International Standard
