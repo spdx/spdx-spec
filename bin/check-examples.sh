@@ -8,7 +8,8 @@
 set -e
 
 THIS_DIR=$(dirname $0)
-SCHEMA_URL="https://spdx.org/schema/3.0.1/spdx-json-schema.json"
+SPDX_VERSION="3.0.1"
+SCHEMA_URL="https://spdx.org/schema/${SPDX_VERSION}/spdx-json-schema.json"
 RDF_URL="https://spdx.org/rdf/3.0.1/spdx-model.ttl"
 CONTEXT_URL="https://spdx.org/rdf/3.0.1/spdx-context.jsonld"
 SPDX_VERSION="3.0.1"
