@@ -141,6 +141,9 @@ Internet Engineering Task Force,
 Tom Preston-Werner and SemVer contributors,
 [https://semver.org](https://semver.org).
 
+*SLSA Provenance v0.2*, The Linux Foundation,
+[https://slsa.dev/provenance/v0.2](https://slsa.dev/provenance/v0.2).
+
 SoftWare Heritage persistent IDentifiers (SWHIDs), in
 Draft International Standard
 *ISO/IEC DIS 18670 Information technology — SoftWare Hash IDentifier (SWHID) Specification V1.2*[https://www.iso.org/standard/89985.html](https://www.iso.org/standard/89985.html),
