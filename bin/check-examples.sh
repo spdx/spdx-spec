@@ -7,49 +7,50 @@
 
 set -e
 
-THIS_DIR=$(dirname $0)
-
-for f in examples/jsonld/*.json; do
-    echo "Checking $f"
-
-    check-jsonschema \
-        -v \
-        --schemafile https://spdx.org/schema/3.0.0/spdx-json-schema.json \
-        $f
-
-    pyshacl \
-        -s https://spdx.org/rdf/3.0.0/spdx-model.ttl \
-        -e https://spdx.org/rdf/3.0.0/spdx-model.ttl \
-        $f
-done
-
-T=$(mktemp -d)
+THIS_DIR="$(dirname "$0")"
+SPDX_VERSION="3.0.1"
+SCHEMA_URL="https://spdx.org/schema/${SPDX_VERSION}/spdx-json-schema.json"
+RDF_URL="https://spdx.org/rdf/${SPDX_VERSION}/spdx-model.ttl"
+CONTEXT_URL="https://spdx.org/rdf/${SPDX_VERSION}/spdx-context.jsonld"
 
 check_schema() {
     check-jsonschema \
         -v \
-        --schemafile https://spdx.org/schema/3.0.0/spdx-json-schema.json \
+        --schemafile $SCHEMA_URL \
         "$1"
 }
 
 check_model() {
     pyshacl \
-        -s https://spdx.org/rdf/3.0.0/spdx-model.ttl \
-        -e https://spdx.org/rdf/3.0.0/spdx-model.ttl \
+        -s $RDF_URL \
+        -e $RDF_URL \
         "$1"
 }
 
+# Check examples in JSON files in examples/jsonld/
+if [ "$(ls $THIS_DIR/../examples/jsonld/*.json 2>/dev/null)" ]; then
+    for f in $THIS_DIR/../examples/jsonld/*.json; do
+        echo "Checking $f"
+        check_schema $f
+        check_model $f
+    done
+fi
 
+TEMP=$(mktemp -d)
+
+# Check examples in inline code snippets in Markdown files in docs/annexes/
 for f in $THIS_DIR/../docs/annexes/*.md; do
     if ! grep -q '^```json' $f; then
         continue
     fi
     echo "Checking $f"
-    DEST=$T/$(basename $f)
+    DEST=$TEMP/$(basename $f)
     mkdir -p $DEST
 
+    # Read inline code snippets and save them in separate, numbered files.
     cat $f | awk -v DEST="$DEST" 'BEGIN{flag=0} /^```json/, $0=="```" { if (/^---$/){flag++} else if ($0 !~ /^```.*/ ) print $0 > DEST "/doc-" flag ".spdx.json"}'
 
+    # Combine all JSON code snippets into a single file, with SPDX context and creation info.
     echo "[" > $DEST/combined.json
 
     for doc in $DEST/*.spdx.json; do
@@ -57,7 +58,7 @@ for f in $THIS_DIR/../docs/annexes/*.md; do
             mv $doc $doc.fragment
             cat >> $doc <<HEREDOC
 {
-    "@context": "https://spdx.org/rdf/3.0.0/spdx-context.jsonld",
+    "@context": "$CONTEXT_URL",
     "@graph": [
 HEREDOC
             cat $doc.fragment >> $doc
@@ -65,7 +66,7 @@ HEREDOC
         {
             "type": "CreationInfo",
             "@id": "_:creationInfo",
-            "specVersion": "3.0.0",
+            "specVersion": "$SPDX_VERSION",
             "created": "2024-04-23T00:00:00Z",
             "createdBy": [
                 {
@@ -88,5 +89,3 @@ HEREDOC
 
     check_model $DEST/combined.json
 done
-
-
