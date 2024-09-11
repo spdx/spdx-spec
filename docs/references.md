@@ -70,76 +70,79 @@ Internet Engineering Task Force,
 RFC 1320,
 *The MD4 Message-Digest Algorithm*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc1320](https://datatracker.ietf.org/doc/rfc1320).
+[https://datatracker.ietf.org/doc/rfc1320/](https://datatracker.ietf.org/doc/rfc1320/).
 
 RFC 1321,
 *The MD5 Message-Digest Algorithm*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc1321](https://datatracker.ietf.org/doc/rfc1321).
+[https://datatracker.ietf.org/doc/rfc1321/](https://datatracker.ietf.org/doc/rfc1321/).
 
 RFC 1950,
 *ZLIB Compressed Data Format Specification version 3.3*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc1950](https://datatracker.ietf.org/doc/rfc1950).
+[https://datatracker.ietf.org/doc/rfc1950/](https://datatracker.ietf.org/doc/rfc1950/).
 
 RFC 2046,
 *Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc2046](https://datatracker.ietf.org/doc/rfc2046).
+[https://datatracker.ietf.org/doc/rfc2046/](https://datatracker.ietf.org/doc/rfc2046/).
 
 RFC 3174,
 *US Secure Hash Algorithm 1 (SHA1)*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc3174](https://datatracker.ietf.org/doc/rfc3174).
+[https://datatracker.ietf.org/doc/rfc3174/](https://datatracker.ietf.org/doc/rfc3174/).
 
 RFC 3696,
 *Application Techniques for Checking and Transformation of Names*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc3696](https://datatracker.ietf.org/doc/rfc3696).
+[https://datatracker.ietf.org/doc/rfc3696/](https://datatracker.ietf.org/doc/rfc3696/).
 
 RFC 3874,
 *A 224-bit One-way Hash Function: SHA-224*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc3874](https://datatracker.ietf.org/doc/rfc3874).
+[https://datatracker.ietf.org/doc/rfc3874/](https://datatracker.ietf.org/doc/rfc3874/).
 
 RFC 3986,
 *Uniform Resource Identifier (URI): Generic Syntax*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc3986](https://datatracker.ietf.org/doc/rfc3986).
+[https://datatracker.ietf.org/doc/rfc3986/](https://datatracker.ietf.org/doc/rfc3986/).
 
 RFC 5234,
 *Augmented BNF for Syntax Specifications: ABNF*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc5234](https://datatracker.ietf.org/doc/rfc5234).
+[https://datatracker.ietf.org/doc/rfc5234/](https://datatracker.ietf.org/doc/rfc5234/).
 
 RFC 6234,
 *US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc6234](https://datatracker.ietf.org/doc/rfc6234).
+[https://datatracker.ietf.org/doc/rfc6234/](https://datatracker.ietf.org/doc/rfc6234/).
 
 RFC 7405,
 *Case-Sensitive String Support in ABNF*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc7405](https://datatracker.ietf.org/doc/rfc7405).
+[https://datatracker.ietf.org/doc/rfc7405/](https://datatracker.ietf.org/doc/rfc7405/).
 
 RFC 7693,
 *The BLAKE2 Cryptographic Hash and Message Authentication Code (MAC)*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc7693](https://datatracker.ietf.org/doc/rfc7693).
+[https://datatracker.ietf.org/doc/rfc7693/](https://datatracker.ietf.org/doc/rfc7693/).
 
 RFC 8259,
 *The JavaScript Object Notation (JSON) Data Interchange Format*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc8259](https://datatracker.ietf.org/doc/rfc8259).
+[https://datatracker.ietf.org/doc/rfc8259/](https://datatracker.ietf.org/doc/rfc8259/).
 
 RFC 9393,
 *Concise Software Identification Tags*,
 Internet Engineering Task Force,
-[https://datatracker.ietf.org/doc/rfc9393](https://datatracker.ietf.org/doc/rfc9393).
+[https://datatracker.ietf.org/doc/rfc9393/](https://datatracker.ietf.org/doc/rfc9393/).
 
 *Semantic Versioning 2.0.0*,
 Tom Preston-Werner and SemVer contributors,
 [https://semver.org](https://semver.org).
+
+*SLSA Provenance v0.2*, The Linux Foundation,
+[https://slsa.dev/spec/v0.2/provenance](https://slsa.dev/spec/v0.2/provenance).
 
 SoftWare Heritage persistent IDentifiers (SWHIDs), in
 Draft International Standard
