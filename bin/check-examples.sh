@@ -30,7 +30,7 @@ echo ""
 check_schema() {
     echo "Checking schema (check-jsonschema): $1"
     check-jsonschema \
-        -v \
+        --verbose \
         --schemafile $SCHEMA_URL \
         "$1"
 }
@@ -38,14 +38,14 @@ check_schema() {
 check_model() {
     echo "Checking model (pyschacl): $1"
     pyshacl \
-        -s $RDF_URL \
-        -e $RDF_URL \
+        --shacl $RDF_URL \
+        --ont-graph $RDF_URL \
         "$1"
 }
 
 validate() {
     echo "Validating (spdx3-validate): $1"
-    spdx3-validate -j $1
+    spdx3-validate --json $1
 }
 
 # Check examples in JSON files in examples/jsonld/
