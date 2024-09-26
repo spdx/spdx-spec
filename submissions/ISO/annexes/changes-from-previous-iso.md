@@ -35,8 +35,8 @@ License List matching is now using License List XML format.
 The following table lists properties that were included in version 2.2.1
 but have been removed in 3.0.1.
 
-| Information | Range / Where Used in V2.2.1 Model | V2.2.1 Model Name | V2.2.1 Tag/Value Name | Rationale |
-|-|-|-|-|-|
+| Field | Range / Where Used in V2.2.1 Model | V2.2.1 Model Name | V2.2.1 Tag/Value Name | Rationale |
+|-------|------------------------------------|-------------------|-----------------------|-----------|
 | Example | LicenseException | example | Not used | This field has not been used. |
 | Files analyzed | Package | filesAnalyzed | FilesAnalyzed | Many users of the SPDX 2.2.1 spec reported this property as very confusing. NOTE: There is no longer a way to specific checksums are required for files. This is being tracked in [Issue #84](https://github.com/spdx/spdx-3-model/issues/84). |
 | License information in files | Package | licenseInfoInFiles | LicenseInfoInFiles | This field is redundant with the declaredLicense property in the Files contained in the Package. It is recommended that the licenseInfoInFiles can be added as an Annotation to the Package in the format: “SPDX 2.2.1 LicenseInfoInFiles: [expression1], [expression2]” where the [expressions] are the string representation of the license expressions. |
@@ -46,8 +46,8 @@ but have been removed in 3.0.1.
 The following table lists properties and classes that have been renamed from
 version 2.2.1 to 3.0.1.
 
-| Information | Range / Where Used in V2.2.1 Model | V2.2.1 Model Name | V2.2.1 Tag/Value Name | V3.0.1 Name | Rationale |
-|-|-|-|-|-|-|
+| Field | Range / Where Used in V2.2.1 Model | V2.2.1 Model Name | V2.2.1 Tag/Value Name | V3.0.1 Name | Rationale |
+|-------|------------------------------------|-------------------|-----------------------|-------------|-----------|
 | Annotation comment | Element (File, Package, Snippet) | rdfs:comment | AnnotationComment | statement | The rdfs:comment property is optional and has slightly different semantics in other uses (e.g. comments on Elements). Changing the property name clearly distinguishes this usage as a mandatory property for an Annotation. |
 | Build date | Package | buildDate | BuildDate | buildTime | Better reflects the granularity of the field. |
 | Checksum algorithm | File, Package | checksumAlgorithm | N/A - parsed from a string following the Checksum: keyword. | hashAlgorithm | The term “hash” better represents the intent of this property which is to validate the integrity of the data whereas the term “checksum” is typically for the purpose of error checking. |
@@ -120,7 +120,7 @@ Each ExternalDocumentRef instance will translate as follows:
     value as the prefix in the NamespaceMap) concatenated with a “:” and then
     concatenated with the local portion of the element identifier would be used
     for the externalSpdxId in the ExternalMap
-  - A “definingDocument” property would be specified containing a string
+  - A “definingArtifact” property would be specified containing a string
     identifier consisting of the DocumentRef-[idstring] concatenated with
     a “:” and then concatenated with “SPDXRef-DOCUMENT”. This is a shortcut
     linkage to tie the referenced element to its defining SpdxDocument for
@@ -199,7 +199,7 @@ SPDX 3.0.1.
 
 The ExternalMap structure in SPDX 3.0.1 provides the ability to specify
 verification and location details for any element, not just SpdxDocuments,
-if appropriate but also provides simple linkage, using the “definingDocument”
+if appropriate but also provides simple linkage, using the “definingArtifact”
 property, from element entries in the ExternalMap to SpdxDocument entries in
 the ExternalMap where the elements were defined within the SpdxDocument and
 verification of the elements can be achieved via proxy to the SpdxDocument
