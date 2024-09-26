@@ -15,6 +15,57 @@ In SPDX v2.2.1, SPDX meant "Software Package Data Exchange".
 SPDX 3.0.1 expands its scope beyond software and SPDX now means
 "System Package Data Exchange".
 
+## Serialization Formats
+
+SPDX 3.0.1 implements a [JSON-LD](https://json-ld.org/) format
+which has consistent class and property names with the model.
+
+See the
+[SPDX 3.0.1 JSON Schema](https://spdx.org/schema/3.0.1/spdx-json-schema.json)
+for the format specifics.
+
+The Tag/Value, YAML, RDF/XML and spreadsheet formats are not supported.
+
+## SPDX License List matching guidelines
+
+License List matching is now using License List XML format.
+
+## Properties Removed
+
+The following table lists properties that were included in version 2.2.1
+but have been removed in 3.0.1.
+
+| Information | Range / Where Used in V2.2.1 Model | V2.2.1 Model Name | V2.2.1 Tag/Value Name | Rationale |
+|-|-|-|-|-|
+| Example | LicenseException | example | Not used | This field has not been used. |
+| Files analyzed | Package | filesAnalyzed | FilesAnalyzed | Many users of the SPDX 2.2.1 spec reported this property as very confusing. NOTE: There is no longer a way to specific checksums are required for files. This is being tracked in [Issue #84](https://github.com/spdx/spdx-3-model/issues/84). |
+| License information in files | Package | licenseInfoInFiles | LicenseInfoInFiles | This field is redundant with the declaredLicense property in the Files contained in the Package. It is recommended that the licenseInfoInFiles can be added as an Annotation to the Package in the format: “SPDX 2.2.1 LicenseInfoInFiles: [expression1], [expression2]” where the [expressions] are the string representation of the license expressions. |
+
+## Naming Differences
+
+The following table lists properties and classes that have been renamed from
+version 2.2.1 to 3.0.1.
+
+| Information | Range / Where Used in V2.2.1 Model | V2.2.1 Model Name | V2.2.1 Tag/Value Name | V3.0.1 Name | Rationale |
+|-|-|-|-|-|-|
+| Annotation comment | Element (File, Package, Snippet) | rdfs:comment | AnnotationComment | statement | The rdfs:comment property is optional and has slightly different semantics in other uses (e.g. comments on Elements). Changing the property name clearly distinguishes this usage as a mandatory property for an Annotation. |
+| Build date | Package | buildDate | BuildDate | buildTime | Better reflects the granularity of the field. |
+| Checksum algorithm | File, Package | checksumAlgorithm | N/A - parsed from a string following the Checksum: keyword. | hashAlgorithm | The term “hash” better represents the intent of this property which is to validate the integrity of the data whereas the term “checksum” is typically for the purpose of error checking. |
+| Checksum class / data type | File, Package | Checksum class name and checksum property name | FileChecksum, PackageChecksum | verifiedUsing property and Hash class | More general concept allowing for different verification algorithms for different scenarios. |
+| External document reference | SpdxDocument (Creation Information) | externalDocumentRef | ExternalDocumentRef | import | Feedback from SPDX 2.2.1 usage is that externalDocumentRef is confusing due to the similar externalRef property. NOTE: See structural changes related to this property. |
+| Extracted license information | File, Document, Package, Snippet | ExtractedLicenseInfo | ExtractedText | CustomLicense | The SPDX 2.2.1 term implied that the only property was text when in fact there are several properties in common with the listed licenses. See [model issue #233](https://github.com/spdx/spdx-3-model/issues/223) for context. |
+| Home page | N/A | doap:homepage | PackageHomePage | homePage | Uses a consistent namespace for SPDX properties. |
+| License comment | License, ListedLicense | licenseComment | LicenseComment | comment | “comment” is used in the Element class. Since License is a type of (subclass of) Element, it should use the same field otherwise there would be redundant fields for the same purpose. |
+| License exception | File, Package, Snippet | LicenseException | Not used | ListedLicenseException, additionId, additionName, additionText | Custom Additions have been added in SPDX 3.0.1 which operate in a similar manner to listed License Exceptions. The new type and property names are more general to accommodate both custom additions and listed License Exceptions. |
+| License ID | License, ListedLicense | licenseId | LicenseId | spdxId | “spdxId” is used in the Element class. Since License is a type of (subclass of) Element, it should use the same field otherwise there would be redundant fields for the same purpose. |
+| License name | ExtractedText, License, ListedLicense | licenseName | LicenseName | name | “name” is used in the Element class. Since License is a type of (subclass of) Element, it should use the same field otherwise there would be redundant fields for the same purpose. |
+| Name | File, Package | fileName, packageName | FileName, PackageName | name | In the SPDX 2.2.1 RDF Ontology, both spdx:fileName and spdx:packageName are sub-properties of spdx:name. The OWL has a restriction that spdx:File has exactly one spdx:fileName and spdx:Package has exactly one spdx:packageName. Changing these restrictions to just spdx:name would simplify the model. |
+| Primary package purpose | Package | primaryPackagePurpose | PrimaryPackagePurpose | primaryPurpose | The purpose property is now available for files and snippets in addition to Package resulting in a more general name of primaryPurpose. Note that additional purposes can be added using the additionalPurpose property. |
+| Release date | Package | releaseDate | ReleaseDate | releaseTime | Better reflects the granularity of the field. |
+| Valid until date | Package | validUntilDate | ValidUntilDate | validUntilTime | Better reflects the granularity of the field. |
+| Version | Package | versionInfo | PackageVersion | packageVersion | This change would make the Tag/Value and RDF values consistent. |
+| With exception operator | File, Package, Snippet | WithExceptionOperator | With (part of License Expression) | WithAdditionOperator, subjectAddition, subjectLicense | Custom Additions have been added in SPDX 3.0.1 which operate in a similar manner to listed License Exceptions. The new type and property names are more general to accommodate both custom additions and listed License Exceptions. |
+
 ## Structural Differences
 
 These are the most significant breaking changes requiring a change in logic
@@ -48,7 +99,7 @@ document.
 
 Each ExternalDocumentRef instance will translate as follows:
 
-- An entry would be created in the Namespace map for the external document
+- An entry would be created in the namespace map for the external document
   namespace
   - The value of the DocumentRef-[idstring] would be used for the prefix
     property in the NamespaceMap.
@@ -77,17 +128,17 @@ Each ExternalDocumentRef instance will translate as follows:
 
 #### Rationale
 
-A key difference between SPDX 2.2.1 and SPDX 3.0.1 is that in SPDX 2.2.1 elements are
-always expressed within or referenced in relation to a single enclosing
-SpdxDocument while in SPDX 3.0.1 a key design principle is that all elements may
-be expressed and referenced independent of any other element including
-SpdxDocument.
+A key difference between SPDX 2.2.1 and SPDX 3.0.1 is that in SPDX 2.2.1
+elements are always expressed within or referenced in relation to a single
+enclosing SpdxDocument while in SPDX 3.0.1 a key design principle is that
+all elements may be expressed and referenced independent of any other
+element including SpdxDocument.
 This independence is required to support a variety of content exchange and
 analysis use cases.
 
 For example, in SPDX 2.2.1 if you wish to express even a single package you
-specify it within an SpdxDocument and its identifier namespace is restricted to
-the namespace of the SpdxDocument.
+specify it within an SpdxDocument and its identifier namespace is restricted
+to the namespace of the SpdxDocument.
 In SPDX 3.0.1 you could specify a single package within an SpdxDocument element
 (or any other subclass of ElementCollection such as Bundle, Bom, Sbom, etc.)
 but you could also simply specify it on its own without any enclosing
@@ -119,9 +170,9 @@ The ExternalDocumentRef structure in SPDX 2.2.1 is based on the presumptions:
 3) that element identifiers have a namespace from their original containing
     SpdxDocument.
 
-None of these three presumptions hold true for SPDX 3.0.1 so a slightly modified
-structure is necessary to support the two use cases previously covered by
-ExternalDocumentRef in SPDX 2.2.1:
+None of these three presumptions hold true for SPDX 3.0.1 so a slightly
+modified structure is necessary to support the two use cases previously
+covered by ExternalDocumentRef in SPDX 2.2.1:
 
 1) the ability to specify identifier namespace prefixes and accompanying
     namespaces for SPDX elements to support more terse serialized expression
@@ -131,18 +182,20 @@ ExternalDocumentRef in SPDX 2.2.1:
     collection and defined elsewhere, along with details regarding their
     verification and location.
 
-The Namespace map structure in SPDX 3.0.1 fully supports the namespace prefixing
-use case for SpdxDocuments previously covered by ExternalDocumentRef but also
-equally covers the same use case capability for all element types and for any
-number of element identifier namespaces (in SPDX 3.0.1 all elements within an
-SpdxDocument are not required to have the same namespace and can actually be
-any desired mix of namespaces) to support this capability required in SPDX 3.0.1.
+The NamespaceMap structure in SPDX 3.0.1 fully supports the namespace
+prefixing use case for SpdxDocuments previously covered by ExternalDocumentRef
+but also equally covers the same use case capability for all element types
+and for any number of element identifier namespaces
+(in SPDX 3.0.1 all elements within an SpdxDocument are not required to have
+the same namespace and can actually be any desired mix of namespaces)
+to support this capability required in SPDX 3.0.1.
 
 The ExternalMap structure in SPDX 3.0.1 fully supports the external element
 (including SpdxDocument elements) referencing use case for SpdxDocuments
 previously covered by ExternalDocumentRef but also equally covers the same
 use case capability for any elements whether they were originally defined
-within an SpdxDocument or not to support this capability required in SPDX 3.0.1.
+within an SpdxDocument or not to support this capability required in
+SPDX 3.0.1.
 
 The ExternalMap structure in SPDX 3.0.1 provides the ability to specify
 verification and location details for any element, not just SpdxDocuments,
@@ -216,8 +269,8 @@ information in place of the fileContributor property.
 
 The FileType enumeration has been replaced by two fields, the
 [media type](https://www.iana.org/assignments/media-types/media-types.xhtml)
-string as maintained by IANA for the content of the file and an enumeration of
-SoftwarePurpose for the purpose of the file.
+string as maintained by IANA for the content of the file
+and an enumeration of SoftwarePurpose for the purpose of the file.
 
 The property name fileType has been replaced by a property name contentType.
 
@@ -225,8 +278,8 @@ The property name fileType has been replaced by a property name contentType.
 
 #### Rationale
 
-One of the things that we identified is that `FileType` was being used for two
-things:
+One of the things that we identified is that `FileType` was being used
+for two things:
 
 1. Describing the purpose of the file.
 2. Describing the type of content in the file.
@@ -246,8 +299,8 @@ be able to capture the type of executable header a file has (e.g. ELF), that
 could also be of type `MediaType` but the property name might be
 `ExecutableHeaderType`.
 
-An example conversion table from SPDX 2.2.1 `FileType` to SPDX 3.0.1 `contentType`
-or `softwarePurpose` can look like this:
+An example conversion table from SPDX 2.2.1 `FileType`
+to SPDX 3.0.1 `contentType` or `softwarePurpose` can look like this:
 
 | SPDX 2 File Type | SPDX 3 Software Purpose | SPDX 3 Content Type |
 |------------------|-------------------------|---------------------|
@@ -309,7 +362,7 @@ The following ExternalRef Types should be converted to ExternalIdentifiers:
 - swid
 - purl
 
-The following ExternalRef Types should be converted to ContentIdentifers:
+The following ExternalRef Types should be converted to ContentIdentifiers:
 
 - gitoid
 - swh
@@ -496,7 +549,7 @@ The relationshipType would be CONTAINS.
 #### Rationale
 
 Using the W3C Pointer standard introduced significant complexity in the SPDX
-2.X specification. Although there may be some benefit in using a published
+2.2.1 specification. Although there may be some benefit in using a published
 standard, we have not found any instances where the W3C Pointer ontology was
 useful for SPDX use cases.
 
@@ -542,514 +595,15 @@ Add a patch version of “0” to any previous License List version.
 
 The additional constraints align with best practices for versioning strings.
 
-## Properties Removed
-
-Below is a list of properties present in 2.2.1 and not present in 3.0.1.
-The Range / Where used is where the property was used in the SPDX 2.2.1 model.
-
-### example
-
-#### SPDX 2.2.1 Model Name
-
-example
-
-#### Tag/Value Name
-
-Not used
-
-#### Range / Where Used
-
-LicenseException
-
-#### Rationale
-
-This field has not been used.
-
-### LicenseInfoInFiles
-
-#### SPDX 2.2.1 Model Name
-
-licenseInfoInFiles
-
-#### Tag/Value Name
-
-LicenseInfoInFiles
-
-#### Range / Where Used
-
-Package
-
-#### Rationale
-
-This field is redundant with the declaredLicense property in the Files
-contained in the Package. It is recommended that the licenseInfoInFiles can be
-added as an Annotation to the Package in the format:
-“SPDX 2.X LicenseInfoInFiles: [expression1], [expression2]”
-where the [expressions] are the string representation of the license
-expressions.
-
-### FilesAnalyzed
-
-#### SPDX 2.2.1 Model Name
-
-filesAnalyzed
-
-#### Tag/Value Name
-
-FilesAnalyzed
-
-#### Range / Where Used
-
-Package
-
-#### Rationale
-
-Many users of the SPDX 2.X spec reported this property as very confusing.
-
-NOTE: There is no longer a way to specific checksums are required for files.
-This is being tracked in
-[Issue #84](https://github.com/spdx/spdx-3-model/issues/84).
-
-## Naming Differences
-
-Below is a list of properties and classes where the name has been changed from
-2.2.1 to 3.0.1.
-The Range / Where used is where the property was used in the SPDX 2.2.1 model.
-
-### Release Date
-
-#### SPDX 2.2.1 Model Name
-
-releaseDate
-
-#### Tag/Value Name
-
-ReleaseDate
-
-#### New Name
-
-releaseTime
-
-#### Range / Where Used
-
-Package
-
-#### Rationale
-
-Better reflects the granularity of the field.
-
-### Build Date
-
-#### SPDX 2.2.1 Model Name
-
-buildDate
-
-#### Tag/Value Name
-
-BuildDate
-
-#### New Name
-
-buildTime
-
-#### Range / Where Used
-
-Package
-
-#### Rationale
-
-Better reflects the granularity of the field.
-
-### Valid Until Date
-
-#### SPDX 2.2.1 Model Name
-
-validUntilDate
-
-#### Tag/Value Name
-
-ValidUntilDate
-
-#### New Name
-
-validUntilTime
-
-#### Range / Where Used
-
-Package
-
-#### Rationale
-
-Better reflects the granularity of the field.
-
-### External Document Reference
-
-#### SPDX 2.2.1 Model Name
-
-externalDocumentRef
-
-#### Tag/Value Name
-
-ExternalDocumentRef
-
-#### New Name
-
-import
-
-#### Range / Where Used
-
-SpdxDocument (Creation Information)
-
-#### Rationale
-
-Feedback from SPDX 2.X usage is that externalDocumentRef is confusing due to
-the similar externalRef property.
-
-NOTE: See structural changes related to this property
-
-### Checksum Class / Data Type
-
-#### SPDX 2.2.1 Model Name
-
-Checksum class name and checksum property name
-
-#### Tag/Value Name
-
-FileChecksum, PackageChecksum
-
-#### New Name
-
-verifiedUsing property and Hash class
-
-#### Range / Where Used
-
-Package, File
-
-#### Rationale
-
-More general concept allowing for different verification algorithms for
-different scenarios.
-
-### Checksum Algorithm
-
-#### SPDX 2.2.1 Model Name
-
-checksumAlgorithm
-
-#### Tag/Value Name
-
-N/A - parsed from a string following the Checksum: keyword.
-
-#### New Name
-
-hashAlgorithm
-
-#### Range / Where Used
-
-Package, File
-
-#### Rationale
-
-The term “hash” better represents the intent of this property which is to
-validate the integrity of the data whereas the term “checksum” is typically for
-the purpose of error checking.
-
-### Name
-
-#### SPDX 2.2.1 Model Name
-
-packageName, fileName
-
-#### Tag/Value Name
-
-PackageName, FileName
-
-#### New Name
-
-name
-
-#### Range / Where Used
-
-Package, File
-
-#### Rationale
-
-In the SPDX 2.2.1 RDF Ontology, both spdx:fileName and spdx:packageName are
-sub-properties of spdx:name. The OWL has a restriction that spdx:File has
-exactly one spdx:fileName and spdx:Package has exactly one spdx:packageName.
-
-Changing these restrictions to just spdx:name would simplify the model.
-
-### Version
-
-#### SPDX 2.2.1 Model Name
-
-versionInfo
-
-#### Tag/Value Name
-
-PackageVersion
-
-#### New Name
-
-packageVersion
-
-#### Range / Where Used
-
-Package
-
-#### Rationale
-
-This change would make the Tag/Value and RDF values consistent.
-
-### Home Page
-
-#### SPDX 2.2.1 Model Name
-
-doap:homepage
-
-#### Tag/Value Name
-
-PackageHomePage
-
-#### New Name
-
-homePage
-
-#### Range / Where Used
-
-#### Rationale
-
-Uses a consistent namespace for SPDX properties.
-
-### Annotation Comment
-
-#### SPDX 2.2.1 Model Name
-
-rdfs:comment
-
-#### Tag/Value Name
-
-AnnotationComment
-
-#### New Name
-
-statement
-
-#### Range / Where Used
-
-Element (Package, File, Snippet)
-
-#### Rationale
-
-The rdfs:comment property is optional and has slightly different semantics in
-other uses (e.g. comments on Elements). Changing the property name clearly
-distinguishes this usage as a mandatory property for an Annotation.
-
-### With Exception Operator
-
-#### SPDX 2.2.1 Model Name
-
-WithExceptionOperator
-
-member property in WithExceptionOperator
-
-licenseException property in WithExceptionOperator
-
-#### Tag/Value Name
-
-With (part of License Expression)
-
-#### New Name
-
-WithAdditionOperator
-
-subjectLicense
-
-subjectAddition
-
-#### Range / Where Used
-
-Package, File, Snippet
-
-#### Rationale
-
-Custom Additions have been added in SPDX 3.0.1 which operate in a similar manner
-to listed License Exceptions. The new type and property names are more general
-to accommodate both custom additions and listed License Exceptions.
-
-### License Exception
-
-#### SPDX 2.2.1 Model Name
-
-LicenseException
-
-licenseExceptionId property in LicenseException
-
-licenseExceptionText property in LicenseException
-
-name property in LicenseException
-
-#### Tag/Value Name
-
-Not used in Tag/Value
-
-#### New Name
-
-ListedLicenseException
-
-additionId
-
-additionText
-
-additionName
-
-#### Range / Where Used
-
-Package, File, Snippet
-
-#### Rationale
-
-Custom Additions have been added in SPDX 3.0.1 which operate in a similar manner
-to listed License Exceptions. The new type and property names are more general
-to accommodate both custom additions and listed License Exceptions.
-
-### ExtractedLicenseInfo
-
-#### SPDX 2.2.1 Model Name
-
-ExtractedLicenseInfo
-
-#### Tag/Value Name
-
-ExtractedText
-
-#### New Name
-
-CustomLicense
-
-#### Range / Where Used
-
-Package, File, Snippet, Document
-
-#### Rationale
-
-The SPDX 2.X term implied that the only property was text when in fact there
-are several properties in common with the listed licenses.
-See [model issue #233](https://github.com/spdx/spdx-3-model/issues/223)
-for context.
-
-### licenseName
-
-#### SPDX 2.2.1 Model Name
-
-licenseName
-
-#### Tag/Value Name
-
-LicenseName
-
-#### New Name
-
-name
-
-#### Range / Where Used
-
-License, ListedLicense, ExtractedText
-
-#### Rationale
-
-“name” is used in the Element class.
-Since License is a type of (subclass of) Element, it should use the same field
-otherwise there would be redundant fields for the same purpose.
-
-### LicenseComment
-
-#### SPDX 2.2.1 Model Name
-
-licenseComment
-
-#### Tag/Value Name
-
-LicenseComment
-
-#### New Name
-
-comment
-
-#### Range / Where Used
-
-License, ListedLicense
-
-#### Rationale
-
-“comment” is used in the Element class.
-Since License is a type of (subclass of) Element, it should use the same field
-otherwise there would be redundant fields for the same purpose.
-
-### LicenseID
-
-#### SPDX 2.2.1 Model Name
-
-licenseId
-
-#### Tag/Value Name
-
-LicenseId
-
-#### New Name
-
-spdxId
-
-#### Range / Where Used
-
-License, ListedLicense
-
-#### Rationale
-
-“spdxId” is used in the Element class.
-Since License is a type of (subclass of) Element, it should use the same field
-otherwise there would be redundant fields for the same purpose.
-
-#### Range / Where Used
-
-License, ListedLicense
-
-#### Rationale
-
-### Primary Package Purpose
-
-#### SPDX 2.2.1 Model Name
-
-primaryPackagePurpose
-
-#### Tag/Value Name
-
-PrimaryPackagePurpose
-
-#### New Name
-
-primaryPurpose
-
-#### Range / Where Used
-
-Package
-
-#### Rationale
-
-The purpose property is now available for files and snippets in addition to
-Package resulting in a more general name of primaryPurpose.
-
-Note that additional purposes can be added using the additionalPurpose
-property.
-
-## Serialization Formats
-
-SPDX 3.0.1 implements a JSON-LD format which has consistent class and property
-names with the model.
-
-See the SPDX 3.0.1 JSON Schema for the format specifics.
-
-The Tag/Value, YAML, RDF/XML and Spreadsheet formats are not supported.
-
-Additional serialization formats are being considered for the SPDX 3.1 release.
+## Hash Algorithms Added
+
+The following hash algorithms have been newly supported in this version:
+
+- Adler-32
+- BLAKE2b-256
+- BLAKE2b-384
+- BLAKE2b-512
+- BLAKE3
+- SHA3-256
+- SHA3-384
+- SHA3-512
