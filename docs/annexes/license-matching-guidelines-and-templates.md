@@ -10,7 +10,10 @@ As noted here, some of the matching guidelines are implemented in the XML files 
 
 ### Purpose
 
-To ensure consistent results by different SPDX document creators when matching license information that will be included in the License Information in File field. SPDX document creators or tools may match on the license or exception text itself, the official license header, or the SPDX License List short identifier.
+To ensure consistent results by different SPDX document creators when matching
+license information that will be included in SPDX data.
+SPDX document creators or tools may match on the license or exception text
+itself, the official license header, or the SPDX License List short identifier.
 
 ### Guideline: official license headers
 
