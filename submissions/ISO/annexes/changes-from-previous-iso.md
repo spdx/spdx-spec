@@ -97,12 +97,12 @@ Each ExternalDocumentRef instance will translate as follows:
 
 - An entry would be created in the namespace map for the external document
   namespace
-  - The value of the DocumentRef-[idstring] would be used for the prefix
+  - The value of the `DocumentRef-[idstring]` would be used for the prefix
     property in the NamespaceMap.
   - The value of the documentNamespace appended with a “#” would be used for
     the namespace in the NamespaceMap.
 - An entry would be created in the ExternalMap for the external document ref
-  - A string identifier consisting of the DocumentRef-[idstring] (the same
+  - A string identifier consisting of the `DocumentRef-[idstring]` (the same
     value as the prefix in the NamespaceMap) concatenated with a “:” and then
     concatenated with “SPDXRef-DOCUMENT” would be used for the externalSpdxId
     in the ExternalMap.
@@ -112,12 +112,12 @@ Each ExternalDocumentRef instance will translate as follows:
 - An entry would be created in the ExternalMap for each element referenced in
   the current SpdxDocument that is originally specified in the referenced
   SpdxDocument.
-  - A string identifier consisting of the DocumentRef-[idstring] (the same
+  - A string identifier consisting of the `DocumentRef-[idstring]` (the same
     value as the prefix in the NamespaceMap) concatenated with a “:” and then
     concatenated with the local portion of the element identifier would be used
     for the externalSpdxId in the ExternalMap
   - A “definingArtifact” property would be specified containing a string
-    identifier consisting of the DocumentRef-[idstring] concatenated with
+    identifier consisting of the `DocumentRef-[idstring]` concatenated with
     a “:” and then concatenated with “SPDXRef-DOCUMENT”. This is a shortcut
     linkage to tie the referenced element to its defining SpdxDocument for
     verification and location information.
@@ -222,11 +222,14 @@ It can also just be an Agent if it is not known what specific type an Agent is.
 
 The SPDX 2.2.1 creator string would be parsed and the appropriate Person,
 Organization or Tool would be created depending on if the prefix is “Person:”,
-“Organization:” or “Tool:” resp.
+“Organization:” or “Tool:” respectively.
+
 The required createdBy field for Agent or Tool may point to itself if no other
 information is available.
+
 The createdUsing property would be used for Tool whereas the createdBy
 property would be used for Person and Organization.
+
 The name would map to the “name” property.
 If an email address is present, it would translate to an external identifier.
 
@@ -298,19 +301,19 @@ could also be of type `MediaType` but the property name might be
 An example conversion table from SPDX 2.2.1 `FileType`
 to SPDX 3.0.1 `contentType` or `softwarePurpose` can look like this:
 
-| SPDX 2 File Type | SPDX 3 Software Purpose | SPDX 3 Content Type |
+| SPDX 2.2.1 File Type | SPDX 3.0.1 Software Purpose | SPDX 3.0.1 Content Type |
 |------------------|-------------------------|---------------------|
 | ARCHIVE | Archive | |
-| BINARY | | application/octet-stream |
-| SOURCE | Source | |
-| TEXT | | text/plain |
 | APPLICATION | Application | |
 | AUDIO | | audio/* |
-| IMAGE | | image/* |
-| VIDEO | | video/* |
+| BINARY | | application/octet-stream |
 | DOCUMENTATION | Documentation | |
-| SPDX | | text/spdx |
+| IMAGE | | image/* |
 | OTHER | Other | |
+| SOURCE | Source | |
+| SPDX | | text/spdx |
+| TEXT | | text/plain |
+| VIDEO | | video/* |
 
 ### Package File Name
 
