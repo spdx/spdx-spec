@@ -126,7 +126,7 @@ The rules for each component are:
 - The version is prefixed by a at-sign `@` separator when not empty.
 - This at-sign `@` is not part of the version.
 - A version must be a percent-encoded string.
-- A version is a plain and opaque string. Some package types use versioning conventions such as semver for NPMs or nevra conventions for RPMS. A type may define a procedure to compare and sort versions, but there is no reliable and uniform way to do such comparison consistently.
+- A version is a plain and opaque string. Some package types use versioning conventions such as SemVer for NPMs or NEVRA conventions for RPMS. A type may define a procedure to compare and sort versions, but there is no reliable and uniform way to do such comparison consistently.
 
 ### Rules for qualifiers
 
@@ -194,7 +194,7 @@ The current list of known types is:
 The list, with definitions for each type,
 is maintained in the file named `PURL-TYPES.rst`
 in the online repository
-https://github.com/package-url/purl-spec.
+<https://github.com/package-url/purl-spec>.
 
 ## Known qualifiers key/value pairs
 
@@ -351,7 +351,7 @@ The following list includes some valid _purl_ examples:
 ## Original license
 
 This specification is based on the texts published
-in the https://github.com/package-url/purl-spec online repository.
+in the <https://github.com/package-url/purl-spec> online repository.
 The original license and attribution are reproduced below:
 
 Copyright (c) the purl authors
@@ -372,4 +372,3 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
