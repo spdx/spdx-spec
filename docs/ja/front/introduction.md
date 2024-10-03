@@ -1,50 +1,11 @@
-# Introduction
+# はじめに
 
-Companies and organizations (collectively “Organizations”) are widely using and
-reusing open source and other software packages. Accurate identification of
-software is key for many supply chain processes. Vulnerability remediation
-starts with knowing the details of which version of software is in use on a
-system. Compliance with the associated licenses requires a set of analysis
-activities and due diligence that each Organization performs independently,
-which may include a manual and/or automated scan of software and identification
-of associated licenses followed by manual verification.
+企業や組織（総称して「組織」）は、オープンソースやその他のソフトウェアパッケージを広く使用し、再利用しています。ソフトウェアの正確な識別は、多くのサプライチェーンプロセスにとって重要です。脆弱性の修復は、システムで使用されているソフトウェアのバージョンの詳細を知ることから始まります。関連するライセンスのコンプライアンスには、各組織が独自に行う一連の分析活動とデューデリジェンスが必要であり、これには、ソフトウェアの手動スキャンや自動スキャン、関連するライセンスの識別、その後の手動検証などが含まれます。
 
-Software development teams across the globe use the same open source packages,
-but little infrastructure exists to facilitate collaboration on the analysis or
-share the results of these analysis activities. As a result, many groups are
-performing the same work leading to duplicated efforts and redundant
-information. With this document, the SPDX workgroup, a combined effort of the
-Linux Foundation SPDX group and the OMG/CISQ Tool-to-Tool effort, has created a
-data exchange format so that information about software packages and related
-content may be collected and shared in a common format with the goal of saving
-time and improving data accuracy.
+世界中のソフトウェア開発チームが同じオープンソースパッケージを使用していますが、分析に関する共同作業を促進したり、分析結果を共有したりするためのインフラはほとんど存在しません。その結果、多くのグループが同じ作業を行っており、重複した作業や冗長な情報が発生しています。このドキュメントでは、Linux Foundation SPDX グループと OMG/CISQ Tool-to-Tool ワークグループの統合作業である SPDX ワークグループが、ソフトウェアパッケージと関連コンテンツに関する情報を収集し、共通のフォーマットで共有することで、時間の節約とデータの正確性の向上を目的としたデータ交換フォーマットを作成しました。
 
-The merged activities of the two groups slid together the beginning weeks of
-2021 with activities generally moving forward but occasionally stalling while
-the larger group worked through issues that one or the other hadn’t discussed
-or had a different opinion about. Eventually, after releasing SPDX 2.3 in
-August of 2022 with updates that brought some of the concepts and capabilities
-slated for SPDX 3.0 to the community in preparation of the shift that SPDX 3.0
-represents, the first release candidate of SPDX 3.0 was released in May of
-2023. Within the SPDX community, which is both a standards creation
-organization as well as a community of open source developers, a release
-candidate offers an opportunity for implementors of SPDX, both new and old, to
-review the work and determine whether there were parts that were unclear or
-that would be extremely burdensome to implement.
+この2つのグループの統合された活動は、2021年の最初の数週間、概ね前進しましたが、どちらか一方が議論していなかったり、異なる意見を持っていたりする問題を、より大きなグループが解決する間、時折停滞しました。最終的に、SPDX 3.0が象徴するシフトに備え、SPDX 3.0のコンセプトや機能の一部をコミュニティに提供するアップデートを加えたSPDX 2.3を2022年8月にリリースした後、SPDX 3.0の最初のリリース候補が2023年5月にリリースされました。標準化団体であると同時にオープンソース開発者のコミュニティでもあるSPDXコミュニティにおいて、リリース候補版は、新旧を問わずSPDXの実装者が作業をレビューし、不明確な部分や実装に大きな負担となる部分がないかを判断する機会を提供します。
 
-Based on the comments and change requests from the initial candidate release
-several areas of the model were revised and reworked, resulting in a release
-candidate 2 of SPDX 3.0 in February of 2024. That release candidate gave tool
-creators and those who maintain the support libraries for working with SPDX
-time to start revising their projects in advance of the, the final version of
-the SPDX 3.0 specification. For those not following the inner workings,
-debates, and discussion of the combined 3T-SBOM and SPDX 3.0 working group for
-the last 3 years there has been a dramatic change in the SPDX model as it goes
-from SPDX 2.3 to SPDX 3.0, shifting the SPDX name from Software Package Data
-Exchange to System Package Data Exchange and expanding the scope of items it
-can now convey in a bill of materials from software, security, and licensing to
-many additional aspects like data sets, AI models, and build information.
+最初のリリース候補からのコメントや変更要求に基づいて、モデルのいくつかの領域が修正され、手直しされた結果、2024年2月にSPDX 3.0のリリース候補2がリリースされました。このリリース候補は、SPDX 3.0仕様の最終バージョンに先立ち、ツール作成者やSPDXで作業するためのサポートライブラリを保守する人たちが、プロジェクトの改訂を開始する時間を与えるものでした。SPDX 2.3からSPDX 3.0に移行する中で、SPDXモデルには劇的な変化がありました。SPDXの名称がSoftware Package Data ExchangeからSystem Package Data Exchangeに変更され、部品表で伝達できる項目がソフトウェア、セキュリティ、ライセンスから、データセット、AIモデル、ビルド情報などの多くの追加要素に拡大されました。
 
-Since the release of 3.0.0, we have gathered feedback on the level of
-documentation and minor errors in the model which have been addressed in the
-3.0.1 release.
+3.0.0のリリース以来、ドキュメンテーションのレベルやモデルの小さなエラーに関するフィードバックを集め、3.0.1のリリースで対処しました。

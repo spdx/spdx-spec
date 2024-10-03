@@ -1,147 +1,136 @@
-# SPDX Lite (Normative)
+# SPDX Lite (規範)
 
-## Explanation of the Lite profile
+## Liteプロファイルの説明
 
-The Lite profile is designed to make it quick and easy to start a Software Bill of Materials
-in situations where a company may have limited capacity for introducing new items into their processes.
-The Lite profile captures the minimum set of information required
-for license compliance in the software supply chain.
-It contains information about the creation of the SBOM,
-package lists with licensing and other related information,
-and their relationships.
+Liteプロファイルは、企業が新しいアイテムをプロセスに導入する能力が限られているような状況で、ソフトウェア部品表を迅速かつ簡単に開始できるように設計されています。
+Lite プロファイルは、ソフトウェアのサプライチェーンにおけるライセンスコンプライアンスに必要な最小限の情報を取得します。
+これには、SBOMの作成に関する情報、ライセンスおよびその他の関連情報を含むパッケージリスト、およびそれらの関係が含まれています。
 
-All elements in Lite profile are essential for complying with licenses.
-It is easy to use a SPDX document with the Lite profile
-for anyone who does not have enough knowledge about licensing information
-and easy to import license information from former versions of SPDX Lite format files.
-The Lite profile offers the flexibility to be used either alone
-or in combination with other SPDX profiles
-as a SPDX document in the software supply chain.
+Lite プロファイルのすべての要素は、ライセンスの順守に不可欠です。
+ライセンス情報に関する十分な知識がない人でも、Liteプロファイルを持つSPDXドキュメントを簡単に使用でき、旧バージョンのSPDX Liteフォーマットファイルからライセンス情報を簡単にインポートできます。
+Liteプロファイルは、ソフトウェアのサプライチェーンにおけるSPDX文書として、単独でも他のSPDXプロファイルと組み合わせても使用できる柔軟性を備えています。
 
-## Mandatory and recommended properties
+## 必須プロパティと推奨プロパティ
 
-The Lite profile specifies that some properties MUST be present
-and some others SHOULD be present, as much as possible.
+Liteプロファイルでは、いくつかのプロパティは必須（MUST）であり、他のいくつかのプロパティは可能な限り必須（SHOULD）であると規定しています。
 
-The following lists collect and present this information
-for every class present in the SPDX data,
-in a concise and easy-to-follow format.
-The lists of properties are in alphabetical order, for easy reference.
+以下のリストでは、SPDXデータに存在するすべてのクラスについて、この情報を収集し、簡潔でわかりやすい形式で示します。
+プロパティのリストは、参照しやすいようにアルファベット順になっています。
 
 ### /Core/SpdxDocument
 
-- Mandatory
+- 必須
     1. creationInfo
-    1. element (may be multiple), MUST have at least one /Core/Sbom object
-    1. rootElement (may be multiple), SHOULD be objects of type /Core/Sbom
+    1. element （複数可）、/Core/Sbomオブジェクトを少なくとも1つ持たなければならない(MUST)
+    1. rootElement （複数可）、/Core/Sbom型のオブジェクトであることが望ましい(SHOULD)
     1. spdxId
-- Recommended
+- 推奨
     1. comment
     1. dataLicense
     1. name
-    1. namespaceMap (may be multiple)
-    1. verifiedUsing (may be multiple), SHOULD be objects of type /Core/Hash
+    1. namespaceMap （複数可）
+    1. verifiedUsing （複数可）、/Core/Hash型のオブジェクトであることが望ましい(SHOULD)
 
 ### /Software/Sbom
 
-- Mandatory
+- 必須
     1. creationInfo
-    1. element (may be multiple), MUST have at least one /Software/Package object
-    1. rootElement (may be multiple), SHOULD be objects of type /Software/Package
+    1. element （複数可）, /Software/Packageオブジェクトを少なくとも1つ持たなければならない(MUST)
+    1. rootElement （複数可）、/Software/Package型のオブジェクトであることが望ましい(SHOULD)
     1. spdxId
-- Recommended
-    1. sbomType (may be multiple)
+- 推奨
+    1. sbomType （複数可）
 
 ### /Software/Package
 
-- Mandatory
+- 必須
     1. copyrightText
     1. creationInfo
     1. name
     1. packageVersion
     1. spdxId
-    1. suppliedBy, SHOULD be an object of type /Core/Agent
-- Recommended
-    1. attributionText (may be multiple)
+    1. suppliedBy、/Core/Agent型のオブジェクトであることが望ましい(SHOULD)
+- 推奨
+    1. attributionText （複数可）
     1. builtTime
     1. comment
     1. downloadLocation
     1. homepage
-    1. originatedBy (may be multiple), SHOULD be objects of type /Core/Agent
+    1. originatedBy （複数可）、/Core/Agent型のオブジェクトであることが望ましい(SHOULD)
     1. packageUrl
     1. releaseTime
-    1. supportLevel (may be multiple)
+    1. supportLevel （複数可）
     1. validUntilTime
-    1. verifiedUsing (may be multiple), SHOULD be objects of type /Core/Hash
+    1. verifiedUsing （複数可）、/Core/Hash型のオブジェクトであることが望ましい(SHOULD)
 
-However, there MUST be at least a “downloadLocation” or “packageUrl” property.
+ただし、少なくとも "downloadLocation" または "packageUrl" プロパティがなければなりません(MUST)。
 
-Additionally:
+さらに
 
-1. for every /Software/Package object MUST exist exactly one /Core/Relationship object of type `hasConcludedLicense` having that element as its `from` property and an /SimpleLicensing/AnyLicenseInfo as its `to` property.
-1. for every /Software/Package object MUST exist exactly one /Core/Relationship object of type `hasDeclaredLicense` having that element as its `from` property and  /SimpleLicensing/AnyLicenseInfo object as its `to` property.
+1. すべての /Software/Package オブジェクトに対して、その要素を `from` プロパティとし、/SimpleLicensing/AnyLicenseInfo を `to` プロパティとする `hasConcludedLicense` タイプの /Core/Relationship オブジェクトが正確に 1 つ存在しなければなりません(MUST)。
+1. /Software/Package オブジェクトごとに、その要素を `from` プロパティとし、 /SimpleLicensing/AnyLicenseInfo オブジェクトを `to` プロパティとする `hasDeclaredLicense` タイプの /Core/Relationship オブジェクトが正確に 1 つ存在しなければなりません(MUST)。
 
 ### /Core/Hash
 
-- Mandatory
+- 必須
     1. algorithm
     1. hashValue
-- Recommended
+- 推奨
     1. comment
 
 ### /SimpleLicensing/LicenseExpression
 
-- Mandatory
+- 必須
     1. creationInfo
     1. licenseExpression
     1. spdxId
-- Recommended
+- 推奨
     1. licenseListVersion
 
 ### /SimpleLicensing/SimpleLicensingText
 
-- Mandatory
+- 必須
     1. creationInfo
     1. licenseText
     1. spdxId
-- Recommended
+- 推奨
     1. comment
 
 ### /Core/Agent (createdBy, suppliedBy, originatedBy)
 
-- Mandatory
-    1. creationInfo, SHOULD be “BlankNode”
+- 必須
+    1. creationInfo, “BlankNode”であることが望ましい(SHOULD)
     1. name
     1. spdxId
-- Recommended
-    1. externalIdentifier (may be multiple)
+- 推奨
+    1. externalIdentifier（複数可）
 
 ### /Core/CreationInfo
 
-- Mandatory
+- 必須
     1. created
-    1. createdBy (may be multiple), SHOULD be objects of type /Core/Agent
-    1. specVersion, MUST be a fixed string, “3.0.1”.
-- Recommended
+    1. createdBy （複数可）、/Core/Agent型のオブジェクトであることが望ましい(SHOULD)
+    1. specVersion、“3.0.1”の固定文字列でなければならない（MUST）
+- 推奨
     1. comment
 
 ### /Core/ExternalIdentifier
 
-- Mandatory
+- 必須
     1. externalIdentifierType
     1. identifier
 
 ### /Core/NameSpaceMap
 
-- Mandatory
+- 必須
     1. namespace
     1. prefix
 
 ### /Core/Relationship
 
-- Mandatory
+- 必須
     1. creationInfo
     1. from
     1. relationshipType
     1. spdxId
-    1. to (may be multiple)
+    1. to （複数可）
