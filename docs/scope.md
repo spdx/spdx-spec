@@ -1,25 +1,19 @@
-# Scope
+# 範囲
 
-The System Package Data Exchange (SPDX®) specification defines an open standard
-for communicating bill of materials (BOM) information for different topic
-areas.
+System Package Data Exchange(SPDX®)仕様は、様々な分野の部品表(BOM)情報を伝達するためのオープンスタンダードを定義しています。
 
-SPDX defines an underlying data model as well as multiple serialization formats
-to encode that data model.
+SPDXは、基礎となるデータモデルと、そのデータモデルをエンコードするための複数のシリアライズフォーマットを定義しています。
 
-SPDX metadata includes details about creation and distribution, including the
-following:
+SPDXメタデータには、以下のような作成と配布に関する詳細が含まれます：
 
-- software composition, for collections of software (Packages), individual
-  Files, and portions of files (Snippets)
-- software build information
-- artificial intelligence (AI) models
-- datasets
-- creator, supplier and distributor identity information
-- provenance and integrity
-- licenses and copyrights, including a curated list of licenses and exceptions
-- security vulnerabilities, defects, and other quality data
-- relationships between system elements
-- software usage and lifecycle
-- mechanisms to enable annotating SPDX elements and linking between multiple
-  SPDX Documents
+- ソフトウェアの構成（ソフトウェアのコレクション（パッケージ）、個々のファイル、およびファイルの一部（スニペット））
+- ソフトウェアのビルド情報
+- 人工知能（AI）モデル
+- データセット
+- クリエイター、サプライヤー、およびディストリビューターのアイデンティティ情報
+- 出所と整合性
+- ライセンスと著作権（ライセンスと例外の厳選されたリストを含む）
+- セキュリティの脆弱性、欠陥、およびその他の品質データ
+- システム要素間の関係
+- ソフトウェアの使用法とライフサイクル
+- SPDX要素の注釈付けと複数のSPDXドキュメント間のリンクを可能にするメカニズム
