@@ -1,9 +1,6 @@
 # The System Package Data Exchange (SPDX®) Specification
 
-The System Package Data Exchange (SPDX®) specification is an open standard
-capable of representing systems with software components in as SBOMs
-(Software Bill of Materials) and other AI, data and security references
-supporting a range of risk management use cases.
+The System Package Data Exchange (SPDX®) specification is an open standard designed to represent systems containing software components as Software Bill of Materials (SBOMs). Additionally, SPDX supports AI, data, and security references, making it suitable for a wide range of risk management use cases.
 
 The SPDX standard helps facilitate compliance with free and open source
 software licenses by standardizing the way license information is shared across
@@ -122,7 +119,7 @@ is also required for generating PDF files. To enable PDF generation, set the
 ### Preparing input files
 
 Next, you have to prepare the model files, the other specification files,
-and the model parser, by cloning these repositoriess:
+and the model parser, by cloning these repositories:
 [`spdx/spdx-3-model`](https://github.com/spdx/spdx-3-model),
 [`spdx/spdx-spec`](https://github.com/spdx/spdx-spec), and
 [`spdx/spec-parser`](https://github.com/spdx/spec-parser)
