@@ -4,6 +4,7 @@
 # documentation
 #
 # SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright 2024 The SPDX Contributors
 
 set -e
 
