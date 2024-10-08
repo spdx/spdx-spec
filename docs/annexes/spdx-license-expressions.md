@@ -6,7 +6,9 @@ Often a single license can be used to represent the licensing terms of a source 
 
 SPDX License Expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-`[idString]`; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., `AND`, `OR`, `WITH` and `+`). We provide the definition of what constitutes a valid SPDX License Expression in this section.
 
-The exact syntax of license expressions is described below in ABNF, as defined in [RFC5234](http://tools.ietf.org/html/rfc5234) and expanded in [RFC7405](http://tools.ietf.org/html/rfc7405).
+The exact syntax of license expressions is described below in ABNF, as defined
+in [RFC 5234](https://datatracker.ietf.org/doc/rfc5234/) and expanded
+in [RFC 7405](https://datatracker.ietf.org/doc/rfc7405/).
 
 ```text
 idstring = 1*(ALPHA / DIGIT / "-" / "." )
@@ -64,9 +66,9 @@ The same applies to `AdditionRef-` user defined identifiers.
 
 A simple `<license-expression>` is composed one of the following:
 
-* An SPDX License List Short Form Identifier. For example: CDDL-1.0
-* An SPDX License List Short Form Identifier with a unary "+" operator suffix to represent the current version of the license or any later version. For example: CDDL-1.0+
-* An SPDX user defined license reference: ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
+- An SPDX License List Short Form Identifier. For example: CDDL-1.0
+- An SPDX License List Short Form Identifier with a unary "+" operator suffix to represent the current version of the license or any later version. For example: CDDL-1.0+
+- An SPDX user defined license reference: ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
 
 Some examples:
 
@@ -234,12 +236,12 @@ A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet
 
 A License Exception can be expressed in RDF via a `<spdx:LicenseException>` element. This element has the following unique mandatory (unless specified otherwise) attributes:
 
-* `comment` - An `rdfs:comment` element describing the nature of the exception.
-* `seeAlso` (optional, one or more)- An `rdfs:seeAlso` element referencing external sources of information on the exception.
-* `example` (optional) - Text describing examples of this exception.
-* `name` - The full human readable name of the item.
-* `licenseExceptionId` -  The identifier of an exception in the SPDX License List to which the exception applies.
-* `licenseExceptionText` - Full text of the license exception.
+- `comment` - An `rdfs:comment` element describing the nature of the exception.
+- `seeAlso` (optional, one or more)- An `rdfs:seeAlso` element referencing external sources of information on the exception.
+- `example` (optional) - Text describing examples of this exception.
+- `name` - The full human readable name of the item.
+- `licenseExceptionId` -  The identifier of an exception in the SPDX License List to which the exception applies.
+- `licenseExceptionText` - Full text of the license exception.
 
 ```text
 <rdf:Description rdf:about
