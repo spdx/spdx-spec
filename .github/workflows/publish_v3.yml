@@ -17,7 +17,6 @@ jobs:
       VERSION: "v3.0.1"                     # publishing version
       VERSION_DEFAULT: "v3.0.1"             # default version (be redirected from https://spdx.github.io/spdx-spec/)
       VERSION_ALIASES: "latest v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2"  # aliases for VERSION
-      CONTEXT_URL: "https://spdx.org/rdf/3.0.1/spdx-context.jsonld" # context file URL
       GIT_USER_NAME: "ci-bot"               # for gh-pages commit
       GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
       PARSER_OUT_BASE_DIR: "__parser_out"   # temp dir for output from spec-parser
@@ -107,7 +106,7 @@ jobs:
           shacl2code generate \
             --input spdx-spec/docs/rdf/spdx-model.ttl \
             --input spdx-spec/docs/rdf/jsonld-annotations.ttl \
-            --context-url spdx-spec/docs/rdf/spdx-context.jsonld $CONTEXT_URL \
+            --context-url spdx-spec/docs/rdf/spdx-context.jsonld https://spdx.org/rdf/3.0.1/spdx-context.jsonld \
             jsonschema \
             --output spdx-spec/docs/rdf/schema.json
           cp spdx-spec/docs/rdf/schema.json spdx-spec/docs/model/schema.json
