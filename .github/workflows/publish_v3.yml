@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: python:3
     env:
       REF_SPEC: "development/v3.0.1"        # spec branch/tag release
       REF_MODEL: "main"                     # model branch/tag release
@@ -18,6 +17,7 @@ jobs:
       VERSION: "v3.0.1"                     # publishing version
       VERSION_DEFAULT: "v3.0.1"             # default version (be redirected from https://spdx.github.io/spdx-spec/)
       VERSION_ALIASES: "latest v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2"  # aliases for VERSION
+      CONTEXT_URL: "https://spdx.org/rdf/3.0.1/spdx-context.jsonld"  # context file URL
       GIT_USER_NAME: "ci-bot"               # for gh-pages commit
       GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
       PARSER_OUT_BASE_DIR: "__parser_out"   # temp dir for output from spec-parser
@@ -29,6 +29,11 @@ jobs:
       REDIRECT_MAP_PATH: "etc/redirect-map.csv"             # redirect map
       REDIRECT_TEMPLATE_PATH: "etc/redirect-template.html"  # redirect HTML template
     steps:
+      - name: Install specific Python version
+        uses: actions/setup-python@f677139bbe7f9c59b41e40162b753c062f5d49a3  #v5.2.0
+        with:
+          python-version: "3.12"
+          cache: "pip"
       - name: Checkout spdx-spec
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871  #v4.2.1
         with:
@@ -102,7 +107,7 @@ jobs:
           shacl2code generate \
             --input spdx-spec/docs/rdf/spdx-model.ttl \
             --input spdx-spec/docs/rdf/jsonld-annotations.ttl \
-            --context-url spdx-spec/docs/rdf/spdx-context.jsonld https://spdx.org/rdf/3.0.1/spdx-context.jsonld \
+            --context-url spdx-spec/docs/rdf/spdx-context.jsonld $CONTEXT_URL \
             jsonschema \
             --output spdx-spec/docs/rdf/schema.json
           cp spdx-spec/docs/rdf/schema.json spdx-spec/docs/model/schema.json
