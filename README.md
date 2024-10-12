@@ -1,10 +1,6 @@
 # The System Package Data Exchange (SPDX®) Specification
 
-The System Package Data Exchange (SPDX®) specification is an open standard
-designed to represent systems containing software components as
-Software Bill of Materials (SBOMs).
-Additionally, SPDX supports AI, data, and security references,
-making it suitable for a wide range of risk management use cases.
+The System Package Data Exchange (SPDX®) specification is an open standard designed to represent systems containing software components as Software Bill of Materials (SBOMs). Additionally, SPDX supports AI, data, and security references, making it suitable for a wide range of risk management use cases.
 
 The SPDX standard helps facilitate compliance with free and open source
 software licenses by standardizing the way license information is shared across
