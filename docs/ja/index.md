@@ -1,7 +1,8 @@
-# The System Package Data Exchange® (SPDX®) Specification Version 3.0.1
+# The System Package Data Exchange® (SPDX®) 仕様 バージョン 3.0.1
 
-Copyright © 2010-2024, The Linux Foundation およびその貢献者、
-OMG およびその貢献者による SPDX モデルへの貢献を含む。
+Copyright © 2010-2024, The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.
+
+次の方々の貢献と援助に感謝します。
 
 Adam Cohn,
 Adolfo García Veytia,
@@ -112,4 +113,4 @@ Yoshiyuki Ito,
 Yuji Nomura,
 Yumi Tomita,
 Zachary McFarland
-の貢献と援助に感謝します。
+
