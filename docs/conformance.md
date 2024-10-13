@@ -61,7 +61,7 @@ bills of materials information produced by tools supporting SPDX.
 ## Software Profile compliance point
 
 The Software Profile includes the definitions of classes, properties and
-vocabularies for refering to and conveying information about software and is
+vocabularies for referring to and conveying information about software and is
 usable by all SPDX profiles when producing or consuming SPDX content.
 
 Software that conforms to the SPDX specification at the Software Profile
