@@ -1,12 +1,11 @@
 # 仕様書の使用 - 利用規約、条件、および通知
 
-Copyright © 2010-2024, The Linux Foundation およびその貢献者、
-OMG およびその貢献者による SPDX モデルへの貢献を含む。
+Copyright © 2010-2024, The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.
 
 本文書は、
 [Community Specification License 1.0](../licenses/Community-Spec-1.0.md)
 (Community-Spec-1.0)の下でライセンスされています。
-Community-Spec-1.0 に準拠していない著作権所有者によるこの文書の既存の部分は
+Community-Spec-1.0 に準拠していない著作権者によるこの文書の既存の部分は
 [Creative Commons Attribution License 3.0 Unported](../licenses/CC-BY-3.0.md)
 (CC-BY-3.0)の下で提供されます。
 これらのライセンスのコピーは、ここにその全文が複製されています。
