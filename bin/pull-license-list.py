@@ -5,7 +5,7 @@
 #
 # usage: ./bin/pull-license.py
 #
-# Script licensed under SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: MIT
 
 import codecs
 import itertools
