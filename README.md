@@ -1,6 +1,10 @@
 # The System Package Data Exchange (SPDX®) Specification
 
-The System Package Data Exchange (SPDX®) specification is an open standard designed to represent systems containing software components as Software Bill of Materials (SBOMs). Additionally, SPDX supports AI, data, and security references, making it suitable for a wide range of risk management use cases.
+The System Package Data Exchange (SPDX®) specification is an open standard
+designed to represent systems containing software components as
+Software Bill of Materials (SBOMs).
+Additionally, SPDX supports AI, data, and security references,
+making it suitable for a wide range of risk management use cases.
 
 The SPDX standard helps facilitate compliance with free and open source
 software licenses by standardizing the way license information is shared across
@@ -13,38 +17,38 @@ This repository holds under active development version of the specification as:
 - Markdown:
   [`development/v3.0.1`](https://github.com/spdx/spdx-spec/tree/development/v3.0.1/docs)
   branch
-- HTML: `gh-pages` branch, built on every commit to the development branch,
-  see the workflow in
-  [`.github/workflows/publish_v3.yml`](.github/workflows/publish_v3.yml)
+- HTML: `gh-pages` branch, built on every commit to the development branch
   - Current stable (v3.0.1): <https://spdx.github.io/spdx-spec/v3.0.1/>
 <!--  - Development (v3.1): <https://spdx.github.io/spdx-spec/v3.1-draft/> -->
 
-The model itself is under active development at
-[spdx/spdx-3-model](https://github.com/spdx/spdx-3-model/)
-repo (`main` branch).
+The specification is comprised of documents located in the `docs/` directory
+of this `spdx/spdx-spec` repository, as well as a model documentation
+generated from Markdown files within the
+[spdx/spdx-3-model](https://github.com/spdx/spdx-3-model/) repository.
 
-See for the official
-[releases of the specification](https://spdx.org/specifications)
-or additional information also the SPDX website at <https://spdx.org>.
+## Related repositories and documents
 
-Information on how to use the SPDX specification is available at
-[spdx/using](https://github.com/spdx/using/) repo.
-Demonstrations of SPDX for various scenarios and use cases are available at
-[spdx/spdx-examples](https://github.com/spdx/spdx-examples).
+| Documentation | Link |
+|---------|------|
+| Changes between versions | [CHANGELOG.md](./CHANGELOG.md) |
+| Contributing guidelines | [CONTRIBUTING.md](./CONTRIBUTING.md) |
+| Building the specification website (for testing purpose) | [build.md](build.md) |
+| Governance practices | [spdx/governance](https://github.com/spdx/governance/) |
+| SPDX 3 model development | [spdx/spdx-3-model](https://github.com/spdx/spdx-3-model/) |
+| How to use the specification | [spdx/using](https://github.com/spdx/using/) |
+| Use cases and scenarios | [spdx/spdx-examples](https://github.com/spdx/spdx-examples) |
+| SPDX website | <https://spdx.org> |
+| Official releases of the specification, including PDFs | <https://spdx.org/specifications> |
 
-See [change log](./CHANGELOG.md) for changes between versions.
-Contributions are welcome,
-please see the [contributing guidelines](./CONTRIBUTING.md)
-and [governance practices](https://github.com/spdx/governance/).
+## Repository structure
 
-## Specification structure
-
-This repository consists of these files and directories:
+This repository consists of these files and directories (partial):
 
 - `bin/` - Scripts for spec generation.
 - `docs/` - Specification content:
   - `annexes/` - Annexes for the specification.
   - `css/` - Style sheets for HTML.
+  - `front/` - Front matter.
   - `images/` - Model diagrams. These image files are to be generated from a
     diagram description file
     [model.drawio](https://github.com/spdx/spdx-3-model/blob/main/model.drawio)
@@ -58,174 +62,10 @@ This repository consists of these files and directories:
 - `mkdocs.yml` - MkDocs recipe for the spec documentation generation. The
   inclusion of model files and the order of chapters are defined here.
 
-The specification consists of documents in the `docs/` directory from this
-`spdx/spdx-spec` repository and a model which is generated from Markdown files
-in the `spdx/spdx-3-model` repository.
+## Building the specification website
 
-Note: The model files in the `spdx/spdx-3-model` repository use a constrained
-format of Markdown. Only a limited set of headings are allowed to be processed
-by the spec-parser.
+The website generation workflow is defined in the
+[`.github/workflows/publish_v3.yml`](.github/workflows/publish_v3.yml) file.
 
-## Building the specification
-
-The specification building flow looks like this:
-
-```text
-  +-------------------+
-  |[spdx-3-model]     |
-  | |                 |
-  | +- model/        ---- Constrained-Markdown files -+
-  | |                 |                               |
-  | +- model.drawio  -----------------+               |
-  +-------------------+               |               |
-                                      |               |
-                                      |               |
-  +-------------------+               v               |
-  |[spdx-spec]        |            draw.io            |
-  | |                 |            (manual)           |
-  | +- docs/          |               |               |
-  |    |              |               |               |
-  |    +- annexes/    |               |               v
-  |    |              |               |         spec-parser
-  |    +- images/  <---- PNG images --+               |
-  |    |              |                               |
-  |    +- licenses/   |                               |
-  |    |              |                               |
-  |    +- model/   <----- Processed Markdown files ---+
-  |    |              |
-  |    +- index.md    |
-  |    |              |
-  |    +- *.md        |
-  +-------------------+
-          |
-    mike & mkdocs
-          |
-          v
-  +-------------------+
-  |   HTML website    |
-  +-------------------+
-```
-
-### Prerequisites
-
-Apart from Git and Python, you have to have [MkDocs](http://mkdocs.org)
-installed on your machine. If you don't have it yet installed please follow
-these [installation instructions](http://www.mkdocs.org/#installation).
-
-[WeasyPrint](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation)
-is also required for generating PDF files. To enable PDF generation, set the
-`ENABLE_PDF_EXPORT` environment variable to `1`.
-
-### Preparing input files
-
-Next, you have to prepare the model files, the other specification files,
-and the model parser, by cloning these repositories:
-[`spdx/spdx-3-model`](https://github.com/spdx/spdx-3-model),
-[`spdx/spdx-spec`](https://github.com/spdx/spdx-spec), and
-[`spdx/spec-parser`](https://github.com/spdx/spec-parser)
-to these paths: `spdx-3-model`, `spdx-spec`, and `spec-parser`, respectively:
-
-```shell
-git clone https://github.com/spdx/spdx-3-model.git
-git clone https://github.com/spdx/spdx-spec.git
-git clone https://github.com/spdx/spec-parser.git
-```
-
-Install prerequisites for Python:
-
-```shell
-pip3 install -r spdx-spec/requirements.txt
-pip3 install -r spec-parser/requirements.txt
-```
-
-### Generating model and formatted Markdown files for MkDocs
-
-Model files in `spdx/spdx-3-model` repo are written in a specific format of
-Markdown, with a limited set of allowed headings. The `spec-parser` processes
-these model files to generate both ontology and final Markdown files suitable
-for MkDocs.
-
-The `spec-parser` also performs automatic formatting on the resulting Markdown
-files. For instance, it converts a list under the "Properties" heading into a
-table.
-
-To check the model files and generate formatted files for MkDocs, run the
-following command:
-
-```shell
-python3 spec-parser/main.py spdx-3-model/model spdx-spec/docs/model
-```
-
-This will create well-formatted model files in the `spdx-spec/docs/model/`
-directory. This directory contains two components:
-
-- Model ontology and diagram files: These files (`model.plantuml`,
-  `spdx-context.jsonld`, `spdx-model.dot`, `spdx-model.json-ld`,
-  `spdx-model.pretty-xml`, `spdx-model.ttl`, `spdx-model.xml`)
-  are ready for immediate use.
-- Formatted Makdown files: These files (`.md` extension) are located in various
-  subdirectories and are intended for processing by MkDocs in the next step.
-
-If the output directory already exists, the `spec-parser` will not overwrite
-it. If you edited a model file and want to regenerate the formatted files, you
-have to delete the existing `spdx-spec/docs/model` directory first:
-
-```shell
-rm -rf spdx-spec/docs/model
-```
-
-### Building HTML
-
-With all spec and model files prepared, we will use MkDocs to assemble them
-into a website.
-
-In side `spdx-spec/` directory, execute a built-in dev-server that let you
-preview the specification:
-
-These following commands should run inside the `spdx-spec/` directory.
-
-- To preview the specification in a web browser:
-
-  ```shell
-  mkdocs serve
-  ```
-
-- To build a static HTML site:
-
-  ```shell
-  mkdocs build
-  ```
-
-- To get debug messages, enables verbose output:
-
-  ```shell
-  mkdocs build --verbose
-  ```
-
-## Configuring the website
-
-Inside `spdx-spec/` directory, there is a file `mkdocs.yml`. This is a
-configuration file for MkDocs.
-
-You can customize website details like the site name and main URL (canonical
-URL) in this file.
-
-To include a page in the navigation bar, list its filename under the `nav:`
-section. The order of filenames in this section determines the order of the
-page in the navigation bar.
-
-## Specification versions on spdx.github.io/spdx-spec/
-
-The SPDX specifications on <https://spdx.github.io/spdx-spec/> are built
-by using a workflow in
-[`.github/workflows/publish_v3.yml`](.github/workflows/publish_v3.yml).
-This workflow uses [mike](https://github.com/jimporter/mike) to publish
-multiple versions of MkDocs-powered documentation.
-
-The published versions, their titles, and aliases are listed in the file
-[versions.json](https://github.com/spdx/spdx-spec/blob/gh-pages/versions.json)
-located in the `gh-pages` branch. These versions populate the version selector
-dropdown on the website. The line `run: mike deploy` in the GitHub workflow
-file determines the title and alias.
-
-mike is not needed for local testing of a specific spec version.
+For local testing and review,
+refer to the build instructions in the [build.md](./build.md) file.
