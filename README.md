@@ -29,8 +29,10 @@ of the specification as:
   - Current stable (v3.0.1): <https://spdx.github.io/spdx-spec/v3.0.1/>
 <!--  - Development (v3.1): <https://spdx.github.io/spdx-spec/v3.1-draft/> -->
 
-Contributions are welcome, please see the contributing guidelines,
-governance practices, and build instructions in the
+Contributions are welcome. Contributions to this repository are made pursuant to the
+[SPDX Community Specification Contributor License Agreement 1.0](https://github.com/spdx/governance/blob/main/0._SPDX_Contributor_License_Agreement.md).
+Please see the contributing guidelines, governance practices,
+and build instructions in the
 [related documents](#related-documents-and-repositories) section.
 
 ## Repository structure
@@ -69,6 +71,6 @@ This repository consists of these files and directories (partial):
 | SPDX 3 model development | [spdx/spdx-3-model](https://github.com/spdx/spdx-3-model/) |
 | Model specification parser | [spdx/spec-parser](https://github.com/spdx/spec-parser/) |
 | How to use the specification | [spdx/using](https://github.com/spdx/using/) |
-| Use cases and scenarios | [spdx/spdx-examples](https://github.com/spdx/spdx-examples) |
-| SPDX website | <https://spdx.org> |
+| Use cases and scenarios | [spdx/spdx-examples](https://github.com/spdx/spdx-examples/) |
+| SPDX website, with more information about the specification | <https://spdx.org> |
 | Official releases of the specification, including PDFs | <https://spdx.org/specifications> |
