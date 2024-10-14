@@ -12,7 +12,15 @@ the software supply chain. SPDX reduces redundant work by providing a common
 format for companies and communities to share important data about software
 licenses and copyrights, thereby streamlining and improving compliance.
 
-This repository holds under active development version of the specification as:
+## Specification development
+
+The specification is comprised of documents located in the `docs/` directory
+of this `spdx/spdx-spec` repository, as well as a model documentation
+generated from Markdown files within the
+[spdx/spdx-3-model](https://github.com/spdx/spdx-3-model/) repository.
+
+This `spdx/spdx-spec` repository holds under active development version
+of the specification as:
 
 - Markdown:
   [`development/v3.0.1`](https://github.com/spdx/spdx-spec/tree/development/v3.0.1/docs)
@@ -21,29 +29,17 @@ This repository holds under active development version of the specification as:
   - Current stable (v3.0.1): <https://spdx.github.io/spdx-spec/v3.0.1/>
 <!--  - Development (v3.1): <https://spdx.github.io/spdx-spec/v3.1-draft/> -->
 
-The specification is comprised of documents located in the `docs/` directory
-of this `spdx/spdx-spec` repository, as well as a model documentation
-generated from Markdown files within the
-[spdx/spdx-3-model](https://github.com/spdx/spdx-3-model/) repository.
-
-## Related repositories and documents
-
-| Documentation | Link |
-|---------|------|
-| Changes between versions | [CHANGELOG.md](./CHANGELOG.md) |
-| Contributing guidelines | [CONTRIBUTING.md](./CONTRIBUTING.md) |
-| Building the specification website (for testing purpose) | [build.md](build.md) |
-| Governance practices | [spdx/governance](https://github.com/spdx/governance/) |
-| SPDX 3 model development | [spdx/spdx-3-model](https://github.com/spdx/spdx-3-model/) |
-| How to use the specification | [spdx/using](https://github.com/spdx/using/) |
-| Use cases and scenarios | [spdx/spdx-examples](https://github.com/spdx/spdx-examples) |
-| SPDX website | <https://spdx.org> |
-| Official releases of the specification, including PDFs | <https://spdx.org/specifications> |
+Contributions are welcome, please see the contributing guidelines,
+governance practices, and build instructions in the
+[related documents](#related-documents-and-repositories) section.
 
 ## Repository structure
 
 This repository consists of these files and directories (partial):
 
+- `.github/workflow` - Workflow definitions.
+  - [`publish_v3.yml`](.github/workflows/publish_v3.yml)
+    The website (HTML) generation workflow.
 - `bin/` - Scripts for spec generation.
 - `docs/` - Specification content:
   - `annexes/` - Annexes for the specification.
@@ -62,10 +58,17 @@ This repository consists of these files and directories (partial):
 - `mkdocs.yml` - MkDocs recipe for the spec documentation generation. The
   inclusion of model files and the order of chapters are defined here.
 
-## Building the specification website
+## Related documents and repositories
 
-The website generation workflow is defined in the
-[`.github/workflows/publish_v3.yml`](.github/workflows/publish_v3.yml) file.
-
-For local testing and review,
-refer to the build instructions in the [build.md](./build.md) file.
+| Documentation | Link |
+|---------|------|
+| Changes between versions | [CHANGELOG.md](./CHANGELOG.md) |
+| Contributing guidelines | [CONTRIBUTING.md](./CONTRIBUTING.md) |
+| Building the specification website (for testing purpose) | [build.md](build.md) |
+| Governance practices | [spdx/governance](https://github.com/spdx/governance/) |
+| SPDX 3 model development | [spdx/spdx-3-model](https://github.com/spdx/spdx-3-model/) |
+| Model specification parser | [spdx/spec-parser](https://github.com/spdx/spec-parser/) |
+| How to use the specification | [spdx/using](https://github.com/spdx/using/) |
+| Use cases and scenarios | [spdx/spdx-examples](https://github.com/spdx/spdx-examples) |
+| SPDX website | <https://spdx.org> |
+| Official releases of the specification, including PDFs | <https://spdx.org/specifications> |
