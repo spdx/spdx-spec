@@ -145,7 +145,7 @@ spdx-spec/bin/make-mkdocs-config.sh \
 
 The complete MkDocs configuration will be at `spdx-spec/mkdocs-full.yml`.
 
-### 4. Building HTML
+## 4. Building HTML
 
 With all specification and model files prepared,
 we will use MkDocs to assemble them into a website.
