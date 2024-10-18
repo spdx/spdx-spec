@@ -30,7 +30,7 @@ Liteプロファイルでは、いくつかのプロパティは**必須**であ
 
 - 必須
     1. creationInfo
-    1. element （複数可）, /Software/Package オブジェクトを少なくとも1つ持たなければ**ならない**
+    1. element （複数可）、/Software/Package オブジェクトを少なくとも1つ持たなければ**ならない**
     1. rootElement （複数可）、/Software/Package 型のオブジェクトであることが**望ましい**
     1. spdxId
 - 推奨
@@ -94,7 +94,7 @@ Liteプロファイルでは、いくつかのプロパティは**必須**であ
 ### /Core/Agent (createdBy, suppliedBy, originatedBy)
 
 - 必須
-    1. creationInfo, “BlankNode”であることが望ましい(SHOULD)
+    1. creationInfo、“BlankNode”であることが望ましい(SHOULD)
     1. name
     1. spdxId
 - 推奨
