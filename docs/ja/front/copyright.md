@@ -1,28 +1,22 @@
-# Use of Specification - Terms, Conditions & Notices
+# 仕様書の使用 - 利用規約、条件、および通知
 
-Copyright © 2010-2024, The Linux Foundation and its Contributors,
-including SPDX Model contributions from OMG and its Contributors.
+Copyright © 2010-2024, The Linux Foundation およびその貢献者、
+OMG およびその貢献者による SPDX モデルへの貢献を含む。
 
-This work is licensed under the
+本文書は、
 [Community Specification License 1.0](../licenses/Community-Spec-1.0.md)
-(Community-Spec-1.0).
-Pre-existing portions of this work from copyright holders who have not
-subsequently contributed under the Community-Spec-1.0 are provided under
+(Community-Spec-1.0)の下でライセンスされています。
+Community-Spec-1.0 に準拠していない著作権所有者によるこの文書の既存の部分は
 [Creative Commons Attribution License 3.0 Unported](../licenses/CC-BY-3.0.md)
-(CC-BY-3.0).
-Copies of these licenses are reproduced in their entirety herein.
+(CC-BY-3.0)の下で提供されます。
+これらのライセンスのコピーは、ここにその全文が複製されています。
 
-## Trademarks
+## 商標
 
-SPDX® is a registered trademark of The Linux Foundation.
+SPDX® は The Linux Foundation の登録商標です。
 
-## Compliance
+## 準拠
 
-Use of the SPDX trademarks is subject to the SPDX Trademark License,
-currently available at
-[SPDX Legal Notices page](https://spdx.dev/about/legal-notices/).
+SPDX商標の使用は、[SPDX法的通知のページ](https://spdx.dev/about/legal-notices/)から入手可能なSPDX商標ライセンスに従うものとします。
 
-Software developed under the terms of the licenses under which this
-specification is issued may claim compliance or conformance with this
-specification if and only if the software provider complies with the
-SPDX Trademark License given above.
+本仕様書が発行されたライセンスの条件下で開発されたソフトウェアは、ソフトウェア提供者が上記のSPDX商標ライセンスに準拠する場合に限り、本仕様書への準拠または適合性を主張することができます。
