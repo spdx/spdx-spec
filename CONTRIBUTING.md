@@ -39,7 +39,7 @@ following sentence: if applied, this commit will "Subject of the commit".
 For example :
 
 ```text
-if applied, this commit will Add chapter on Security Vunerabilities in SPDX
+if applied, this commit will Add chapter on Security Vulnerabilities in SPDX
 if applied, this commit will Delete section with deprecated SPDX attributes 
 if applied, this commit will Fix grammar in Package Version field description
 ```
