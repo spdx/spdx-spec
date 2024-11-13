@@ -15,8 +15,9 @@ jobs:
       REF_PARSER: "main"                    # parser branch/tag release
       GH_PAGES_BRANCH: "gh-pages"           # branch name to publish HTML to
       VERSION_DEFAULT: "v3.0.1"             # default version (be redirected from https://spdx.github.io/spdx-spec/)
-      VERSION: "v3.0.1"                     # publishing version
-                                            # VERSION_DEFAULT and VERSION can be different;
+                                            # VERSION_DEFAULT should be the same across all branches/tags
+      VERSION: "v3.0.1"                     # publishing version, to be publish by this workflow
+                                            # VERSION can be different from VERSION_DEFAULT;
                                             # for example, if VERSION is a draft or a release candidate,
                                             # or if VERSION is a stable version that is behind the default version (e.g. 3.0.2 vs 3.1)
       VERSION_ALIASES: "latest 3.0.1 v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2 3.0 3.0.1-draft 3-draft 3.0-RC1 3.0-RC2"
@@ -204,7 +205,8 @@ jobs:
         # page (index.html) under a subdirectory with the name of 'from'
         # that will refresh the browser to a URL of 'to'.
         #
-        # For example, given
+        # For example, given:
+        #
         #     VERSION          = "v3.0.1"
         #     VERSION_ALIASES  = "latest v3.0"
         #     from             = "model/Core/Properties/imports"
