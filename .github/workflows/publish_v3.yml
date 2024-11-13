@@ -1,3 +1,14 @@
+# Publish SPDX specification to https://spdx.github.io/spdx-spec/
+#
+# Overview:
+# 1) Generate model documents and RDFs from model files in spdx-3-model repo
+# 2) Combine the model documents from (1) with the chapters in spdx-spec repo
+# 3) Generate a website using files from (2)
+# 4) Upload RDFs from (1) and a website from (3) to GitHub Pages
+# 5) Make URL redirections as needed
+#
+# See notes in https://github.com/spdx/spdx-spec/pull/1146
+
 on:
   push:
     branches:
@@ -14,7 +25,8 @@ jobs:
       REF_MODEL: "main"                     # model branch/tag release
       REF_PARSER: "main"                    # parser branch/tag release
       GH_PAGES_BRANCH: "gh-pages"           # branch name to publish HTML to
-      VERSION_DEFAULT: "v3.0.1"             # default version (be redirected from https://spdx.github.io/spdx-spec/)
+      VERSION_DEFAULT: "v3.0.1"             # default version;
+                                            # a version to be redirected from the URL without version number specified;
                                             # VERSION_DEFAULT should be the same across all branches/tags
       VERSION: "v3.0.1"                     # publishing version, to be publish by this workflow
                                             # VERSION can be different from VERSION_DEFAULT;
