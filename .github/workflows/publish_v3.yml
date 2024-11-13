@@ -7,7 +7,8 @@
 # 4) Upload RDFs from (1) and a website from (3) to GitHub Pages
 # 5) Make URL redirections as needed
 #
-# See notes in https://github.com/spdx/spdx-spec/pull/1146
+# See notes on running this workflow from "support" branch at:
+# https://github.com/spdx/spdx-spec/pull/1146
 
 on:
   push:
@@ -177,8 +178,9 @@ jobs:
           done
           mike deploy --update-aliase --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push $VERSION $VERSION_ALIASES
       - name: Set default version
-        # Set default version to VERSION_DEFAULT
-        # Should only be done from the main branch
+        # Set default version to VERSION_DEFAULT;
+        # if not set, the default version will remain the same.
+        # Should only be done from the "main" branch.
         if: github.ref == 'refs/heads/main'
         working-directory: spdx-spec
         run: |
