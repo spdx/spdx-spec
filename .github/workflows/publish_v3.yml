@@ -14,12 +14,14 @@ jobs:
       REF_MODEL: "main"                     # model branch/tag release
       REF_PARSER: "main"                    # parser branch/tag release
       GH_PAGES_BRANCH: "gh-pages"           # branch name to publish HTML to
-      VERSION: "v3.0.1"                     # publishing version
       VERSION_DEFAULT: "v3.0.1"             # default version (be redirected from https://spdx.github.io/spdx-spec/)
+      VERSION: "v3.0.1"                     # publishing version
                                             # VERSION_DEFAULT and VERSION can be different;
-                                            # for example, if VERSION_DEFAULT is a release candidate                      
+                                            # for example, if VERSION is a draft or a release candidate,
+                                            # or if VERSION is a stable version that is behind the default version (e.g. 3.0.2 vs 3.1)
       VERSION_ALIASES: "latest 3.0.1 v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2 3.0 3.0.1-draft 3-draft 3.0-RC1 3.0-RC2"
                                             # VERSION_ALIASES are versions that will be redirected to VERSION; separated by space
+                                            # Note that the "latest" should be reserved for the latest version
       GIT_USER_NAME: "ci-bot"               # for gh-pages commit
       GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
       PARSER_OUT_BASE_DIR: "__parser_out"   # temp dir for output from spec-parser
@@ -150,16 +152,20 @@ jobs:
           echo "===================="
       - name: Deploy and set aliases
         # mike is used here to manage multiple versions of MkDocs-powered documentation
-        # This step does 3 things:
+        # This step does 2 things:
         # 1) delete existing aliases (in VERSION_ALIASES), if exists
         # 2) deploy as VERSION, with aliases
-        # 3) set default version to VERSION_DEFAULT
         working-directory: spdx-spec
         run: |
           for alias in $VERSION_ALIASES; do
             mike delete --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push --allow-empty "$alias" || true
           done
           mike deploy --update-aliase --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push $VERSION $VERSION_ALIASES
+      - name: Set default version
+        # Set default version to VERSION_DEFAULT
+        # TODO: made some check to prevent branches/tags from "develop" to be set as default
+        working-directory: spdx-spec
+        run: |
           mike set-default --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push $VERSION_DEFAULT
       - name: Copy JSON annotations, JSON schema, JSON-LD context, and RDFs to alias directories
         # Fallback for backward compatibility with old URLs before v3.0.1
