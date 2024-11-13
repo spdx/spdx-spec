@@ -36,7 +36,7 @@ Based on the comments and change requests from the initial candidate release
 several areas of the model were revised and reworked, resulting in a release
 candidate 2 of SPDX 3.0 in February of 2024. That release candidate gave tool
 creators and those who maintain the support libraries for working with SPDX
-time to start revising their projects in advance of the, the final version of
+time to start revising their projects in advance of the final version of
 the SPDX 3.0 specification. For those not following the inner workings,
 debates, and discussion of the combined 3T-SBOM and SPDX 3.0 working group for
 the last 3 years there has been a dramatic change in the SPDX model as it goes
