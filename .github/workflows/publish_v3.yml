@@ -168,6 +168,8 @@ jobs:
         # This step does 2 things:
         # 1) delete existing aliases (in VERSION_ALIASES), if exists
         # 2) deploy as VERSION, with aliases
+        # If the existing aliases were redirected to other versions,
+        # it means this VERSION will "steal" the aliases from those versions.
         working-directory: spdx-spec
         run: |
           for alias in $VERSION_ALIASES; do
@@ -176,7 +178,8 @@ jobs:
           mike deploy --update-aliase --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push $VERSION $VERSION_ALIASES
       - name: Set default version
         # Set default version to VERSION_DEFAULT
-        # TODO: made some check to prevent branches/tags from "develop" to be set as default
+        # Should only be done from the main branch
+        if: github.ref == 'refs/heads/main'
         working-directory: spdx-spec
         run: |
           mike set-default --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push $VERSION_DEFAULT
