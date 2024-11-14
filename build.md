@@ -156,7 +156,7 @@ we will use MkDocs to assemble them into a website.
 
 *Note: all the commands below use the configuration file*
 *with the model file list, `mkdocs-full.yml`,*
-*generated in the [step 3.2](#32-copying-the-generated-files).*
+*generated in [step 3.3](#33-generate-a-complete-mkdocs-configuration-file).*
 *If you only want to review the non-model part of the specification*
 *(have skipped step 3), please use `mkdocs.yml` instead.*
 
@@ -183,10 +183,7 @@ These following commands should run inside the `spdx-spec/` directory.
 ## 5. Configuring the website
 
 To make additional adjustments to the website,
-you can modify its configuration.
-
-Inside `spdx-spec/` directory, there is a file `mkdocs.yml`.
-This is a configuration file for MkDocs.
+you can modify the configuration file at `spdx-spec/mkdocs.yml`.
 
 For example, you can customize website details like the site name
 and main URL (canonical URL) in this file.
@@ -194,6 +191,10 @@ and main URL (canonical URL) in this file.
 To include a page in the navigation bar, list its filename under the `nav:`
 section. The order of filenames in this section determines the order of the
 page in the navigation bar.
+
+After you have modified the configuration file, you may need to rerun
+[step 3.3](#33-generate-a-complete-mkdocs-configuration-file)
+to incorporate the changes into the complete configuration file.
 
 ## 6. Specification versions on spdx.github.io
 
