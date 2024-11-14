@@ -128,9 +128,13 @@ and will be used for MkDocs configuration later.
 Copy the processed Markdown files and ontology files to the `docs/` directory:
 
 ```shell
-cp -R parser_output/mkdocs spdx-spec/docs/model 
-cp -R parser_output/rdf spdx-spec/docs/rdf
+mkdir -p spdx-spec/docs/model
+mkdir -p spdx-spec/docs/rdf
+cp -R parser_output/mkdocs/* spdx-spec/docs/model 
+cp -R parser_output/rdf/* spdx-spec/docs/rdf
 ```
+
+### 3.3 Generate a complete MkDocs configuration file
 
 To ensure MkDocs recognizes the new Markdown files,
 insert the model file list from `parser_output/model-files.yml`
