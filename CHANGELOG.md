@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## 3.0.1 (2024-10-04)
+
+* Changes in document structure and location.
+  The following documents are now located in the
+  [spdx/using](https://github.com/spdx/using/) repository and are no longer
+  part of the specification.
+  * [Cross referencing in SPDX 3](https://github.com/spdx/using/blob/main/docs/cross-reference.md)
+  * [Differences from previous editions](https://github.com/spdx/using/blob/main/docs/diffs-from-previous-editions.md)
+  * [Getting started writing SPDX 3](https://github.com/spdx/using/blob/main/docs/getting-started.md)
+  * [Including Security Information in a SPDX document](https://github.com/spdx/using/blob/main/docs/including-security-information-in-SPDX.md)
+  * [Using SPDX license list short identifiers in source files](https://github.com/spdx/using/blob/main/docs/using-SPDX-short-identifiers-in-source-files.md)
+  * [Using SPDX to comply with Norms, Standards and Regulation](https://github.com/spdx/using/blob/main/docs/using-SPDX-to-comply-with-industry-guidance.md)
+* The following documents are added for the completeness of the specification:
+  * [Package URL specification v1](./docs/annexes/pkg-url-specification.md)
+  * [SPDX License List matching guidelines and templates](./docs/annexes/license-matching-guidelines-and-templates.md)
+* [SPDX Lite](./docs/annexes/spdx-lite.md) has been updated with more explicit
+  sections on "Mandatory" and "Recommended" properties.
+* See the fixes in the model from
+  [the model change log](https://github.com/spdx/spdx-3-model/blob/main/CHANGELOG.md).
+
+See the v3.0.1 GitHub release notes for changes
+[in the spec](https://github.com/spdx/spdx-spec/releases/tag/v3.0.1) and
+[in the model](https://github.com/spdx/spdx-3-model/releases/tag/3.0.1).
+
 ## 3.0 (2024-04-15)
 
 See the v3.0 GitHub release notes for changes
@@ -34,7 +58,7 @@ See the [v2.3 GitHub release notes](https://github.com/spdx/spdx-spec/releases/t
 * Removed support for multi-line license expressions.
 * Added `swh` as an external reference to support linking to Software Heritage persistent identifiers.
 * Added clarification on the case sensitivity of license expressions.
-* Numerous formatting, gramatical, and spelling fixes.
+* Numerous formatting, grammatical, and spelling fixes.
 
 See also the [SPDX specification 2.2 release announcement](https://www.linuxfoundation.org/blog/2020/05/spdx-2-2-specification-released/)
 
