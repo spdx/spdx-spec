@@ -62,7 +62,7 @@ This repository consists of these files and directories (partial):
 
 ## Branch structre
 
-The SPDX spec repo follows the [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) workflow with the addition of support branches.
+The SPDX spec repo follows the [Gitflow](https://gist.github.com/HeratPatel/271b5d2304de2e2cd1823b9b62bf43e0) workflow with the addition of support branches.
 
 The branches in use are:
 
