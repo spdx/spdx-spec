@@ -60,7 +60,7 @@ This repository consists of these files and directories (partial):
 - `mkdocs.yml` - MkDocs recipe for the spec documentation generation. The
   inclusion of model files and the order of chapters are defined here.
 
-## Branch structre
+## Branch structure
 
 The SPDX spec repo follows the [Gitflow](https://gist.github.com/HeratPatel/271b5d2304de2e2cd1823b9b62bf43e0) workflow with the addition of support branches.
 
