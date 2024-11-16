@@ -60,6 +60,17 @@ This repository consists of these files and directories (partial):
 - `mkdocs.yml` - MkDocs recipe for the spec documentation generation. The
   inclusion of model files and the order of chapters are defined here.
 
+## Branch structure
+
+The SPDX spec repo follows the [Gitflow](https://gist.github.com/HeratPatel/271b5d2304de2e2cd1823b9b62bf43e0) workflow with the addition of support branches.
+
+The branches in use are:
+
+- `main` - This will always be the latest released specification.
+- `develop` - This branch will be where the active development for the next major or minor version takes place.  Once released, the `develop` branch will be merged into the `main` branch.
+- `support/x.y` - These branches will be long lived and contain any updates to a minor version of the specification.  Additions such as translations can be added to the support branch.  `x.y` represents the major.minor version.  Once any changes are accepted and released, the support branch will be tagged and merged into both the develop and main branches.
+- General feature or fix branches - there may be feature branches made for specific enhancements or fixes to the spec.  These will be short lived and merged into either a support branch or the develop branch.
+
 ## Related documents and repositories
 
 | Documentation | Link |
