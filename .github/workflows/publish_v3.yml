@@ -22,30 +22,33 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      REF_SPEC: "main"                      # spec branch/tag release
-      REF_MODEL: "main"                     # model branch/tag release
-      REF_PARSER: "main"                    # parser branch/tag release
-      GH_PAGES_BRANCH: "gh-pages"           # branch name to publish HTML to
-      VERSION_DEFAULT: "v3.0.1"             # default version;
-                                            # a version to be redirected from the URL without version number specified;
-                                            # VERSION_DEFAULT should be the same across all branches/tags
-      VERSION: "v3.0.1"                     # publishing version, to be publish by this workflow
-                                            # VERSION can be different from VERSION_DEFAULT;
-                                            # for example, if VERSION is a draft or a release candidate,
-                                            # or if VERSION is a stable version that is behind the default version (e.g. 3.0.2 vs 3.1)
+      REF_SPEC: "main"                      # spdx-spec branch: "main" or "develop"
+      REF_MODEL: "main"                     # spdx-3-model branch: "main" or "develop"
+      REF_PARSER: "main"                    # spec-parser branch/tag release
+      GH_PAGES_BRANCH: "gh-pages"           # spdx-spec branch to publish HTML to
+      VERSION_DEFAULT: "v3.0.1"             # Default version:
+                                            # - A version to be redirected to from the URL without version number specified
+                                            # - Should be a latest stable version from "main" branch
+                                            # - VERSION_DEFAULT should be the same in this workflow across all branches/tags
+      VERSION: "v3.0.1"                     # Publishing version, to be publish by this workflow:
+                                            # - VERSION can be different from VERSION_DEFAULT;
+                                            #   for example, if VERSION is a draft/release candidate, or
+                                            #   if VERSION is a stable version that is behind the default version (e.g. 3.0.2 vs 3.1)
+                                            # - VERSION from "develop" branch should have "-draft" or "-RC" suffix
       VERSION_ALIASES: "latest 3.0.1 v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2 3.0 3.0.1-draft 3-draft 3.0-RC1 3.0-RC2"
-                                            # VERSION_ALIASES are versions that will be redirected to VERSION; separated by space
-                                            # Note that the "latest" should be reserved for the latest version
-      GIT_USER_NAME: "ci-bot"               # for gh-pages commit
-      GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
-      PARSER_OUT_BASE_DIR: "__parser_out"   # temp dir for output from spec-parser
-      PARSER_OUT_RDF_DIR: "rdf"             # contains RDFs and schema; relative to PARSER_OUT_BASE_DIR
-      PARSER_OUT_MKDOCS_DIR: "mkdocs"       # contains model Markdown files; relative to PARSER_OUT_BASE_DIR
-      MKDOCS_MODEL_YML: "model-files.yml"   # contains list of model Markdown files
-      MKDOCS_BASE_YML: "mkdocs.yml"         # initial MkDocs configuration
-      MKDOCS_FULL_YML: "__mkdocs-full.yml"  # MkDocs configuration combined with model list
-      REDIRECT_MAP_PATH: "etc/redirect-map.csv"             # redirect map
-      REDIRECT_TEMPLATE_PATH: "etc/redirect-template.html"  # redirect HTML template
+                                            # VERSION_ALIASES are names that will be redirected to VERSION
+                                            # - Can be empty, can be multiple; separated by space
+                                            # - "latest" should be reserved for the latest version
+      GIT_USER_NAME: "ci-bot"               # Username for gh-pages commit
+      GIT_USER_EMAIL: "ci-bot@spdx.dev"     # E-mail for gh-pages commit
+      PARSER_OUT_BASE_DIR: "__parser_out"   # Temporary dir for output from spec-parser
+      PARSER_OUT_RDF_DIR: "rdf"             # Contains RDFs and schema; relative to PARSER_OUT_BASE_DIR
+      PARSER_OUT_MKDOCS_DIR: "mkdocs"       # Contains model Markdown files; relative to PARSER_OUT_BASE_DIR
+      MKDOCS_MODEL_YML: "model-files.yml"   # Contains list of model Markdown files; relative to PARSER_OUT_BASE_DIR
+      MKDOCS_BASE_YML: "mkdocs.yml"         # Initial MkDocs configuration; from spdx-spec repo
+      MKDOCS_FULL_YML: "__mkdocs-full.yml"  # MkDocs configuration combined with model list; to be generated
+      REDIRECT_MAP_PATH: "etc/redirect-map.csv"             # URL redirect map
+      REDIRECT_TEMPLATE_PATH: "etc/redirect-template.html"  # URL redirect HTML template
     steps:
       - name: Checkout spdx-spec
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  #v4.2.2
