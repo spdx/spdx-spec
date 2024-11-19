@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## 3.0.1 (2024-10-04)
+## 3.0.1 (2024-11-13)
 
 * Changes in document structure and location.
   The following documents are now located in the
@@ -19,11 +19,11 @@ All notable changes to this project will be documented in this file.
   * [SPDX License List matching guidelines and templates](./docs/annexes/license-matching-guidelines-and-templates.md)
 * [SPDX Lite](./docs/annexes/spdx-lite.md) has been updated with more explicit
   sections on "Mandatory" and "Recommended" properties.
-* See the fixes in the model from
+* See changes in the model from
   [the model change log](https://github.com/spdx/spdx-3-model/blob/main/CHANGELOG.md).
 
-See the v3.0.1 GitHub release notes for changes
-[in the spec](https://github.com/spdx/spdx-spec/releases/tag/v3.0.1) and
+See the 3.0.1 GitHub release notes for changes
+[in the spec](https://github.com/spdx/spdx-spec/releases/tag/3.0.1) and
 [in the model](https://github.com/spdx/spdx-3-model/releases/tag/3.0.1).
 
 ## 3.0 (2024-04-15)
