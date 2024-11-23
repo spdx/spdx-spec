@@ -20,9 +20,10 @@
 # 5) Make URL redirections as needed
 #
 # See notes at:
+# https://github.com/spdx/spdx-spec/issues/1155
 # https://github.com/spdx/spdx-spec/pull/1146
 # See branch structure at:
-# ./README.md#branch-structure
+# https://github.com/spdx/spdx-spec/blob/develop/README.md#branch-structure
 
 on:
   push:
@@ -225,8 +226,8 @@ jobs:
         # This step creates copies of annotations/schema/RDFs to all alias
         # directories, so they can be accessible from all old URLs.
         # For example,
-        # - https://spdx.github.io/spdx-spec/v3.0/model/schema.json
-        # - https://spdx.github.io/spdx-spec/v3.0.1/rdf/schema.json
+        # - https://spdx.github.io/spdx-spec/v3.0/model/schema.json (old directory structure)
+        # - https://spdx.github.io/spdx-spec/v3.0.1/rdf/schema.json (new directory structure)
         # will all accessible and have the same content.
         # Unlike HTML files, these files have to be a copy,
         # since it cannot use the HTML refresh mechanism.
@@ -249,11 +250,11 @@ jobs:
         # https://github.com/spdx/spdx-3-model/blob/main/CHANGELOG.md
         #
         # This step creates a HTML files to facilitate additional directions.
-        # It reads a redirect map from etc/redirect-map.csv; in the CSV,
+        # It reads a redirect map from /etc/redirect-map.csv; in the CSV,
         # first value is 'from' (source) and second value is 'to' (target).
         #
         # The 'from' and 'to' values will be inserted into a HTML template at
-        # from etc/redirect-template.html, to create a redirect HTML
+        # from /etc/redirect-template.html, to create a redirect HTML
         # page (index.html) under a subdirectory with the name of 'from'
         # that will refresh the browser to a URL of 'to'.
         #
