@@ -121,7 +121,7 @@ Additionally:
 - Mandatory
     1. created
     1. createdBy (may be multiple), SHOULD be objects of type /Core/Agent
-    1. specVersion, MUST be a fixed string, “3.0.*” - where * is any supported dot version of the SPDX specification.
+    1. specVersion, MUST be a fixed string, “3.0.*” - where * is any supported dot version of the SPDX specification
 - Recommended
     1. comment
 
