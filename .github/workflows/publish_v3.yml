@@ -42,12 +42,14 @@ jobs:
       REF_PARSER: "main"                    # spdx-3-model branch: "main" or "develop" or "support/x.y"
                                             # (now we have only "main" for spdx-3-model and spec-parser)
       GH_PAGES_BRANCH: "gh-pages"           # spdx-spec branch to publish HTML to
-      VERSION_DEFAULT: "v3.0.1-dev"         # Default version:
+      VERSION_DEFAULT: "v3.0"               # Default version:
                                             # - A version to be redirected to from the URL without
                                             #   a version number specified
                                             # - Should be a latest stable version from "main" branch
                                             # - VERSION_DEFAULT should be the same in this workflow
                                             #   across all branches/tags
+                                            # - VERSION_DEFAULT should also match with the
+                                            #   mike's canonical_version in mkdocs.yml
       VERSION: "v3.0.1-dev"                 # Publishing version, to be publish by this workflow:
                                             # - VERSION can be different from VERSION_DEFAULT;
                                             #   For example, if VERSION is a draft/release candidate,
@@ -56,6 +58,9 @@ jobs:
                                             # - VERSION from "develop" branch should be indicated with
                                             #   a suffix ("-dev", "-draft", etc.).
                                             #   The content of this version will constantly change.
+                                            # - VERSION should also match with the version in the copyright
+                                            #   text defined in mkdocs.yml
+                                            #   e.g. "SPDX v3.x.x Copyright (c) 2010-2024, ..."
                                             # - A release candidate (with suffix "-RC") may be published
                                             #   from a very short-lived "support" branch.
                                             #   The content of this version should be kept unchanged,
