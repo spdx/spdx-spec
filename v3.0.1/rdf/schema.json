@@ -31,44 +31,6 @@
     "unevaluatedProperties": false,
 
     "$defs": {
-        "http_spdxinvalidAbstractClass": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "http://spdx.invalid./AbstractClass" }
-                            ]
-                        }
-                    }
-                },
-                { "$ref": "#/$defs/http_spdxinvalidAbstractClass_props" }
-            ]
-        },
-        "http_spdxinvalidAbstractClass_derived": {
-            "anyOf": [
-                {
-                    "type": "object",
-                    "unevaluatedProperties": false,
-                    "anyOf": [
-                        { "$ref": "#/$defs/http_spdxinvalidAbstractClass" }
-                    ]
-                },
-                { "$ref": "#/$defs/BlankNodeOrIRI" }
-            ]
-        },
-        "http_spdxinvalidAbstractClass_props": {
-            "allOf": [
-                { "$ref": "#/$defs/SHACLClass" },
-                {
-                    "type": "object",
-                    "properties": {
-                    }
-                }
-            ]
-        },
         "ai_EnergyConsumption": {
             "allOf": [
                 {
@@ -4983,16 +4945,12 @@
                             "$ref": "#/$defs/prop_security_VexAffectedVulnAssessmentRelationship_security_actionStatement"
                         },
                         "security_actionStatementTime": {
-                            "oneOf": [
-                                {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/$defs/prop_security_VexAffectedVulnAssessmentRelationship_security_actionStatementTime"
-                                    }
-                                }
-                            ]
+                            "$ref": "#/$defs/prop_security_VexAffectedVulnAssessmentRelationship_security_actionStatementTime"
                         }
-                    }
+                    },
+                    "required": [
+                        "security_actionStatement"
+                    ]
                 }
             ]
         },
@@ -5814,7 +5772,6 @@
                         { "$ref": "#/$defs/IRI" },
                         {
                             "enum": [
-                                "http://spdx.invalid./AbstractClass",
                                 "ai_EnergyConsumption",
                                 "ai_EnergyConsumptionDescription",
                                 "ai_EnergyUnitType",
@@ -5901,7 +5858,6 @@
         },
         "AnyClass": {
             "anyOf": [
-                { "$ref": "#/$defs/http_spdxinvalidAbstractClass" },
                 { "$ref": "#/$defs/ai_EnergyConsumption" },
                 { "$ref": "#/$defs/ai_EnergyConsumptionDescription" },
                 { "$ref": "#/$defs/ai_EnergyUnitType" },

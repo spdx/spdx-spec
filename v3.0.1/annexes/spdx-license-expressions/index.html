@@ -839,7 +839,7 @@
 <p>The exact syntax of license expressions is described below in ABNF, as defined
 in <a href="https://datatracker.ietf.org/doc/rfc5234/">RFC 5234</a> and expanded
 in <a href="https://datatracker.ietf.org/doc/rfc7405/">RFC 7405</a>.</p>
-<div class="codehilite"><pre><span></span><code>idstring = 1*(ALPHA / DIGIT / &quot;-&quot; / &quot;.&quot; )
+<pre class="codehilite"><code class="language-text">idstring = 1*(ALPHA / DIGIT / &quot;-&quot; / &quot;.&quot; )
 
 license-id = &lt;short form license identifier from SPDX License List&gt;
 
@@ -864,7 +864,7 @@ compound-expression = (simple-expression /
   &quot;(&quot; compound-expression &quot;)&quot; )
 
 license-expression = (simple-expression / compound-expression)
-</code></pre></div>
+</code></pre>
 
 <p>In the following sections we describe in more detail <code>&lt;license-expression&gt;</code> construct, a licensing expression string that enables a more accurate representation of the licensing terms of modern-day software.</p>
 <p>A valid <code>&lt;license-expression&gt;</code> string consists of either:</p>
@@ -886,12 +886,12 @@ license-expression = (simple-expression / compound-expression)
 <li>An SPDX user defined license reference: ["DocumentRef-"1*(idstring)":"]"LicenseRef-"1*(idstring)</li>
 </ul>
 <p>Some examples:</p>
-<div class="codehilite"><pre><span></span><code>LicenseRef-23
+<pre class="codehilite"><code class="language-text">LicenseRef-23
 
 LicenseRef-MIT-Style-1
 
 DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
-</code></pre></div>
+</code></pre>
 
 <p>The current set of valid license identifiers can be found in <a href="https://spdx.org/licenses">spdx.org/licenses</a>.</p>
 <h2 id="composite-license-expressions">Composite license expressions</h2>
@@ -904,31 +904,31 @@ discussed in more detail in
 <h3 id="disjunctive-or-operator">Disjunctive "OR" operator</h3>
 <p>If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new license expression, where both the left and right operands are valid license expression values.</p>
 <p>For example, when given a choice between the LGPL-2.1-only or MIT licenses, a valid expression would be:</p>
-<div class="codehilite"><pre><span></span><code>LGPL-2.1-only OR MIT
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">LGPL-2.1-only OR MIT
+</code></pre>
 
 <p>The "OR" operator is commutative, meaning that the above expression should be considered equivalent to:</p>
-<div class="codehilite"><pre><span></span><code>MIT OR LGPL-2.1-only
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">MIT OR LGPL-2.1-only
+</code></pre>
 
 <p>An example representing a choice between three different licenses would be:</p>
-<div class="codehilite"><pre><span></span><code>LGPL-2.1-only OR MIT OR BSD-3-Clause
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">LGPL-2.1-only OR MIT OR BSD-3-Clause
+</code></pre>
 
 <p>It is allowed to use the operator in lower case form <code>or</code>.</p>
 <h3 id="conjunctive-and-operator">Conjunctive "AND" operator</h3>
 <p>If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are a valid license expression values.</p>
 <p>For example, when one is required to comply with both the LGPL-2.1-only or MIT licenses, a valid expression would be:</p>
-<div class="codehilite"><pre><span></span><code>LGPL-2.1-only AND MIT
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">LGPL-2.1-only AND MIT
+</code></pre>
 
 <p>The "AND" operator is commutative, meaning that the above expression should be considered equivalent to:</p>
-<div class="codehilite"><pre><span></span><code>MIT AND LGPL-2.1-only
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">MIT AND LGPL-2.1-only
+</code></pre>
 
 <p>An example where all three different licenses apply would be:</p>
-<div class="codehilite"><pre><span></span><code>LGPL-2.1-only AND MIT AND BSD-2-Clause
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">LGPL-2.1-only AND MIT AND BSD-2-Clause
+</code></pre>
 
 <p>It is allowed to use the operator in lower case form <code>and</code>.</p>
 <h3 id="additive-with-operator">Additive "WITH" operator</h3>
@@ -936,34 +936,34 @@ discussed in more detail in
 <p>In this case, use the binary "WITH" operator to construct a new license expression to represent the special situation. A valid <code>&lt;license-expression&gt;</code> is where the left operand is a <code>&lt;simple-expression&gt;</code> value and the right operand is a <code>&lt;addition-expression&gt;</code> that represents the additional text.</p>
 <p>The <code>&lt;addition-expression&gt;</code> can be either a <code>&lt;license-exception-id&gt;</code> from the SPDX License List, or a user defined addition reference in the form ["DocumentRef-"(idstring)":"]"AdditionRef-"(idstring)</p>
 <p>For example, when the Bison exception is to be applied to GPL-2.0-or-later, the expression would be:</p>
-<div class="codehilite"><pre><span></span><code>GPL-2.0-or-later WITH Bison-exception-2.2
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">GPL-2.0-or-later WITH Bison-exception-2.2
+</code></pre>
 
 <p>The current set of valid license exceptions identifiers can be found in <a href="https://spdx.org/licenses">spdx.org/licenses</a>.</p>
 <p>It is allowed to use the operator in lower case form <code>with</code>.</p>
 <h3 id="order-of-precedence-and-parentheses">Order of precedence and parentheses</h3>
 <p>The order of application of the operators in an expression matters (similar to mathematical operators). The default operator order of precedence of a <code>&lt;license-expression&gt;</code> a is:</p>
-<div class="codehilite"><pre><span></span><code>+
+<pre class="codehilite"><code class="language-text">+
 WITH
 AND
 OR
-</code></pre></div>
+</code></pre>
 
 <p>where a lower order operator is applied before a higher order operator.</p>
 <p>For example, the following expression:</p>
-<div class="codehilite"><pre><span></span><code>LGPL-2.1-only OR BSD-3-Clause AND MIT
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">LGPL-2.1-only OR BSD-3-Clause AND MIT
+</code></pre>
 
 <p>represents a license choice between either LGPL-2.1-only and the expression BSD-3-Clause AND MIT because the AND operator takes precedence over (is applied before) the OR operator.</p>
 <p>When required to express an order of precedence that is different from the default order a <code>&lt;license-expression&gt;</code> can be encapsulated in pairs of parentheses: ( ), to indicate that the operators found inside the parentheses takes precedence over operators outside. This is also similar to the use of parentheses in an algebraic expression e.g., (5+7)/2.</p>
 <p>For instance, the following expression:</p>
-<div class="codehilite"><pre><span></span><code>MIT AND (LGPL-2.1-or-later OR BSD-3-Clause)
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">MIT AND (LGPL-2.1-or-later OR BSD-3-Clause)
+</code></pre>
 
 <p>states the OR operator should be applied before the AND operator. That is, one should first select between the LGPL-2.1-or-later or the BSD-3-Clause license before applying the MIT license.</p>
 <h3 id="license-expressions-in-rdf">License expressions in RDF</h3>
 <p>A conjunctive license can be expressed in RDF via a <code>&lt;spdx:ConjunctiveLicenseSet&gt;</code> element, with an spdx:member property for each element in the conjunctive license. Two or more members are required.</p>
-<div class="codehilite"><pre><span></span><code>&lt;spdx:ConjunctiveLicenseSet&gt;
+<pre class="codehilite"><code class="language-text">&lt;spdx:ConjunctiveLicenseSet&gt;
     &lt;spdx:member rdf:resource=&quot;http://spdx.org/licenses/GPL-2.0-only&quot;/&gt;
     &lt;spdx:ExtractedLicensingInfo rdf:about
       =&quot;http://example.org#LicenseRef-EternalSurrender&quot;&gt;
@@ -977,10 +977,10 @@ OR
         &lt;spdx:licenseId&gt;LicenseRef-EternalSurrender&lt;/spdx:licenseId&gt;
     &lt;/spdx:ExtractedLicensingInfo&gt;
 &lt;/spdx:ConjunctiveLicenseSet&gt;
-</code></pre></div>
+</code></pre>
 
 <p>A disjunctive license can be expressed in RDF via a <code>&lt;spdx:DisjunctiveLicenseSet&gt;</code> element, with an spdx:member property for each element in the disjunctive license. Two or more members are required.</p>
-<div class="codehilite"><pre><span></span><code>&lt;spdx:DisjunctiveLicenseSet&gt;
+<pre class="codehilite"><code class="language-text">&lt;spdx:DisjunctiveLicenseSet&gt;
     &lt;spdx:member rdf:resource=&quot;http://spdx.org/licenses/GPL-2.0-only&quot;/&gt;
     &lt;spdx:member&gt;
         &lt;spdx:ExtractedLicensingInfo rdf:about
@@ -997,7 +997,7 @@ OR
         &lt;/spdx:ExtractedLicensingInfo&gt;
     &lt;/spdx:member&gt;
 &lt;/spdx:DisjunctiveLicenseSet&gt;
-</code></pre></div>
+</code></pre>
 
 <p>A License Exception can be expressed in RDF via a <code>&lt;spdx:LicenseException&gt;</code> element. This element has the following unique mandatory (unless specified otherwise) attributes:</p>
 <ul>
@@ -1008,7 +1008,7 @@ OR
 <li><code>licenseExceptionId</code> -  The identifier of an exception in the SPDX License List to which the exception applies.</li>
 <li><code>licenseExceptionText</code> - Full text of the license exception.</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>&lt;rdf:Description rdf:about
+<pre class="codehilite"><code class="language-text">&lt;rdf:Description rdf:about
   =&quot;http://example.org#SPDXRef-ButIdDontWantToException&quot;&gt;
     &lt;rdfs:comment&gt;This exception may be invalid in some
       jurisdictions.&lt;/rdfs:comment&gt;
@@ -1025,7 +1025,7 @@ OR
     &lt;rdf:type rdf:resource
       =&quot;http://spdx.org/rdf/terms#LicenseException&quot;/&gt;
 &lt;/rdf:Description&gt;
-</code></pre></div>
+</code></pre>
               
             </div>
           </div><footer>
