@@ -111,7 +111,9 @@ jobs:
           done
 
           expanded_aliases=$(echo $expanded_aliases | sed 's/^ *//g')
-          echo "VERSION_ALIASES=\"$expanded_aliases\"" >> $GITHUB_ENV
+          echo "VERSION_ALIASES=$expanded_aliases" >> $GITHUB_ENV
+      - name: Check expanded version aliases
+        run: |
           echo Expanded VERSION_ALIASES: $VERSION_ALIASES
       - name: Checkout spdx-spec
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  #v4.2.2
