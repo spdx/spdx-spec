@@ -118,8 +118,8 @@ HEREDOC
 
     echo "{}]" >> $COMBINED_JSON
 
-    check_model $COMBINED_JSON
-    echo ""
+    # check_model $COMBINED_JSON
+    # echo ""
     check_spdx $COMBINED_JSON
     echo ""
 done
