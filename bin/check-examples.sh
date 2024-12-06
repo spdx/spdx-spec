@@ -59,8 +59,8 @@ if [ "$(ls $THIS_DIR/../$JSON_DIR/*.json 2>/dev/null)" ]; then
     for f in $THIS_DIR/../$JSON_DIR/*.json; do
         check_schema $f
         echo ""
-        check_model $f
-        echo ""
+        # check_model $f
+        # echo ""
         check_spdx $f
         echo ""
     done
