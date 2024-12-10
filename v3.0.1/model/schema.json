@@ -459,6 +459,7 @@
                         { "$ref": "#/$defs/Annotation" },
                         { "$ref": "#/$defs/Bom" },
                         { "$ref": "#/$defs/Bundle" },
+                        { "$ref": "#/$defs/IndividualElement" },
                         { "$ref": "#/$defs/LifecycleScopedRelationship" },
                         { "$ref": "#/$defs/Organization" },
                         { "$ref": "#/$defs/Person" },
@@ -495,11 +496,11 @@
                         { "$ref": "#/$defs/software_Snippet" }
                     ]
                 },
+                { "const": "NoAssertionElement" },
+                { "const": "NoneElement" },
                 { "const": "SpdxOrganization" },
                 { "const": "expandedlicensing_NoAssertionLicense" },
                 { "const": "expandedlicensing_NoneLicense" },
-                { "const": "NoAssertionElement" },
-                { "const": "NoneElement" },
                 { "$ref": "#/$defs/BlankNodeOrIRI" }
             ]
         },
@@ -1139,6 +1140,47 @@
         "HashAlgorithm_props": {
             "allOf": [
                 { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                    }
+                }
+            ]
+        },
+        "IndividualElement": {
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "spdxId": { "$ref": "#/$defs/IRI" },
+                        "type": {
+                            "oneOf": [
+                                { "const": "IndividualElement" }
+                            ]
+                        }
+                    },
+                    "required": ["spdxId"]
+                },
+                { "$ref": "#/$defs/IndividualElement_props" }
+            ]
+        },
+        "IndividualElement_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/IndividualElement" }
+                    ]
+                },
+                { "const": "NoAssertionElement" },
+                { "const": "NoneElement" },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "IndividualElement_props": {
+            "allOf": [
+                { "$ref": "#/$defs/Element_props" },
                 {
                     "type": "object",
                     "properties": {
@@ -5785,6 +5827,7 @@
                                 "ExternalRef",
                                 "ExternalRefType",
                                 "HashAlgorithm",
+                                "IndividualElement",
                                 "LifecycleScopeType",
                                 "NamespaceMap",
                                 "PackageVerificationCode",
@@ -5871,6 +5914,7 @@
                 { "$ref": "#/$defs/ExternalRef" },
                 { "$ref": "#/$defs/ExternalRefType" },
                 { "$ref": "#/$defs/HashAlgorithm" },
+                { "$ref": "#/$defs/IndividualElement" },
                 { "$ref": "#/$defs/LifecycleScopeType" },
                 { "$ref": "#/$defs/NamespaceMap" },
                 { "$ref": "#/$defs/PackageVerificationCode" },
