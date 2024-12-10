@@ -8,9 +8,13 @@ and is published in online at
 
 ## Diagrams
 
-### Core and Software Profiles
+### Core Profile
 
-[![Core and Software Profiles diagram][fig_core_software]][fig_core_software]
+[![Core Profile diagram][fig_core]][fig_core]
+
+### Software Profile
+
+[![Software Profile diagram][fig_software]][fig_software]
 
 ### Security Profile
 
@@ -36,10 +40,11 @@ and is published in online at
 
 [![Extension Profile diagram][fig_extension]][fig_extension]
 
-[fig_ai]: ../images/model-ai.png "SPDX 3.0.1 AI Profile diagram"
-[fig_build]: ../images/model-build.png "SPDX 3.0.1 Build Profile diagram"
-[fig_core_software]: ../images/model-core-software.png "SPDX 3.0.1 Core and Software Profiles diagram"
-[fig_dataset]: ../images/model-dataset.png "SPDX 3.0.1 Dataset Profile diagram"
-[fig_extension]: ../images/model-extension.png "SPDX 3.0.1 Extension Profile diagram"
-[fig_licensing]: ../images/model-licensing.png "SPDX 3.0.1 Licensing Profile diagram"
-[fig_security]: ../images/model-security.png "SPDX 3.0.1 Security Profile diagram"
+[fig_ai]: ../images/model-AI.png "SPDX 3.0.1 AI Profile diagram"
+[fig_build]: ../images/model-Build.png "SPDX 3.0.1 Build Profile diagram"
+[fig_core]: ../images/model-Core.png "SPDX 3.0.1 Core Profile diagram"
+[fig_dataset]: ../images/model-Dataset.png "SPDX 3.0.1 Dataset Profile diagram"
+[fig_extension]: ../images/model-Extension.png "SPDX 3.0.1 Extension Profile diagram"
+[fig_licensing]: ../images/model-Licensing.png "SPDX 3.0.1 Licensing Profile diagram"
+[fig_security]: ../images/model-Security.png "SPDX 3.0.1 Security Profile diagram"
+[fig_software]: ../images/model-Software.png "SPDX 3.0.1 Software Profile diagram"
