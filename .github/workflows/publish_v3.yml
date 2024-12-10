@@ -1,33 +1,120 @@
+# Publish SPDX specification to https://spdx.github.io/spdx-spec/
+#
+# There will be this workflow in "main", "develop", and "support" branches.
+# Each of them publish to a different URL.
+#
+# For example,
+# the workflow in "main" may publish to https://spdx.github.io/spdx-spec/3.0.1/,
+# the workflow in "develop" may publish to https://spdx.github.io/spdx-spec/3.1-dev/,
+# the workflow in "support/3.0" may publish to https://spdx.github.io/spdx-spec/3.0.0/.
+#
+# The workflow should be configured to have an URL without a version number
+# specified be redirected to an URL published from "main" branch.
+#
+# ## Workflow overview
+#
+# 1) Generate model documents and RDFs from model files in spdx-3-model repo
+# 2) Combine the model documents from (1) with the chapters in spdx-spec repo
+# 3) Generate a website using files from (2)
+# 4) Upload RDFs from (1) and a website from (3) to GitHub Pages
+# 5) Make URL redirections as needed
+#
+# See notes at:
+# https://github.com/spdx/spdx-spec/issues/1155
+# https://github.com/spdx/spdx-spec/pull/1146
+# See branch structure at:
+# https://github.com/spdx/spdx-spec/blob/develop/README.md#branch-structure
+
 on:
-  # push:
-  #   branches:
-  #     - development/v3.0.1
-  # repository_dispatch:
-  #   types:
-  #     - publish_v3_spec
+  push:
+    branches:
+      - develop          # This should match with REF_SPEC,
+                         # to automatically publish from a correct branch
+  repository_dispatch:
+    types:
+      - publish_v3_spec
   workflow_dispatch: {}  # Manually trigger from https://github.com/spdx/spdx-spec/actions
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      REF_SPEC: "development/v3.0.1"        # spec branch/tag release
-      REF_MODEL: "main"                     # model branch/tag release
-      REF_PARSER: "main"                    # parser branch/tag release
-      GH_PAGES_BRANCH: "gh-pages"           # branch name to publish HTML to
-      VERSION: "v3.0.1"                     # publishing version
-      VERSION_DEFAULT: "v3.0.1"             # default version (be redirected from https://spdx.github.io/spdx-spec/)
-      VERSION_ALIASES: "latest v3.0 v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2"  # aliases for VERSION
-      GIT_USER_NAME: "ci-bot"               # for gh-pages commit
-      GIT_USER_EMAIL: "ci-bot@spdx.dev"     # for gh-pages commit
-      PARSER_OUT_BASE_DIR: "__parser_out"   # temp dir for output from spec-parser
-      PARSER_OUT_RDF_DIR: "rdf"             # contains RDFs and schema; relative to PARSER_OUT_BASE_DIR
-      PARSER_OUT_MKDOCS_DIR: "mkdocs"       # contains model Markdown files; relative to PARSER_OUT_BASE_DIR
-      MKDOCS_MODEL_YML: "model-files.yml"   # contains list of model Markdown files
-      MKDOCS_BASE_YML: "mkdocs.yml"         # initial MkDocs configuration
-      MKDOCS_FULL_YML: "__mkdocs-full.yml"  # MkDocs configuration combined with model list
-      REDIRECT_MAP_PATH: "etc/redirect-map.csv"             # redirect map
-      REDIRECT_TEMPLATE_PATH: "etc/redirect-template.html"  # redirect HTML template
+      REF_SPEC: "develop"                   # spdx-spec branch: "main" or "develop" or "support/x.y"
+      REF_MODEL: "main"                     # spdx-3-model branch: "main" or "develop" or "support/x.y"
+      REF_PARSER: "main"                    # spdx-3-model branch: "main" or "develop" or "support/x.y"
+                                            # (now we have only "main" for spdx-3-model and spec-parser)
+      GH_PAGES_BRANCH: "gh-pages"           # spdx-spec branch to publish HTML to
+      VERSION_DEFAULT: "v3.0.1"             # Default version:
+                                            # - A version to be redirected to from the URL without
+                                            #   a version number specified
+                                            # - Should be a latest stable version from "main" branch
+                                            # - VERSION_DEFAULT should be the same in this workflow
+                                            #   across all branches/tags
+                                            # - VERSION_DEFAULT should also match with the
+                                            #   mike's canonical_version in mkdocs.yml
+      VERSION: "v3.0.1"                     # Publishing version, to be publish by this workflow:
+                                            # - VERSION can be different from VERSION_DEFAULT;
+                                            #   For example, if VERSION is a draft/release candidate,
+                                            #   or if VERSION is a stable version that is behind the
+                                            #   default version (e.g. v3.0.2 vs v3.1)
+                                            # - VERSION from "develop" branch should be indicated with
+                                            #   a suffix ("-dev", "-draft", etc.).
+                                            #   The content of this version will constantly change.
+                                            # - VERSION should match with the version in the copyright
+                                            #   text defined in mkdocs.yml
+                                            #   e.g. "SPDX v3.x.x Copyright (c) 2010-2024, ..."
+                                            # - A release candidate (with suffix "-RC") may be published
+                                            #   from a very short-lived "support" branch.
+                                            #   The content of this version should be kept unchanged,
+                                            #   so it can be properly referenced during the review period,
+                                            #   but the URL of the RC version may subjected to be
+                                            #   redirected to the release version later.
+                                            #   For example, v3.0-RC1 was redirected to v3.0 and
+                                            #   will be redirected to v3.0.1 later.
+      VERSION_ALIASES: "latest v3.0 v3.0.1-dev v3.0.1-draft v3-draft v3.0-RC1 v3.0-RC2"
+                                            # VERSION_ALIASES are names that will be redirected to VERSION
+                                            # - Can be empty, can be multiple; separated by space
+                                            # - "latest" should be reserved for the latest version
+                                            # - Versions like "v3.0" will be expanded to "v3.0 3.0"
+      GIT_USER_NAME: "ci-bot"               # Username for gh-pages commit
+      GIT_USER_EMAIL: "ci-bot@spdx.dev"     # E-mail for gh-pages commit
+      PARSER_OUT_BASE_DIR: "__parser_out"   # Temporary dir for output from spec-parser
+      PARSER_OUT_RDF_DIR: "rdf"             # Contains RDFs and schema; relative to PARSER_OUT_BASE_DIR
+      PARSER_OUT_MKDOCS_DIR: "mkdocs"       # Contains model Markdown files:
+                                            # - relative to PARSER_OUT_BASE_DIR
+      MKDOCS_MODEL_YML: "model-files.yml"   # Contains list of model Markdown files:
+                                            # - relative to PARSER_OUT_BASE_DIR
+      MKDOCS_BASE_YML: "mkdocs.yml"         # Initial MkDocs configuration; from spdx-spec repo
+      MKDOCS_FULL_YML: "__mkdocs-full.yml"  # MkDocs configuration combined with model list:
+                                            # - to be generated from MKDOCS_BASE_YML and MKDOCS_MODEL_YML
+      REDIRECT_MAP_PATH: "etc/redirect-map.csv"             # URL redirect map
+      REDIRECT_TEMPLATE_PATH: "etc/redirect-template.html"  # URL redirect HTML template
     steps:
+      - name: Expand version aliases to include a version without 'v' prefix
+        # VERSION: "v3.0.1"
+        # Original VERSION_ALIASES: "latest v3.0"
+        # Expanded VERSION_ALIASES: "3.0.1 latest v3.0 3.0"
+        run: |
+          echo VERSION: $VERSION
+          echo Original VERSION_ALIASES: $VERSION_ALIASES
+          original_aliases="$VERSION_ALIASES"
+          expanded_aliases=""
+
+          if [[ $VERSION =~ ^v[0-9] ]]; then
+              expanded_aliases="$expanded_aliases ${VERSION#v}"
+          fi
+
+          for version in $original_aliases; do
+            expanded_aliases="$expanded_aliases $version"
+            if [[ $version =~ ^v[0-9] ]]; then
+              expanded_aliases="$expanded_aliases ${version#v}"
+            fi
+          done
+
+          expanded_aliases=$(echo $expanded_aliases | sed 's/^ *//g')
+          echo "VERSION_ALIASES=$expanded_aliases" >> $GITHUB_ENV
+      - name: Check expanded version aliases
+        run: |
+          echo Expanded VERSION_ALIASES: $VERSION_ALIASES
       - name: Checkout spdx-spec
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  #v4.2.2
         with:
@@ -147,24 +234,32 @@ jobs:
           echo "===================="
       - name: Deploy and set aliases
         # mike is used here to manage multiple versions of MkDocs-powered documentation
-        # This step does 3 things:
+        # This step does 2 things:
         # 1) delete existing aliases (in VERSION_ALIASES), if exists
         # 2) deploy as VERSION, with aliases
-        # 3) set default version to VERSION_DEFAULT
+        # If the existing aliases were redirected to other versions,
+        # it means this VERSION will "steal" the aliases from those versions.
         working-directory: spdx-spec
         run: |
           for alias in $VERSION_ALIASES; do
             mike delete --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push --allow-empty "$alias" || true
           done
           mike deploy --update-aliase --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push $VERSION $VERSION_ALIASES
+      - name: Set default version
+        # Set default version to VERSION_DEFAULT;
+        # if not set, the default version will remain the same.
+        # Should only be done from the "main" branch.
+        if: github.ref == 'refs/heads/main'
+        working-directory: spdx-spec
+        run: |
           mike set-default --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push $VERSION_DEFAULT
       - name: Copy JSON annotations, JSON schema, JSON-LD context, and RDFs to alias directories
         # Fallback for backward compatibility with old URLs before v3.0.1
         # This step creates copies of annotations/schema/RDFs to all alias
         # directories, so they can be accessible from all old URLs.
         # For example,
-        # - https://spdx.github.io/spdx-spec/v3.0/model/schema.json
-        # - https://spdx.github.io/spdx-spec/v3.0.1/rdf/schema.json
+        # - https://spdx.github.io/spdx-spec/v3.0/model/schema.json (old directory structure)
+        # - https://spdx.github.io/spdx-spec/v3.0.1/rdf/schema.json (new directory structure)
         # will all accessible and have the same content.
         # Unlike HTML files, these files have to be a copy,
         # since it cannot use the HTML refresh mechanism.
@@ -187,15 +282,16 @@ jobs:
         # https://github.com/spdx/spdx-3-model/blob/main/CHANGELOG.md
         #
         # This step creates a HTML files to facilitate additional directions.
-        # It reads a redirect map from etc/redirect-map.csv; in the CSV,
+        # It reads a redirect map from /etc/redirect-map.csv; in the CSV,
         # first value is 'from' (source) and second value is 'to' (target).
         #
         # The 'from' and 'to' values will be inserted into a HTML template at
-        # from etc/redirect-template.html, to create a redirect HTML
+        # from /etc/redirect-template.html, to create a redirect HTML
         # page (index.html) under a subdirectory with the name of 'from'
         # that will refresh the browser to a URL of 'to'.
         #
-        # For example, given
+        # For example, given:
+        #
         #     VERSION          = "v3.0.1"
         #     VERSION_ALIASES  = "latest v3.0"
         #     from             = "model/Core/Properties/imports"
