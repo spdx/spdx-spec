@@ -64,8 +64,8 @@ This repository consists of these files and directories (partial):
     `spdx/spdx-3-model` repo (see the [build instructions](./build.md)).
 - `examples/` - Examples of various SPDX serializations for the current version
   of the spec.
-- `rdf/` - Model RDF files. These ontology files are to be generated from model
-   Markdown files in the `spdx/spdx-3-model` repo and manually copied here.
+- `rdf/` - Model RDF files. These ontology files are generated from model
+  Markdown files in the `spdx/spdx-3-model` repo and manually copied here.
 - `mkdocs.yml` - MkDocs recipe for the spec documentation generation. The
   inclusion of model files and the order of chapters are defined here.
 
@@ -97,7 +97,6 @@ The branches in use are:
 
 | Documentation | Link |
 |---------|------|
-| Past release notes | [spdx/spdx-spec/releases](https://github.com/spdx/spdx-spec/releases) |
 | Changes between versions | [CHANGELOG.md](./CHANGELOG.md) |
 | Contributing guidelines | [CONTRIBUTING.md](./CONTRIBUTING.md) |
 | Building the specification website (for testing purpose) | [build.md](build.md) |
