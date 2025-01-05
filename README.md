@@ -37,10 +37,12 @@ as well as a model documentation generated from Markdown files within the
 
 Contributions, including translations, are welcome.
 Contributions to this repository are made pursuant to the
-[SPDX Community Specification Contributor License Agreement 1.0](https://github.com/spdx/governance/blob/main/0._SPDX_Contributor_License_Agreement.md).
+[SPDX Community Specification Contributor License Agreement 1.0][cla].
 Please see the contributing guidelines, governance practices,
 and build instructions in the
 [related documents](#related-documents-and-repositories) section.
+
+[cla]: https://github.com/spdx/governance/blob/main/0._SPDX_Contributor_License_Agreement.md
 
 ## Repository structure
 
@@ -71,7 +73,9 @@ This repository consists of these files and directories (partial):
 
 ## Branch structure
 
-The SPDX spec repo follows the [Gitflow](https://gist.github.com/HeratPatel/271b5d2304de2e2cd1823b9b62bf43e0) workflow with the addition of support branches.
+The SPDX spec repo follows the [Gitflow][gitflow] workflow with the addition of support branches.
+
+[gitflow]: https://gist.github.com/HeratPatel/271b5d2304de2e2cd1823b9b62bf43e0
 
 The branches in use are:
 
@@ -81,7 +85,6 @@ The branches in use are:
   Once released, the `develop` branch will be merged into the `main` branch.
 - `support/x.y` - These branches will be long-lived and contain any updates to
   a minor version of the specification.
-  Additions such as translations can be added to the support branch.
   `x.y` represents the MAJOR.MINOR version, following Semantic Versioning
   (SemVer) conventions.
   Once any changes are accepted and released, the support branch will be tagged
