@@ -1,11 +1,10 @@
 PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX ns1: <https://spdx.org/rdf/3.0.1/terms/Core/>
-PREFIX omg-ann: <https://www.omg.org/spec/Commons/AnnotationVocabulary/>
+PREFIX ns1: <https://www.omg.org/spec/Commons/AnnotationVocabulary/>
+PREFIX ns2: <https://spdx.org/rdf/3.0.1/terms/Core/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sh: <http://www.w3.org/ns/shacl#>
-PREFIX spdx: <https://spdx.org/rdf/3.0.1/terms/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://spdx.org/rdf/3.0.1/terms/AI/AIPackage>
@@ -15,7 +14,43 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     rdfs:comment "Specifies an AI package and its associated information."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Software/Package> ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
+        [
+            sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/standardCompliance> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/domain> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/typeOfModel> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/modelDataPreprocessing> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/modelExplainability> ;
+        ] ,
+        [
+            sh:class ns2:DictionaryEntry ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/metric> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/limitation> ;
+        ] ,
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
@@ -23,14 +58,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             sh:path <https://spdx.org/rdf/3.0.1/terms/AI/informationAboutTraining> ;
         ] ,
         [
-            sh:class ns1:DictionaryEntry ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/metric> ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/informationAboutApplication> ;
         ] ,
         [
-            sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/domain> ;
+            sh:class ns2:PresenceType ;
+            sh:in (
+                <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/yes>
+                <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/no>
+                <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/noAssertion>
+            ) ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/autonomyType> ;
         ] ,
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/AI/SafetyRiskAssessmentType> ;
@@ -45,18 +87,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             sh:path <https://spdx.org/rdf/3.0.1/terms/AI/safetyRiskAssessment> ;
         ] ,
         [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/limitation> ;
-        ] ,
-        [
-            sh:class ns1:DictionaryEntry ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/hyperparameter> ;
-        ] ,
-        [
-            sh:class ns1:DictionaryEntry ;
+            sh:class ns2:DictionaryEntry ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/AI/metricDecisionThreshold> ;
         ] ,
@@ -67,24 +98,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             sh:path <https://spdx.org/rdf/3.0.1/terms/AI/energyConsumption> ;
         ] ,
         [
-            sh:class ns1:PresenceType ;
-            sh:in (
-                <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/yes>
-                <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/no>
-                <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/noAssertion>
-            ) ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/autonomyType> ;
+            sh:class ns2:DictionaryEntry ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/hyperparameter> ;
         ] ,
         [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/informationAboutApplication> ;
-        ] ,
-        [
-            sh:class ns1:PresenceType ;
+            sh:class ns2:PresenceType ;
             sh:in (
                 <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/yes>
                 <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/no>
@@ -93,26 +112,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/AI/useSensitivePersonalInformation> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/modelDataPreprocessing> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/standardCompliance> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/modelExplainability> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/typeOfModel> ;
         ] ;
 .
 
@@ -121,36 +120,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "Class that describes a build instance of software/artifacts."@en ;
-    rdfs:subClassOf ns1:Element ;
+    rdfs:subClassOf ns2:Element ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
-            sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Build/buildType> ;
-        ] ,
-        [
-            sh:class ns1:Hash ;
+            sh:class ns2:Hash ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Build/configSourceDigest> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Build/buildId> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Build/configSourceEntrypoint> ;
-        ] ,
-        [
-            sh:datatype xsd:anyURI ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Build/configSourceUri> ;
         ] ,
         [
             sh:datatype xsd:dateTimeStamp ;
@@ -160,6 +136,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
         ] ,
         [
+            sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Build/configSourceEntrypoint> ;
+        ] ,
+        [
             sh:datatype xsd:dateTimeStamp ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -167,27 +148,58 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
             sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
         ] ,
         [
-            sh:class ns1:DictionaryEntry ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Build/buildId> ;
+        ] ,
+        [
+            sh:datatype xsd:anyURI ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Build/configSourceUri> ;
+        ] ,
+        [
+            sh:class ns2:DictionaryEntry ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Build/environment> ;
+        ] ,
+        [
+            sh:class ns2:DictionaryEntry ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Build/parameter> ;
         ] ,
         [
-            sh:class ns1:DictionaryEntry ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Build/environment> ;
+            sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Build/buildType> ;
         ] ;
 .
 
-ns1:Annotation
+ns2:Annotation
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "An assertion made in relation to one or more elements."@en ;
-    rdfs:subClassOf ns1:Element ;
+    rdfs:subClassOf ns2:Element ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
-            sh:class ns1:AnnotationType ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:statement ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:contentType ;
+            sh:pattern "^[^\\/]+\\/[^\\/]+$" ;
+        ] ,
+        [
+            sh:class ns2:AnnotationType ;
             sh:in (
                 <https://spdx.org/rdf/3.0.1/terms/Core/AnnotationType/other>
                 <https://spdx.org/rdf/3.0.1/terms/Core/AnnotationType/review>
@@ -195,40 +207,27 @@ ns1:Annotation
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:annotationType ;
+            sh:path ns2:annotationType ;
         ] ,
         [
-            sh:class ns1:Element ;
+            sh:class ns2:Element ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:subject ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:statement ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:contentType ;
-            sh:pattern "^[^\\/]+\\/[^\\/]+$" ;
+            sh:path ns2:subject ;
         ] ;
 .
 
-ns1:LifecycleScopedRelationship
+ns2:LifecycleScopedRelationship
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "Provide context for a relationship that occurs in the lifecycle."@en ;
-    rdfs:subClassOf ns1:Relationship ;
+    rdfs:subClassOf ns2:Relationship ;
     sh:nodeKind sh:IRI ;
     sh:property
         [
-            sh:class ns1:LifecycleScopeType ;
+            sh:class ns2:LifecycleScopeType ;
             sh:in (
                 <https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/design>
                 <https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/development>
@@ -239,38 +238,50 @@ ns1:LifecycleScopedRelationship
             ) ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:scope ;
+            sh:path ns2:scope ;
         ] ;
 .
 
-ns1:NoAssertionElement
+ns2:NoAssertionElement
     a
         owl:NamedIndividual ,
-        ns1:IndividualElement ;
+        ns2:IndividualElement ;
     rdfs:comment """An Individual Value for Element representing a set of Elements of unknown
 identify or cardinality (number)."""@en ;
-    ns1:creationInfo <https://spdx.org/rdf/3.0.1/creationInfo_NoAssertionElement> ;
+    ns2:creationInfo <https://spdx.org/rdf/3.0.1/creationInfo_NoAssertionElement> ;
 .
 
-ns1:NoneElement
+ns2:NoneElement
     a
         owl:NamedIndividual ,
-        ns1:IndividualElement ;
+        ns2:IndividualElement ;
     rdfs:comment """An Individual Value for Element representing a set of Elements with
 cardinality (number/count) of zero."""@en ;
-    ns1:creationInfo <https://spdx.org/rdf/3.0.1/creationInfo_NoneElement> ;
+    ns2:creationInfo <https://spdx.org/rdf/3.0.1/creationInfo_NoneElement> ;
 .
 
-ns1:PackageVerificationCode
+ns2:PackageVerificationCode
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "An SPDX version 2.X compatible verification method for software packages."@en ;
-    rdfs:subClassOf ns1:IntegrityMethod ;
+    rdfs:subClassOf ns2:IntegrityMethod ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
         [
-            sh:class ns1:HashAlgorithm ;
+            sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:packageVerificationCodeExcludedFile ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:hashValue ;
+        ] ,
+        [
+            sh:class ns2:HashAlgorithm ;
             sh:in (
                 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/adler32>
                 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/blake2b256>
@@ -298,59 +309,47 @@ ns1:PackageVerificationCode
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:algorithm ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:packageVerificationCodeExcludedFile ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:hashValue ;
+            sh:path ns2:algorithm ;
         ] ;
 .
 
-ns1:Person
+ns2:Person
     a owl:Class ;
     rdfs:comment "An individual human being."@en ;
-    rdfs:subClassOf ns1:Agent ;
+    rdfs:subClassOf ns2:Agent ;
     sh:nodeKind sh:IRI ;
 .
 
-ns1:SoftwareAgent
+ns2:SoftwareAgent
     a owl:Class ;
     rdfs:comment "A software agent."@en ;
-    rdfs:subClassOf ns1:Agent ;
+    rdfs:subClassOf ns2:Agent ;
     sh:nodeKind sh:IRI ;
 .
 
-ns1:SpdxDocument
+ns2:SpdxDocument
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A collection of SPDX Elements that could potentially be serialized."@en ;
-    rdfs:subClassOf ns1:ElementCollection ;
+    rdfs:subClassOf ns2:ElementCollection ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
-            sh:class ns1:ExternalMap ;
+            sh:class ns2:ExternalMap ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path ns1:import ;
+            sh:path ns2:import ;
         ] ,
         [
-            sh:class ns1:NamespaceMap ;
+            sh:class ns2:NamespaceMap ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path ns1:namespaceMap ;
+            sh:path ns2:namespaceMap ;
         ] ,
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/AnyLicenseInfo> ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:dataLicense ;
+            sh:path ns2:dataLicense ;
         ] ;
 .
 
@@ -361,11 +360,62 @@ ns1:SpdxDocument
     rdfs:comment "Specifies a data package and its associated information."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Software/Package> ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:nodeKind sh:Literal ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/dataPreprocessing> ;
+        ] ,
+        [
+            sh:datatype xsd:nonNegativeInteger ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/datasetSize> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/datasetNoise> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/dataCollectionProcess> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/intendedUse> ;
+        ] ,
+        [
+            sh:class ns2:PresenceType ;
+            sh:in (
+                <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/yes>
+                <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/no>
+                <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/noAssertion>
+            ) ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/hasSensitivePersonalInformation> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/datasetUpdateMechanism> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/knownBias> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/anonymizationMethodUsed> ;
         ] ,
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetType> ;
@@ -390,33 +440,9 @@ ns1:SpdxDocument
             sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/datasetType> ;
         ] ,
         [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/datasetUpdateMechanism> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/knownBias> ;
-        ] ,
-        [
-            sh:class <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType> ;
-            sh:in (
-                <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/red>
-                <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/amber>
-                <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/green>
-                <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/clear>
-            ) ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/confidentialityLevel> ;
-        ] ,
-        [
-            sh:datatype xsd:nonNegativeInteger ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/datasetSize> ;
+            sh:class ns2:DictionaryEntry ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/sensor> ;
         ] ,
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/Dataset/DatasetAvailabilityType> ;
@@ -432,43 +458,16 @@ ns1:SpdxDocument
             sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/datasetAvailability> ;
         ] ,
         [
-            sh:class ns1:PresenceType ;
+            sh:class <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType> ;
             sh:in (
-                <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/yes>
-                <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/no>
-                <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/noAssertion>
+                <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/red>
+                <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/amber>
+                <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/green>
+                <https://spdx.org/rdf/3.0.1/terms/Dataset/ConfidentialityLevelType/clear>
             ) ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/hasSensitivePersonalInformation> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/anonymizationMethodUsed> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/datasetNoise> ;
-        ] ,
-        [
-            sh:class ns1:DictionaryEntry ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/sensor> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/intendedUse> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/dataCollectionProcess> ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Dataset/confidentialityLevel> ;
         ] ;
 .
 
@@ -527,7 +526,7 @@ only one of the elements applies."""@en ;
     rdfs:comment "A license that is listed on the SPDX License List."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/License> ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
@@ -549,7 +548,7 @@ only one of the elements applies."""@en ;
     rdfs:comment "A license exception that is listed on the SPDX Exceptions list."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition> ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
@@ -571,7 +570,7 @@ only one of the elements applies."""@en ;
     rdfs:comment """An Individual Value for License when no assertion can be made about its actual
 value."""@en ;
     owl:sameAs <https://spdx.org/rdf/3.0.1/terms/Licensing/NoAssertion> ;
-    ns1:creationInfo <https://spdx.org/rdf/3.0.1/creationInfo_NoAssertionLicense> ;
+    ns2:creationInfo <https://spdx.org/rdf/3.0.1/creationInfo_NoAssertionLicense> ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoneLicense>
@@ -581,7 +580,7 @@ value."""@en ;
     rdfs:comment """An Individual Value for License where the SPDX data creator determines that no
 license is present."""@en ;
     owl:sameAs <https://spdx.org/rdf/3.0.1/terms/Licensing/None> ;
-    ns1:creationInfo <https://spdx.org/rdf/3.0.1/creationInfo_NoneLicense> ;
+    ns2:creationInfo <https://spdx.org/rdf/3.0.1/creationInfo_NoneLicense> ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/OrLaterOperator>
@@ -610,20 +609,20 @@ of the indicated License."""@en ;
 text applied to it."""@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/AnyLicenseInfo> ;
     sh:nodeKind sh:IRI ;
-    sh:property
-        [
-            sh:class <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ExtendableLicense> ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/subjectExtendableLicense> ;
-        ] ,
+    sh:property 
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition> ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/subjectAddition> ;
+        ] ,
+        [
+            sh:class <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ExtendableLicense> ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/subjectExtendableLicense> ;
         ] ;
 .
 
@@ -650,7 +649,7 @@ text applied to it."""@en ;
     rdfs:comment "Provides a CVSS version 2.0 assessment for a vulnerability."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship> ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
@@ -674,13 +673,20 @@ text applied to it."""@en ;
     rdfs:comment "Provides a CVSS version 3 assessment for a vulnerability."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship> ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Security/vectorString> ;
+        ] ,
+        [
+            sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/score> ;
         ] ,
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType> ;
@@ -695,13 +701,6 @@ text applied to it."""@en ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Security/severity> ;
-        ] ,
-        [
-            sh:datatype xsd:decimal ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/score> ;
         ] ;
 .
 
@@ -712,20 +711,20 @@ text applied to it."""@en ;
     rdfs:comment "Provides a CVSS version 4 assessment for a vulnerability."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship> ;
     sh:nodeKind sh:IRI ;
-    sh:property
-        [
-            sh:datatype xsd:decimal ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/score> ;
-        ] ,
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Security/vectorString> ;
+        ] ,
+        [
+            sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/score> ;
         ] ,
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/Security/CvssSeverityType> ;
@@ -750,7 +749,7 @@ text applied to it."""@en ;
     rdfs:comment "Provides an EPSS assessment for a vulnerability."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship> ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:decimal ;
             sh:maxCount 1 ;
@@ -774,7 +773,7 @@ text applied to it."""@en ;
     rdfs:comment "Provides an exploit assessment of a vulnerability."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship> ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:boolean ;
             sh:maxCount 1 ;
@@ -833,20 +832,20 @@ text applied to it."""@en ;
 affected by the vulnerability."""@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Security/VexVulnAssessmentRelationship> ;
     sh:nodeKind sh:IRI ;
-    sh:property
-        [
-            sh:datatype xsd:dateTimeStamp ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/actionStatementTime> ;
-            sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
-        ] ,
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Security/actionStatement> ;
+        ] ,
+        [
+            sh:datatype xsd:dateTimeStamp ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/actionStatementTime> ;
+            sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
         ] ;
 .
 
@@ -866,20 +865,7 @@ a fix has been applied and are no longer affected."""@en ;
 not affected by the vulnerability."""@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Security/VexVulnAssessmentRelationship> ;
     sh:nodeKind sh:IRI ;
-    sh:property
-        [
-            sh:class <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType> ;
-            sh:in (
-                <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/componentNotPresent>
-                <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/vulnerableCodeNotPresent>
-                <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/vulnerableCodeCannotBeControlledByAdversary>
-                <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/vulnerableCodeNotInExecutePath>
-                <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/inlineMitigationsAlreadyExist>
-            ) ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/justificationType> ;
-        ] ,
+    sh:property 
         [
             sh:datatype xsd:dateTimeStamp ;
             sh:maxCount 1 ;
@@ -892,6 +878,19 @@ not affected by the vulnerability."""@en ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Security/impactStatement> ;
+        ] ,
+        [
+            sh:class <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType> ;
+            sh:in (
+                <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/componentNotPresent>
+                <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/vulnerableCodeNotPresent>
+                <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/vulnerableCodeCannotBeControlledByAdversary>
+                <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/vulnerableCodeNotInExecutePath>
+                <https://spdx.org/rdf/3.0.1/terms/Security/VexJustificationType/inlineMitigationsAlreadyExist>
+            ) ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/justificationType> ;
         ] ;
 .
 
@@ -908,14 +907,14 @@ investigated."""@en ;
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "Specifies a vulnerability and its associated information."@en ;
-    rdfs:subClassOf ns1:Artifact ;
+    rdfs:subClassOf ns2:Artifact ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:dateTimeStamp ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/withdrawnTime> ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/modifiedTime> ;
             sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
         ] ,
         [
@@ -929,7 +928,7 @@ investigated."""@en ;
             sh:datatype xsd:dateTimeStamp ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/modifiedTime> ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/withdrawnTime> ;
             sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
         ] ;
 .
@@ -941,25 +940,25 @@ investigated."""@en ;
     rdfs:comment "An SPDX Element containing an SPDX license expression string."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/AnyLicenseInfo> ;
     sh:nodeKind sh:IRI ;
-    sh:property
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/licenseExpression> ;
-        ] ,
-        [
-            sh:class ns1:DictionaryEntry ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/customIdToUri> ;
-        ] ,
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/licenseListVersion> ;
             sh:pattern "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$" ;
+        ] ,
+        [
+            sh:class ns2:DictionaryEntry ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/customIdToUri> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/licenseExpression> ;
         ] ;
 .
 
@@ -968,7 +967,7 @@ investigated."""@en ;
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A license or addition that is not listed on the SPDX License List."@en ;
-    rdfs:subClassOf ns1:Element ;
+    rdfs:subClassOf ns2:Element ;
     sh:nodeKind sh:IRI ;
     sh:property
         [
@@ -985,7 +984,7 @@ investigated."""@en ;
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A collection of SPDX Elements describing a single package."@en ;
-    rdfs:subClassOf ns1:Bom ;
+    rdfs:subClassOf ns2:Bom ;
     sh:nodeKind sh:IRI ;
     sh:property
         [
@@ -1010,9 +1009,9 @@ investigated."""@en ;
     rdfs:comment "Describes a certain part of a file."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact> ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
-            sh:class ns1:PositiveIntegerRange ;
+            sh:class ns2:PositiveIntegerRange ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Software/byteRange> ;
@@ -1025,7 +1024,7 @@ investigated."""@en ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Software/snippetFromFile> ;
         ] ,
         [
-            sh:class ns1:PositiveIntegerRange ;
+            sh:class ns2:PositiveIntegerRange ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Software/lineRange> ;
@@ -1033,46 +1032,46 @@ investigated."""@en ;
 .
 
 <https://spdx.org/rdf/3.0.1/creationInfo_NoAssertionElement>
-    a ns1:CreationInfo ;
+    a ns2:CreationInfo ;
     rdfs:comment "This individual element was defined by the spec."@en ;
-    ns1:created "2024-11-22T03:00:01Z"^^xsd:dateTimeStamp ;
-    ns1:createdBy ns1:SpdxOrganization ;
-    ns1:specVersion "3.0.1" ;
+    ns2:created "2024-11-22T03:00:01Z"^^xsd:dateTimeStamp ;
+    ns2:createdBy ns2:SpdxOrganization ;
+    ns2:specVersion "3.0.1" ;
 .
 
 <https://spdx.org/rdf/3.0.1/creationInfo_NoAssertionLicense>
-    a ns1:CreationInfo ;
+    a ns2:CreationInfo ;
     rdfs:comment "This individual element was defined by the spec."@en ;
-    ns1:created "2024-11-22T03:00:01Z"^^xsd:dateTimeStamp ;
-    ns1:createdBy ns1:SpdxOrganization ;
-    ns1:specVersion "3.0.1" ;
+    ns2:created "2024-11-22T03:00:01Z"^^xsd:dateTimeStamp ;
+    ns2:createdBy ns2:SpdxOrganization ;
+    ns2:specVersion "3.0.1" ;
 .
 
 <https://spdx.org/rdf/3.0.1/creationInfo_NoneElement>
-    a ns1:CreationInfo ;
+    a ns2:CreationInfo ;
     rdfs:comment "This individual element was defined by the spec."@en ;
-    ns1:created "2024-11-22T03:00:01Z"^^xsd:dateTimeStamp ;
-    ns1:createdBy ns1:SpdxOrganization ;
-    ns1:specVersion "3.0.1" ;
+    ns2:created "2024-11-22T03:00:01Z"^^xsd:dateTimeStamp ;
+    ns2:createdBy ns2:SpdxOrganization ;
+    ns2:specVersion "3.0.1" ;
 .
 
 <https://spdx.org/rdf/3.0.1/creationInfo_NoneLicense>
-    a ns1:CreationInfo ;
+    a ns2:CreationInfo ;
     rdfs:comment "This individual element was defined by the spec."@en ;
-    ns1:created "2024-11-22T03:00:01Z"^^xsd:dateTimeStamp ;
-    ns1:createdBy ns1:SpdxOrganization ;
-    ns1:specVersion "3.0.1" ;
+    ns2:created "2024-11-22T03:00:01Z"^^xsd:dateTimeStamp ;
+    ns2:createdBy ns2:SpdxOrganization ;
+    ns2:specVersion "3.0.1" ;
 .
 
 <https://spdx.org/rdf/3.0.1/creationInfo_SpdxOrganization>
-    a ns1:CreationInfo ;
+    a ns2:CreationInfo ;
     rdfs:comment "This individual element was defined by the spec."@en ;
-    ns1:created "2024-11-22T03:00:01Z"^^xsd:dateTimeStamp ;
-    ns1:createdBy ns1:SpdxOrganization ;
-    ns1:specVersion "3.0.1" ;
+    ns2:created "2024-11-22T03:00:01Z"^^xsd:dateTimeStamp ;
+    ns2:createdBy ns2:SpdxOrganization ;
+    ns2:specVersion "3.0.1" ;
 .
 
-spdx:
+<https://spdx.org/rdf/3.0.1/terms/>
     a owl:Ontology ;
     rdfs:label "System Package Data Exchange (SPDX) Ontology"@en ;
     dcterms:abstract "This ontology defines the terms and relationships used in the SPDX specification to describe system packages"@en ;
@@ -1081,8 +1080,8 @@ spdx:
     dcterms:license <https://spdx.org/licenses/Community-Spec-1.0.html> ;
     dcterms:references <https://spdx.dev/specifications/> ;
     dcterms:title "System Package Data Exchange (SPDX) Ontology"@en ;
-    owl:versionIRI spdx: ;
-    omg-ann:copyright "Copyright (C) 2024 SPDX Project"@en ;
+    owl:versionIRI <https://spdx.org/rdf/3.0.1/terms/> ;
+    ns1:copyright "Copyright (C) 2024 SPDX Project"@en ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/AI/EnergyUnitType/kilowattHour>
@@ -1145,7 +1144,7 @@ spdx:
     a owl:ObjectProperty ;
     rdfs:comment """Indicates whether the system can perform a decision or action without human
 involvement or guidance."""@en ;
-    rdfs:range ns1:PresenceType ;
+    rdfs:range ns2:PresenceType ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/AI/domain>
@@ -1183,7 +1182,7 @@ being used in the AI system."""@en ;
     a owl:ObjectProperty ;
     rdfs:comment """Records a hyperparameter used to build the AI model contained in the AI
 package."""@en ;
-    rdfs:range ns1:DictionaryEntry ;
+    rdfs:range ns2:DictionaryEntry ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/AI/inferenceEnergyConsumption>
@@ -1215,14 +1214,14 @@ description."""@en ;
 <https://spdx.org/rdf/3.0.1/terms/AI/metric>
     a owl:ObjectProperty ;
     rdfs:comment "Records the measurement of prediction quality of the AI model."@en ;
-    rdfs:range ns1:DictionaryEntry ;
+    rdfs:range ns2:DictionaryEntry ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/AI/metricDecisionThreshold>
     a owl:ObjectProperty ;
     rdfs:comment """Captures the threshold that was used for computation of a metric described in
 the metric field."""@en ;
-    rdfs:range ns1:DictionaryEntry ;
+    rdfs:range ns2:DictionaryEntry ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/AI/modelDataPreprocessing>
@@ -1267,7 +1266,7 @@ being used in the AI system."""@en ;
     a owl:ObjectProperty ;
     rdfs:comment """Records if sensitive personal information is used during model training or
 could be used during the inference."""@en ;
-    rdfs:range ns1:PresenceType ;
+    rdfs:range ns2:PresenceType ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/Build/buildEndTime>
@@ -1300,7 +1299,7 @@ infrastructure that the build was invoked on."""@en ;
     a owl:ObjectProperty ;
     rdfs:comment """Property that describes the digest of the build configuration file used to
 invoke a build."""@en ;
-    rdfs:range ns1:Hash ;
+    rdfs:range ns2:Hash ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/Build/configSourceEntrypoint>
@@ -1318,19 +1317,19 @@ invoke a build."""@en ;
 <https://spdx.org/rdf/3.0.1/terms/Build/environment>
     a owl:ObjectProperty ;
     rdfs:comment "Property describing the session in which a build is invoked."@en ;
-    rdfs:range ns1:DictionaryEntry ;
+    rdfs:range ns2:DictionaryEntry ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/Build/parameter>
     a owl:ObjectProperty ;
     rdfs:comment "Property describing a parameter used in an instance of a build."@en ;
-    rdfs:range ns1:DictionaryEntry ;
+    rdfs:range ns2:DictionaryEntry ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/Core/AnnotationType/other>
     a
         owl:NamedIndividual ,
-        ns1:AnnotationType ;
+        ns2:AnnotationType ;
     rdfs:label "other" ;
     rdfs:comment "Used to store extra information about an Element which is not part of a review (e.g. extra information provided during the creation of the Element)."@en ;
 .
@@ -1338,39 +1337,39 @@ invoke a build."""@en ;
 <https://spdx.org/rdf/3.0.1/terms/Core/AnnotationType/review>
     a
         owl:NamedIndividual ,
-        ns1:AnnotationType ;
+        ns2:AnnotationType ;
     rdfs:label "review" ;
     rdfs:comment "Used when someone reviews the Element."@en ;
 .
 
-ns1:Bom
+ns2:Bom
     a owl:Class ;
     rdfs:comment """A container for a grouping of SPDX-3.0 content characterizing details
 (provenence, composition, licensing, etc.) about a product."""@en ;
-    rdfs:subClassOf ns1:Bundle ;
+    rdfs:subClassOf ns2:Bundle ;
     sh:nodeKind sh:IRI ;
 .
 
-ns1:Bundle
+ns2:Bundle
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A collection of Elements that have a shared context."@en ;
-    rdfs:subClassOf ns1:ElementCollection ;
+    rdfs:subClassOf ns2:ElementCollection ;
     sh:nodeKind sh:IRI ;
     sh:property
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:context ;
+            sh:path ns2:context ;
         ] ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/cpe22>
     a
         owl:NamedIndividual ,
-        ns1:ExternalIdentifierType ;
+        ns2:ExternalIdentifierType ;
     rdfs:label "cpe22" ;
     rdfs:comment "[Common Platform Enumeration Specification 2.2](https://cpe.mitre.org/files/cpe-specification_2.2.pdf)"@en ;
 .
@@ -1378,7 +1377,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/cpe23>
     a
         owl:NamedIndividual ,
-        ns1:ExternalIdentifierType ;
+        ns2:ExternalIdentifierType ;
     rdfs:label "cpe23" ;
     rdfs:comment "[Common Platform Enumeration: Naming Specification Version 2.3](https://csrc.nist.gov/publications/detail/nistir/7695/final)"@en ;
 .
@@ -1386,7 +1385,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/cve>
     a
         owl:NamedIndividual ,
-        ns1:ExternalIdentifierType ;
+        ns2:ExternalIdentifierType ;
     rdfs:label "cve" ;
     rdfs:comment "Common Vulnerabilities and Exposures identifiers, an identifier for a specific software flaw defined within the official CVE Dictionary and that conforms to the [CVE specification](https://csrc.nist.gov/glossary/term/cve_id)."@en ;
 .
@@ -1394,7 +1393,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/email>
     a
         owl:NamedIndividual ,
-        ns1:ExternalIdentifierType ;
+        ns2:ExternalIdentifierType ;
     rdfs:label "email" ;
     rdfs:comment "Email address, as defined in [RFC 3696](https://datatracker.ietf.org/doc/rfc3986/) Section 3."@en ;
 .
@@ -1402,7 +1401,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/gitoid>
     a
         owl:NamedIndividual ,
-        ns1:ExternalIdentifierType ;
+        ns2:ExternalIdentifierType ;
     rdfs:label "gitoid" ;
     rdfs:comment "[Gitoid](https://www.iana.org/assignments/uri-schemes/prov/gitoid), stands for [Git Object ID](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects). A gitoid of type blob is a unique hash of a binary artifact. A gitoid may represent either an [Artifact Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-identifier-types) for the software artifact or an [Input Manifest Identifier](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#input-manifest-identifier) for the software artifact's associated [Artifact Input Manifest](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-input-manifest); this ambiguity exists because the Artifact Input Manifest is itself an artifact, and the gitoid of that artifact is its valid identifier. Gitoids calculated on software artifacts (Snippet, File, or Package Elements) should be recorded in the SPDX 3.0 SoftwareArtifact's contentIdentifier property. Gitoids calculated on the Artifact Input Manifest (Input Manifest Identifier) should be recorded in the SPDX 3.0 Element's externalIdentifier property. See [OmniBOR Specification](https://github.com/omnibor/spec/), a minimalistic specification for describing software [Artifact Dependency Graphs](https://github.com/omnibor/spec/blob/eb1ee5c961c16215eb8709b2975d193a2007a35d/spec/SPEC.md#artifact-dependency-graph-adg)."@en ;
 .
@@ -1410,7 +1409,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/other>
     a
         owl:NamedIndividual ,
-        ns1:ExternalIdentifierType ;
+        ns2:ExternalIdentifierType ;
     rdfs:label "other" ;
     rdfs:comment "Used when the type does not match any of the other options."@en ;
 .
@@ -1418,7 +1417,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/packageUrl>
     a
         owl:NamedIndividual ,
-        ns1:ExternalIdentifierType ;
+        ns2:ExternalIdentifierType ;
     rdfs:label "packageUrl" ;
     rdfs:comment "Package URL, as defined in the corresponding [Annex](../../../annexes/pkg-url-specification.md) of this specification."@en ;
 .
@@ -1426,7 +1425,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/securityOther>
     a
         owl:NamedIndividual ,
-        ns1:ExternalIdentifierType ;
+        ns2:ExternalIdentifierType ;
     rdfs:label "securityOther" ;
     rdfs:comment "Used when there is a security related identifier of unspecified type."@en ;
 .
@@ -1434,7 +1433,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/swhid>
     a
         owl:NamedIndividual ,
-        ns1:ExternalIdentifierType ;
+        ns2:ExternalIdentifierType ;
     rdfs:label "swhid" ;
     rdfs:comment "SoftWare Hash IDentifier, a persistent intrinsic identifier for digital artifacts, such as files, trees (also known as directories or folders), commits, and other objects typically found in version control systems. The format of the identifiers is defined in the [SWHID specification](https://www.swhid.org/specification/v1.1/4.Syntax) (ISO/IEC DIS 18670). They typically look like `swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2`."@en ;
 .
@@ -1442,7 +1441,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/swid>
     a
         owl:NamedIndividual ,
-        ns1:ExternalIdentifierType ;
+        ns2:ExternalIdentifierType ;
     rdfs:label "swid" ;
     rdfs:comment "Concise Software Identification (CoSWID) tag, as defined in [RFC 9393](https://datatracker.ietf.org/doc/rfc9393/) Section 2.3."@en ;
 .
@@ -1450,7 +1449,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/urlScheme>
     a
         owl:NamedIndividual ,
-        ns1:ExternalIdentifierType ;
+        ns2:ExternalIdentifierType ;
     rdfs:label "urlScheme" ;
     rdfs:comment "[Uniform Resource Identifier (URI) Schemes](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml). The scheme used in order to locate a resource."@en ;
 .
@@ -1458,7 +1457,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/altDownloadLocation>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "altDownloadLocation" ;
     rdfs:comment "A reference to an alternative download location."@en ;
 .
@@ -1466,7 +1465,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/altWebPage>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "altWebPage" ;
     rdfs:comment "A reference to an alternative web page."@en ;
 .
@@ -1474,7 +1473,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/binaryArtifact>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "binaryArtifact" ;
     rdfs:comment "A reference to binary artifacts related to a package."@en ;
 .
@@ -1482,7 +1481,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/bower>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "bower" ;
     rdfs:comment "A reference to a Bower package. The package locator format, looks like `package#version`, is defined in the \"install\" section of [Bower API documentation](https://bower.io/docs/api/#install)."@en ;
 .
@@ -1490,7 +1489,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/buildMeta>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "buildMeta" ;
     rdfs:comment "A reference build metadata related to a published package."@en ;
 .
@@ -1498,7 +1497,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/buildSystem>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "buildSystem" ;
     rdfs:comment "A reference build system used to create or publish the package."@en ;
 .
@@ -1506,7 +1505,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/certificationReport>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "certificationReport" ;
     rdfs:comment "A reference to a certification report for a package from an accredited/independent body."@en ;
 .
@@ -1514,7 +1513,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/chat>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "chat" ;
     rdfs:comment "A reference to the instant messaging system used by the maintainer for a package."@en ;
 .
@@ -1522,7 +1521,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/componentAnalysisReport>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "componentAnalysisReport" ;
     rdfs:comment "A reference to a Software Composition Analysis (SCA) report."@en ;
 .
@@ -1530,7 +1529,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/cwe>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "cwe" ;
     rdfs:comment "[Common Weakness Enumeration](https://csrc.nist.gov/glossary/term/common_weakness_enumeration). A reference to a source of software flaw defined within the official [CWE List](https://cwe.mitre.org/data/) that conforms to the [CWE specification](https://cwe.mitre.org/)."@en ;
 .
@@ -1538,7 +1537,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/documentation>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "documentation" ;
     rdfs:comment "A reference to the documentation for a package."@en ;
 .
@@ -1546,7 +1545,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/dynamicAnalysisReport>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "dynamicAnalysisReport" ;
     rdfs:comment "A reference to a dynamic analysis report for a package."@en ;
 .
@@ -1554,7 +1553,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/eolNotice>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "eolNotice" ;
     rdfs:comment "A reference to the End Of Sale (EOS) and/or End Of Life (EOL) information related to a package."@en ;
 .
@@ -1562,7 +1561,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/exportControlAssessment>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "exportControlAssessment" ;
     rdfs:comment "A reference to a export control assessment for a package."@en ;
 .
@@ -1570,7 +1569,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/funding>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "funding" ;
     rdfs:comment "A reference to funding information related to a package."@en ;
 .
@@ -1578,7 +1577,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/issueTracker>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "issueTracker" ;
     rdfs:comment "A reference to the issue tracker for a package."@en ;
 .
@@ -1586,7 +1585,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/license>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "license" ;
     rdfs:comment "A reference to additional license information related to an artifact."@en ;
 .
@@ -1594,7 +1593,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/mailingList>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "mailingList" ;
     rdfs:comment "A reference to the mailing list used by the maintainer for a package."@en ;
 .
@@ -1602,7 +1601,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/mavenCentral>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "mavenCentral" ;
     rdfs:comment "A reference to a Maven repository artifact. The artifact locator format is defined in the [Maven documentation](https://maven.apache.org/guides/mini/guide-naming-conventions.html) and looks like `groupId:artifactId[:version]`."@en ;
 .
@@ -1610,7 +1609,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/metrics>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "metrics" ;
     rdfs:comment "A reference to metrics related to package such as OpenSSF scorecards."@en ;
 .
@@ -1618,7 +1617,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/npm>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "npm" ;
     rdfs:comment "A reference to an npm package. The package locator format is defined in the [npm documentation](https://docs.npmjs.com/cli/v10/configuring-npm/package-json) and looks like `package@version`."@en ;
 .
@@ -1626,7 +1625,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/nuget>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "nuget" ;
     rdfs:comment "A reference to a NuGet package. The package locator format is defined in the [NuGet documentation](https://docs.nuget.org) and looks like `package/version`."@en ;
 .
@@ -1634,7 +1633,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/other>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "other" ;
     rdfs:comment "Used when the type does not match any of the other options."@en ;
 .
@@ -1642,7 +1641,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/privacyAssessment>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "privacyAssessment" ;
     rdfs:comment "A reference to a privacy assessment for a package."@en ;
 .
@@ -1650,7 +1649,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/productMetadata>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "productMetadata" ;
     rdfs:comment "A reference to additional product metadata such as reference within organization's product catalog."@en ;
 .
@@ -1658,7 +1657,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/purchaseOrder>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "purchaseOrder" ;
     rdfs:comment "A reference to a purchase order for a package."@en ;
 .
@@ -1666,7 +1665,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/qualityAssessmentReport>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "qualityAssessmentReport" ;
     rdfs:comment "A reference to a quality assessment for a package."@en ;
 .
@@ -1674,7 +1673,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/releaseHistory>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "releaseHistory" ;
     rdfs:comment "A reference to a published list of releases for a package."@en ;
 .
@@ -1682,7 +1681,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/releaseNotes>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "releaseNotes" ;
     rdfs:comment "A reference to the release notes for a package."@en ;
 .
@@ -1690,7 +1689,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/riskAssessment>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "riskAssessment" ;
     rdfs:comment "A reference to a risk assessment for a package."@en ;
 .
@@ -1698,7 +1697,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/runtimeAnalysisReport>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "runtimeAnalysisReport" ;
     rdfs:comment "A reference to a runtime analysis report for a package."@en ;
 .
@@ -1706,7 +1705,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/secureSoftwareAttestation>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "secureSoftwareAttestation" ;
     rdfs:comment "A reference to information assuring that the software is developed using security practices as defined by [NIST SP 800-218 Secure Software Development Framework (SSDF) Version 1.1](https://csrc.nist.gov/pubs/sp/800/218/final) or [CISA Secure Software Development Attestation Form](https://www.cisa.gov/resources-tools/resources/secure-software-development-attestation-form)."@en ;
 .
@@ -1714,7 +1713,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityAdversaryModel>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "securityAdversaryModel" ;
     rdfs:comment "A reference to the security adversary model for a package."@en ;
 .
@@ -1722,7 +1721,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityAdvisory>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "securityAdvisory" ;
     rdfs:comment "A reference to a published security advisory (where advisory as defined per [ISO 29147:2018](https://www.iso.org/standard/72311.html)) that may affect one or more elements, e.g., vendor advisories or specific NVD entries."@en ;
 .
@@ -1730,7 +1729,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityFix>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "securityFix" ;
     rdfs:comment "A reference to the patch or source code that fixes a vulnerability."@en ;
 .
@@ -1738,7 +1737,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityOther>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "securityOther" ;
     rdfs:comment "A reference to related security information of unspecified type."@en ;
 .
@@ -1746,7 +1745,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityPenTestReport>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "securityPenTestReport" ;
     rdfs:comment "A reference to a [penetration test](https://en.wikipedia.org/wiki/Penetration_test) report for a package."@en ;
 .
@@ -1754,7 +1753,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityPolicy>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "securityPolicy" ;
     rdfs:comment "A reference to instructions for reporting newly discovered security vulnerabilities for a package."@en ;
 .
@@ -1762,7 +1761,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/securityThreatModel>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "securityThreatModel" ;
     rdfs:comment "A reference the [security threat model](https://en.wikipedia.org/wiki/Threat_model) for a package."@en ;
 .
@@ -1770,7 +1769,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/socialMedia>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "socialMedia" ;
     rdfs:comment "A reference to a social media channel for a package."@en ;
 .
@@ -1778,7 +1777,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/sourceArtifact>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "sourceArtifact" ;
     rdfs:comment "A reference to an artifact containing the sources for a package."@en ;
 .
@@ -1786,7 +1785,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/staticAnalysisReport>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "staticAnalysisReport" ;
     rdfs:comment "A reference to a static analysis report for a package."@en ;
 .
@@ -1794,7 +1793,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/support>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "support" ;
     rdfs:comment "A reference to the software support channel or other support information for a package."@en ;
 .
@@ -1802,7 +1801,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/vcs>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "vcs" ;
     rdfs:comment "A reference to a version control system related to a software artifact."@en ;
 .
@@ -1810,7 +1809,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/vulnerabilityDisclosureReport>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "vulnerabilityDisclosureReport" ;
     rdfs:comment "A reference to a Vulnerability Disclosure Report (VDR) which provides the software supplier's analysis and findings describing the impact (or lack of impact) that reported vulnerabilities have on packages or products in the supplier's SBOM as defined in [NIST SP 800-161 Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations](https://csrc.nist.gov/pubs/sp/800/161/r1/final)."@en ;
 .
@@ -1818,7 +1817,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/vulnerabilityExploitabilityAssessment>
     a
         owl:NamedIndividual ,
-        ns1:ExternalRefType ;
+        ns2:ExternalRefType ;
     rdfs:label "vulnerabilityExploitabilityAssessment" ;
     rdfs:comment "A reference to a Vulnerability Exploitability eXchange (VEX) statement which provides information on whether a product is impacted by a specific vulnerability in an included package and, if affected, whether there are actions recommended to remediate. See also [NTIA VEX one-page summary](https://ntia.gov/files/ntia/publications/vex_one-page_summary.pdf)."@en ;
 .
@@ -1826,7 +1825,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/build>
     a
         owl:NamedIndividual ,
-        ns1:LifecycleScopeType ;
+        ns2:LifecycleScopeType ;
     rdfs:label "build" ;
     rdfs:comment "A relationship has specific context implications during an element's build phase, during development."@en ;
 .
@@ -1834,7 +1833,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/design>
     a
         owl:NamedIndividual ,
-        ns1:LifecycleScopeType ;
+        ns2:LifecycleScopeType ;
     rdfs:label "design" ;
     rdfs:comment "A relationship has specific context implications during an element's design."@en ;
 .
@@ -1842,7 +1841,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/development>
     a
         owl:NamedIndividual ,
-        ns1:LifecycleScopeType ;
+        ns2:LifecycleScopeType ;
     rdfs:label "development" ;
     rdfs:comment "A relationship has specific context implications during development phase of an element."@en ;
 .
@@ -1850,7 +1849,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/other>
     a
         owl:NamedIndividual ,
-        ns1:LifecycleScopeType ;
+        ns2:LifecycleScopeType ;
     rdfs:label "other" ;
     rdfs:comment "A relationship has other specific context information necessary to capture that the above set of enumerations does not handle."@en ;
 .
@@ -1858,7 +1857,7 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/runtime>
     a
         owl:NamedIndividual ,
-        ns1:LifecycleScopeType ;
+        ns2:LifecycleScopeType ;
     rdfs:label "runtime" ;
     rdfs:comment "A relationship has specific context implications during the execution phase of an element."@en ;
 .
@@ -1866,22 +1865,22 @@ ns1:Bundle
 <https://spdx.org/rdf/3.0.1/terms/Core/LifecycleScopeType/test>
     a
         owl:NamedIndividual ,
-        ns1:LifecycleScopeType ;
+        ns2:LifecycleScopeType ;
     rdfs:label "test" ;
     rdfs:comment "A relationship has specific context implications during an element's testing phase, during development."@en ;
 .
 
-ns1:Organization
+ns2:Organization
     a owl:Class ;
     rdfs:comment "A group of people who work together in an organized way for a shared purpose."@en ;
-    rdfs:subClassOf ns1:Agent ;
+    rdfs:subClassOf ns2:Agent ;
     sh:nodeKind sh:IRI ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/ai>
     a
         owl:NamedIndividual ,
-        ns1:ProfileIdentifierType ;
+        ns2:ProfileIdentifierType ;
     rdfs:label "ai" ;
     rdfs:comment "the element follows the AI profile specification"@en ;
 .
@@ -1889,7 +1888,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/build>
     a
         owl:NamedIndividual ,
-        ns1:ProfileIdentifierType ;
+        ns2:ProfileIdentifierType ;
     rdfs:label "build" ;
     rdfs:comment "the element follows the Build profile specification"@en ;
 .
@@ -1897,7 +1896,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/core>
     a
         owl:NamedIndividual ,
-        ns1:ProfileIdentifierType ;
+        ns2:ProfileIdentifierType ;
     rdfs:label "core" ;
     rdfs:comment "the element follows the Core profile specification"@en ;
 .
@@ -1905,7 +1904,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/dataset>
     a
         owl:NamedIndividual ,
-        ns1:ProfileIdentifierType ;
+        ns2:ProfileIdentifierType ;
     rdfs:label "dataset" ;
     rdfs:comment "the element follows the Dataset profile specification"@en ;
 .
@@ -1913,7 +1912,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/expandedLicensing>
     a
         owl:NamedIndividual ,
-        ns1:ProfileIdentifierType ;
+        ns2:ProfileIdentifierType ;
     rdfs:label "expandedLicensing" ;
     rdfs:comment "the element follows the ExpandedLicensing profile specification"@en ;
 .
@@ -1921,7 +1920,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/extension>
     a
         owl:NamedIndividual ,
-        ns1:ProfileIdentifierType ;
+        ns2:ProfileIdentifierType ;
     rdfs:label "extension" ;
     rdfs:comment "the element follows the Extension profile specification"@en ;
 .
@@ -1929,7 +1928,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/lite>
     a
         owl:NamedIndividual ,
-        ns1:ProfileIdentifierType ;
+        ns2:ProfileIdentifierType ;
     rdfs:label "lite" ;
     rdfs:comment "the element follows the Lite profile specification"@en ;
 .
@@ -1937,7 +1936,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/security>
     a
         owl:NamedIndividual ,
-        ns1:ProfileIdentifierType ;
+        ns2:ProfileIdentifierType ;
     rdfs:label "security" ;
     rdfs:comment "the element follows the Security profile specification"@en ;
 .
@@ -1945,7 +1944,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/simpleLicensing>
     a
         owl:NamedIndividual ,
-        ns1:ProfileIdentifierType ;
+        ns2:ProfileIdentifierType ;
     rdfs:label "simpleLicensing" ;
     rdfs:comment "the element follows the SimpleLicensing profile specification"@en ;
 .
@@ -1953,7 +1952,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/software>
     a
         owl:NamedIndividual ,
-        ns1:ProfileIdentifierType ;
+        ns2:ProfileIdentifierType ;
     rdfs:label "software" ;
     rdfs:comment "the element follows the Software profile specification"@en ;
 .
@@ -1961,7 +1960,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipCompleteness/complete>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipCompleteness ;
+        ns2:RelationshipCompleteness ;
     rdfs:label "complete" ;
     rdfs:comment "The relationship is known to be exhaustive."@en ;
 .
@@ -1969,7 +1968,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipCompleteness/incomplete>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipCompleteness ;
+        ns2:RelationshipCompleteness ;
     rdfs:label "incomplete" ;
     rdfs:comment "The relationship is known not to be exhaustive."@en ;
 .
@@ -1977,7 +1976,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipCompleteness/noAssertion>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipCompleteness ;
+        ns2:RelationshipCompleteness ;
     rdfs:label "noAssertion" ;
     rdfs:comment "No assertion can be made about the completeness of the relationship."@en ;
 .
@@ -1985,7 +1984,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/affects>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "affects" ;
     rdfs:comment "The `from` Vulnerability affects each `to` Element. The use of the `affects` type is constrained to `VexAffectedVulnAssessmentRelationship` classed relationships."@en ;
 .
@@ -1993,7 +1992,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/amendedBy>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "amendedBy" ;
     rdfs:comment "The `from` Element is amended by each `to` Element."@en ;
 .
@@ -2001,7 +2000,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/ancestorOf>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "ancestorOf" ;
     rdfs:comment "The `from` Element is an ancestor of each `to` Element."@en ;
 .
@@ -2009,7 +2008,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/availableFrom>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "availableFrom" ;
     rdfs:comment "The `from` Element is available from the additional supplier described by each `to` Element."@en ;
 .
@@ -2017,7 +2016,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/configures>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "configures" ;
     rdfs:comment "The `from` Element is a configuration applied to each `to` Element, during a LifecycleScopeType period."@en ;
 .
@@ -2025,7 +2024,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/contains>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "contains" ;
     rdfs:comment "The `from` Element contains each `to` Element."@en ;
 .
@@ -2033,7 +2032,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/coordinatedBy>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "coordinatedBy" ;
     rdfs:comment "The `from` Vulnerability is coordinatedBy the `to` Agent(s) (vendor, researcher, or consumer agent)."@en ;
 .
@@ -2041,7 +2040,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/copiedTo>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "copiedTo" ;
     rdfs:comment "The `from` Element has been copied to each `to` Element."@en ;
 .
@@ -2049,7 +2048,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/delegatedTo>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "delegatedTo" ;
     rdfs:comment "The `from` Agent is delegating an action to the Agent of the `to` Relationship (which must be of type invokedBy), during a LifecycleScopeType (e.g. the `to` invokedBy Relationship is being done on behalf of `from`)."@en ;
 .
@@ -2057,7 +2056,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/dependsOn>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "dependsOn" ;
     rdfs:comment "The `from` Element depends on each `to` Element, during a LifecycleScopeType period."@en ;
 .
@@ -2065,7 +2064,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/descendantOf>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "descendantOf" ;
     rdfs:comment "The `from` Element is a descendant of each `to` Element."@en ;
 .
@@ -2073,7 +2072,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/describes>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "describes" ;
     rdfs:comment "The `from` Element describes each `to` Element. To denote the root(s) of a tree of elements in a collection, the rootElement property should be used."@en ;
 .
@@ -2081,7 +2080,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/doesNotAffect>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "doesNotAffect" ;
     rdfs:comment "The `from` Vulnerability has no impact on each `to` Element. The use of the `doesNotAffect` is constrained to `VexNotAffectedVulnAssessmentRelationship` classed relationships."@en ;
 .
@@ -2089,7 +2088,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/expandsTo>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "expandsTo" ;
     rdfs:comment "The `from` archive expands out as an artifact described by each `to` Element."@en ;
 .
@@ -2097,7 +2096,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/exploitCreatedBy>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "exploitCreatedBy" ;
     rdfs:comment "The `from` Vulnerability has had an exploit created against it by each `to` Agent."@en ;
 .
@@ -2105,7 +2104,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/fixedBy>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "fixedBy" ;
     rdfs:comment "Designates a `from` Vulnerability has been fixed by the `to` Agent(s)."@en ;
 .
@@ -2113,7 +2112,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/fixedIn>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "fixedIn" ;
     rdfs:comment "A `from` Vulnerability has been fixed in each `to` Element. The use of the `fixedIn` type is constrained to `VexFixedVulnAssessmentRelationship` classed relationships."@en ;
 .
@@ -2121,7 +2120,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/foundBy>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "foundBy" ;
     rdfs:comment "Designates a `from` Vulnerability was originally discovered by the `to` Agent(s)."@en ;
 .
@@ -2129,7 +2128,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/generates>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "generates" ;
     rdfs:comment "The `from` Element generates each `to` Element."@en ;
 .
@@ -2137,7 +2136,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasAddedFile>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasAddedFile" ;
     rdfs:comment "Every `to` Element is a file added to the `from` Element (`from` hasAddedFile `to`)."@en ;
 .
@@ -2145,7 +2144,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasAssessmentFor>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasAssessmentFor" ;
     rdfs:comment "Relates a `from` Vulnerability and each `to` Element with a security assessment. To be used with `VulnAssessmentRelationship` types."@en ;
 .
@@ -2153,7 +2152,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasAssociatedVulnerability>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasAssociatedVulnerability" ;
     rdfs:comment "Used to associate a `from` Artifact with each `to` Vulnerability."@en ;
 .
@@ -2161,7 +2160,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasConcludedLicense>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasConcludedLicense" ;
     rdfs:comment "The `from` SoftwareArtifact is concluded by the SPDX data creator to be governed by each `to` license."@en ;
 .
@@ -2169,7 +2168,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDataFile>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasDataFile" ;
     rdfs:comment "The `from` Element treats each `to` Element as a data file. A data file is an artifact that stores data required or optional for the `from` Element's functionality. A data file can be a database file, an index file, a log file, an AI model file, a calibration data file, a temporary file, a backup file, and more. For AI training dataset, test dataset, test artifact, configuration data, build input data, and build output data, please consider using the more specific relationship types: `trainedOn`, `testedOn`, `hasTest`, `configures`, `hasInput`, and `hasOutput`, respectively. This relationship does not imply dependency."@en ;
 .
@@ -2177,7 +2176,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDeclaredLicense>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasDeclaredLicense" ;
     rdfs:comment "The `from` SoftwareArtifact was discovered to actually contain each `to` license, for example as detected by use of automated tooling."@en ;
 .
@@ -2185,7 +2184,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDeletedFile>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasDeletedFile" ;
     rdfs:comment "Every `to` Element is a file deleted from the `from` Element (`from` hasDeletedFile `to`)."@en ;
 .
@@ -2193,7 +2192,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDependencyManifest>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasDependencyManifest" ;
     rdfs:comment "The `from` Element has manifest files that contain dependency information in each `to` Element."@en ;
 .
@@ -2201,7 +2200,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDistributionArtifact>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasDistributionArtifact" ;
     rdfs:comment "The `from` Element is distributed as an artifact in each `to` Element (e.g. an RPM or archive file)."@en ;
 .
@@ -2209,7 +2208,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDocumentation>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasDocumentation" ;
     rdfs:comment "The `from` Element is documented by each `to` Element."@en ;
 .
@@ -2217,7 +2216,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasDynamicLink>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasDynamicLink" ;
     rdfs:comment "The `from` Element dynamically links in each `to` Element, during a LifecycleScopeType period."@en ;
 .
@@ -2225,7 +2224,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasEvidence>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasEvidence" ;
     rdfs:comment "Every `to` Element is considered as evidence for the `from` Element (`from` hasEvidence `to`)."@en ;
 .
@@ -2233,7 +2232,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasExample>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasExample" ;
     rdfs:comment "Every `to` Element is an example for the `from` Element (`from` hasExample `to`)."@en ;
 .
@@ -2241,7 +2240,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasHost>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasHost" ;
     rdfs:comment "The `from` Build was run on the `to` Element during a LifecycleScopeType period (e.g. the host that the build runs on)."@en ;
 .
@@ -2249,7 +2248,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasInput>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasInput" ;
     rdfs:comment "The `from` Build has each `to` Element as an input, during a LifecycleScopeType period."@en ;
 .
@@ -2257,7 +2256,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasMetadata>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasMetadata" ;
     rdfs:comment "Every `to` Element is metadata about the `from` Element (`from` hasMetadata `to`)."@en ;
 .
@@ -2265,7 +2264,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasOptionalComponent>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasOptionalComponent" ;
     rdfs:comment "Every `to` Element is an optional component of the `from` Element (`from` hasOptionalComponent `to`)."@en ;
 .
@@ -2273,7 +2272,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasOptionalDependency>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasOptionalDependency" ;
     rdfs:comment "The `from` Element optionally depends on each `to` Element, during a LifecycleScopeType period."@en ;
 .
@@ -2281,7 +2280,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasOutput>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasOutput" ;
     rdfs:comment "The `from` Build element generates each `to` Element as an output, during a LifecycleScopeType period."@en ;
 .
@@ -2289,7 +2288,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasPrerequisite>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasPrerequisite" ;
     rdfs:comment "The `from` Element has a prerequisite on each `to` Element, during a LifecycleScopeType period."@en ;
 .
@@ -2297,7 +2296,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasProvidedDependency>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasProvidedDependency" ;
     rdfs:comment "The `from` Element has a dependency on each `to` Element, dependency is not in the distributed artifact, but assumed to be provided, during a LifecycleScopeType period."@en ;
 .
@@ -2305,7 +2304,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasRequirement>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasRequirement" ;
     rdfs:comment "The `from` Element has a requirement on each `to` Element, during a LifecycleScopeType period."@en ;
 .
@@ -2313,7 +2312,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasSpecification>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasSpecification" ;
     rdfs:comment "Every `to` Element is a specification for the `from` Element (`from` hasSpecification `to`), during a LifecycleScopeType period."@en ;
 .
@@ -2321,7 +2320,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasStaticLink>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasStaticLink" ;
     rdfs:comment "The `from` Element statically links in each `to` Element, during a LifecycleScopeType period."@en ;
 .
@@ -2329,7 +2328,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasTest>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasTest" ;
     rdfs:comment "Every `to` Element is a test artifact for the `from` Element (`from` hasTest `to`), during a LifecycleScopeType period."@en ;
 .
@@ -2337,7 +2336,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasTestCase>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasTestCase" ;
     rdfs:comment "Every `to` Element is a test case for the `from` Element (`from` hasTestCase `to`)."@en ;
 .
@@ -2345,7 +2344,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/hasVariant>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "hasVariant" ;
     rdfs:comment "Every `to` Element is a variant the `from` Element (`from` hasVariant `to`)."@en ;
 .
@@ -2353,7 +2352,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/invokedBy>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "invokedBy" ;
     rdfs:comment "The `from` Element was invoked by the `to` Agent, during a LifecycleScopeType period (for example, a Build element that describes a build step)."@en ;
 .
@@ -2361,7 +2360,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/modifiedBy>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "modifiedBy" ;
     rdfs:comment "The `from` Element is modified by each `to` Element."@en ;
 .
@@ -2369,7 +2368,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/other>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "other" ;
     rdfs:comment "Every `to` Element is related to the `from` Element where the relationship type is not described by any of the SPDX relationship types (this relationship is directionless)."@en ;
 .
@@ -2377,7 +2376,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/packagedBy>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "packagedBy" ;
     rdfs:comment "Every `to` Element is a packaged instance of the `from` Element (`from` packagedBy `to`)."@en ;
 .
@@ -2385,7 +2384,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/patchedBy>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "patchedBy" ;
     rdfs:comment "Every `to` Element is a patch for the `from` Element (`from` patchedBy `to`)."@en ;
 .
@@ -2393,7 +2392,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/publishedBy>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "publishedBy" ;
     rdfs:comment "Designates a `from` Vulnerability was made available for public use or reference by each `to` Agent."@en ;
 .
@@ -2401,7 +2400,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/reportedBy>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "reportedBy" ;
     rdfs:comment "Designates a `from` Vulnerability was first reported to a project, vendor, or tracking database for formal identification by each `to` Agent."@en ;
 .
@@ -2409,7 +2408,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/republishedBy>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "republishedBy" ;
     rdfs:comment "Designates a `from` Vulnerability's details were tracked, aggregated, and/or enriched to improve context (i.e. NVD) by each `to` Agent."@en ;
 .
@@ -2417,7 +2416,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/serializedInArtifact>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "serializedInArtifact" ;
     rdfs:comment "The `from` SpdxDocument can be found in a serialized form in each `to` Artifact."@en ;
 .
@@ -2425,7 +2424,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/testedOn>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "testedOn" ;
     rdfs:comment "The `from` Element has been tested on the `to` Element(s)."@en ;
 .
@@ -2433,7 +2432,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/trainedOn>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "trainedOn" ;
     rdfs:comment "The `from` Element has been trained on the `to` Element(s)."@en ;
 .
@@ -2441,7 +2440,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/underInvestigationFor>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "underInvestigationFor" ;
     rdfs:comment "The `from` Vulnerability impact is being investigated for each `to` Element. The use of the `underInvestigationFor` type is constrained to `VexUnderInvestigationVulnAssessmentRelationship` classed relationships."@en ;
 .
@@ -2449,7 +2448,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/usesTool>
     a
         owl:NamedIndividual ,
-        ns1:RelationshipType ;
+        ns2:RelationshipType ;
     rdfs:label "usesTool" ;
     rdfs:comment "The `from` Element uses each `to` Element as a tool, during a LifecycleScopeType period."@en ;
 .
@@ -2457,7 +2456,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/deployed>
     a
         owl:NamedIndividual ,
-        ns1:SupportType ;
+        ns2:SupportType ;
     rdfs:label "deployed" ;
     rdfs:comment "in addition to being supported by the supplier, the software is known to have been deployed and is in use.  For a software as a service provider, this implies the software is now available as a service."@en ;
 .
@@ -2465,7 +2464,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/development>
     a
         owl:NamedIndividual ,
-        ns1:SupportType ;
+        ns2:SupportType ;
     rdfs:label "development" ;
     rdfs:comment "the artifact is in active development and is not considered ready for formal support from the supplier."@en ;
 .
@@ -2473,7 +2472,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/endOfSupport>
     a
         owl:NamedIndividual ,
-        ns1:SupportType ;
+        ns2:SupportType ;
     rdfs:label "endOfSupport" ;
     rdfs:comment "there is a defined end of support for the artifact from the supplier.  This may also be referred to as end of life. There is a validUntilDate that can be used to signal when support ends for the artifact."@en ;
 .
@@ -2481,7 +2480,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/limitedSupport>
     a
         owl:NamedIndividual ,
-        ns1:SupportType ;
+        ns2:SupportType ;
     rdfs:label "limitedSupport" ;
     rdfs:comment "the artifact has been released, and there is limited support available from the supplier. There is a validUntilDate that can provide additional information about the duration of support."@en ;
 .
@@ -2489,7 +2488,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/noAssertion>
     a
         owl:NamedIndividual ,
-        ns1:SupportType ;
+        ns2:SupportType ;
     rdfs:label "noAssertion" ;
     rdfs:comment "no assertion about the type of support is made.   This is considered the default if no other support type is used."@en ;
 .
@@ -2497,7 +2496,7 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/noSupport>
     a
         owl:NamedIndividual ,
-        ns1:SupportType ;
+        ns2:SupportType ;
     rdfs:label "noSupport" ;
     rdfs:comment "there is no support for the artifact from the supplier, consumer assumes any support obligations."@en ;
 .
@@ -2505,317 +2504,317 @@ ns1:Organization
 <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/support>
     a
         owl:NamedIndividual ,
-        ns1:SupportType ;
+        ns2:SupportType ;
     rdfs:label "support" ;
     rdfs:comment "the artifact has been released, and is supported from the supplier.   There is a validUntilDate that can provide additional information about the duration of support."@en ;
 .
 
-ns1:annotationType
+ns2:annotationType
     a owl:ObjectProperty ;
     rdfs:comment "Describes the type of annotation."@en ;
-    rdfs:range ns1:AnnotationType ;
+    rdfs:range ns2:AnnotationType ;
 .
 
-ns1:beginIntegerRange
+ns2:beginIntegerRange
     a owl:DatatypeProperty ;
     rdfs:comment "Defines the beginning of a range."@en ;
     rdfs:range xsd:positiveInteger ;
 .
 
-ns1:builtTime
+ns2:builtTime
     a owl:DatatypeProperty ;
     rdfs:comment "Specifies the time an artifact was built."@en ;
     rdfs:range xsd:dateTimeStamp ;
 .
 
-ns1:completeness
+ns2:completeness
     a owl:ObjectProperty ;
     rdfs:comment "Provides information about the completeness of relationships."@en ;
-    rdfs:range ns1:RelationshipCompleteness ;
+    rdfs:range ns2:RelationshipCompleteness ;
 .
 
-ns1:context
+ns2:context
     a owl:DatatypeProperty ;
     rdfs:comment """Gives information about the circumstances or unifying properties
 that Elements of the bundle have been assembled under."""@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:created
+ns2:created
     a owl:DatatypeProperty ;
     rdfs:comment "Identifies when the Element was originally created."@en ;
     rdfs:range xsd:dateTimeStamp ;
 .
 
-ns1:createdBy
+ns2:createdBy
     a owl:ObjectProperty ;
     rdfs:comment "Identifies who or what created the Element."@en ;
-    rdfs:range ns1:Agent ;
+    rdfs:range ns2:Agent ;
 .
 
-ns1:createdUsing
+ns2:createdUsing
     a owl:ObjectProperty ;
     rdfs:comment "Identifies the tooling that was used during the creation of the Element."@en ;
-    rdfs:range ns1:Tool ;
+    rdfs:range ns2:Tool ;
 .
 
-ns1:creationInfo
+ns2:creationInfo
     a owl:ObjectProperty ;
     rdfs:comment "Provides information about the creation of the Element."@en ;
-    rdfs:range ns1:CreationInfo ;
+    rdfs:range ns2:CreationInfo ;
 .
 
-ns1:dataLicense
+ns2:dataLicense
     a owl:ObjectProperty ;
     rdfs:comment """Provides the license under which the SPDX documentation of the Element can be
 used."""@en ;
     rdfs:range <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/AnyLicenseInfo> ;
 .
 
-ns1:definingArtifact
+ns2:definingArtifact
     a owl:ObjectProperty ;
     rdfs:comment """Artifact representing a serialization instance of SPDX data containing the
 definition of a particular Element."""@en ;
-    rdfs:range ns1:Artifact ;
+    rdfs:range ns2:Artifact ;
 .
 
-ns1:description
+ns2:description
     a owl:DatatypeProperty ;
     rdfs:comment "Provides a detailed description of the Element."@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:element
+ns2:element
     a owl:ObjectProperty ;
     rdfs:comment "Refers to one or more Elements that are part of an ElementCollection."@en ;
-    rdfs:range ns1:Element ;
+    rdfs:range ns2:Element ;
 .
 
-ns1:endIntegerRange
+ns2:endIntegerRange
     a owl:DatatypeProperty ;
     rdfs:comment "Defines the end of a range."@en ;
     rdfs:range xsd:positiveInteger ;
 .
 
-ns1:endTime
+ns2:endTime
     a owl:DatatypeProperty ;
     rdfs:comment "Specifies the time from which an element is no longer applicable / valid."@en ;
     rdfs:range xsd:dateTimeStamp ;
 .
 
-ns1:extension
+ns2:extension
     a owl:ObjectProperty ;
     rdfs:comment "Specifies an Extension characterization of some aspect of an Element."@en ;
     rdfs:range <https://spdx.org/rdf/3.0.1/terms/Extension/Extension> ;
 .
 
-ns1:externalIdentifier
+ns2:externalIdentifier
     a owl:ObjectProperty ;
     rdfs:comment """Provides a reference to a resource outside the scope of SPDX-3.0 content
 that uniquely identifies an Element."""@en ;
-    rdfs:range ns1:ExternalIdentifier ;
+    rdfs:range ns2:ExternalIdentifier ;
 .
 
-ns1:externalIdentifierType
+ns2:externalIdentifierType
     a owl:ObjectProperty ;
     rdfs:comment "Specifies the type of the external identifier."@en ;
-    rdfs:range ns1:ExternalIdentifierType ;
+    rdfs:range ns2:ExternalIdentifierType ;
 .
 
-ns1:externalRef
+ns2:externalRef
     a owl:ObjectProperty ;
     rdfs:comment """Points to a resource outside the scope of the SPDX-3.0 content
 that provides additional characteristics of an Element."""@en ;
-    rdfs:range ns1:ExternalRef ;
+    rdfs:range ns2:ExternalRef ;
 .
 
-ns1:externalRefType
+ns2:externalRefType
     a owl:ObjectProperty ;
     rdfs:comment "Specifies the type of the external reference."@en ;
-    rdfs:range ns1:ExternalRefType ;
+    rdfs:range ns2:ExternalRefType ;
 .
 
-ns1:externalSpdxId
+ns2:externalSpdxId
     a owl:DatatypeProperty ;
     rdfs:comment """Identifies an external Element used within an SpdxDocument but defined
 external to that SpdxDocument."""@en ;
     rdfs:range xsd:anyURI ;
 .
 
-ns1:from
+ns2:from
     a owl:ObjectProperty ;
     rdfs:comment "References the Element on the left-hand side of a relationship."@en ;
-    rdfs:range ns1:Element ;
+    rdfs:range ns2:Element ;
 .
 
-ns1:identifier
+ns2:identifier
     a owl:DatatypeProperty ;
     rdfs:comment "Uniquely identifies an external element."@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:identifierLocator
+ns2:identifierLocator
     a owl:DatatypeProperty ;
     rdfs:comment "Provides the location for more information regarding an external identifier."@en ;
     rdfs:range xsd:anyURI ;
 .
 
-ns1:import
+ns2:import
     a owl:ObjectProperty ;
     rdfs:comment "Provides an ExternalMap of Element identifiers."@en ;
-    rdfs:range ns1:ExternalMap ;
+    rdfs:range ns2:ExternalMap ;
 .
 
-ns1:issuingAuthority
+ns2:issuingAuthority
     a owl:DatatypeProperty ;
     rdfs:comment "An entity that is authorized to issue identification credentials."@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:key
+ns2:key
     a owl:DatatypeProperty ;
     rdfs:comment "A key used in a generic key-value pair."@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:locationHint
+ns2:locationHint
     a owl:DatatypeProperty ;
     rdfs:comment "Provides an indication of where to retrieve an external Element."@en ;
     rdfs:range xsd:anyURI ;
 .
 
-ns1:locator
+ns2:locator
     a owl:DatatypeProperty ;
     rdfs:comment "Provides the location of an external reference."@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:name
+ns2:name
     a owl:DatatypeProperty ;
     rdfs:comment "Identifies the name of an Element as designated by the creator."@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:namespace
+ns2:namespace
     a owl:DatatypeProperty ;
     rdfs:comment """Provides an unambiguous mechanism for conveying a URI fragment portion of an
 Element ID."""@en ;
     rdfs:range xsd:anyURI ;
 .
 
-ns1:namespaceMap
+ns2:namespaceMap
     a owl:ObjectProperty ;
     rdfs:comment "Provides a NamespaceMap of prefixes and associated namespace partial URIs applicable to an SpdxDocument and independent of any specific serialization format or instance."@en ;
-    rdfs:range ns1:NamespaceMap ;
+    rdfs:range ns2:NamespaceMap ;
 .
 
-ns1:originatedBy
+ns2:originatedBy
     a owl:ObjectProperty ;
     rdfs:comment "Identifies from where or whom the Element originally came."@en ;
-    rdfs:range ns1:Agent ;
+    rdfs:range ns2:Agent ;
 .
 
-ns1:packageVerificationCodeExcludedFile
+ns2:packageVerificationCodeExcludedFile
     a owl:DatatypeProperty ;
     rdfs:comment """The relative file name of a file to be excluded from the
 `PackageVerificationCode`."""@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:prefix
+ns2:prefix
     a owl:DatatypeProperty ;
     rdfs:comment "A substitute for a URI."@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:profileConformance
+ns2:profileConformance
     a owl:ObjectProperty ;
     rdfs:comment """Describes one a profile which the creator of this ElementCollection intends to
 conform to."""@en ;
-    rdfs:range ns1:ProfileIdentifierType ;
+    rdfs:range ns2:ProfileIdentifierType ;
 .
 
-ns1:relationshipType
+ns2:relationshipType
     a owl:ObjectProperty ;
     rdfs:comment "Information about the relationship between two Elements."@en ;
-    rdfs:range ns1:RelationshipType ;
+    rdfs:range ns2:RelationshipType ;
 .
 
-ns1:releaseTime
+ns2:releaseTime
     a owl:DatatypeProperty ;
     rdfs:comment "Specifies the time an artifact was released."@en ;
     rdfs:range xsd:dateTimeStamp ;
 .
 
-ns1:rootElement
+ns2:rootElement
     a owl:ObjectProperty ;
     rdfs:comment "This property is used to denote the root Element(s) of a tree of elements contained in a BOM."@en ;
-    rdfs:range ns1:Element ;
+    rdfs:range ns2:Element ;
 .
 
-ns1:scope
+ns2:scope
     a owl:ObjectProperty ;
     rdfs:comment "Capture the scope of information about a specific relationship between elements."@en ;
-    rdfs:range ns1:LifecycleScopeType ;
+    rdfs:range ns2:LifecycleScopeType ;
 .
 
-ns1:specVersion
+ns2:specVersion
     a owl:DatatypeProperty ;
     rdfs:comment """Provides a reference number that can be used to understand how to parse and
 interpret an Element."""@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:standardName
+ns2:standardName
     a owl:DatatypeProperty ;
     rdfs:comment "The name of a relevant standard that may apply to an artifact."@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:startTime
+ns2:startTime
     a owl:DatatypeProperty ;
     rdfs:comment "Specifies the time from which an element is applicable / valid."@en ;
     rdfs:range xsd:dateTimeStamp ;
 .
 
-ns1:statement
+ns2:statement
     a owl:DatatypeProperty ;
     rdfs:comment "Commentary on an assertion that an annotator has made."@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:subject
+ns2:subject
     a owl:ObjectProperty ;
     rdfs:comment "An Element an annotator has made an assertion about."@en ;
-    rdfs:range ns1:Element ;
+    rdfs:range ns2:Element ;
 .
 
-ns1:summary
+ns2:summary
     a owl:DatatypeProperty ;
     rdfs:comment "A short description of an Element."@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:supportLevel
+ns2:supportLevel
     a owl:ObjectProperty ;
     rdfs:comment "Specifies the level of support associated with an artifact."@en ;
-    rdfs:range ns1:SupportType ;
+    rdfs:range ns2:SupportType ;
 .
 
-ns1:to
+ns2:to
     a owl:ObjectProperty ;
     rdfs:comment "References an Element on the right-hand side of a relationship."@en ;
-    rdfs:range ns1:Element ;
+    rdfs:range ns2:Element ;
 .
 
-ns1:validUntilTime
+ns2:validUntilTime
     a owl:DatatypeProperty ;
     rdfs:comment """Specifies until when the artifact can be used before its usage needs to be
 reassessed."""@en ;
     rdfs:range xsd:dateTimeStamp ;
 .
 
-ns1:value
+ns2:value
     a owl:DatatypeProperty ;
     rdfs:comment "A value used in a generic key-value pair."@en ;
     rdfs:range xsd:string ;
@@ -3062,7 +3061,7 @@ ns1:value
 <https://spdx.org/rdf/3.0.1/terms/Dataset/hasSensitivePersonalInformation>
     a owl:ObjectProperty ;
     rdfs:comment "Describes if any sensitive personal information is present in the dataset."@en ;
-    rdfs:range ns1:PresenceType ;
+    rdfs:range ns2:PresenceType ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/Dataset/intendedUse>
@@ -3080,7 +3079,7 @@ ns1:value
 <https://spdx.org/rdf/3.0.1/terms/Dataset/sensor>
     a owl:ObjectProperty ;
     rdfs:comment "Describes a sensor used for collecting the data."@en ;
-    rdfs:range ns1:DictionaryEntry ;
+    rdfs:range ns2:DictionaryEntry ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/additionText>
@@ -3355,7 +3354,7 @@ relationship."""@en ;
     a owl:ObjectProperty ;
     rdfs:comment """Maps a LicenseRef or AdditionRef string for a Custom License or a Custom
 License Addition to its URI ID."""@en ;
-    rdfs:range ns1:DictionaryEntry ;
+    rdfs:range ns2:DictionaryEntry ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/licenseExpression>
@@ -3467,7 +3466,7 @@ a software Package, File or Snippet."""@en ;
     a owl:DatatypeProperty ;
     rdfs:comment """Defines the byte range in the original host file that the snippet information
 applies to."""@en ;
-    rdfs:range ns1:PositiveIntegerRange ;
+    rdfs:range ns2:PositiveIntegerRange ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/Software/contentIdentifier>
@@ -3520,7 +3519,7 @@ package's home page."""@en ;
     a owl:DatatypeProperty ;
     rdfs:comment """Defines the line range in the original host file that the snippet information
 applies to."""@en ;
-    rdfs:range ns1:PositiveIntegerRange ;
+    rdfs:range ns2:PositiveIntegerRange ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/Software/packageUrl>
@@ -3568,11 +3567,11 @@ about the origin of the package."""@en ;
     rdfs:comment """A class for describing the energy consumption incurred by an AI model in
 different stages of its lifecycle."""@en ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/AI/EnergyConsumptionDescription> ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/trainingEnergyConsumption> ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/finetuningEnergyConsumption> ;
         ] ,
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/AI/EnergyConsumptionDescription> ;
@@ -3582,43 +3581,43 @@ different stages of its lifecycle."""@en ;
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/AI/EnergyConsumptionDescription> ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/finetuningEnergyConsumption> ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/trainingEnergyConsumption> ;
         ] ;
 .
 
-ns1:ExternalIdentifier
+ns2:ExternalIdentifier
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A reference to a resource identifier defined outside the scope of SPDX-3.0 content that uniquely identifies an Element."@en ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:issuingAuthority ;
+            sh:path ns2:issuingAuthority ;
+        ] ,
+        [
+            sh:datatype xsd:anyURI ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:identifierLocator ;
         ] ,
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:comment ;
+            sh:path ns2:comment ;
         ] ,
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:identifier ;
+            sh:path ns2:identifier ;
         ] ,
         [
-            sh:datatype xsd:anyURI ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:identifierLocator ;
-        ] ,
-        [
-            sh:class ns1:ExternalIdentifierType ;
+            sh:class ns2:ExternalIdentifierType ;
             sh:in (
                 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/cpe22>
                 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalIdentifierType/cpe23>
@@ -3635,53 +3634,71 @@ ns1:ExternalIdentifier
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:externalIdentifierType ;
+            sh:path ns2:externalIdentifierType ;
         ] ;
 .
 
-ns1:ExternalMap
+ns2:ExternalMap
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment """A map of Element identifiers that are used within an SpdxDocument but defined
 external to that SpdxDocument."""@en ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
+        [
+            sh:class ns2:IntegrityMethod ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path ns2:verifiedUsing ;
+        ] ,
         [
             sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:locationHint ;
-        ] ,
-        [
-            sh:class ns1:IntegrityMethod ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path ns1:verifiedUsing ;
+            sh:path ns2:locationHint ;
         ] ,
         [
             sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:externalSpdxId ;
+            sh:path ns2:externalSpdxId ;
         ] ,
         [
-            sh:class ns1:Artifact ;
+            sh:class ns2:Artifact ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:definingArtifact ;
+            sh:path ns2:definingArtifact ;
         ] ;
 .
 
-ns1:ExternalRef
+ns2:ExternalRef
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A reference to a resource outside the scope of SPDX-3.0 content related to an Element."@en ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
         [
-            sh:class ns1:ExternalRefType ;
+            sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:locator ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:comment ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:contentType ;
+            sh:pattern "^[^\\/]+\\/[^\\/]+$" ;
+        ] ,
+        [
+            sh:class ns2:ExternalRefType ;
             sh:in (
                 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/altDownloadLocation>
                 <https://spdx.org/rdf/3.0.1/terms/Core/ExternalRefType/altWebPage>
@@ -3732,45 +3749,27 @@ ns1:ExternalRef
             ) ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:externalRefType ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:locator ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:contentType ;
-            sh:pattern "^[^\\/]+\\/[^\\/]+$" ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:comment ;
+            sh:path ns2:externalRefType ;
         ] ;
 .
 
-ns1:Hash
+ns2:Hash
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A mathematically calculated representation of a grouping of data."@en ;
-    rdfs:subClassOf ns1:IntegrityMethod ;
+    rdfs:subClassOf ns2:IntegrityMethod ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:hashValue ;
+            sh:path ns2:hashValue ;
         ] ,
         [
-            sh:class ns1:HashAlgorithm ;
+            sh:class ns2:HashAlgorithm ;
             sh:in (
                 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/adler32>
                 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/blake2b256>
@@ -3798,14 +3797,14 @@ ns1:Hash
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:algorithm ;
+            sh:path ns2:algorithm ;
         ] ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/adler32>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "adler32" ;
     rdfs:comment "Adler-32 checksum is part of the widely used zlib compression library as defined in [RFC 1950](https://datatracker.ietf.org/doc/rfc1950/) Section 2.3."@en ;
 .
@@ -3813,7 +3812,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/blake2b256>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "blake2b256" ;
     rdfs:comment "BLAKE2b algorithm with a digest size of 256, as defined in [RFC 7693](https://datatracker.ietf.org/doc/rfc7693/) Section 4."@en ;
 .
@@ -3821,7 +3820,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/blake2b384>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "blake2b384" ;
     rdfs:comment "BLAKE2b algorithm with a digest size of 384, as defined in [RFC 7693](https://datatracker.ietf.org/doc/rfc7693/) Section 4."@en ;
 .
@@ -3829,7 +3828,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/blake2b512>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "blake2b512" ;
     rdfs:comment "BLAKE2b algorithm with a digest size of 512, as defined in [RFC 7693](https://datatracker.ietf.org/doc/rfc7693/) Section 4."@en ;
 .
@@ -3837,7 +3836,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/blake3>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "blake3" ;
     rdfs:comment "[BLAKE3](https://github.com/BLAKE3-team/BLAKE3-specs/blob/master/blake3.pdf)"@en ;
 .
@@ -3845,7 +3844,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/crystalsDilithium>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "crystalsDilithium" ;
     rdfs:comment "[Dilithium](https://pq-crystals.org/dilithium/)"@en ;
 .
@@ -3853,7 +3852,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/crystalsKyber>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "crystalsKyber" ;
     rdfs:comment "[Kyber](https://pq-crystals.org/kyber/)"@en ;
 .
@@ -3861,7 +3860,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/falcon>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "falcon" ;
     rdfs:comment "[FALCON](https://falcon-sign.info/falcon.pdf)"@en ;
 .
@@ -3869,7 +3868,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/md2>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "md2" ;
     rdfs:comment "MD2 message-digest algorithm, as defined in [RFC 1319](https://datatracker.ietf.org/doc/rfc1319/)."@en ;
 .
@@ -3877,7 +3876,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/md4>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "md4" ;
     rdfs:comment "MD4 message-digest algorithm, as defined in [RFC 1186](https://datatracker.ietf.org/doc/rfc1186/)."@en ;
 .
@@ -3885,7 +3884,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/md5>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "md5" ;
     rdfs:comment "MD5 message-digest algorithm, as defined in [RFC 1321](https://datatracker.ietf.org/doc/rfc1321/)."@en ;
 .
@@ -3893,7 +3892,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/md6>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "md6" ;
     rdfs:comment "[MD6 hash function](https://people.csail.mit.edu/rivest/pubs/RABCx08.pdf)"@en ;
 .
@@ -3901,7 +3900,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/other>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "other" ;
     rdfs:comment "any hashing algorithm that does not exist in this list of entries"@en ;
 .
@@ -3909,7 +3908,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha1>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "sha1" ;
     rdfs:comment "SHA-1, a secure hashing algorithm, as defined in [RFC 3174](https://datatracker.ietf.org/doc/rfc3174/)."@en ;
 .
@@ -3917,7 +3916,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha224>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "sha224" ;
     rdfs:comment "SHA-2 with a digest length of 224, as defined in [RFC 3874](https://datatracker.ietf.org/doc/rfc3874/)."@en ;
 .
@@ -3925,7 +3924,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha256>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "sha256" ;
     rdfs:comment "SHA-2 with a digest length of 256, as defined in [RFC 6234](https://datatracker.ietf.org/doc/rfc6234/)."@en ;
 .
@@ -3933,7 +3932,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha384>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "sha384" ;
     rdfs:comment "SHA-2 with a digest length of 384, as defined in [RFC 6234](https://datatracker.ietf.org/doc/rfc6234/)."@en ;
 .
@@ -3941,7 +3940,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha3_224>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "sha3_224" ;
     rdfs:comment "SHA-3 with a digest length of 224, as defined in [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)."@en ;
 .
@@ -3949,7 +3948,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha3_256>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "sha3_256" ;
     rdfs:comment "SHA-3 with a digest length of 256, as defined in [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)."@en ;
 .
@@ -3957,7 +3956,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha3_384>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "sha3_384" ;
     rdfs:comment "SHA-3 with a digest length of 384, as defined in [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)."@en ;
 .
@@ -3965,7 +3964,7 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha3_512>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "sha3_512" ;
     rdfs:comment "SHA-3 with a digest length of 512, as defined in [FIPS 202](https://csrc.nist.gov/pubs/fips/202/final)."@en ;
 .
@@ -3973,66 +3972,66 @@ ns1:Hash
 <https://spdx.org/rdf/3.0.1/terms/Core/HashAlgorithm/sha512>
     a
         owl:NamedIndividual ,
-        ns1:HashAlgorithm ;
+        ns2:HashAlgorithm ;
     rdfs:label "sha512" ;
     rdfs:comment "SHA-2 with a digest length of 512, as defined in [RFC 6234](https://datatracker.ietf.org/doc/rfc6234/)."@en ;
 .
 
-ns1:IndividualElement
+ns2:IndividualElement
     a owl:Class ;
     rdfs:comment """A concrete subclass of Element used by Individuals in the
 Core profile."""@en ;
-    rdfs:subClassOf ns1:Element ;
+    rdfs:subClassOf ns2:Element ;
     sh:nodeKind sh:IRI ;
 .
 
-ns1:NamespaceMap
+ns2:NamespaceMap
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A mapping between prefixes and namespace partial URIs."@en ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:prefix ;
-        ] ,
+    sh:property 
         [
             sh:datatype xsd:anyURI ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:namespace ;
+            sh:path ns2:namespace ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:prefix ;
         ] ;
 .
 
-ns1:Relationship
+ns2:Relationship
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "Describes a relationship between one or more elements."@en ;
-    rdfs:subClassOf ns1:Element ;
+    rdfs:subClassOf ns2:Element ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:dateTimeStamp ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:endTime ;
+            sh:path ns2:startTime ;
             sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
         ] ,
         [
             sh:datatype xsd:dateTimeStamp ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:startTime ;
+            sh:path ns2:endTime ;
             sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
         ] ,
         [
-            sh:class ns1:RelationshipCompleteness ;
+            sh:class ns2:RelationshipCompleteness ;
             sh:in (
                 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipCompleteness/incomplete>
                 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipCompleteness/complete>
@@ -4040,23 +4039,10 @@ ns1:Relationship
             ) ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:completeness ;
+            sh:path ns2:completeness ;
         ] ,
         [
-            sh:class ns1:Element ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path ns1:to ;
-        ] ,
-        [
-            sh:class ns1:Element ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path ns1:from ;
-        ] ,
-        [
-            sh:class ns1:RelationshipType ;
+            sh:class ns2:RelationshipType ;
             sh:in (
                 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/affects>
                 <https://spdx.org/rdf/3.0.1/terms/Core/RelationshipType/amendedBy>
@@ -4121,41 +4107,54 @@ ns1:Relationship
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:relationshipType ;
+            sh:path ns2:relationshipType ;
+        ] ,
+        [
+            sh:class ns2:Element ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path ns2:from ;
+        ] ,
+        [
+            sh:class ns2:Element ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path ns2:to ;
         ] ;
 .
 
-ns1:Tool
+ns2:Tool
     a owl:Class ;
     rdfs:comment "An element of hardware and/or software utilized to carry out a particular function."@en ;
-    rdfs:subClassOf ns1:Element ;
+    rdfs:subClassOf ns2:Element ;
     sh:nodeKind sh:IRI ;
 .
 
-ns1:algorithm
+ns2:algorithm
     a owl:ObjectProperty ;
     rdfs:comment "Specifies the algorithm used for calculating the hash value."@en ;
-    rdfs:range ns1:HashAlgorithm ;
+    rdfs:range ns2:HashAlgorithm ;
 .
 
-ns1:hashValue
+ns2:hashValue
     a owl:DatatypeProperty ;
     rdfs:comment "The result of applying a hash algorithm to an Element."@en ;
     rdfs:range xsd:string ;
 .
 
-ns1:suppliedBy
+ns2:suppliedBy
     a owl:ObjectProperty ;
     rdfs:comment """Identifies who or what supplied the artifact or VulnAssessmentRelationship
 referenced by the Element."""@en ;
-    rdfs:range ns1:Agent ;
+    rdfs:range ns2:Agent ;
 .
 
-ns1:verifiedUsing
+ns2:verifiedUsing
     a owl:ObjectProperty ;
     rdfs:comment """Provides an IntegrityMethod with which the integrity of an Element can be
 asserted."""@en ;
-    rdfs:range ns1:IntegrityMethod ;
+    rdfs:range ns2:IntegrityMethod ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/IndividualLicensingInfo>
@@ -4212,7 +4211,7 @@ License or LicenseAddition."""@en ;
         sh:NodeShape ;
     rdfs:comment "A property name with an associated value."@en ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
@@ -4303,9 +4302,16 @@ License or LicenseAddition."""@en ;
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A canonical, unique, immutable identifier"@en ;
-    rdfs:subClassOf ns1:IntegrityMethod ;
+    rdfs:subClassOf ns2:IntegrityMethod ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
+        [
+            sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/contentIdentifierValue> ;
+        ] ,
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifierType> ;
             sh:in (
@@ -4316,13 +4322,6 @@ License or LicenseAddition."""@en ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Software/contentIdentifierType> ;
-        ] ,
-        [
-            sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/contentIdentifierValue> ;
         ] ;
 .
 
@@ -4333,12 +4332,12 @@ License or LicenseAddition."""@en ;
     rdfs:comment "Refers to any object that stores content on a computer."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact> ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:contentType ;
+            sh:path ns2:contentType ;
             sh:pattern "^[^\\/]+\\/[^\\/]+$" ;
         ] ,
         [
@@ -4361,12 +4360,24 @@ License or LicenseAddition."""@en ;
 software."""@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact> ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Software/sourceInfo> ;
+        ] ,
+        [
+            sh:datatype xsd:anyURI ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/homePage> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/packageVersion> ;
         ] ,
         [
             sh:datatype xsd:anyURI ;
@@ -4379,18 +4390,6 @@ software."""@en ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Software/packageUrl> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/packageVersion> ;
-        ] ,
-        [
-            sh:datatype xsd:anyURI ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/homePage> ;
         ] ;
 .
 
@@ -4626,21 +4625,16 @@ software."""@en ;
     rdfs:comment "The Element is a test used to verify functionality on an software element."@en ;
 .
 
-ns1:ElementCollection
+ns2:ElementCollection
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A collection of Elements, not necessarily with unifying context."@en ;
-    rdfs:subClassOf ns1:Element ;
+    rdfs:subClassOf ns2:Element ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
-            sh:class ns1:Element ;
-            sh:nodeKind sh:IRI ;
-            sh:path ns1:rootElement ;
-        ] ,
-        [
-            sh:class ns1:ProfileIdentifierType ;
+            sh:class ns2:ProfileIdentifierType ;
             sh:in (
                 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/core>
                 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/software>
@@ -4654,27 +4648,32 @@ ns1:ElementCollection
                 <https://spdx.org/rdf/3.0.1/terms/Core/ProfileIdentifierType/lite>
             ) ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:profileConformance ;
+            sh:path ns2:profileConformance ;
+        ] ,
+        [
+            sh:class ns2:Element ;
+            sh:nodeKind sh:IRI ;
+            sh:path ns2:rootElement ;
         ] ,
         [
             sh:message "https://spdx.org/rdf/3.0.1/terms/Core/ElementCollection is an abstract class and should not be instantiated directly. Instantiate a subclass instead."@en ;
             sh:not
                 [
-                    sh:hasValue ns1:ElementCollection ;
+                    sh:hasValue ns2:ElementCollection ;
                 ] ;
             sh:path rdf:type ;
         ] ,
         [
-            sh:class ns1:Element ;
+            sh:class ns2:Element ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:element ;
+            sh:path ns2:element ;
         ] ;
 .
 
 <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/no>
     a
         owl:NamedIndividual ,
-        ns1:PresenceType ;
+        ns2:PresenceType ;
     rdfs:label "no" ;
     rdfs:comment "Indicates absence of the field."@en ;
 .
@@ -4682,7 +4681,7 @@ ns1:ElementCollection
 <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/noAssertion>
     a
         owl:NamedIndividual ,
-        ns1:PresenceType ;
+        ns2:PresenceType ;
     rdfs:label "noAssertion" ;
     rdfs:comment "Makes no assertion about the field."@en ;
 .
@@ -4690,12 +4689,12 @@ ns1:ElementCollection
 <https://spdx.org/rdf/3.0.1/terms/Core/PresenceType/yes>
     a
         owl:NamedIndividual ,
-        ns1:PresenceType ;
+        ns2:PresenceType ;
     rdfs:label "yes" ;
     rdfs:comment "Indicates presence of the field."@en ;
 .
 
-ns1:contentType
+ns2:contentType
     a owl:DatatypeProperty ;
     rdfs:comment "Provides information about the content type of an Element or a Property."@en ;
     rdfs:range xsd:string ;
@@ -4713,31 +4712,31 @@ ns1:contentType
     rdfs:range xsd:string ;
 .
 
-ns1:AnnotationType
+ns2:AnnotationType
     a owl:Class ;
     rdfs:comment "Specifies the type of an annotation."@en ;
 .
 
-ns1:PositiveIntegerRange
+ns2:PositiveIntegerRange
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A tuple of two positive integers that define a range."@en ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:positiveInteger ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:beginIntegerRange ;
+            sh:path ns2:endIntegerRange ;
         ] ,
         [
             sh:datatype xsd:positiveInteger ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:endIntegerRange ;
+            sh:path ns2:beginIntegerRange ;
         ] ;
 .
 
@@ -4776,48 +4775,61 @@ ns1:PositiveIntegerRange
     rdfs:comment "Specifies the unit of energy consumption."@en ;
 .
 
-ns1:Artifact
+ns2:Artifact
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A distinct article or unit within the digital domain."@en ;
-    rdfs:subClassOf ns1:Element ;
+    rdfs:subClassOf ns2:Element ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
-            sh:message "https://spdx.org/rdf/3.0.1/terms/Core/Artifact is an abstract class and should not be instantiated directly. Instantiate a subclass instead."@en ;
-            sh:not
-                [
-                    sh:hasValue ns1:Artifact ;
-                ] ;
-            sh:path rdf:type ;
+            sh:datatype xsd:dateTimeStamp ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:validUntilTime ;
+            sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
         ] ,
         [
             sh:datatype xsd:dateTimeStamp ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:releaseTime ;
+            sh:path ns2:releaseTime ;
             sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
         ] ,
         [
             sh:datatype xsd:string ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:standardName ;
-        ] ,
-        [
-            sh:class ns1:Agent ;
-            sh:nodeKind sh:IRI ;
-            sh:path ns1:originatedBy ;
+            sh:path ns2:standardName ;
         ] ,
         [
             sh:datatype xsd:dateTimeStamp ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:builtTime ;
+            sh:path ns2:builtTime ;
             sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
         ] ,
         [
-            sh:class ns1:SupportType ;
+            sh:message "https://spdx.org/rdf/3.0.1/terms/Core/Artifact is an abstract class and should not be instantiated directly. Instantiate a subclass instead."@en ;
+            sh:not
+                [
+                    sh:hasValue ns2:Artifact ;
+                ] ;
+            sh:path rdf:type ;
+        ] ,
+        [
+            sh:class ns2:Agent ;
+            sh:nodeKind sh:IRI ;
+            sh:path ns2:originatedBy ;
+        ] ,
+        [
+            sh:class ns2:Agent ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path ns2:suppliedBy ;
+        ] ,
+        [
+            sh:class ns2:SupportType ;
             sh:in (
                 <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/development>
                 <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/support>
@@ -4828,38 +4840,25 @@ ns1:Artifact
                 <https://spdx.org/rdf/3.0.1/terms/Core/SupportType/noAssertion>
             ) ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:supportLevel ;
-        ] ,
-        [
-            sh:datatype xsd:dateTimeStamp ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:validUntilTime ;
-            sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
-        ] ,
-        [
-            sh:class ns1:Agent ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path ns1:suppliedBy ;
+            sh:path ns2:supportLevel ;
         ] ;
 .
 
-ns1:RelationshipCompleteness
+ns2:RelationshipCompleteness
     a owl:Class ;
     rdfs:comment "Indicates whether a relationship is known to be complete, incomplete, or if no assertion is made with respect to relationship completeness."@en ;
 .
 
-ns1:SpdxOrganization
+ns2:SpdxOrganization
     a
         owl:NamedIndividual ,
-        ns1:Organization ;
+        ns2:Organization ;
     rdfs:comment "An Organization representing the SPDX Project."@en ;
     owl:sameAs <https://spdx.org/> ;
-    ns1:creationInfo <https://spdx.org/rdf/3.0.1/creationInfo_SpdxOrganization> ;
+    ns2:creationInfo <https://spdx.org/rdf/3.0.1/creationInfo_SpdxOrganization> ;
 .
 
-ns1:comment
+ns2:comment
     a owl:DatatypeProperty ;
     rdfs:comment """Provide consumers with comments by the creator of the Element about the
 Element."""@en ;
@@ -4889,23 +4888,12 @@ Element."""@en ;
     rdfs:comment "Abstract class for the portion of an AnyLicenseInfo representing a license."@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/ExtendableLicense> ;
     sh:nodeKind sh:IRI ;
-    sh:property
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/obsoletedBy> ;
-        ] ,
+    sh:property 
         [
             sh:datatype xsd:boolean ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/isDeprecatedLicenseId> ;
-        ] ,
-        [
-            sh:datatype xsd:anyURI ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/seeAlso> ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/isOsiApproved> ;
         ] ,
         [
             sh:datatype xsd:boolean ;
@@ -4922,70 +4910,14 @@ Element."""@en ;
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/licenseText> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/standardLicenseHeader> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/standardLicenseTemplate> ;
-        ] ,
-        [
-            sh:datatype xsd:boolean ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/isOsiApproved> ;
         ] ,
         [
             sh:message "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/License is an abstract class and should not be instantiated directly. Instantiate a subclass instead."@en ;
             sh:not
                 [
                     sh:hasValue <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/License> ;
-                ] ;
-            sh:path rdf:type ;
-        ] ;
-.
-
-<https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition>
-    a
-        owl:Class ,
-        sh:NodeShape ;
-    rdfs:comment """Abstract class for additional text intended to be added to a License, but
-which is not itself a standalone License."""@en ;
-    rdfs:subClassOf ns1:Element ;
-    sh:nodeKind sh:IRI ;
-    sh:property
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/licenseXml> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/standardAdditionTemplate> ;
-        ] ,
-        [
-            sh:datatype xsd:boolean ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/isDeprecatedAdditionId> ;
-        ] ,
-        [
-            sh:message "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition is an abstract class and should not be instantiated directly. Instantiate a subclass instead."@en ;
-            sh:not
-                [
-                    sh:hasValue <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition> ;
                 ] ;
             sh:path rdf:type ;
         ] ,
@@ -5003,9 +4935,76 @@ which is not itself a standalone License."""@en ;
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/standardLicenseHeader> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/licenseText> ;
+        ] ,
+        [
+            sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/isDeprecatedLicenseId> ;
+        ] ;
+.
+
+<https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition>
+    a
+        owl:Class ,
+        sh:NodeShape ;
+    rdfs:comment """Abstract class for additional text intended to be added to a License, but
+which is not itself a standalone License."""@en ;
+    rdfs:subClassOf ns2:Element ;
+    sh:nodeKind sh:IRI ;
+    sh:property 
+        [
+            sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/isDeprecatedAdditionId> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/licenseXml> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/standardAdditionTemplate> ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/obsoletedBy> ;
+        ] ,
+        [
+            sh:message "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition is an abstract class and should not be instantiated directly. Instantiate a subclass instead."@en ;
+            sh:not
+                [
+                    sh:hasValue <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/LicenseAddition> ;
+                ] ;
+            sh:path rdf:type ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/additionText> ;
+        ] ,
+        [
+            sh:datatype xsd:anyURI ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/seeAlso> ;
         ] ;
 .
 
@@ -5016,7 +5015,13 @@ which is not itself a standalone License."""@en ;
     rdfs:comment "Abstract ancestor class for all VEX relationships"@en ;
     rdfs:subClassOf <https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship> ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/statusNotes> ;
+        ] ,
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
@@ -5030,12 +5035,6 @@ which is not itself a standalone License."""@en ;
                     sh:hasValue <https://spdx.org/rdf/3.0.1/terms/Security/VexVulnAssessmentRelationship> ;
                 ] ;
             sh:path rdf:type ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/statusNotes> ;
         ] ;
 .
 
@@ -5046,7 +5045,14 @@ which is not itself a standalone License."""@en ;
     rdfs:comment """The class that helps note down the quantity of energy consumption and the unit
 used for measurement."""@en ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
+        [
+            sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/energyQuantity> ;
+        ] ,
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/AI/EnergyUnitType> ;
             sh:in (
@@ -5058,13 +5064,6 @@ used for measurement."""@en ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/AI/energyUnit> ;
-        ] ,
-        [
-            sh:datatype xsd:decimal ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/AI/energyQuantity> ;
         ] ;
 .
 
@@ -5088,9 +5087,27 @@ used for measurement."""@en ;
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A distinct article or unit related to Software."@en ;
-    rdfs:subClassOf ns1:Artifact ;
+    rdfs:subClassOf ns2:Artifact ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
+        [
+            sh:datatype xsd:string ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/attributionText> ;
+        ] ,
+        [
+            sh:message "https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact is an abstract class and should not be instantiated directly. Instantiate a subclass instead."@en ;
+            sh:not
+                [
+                    sh:hasValue <https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact> ;
+                ] ;
+            sh:path rdf:type ;
+        ] ,
+        [
+            sh:class <https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifier> ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/contentIdentifier> ;
+        ] ,
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
@@ -5130,22 +5147,8 @@ used for measurement."""@en ;
                 <https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/specification>
                 <https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/test>
             ) ;
-            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/primaryPurpose> ;
-        ] ,
-        [
-            sh:class <https://spdx.org/rdf/3.0.1/terms/Software/ContentIdentifier> ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/contentIdentifier> ;
-        ] ,
-        [
-            sh:message "https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact is an abstract class and should not be instantiated directly. Instantiate a subclass instead."@en ;
-            sh:not
-                [
-                    sh:hasValue <https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact> ;
-                ] ;
-            sh:path rdf:type ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/additionalPurpose> ;
         ] ,
         [
             sh:class <https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose> ;
@@ -5180,70 +5183,66 @@ used for measurement."""@en ;
                 <https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/specification>
                 <https://spdx.org/rdf/3.0.1/terms/Software/SoftwarePurpose/test>
             ) ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/additionalPurpose> ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/attributionText> ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Software/primaryPurpose> ;
         ] ;
 .
 
-ns1:CreationInfo
+ns2:CreationInfo
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "Provides information about the creation of the Element."@en ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
         [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:specVersion ;
-            sh:pattern "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$" ;
+            sh:class ns2:Tool ;
+            sh:nodeKind sh:IRI ;
+            sh:path ns2:createdUsing ;
         ] ,
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:comment ;
+            sh:path ns2:comment ;
         ] ,
         [
-            sh:class ns1:Agent ;
+            sh:class ns2:Agent ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path ns1:createdBy ;
+            sh:path ns2:createdBy ;
         ] ,
         [
             sh:datatype xsd:dateTimeStamp ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:created ;
+            sh:path ns2:created ;
             sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
         ] ,
         [
-            sh:class ns1:Tool ;
-            sh:nodeKind sh:IRI ;
-            sh:path ns1:createdUsing ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:specVersion ;
+            sh:pattern "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$" ;
         ] ;
 .
 
-ns1:IntegrityMethod
+ns2:IntegrityMethod
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "Provides an independently reproducible mechanism that permits verification of a specific Element."@en ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
         [
             sh:message "https://spdx.org/rdf/3.0.1/terms/Core/IntegrityMethod is an abstract class and should not be instantiated directly. Instantiate a subclass instead."@en ;
             sh:not
                 [
-                    sh:hasValue ns1:IntegrityMethod ;
+                    sh:hasValue ns2:IntegrityMethod ;
                 ] ;
             sh:path rdf:type ;
         ] ,
@@ -5251,7 +5250,7 @@ ns1:IntegrityMethod
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:comment ;
+            sh:path ns2:comment ;
         ] ;
 .
 
@@ -5265,7 +5264,7 @@ ns1:IntegrityMethod
     rdfs:comment "Specifies the VEX justification type."@en ;
 .
 
-ns1:LifecycleScopeType
+ns2:LifecycleScopeType
     a owl:Class ;
     rdfs:comment "Provide an enumerated set of lifecycle phases that can provide context to relationships."@en ;
 .
@@ -5280,15 +5279,35 @@ ns1:LifecycleScopeType
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "Abstract ancestor class for all vulnerability assessments"@en ;
-    rdfs:subClassOf ns1:Relationship ;
+    rdfs:subClassOf ns2:Relationship ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:dateTimeStamp ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:path <https://spdx.org/rdf/3.0.1/terms/Security/modifiedTime> ;
             sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
+        ] ,
+        [
+            sh:datatype xsd:dateTimeStamp ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/publishedTime> ;
+            sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
+        ] ,
+        [
+            sh:datatype xsd:dateTimeStamp ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/withdrawnTime> ;
+            sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
+        ] ,
+        [
+            sh:class <https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact> ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/assessedElement> ;
         ] ,
         [
             sh:message "https://spdx.org/rdf/3.0.1/terms/Security/VulnAssessmentRelationship is an abstract class and should not be instantiated directly. Instantiate a subclass instead."@en ;
@@ -5299,30 +5318,10 @@ ns1:LifecycleScopeType
             sh:path rdf:type ;
         ] ,
         [
-            sh:class <https://spdx.org/rdf/3.0.1/terms/Software/SoftwareArtifact> ;
+            sh:class ns2:Agent ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/assessedElement> ;
-        ] ,
-        [
-            sh:datatype xsd:dateTimeStamp ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/publishedTime> ;
-            sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
-        ] ,
-        [
-            sh:class ns1:Agent ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path ns1:suppliedBy ;
-        ] ,
-        [
-            sh:datatype xsd:dateTimeStamp ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path <https://spdx.org/rdf/3.0.1/terms/Security/withdrawnTime> ;
-            sh:pattern "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$" ;
+            sh:path ns2:suppliedBy ;
         ] ;
 .
 
@@ -5332,24 +5331,24 @@ ns1:LifecycleScopeType
 tools may create."""@en ;
 .
 
-ns1:PresenceType
+ns2:PresenceType
     a owl:Class ;
     rdfs:comment "Categories of presence or absence."@en ;
 .
 
-ns1:SupportType
+ns2:SupportType
     a owl:Class ;
     rdfs:comment "Indicates the type of support that is associated with an artifact."@en ;
 .
 
-ns1:Agent
+ns2:Agent
     a owl:Class ;
     rdfs:comment "Agent represents anything with the potential to act on a system."@en ;
-    rdfs:subClassOf ns1:Element ;
+    rdfs:subClassOf ns2:Element ;
     sh:nodeKind sh:IRI ;
 .
 
-ns1:ProfileIdentifierType
+ns2:ProfileIdentifierType
     a owl:Class ;
     rdfs:comment "Enumeration of the valid profiles."@en ;
 .
@@ -5357,7 +5356,7 @@ ns1:ProfileIdentifierType
 <https://spdx.org/rdf/3.0.1/terms/SimpleLicensing/AnyLicenseInfo>
     a owl:Class ;
     rdfs:comment "Abstract class representing a license combination consisting of one or more licenses."@en ;
-    rdfs:subClassOf ns1:Element ;
+    rdfs:subClassOf ns2:Element ;
     sh:nodeKind sh:IRI ;
     sh:property
         [
@@ -5370,30 +5369,30 @@ ns1:ProfileIdentifierType
         ] ;
 .
 
-ns1:ExternalIdentifierType
+ns2:ExternalIdentifierType
     a owl:Class ;
     rdfs:comment "Specifies the type of an external identifier."@en ;
 .
 
-ns1:DictionaryEntry
+ns2:DictionaryEntry
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "A key with an associated value."@en ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:property
+    sh:property 
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:value ;
+            sh:path ns2:value ;
         ] ,
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:key ;
+            sh:path ns2:key ;
         ] ;
 .
 
@@ -5402,75 +5401,75 @@ ns1:DictionaryEntry
     rdfs:comment "Enumeration of dataset types."@en ;
 .
 
-ns1:Element
+ns2:Element
     a
         owl:Class ,
         sh:NodeShape ;
     rdfs:comment "Base domain class from which all other SPDX-3.0 domain classes derive."@en ;
     sh:nodeKind sh:IRI ;
-    sh:property
+    sh:property 
         [
-            sh:class ns1:IntegrityMethod ;
+            sh:class ns2:IntegrityMethod ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path ns1:verifiedUsing ;
+            sh:path ns2:verifiedUsing ;
         ] ,
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:description ;
-        ] ,
-        [
-            sh:class ns1:ExternalIdentifier ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path ns1:externalIdentifier ;
+            sh:path ns2:description ;
         ] ,
         [
             sh:datatype xsd:string ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:path ns1:name ;
+            sh:path ns2:name ;
         ] ,
         [
-            sh:class ns1:CreationInfo ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
+            sh:class ns2:ExternalRef ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path ns1:creationInfo ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:summary ;
-        ] ,
-        [
-            sh:datatype xsd:string ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:path ns1:comment ;
-        ] ,
-        [
-            sh:class ns1:ExternalRef ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path ns1:externalRef ;
-        ] ,
-        [
-            sh:class <https://spdx.org/rdf/3.0.1/terms/Extension/Extension> ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path ns1:extension ;
+            sh:path ns2:externalRef ;
         ] ,
         [
             sh:message "https://spdx.org/rdf/3.0.1/terms/Core/Element is an abstract class and should not be instantiated directly. Instantiate a subclass instead."@en ;
             sh:not
                 [
-                    sh:hasValue ns1:Element ;
+                    sh:hasValue ns2:Element ;
                 ] ;
             sh:path rdf:type ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:summary ;
+        ] ,
+        [
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path ns2:comment ;
+        ] ,
+        [
+            sh:class <https://spdx.org/rdf/3.0.1/terms/Extension/Extension> ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path ns2:extension ;
+        ] ,
+        [
+            sh:class ns2:ExternalIdentifier ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path ns2:externalIdentifier ;
+        ] ,
+        [
+            sh:class ns2:CreationInfo ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:path ns2:creationInfo ;
         ] ;
 .
 
-ns1:HashAlgorithm
+ns2:HashAlgorithm
     a owl:Class ;
     rdfs:comment "A mathematical algorithm that maps data of arbitrary size to a bit string."@en ;
 .
@@ -5480,12 +5479,12 @@ ns1:HashAlgorithm
     rdfs:comment "Provides information about the primary purpose of an Element."@en ;
 .
 
-ns1:ExternalRefType
+ns2:ExternalRefType
     a owl:Class ;
     rdfs:comment "Specifies the type of an external reference."@en ;
 .
 
-ns1:RelationshipType
+ns2:RelationshipType
     a owl:Class ;
     rdfs:comment "Information about the relationship between two Elements."@en ;
 .
