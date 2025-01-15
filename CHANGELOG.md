@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## 3.0.1 (2024-11-13)
+## 3.0.1 (2024-12-17)
 
 * Changes in document structure and location.
   The following documents are now located in the
