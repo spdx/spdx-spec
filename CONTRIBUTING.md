@@ -47,26 +47,35 @@ if applied, this commit will Fix grammar in Package Version field description
 Git itself uses this approach. When you merge something it will generate a
 commit message like "Merge branch...", or when reverting "Revert...".
 
-### Minor Changes
+The appropriate branch for submitting changes depends on the nature of the
+changes, following [Semantic Versioning (SemVer)][semver] conventions.
 
-Minor changes such as markup and typo fixes may be submitted directly to this
-repository (either as [issues][] or [pull-requests][]) without previous
-discussion.
+### Patch changes
 
-Please submit all minor changes against the `development/v3.0.1` branch which
-is the current development version of the SPDX specification.
+Patch-level changes such as markup and typo fixes may be submitted directly
+as [issues][] or [pull requests][pull-requests], without previous discussion.
 
-### Major Changes
+Please submit all patch changes against the `support/3.0` branch.
+
+### Minor changes
+
+Minor changes, including amending, adding, or removing normative and
+informative documents, **that do not break backward compatibility,**
+can be submitted directly as [issues][] or [pull requests][pull-requests].
+However, prior discussion is always encouraged.
+
+Please submit all minor changes against the `develop` branch.
+
+### Major changes
 
 Any change that break backwards compatibility or requires significant tooling
 changes is considered a major change.
 You may want to discuss major changes on the mailing list first to get design
 feedback before investing time in a pull request.
 
-Please submit all major changes against the `development/v3.1` which is the
-next major version of the specification.
+Please submit all major changes against the `develop` branch.
 
-### Target Milestones
+### Target milestones
 
 When submitting an issue or pull request, please add a suggested release
 milestone. This will ensure the issue or pull request is reviewed for inclusion
@@ -75,10 +84,16 @@ in that release.
 If your issue or pull request is independent of a release, you can use the
 `release-independent` milestone.
 
+## Contributing to the model
+
+Please see [Contributing to the SPDX 3.0 Model][model-contrib] document.
+
 [cla]: https://github.com/spdx/governance/blob/main/0._SPDX_Contributor_License_Agreement.md
 [issues]: https://github.com/spdx/spdx-spec/issues/
 [meetings]: https://github.com/spdx/meetings/
+[model-contrib]: https://github.com/spdx/spdx-3-model/blob/develop/Contributing.md
 [pull-requests]: https://github.com/spdx/spdx-spec/pulls/
+[semver]: https://semver.org/
 [spdx-legal]: https://wiki.spdx.org/view/Legal_Team
 [spdx-legal-list]: https://lists.spdx.org/mailman/listinfo/spdx-legal
 [spdx-tech]: https://wiki.spdx.org/view/Technical_Team
