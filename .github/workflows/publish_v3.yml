@@ -38,10 +38,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      REF_SPEC: "develop"                   # spdx-spec branch: "main" or "develop" or "support/x.y"
-      REF_MODEL: "develop"                  # spdx-3-model branch: "main" or "develop" or "support/x.y"
-      REF_PARSER: "main"                    # spdx-3-model branch: "main" or "develop" or "support/x.y"
-                                            # (now we have only "main" for spdx-3-model and spec-parser)
+      REF_SPEC: "develop"                   # spdx-spec branch:    "main" or "develop" or "support/x.y" or tag/commit ID
+      REF_MODEL: "develop"                  # spdx-3-model branch: "main" or "develop" or "support/x.y" or tag/commit ID
+      REF_PARSER: "main"                    # spec-parser branch:  "main" or commit ID
       GH_PAGES_BRANCH: "gh-pages"           # spdx-spec branch to publish HTML to
       VERSION_DEFAULT: "v3.0.1"             # Default version:
                                             # - A version to be redirected to from the URL without
@@ -260,7 +259,7 @@ jobs:
         # For example,
         # - https://spdx.github.io/spdx-spec/v3.0/model/schema.json (old directory structure)
         # - https://spdx.github.io/spdx-spec/v3.0.1/rdf/schema.json (new directory structure)
-        # will all accessible and have the same content.
+        # will all be accessible and have the same content.
         # Unlike HTML files, these files have to be a copy,
         # since it cannot use the HTML refresh mechanism.
         working-directory: spdx-spec
