@@ -144,7 +144,7 @@ we will use MkDocs to assemble them into a website.
 
 *Note: all the commands below use the configuration file*
 *with the model file list, `mkdocs-full.yml`,*
-*generated in [step 3.3](#33-generate-a-complete-mkdocs-configuration-file).*
+*generated in [step 3.2](#32-generate-a-complete-mkdocs-configuration-file).*
 *If you only want to review the non-model part of the specification*
 *(have skipped step 3), please use `mkdocs.yml` instead.*
 
@@ -181,7 +181,7 @@ section. The order of filenames in this section determines the order of the
 page in the navigation bar.
 
 After you have modified the configuration file, you may need to rerun
-[step 3.3](#33-generate-a-complete-mkdocs-configuration-file)
+[step 3.2](#32-generate-a-complete-mkdocs-configuration-file)
 to incorporate the changes into the complete configuration file.
 
 ## 6. Specification versions on spdx.github.io
