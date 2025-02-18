@@ -83,7 +83,7 @@ pip3 install -r spec-parser/requirements.txt
 *(e.g., chapters and annexes), you can skip to [step 4](#4-building-html).*
 
 Model files in `spdx/spdx-3-model` repository are written in a constrained
-Markdown format, with a limited set of allowed headings.
+Markdown format, with [a limited set of allowed headings][format].
 The `spec-parser` processes these model files to generate both ontology files
 and final Markdown files suitable for MkDocs.
 
@@ -91,59 +91,47 @@ The `spec-parser` also performs automatic formatting on the resulting Markdown
 files. For instance, it converts a list under the "Properties" heading into a
 table.
 
+[format]: https://github.com/spdx/spdx-3-model/blob/develop/docs/format.md
+
 ### 3.1 Generating model files with spec-parser
 
 To verify the formatting of pre-processed model files and
 prepare them for MkDocs, run the following command:
 
 ```shell
-python3 spec-parser/main.py spdx-3-model/model parser_output
+python3 spec-parser/main.py --force --generate-rdf --output-rdf spdx-spec/docs/rdf --generate-mkdocs --output-mkdocs spdx-spec/docs/model spdx-3-model/model
 ```
 
-*(If `parser_output` already exists, the `spec-parser` will not overwrite it.)*
+The command will generate:
 
-The command will create files in the `parser_output` directory.
-Among its subdirectories, we're particularly interested in:
-
-- `parser_output/mkdocs` - Processed Markdown files for MkDocs:
-  These files (`.md` extension) are located in various
-  subdirectories and are intended for processing by MkDocs in the next step.
-- `parser_output/rdf` - Ontology (RDF) files:
-  These files (`spdx-context.jsonld`, `spdx-model.json-ld`, `spdx-model.n3`,
-  `spdx-model.pretty-xml`,`spdx-model.ttl`, `spdx-model.xml`, etc.)
-  are ready for immediate use.
-
-- `parser_output/mkdocs`: Processed Markdown files (`.md`) for MkDocs.
-  These files will be used by MkDocs in the next step.
-- `parser_output/rdf`: Ontology (RDF) files, including
+- Ontology (RDF) files, including
   `spdx-context.jsonld`, `spdx-model.json-ld`, `spdx-model.ttl`, etc.
+  and put them in `spdx-spec/docs/rdf` directory.
   These files are ready for immediate use.
+- Processed Markdown files (`.md`)
+  and put them in `spdx-spec/docs/model` directory.
+  These files will be used by MkDocs in the next step.
 
-Additionally, a `parser_output/model-files.yml` file will be generated.
-It contains a list of the files within `parser_output/mkdocs`
+An `spdx-spec/docs/model/model-files.yml` file will also be generated.
+It contains a list of the files within `spdx-spec/docs/model`
 and will be used for MkDocs configuration later.
-
-### 3.2 Copying the generated files
-
-Copy the processed Markdown files and ontology files to the `docs/` directory:
+We will move this `model-files.yml` to `spdx-spec/` root directory for
+later use:
 
 ```shell
-mkdir -p spdx-spec/docs/model
-mkdir -p spdx-spec/docs/rdf
-cp -R parser_output/mkdocs/* spdx-spec/docs/model 
-cp -R parser_output/rdf/* spdx-spec/docs/rdf
+mv spdx-spec/docs/model/model-files.yml spdx-spec/
 ```
 
-### 3.3 Generate a complete MkDocs configuration file
+### 3.2 Generate a complete MkDocs configuration file
 
 To ensure MkDocs recognizes the new Markdown files,
-insert the model file list from `parser_output/model-files.yml`
+insert the model file list from `spdx-spec/model-files.yml`
 into the MkDocs configuration file in `spdx-spec/mkdocs.yml`.
 
 ```shell
 spdx-spec/bin/make-mkdocs-config.sh \
   -b spdx-spec/mkdocs.yml \
-  -m parser_output/model-files.yml \
+  -m spdx-spec/model-files.yml \
   -f spdx-spec/mkdocs-full.yml
 ```
 
