@@ -6,6 +6,9 @@ SPDX-License-Identifier: Community-Spec-1.0
 
 # Building the specification website
 
+You may like to build the specification website locally to test your additions
+and edits.
+
 The specification website building flow looks like this:
 
 ```text
@@ -29,7 +32,7 @@ The specification website building flow looks like this:
   | +- mkdocs.yml     |
   +-------------------+
           |
-       mkdocs
+       MkDocs
           |
           v
   +-------------------+
@@ -40,6 +43,19 @@ The specification website building flow looks like this:
   | +- index.html     |
   +-------------------+
 ```
+
+## Table of contents
+
+1. [Prerequisites](#1-prerequisites)
+1. [Getting input files](#2-getting-input-files)
+1. [Processing model files (Markdown and RDF)](#3-processing-model-files-markdown-and-rdf)
+
+    - [Generating model files with spec-parser](#31-generating-model-files-with-spec-parser)
+    - [Generating a complete MkDocs configuration file](#32-generating-a-complete-mkdocs-configuration-file)
+
+1. [Building HTML](#4-building-html)
+1. [Configuring the website](#5-configuring-the-website)
+1. [Specification versions on spdx.github.io](#6-specification-versions-on-spdxgithubio)
 
 ## 1. Prerequisites
 
@@ -106,7 +122,8 @@ python3 spec-parser/main.py --force \
   spdx-3-model/model
 ```
 
-The command will read the input from `spdx-3-model/model` and generate:
+The command will ask the spec-parser to read the input from
+`spdx-3-model/model` and generate:
 
 - Ontology (RDF) files, including
   `spdx-context.jsonld`, `spdx-model.json-ld`, `spdx-model.ttl`, etc.
@@ -126,10 +143,10 @@ later use:
 mv spdx-spec/docs/model/model-files.yml spdx-spec/
 ```
 
-### 3.2 Generate a complete MkDocs configuration file
+### 3.2 Generating a complete MkDocs configuration file
 
 To ensure MkDocs recognizes the new Markdown files,
-insert the model file list from `spdx-spec/model-files.yml`
+insert the model file list from `model-files.yml`
 into the MkDocs configuration file in `spdx-spec/mkdocs.yml`,
 by using this command:
 
@@ -149,7 +166,7 @@ we will use MkDocs to assemble them into a website.
 
 *Note: all the commands below use the configuration file*
 *with the model file list, `mkdocs-full.yml`,*
-*generated in [step 3.2](#32-generate-a-complete-mkdocs-configuration-file).*
+*generated in [step 3.2](#32-generating-a-complete-mkdocs-configuration-file).*
 *If you only want to review the non-model part of the specification*
 *(have skipped step 3), please use `mkdocs.yml` instead.*
 
@@ -186,7 +203,7 @@ section. The order of filenames in this section determines the order of the
 page in the navigation bar.
 
 After you have modified the configuration file, you may need to rerun
-[step 3.2](#32-generate-a-complete-mkdocs-configuration-file)
+[step 3.2](#32-generating-a-complete-mkdocs-configuration-file)
 to incorporate the changes into the complete configuration file.
 
 ## 6. Specification versions on spdx.github.io
