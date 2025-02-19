@@ -99,10 +99,13 @@ To verify the formatting of pre-processed model files and
 prepare them for MkDocs, run the following command:
 
 ```shell
-python3 spec-parser/main.py --force --generate-rdf --output-rdf spdx-spec/docs/rdf --generate-mkdocs --output-mkdocs spdx-spec/docs/model spdx-3-model/model
+python3 spec-parser/main.py --force \
+  --generate-rdf --output-rdf spdx-spec/docs/rdf \
+  --generate-mkdocs --output-mkdocs spdx-spec/docs/model \
+  spdx-3-model/model
 ```
 
-The command will generate:
+The command will read the input from `spdx-3-model/model` and generate:
 
 - Ontology (RDF) files, including
   `spdx-context.jsonld`, `spdx-model.json-ld`, `spdx-model.ttl`, etc.
@@ -126,7 +129,8 @@ mv spdx-spec/docs/model/model-files.yml spdx-spec/
 
 To ensure MkDocs recognizes the new Markdown files,
 insert the model file list from `spdx-spec/model-files.yml`
-into the MkDocs configuration file in `spdx-spec/mkdocs.yml`.
+into the MkDocs configuration file in `spdx-spec/mkdocs.yml`,
+by using this command:
 
 ```shell
 spdx-spec/bin/make-mkdocs-config.sh \
