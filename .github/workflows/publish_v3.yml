@@ -1,12 +1,12 @@
 # Publish SPDX specification to https://spdx.github.io/spdx-spec/
 #
 # There will be this workflow in "main", "develop", and "support" branches.
-# Each of them publish to a different URL.
+# Each branch publishes to a different URL.
 #
 # For example,
-# the workflow in "main" may publish to https://spdx.github.io/spdx-spec/3.0.1/,
-# the workflow in "develop" may publish to https://spdx.github.io/spdx-spec/3.1-dev/,
-# the workflow in "support/3.0" may publish to https://spdx.github.io/spdx-spec/3.0.0/.
+# the workflow in "main" may publish to https://spdx.github.io/spdx-spec/v3.0.1/,
+# the workflow in "develop" may publish to https://spdx.github.io/spdx-spec/v3.1.x-dev/,
+# the workflow in "support/3.0" may publish to https://spdx.github.io/spdx-spec/v3.0.x/.
 #
 # The workflow should be configured to have an URL without a version number
 # specified be redirected to an URL published from "main" branch.
@@ -40,17 +40,17 @@ jobs:
     env:
       REF_SPEC: "develop"                   # spdx-spec branch:    "main" or "develop" or "support/x.y" or tag/commit ID
       REF_MODEL: "develop"                  # spdx-3-model branch: "main" or "develop" or "support/x.y" or tag/commit ID
-      REF_PARSER: "main"                    # spec-parser branch:  "main" or commit ID
+      REF_PARSER: "main"                    # spec-parser branch:  "main" or tag/commit ID
       GH_PAGES_BRANCH: "gh-pages"           # spdx-spec branch to publish HTML to
       VERSION_DEFAULT: "v3.0.1"             # Default version:
                                             # - A version to be redirected to from the URL without
                                             #   a version number specified
-                                            # - Should be a latest stable version from "main" branch
-                                            # - VERSION_DEFAULT should be the same in this workflow
-                                            #   across all branches/tags
-                                            # - VERSION_DEFAULT should also match with the
+                                            # - Should be the latest stable version from the "main" branch
+                                            # - VERSION_DEFAULT should be the same across all
+                                            #   branches/tags
+                                            # - VERSION_DEFAULT should also match the
                                             #   mike's canonical_version in mkdocs.yml
-      VERSION: "v3.1-dev"                   # Publishing version, to be publish by this workflow:
+      VERSION: "v3.1.x-dev"                 # Publishing version, to be published from this branch:
                                             # - VERSION can be different from VERSION_DEFAULT;
                                             #   For example, if VERSION is a draft/release candidate,
                                             #   or if VERSION is a stable version that is behind the
@@ -85,9 +85,10 @@ jobs:
       REDIRECT_TEMPLATE_PATH: "etc/redirect-template.html"  # URL redirect HTML template
     steps:
       - name: Expand version aliases to include a version without 'v' prefix
-        # VERSION: "v3.0.1"
-        # Original VERSION_ALIASES: "latest v3.0"
-        # Expanded VERSION_ALIASES: "3.0.1 latest v3.0 3.0"
+        # For example, given
+        # - VERSION: "v3.0.1"; and
+        # - Original VERSION_ALIASES: "latest v3.0"
+        # the expanded VERSION_ALIASES will be "3.0.1 latest v3.0 3.0"
         run: |
           echo VERSION: $VERSION
           echo Original VERSION_ALIASES: $VERSION_ALIASES
