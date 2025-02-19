@@ -76,10 +76,6 @@ jobs:
                                             # - Versions like "v3.0" will be expanded to "v3.0 3.0"
       GIT_USER_NAME: "ci-bot"               # Username for gh-pages commit
       GIT_USER_EMAIL: "ci-bot@spdx.dev"     # E-mail for gh-pages commit
-      PARSER_OUT_BASE_DIR: "__parser_out"   # Temporary dir for output from spec-parser
-      PARSER_OUT_RDF_DIR: "rdf"             # Contains RDFs and schema; relative to PARSER_OUT_BASE_DIR
-      PARSER_OUT_MKDOCS_DIR: "mkdocs"       # Contains model Markdown files:
-                                            # - relative to PARSER_OUT_BASE_DIR
       MKDOCS_MODEL_YML: "model-files.yml"   # Contains list of model Markdown files:
                                             # - relative to PARSER_OUT_BASE_DIR
       MKDOCS_BASE_YML: "mkdocs.yml"         # Initial MkDocs configuration; from spdx-spec repo
@@ -141,17 +137,12 @@ jobs:
         run: pip install -r spdx-spec/requirements.txt
       - name: Install pre-requisites for spec-parser
         run: pip install -r spec-parser/requirements.txt
-      - name: Install fake pandoc (to bypass the Tex generation by spec-parser)
-        run: |
-          echo "#!/bin/sh" > /usr/local/bin/pandoc
-          echo "exit 0" >> /usr/local/bin/pandoc
-          chmod +x /usr/local/bin/pandoc
       - name: Build model files
-        run: python3 spec-parser/main.py spdx-3-model/model $PARSER_OUT_BASE_DIR
-      - name: Create directories for model (MkDocs) and RDF files
+        # Also move the model file list to spdx-spec/ directory,
+        # as it should not be part of the publicly accessible website.
         run: |
-          mkdir -p spdx-spec/docs/rdf
-          mkdir -p spdx-spec/docs/model
+          python3 spec-parser/main.py --force --generate-rdf --output-rdf spdx-spec/docs/rdf --generate-mkdocs --output-mkdocs spdx-spec/docs/model --generate-plantuml --output-plantuml spdx-spec/docs/diagram --generate-jsondump --output-jsondump spdx-spec/docs/jsondump spdx-3-model/model
+          mv spdx-spec/docs/model/$MKDOCS_MODEL_YML spdx-spec/
       - name: Copy JSON annotations
         # Will be redirected from https://spdx.org/rdf/3.0.x/spdx-json-serialize-annotations.ttl
         # and available at https://spdx.github.io/spdx-spec/v3.0.x/rdf/jsonld-annotations.ttl
@@ -162,28 +153,13 @@ jobs:
       - name: Copy JSON-LD context and RDFs
         # Will be redirected from https://spdx.org/rdf/3.0.x/spdx-context.jsonld, spdx-model.ttl, etc.
         # and available at https://spdx.github.io/spdx-spec/v3.0.x/rdf/spdx-context.jsonld
+        # Additionally, to maintain availability of context/RDF files at the old location at
+        # https://spdx.github.io/spdx-spec/v3.0.x/model/XXX, another copy of context/RDF files
+        # will be made into spdx-spec/docs/model directory.
         run: |
-          echo "===================="
-          echo "Source: $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR"
-          echo "--------------------"
-          ls $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR
-          echo "===================="
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-context.jsonld spdx-spec/docs/rdf/
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.* spdx-spec/docs/rdf/
           cp spdx-spec/docs/rdf/spdx-model.json-ld spdx-spec/docs/rdf/spdx-model.jsonld
-          echo "===================="
-          echo "Target (after copy): spdx-spec/docs/rdf"
-          echo "--------------------"
-          ls spdx-spec/docs/rdf
-          echo "===================="
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-context.jsonld spdx-spec/docs/model/
-          cp $PARSER_OUT_BASE_DIR/$PARSER_OUT_RDF_DIR/spdx-model.* spdx-spec/docs/model/
-          cp spdx-spec/docs/model/spdx-model.json-ld spdx-spec/docs/model/spdx-model.jsonld
-          echo "===================="
-          echo "Target (after copy): spdx-spec/docs/model"
-          echo "--------------------"
-          ls spdx-spec/docs/model
-          echo "===================="
+          cp spdx-spec/docs/rdf/spdx-context.jsonld spdx-spec/docs/model/
+          cp spdx-spec/docs/rdf/spdx-model.* spdx-spec/docs/model/
       - name: Generate JSON schema
         # Will be redirected from https://spdx.org/schema/3.0.x/spdx-json-schema.json
         # and available at https://spdx.github.io/spdx-spec/v3.0.x/rdf/schema.json
@@ -196,15 +172,6 @@ jobs:
             jsonschema \
             --output spdx-spec/docs/rdf/schema.json
           cp spdx-spec/docs/rdf/schema.json spdx-spec/docs/model/schema.json
-      - name: Copy model Markdown files and a model file list for MkDocs
-        # Will be available at https://spdx.github.io/spdx-spec/v3.0.x/model/*
-        run: |
-          cp -R $PARSER_OUT_BASE_DIR/$PARSER_OUT_MKDOCS_DIR/* spdx-spec/docs/model
-          cp $PARSER_OUT_BASE_DIR/$MKDOCS_MODEL_YML spdx-spec
-        # mkdir -p spdx-spec/docs/diagram
-        # cp $PARSER_OUT_BASE_DIR/diagram/model.plantuml spdx-spec/docs/diagram
-        # mkdir -p spdx-spec/docs/jsondump
-        # cp $PARSER_OUT_BASE_DIR/jsondump/model.json spdx-spec/docs/jsondump
       - name: Set Git identity
         working-directory: spdx-spec
         run: git config user.name $GIT_USER_NAME; git config user.email $GIT_USER_EMAIL
@@ -243,7 +210,7 @@ jobs:
           for alias in $VERSION_ALIASES; do
             mike delete --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push --allow-empty "$alias" || true
           done
-          mike deploy --update-aliase --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push $VERSION $VERSION_ALIASES
+          mike deploy --update-aliases --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push $VERSION $VERSION_ALIASES
       - name: Set default version
         # Set default version to VERSION_DEFAULT;
         # if not set, the default version will remain the same.
