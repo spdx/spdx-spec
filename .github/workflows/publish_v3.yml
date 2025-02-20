@@ -5,7 +5,7 @@
 #
 # For example,
 # the workflow in "main" may publish to https://spdx.github.io/spdx-spec/v3.0.1/,
-# the workflow in "develop" may publish to https://spdx.github.io/spdx-spec/v3.1.x-dev/,
+# the workflow in "develop" may publish to https://spdx.github.io/spdx-spec/v3.1-dev/,
 # the workflow in "support/3.0" may publish to https://spdx.github.io/spdx-spec/v3.0.x/.
 #
 # The workflow should be configured to have an URL without a version number
@@ -50,7 +50,7 @@ jobs:
                                             #   branches/tags
                                             # - VERSION_DEFAULT should also match the
                                             #   mike's canonical_version in mkdocs.yml
-      VERSION: "v3.1.x-dev"                 # Publishing version, to be published from this branch:
+      VERSION: "v3.1-dev"                   # Publishing version, to be published from this branch:
                                             # - VERSION can be different from VERSION_DEFAULT;
                                             #   For example, if VERSION is a draft/release candidate,
                                             #   or if VERSION is a stable version that is behind the
@@ -145,25 +145,34 @@ jobs:
           python3 spec-parser/main.py --force --generate-rdf --output-rdf spdx-spec/docs/rdf --generate-mkdocs --output-mkdocs spdx-spec/docs/model --generate-plantuml --output-plantuml spdx-spec/docs/diagram --generate-jsondump --output-jsondump spdx-spec/docs/jsondump spdx-3-model/model
           mv spdx-spec/docs/model/$MKDOCS_MODEL_YML spdx-spec/
       - name: Copy JSON annotations
-        # Will be redirected from https://spdx.org/rdf/3.0.x/spdx-json-serialize-annotations.ttl
-        # and available at https://spdx.github.io/spdx-spec/v3.0.x/rdf/jsonld-annotations.ttl
+        # JSON annotations URL will be redirected
+        # from https://spdx.org/rdf/<version>/spdx-json-serialize-annotations.ttl
+        # to https://spdx.github.io/spdx-spec/v<version>/rdf/jsonld-annotations.ttl
+        #
+        # To maintain availability of files at the old location at
+        # https://spdx.github.io/spdx-spec/v3.0/model/<filename>,
+        # another copy will be made into spdx-spec/docs/model/.
+        #
         # Note: When release a new version, update the content of annotations.ttl to match the version
         run: |
           cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/rdf/jsonld-annotations.ttl
           cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/model/jsonld-annotations.ttl
       - name: Copy JSON-LD context and RDFs
-        # Will be redirected from https://spdx.org/rdf/3.0.x/spdx-context.jsonld, spdx-model.ttl, etc.
-        # and available at https://spdx.github.io/spdx-spec/v3.0.x/rdf/spdx-context.jsonld
-        # Additionally, to maintain availability of context/RDF files at the old location at
-        # https://spdx.github.io/spdx-spec/v3.0.x/model/XXX, another copy of context/RDF files
-        # will be made into spdx-spec/docs/model directory.
+        # JSON-LD context and RDF URLs will be redirected
+        # from https://spdx.org/rdf/<version>/spdx-context.jsonld, spdx-model.ttl, etc.
+        # to https://spdx.github.io/spdx-spec/v<version>/rdf/spdx-context.jsonld, etc.
+        #
+        # Make a copy of spdx-model.json-ld as spdx-model.jsonld,
+        # because we have spdx-context.jsonld.
         run: |
           cp spdx-spec/docs/rdf/spdx-model.json-ld spdx-spec/docs/rdf/spdx-model.jsonld
           cp spdx-spec/docs/rdf/spdx-context.jsonld spdx-spec/docs/model/
           cp spdx-spec/docs/rdf/spdx-model.* spdx-spec/docs/model/
       - name: Generate JSON schema
-        # Will be redirected from https://spdx.org/schema/3.0.x/spdx-json-schema.json
-        # and available at https://spdx.github.io/spdx-spec/v3.0.x/rdf/schema.json
+        # JSON schema URL will be redirected
+        # from https://spdx.org/schema/<version>/spdx-json-schema.json
+        # to https://spdx.github.io/spdx-spec/v<version>/rdf/schema.json
+        #
         # Note: When release a new version, update URL in --context-url line to match the version 
         run: |
           shacl2code generate \
