@@ -245,9 +245,14 @@ jobs:
           dirs="$VERSION_ALIASES"
           for dir in $dirs; do
             mkdir -p "$dir"/rdf
+            mkdir -p "$dir"/model
             cp $VERSION/rdf/* "$dir"/rdf
             cp $VERSION/rdf/* "$dir"/model
-            git add "$dir"/rdf/* "$dir"/model/*
+            mkdir -p "$dir"/diagram
+            cp $VERSION/diagram/* "$dir"/diagram
+            mkdir -p "$dir"/jsondump
+            cp $VERSION/jsondump/* "$dir"/jsondump
+            git add "$dir"/rdf/* "$dir"/model/* "$dir"/diagram/* "$dir"/jsondump/*
           done
           git commit -m "Copy schema and RDFs to alias directories: $VERSION_ALIASES"
           git push origin $GH_PAGES_BRANCH
