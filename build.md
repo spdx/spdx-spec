@@ -6,10 +6,8 @@ SPDX-License-Identifier: Community-Spec-1.0
 
 # Building the specification website
 
-You may like to build the specification website locally to test your additions
-and edits.
-
-The specification website building flow looks like this:
+You may want to build the specification website locally to test your additions
+and edits and review if they render as intended.
 
 ```text
   +-------------------+
@@ -117,27 +115,20 @@ prepare them for MkDocs, run the following command:
 
 ```shell
 python3 spec-parser/main.py --force \
-  --generate-rdf --output-rdf spdx-spec/docs/rdf \
-  --generate-mkdocs --output-mkdocs spdx-spec/docs/model \
-  spdx-3-model/model
+  --generate-mkdocs --output-mkdocs spdx-spec/docs/model/ \
+  spdx-3-model/model/
 ```
 
-The command will ask the spec-parser to read the input from
-`spdx-3-model/model` and generate:
-
-- Ontology (RDF) files, including
-  `spdx-context.jsonld`, `spdx-model.json-ld`, `spdx-model.ttl`, etc.
-  and put them in `spdx-spec/docs/rdf` directory.
-  These files are ready for immediate use.
-- Processed Markdown files (`.md`)
-  and put them in `spdx-spec/docs/model` directory.
-  These files will be used by MkDocs in the next step.
+The command will instruct the spec-parser to read the input from 
+`spdx-3-model/model/` and generate processed Markdown files (`.md`),
+placing them in the `spdx-spec/docs/model/` directory.
+These files will then be used by MkDocs.
 
 An `spdx-spec/docs/model/model-files.yml` file will also be generated.
-It contains a list of the files within `spdx-spec/docs/model`
-and will be used for MkDocs configuration later.
-We will move this `model-files.yml` to `spdx-spec/` root directory for
-later use:
+This file contains a list of the files within `spdx-spec/docs/model`
+and will be used later for MkDocs configuration.
+We will move this `model-files.yml` file to the `spdx-spec/` directory
+for subsequent use:
 
 ```shell
 mv spdx-spec/docs/model/model-files.yml spdx-spec/
