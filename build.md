@@ -125,7 +125,7 @@ placing them in the `spdx-spec/docs/model/` directory.
 These files will then be used by MkDocs.
 
 An `spdx-spec/docs/model/model-files.yml` file will also be generated.
-This file contains a list of the files within `spdx-spec/docs/model`
+This file contains a list of the files within `spdx-spec/docs/model/`
 and will be used later for MkDocs configuration.
 We will move this `model-files.yml` file to the `spdx-spec/` directory
 for subsequent use:
