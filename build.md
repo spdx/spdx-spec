@@ -114,7 +114,7 @@ To verify the formatting of pre-processed model files and
 prepare them for MkDocs, run the following command:
 
 ```shell
-python3 spec-parser/main.py --force \
+python3 spec-parser/main.py \
   --generate-mkdocs --output-mkdocs spdx-spec/docs/model/ \
   spdx-3-model/model/
 ```
