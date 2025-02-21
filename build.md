@@ -1,5 +1,4 @@
 ---
-SPDX-FileCopyrightText: Copyright 2024-2025 The SPDX Contributors
 SPDX-FileType: DOCUMENTATION
 SPDX-License-Identifier: Community-Spec-1.0
 ---
