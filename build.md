@@ -100,7 +100,7 @@ pip3 install -r spec-parser/requirements.txt
 *(e.g., chapters and annexes), you can skip to [step 4](#4-building-html).*
 
 Model files in `spdx/spdx-3-model` repository are written in a constrained
-Markdown format, with [a limited set of allowed headings][format].
+Markdown format, with [a predefined set of section headings][format].
 The `spec-parser` processes these model files to generate both ontology files
 and final Markdown files suitable for MkDocs.
 
