@@ -46,7 +46,9 @@ A valid `<license-expression>` string consists of either:
 
 (ii) a more complex expression constructed by combining smaller valid expressions using Boolean license operators.
 
-There MUST NOT be white space between a license-id and any following `+`. This supports easy parsing and backwards compatibility. There MUST be white space on either side of the operator "WITH". There MUST be white space and/or parentheses on either side of the operators `AND` and `OR`.
+There MUST NOT be white space between a license-id and any following `+`. This supports easy parsing and backwards compatibility.
+There MUST be white space on either side of the operator `WITH`.
+There MUST be white space and/or parentheses on either side of the operators `AND` and `OR`.
 
 In the `tag:value` format, a license expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.
 
@@ -58,7 +60,8 @@ License identifiers (including license exception identifiers) used in SPDX docum
 
 However, please be aware that it is often important to match with the case of the canonical identifier on the [SPDX License List](https://spdx.org/licenses). This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.
 
-For user defined license identifiers, only the variable part (after `LicenseRef-`) is case insensitive.  This means, for example, that `LicenseRef-Name` and `LicenseRef-name` should be treated as the same identifier and considered to refer to the same license, while `licenseref-name` is not a valid license identifier.
+For user defined license identifiers, only the variable part (after `LicenseRef-`) is case insensitive.
+This means, for example, that `LicenseRef-Name` and `LicenseRef-name` should be treated as the same identifier and considered to refer to the same license, while `licenseref-name` is not a valid license identifier.
 
 The same applies to `AdditionRef-` user defined identifiers.
 
@@ -245,7 +248,7 @@ A License Exception can be expressed in RDF via a `<spdx:LicenseException>` elem
 
 ```text
 <rdf:Description rdf:about
-  ="http://example.org#SPDXRef-ButIdDontWantToException">
+  ="http://example.org#SPDXRef-ButIDontWantToException">
     <rdfs:comment>This exception may be invalid in some
       jurisdictions.</rdfs:comment>
     <rdfs:seeAlso>http://dilbert.com/strip/1997-01-15</rdfs:seeAlso>
@@ -257,7 +260,7 @@ A License Exception can be expressed in RDF via a `<spdx:LicenseException>` elem
         unfavorable.
     </spdx:licenseExceptionText>
     <spdx:name>&quot;But I Don&apos;t Want To&quot; Exception</spdx:name>
-    <spdx:licenseExceptionId>SPDXRef-ButIdDontWantToException</spdx:licenseExceptionId>
+    <spdx:licenseExceptionId>SPDXRef-ButIDontWantToException</spdx:licenseExceptionId>
     <rdf:type rdf:resource
       ="http://spdx.org/rdf/terms#LicenseException"/>
 </rdf:Description>
