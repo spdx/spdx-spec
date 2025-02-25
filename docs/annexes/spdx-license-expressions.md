@@ -4,7 +4,7 @@
 
 Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0-only OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1-only AND BSD-3-Clause).
 
-SPDX License Expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-`[idString]`; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., `AND`, `OR`, `WITH` and `+`). We provide the definition of what constitutes a valid SPDX License Expression in this section.
+SPDX license expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-`[idString]`; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., `AND`, `OR`, `WITH` and `+`). We provide the definition of what constitutes a valid SPDX license expression in this section.
 
 The exact syntax of license expressions is described below in ABNF, as defined
 in [RFC 5234](https://datatracker.ietf.org/doc/rfc5234/) and expanded
@@ -46,7 +46,9 @@ A valid `<license-expression>` string consists of either:
 
 (ii) a more complex expression constructed by combining smaller valid expressions using Boolean license operators.
 
-There MUST NOT be white space between a license-id and any following `+`. This supports easy parsing and backwards compatibility. There MUST be white space on either side of the operator "WITH". There MUST be white space and/or parentheses on either side of the operators `AND` and `OR`.
+There MUST NOT be white space between a license-id and any following `+`. This supports easy parsing and backward compatibility.
+There MUST be white space on either side of the operator `WITH`.
+There MUST be white space and/or parentheses on either side of the operators `AND` and `OR`.
 
 In the `tag:value` format, a license expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.
 
@@ -120,7 +122,7 @@ It is allowed to use the operator in lower case form `or`.
 
 ### Conjunctive "AND" operator
 
-If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are a valid license expression values.
+If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are valid license expression values.
 
 For example, when one is required to comply with both the LGPL-2.1-only or MIT licenses, a valid expression would be:
 
@@ -245,7 +247,7 @@ A License Exception can be expressed in RDF via a `<spdx:LicenseException>` elem
 
 ```text
 <rdf:Description rdf:about
-  ="http://example.org#SPDXRef-ButIdDontWantToException">
+  ="http://example.org#SPDXRef-ButIDontWantToException">
     <rdfs:comment>This exception may be invalid in some
       jurisdictions.</rdfs:comment>
     <rdfs:seeAlso>http://dilbert.com/strip/1997-01-15</rdfs:seeAlso>
@@ -257,7 +259,7 @@ A License Exception can be expressed in RDF via a `<spdx:LicenseException>` elem
         unfavorable.
     </spdx:licenseExceptionText>
     <spdx:name>&quot;But I Don&apos;t Want To&quot; Exception</spdx:name>
-    <spdx:licenseExceptionId>SPDXRef-ButIdDontWantToException</spdx:licenseExceptionId>
+    <spdx:licenseExceptionId>SPDXRef-ButIDontWantToException</spdx:licenseExceptionId>
     <rdf:type rdf:resource
       ="http://spdx.org/rdf/terms#LicenseException"/>
 </rdf:Description>
