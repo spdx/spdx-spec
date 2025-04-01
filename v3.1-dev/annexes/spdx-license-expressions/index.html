@@ -839,7 +839,7 @@
                 <h1 id="spdx-license-expressions-normative">SPDX license expressions (Normative)</h1>
 <h2 id="overview">Overview</h2>
 <p>Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0-only OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1-only AND BSD-3-Clause).</p>
-<p>SPDX License Expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-<code>[idString]</code>; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., <code>AND</code>, <code>OR</code>, <code>WITH</code> and <code>+</code>). We provide the definition of what constitutes a valid SPDX License Expression in this section.</p>
+<p>SPDX license expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-<code>[idString]</code>; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., <code>AND</code>, <code>OR</code>, <code>WITH</code> and <code>+</code>). We provide the definition of what constitutes a valid SPDX license expression in this section.</p>
 <p>The exact syntax of license expressions is described below in ABNF, as defined
 in <a href="https://datatracker.ietf.org/doc/rfc5234/">RFC 5234</a> and expanded
 in <a href="https://datatracker.ietf.org/doc/rfc7405/">RFC 7405</a>.</p>
@@ -874,7 +874,9 @@ license-expression = (simple-expression / compound-expression)
 <p>A valid <code>&lt;license-expression&gt;</code> string consists of either:</p>
 <p>(i) a simple license expression, such as a single license identifier; or</p>
 <p>(ii) a more complex expression constructed by combining smaller valid expressions using Boolean license operators.</p>
-<p>There MUST NOT be white space between a license-id and any following <code>+</code>. This supports easy parsing and backwards compatibility. There MUST be white space on either side of the operator "WITH". There MUST be white space and/or parentheses on either side of the operators <code>AND</code> and <code>OR</code>.</p>
+<p>There MUST NOT be white space between a license-id and any following <code>+</code>. This supports easy parsing and backward compatibility.
+There MUST be white space on either side of the operator <code>WITH</code>.
+There MUST be white space and/or parentheses on either side of the operators <code>AND</code> and <code>OR</code>.</p>
 <p>In the <code>tag:value</code> format, a license expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.</p>
 <h2 id="case-sensitivity">Case sensitivity</h2>
 <p>License expression operators (<code>AND</code>, <code>and</code>, <code>OR</code>, <code>or</code>, <code>WITH</code> and <code>with</code>) should be matched in a <em>case-sensitive</em> manner, i.e., letters must be all upper case or all lower case.</p>
@@ -921,7 +923,7 @@ discussed in more detail in
 
 <p>It is allowed to use the operator in lower case form <code>or</code>.</p>
 <h3 id="conjunctive-and-operator">Conjunctive "AND" operator</h3>
-<p>If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are a valid license expression values.</p>
+<p>If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are valid license expression values.</p>
 <p>For example, when one is required to comply with both the LGPL-2.1-only or MIT licenses, a valid expression would be:</p>
 <pre class="codehilite"><code class="language-text">LGPL-2.1-only AND MIT
 </code></pre>
@@ -1013,7 +1015,7 @@ OR
 <li><code>licenseExceptionText</code> - Full text of the license exception.</li>
 </ul>
 <pre class="codehilite"><code class="language-text">&lt;rdf:Description rdf:about
-  =&quot;http://example.org#SPDXRef-ButIdDontWantToException&quot;&gt;
+  =&quot;http://example.org#SPDXRef-ButIDontWantToException&quot;&gt;
     &lt;rdfs:comment&gt;This exception may be invalid in some
       jurisdictions.&lt;/rdfs:comment&gt;
     &lt;rdfs:seeAlso&gt;http://dilbert.com/strip/1997-01-15&lt;/rdfs:seeAlso&gt;
@@ -1025,7 +1027,7 @@ OR
         unfavorable.
     &lt;/spdx:licenseExceptionText&gt;
     &lt;spdx:name&gt;&amp;quot;But I Don&amp;apos;t Want To&amp;quot; Exception&lt;/spdx:name&gt;
-    &lt;spdx:licenseExceptionId&gt;SPDXRef-ButIdDontWantToException&lt;/spdx:licenseExceptionId&gt;
+    &lt;spdx:licenseExceptionId&gt;SPDXRef-ButIDontWantToException&lt;/spdx:licenseExceptionId&gt;
     &lt;rdf:type rdf:resource
       =&quot;http://spdx.org/rdf/terms#LicenseException&quot;/&gt;
 &lt;/rdf:Description&gt;
