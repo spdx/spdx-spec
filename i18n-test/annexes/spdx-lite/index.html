@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors." /><link rel="canonical" href="https://spdx.github.io/spdx-spec/annexes/spdx-lite/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>D. SPDX Lite - SPDX Specification 3.1-dev</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "D. SPDX Lite";
+        var mkdocs_page_input_path = "en/annexes/spdx-lite.md";
+        var mkdocs_page_url = "/spdx-spec/annexes/spdx-lite/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> SPDX Specification 3.1-dev
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../front/copyright/">Copyright</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../front/introduction/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../scope/">1. Scope</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../references/">2. References</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../symbols/">3. Symbols</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../terms-and-definitions/">4. Terms and definitions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../conformance/">5. Conformance</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../serializations/">6. Model and serializations</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">model</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="https://example.com">__MODEL_PLACEHOLDER__</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">annexes</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../rdf-model/">A. RDF model definition and diagrams</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../spdx-license-expressions/">B. SPDX license expressions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../license-matching-guidelines-and-templates/">C. SPDX License List matching guidelines</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">D. SPDX Lite</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#explanation-of-the-lite-profile">Explanation of the Lite profile</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mandatory-and-recommended-properties">Mandatory and recommended properties</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#corespdxdocument">/Core/SpdxDocument</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#softwaresbom">/Software/Sbom</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#softwarepackage">/Software/Package</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#corehash">/Core/Hash</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simplelicensinglicenseexpression">/SimpleLicensing/LicenseExpression</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simplelicensingsimplelicensingtext">/SimpleLicensing/SimpleLicensingText</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#coreagent-createdby-suppliedby-originatedby">/Core/Agent (createdBy, suppliedBy, originatedBy)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#corecreationinfo">/Core/CreationInfo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#coreexternalidentifier">/Core/ExternalIdentifier</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#corenamespacemap">/Core/NameSpaceMap</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#corerelationship">/Core/Relationship</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pkg-url-specification/">E. Package URL specification</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">licenses</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../licenses/Community-Spec-1.0/">Community Specification License 1.0</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../licenses/CC-BY-3.0/">Creative Commons Attribution License 3.0 Unported</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">SPDX Specification 3.1-dev</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">annexes</li>
+      <li class="breadcrumb-item active">D. SPDX Lite</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="spdx-lite-normative">SPDX Lite (Normative)</h1>
+<h2 id="explanation-of-the-lite-profile">Explanation of the Lite profile</h2>
+<p>The Lite profile is designed to make it quick and easy to start a Software Bill of Materials
+in situations where a company may have limited capacity for introducing new items into their processes.
+The Lite profile captures the minimum set of information required
+for license compliance in the software supply chain.
+It contains information about the creation of the SBOM,
+package lists with licensing and other related information,
+and their relationships.</p>
+<p>All elements in Lite profile are essential for complying with licenses.
+It is easy to use a SPDX document with the Lite profile
+for anyone who does not have enough knowledge about licensing information
+and easy to import license information from former versions of SPDX Lite format files.
+The Lite profile offers the flexibility to be used either alone
+or in combination with other SPDX profiles
+as a SPDX document in the software supply chain.</p>
+<h2 id="mandatory-and-recommended-properties">Mandatory and recommended properties</h2>
+<p>The Lite profile specifies that some properties MUST be present
+and some others SHOULD be present, as much as possible.</p>
+<p>The following lists collect and present this information
+for every class present in the SPDX data,
+in a concise and easy-to-follow format.
+The lists of properties are in alphabetical order, for easy reference.</p>
+<h3 id="corespdxdocument">/Core/SpdxDocument</h3>
+<ul>
+<li>Mandatory<ol>
+<li>creationInfo</li>
+<li>element (may be multiple), MUST have at least one /Core/Sbom object</li>
+<li>rootElement (may be multiple), SHOULD be objects of type /Core/Sbom</li>
+<li>spdxId</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>comment</li>
+<li>dataLicense</li>
+<li>name</li>
+<li>namespaceMap (may be multiple)</li>
+<li>verifiedUsing (may be multiple), SHOULD be objects of type /Core/Hash</li>
+</ol>
+</li>
+</ul>
+<h3 id="softwaresbom">/Software/Sbom</h3>
+<ul>
+<li>Mandatory<ol>
+<li>creationInfo</li>
+<li>element (may be multiple), MUST have at least one /Software/Package object</li>
+<li>rootElement (may be multiple), SHOULD be objects of type /Software/Package</li>
+<li>spdxId</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>sbomType (may be multiple)</li>
+</ol>
+</li>
+</ul>
+<h3 id="softwarepackage">/Software/Package</h3>
+<ul>
+<li>Mandatory<ol>
+<li>copyrightText</li>
+<li>creationInfo</li>
+<li>name</li>
+<li>packageVersion</li>
+<li>spdxId</li>
+<li>suppliedBy, SHOULD be an object of type /Core/Agent</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>attributionText (may be multiple)</li>
+<li>builtTime</li>
+<li>comment</li>
+<li>downloadLocation</li>
+<li>homepage</li>
+<li>originatedBy (may be multiple), SHOULD be objects of type /Core/Agent</li>
+<li>packageUrl</li>
+<li>releaseTime</li>
+<li>supportLevel (may be multiple)</li>
+<li>validUntilTime</li>
+<li>verifiedUsing (may be multiple), SHOULD be objects of type /Core/Hash</li>
+</ol>
+</li>
+</ul>
+<p>However, there MUST be at least a “downloadLocation” or “packageUrl” property.</p>
+<p>Additionally:</p>
+<ol>
+<li>for every /Software/Package object MUST exist exactly one /Core/Relationship object of type <code>hasConcludedLicense</code> having that element as its <code>from</code> property and an /SimpleLicensing/AnyLicenseInfo as its <code>to</code> property.</li>
+<li>for every /Software/Package object MUST exist exactly one /Core/Relationship object of type <code>hasDeclaredLicense</code> having that element as its <code>from</code> property and  /SimpleLicensing/AnyLicenseInfo object as its <code>to</code> property.</li>
+</ol>
+<h3 id="corehash">/Core/Hash</h3>
+<ul>
+<li>Mandatory<ol>
+<li>algorithm</li>
+<li>hashValue</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>comment</li>
+</ol>
+</li>
+</ul>
+<h3 id="simplelicensinglicenseexpression">/SimpleLicensing/LicenseExpression</h3>
+<ul>
+<li>Mandatory<ol>
+<li>creationInfo</li>
+<li>licenseExpression</li>
+<li>spdxId</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>licenseListVersion</li>
+</ol>
+</li>
+</ul>
+<h3 id="simplelicensingsimplelicensingtext">/SimpleLicensing/SimpleLicensingText</h3>
+<ul>
+<li>Mandatory<ol>
+<li>creationInfo</li>
+<li>licenseText</li>
+<li>spdxId</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>comment</li>
+</ol>
+</li>
+</ul>
+<h3 id="coreagent-createdby-suppliedby-originatedby">/Core/Agent (createdBy, suppliedBy, originatedBy)</h3>
+<ul>
+<li>Mandatory<ol>
+<li>creationInfo, SHOULD be “BlankNode”</li>
+<li>name</li>
+<li>spdxId</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>externalIdentifier (may be multiple)</li>
+</ol>
+</li>
+</ul>
+<h3 id="corecreationinfo">/Core/CreationInfo</h3>
+<ul>
+<li>Mandatory<ol>
+<li>created</li>
+<li>createdBy (may be multiple), SHOULD be objects of type /Core/Agent</li>
+<li>specVersion, MUST be a fixed string, “3.0.*” - where * is any supported patch version of the SPDX specification</li>
+</ol>
+</li>
+<li>Recommended<ol>
+<li>comment</li>
+</ol>
+</li>
+</ul>
+<h3 id="coreexternalidentifier">/Core/ExternalIdentifier</h3>
+<ul>
+<li>Mandatory<ol>
+<li>externalIdentifierType</li>
+<li>identifier</li>
+</ol>
+</li>
+</ul>
+<h3 id="corenamespacemap">/Core/NameSpaceMap</h3>
+<ul>
+<li>Mandatory<ol>
+<li>namespace</li>
+<li>prefix</li>
+</ol>
+</li>
+</ul>
+<h3 id="corerelationship">/Core/Relationship</h3>
+<ul>
+<li>Mandatory<ol>
+<li>creationInfo</li>
+<li>from</li>
+<li>relationshipType</li>
+<li>spdxId</li>
+<li>to (may be multiple)</li>
+</ol>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../license-matching-guidelines-and-templates/" class="btn btn-neutral float-left" title="C. SPDX License List matching guidelines"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../pkg-url-specification/" class="btn btn-neutral float-right" title="E. Package URL specification">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>SPDX v3.1-dev Copyright © 2010-2025, The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/spdx/spdx-spec/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../license-matching-guidelines-and-templates/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../pkg-url-specification/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

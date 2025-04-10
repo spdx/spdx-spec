@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors." /><link rel="canonical" href="https://spdx.github.io/spdx-spec/serializations/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>6. Model and serializations - SPDX Specification 3.1-dev</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../css/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "6. Model and serializations";
+        var mkdocs_page_input_path = "en/serializations.md";
+        var mkdocs_page_url = "/spdx-spec/serializations/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> SPDX Specification 3.1-dev
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../front/copyright/">Copyright</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../front/introduction/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../scope/">1. Scope</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../references/">2. References</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../symbols/">3. Symbols</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../terms-and-definitions/">4. Terms and definitions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../conformance/">5. Conformance</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">6. Model and serializations</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rdf-serialization">RDF serialization</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#canonical-serialization">Canonical serialization</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#serialization-information">Serialization information</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#serialization-in-json-ld">Serialization in JSON-LD</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#json-ld-context-file">JSON-LD context file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#json-ld-validation">JSON-LD validation</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">model</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="https://example.com">__MODEL_PLACEHOLDER__</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">annexes</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../annexes/rdf-model/">A. RDF model definition and diagrams</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../annexes/spdx-license-expressions/">B. SPDX license expressions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../annexes/license-matching-guidelines-and-templates/">C. SPDX License List matching guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../annexes/spdx-lite/">D. SPDX Lite</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../annexes/pkg-url-specification/">E. Package URL specification</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">licenses</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../licenses/Community-Spec-1.0/">Community Specification License 1.0</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../licenses/CC-BY-3.0/">Creative Commons Attribution License 3.0 Unported</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">SPDX Specification 3.1-dev</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">6. Model and serializations</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="model-and-serializations">Model and serializations</h1>
+<h2 id="overview">Overview</h2>
+<p>This specification defines the data model of the SPDX standard, describing
+every piece of information about systems with software components. The data
+model is based on the Resource Description Framework (RDF) extensible
+knowledge representation data model, which provides a flexible and extensible
+way to represent and exchange information.</p>
+<p>The data may be serialized in a variety of formats for storage and
+transmission.</p>
+<h2 id="rdf-serialization">RDF serialization</h2>
+<p>Since the data model is based on RDF, any SPDX data can be serialized in any of
+the multiple RDF serialization formats, including but not limited to:</p>
+<ul>
+<li>JSON-LD format as defined in
+  <a href="https://www.w3.org/TR/json-ld11/">JSON-LD 1.1</a>;</li>
+<li>Turtle (Terse RDF Triple Language) format as defined in
+  <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a>;</li>
+<li>N-Triples format as defined in
+  <a href="https://www.w3.org/TR/n-triples/">RDF 1.1 N-Triples</a>; and</li>
+<li>RDF/XML format as defined in
+  <a href="https://www.w3.org/TR/rdf-syntax-grammar/">RDF 1.1 XML Syntax</a>.</li>
+</ul>
+<p>The SPDX specification is accompanied by a
+<a href="https://www.w3.org/TR/json-ld11/#the-context">JSON-LD context</a> definition file
+that can be used to serialize SPDX in a much simpler and more human-readable
+JSON-LD format.</p>
+<h2 id="canonical-serialization">Canonical serialization</h2>
+<p>Canonical serialization is a single, consistent, normalized, deterministic, and
+reproducible form.</p>
+<p>Such a canonical form normalizes things like ordering and formatting.</p>
+<p>The content of the canonical serialization is exactly the same as the JSON-LD
+serialization of RDF data (see 4.2), just represented in a consistent way.</p>
+<p>Canonical serialization is in JSON format, as defined in
+<a href="https://datatracker.ietf.org/doc/rfc8259/">RFC 8259 (IETF STD 90)</a>,
+with the following additional characteristics:</p>
+<ul>
+<li>No line breaks</li>
+<li>Key names MUST be wrapped in double quotes</li>
+<li>No whitespace outside of strings</li>
+<li><code>true</code>, <code>false</code> and <code>null</code>: the literal names must be lowercase; no other
+  literal names are allowed</li>
+<li>Integers: represented in base 10 using decimal digits. This designates an
+  integer component that may be prefixed with an optional minus sign.
+  Leading zeros are not allowed.</li>
+<li>Strings: UTF-8 representation without specific canonicalisation. A string
+  begins and ends with quotation marks (%x22). Any Unicode characters may be
+  placed within the quotation marks, except for the two characters that MUST be
+  escaped by a reverse solidus: quotation mark, reverse solidus, and the
+  control characters (U+0000 through U+001F).</li>
+<li>Arrays: An array structure is represented as square brackets surrounding zero
+  or more items. Items are separated by commas.</li>
+<li>Objects: An object structure is represented as a pair of curly brackets
+  surrounding zero or more name/value pairs (or members). A name is a string
+  containing only ASCII characters (0x21-0x7F). The names within an object must
+  be unique. A single colon comes after each name, separating the name from the
+  value. A single comma separates a value from a following name. The name/value
+  pairs are ordered by name.</li>
+</ul>
+<h2 id="serialization-information">Serialization information</h2>
+<p>A collection of elements may be serialized in multiple formats.</p>
+<p>An SpdxDocument element represents a collection of
+elements across all serialization data formats within the model.</p>
+<p>The actual serialized bytes is represented by an Artifact element within the
+model.</p>
+<p>A Relationship of type serializedInArtifact links an SpdxDocument to one or
+more serialized forms of itself.</p>
+<p>When serializing a physical SpdxDocument, any property of the logical element
+that can be natively represented within the chosen serialization format
+(e.g., <code>@context</code> prefixes in JSON-LD instead of the namespaceMap) may utilize
+these native mechanisms. All remaining properties shall be serialized within
+the SpdxDocument element itself.</p>
+<p>A serialization must not contain more than one SpdxDocument.</p>
+<p>A given instance of serialization must not define more than one SpdxDocument
+element.</p>
+<h2 id="serialization-in-json-ld">Serialization in JSON-LD</h2>
+<h3 id="json-ld-context-file">JSON-LD context file</h3>
+<p>JSON-LD contexts allow JSON documents to use simple, human-readable, locally
+defined terms while ensuring data interoperability across different systems.</p>
+<p>The SPDX global JSON-LD context file must be used universally for all SPDX
+documents in JSON-LD format that adhere to a specific SPDX version.</p>
+<p>SPDX global JSON-LD context file is available at:
+<a href="https://spdx.org/rdf/3.0.1/spdx-context.jsonld">https://spdx.org/rdf/3.0.1/spdx-context.jsonld</a></p>
+<p>All SPDX documents in JSON-LD format must include a reference to the SPDX
+global context file at the top level.
+This reference is achieved using the following JSON construct:</p>
+<pre class="codehilite"><code class="language-json">&quot;@context&quot;: &quot;https://spdx.org/rdf/3.0.1/spdx-context.jsonld&quot;
+</code></pre>
+
+<p>The SPDX context file defines aliases for specific JSON-LD properties to
+improve compatibility with the SPDX model.  These aliases are:</p>
+<ul>
+<li><code>spdxId</code>: An alias for the <code>@id</code> property.</li>
+<li><code>type</code>: An alias for the <code>@type</code> property.</li>
+</ul>
+<p>Additional namespace mappings may be defined within a separate object within
+the context.</p>
+<h3 id="json-ld-validation">JSON-LD validation</h3>
+<p>An SPDX serialization in JSON-LD format is considered conformant to the SPDX
+specification if it adheres to the following two validation criteria:</p>
+<ul>
+<li>Structural validation: The JSON-LD document must structurally validate
+  against the SPDX JSON Schema. This schema defines the expected structure of
+  the JSON-LD document, including the required elements, data types, and
+  permissible values.</li>
+<li>Semantic validation: The JSON-LD document must successfully validate against
+  the SPDX OWL ontology. This ontology defines the expected relationships and
+  constraints between SPDX elements. The SPDX OWL ontology also incorporates
+  SHACL shape restrictions to further specify these constraints.</li>
+</ul>
+<p>The SPDX JSON Schema is available at:
+<a href="https://spdx.org/schema/3.0.1/spdx-json-schema.json">https://spdx.org/schema/3.0.1/spdx-json-schema.json</a></p>
+<p>The SPDX OWL ontology is available at:
+<a href="https://spdx.org/rdf/3.0.1/spdx-model.ttl">https://spdx.org/rdf/3.0.1/spdx-model.ttl</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../conformance/" class="btn btn-neutral float-left" title="5. Conformance"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../annexes/rdf-model/" class="btn btn-neutral float-right" title="A. RDF model definition and diagrams">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>SPDX v3.1-dev Copyright © 2010-2025, The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/spdx/spdx-spec/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../conformance/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../annexes/rdf-model/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
