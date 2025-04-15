@@ -173,14 +173,24 @@ jobs:
         # from https://spdx.org/schema/<version>/spdx-json-schema.json
         # to https://spdx.github.io/spdx-spec/v<version>/rdf/schema.json
         #
-        # Note: When release a new version, update URL in --context-url line to match the version 
+        # For development versions (versions with suffix "-dev", etc.),
+        # JSON context may not be available yet at https://spdx.org/,
+        # use one at https://spdx.github.io/spdx-spec/ instead.
         run: |
+          V=$(echo "$VERSION" | tr '[:upper:]' '[:lower:]')
+          if [[ "$V" == "develop" || "$V" == "dev" || "$V" =~ -dev$ || "$V" =~ -draft$ || "$V" =~ -rc[0-9]*$ ]]; then
+            CONTEXT_URL="https://spdx.github.io/spdx-spec/$VERSION/rdf/spdx-context.jsonld"
+          else
+            VER_WO_V=${VERSION#v}
+            CONTEXT_URL="https://spdx.org/rdf/$VER_WO_V/spdx-context.jsonld"
+          fi
           shacl2code generate \
             --input spdx-spec/docs/rdf/spdx-model.ttl \
             --input spdx-spec/docs/rdf/jsonld-annotations.ttl \
-            --context-url spdx-spec/docs/rdf/spdx-context.jsonld https://spdx.org/rdf/3.0.1/spdx-context.jsonld \
+            --context-url spdx-spec/docs/rdf/spdx-context.jsonld $CONTEXT_URL \
             jsonschema \
             --output spdx-spec/docs/rdf/schema.json
+          head spdx-spec/docs/rdf/schema.json
           cp spdx-spec/docs/rdf/schema.json spdx-spec/docs/model/schema.json
       - name: Set Git identity
         working-directory: spdx-spec
