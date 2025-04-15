@@ -5,26 +5,46 @@ site_url: https://spdx.github.io/spdx-spec/  # set to the "root" of the site, to
 repo_url: https://github.com/spdx/spdx-spec/
 edit_uri: ""  # set to an empty string to disable edit links; to enable, set to blob/<branch_name>/docs/
 copyright: SPDX v3.1-dev Copyright © 2010-2025, The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.
+
 use_directory_urls: true
+
 theme:
   name: readthedocs
   sticky_navigation: true
+
+extra_css:
+- css/style.css
+
 plugins:
-- search
-- mike:
-    canonical_version: v3.0.1  # Tell search engines to prefer the URL of the default version.
-                               # This should matches with VERSION_DEFAULT in .github/workflows/publish_v3yml
-    alias_type: redirect       # use "redirect" so it can redirect every pages (not just the root of the version)
+- search:
+    min_search_length: 2       # So "/Core/to" property can be indexed
+    lang: [ en, ja ]
+# - mike:
+#     canonical_version: v3.0.1  # Tell search engines to prefer the URL of the default version.
+#                                # This should matches with VERSION_DEFAULT in .github/workflows/publish_v3yml
+#     alias_type: redirect       # use "redirect" so it can redirect every pages (not just the version root)
+- i18n:
+    docs_structure: folder
+    languages:
+    - locale: en
+      name: English
+      build: true
+      default: true
+    - locale: ja
+      name: 日本語
+      build: true
+    reconfigure_search: true
 # - pdf-export:
 #     combined: true
 #     media_type: print
 #     enabled_if_env: ENABLE_PDF_EXPORT  # only export PDF if this is set to 1
-extra_css:
-- css/style.css
+
 markdown_extensions:
 - codehilite:
     guess_lang: false
+
 strict: true
+
 validation:
   nav:
     omitted_files: warn  # use "info" to relax during development where there are moving parts
@@ -35,6 +55,7 @@ validation:
     anchors: warn
     absolute_links: warn
     unrecognized_links: warn
+
 nav:
 - 'Home': index.md  # index.md, which will be publish as index.html, is needed for a website as a default home
 - 'Copyright': front/copyright.md
