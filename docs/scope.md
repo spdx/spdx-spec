@@ -1,6 +1,6 @@
 # Scope
 
-The System Package Data Exchange (SPDX®) specification defines an open standard
+The System Package Data Exchange™ (SPDX®) specification defines an open standard
 for communicating bill of materials (BOM) information for different topic
 areas.
 
