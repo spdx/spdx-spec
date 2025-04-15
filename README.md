@@ -1,4 +1,4 @@
-# The System Package Data Exchange (SPDX®) Specification
+# The System Package Data Exchange™ (SPDX®) Specification
 
 The System Package Data Exchange (SPDX®) specification is an open standard
 designed to represent systems containing software components as
