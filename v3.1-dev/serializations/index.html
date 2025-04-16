@@ -85,7 +85,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#serialization-information">Serialization information</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#serialization-in-json-ld">Serialization in JSON-LD</a>
+    <li class="toctree-l2"><a class="reference internal" href="#serialization-in-spdx-3-json">Serialization in SPDX 3 JSON</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#json-ld-context-file">JSON-LD context file</a>
     </li>
@@ -874,7 +874,7 @@ with the following additional characteristics:</p>
 <li>Integers: represented in base 10 using decimal digits. This designates an
   integer component that may be prefixed with an optional minus sign.
   Leading zeros are not allowed.</li>
-<li>Strings: UTF-8 representation without specific canonicalisation. A string
+<li>Strings: UTF-8 representation without specific canonicalization. A string
   begins and ends with quotation marks (%x22). Any Unicode characters may be
   placed within the quotation marks, except for the two characters that MUST be
   escaped by a reverse solidus: quotation mark, reverse solidus, and the
@@ -904,7 +904,11 @@ the SpdxDocument element itself.</p>
 <p>A serialization must not contain more than one SpdxDocument.</p>
 <p>A given instance of serialization must not define more than one SpdxDocument
 element.</p>
-<h2 id="serialization-in-json-ld">Serialization in JSON-LD</h2>
+<h2 id="serialization-in-spdx-3-json">Serialization in SPDX 3 JSON</h2>
+<p>The SPDX 3 JSON format is a strict subset of JSON-LD.
+It requires data to be serialized according to the defined serialization
+specification and validated against the SPDX 3 JSON Schema.
+It may be parsed – not serialized – using standard JSON-LD libraries.</p>
 <h3 id="json-ld-context-file">JSON-LD context file</h3>
 <p>JSON-LD contexts allow JSON documents to use simple, human-readable, locally
 defined terms while ensuring data interoperability across different systems.</p>
@@ -931,17 +935,17 @@ the context.</p>
 specification if it adheres to the following two validation criteria:</p>
 <ul>
 <li>Structural validation: The JSON-LD document must structurally validate
-  against the SPDX JSON Schema. This schema defines the expected structure of
+  against the SPDX 3 JSON Schema. This schema defines the expected structure of
   the JSON-LD document, including the required elements, data types, and
   permissible values.</li>
 <li>Semantic validation: The JSON-LD document must successfully validate against
-  the SPDX OWL ontology. This ontology defines the expected relationships and
-  constraints between SPDX elements. The SPDX OWL ontology also incorporates
+  the SPDX 3 OWL ontology. This ontology defines the expected relationships and
+  constraints between SPDX elements. The SPDX 3 OWL ontology also incorporates
   SHACL shape restrictions to further specify these constraints.</li>
 </ul>
-<p>The SPDX JSON Schema is available at:
+<p>The SPDX 3 JSON Schema is available at:
 <a href="https://spdx.org/schema/3.0.1/spdx-json-schema.json">https://spdx.org/schema/3.0.1/spdx-json-schema.json</a></p>
-<p>The SPDX OWL ontology is available at:
+<p>The SPDX 3 OWL ontology is available at:
 <a href="https://spdx.org/rdf/3.0.1/spdx-model.ttl">https://spdx.org/rdf/3.0.1/spdx-model.ttl</a></p>
               
             </div>
