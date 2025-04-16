@@ -93,9 +93,8 @@ element.
 ## Serialization in SPDX 3 JSON
 
 The SPDX 3 JSON format is a strict subset of JSON-LD.
-Instances of SPDX 3 JSON shall be serialized in strict accordance with the
-defined serialization specification and validated against the provided
-SPDX 3 JSON Schema.
+It requires data to be serialized according to the defined serialization
+specification and validated against the SPDX 3 JSON Schema.
 It may be parsed – not serialized – using standard JSON-LD libraries.
 
 ### JSON-LD context file
