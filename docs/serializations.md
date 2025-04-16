@@ -52,7 +52,7 @@ with the following additional characteristics:
 - Integers: represented in base 10 using decimal digits. This designates an
   integer component that may be prefixed with an optional minus sign.
   Leading zeros are not allowed.
-- Strings: UTF-8 representation without specific canonicalisation. A string
+- Strings: UTF-8 representation without specific canonicalization. A string
   begins and ends with quotation marks (%x22). Any Unicode characters may be
   placed within the quotation marks, except for the two characters that MUST be
   escaped by a reverse solidus: quotation mark, reverse solidus, and the
@@ -90,7 +90,12 @@ A serialization must not contain more than one SpdxDocument.
 A given instance of serialization must not define more than one SpdxDocument
 element.
 
-## Serialization in JSON-LD
+## Serialization in SPDX 3 JSON
+
+The SPDX 3 JSON format is a strict subset of JSON-LD.
+It requires data to be serialized according to the defined serialization
+specification and validated against the SPDX 3 JSON Schema.
+It may be parsed – not serialized – using standard JSON-LD libraries.
 
 ### JSON-LD context file
 
@@ -126,16 +131,16 @@ An SPDX serialization in JSON-LD format is considered conformant to the SPDX
 specification if it adheres to the following two validation criteria:
 
 - Structural validation: The JSON-LD document must structurally validate
-  against the SPDX JSON Schema. This schema defines the expected structure of
+  against the SPDX 3 JSON Schema. This schema defines the expected structure of
   the JSON-LD document, including the required elements, data types, and
   permissible values.
 - Semantic validation: The JSON-LD document must successfully validate against
-  the SPDX OWL ontology. This ontology defines the expected relationships and
-  constraints between SPDX elements. The SPDX OWL ontology also incorporates
+  the SPDX 3 OWL ontology. This ontology defines the expected relationships and
+  constraints between SPDX elements. The SPDX 3 OWL ontology also incorporates
   SHACL shape restrictions to further specify these constraints.
 
-The SPDX JSON Schema is available at:
+The SPDX 3 JSON Schema is available at:
 [https://spdx.org/schema/3.0.1/spdx-json-schema.json](https://spdx.org/schema/3.0.1/spdx-json-schema.json)
 
-The SPDX OWL ontology is available at:
+The SPDX 3 OWL ontology is available at:
 [https://spdx.org/rdf/3.0.1/spdx-model.ttl](https://spdx.org/rdf/3.0.1/spdx-model.ttl)
