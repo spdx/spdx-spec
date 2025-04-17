@@ -46,7 +46,7 @@ A valid `<license-expression>` string consists of either:
 
 (ii) a more complex expression constructed by combining smaller valid expressions using Boolean license operators.
 
-There MUST NOT be white space `.
+There MUST NOT be white space between a license-id and any following `+`. This supports easy parsing and backwards compatibility. There MUST be white space on either side of the operator "WITH". There MUST be white space and/or parentheses on either side of the operators `AND` and `OR`.
 
 In the `tag:value` format, a license expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.
 
