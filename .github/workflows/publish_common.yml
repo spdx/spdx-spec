@@ -26,7 +26,7 @@ jobs:
       run: pip install mike==2.1.3
     - name: Extract branch or tag name
       id: extract-branch-or-tag-name
-      run: echo "::set-output name=ref_name::${REF##*/}"
+      run: echo "::set-output name=ref_name::v${REF##*/}"
       env:
         REF: ${{ github.event.client_payload.ref || github.event.inputs.ref }}
     - name: Set Git identity
@@ -34,4 +34,4 @@ jobs:
         git config user.name github-actions
         git config user.email github-actions@github.com
     - name: Build docs
-      run: mike deploy -p ${{ steps.extract-branch-or-tag-name.outputs.ref_name }} ${{ github.event.inputs.aliases }}
+      run: mike deploy --update-aliases --push ${{ steps.extract-branch-or-tag-name.outputs.ref_name }} ${{ github.event.inputs.aliases }}
