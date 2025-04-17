@@ -38,7 +38,7 @@ reproducible form.
 Such a canonical form normalizes things like ordering and formatting.
 
 The content of the canonical serialization is exactly the same as the JSON-LD
-serialization of RDF data (see 4.2), just represented in a consistent way.
+serialization of RDF data, just represented in a consistent way.
 
 Canonical serialization is in JSON format, as defined in
 [RFC 8259 (IETF STD 90)](https://datatracker.ietf.org/doc/rfc8259/),
