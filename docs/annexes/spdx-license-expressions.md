@@ -4,13 +4,13 @@
 
 Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0-only OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1-only AND BSD-3-Clause).
 
-SPDX License Expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-`[idString]`; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., `AND`, `OR`, `WITH` and `+`). We provide the definition of what constitutes a valid SPDX License Expression in this section.
+SPDX License Expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the `LicenseRef-(idstring)`; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., `AND`, `OR`, `WITH` and `+`). We provide the definition of what constitutes a valid SPDX License Expression in this section.
 
 The exact syntax of license expressions is described below in ABNF, as defined
 in [RFC 5234](https://datatracker.ietf.org/doc/rfc5234/) and expanded
 in [RFC 7405](https://datatracker.ietf.org/doc/rfc7405/).
 
-```text
+```ANBF
 idstring = 1*(ALPHA / DIGIT / "-" / "." )
 
 license-id = <short form license identifier from SPDX License List>
@@ -66,19 +66,14 @@ The same applies to `AdditionRef-` user defined identifiers.
 
 A simple `<license-expression>` is composed one of the following:
 
-- An SPDX License List Short Form Identifier. For example: CDDL-1.0
-- An SPDX License List Short Form Identifier with a unary "+" operator suffix to represent the current version of the license or any later version. For example: CDDL-1.0+
-- An SPDX user defined license reference: ["DocumentRef-"1\*(idstring)":"]"LicenseRef-"1*(idstring)
-
-Some examples:
-
-```text
-LicenseRef-23
-
-LicenseRef-MIT-Style-1
-
-DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2
-```
+- An SPDX License List Short Form Identifier. For example: `CDDL-1.0`
+- An SPDX License List Short Form Identifier with a unary "+" operator suffix to represent the current version of the license or any later version. For example: `CDDL-1.0+`
+- An SPDX user defined license reference:
+  `["DocumentRef-"(idstring)":"]"LicenseRef-"(idstring)`.
+  For example:
+  `LicenseRef-23`,
+  `LicenseRef-MIT-Style-1`, and
+  `DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2`
 
 The current set of valid license identifiers can be found in [spdx.org/licenses](https://spdx.org/licenses).
 
@@ -148,7 +143,7 @@ Sometimes license texts are found with additional text, which might or might not
 
 In this case, use the binary "WITH" operator to construct a new license expression to represent the special situation. A valid `<license-expression>` is where the left operand is a `<simple-expression>` value and the right operand is a `<addition-expression>` that represents the additional text.
 
-The `<addition-expression>` can be either a `<license-exception-id>` from the SPDX License List, or a user defined addition reference in the form ["DocumentRef-"(idstring)":"]"AdditionRef-"(idstring)
+The `<addition-expression>` can be either a `<license-exception-id>` from the SPDX License List, or a user defined addition reference in the form `"DocumentRef-"(idstring)":"]"AdditionRef-"(idstring)`.
 
 For example, when the Bison exception is to be applied to GPL-2.0-or-later, the expression would be:
 
@@ -162,7 +157,7 @@ It is allowed to use the operator in lower case form `with`.
 
 ### Order of precedence and parentheses
 
-The order of application of the operators in an expression matters (similar to mathematical operators). The default operator order of precedence of a `<license-expression>` a is:
+The order of application of the operators in an expression matters (similar to mathematical operators). The default operator order of precedence of a `<license-expression>` is:
 
 ```text
 +
@@ -179,7 +174,7 @@ For example, the following expression:
 LGPL-2.1-only OR BSD-3-Clause AND MIT
 ```
 
-represents a license choice between either LGPL-2.1-only and the expression BSD-3-Clause AND MIT because the AND operator takes precedence over (is applied before) the OR operator.
+represents a license choice between either LGPL-2.1-only or the expression "BSD-3-Clause AND MIT" because the AND operator takes precedence over (is applied before) the OR operator.
 
 When required to express an order of precedence that is different from the default order a `<license-expression>` can be encapsulated in pairs of parentheses: ( ), to indicate that the operators found inside the parentheses takes precedence over operators outside. This is also similar to the use of parentheses in an algebraic expression e.g., (5+7)/2.
 
@@ -195,7 +190,7 @@ states the OR operator should be applied before the AND operator. That is, one s
 
 A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet>` element, with an spdx:member property for each element in the conjunctive license. Two or more members are required.
 
-```text
+```XML
 <spdx:ConjunctiveLicenseSet>
     <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
     <spdx:ExtractedLicensingInfo rdf:about
@@ -214,7 +209,7 @@ A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet
 
 A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet>` element, with an spdx:member property for each element in the disjunctive license. Two or more members are required.
 
-```text
+```XML
 <spdx:DisjunctiveLicenseSet>
     <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
     <spdx:member>
@@ -243,7 +238,7 @@ A License Exception can be expressed in RDF via a `<spdx:LicenseException>` elem
 - `licenseExceptionId` -  The identifier of an exception in the SPDX License List to which the exception applies.
 - `licenseExceptionText` - Full text of the license exception.
 
-```text
+```XML
 <rdf:Description rdf:about
   ="http://example.org#SPDXRef-ButIdDontWantToException">
     <rdfs:comment>This exception may be invalid in some
