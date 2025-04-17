@@ -174,7 +174,7 @@ For example, the following expression:
 LGPL-2.1-only OR BSD-3-Clause AND MIT
 ```
 
-represents a license choice .
+represents a license choice between either LGPL-2.1-only or the expression "BSD-3-Clause AND MIT" because the AND operator takes precedence over (is applied before) the OR operator.
 
 When required to express an order of precedence that is different from the default order a `<license-expression>` can be encapsulated in pairs of parentheses: ( ), to indicate that the operators found inside the parentheses takes precedence over operators outside. This is also similar to the use of parentheses in an algebraic expression e.g., (5+7)/2.
 
