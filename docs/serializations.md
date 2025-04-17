@@ -52,7 +52,7 @@ with the following additional characteristics:
 - Integers: represented in base 10 using decimal digits. This designates an
   integer component that may be prefixed with an optional minus sign.
   Leading zeros are not allowed.
-- Strings: UTF-8 representation without specific canonicalization. A string
+- Strings: UTF-8 representation without specific normalization. A string
   begins and ends with quotation marks (%x22). Any Unicode characters may be
   placed within the quotation marks, except for the two characters that MUST be
   escaped by a reverse solidus: quotation mark, reverse solidus, and the
