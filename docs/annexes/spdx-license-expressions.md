@@ -119,7 +119,7 @@ It is allowed to use the operator in lower case form `or`.
 
 If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are valid license expression values.
 
-For example, when one is required to comply with both the LGPL-2.1-only or MIT licenses, a valid expression would be:
+For example, when one is required to comply with both the LGPL-2.1-only and MIT licenses, a valid expression would be:
 
 ```text
 LGPL-2.1-only AND MIT
