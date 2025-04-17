@@ -46,7 +46,7 @@ A valid `<license-expression>` string consists of either:
 
 (ii) a more complex expression constructed by combining smaller valid expressions using Boolean license operators.
 
-There MUST NOT be white space between a license-id and any following `+`. This supports easy parsing and backwards compatibility. There MUST be white space on either side of the operator "WITH". There MUST be white space and/or parentheses on either side of the operators `AND` and `OR`.
+There MUST NOT be white space `.
 
 In the `tag:value` format, a license expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.
 
@@ -117,7 +117,7 @@ It is allowed to use the operator in lower case form `or`.
 
 If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are a valid license expression values.
 
-For example, when one is required to comply with both the LGPL-2.1-only or MIT licenses, a valid expression would be:
+For example, when one is required to comply with both the LGPL-2.1-only and MIT licenses, a valid expression would be:
 
 ```text
 LGPL-2.1-only AND MIT
@@ -174,7 +174,7 @@ For example, the following expression:
 LGPL-2.1-only OR BSD-3-Clause AND MIT
 ```
 
-represents a license choice between either LGPL-2.1-only or the expression "BSD-3-Clause AND MIT" because the AND operator takes precedence over (is applied before) the OR operator.
+represents a license choice .
 
 When required to express an order of precedence that is different from the default order a `<license-expression>` can be encapsulated in pairs of parentheses: ( ), to indicate that the operators found inside the parentheses takes precedence over operators outside. This is also similar to the use of parentheses in an algebraic expression e.g., (5+7)/2.
 
