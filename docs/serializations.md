@@ -38,7 +38,7 @@ reproducible form.
 Such a canonical form normalizes things like ordering and formatting.
 
 The content of the canonical serialization is exactly the same as the JSON-LD
-serialization of RDF data (see 4.2), just represented in a consistent way.
+serialization of RDF data, just represented in a consistent way.
 
 Canonical serialization is in JSON format, as defined in
 [RFC 8259 (IETF STD 90)](https://datatracker.ietf.org/doc/rfc8259/),
@@ -52,7 +52,7 @@ with the following additional characteristics:
 - Integers: represented in base 10 using decimal digits. This designates an
   integer component that may be prefixed with an optional minus sign.
   Leading zeros are not allowed.
-- Strings: UTF-8 representation without specific canonicalisation. A string
+- Strings: UTF-8 representation without specific normalization. A string
   begins and ends with quotation marks (%x22). Any Unicode characters may be
   placed within the quotation marks, except for the two characters that MUST be
   escaped by a reverse solidus: quotation mark, reverse solidus, and the
