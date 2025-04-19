@@ -16,15 +16,15 @@ jobs:
     - name: Install pre-requisites
       run: pip install -r requirements.txt
     - name: Build
-      run: mkdocs build -v --clean
+      run: mkdocs build --verbose --clean
     - name: Schema
       run: generate-schema-doc schemas/spdx-schema.json site/spdx-json-schema.html
     - name: Upload
-      uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b  # v4.5.0
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  #v4.6.2
       with:
         name: site-v2.3
         path: ./site
-  build_v2-draft:
+  build_draft:
     name: Build v2.3.1-draft
     if: github.ref == 'refs/heads/support/2.3.1'
     runs-on: ubuntu-latest
@@ -36,26 +36,26 @@ jobs:
     - name: Install pre-requisites
       run: pip install -r requirements.txt
     - name: Build
-      run: mkdocs build -v --clean
+      run: mkdocs build --verbose --clean
     - name: Schema
       run: generate-schema-doc schemas/spdx-schema.json site/spdx-json-schema.html
     - name: Upload
-      uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b  #v4.5.0
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  #v4.6.2
       with:
         name: site-v2.3.1-draft
         path: ./site
   publish:
     name: Publish
     runs-on: ubuntu-latest
-    needs: [build_current, build_v2-draft]
+    needs: [build_current, build_draft]
     steps:
     - name: Download v2.3
-      uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  #v4.1.8
+      uses: actions/download-artifact@95815c38cf2ff2164869cbab79da8d1f422bc89e  #v4.2.1
       with:
         name: site-v2.3
         path: ./site/v2.3
     - name: Download v2.3.1-draft
-      uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16  #v4.1.8
+      uses: actions/download-artifact@95815c38cf2ff2164869cbab79da8d1f422bc89e  #v4.2.1
       with:
         name: site-v2.3.1-draft
         path: ./site/v2.3.1-draft
