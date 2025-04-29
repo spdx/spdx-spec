@@ -8,7 +8,7 @@ SPDX License Expressions provide a way for one to construct expressions that mor
 
 The exact syntax of license expressions is described below in [ABNF](http://tools.ietf.org/html/rfc5234).
 
-```text
+```ABNF
 idstring = 1*(ALPHA / DIGIT / "-" / "." )
 
 license-id = <short form license identifier in Annex A.1>
@@ -21,8 +21,7 @@ simple-expression = license-id / license-id"+" / license-ref
 
 compound-expression = (simple-expression /
 
-
-simple-expression "WITH" license-exception-id /
+  simple-expression "WITH" license-exception-id /
 
   compound-expression "AND" compound-expression /
 
@@ -172,7 +171,7 @@ states the OR operator should be applied before the AND operator. That is, one s
 
 A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet>` element, with an spdx:member property for each element in the conjunctive license. Two or more members are required.
 
-```text
+```XML
 <spdx:ConjunctiveLicenseSet>
     <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
     <spdx:ExtractedLicensingInfo rdf:about
@@ -191,7 +190,7 @@ A conjunctive license can be expressed in RDF via a `<spdx:ConjunctiveLicenseSet
 
 A disjunctive license can be expressed in RDF via a `<spdx:DisjunctiveLicenseSet>` element, with an spdx:member property for each element in the disjunctive license. Two or more members are required.
 
-```text
+```XML
 <spdx:DisjunctiveLicenseSet>
     <spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/>
     <spdx:member>
@@ -220,7 +219,7 @@ A License Exception can be expressed in RDF via a `<spdx:LicenseException>` elem
 * `licenseExceptionId` -  The identifier of an exception in the SPDX License List to which the exception applies.
 * `licenseExceptionText` - Full text of the license exception.
 
-```text
+```XML
 <rdf:Description rdf:about
   ="http://example.org#SPDXRef-ButIdDontWantToException">
     <rdfs:comment>This exception may be invalid in some
