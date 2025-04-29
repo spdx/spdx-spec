@@ -138,7 +138,7 @@ The current set of valid exceptions can be found in Annex [A.2](SPDX-license-lis
 
 ### D.4.5 Order of precedence and parentheses <a name="D.4.5"></a>
 
-The order of application of the operators in an expression matters (similar to mathematical operators). The default operator order of precedence of a `<license-expression>` a is:
+The order of application of the operators in an expression matters (similar to mathematical operators). The default operator order of precedence of a `<license-expression>` is:
 
 ```text
 +
