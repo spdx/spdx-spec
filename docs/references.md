@@ -146,7 +146,8 @@ Tom Preston-Werner and SemVer contributors,
 
 SoftWare Heritage persistent IDentifiers (SWHIDs), in
 International Standard
-*ISO/IEC 18670:2025 Information technology — SoftWare Hash IDentifier (SWHID) Specification V1.2*[https://www.iso.org/standard/89985.html](https://www.iso.org/standard/89985.html),
+*ISO/IEC 18670:2025 Information technology — SoftWare Hash IDentifier (SWHID) Specification V1.2*,
+[https://www.iso.org/standard/89985.html](https://www.iso.org/standard/89985.html),
 also available at
 [https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
 
