@@ -216,12 +216,12 @@ A License Exception can be expressed in RDF via a `<spdx:LicenseException>` elem
 * `seeAlso` (optional, one or more)- An `rdfs:seeAlso` element referencing external sources of information on the exception.
 * `example` (optional) - Text describing examples of this exception.
 * `name` - The full human readable name of the item.
-* `licenseExceptionId` -  The identifier of an exception in the SPDX License List to which the exception applies.
+* `licenseExceptionId` - The identifier of an exception in the SPDX License List to which the exception applies.
 * `licenseExceptionText` - Full text of the license exception.
 
 ```XML
 <rdf:Description rdf:about
-  ="http://example.org#SPDXRef-ButIdDontWantToException">
+  ="http://example.org#SPDXRef-ButIDontWantToException">
     <rdfs:comment>This exception may be invalid in some
       jurisdictions.</rdfs:comment>
     <rdfs:seeAlso>http://dilbert.com/strip/1997-01-15</rdfs:seeAlso>
@@ -233,7 +233,7 @@ A License Exception can be expressed in RDF via a `<spdx:LicenseException>` elem
         unfavorable.
     </spdx:licenseExceptionText>
     <spdx:name>&quot;But I Don&apos;t Want To&quot; Exception</spdx:name>
-    <spdx:licenseExceptionId>SPDXRef-ButIdDontWantToException</spdx:licenseExceptionId>
+    <spdx:licenseExceptionId>SPDXRef-ButIDontWantToException</spdx:licenseExceptionId>
     <rdf:type rdf:resource
       ="http://spdx.org/rdf/terms#LicenseException"/>
 </rdf:Description>
