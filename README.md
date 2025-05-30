@@ -10,6 +10,9 @@ This `support/2.3.1` branch holds under development 2.3.x version of the specifi
 - HTML (gh-pages branch)
   - <https://spdx.github.io/spdx-spec/v2.3.1-dev/>
 
+For the development of the latest version, please see the
+[`develop`](https://github.com/spdx/spdx-spec/tree/develop) branch.
+
 See for the official [releases of the specification](https://spdx.org/specifications) or additional information also the [SPDX website](https://spdx.org).
 
 ## Building the specification
@@ -20,7 +23,7 @@ You have to [MkDocs](http://mkdocs.org) installed on your machine. If you don't 
 
 ## Building HTML
 
-Execute built-in dev-server that lets you preview the specification
+Execute built-in dev-server that lets you preview the specification:
 
 ```shell
 mkdocs serve
