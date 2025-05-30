@@ -20,7 +20,7 @@ Fields that identify entities that have acted in relation to the SPDX document a
 tool and, optionally, provide contact information. For example, "Person: Jane Doe (jane.doe@example.com)",
 "Organization: ExampleCodeInspect (contact@example.com)" and "Tool: LicenseFind - 1.0". The exact syntax of agent and tool identifications is described below in [ABNF](http://tools.ietf.org/html/rfc5234).
 
-```text
+```ABNF
 agent            = person / organization
 
 tool             = "Tool: " name 0*1( " " DASH " " version)
