@@ -1,5 +1,16 @@
 # Change Log
+
 All notable changes to this project will be documented in this file.
+
+## 2.3.1 (2025-05-30)
+
+* Fixed a `primaryPackagePurpose` enum entry typo in
+  [`spdx-schema.json`](schemas/spdx-schema.json)
+  from the wrong `OPERATING_SYSTEM`, to the correct `OPERATING-SYSTEM`.
+
+## 2.3 (2022-11-03)
+
+See the [v2.3 GitHub release notes](https://github.com/spdx/spdx-spec/releases/tag/v2.3) for changes.
 
 ## 2.2 (2020-05-02)
 
@@ -21,7 +32,7 @@ All notable changes to this project will be documented in this file.
 * Removed support for multi-line license expressions.
 * Added `swh` as an external reference to support linking to Software Heritage persistent identifiers.
 * Added clarification on the case sensitivity of license expressions.
-* Numerous formatting, gramatical, and spelling fixes.
+* Numerous formatting, grammatical, and spelling fixes.
 
 See also the [SPDX specification 2.2 release announcement](https://www.linuxfoundation.org/blog/2020/05/spdx-2-2-specification-released/)
 
