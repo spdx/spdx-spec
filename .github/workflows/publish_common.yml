@@ -1,7 +1,8 @@
 # Publish pre-3.0 specs (spec versions that do not require spec-parser)
 # This workflow can be triggered manually or by a repository dispatch event.
-# It has two parameters:
+# It has three parameters:
 # - ref: The branch or tag to publish
+# - as_version: The version to publish as
 # - aliases: Space-delimited aliases
 
 on:
@@ -11,11 +12,15 @@ on:
   workflow_dispatch:
     inputs:
       ref:
-        description: Branch or tag to publish (e.g. refs/heads/support/2.3).
+        description: Branch or tag to publish (e.g. refs/heads/support/2.3.1).
         required: true
-        default: refs/heads/support/2.3
+        default: refs/heads/support/2.3.1
+      as_version:
+        description: Version to publish as (e.g. v2.3.1).
+        required: true
+        default: v2.3.1
       aliases:
-        description: Space-delimited aliases to publish (e.g. v2-latest v2-draft).
+        description: Space-delimited aliases to publish (e.g. v2-latest v2-draft v2.3.1-dev).
         required: false
 jobs:
   build:
@@ -44,5 +49,7 @@ jobs:
         git config user.email github-actions@github.com
     - name: Build docs
       working-directory: spdx-spec
+      env:
+        AS_VERSION: ${{ github.event.client_payload.as_version || github.event.inputs.as_version }}
       run: |
-        mike deploy --update-aliases --push $REF_NAME ${{ github.event.inputs.aliases }}
+        mike deploy --update-aliases --push $AS_VERSION ${{ github.event.inputs.aliases }}
