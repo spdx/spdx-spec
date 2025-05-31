@@ -96,7 +96,7 @@ SPDX-FileCopyrightText: Copyright contributors to the Foo project.
 SPDX-SnippetBegin
 SPDX-License-Identifier: MIT
 SPDX-SnippetCopyrightText: 2022 Jane Doe <jane@example.com>
-SDPX—SnippetName: functionX from project Bar
+SPDX—SnippetName: functionX from project Bar
 SPDX-SnippetComment: A complex function X that was copy-pasted from project Bar
 
 ...
