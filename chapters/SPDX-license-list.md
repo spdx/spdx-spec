@@ -541,7 +541,7 @@ SPDX endeavors to never change the SPDX license identifiers. However, sometimes 
 
 **Table A.3 — Deprecated license short identifiers**
 
-| Full Name of License                                            | Deprecated SDPX Short Identifier                                                                    |
+| Full Name of License                                            | Deprecated SPDX Short Identifier                                                                    |
 |-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | Affero General Public License v1.0                              | [AGPL-1.0](https://spdx.org/licenses/AGPL-1.0.html)                                                 |
 | GNU Affero General Public License v3.0                          | [AGPL-3.0](https://spdx.org/licenses/AGPL-3.0.html)                                                 |
