@@ -225,156 +225,156 @@
               
                 <h1 id="annex-k-how-to-use-spdx-in-different-scenarios">Annex K: How To Use SPDX in Different Scenarios</h1>
 <h2 id="k1-including-security-information-in-a-spdx-document">K.1 Including security information in a SPDX document</h2>
-<p>SPDX 2.x has the concept of an External Reference for a Package to "reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package." </p>
+<p>SPDX 2.x has the concept of an External Reference for a Package to "reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package."</p>
 <p>The specification for External Reference identifiers (Annex F) has four defined categories:</p>
 <ul>
 <li>Security: CPE, SWID tag identifier, or reference to security information </li>
 <li>Package-Manager: package identifier and locator</li>
-<li>Persistent-id:  identifier which is guaranteed to remain stable (persistent) over time</li>
+<li>Persistent-id: identifier which is guaranteed to remain stable (persistent) over time</li>
 <li>Other: Use if none of the above match your use case</li>
 </ul>
 <p>This section provides usage scenarios of how to leverage the Security and Persistent-id category external references specified above to refer to external security information. A complete SPDX document using these can be found in the examples directory within the SPDX code repository. Multiple instances and types of external security information may be included within a SPDX document.</p>
-<p>Note that identifiers (e.g. CPE, GitBOM, SWID)  are spread throughout Annex F and sometimes locators refer to identifiers.</p>
+<p>Note that identifiers (e.g. CPE, GitBOM, SWID) are spread throughout Annex F and sometimes locators refer to identifiers.</p>
 <h3 id="k11-linking-to-an-advisory">K.1.1 Linking to an advisory</h3>
 <p>Including a reference to a Common Vulnerabilities and Exposures (CVE) advisory applicable to a package is shown in the example below. A SPDX creator should include current publicly known vulnerabilities at the time of document creation. SPDX consumers should always assume vulnerabilities enumerated by a SPDX creator to be out-of-date.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
- &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
- &quot;referenceLocator&quot; : &quot;https://nvd.nist.gov/vuln/detail/CVE-2020-29573&quot;,
- &quot;referenceType&quot; : &quot;advisory&quot;
-}, {
- &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
- &quot;referenceLocator&quot; : &quot;https://nvd.nist.gov/vuln/detail/CVE-2020-6096&quot;,
- &quot;referenceType&quot; : &quot;advisory&quot;
-}, {
-}, {
- &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
- &quot;referenceLocator&quot; : &quot;https://nvd.nist.gov/vuln/detail/CVE-2020-3326&quot;,
- &quot;referenceType&quot; : &quot;advisory&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://nvd.nist.gov/vuln/detail/CVE-2020-29573&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;advisory&quot;</span>
+<span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://nvd.nist.gov/vuln/detail/CVE-2020-6096&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;advisory&quot;</span>
+<span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://nvd.nist.gov/vuln/detail/CVE-2020-3326&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;advisory&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <h3 id="k12-linking-to-a-csaf">K.1.2 Linking to a CSAF</h3>
 <p>To learn how to reference to <a href="https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.html">CSAF</a> formatted security information
 applicable to a package see the example below, and additional examples here and here.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
-  &quot;referenceLocator&quot; : &quot;https://github.com/oasis-tcs/csaf/blob/master/csaf_2.0/examples/csaf/csaf_vex/2022-evd-uc-01-a-001.json&quot;,
-  &quot;referenceType&quot; : &quot;advisory&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/oasis-tcs/csaf/blob/master/csaf_2.0/examples/csaf/csaf_vex/2022-evd-uc-01-a-001.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;advisory&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <h3 id="k13-linking-to-a-cyclonedx">K.1.3 Linking to a CycloneDX</h3>
 <p>To reference to <a href="https://cyclonedx.org">CycloneDX</a> formatted security information applicable to a package see the example below.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
-  &quot;referenceLocator&quot; : &quot;https://raw.githubusercontent.com/CycloneDX/bom-examples/ed522d1f051c364e045b87c20665003a0c4ea777/SBOM/laravel-7.12.0/bom.json&quot;,
-  &quot;referenceType&quot; : &quot;advisory&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://raw.githubusercontent.com/CycloneDX/bom-examples/ed522d1f051c364e045b87c20665003a0c4ea777/SBOM/laravel-7.12.0/bom.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;advisory&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <h3 id="k14-linking-to-an-osv">K.1.4 Linking to an OSV</h3>
 <p>To learn how to include a reference to <a href="https://github.com/google/osv">Open Source Vulnerability</a> (OSV) formatted security information applicable to a package see the example below.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
-  &quot;referenceLocator&quot; : &quot;https://github.com/github/advisory-database/tree/6b9d5bc96a62bb845ee71e4551a214eb1457e2c6/advisories/github-reviewed/2022/04/GHSA-2gwj-7jmv-h26r/GHSA-2gwj-7jmv-h26r.json&quot;,
-  &quot;referenceType&quot; : &quot;advisory&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/github/advisory-database/tree/6b9d5bc96a62bb845ee71e4551a214eb1457e2c6/advisories/github-reviewed/2022/04/GHSA-2gwj-7jmv-h26r/GHSA-2gwj-7jmv-h26r.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;advisory&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <h3 id="k15-linking-to-a-gitbom">K.1.5 Linking to a GitBOM</h3>
 <p>To reference to <a href="https://gitbom.dev">GitBOM</a> formatted security information applicable to a package see the example below.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;PERSISTENT-ID&quot;,
-  &quot;referenceLocator&quot; : &quot;gitoid:blob:sha1:d8bcd58df2b14818b8237bb70c979d62c7df5747&quot;,
-  &quot;referenceType&quot; : &quot;gitbom&quot;
-  &quot;referenceComment&quot; : &quot;GitBOM Object Id for the HeartBleed fix in ssl/d1_both.c&quot;
-} ,
-{
-  &quot;referenceCategory&quot; : &quot;PERSISTENT-ID&quot;,
-  &quot;referenceLocator&quot; : &quot;gitoid:blob:sha1:bcb99b819dadaebdf2c8f88d92ee9024c45f9df3&quot;,
-  &quot;referenceType&quot; : &quot;gitbom&quot;
-  &quot;referenceComment&quot; : &quot;GitBOM Object Id for the HeartBleed fix in ssl/t1_lib.c&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PERSISTENT-ID&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gitoid:blob:sha1:d8bcd58df2b14818b8237bb70c979d62c7df5747&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;gitbom&quot;</span>
+<span class="w">  </span><span class="nt">&quot;referenceComment&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GitBOM Object Id for the HeartBleed fix in ssl/d1_both.c&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">,</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PERSISTENT-ID&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gitoid:blob:sha1:bcb99b819dadaebdf2c8f88d92ee9024c45f9df3&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;gitbom&quot;</span>
+<span class="w">  </span><span class="nt">&quot;referenceComment&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GitBOM Object Id for the HeartBleed fix in ssl/t1_lib.c&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <h3 id="k16-linking-to-a-vulnerability-disclosure-document">K.1.6 Linking to a vulnerability disclosure document</h3>
 <p>To express a reference to a vulnerability disclosure document for a package such Cisco’s response to Apache log4j vulnerability.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
-  &quot;referenceLocator&quot; : &quot;https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-log4j-qRuKNEbd&quot;,
-  &quot;referenceType&quot; : &quot;advisory&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-log4j-qRuKNEbd&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;advisory&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <p>To communicate that a package is not vulnerable to a specific vulnerability it is recommended to reference a web page indicating why given vulnerabilities are not applicable.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
-  &quot;referenceLocator&quot; : &quot;https://example.com/product-x/security-info.html&quot;,
-  &quot;referenceType&quot; : &quot;advisory&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/product-x/security-info.html&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;advisory&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <p>To refer to a security disclosure feed, such as the security bulletins from <a href="https://cert.europa.eu">CERT-EU</a>.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
-  &quot;referenceLocator&quot; : &quot;https://cert.europa.eu/cert/Data/newsletter/reviewlatest-SecurityBulletins.xml&quot;,
-  &quot;referenceType&quot; : &quot;advisory&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://cert.europa.eu/cert/Data/newsletter/reviewlatest-SecurityBulletins.xml&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;advisory&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <h3 id="k17-linking-to-a-code-fix-for-a-security-issue">K.1.7 Linking to a code fix for a security issue</h3>
 <p>To reference a code fix for a security issue applicable to a package see the example below.
 In this example, the link points to a specific code revision containing the fix for <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-28498">CVE-2020-28498</a>.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
-  &quot;referenceLocator&quot; : &quot;https://github.com/indutny/elliptic/commit/441b7428b0e8f6636c42118ad2aaa186d3c34c3f&quot;,
-  &quot;referenceType&quot; : &quot;fix&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/indutny/elliptic/commit/441b7428b0e8f6636c42118ad2aaa186d3c34c3f&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fix&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <p>A fix reference may point to a configuration change for example the patch file as one of the fixes for <a href="https://nvd.nist.gov/vuln/detail/CVE-2022-26499">CVE-2022-26499</a>.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
-  &quot;referenceLocator&quot; : &quot;https://downloads.digium.com/pub/security/AST-2022-002-16.diff&quot;,
-  &quot;referenceType&quot; : &quot;fix&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://downloads.digium.com/pub/security/AST-2022-002-16.diff&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fix&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <p>Alternatively, it may also link to a landing page with patches for a variety of products such as
 Oracle patch information for <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44228">CVE-2021-44228</a>.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
-  &quot;referenceLocator&quot; : &quot;https://www.oracle.com/security-alerts/cpujan2022.html&quot;,
-  &quot;referenceType&quot; : &quot;fix&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://www.oracle.com/security-alerts/cpujan2022.html&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fix&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <h3 id="k18-linking-to-any-security-related-document">K.1.8 Linking to any security related document</h3>
 <p>If you want to reference any security information related to a package but cannot or do not wish to specify its kind, use the <code>url</code> referenceType.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
-  &quot;referenceLocator&quot; : &quot;https://github.com/christianlundkvist/blog/blob/aa3a69b5e4c06e4435070610c0c4a2b1e8731783/2020_05_26_secp256k1_twist_attacks/secp256k1_twist_attacks.md&quot;,
-  &quot;referenceType&quot; : &quot;url&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/christianlundkvist/blog/blob/aa3a69b5e4c06e4435070610c0c4a2b1e8731783/2020_05_26_secp256k1_twist_attacks/secp256k1_twist_attacks.md&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <p>One can also use it to refer to guidance related to a vulnerability such as CISA guidance for Apache Log4j.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
-  &quot;referenceLocator&quot; : &quot;https://www.cisa.gov/uscert/apache-log4j-vulnerability-guidance&quot;,
-  &quot;referenceType&quot; : &quot;url&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://www.cisa.gov/uscert/apache-log4j-vulnerability-guidance&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;url&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <h3 id="k19-linking-to-an-sbom-vulnerability-report-for-a-software-product-per-nist-executive-order-14028">K.1.9 Linking to an SBOM vulnerability report for a Software Product (per NIST Executive Order 14028)</h3>
 <p>The National Institute of Standards and Technology (NIST) describes the concept of correlating vulnerability and SBOM information for a software product at the component level in “<a href="https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity/software-security-supply-chains-software-1">Software Security in Supply Chains: Software Bill of Materials (SBOM)</a>”. Use the ExternalRefs <code>SECURITY</code> category and <code>advisory</code> referenceType to report on vulnerabilities related to the components contained in a software product’s SBOM.</p>
 <p>This enables a software producer to articulate to software consumers the status of vulnerabilities contained in the software product, by means of reporting vulnerability information at either the SBOM document or component level.</p>
 <p>Providing a link to such data at the time the SBOM is published provides a pointer for where to find this relevant vulnerability information without promulgating vulnerability information inside the SBOM. This is advantageous because the vulnerability information has a short shelf-life (it will change frequently) while the SBOM component data isn’t likely to change if the software has not changed.</p>
-<div class="codehilite"><pre><span></span><code>&quot;externalRefs&quot; : [ {
-  &quot;referenceCategory&quot; : &quot;SECURITY&quot;,
-  &quot;referenceLocator&quot; : &quot;https://github.com/rjb4standards/REA-Products/blob/master/SBOM_and_VDRbaseline/sag-pm-118_VDR.json&quot;,
-  &quot;referenceType&quot; : &quot;advisory&quot;
-} ]
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;externalRefs&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;referenceCategory&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceLocator&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/rjb4standards/REA-Products/blob/master/SBOM_and_VDRbaseline/sag-pm-118_VDR.json&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;referenceType&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;advisory&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
 <h2 id="k2-satisfying-ntia-minimum-elements-for-an-sbom-using-spdx">K.2 Satisfying NTIA Minimum Elements for an SBOM using SPDX</h2>
