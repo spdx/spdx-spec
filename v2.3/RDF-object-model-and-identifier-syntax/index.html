@@ -23,6 +23,7 @@
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/abnf.min.js"></script>
       <script>hljs.highlightAll();</script> 
 </head>
 
@@ -190,51 +191,51 @@
 <p>Fields that identify entities that have acted in relation to the SPDX document are single line of text which name the agent or
 tool and, optionally, provide contact information. For example, "Person: Jane Doe (jane.doe@example.com)",
 "Organization: ExampleCodeInspect (contact@example.com)" and "Tool: LicenseFind - 1.0". The exact syntax of agent and tool identifications is described below in <a href="http://tools.ietf.org/html/rfc5234">ABNF</a>.</p>
-<div class="codehilite"><pre><span></span><code>agent            = person / organization
+<div class="codehilite"><pre><span></span><code><span class="nc">agent</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="nc">person</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">organization</span>
 
-tool             = &quot;Tool: &quot; name 0*1( &quot; &quot; DASH &quot; &quot; version)
+<span class="nc">tool</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="l">&quot;Tool: &quot;</span><span class="w"> </span><span class="nc">name</span><span class="w"> </span><span class="o">0*1</span><span class="p">(</span><span class="w"> </span><span class="l">&quot; &quot;</span><span class="w"> </span><span class="nc">DASH</span><span class="w"> </span><span class="l">&quot; &quot;</span><span class="w"> </span><span class="nc">version</span><span class="p">)</span>
 
-person           = &quot;Person: &quot; name 0*1contact-info
+<span class="nc">person</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="l">&quot;Person: &quot;</span><span class="w"> </span><span class="nc">name</span><span class="w"> </span><span class="o">0*1</span><span class="nc">contact-info</span>
 
-organization     = &quot;Organization: &quot; name 0*1contact-info
+<span class="nc">organization</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="l">&quot;Organization: &quot;</span><span class="w"> </span><span class="nc">name</span><span class="w"> </span><span class="o">0*1</span><span class="nc">contact-info</span>
 
-name             = 1*( UNRESERVED ) / U+0022 1*( VCHAR-SANS-QUOTE ) U+0022
+<span class="nc">name</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="o">1*</span><span class="p">(</span><span class="w"> </span><span class="nc">UNRESERVED</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">U</span>+<span class="o">0022</span><span class="w"> </span><span class="o">1*</span><span class="p">(</span><span class="w"> </span><span class="k">VCHAR</span>-<span class="nc">SANS-QUOTE</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="nc">U</span>+<span class="o">0022</span>
 
-contact-info     = &quot; (&quot; email-addr &quot;)&quot;
+<span class="nc">contact-info</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="l">&quot; (&quot;</span><span class="w"> </span><span class="nc">email-addr</span><span class="w"> </span><span class="l">&quot;)&quot;</span>
 
-email-addr       = local-name-atom *( &quot;.&quot; local-name-atom ) &quot;@&quot; domain-name-atom 1*( &quot;.&quot; domain-name-atom )
+<span class="nc">email-addr</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nc">local-name-atom</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="w"> </span><span class="l">&quot;.&quot;</span><span class="w"> </span><span class="nc">local-name-atom</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="l">&quot;@&quot;</span><span class="w"> </span><span class="nc">domain-name-atom</span><span class="w"> </span><span class="o">1*</span><span class="p">(</span><span class="w"> </span><span class="l">&quot;.&quot;</span><span class="w"> </span><span class="nc">domain-name-atom</span><span class="w"> </span><span class="p">)</span>
 
-version          = 1*VCHAR-SANS-QUOTE
+<span class="nc">version</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="o">1*</span><span class="k">VCHAR</span>-<span class="nc">SANS-QUOTE</span>
 
-local-name-atom  = 1*( ALPHA / DIGIT /    ; Printable US-ASCII
-                       &quot;!&quot; / &quot;#&quot; /        ;  characters not including
-                       &quot;$&quot; / &quot;%&quot; /        ;  specials.
-                       &quot;&amp;&quot; / &quot;&#39;&quot; /
-                       &quot;*&quot; / &quot;+&quot; /
-                       &quot;-&quot; / &quot;/&quot; /
-                       &quot;=&quot; / &quot;?&quot; /
-                       &quot;^&quot; / &quot;_&quot; /
-                       &quot;`&quot; / &quot;{&quot; /
-                       &quot;|&quot; / &quot;}&quot; /
-                       &quot;~&quot; )
+<span class="nc">local-name-atom</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="o">1*</span><span class="p">(</span><span class="w"> </span><span class="k">ALPHA</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">DIGIT</span><span class="w"> </span><span class="o">/</span><span class="w">    </span><span class="c1">; Printable US-ASCII</span>
+<span class="w">                       </span><span class="l">&quot;!&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="l">&quot;#&quot;</span><span class="w"> </span><span class="o">/</span><span class="w">        </span><span class="c1">;  characters not including</span>
+<span class="w">                       </span><span class="l">&quot;$&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="l">&quot;%&quot;</span><span class="w"> </span><span class="o">/</span><span class="w">        </span><span class="c1">;  specials.</span>
+<span class="w">                       </span><span class="l">&quot;&amp;&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="l">&quot;&#39;&quot;</span><span class="w"> </span><span class="o">/</span>
+<span class="w">                       </span><span class="l">&quot;*&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="l">&quot;+&quot;</span><span class="w"> </span><span class="o">/</span>
+<span class="w">                       </span><span class="l">&quot;-&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="l">&quot;/&quot;</span><span class="w"> </span><span class="o">/</span>
+<span class="w">                       </span><span class="l">&quot;=&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="l">&quot;?&quot;</span><span class="w"> </span><span class="o">/</span>
+<span class="w">                       </span><span class="l">&quot;^&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="l">&quot;_&quot;</span><span class="w"> </span><span class="o">/</span>
+<span class="w">                       </span><span class="l">&quot;`&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="l">&quot;{&quot;</span><span class="w"> </span><span class="o">/</span>
+<span class="w">                       </span><span class="l">&quot;|&quot;</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="l">&quot;}&quot;</span><span class="w"> </span><span class="o">/</span>
+<span class="w">                       </span><span class="l">&quot;~&quot;</span><span class="w"> </span><span class="p">)</span>
 
-domain-name-atom = 1*( ALPHA / DIGIT / &quot;-&quot; )
+<span class="nc">domain-name-atom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">1*</span><span class="p">(</span><span class="w"> </span><span class="k">ALPHA</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">DIGIT</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="l">&quot;-&quot;</span><span class="w"> </span><span class="p">)</span>
 
-DASH             = U+2010 / U+2212 /   ; hyphen, minus, em dash and
-                   U+2013 / U+2014     ;  en dash
-
-
-UNRESERVED       = U+0020-U+0027 /     ; visible unicode characters
-                   U+0029-U+0080 /     ;  except &#39;(&#39; and dashes
-                   U+00A0-U+200F /
-                   U+2011-U+2027 /
-                   U+202A-U+2211 /
-                   U+2213-U+E01EF
+<span class="nc">DASH</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="nc">U</span>+<span class="o">2010</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">U</span>+<span class="o">2212</span><span class="w"> </span><span class="o">/</span><span class="w">   </span><span class="c1">; hyphen, minus, em dash and</span>
+<span class="w">                   </span><span class="nc">U</span>+<span class="o">2013</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nc">U</span>+<span class="o">2014</span><span class="w">     </span><span class="c1">;  en dash</span>
 
 
-VCHAR-SANS-QUOTE = U+0020-U+0021 /  ; visible unicode characters
-                   U+0023-U+0080 /  ;  except quotation mark
-                   U+00a0-U+E01EF
+<span class="nc">UNRESERVED</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nc">U</span>+<span class="o">0020</span>-<span class="nc">U</span>+<span class="o">0027</span><span class="w"> </span><span class="o">/</span><span class="w">     </span><span class="c1">; visible unicode characters</span>
+<span class="w">                   </span><span class="nc">U</span>+<span class="o">0029</span>-<span class="nc">U</span>+<span class="o">0080</span><span class="w"> </span><span class="o">/</span><span class="w">     </span><span class="c1">;  except &#39;(&#39; and dashes</span>
+<span class="w">                   </span><span class="nc">U</span>+<span class="o">00</span><span class="nc">A0-U</span>+<span class="o">200</span><span class="nc">F</span><span class="w"> </span><span class="o">/</span>
+<span class="w">                   </span><span class="nc">U</span>+<span class="o">2011</span>-<span class="nc">U</span>+<span class="o">2027</span><span class="w"> </span><span class="o">/</span>
+<span class="w">                   </span><span class="nc">U</span>+<span class="o">202</span><span class="nc">A-U</span>+<span class="o">2211</span><span class="w"> </span><span class="o">/</span>
+<span class="w">                   </span><span class="nc">U</span>+<span class="o">2213</span>-<span class="nc">U</span>+<span class="nc">E01EF</span>
+
+
+<span class="k">VCHAR</span>-<span class="nc">SANS-QUOTE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">U</span>+<span class="o">0020</span>-<span class="nc">U</span>+<span class="o">0021</span><span class="w"> </span><span class="o">/</span><span class="w">  </span><span class="c1">; visible unicode characters</span>
+<span class="w">                   </span><span class="nc">U</span>+<span class="o">0023</span>-<span class="nc">U</span>+<span class="o">0080</span><span class="w"> </span><span class="o">/</span><span class="w">  </span><span class="c1">;  except quotation mark</span>
+<span class="w">                   </span><span class="nc">U</span>+<span class="o">00</span><span class="nc">a0-U</span>+<span class="nc">E01EF</span>
 </code></pre></div>
               
             </div>
