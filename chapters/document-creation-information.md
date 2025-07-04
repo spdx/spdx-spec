@@ -227,7 +227,7 @@ Identify any external SPDX documents referenced within this SPDX document. The m
 | Attribute | Value |
 | --------- | ----- |
 | Required | No |
-| Cardinality | 1..* |
+| Cardinality | 0..* |
 | Format | DocumentRef-`[idstring]` `[SPDX document URI]` `[Checksum]`<br>where<br>`[idstring]` is a unique string containing letters, numbers, `.`, `-` and/or `+`.<br>`[SPDX document URI]` is the unique ID for the external document as defined in [6.5](#6.5) of that referenced document,<br>`[Checksum]` is a checksum of the external document following the checksum format defined in [8.4](file-information.md#8.4). |
 
 ### 6.6.2 Intent
@@ -436,7 +436,7 @@ EXAMPLE 1 Tag: `DocumentComment:`
 
 ```text
 DocumentComment: <text>This document was created using SPDX 2.3,
-version 3.17 of the SPDX License List and refering to licenses
+version 3.17 of the SPDX License List and referring to licenses
 in file MyCompany.Approved.Licenses.spdx.</text>
 ```
 
@@ -446,7 +446,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `SpdxDocument`
 <SpdxDocument rdf:about="...">
     <rdfs:comment>
       This document was created using SPDX 2.3, version 3.17 of the SPDX
-      License List and refering to licenses in file
+      License List and referring to licenses in file
       MyCompany.Approved.Licenses.spdx.
     </rdfs:comment>
 </SpdxDocument>
