@@ -4,6 +4,13 @@
 # - ref: The branch or tag to publish
 # - as_version: The version to publish as
 # - aliases: Space-delimited aliases
+#
+# For example, to publish the "support/2.3.1" branch (under development)
+# as "v2.3.1-dev" with aliases "v2.3.1", "2.3.1", and "2.3.1-dev",
+# you can trigger the workflow with:
+# - ref = "refs/heads/support/2.3.1"
+# - as_version = "v2.3.1-dev"
+# - aliases = "v2.3.1 2.3.1 2.3.1-dev"
 
 on:
   repository_dispatch:
@@ -34,6 +41,8 @@ jobs:
         fetch-depth: 0  # Because we will be pushing the gh-pages branch
     - name: Install pre-requisites
       run: pip install -r spdx-spec/requirements.txt
+    - name: Install mike
+      run: pip install mike==2.1.3
     - name: Generate schema doc
       working-directory: spdx-spec
       run: generate-schema-doc schemas/spdx-schema.json chapters/spdx-json-schema.html
