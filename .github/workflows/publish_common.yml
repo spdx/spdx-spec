@@ -44,12 +44,6 @@ jobs:
     - name: Generate schema doc
       working-directory: spdx-spec
       run: generate-schema-doc schemas/spdx-schema.json chapters/spdx-json-schema.html
-    - name: Extract branch or tag name
-      id: extract-branch-or-tag-name
-      env:
-        REF: ${{ github.event.client_payload.ref || github.event.inputs.ref }}
-      run: |
-        echo "REF_NAME=v${REF##*/}" >> $GITHUB_ENV
     - name: Set Git identity
       working-directory: spdx-spec
       run: |
