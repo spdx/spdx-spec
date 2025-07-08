@@ -59,7 +59,7 @@ The original replaceable text appears on the SPDX License List webpage in red te
 
 ### Guideline: omittable text
 
-Some licenses have text that can simply be ignored. The intent here is to avoid the inclusion of certain text that is superfluous or irrelevant in regards to the substantive license text resulting in a non-match where the license is otherwise an exact match (e.g., directions on how to apply the license or other similar exhibits). In these cases, there should be a positive license match.
+Some licenses have text that can simply be ignored. The intent here is to avoid the inclusion of certain text that is superfluous or irrelevant in regard to the substantive license text resulting in a non-match where the license is otherwise an exact match (e.g., directions on how to apply the license or other similar exhibits). In these cases, there should be a positive license match.
 
 The license should be considered a match if the text indicated is present and matches OR the text indicated is missing altogether.
 
@@ -114,7 +114,7 @@ Any hyphen, dash, en dash, em dash, or other variation should be considered equi
 
 Any variation of quotations (single, double, curly, etc.) should be considered equivalent.
 
-## Code Comment Indicators or Separators
+## Code comment indicators or separators
 
 ### Purpose
 
