@@ -2,7 +2,7 @@
 
 ## Alternate notation for some conformance requirements
 
-This standard contains more than a few cardinality assertions, each of which
+This document contains more than a few cardinality assertions, each of which
 indicates the minimum and maximum number of times a property may appear.
 These are represented by using "minCount" and "maxCount" respectively.
 The absolute minimum number of occurrences is zero (0),
@@ -20,7 +20,7 @@ Here are some examples:
 Each of these assertions can easily be understood as to whether a feature is
 required, and if so, how many occurrences are required; also, whether a feature
 is permitted, and if so, in what number. As this is the format long familiar to
-the SPDX community, it has been preserved in this specification.
+the SPDX community, it has been preserved in this document.
 
 ## Introduction to Profiles
 

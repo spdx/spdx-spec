@@ -350,7 +350,7 @@ The following list includes some valid _purl_ examples:
 
 ## Original license
 
-This specification is based on the texts published
+This document is based on the texts published
 in the <https://github.com/package-url/purl-spec> online repository.
 The original license and attribution are reproduced below:
 

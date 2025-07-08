@@ -2,7 +2,7 @@
 
 ## Author acknowledgements
 
-The following people authored this specification:
+The following people authored this document:
 
 Adam Cohn,
 Adolfo García Veytia,

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This specification defines the data model of the SPDX standard, describing
+This document defines the data model of the SPDX standard, describing
 every piece of information about systems with software components. The data
 model is based on the Resource Description Framework (RDF) extensible
 knowledge representation data model, which provides a flexible and extensible
