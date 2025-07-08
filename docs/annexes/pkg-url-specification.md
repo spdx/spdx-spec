@@ -27,7 +27,7 @@ A _purl_ is a URL composed of seven components:
 
 Components are separated by a specific character for unambiguous parsing.
 
-The definition for each components is:
+The definition for each component is:
 
 - **scheme**: this is the URL scheme with the constant value of "`pkg`". One of the primary reason for this single scheme is to facilitate the future official registration of the "`pkg`" scheme for package URLs. Required.
 - **type**: the package type or package protocol such as maven, npm, nuget, gem, pypi, etc. Required.
@@ -258,7 +258,7 @@ To build a _purl_ string from its components:
     1. Append `?` to the _purl_
     1. Discard any pair where the value is empty
     1. Encode each value in UTF-8-encoding
-    1. If the key is `checksum` and there are more than one checksums, join the list with `,` to create the qualifier value
+    1. If the key is `checksum` and there are more than one checksum, join the list with `,` to create the qualifier value
     1. Create each qualifier string by joining the lowercased key, the equal `=` sign, and the percent-encoded value
     1. Sort this list of qualifier strings lexicographically
     1. Join this list of sorted qualifier strings with `&`
