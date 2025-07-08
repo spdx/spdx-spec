@@ -110,7 +110,7 @@ Punctuation should be matched, unless otherwise stated in these guidelines or un
 
 Any hyphen, dash, en dash, em dash, or other variation should be considered equivalent.
 
-### Guideline: Quotes
+### Guideline: quotes
 
 Any variation of quotations (single, double, curly, etc.) should be considered equivalent.
 
