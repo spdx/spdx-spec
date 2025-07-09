@@ -13,15 +13,17 @@ MD_DIR=docs/annexes
 JSON_DIR=examples/jsonld
 
 SPDX_VERSION="3.0.1"
-SCHEMA_URL="https://spdx.org/schema/${SPDX_VERSION}/spdx-json-schema.json"
-RDF_URL="https://spdx.org/rdf/${SPDX_VERSION}/spdx-model.ttl"
-CONTEXT_URL="https://spdx.org/rdf/${SPDX_VERSION}/spdx-context.jsonld"
+SPDX_VERSION_MAJOR_MINOR="${SPDX_VERSION%.*}"
+SCHEMA_URL="https://spdx.org/schema/${SPDX_VERSION_MINOR}/spdx-json-schema.json"
+RDF_URL="https://spdx.org/rdf/${SPDX_VERSION_MAJOR_MINOR}/spdx-model.ttl"
+CONTEXT_URL="https://spdx.org/rdf/${SPDX_VERSION_MAJOR_MINOR}/spdx-context.jsonld"
 
 # print validation setup
 echo "Checking examples in"
 echo "Snippets         : $MD_DIR"
 echo "Files            : $JSON_DIR"
 echo "SPDX version     : $SPDX_VERSION"
+echo "(major.minor)    : $SPDX_VERSION_MAJOR_MINOR"
 echo "Schema           : $SCHEMA_URL"
 echo "Schema resolved  : $(curl -I "$SCHEMA_URL" 2>/dev/null | grep -i "location:" | awk '{print $2}')"
 echo "RDF              : $RDF_URL"
