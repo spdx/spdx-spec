@@ -14,7 +14,7 @@ JSON_DIR=examples/jsonld
 
 SPDX_VERSION="3.0.1"
 SPDX_VERSION_MAJOR_MINOR="${SPDX_VERSION%.*}"
-SCHEMA_URL="https://spdx.org/schema/${SPDX_VERSION}/spdx-json-schema.json"  # Cannot use SPDX_VERSION_MAJOR_MINOR here, as no redirection is set up on the spdx.org side.
+SCHEMA_URL="https://spdx.org/schema/${SPDX_VERSION_MINOR}/spdx-json-schema.json"
 RDF_URL="https://spdx.org/rdf/${SPDX_VERSION_MAJOR_MINOR}/spdx-model.ttl"
 CONTEXT_URL="https://spdx.org/rdf/${SPDX_VERSION_MAJOR_MINOR}/spdx-context.jsonld"
 
