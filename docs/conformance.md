@@ -251,10 +251,10 @@ beyond the standard SPDX produced by tools supporting SPDX and is used between
 cooperating parties that understand the form of the extension and can produce
 and consume its non-standard content.
 
-## Trademark Compliance
+## Trademark compliance
 
 To be designated an SPDX document, a file shall comply with the requirements of the SPDX Trademark
-License, as stated in the [the SPDX Trademark Page](https://spdx.dev/trademark).
+License, as stated in the [SPDX Trademark Page](https://spdx.dev/trademark).
 
 The official copyright notice that shall be used with any verbatim reproduction and/or distribution of
 this SPDX Specification 3.0.1 is:
