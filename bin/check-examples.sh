@@ -12,8 +12,8 @@ THIS_DIR="$(dirname "$0")"
 MD_DIR=docs/annexes
 JSON_DIR=examples/jsonld
 
-SPDX_VERSION="3.0.1"
-SPDX_VERSION_MAJOR_MINOR="${SPDX_VERSION%.*}"
+SPDX_VERSION="3.1"
+SPDX_VERSION_MAJOR_MINOR="$(echo "$SPDX_VERSION" | cut -d. -f1,2)"  # "3.0" for 3.0.1; "3.1" for 3.1
 SCHEMA_URL="https://spdx.org/schema/${SPDX_VERSION_MINOR}/spdx-json-schema.json"
 RDF_URL="https://spdx.org/rdf/${SPDX_VERSION_MAJOR_MINOR}/spdx-model.ttl"
 CONTEXT_URL="https://spdx.org/rdf/${SPDX_VERSION_MAJOR_MINOR}/spdx-context.jsonld"
