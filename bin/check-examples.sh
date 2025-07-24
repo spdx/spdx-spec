@@ -9,7 +9,7 @@ set -e
 
 THIS_DIR="$(dirname "$0")"
 SPDX_VERSION="3.0.1"
-SPDX_VERSION_MAJOR_MINOR="$(echo "$SPDX_VERSION" | cut -d. -f1,2)"  # "3.0" for 3.0.1; "3.0" for 3.0
+SPDX_VERSION_MAJOR_MINOR="$(echo "$SPDX_VERSION" | cut -d. -f1,2)"  # 3.0.1 -> 3.0; 3.0 -> 3.0
 SCHEMA_URL="https://spdx.org/schema/${SPDX_VERSION_MAJOR_MINOR}/spdx-json-schema.json"
 RDF_URL="https://spdx.org/rdf/${SPDX_VERSION_MAJOR_MINOR}/spdx-model.ttl"
 CONTEXT_URL="https://spdx.org/rdf/${SPDX_VERSION_MAJOR_MINOR}/spdx-context.jsonld"
