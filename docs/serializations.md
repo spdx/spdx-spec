@@ -106,14 +106,14 @@ The SPDX global JSON-LD context file must be used universally for all SPDX
 documents in JSON-LD format that adhere to a specific SPDX version.
 
 SPDX global JSON-LD context file is available at:
-<https://spdx.org/rdf/3.0/spdx-context.jsonld>
+<https://spdx.org/rdf/3.1/spdx-context.jsonld>
 
 All SPDX documents in JSON-LD format must include a reference to the SPDX
 global context file at the top level.
 This reference is achieved using the following JSON construct:
 
 ```json
-"@context": "https://spdx.org/rdf/3.0/spdx-context.jsonld"
+"@context": "https://spdx.org/rdf/3.1/spdx-context.jsonld"
 ```
 
 The SPDX context file defines aliases for specific JSON-LD properties to
@@ -140,7 +140,7 @@ specification if it adheres to the following two validation criteria:
   SHACL shape restrictions to further specify these constraints.
 
 The SPDX 3 JSON Schema is available at:
-<https://spdx.org/schema/3.0/spdx-json-schema.json>
+<https://spdx.org/schema/3.1/spdx-json-schema.json>
 
 The SPDX 3 OWL ontology is available at:
-<https://spdx.org/rdf/3.0/spdx-model.ttl>
+<https://spdx.org/rdf/3.1/spdx-model.ttl>
