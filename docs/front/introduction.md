@@ -45,6 +45,6 @@ Exchange to System Package Data Exchange and expanding the scope of items it
 can now convey in a bill of materials from software, security, and licensing to
 many additional aspects like data sets, AI models, and build information.
 
-Since the release of 3.0.0, we have gathered feedback on the level of
+Since the release of 3.0.0, the groups have gathered feedback on the level of
 documentation and minor errors in the model which have been addressed in the
 3.0.1 release.
