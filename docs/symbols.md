@@ -1,6 +1,6 @@
 # Symbols
 
-List of symbols/abbreviations.
+The following symbols and abbreviations are used throughout this document:
 
 | | |
 |-|-|
