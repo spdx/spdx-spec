@@ -31,6 +31,44 @@
     "unevaluatedProperties": false,
 
     "$defs": {
+        "https_rdfspdxorgv3ServiceAuthenticationProtocolType": {
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                        "type": {
+                            "oneOf": [
+                                { "const": "https://rdf.spdx.org/v3/Service/AuthenticationProtocolType" }
+                            ]
+                        }
+                    }
+                },
+                { "$ref": "#/$defs/https_rdfspdxorgv3ServiceAuthenticationProtocolType_props" }
+            ]
+        },
+        "https_rdfspdxorgv3ServiceAuthenticationProtocolType_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_rdfspdxorgv3ServiceAuthenticationProtocolType" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_rdfspdxorgv3ServiceAuthenticationProtocolType_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                    }
+                }
+            ]
+        },
         "ai_EnergyConsumption": {
             "allOf": [
                 {
@@ -297,6 +335,48 @@
                 }
             ]
         },
+        "ContactPointRelationshipType": {
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                        "type": {
+                            "oneOf": [
+                                { "const": "ContactPointRelationshipType" }
+                            ]
+                        }
+                    }
+                },
+                { "$ref": "#/$defs/ContactPointRelationshipType_props" }
+            ]
+        },
+        "ContactPointRelationshipType_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/ContactPointRelationshipType" }
+                    ]
+                },
+                { "const": "spdx:Core/ContactPointRelationshipType/compliance" },
+                { "const": "spdx:Core/ContactPointRelationshipType/other" },
+                { "const": "spdx:Core/ContactPointRelationshipType/securityVulnerability" },
+                { "const": "spdx:Core/ContactPointRelationshipType/support" },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "ContactPointRelationshipType_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                    }
+                }
+            ]
+        },
         "CreationInfo": {
             "allOf": [
                 {
@@ -453,12 +533,14 @@
                     "type": "object",
                     "unevaluatedProperties": false,
                     "anyOf": [
+                        { "$ref": "#/$defs/https_rdfspdxorgv3ServiceSoftwareService" },
                         { "$ref": "#/$defs/ai_AIPackage" },
                         { "$ref": "#/$defs/build_Build" },
                         { "$ref": "#/$defs/Agent" },
                         { "$ref": "#/$defs/Annotation" },
                         { "$ref": "#/$defs/Bom" },
                         { "$ref": "#/$defs/Bundle" },
+                        { "$ref": "#/$defs/ContactPointRelationship" },
                         { "$ref": "#/$defs/IndividualElement" },
                         { "$ref": "#/$defs/LifecycleScopedRelationship" },
                         { "$ref": "#/$defs/Organization" },
@@ -763,10 +845,12 @@
                     "gitoid",
                     "other",
                     "packageUrl",
+                    "phoneNumber",
                     "securityOther",
                     "swhid",
                     "swid",
-                    "urlScheme"
+                    "urlScheme",
+                    "webpage"
                 ]
         },
         "prop_ExternalIdentifier_identifier": {
@@ -810,10 +894,12 @@
                 { "const": "spdx:Core/ExternalIdentifierType/gitoid" },
                 { "const": "spdx:Core/ExternalIdentifierType/other" },
                 { "const": "spdx:Core/ExternalIdentifierType/packageUrl" },
+                { "const": "spdx:Core/ExternalIdentifierType/phoneNumber" },
                 { "const": "spdx:Core/ExternalIdentifierType/securityOther" },
                 { "const": "spdx:Core/ExternalIdentifierType/swhid" },
                 { "const": "spdx:Core/ExternalIdentifierType/swid" },
                 { "const": "spdx:Core/ExternalIdentifierType/urlScheme" },
+                { "const": "spdx:Core/ExternalIdentifierType/webpage" },
                 { "$ref": "#/$defs/BlankNodeOrIRI" }
             ]
         },
@@ -1010,7 +1096,8 @@
                     "support",
                     "vcs",
                     "vulnerabilityDisclosureReport",
-                    "vulnerabilityExploitabilityAssessment"
+                    "vulnerabilityExploitabilityAssessment",
+                    "x509Cert"
                 ]
         },
         "prop_ExternalRef_locator": {
@@ -1087,6 +1174,7 @@
                 { "const": "spdx:Core/ExternalRefType/vcs" },
                 { "const": "spdx:Core/ExternalRefType/vulnerabilityDisclosureReport" },
                 { "const": "spdx:Core/ExternalRefType/vulnerabilityExploitabilityAssessment" },
+                { "const": "spdx:Core/ExternalRefType/x509Cert" },
                 { "$ref": "#/$defs/BlankNodeOrIRI" }
             ]
         },
@@ -1587,6 +1675,7 @@
                     "type": "object",
                     "unevaluatedProperties": false,
                     "anyOf": [
+                        { "$ref": "#/$defs/ContactPointRelationship" },
                         { "$ref": "#/$defs/LifecycleScopedRelationship" },
                         { "$ref": "#/$defs/security_CvssV2VulnAssessmentRelationship" },
                         { "$ref": "#/$defs/security_CvssV3VulnAssessmentRelationship" },
@@ -1691,6 +1780,7 @@
                     "hasAssessmentFor",
                     "hasAssociatedVulnerability",
                     "hasConcludedLicense",
+                    "hasContactPoint",
                     "hasDataFile",
                     "hasDeclaredLicense",
                     "hasDeletedFile",
@@ -1832,6 +1922,7 @@
                 { "const": "spdx:Core/RelationshipType/hasAssessmentFor" },
                 { "const": "spdx:Core/RelationshipType/hasAssociatedVulnerability" },
                 { "const": "spdx:Core/RelationshipType/hasConcludedLicense" },
+                { "const": "spdx:Core/RelationshipType/hasContactPoint" },
                 { "const": "spdx:Core/RelationshipType/hasDataFile" },
                 { "const": "spdx:Core/RelationshipType/hasDeclaredLicense" },
                 { "const": "spdx:Core/RelationshipType/hasDeletedFile" },
@@ -3034,6 +3125,94 @@
                 }
             ]
         },
+        "https_rdfspdxorgv3ServiceSoftwareService": {
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "spdxId": { "$ref": "#/$defs/IRI" },
+                        "type": {
+                            "oneOf": [
+                                { "const": "https://rdf.spdx.org/v3/Service/SoftwareService" }
+                            ]
+                        }
+                    },
+                    "required": ["spdxId"]
+                },
+                { "$ref": "#/$defs/https_rdfspdxorgv3ServiceSoftwareService_props" }
+            ]
+        },
+        "https_rdfspdxorgv3ServiceSoftwareService_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_rdfspdxorgv3ServiceSoftwareService" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_rdfspdxorgv3ServiceSoftwareService_props": {
+            "allOf": [
+                { "$ref": "#/$defs/Element_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "https://rdf.spdx.org/v3/Service/provider": {
+                            "oneOf": [
+                                {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                        "$ref": "#/$defs/prop_https_rdfspdxorgv3ServiceSoftwareService_provider"
+                                    }
+                                }
+                            ]
+                        },
+                        "https://rdf.spdx.org/v3/Service/serverAuthenticationProtocol": {
+                            "oneOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_https_rdfspdxorgv3ServiceSoftwareService_serverAuthenticationProtocol"
+                                    }
+                                }
+                            ]
+                        },
+                        "https://rdf.spdx.org/v3/Service/serviceHostingCountry": {
+                            "oneOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_https_rdfspdxorgv3ServiceSoftwareService_serviceHostingCountry"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "https://rdf.spdx.org/v3/Service/provider"
+                    ]
+                }
+            ]
+        },
+        "prop_https_rdfspdxorgv3ServiceSoftwareService_provider": {
+                "$ref": "#/$defs/Agent_derived"
+        },
+        "prop_https_rdfspdxorgv3ServiceSoftwareService_serverAuthenticationProtocol": {
+                "enum": [
+                    "https://rdf.spdx.org/v3/Service/AuthenticationProtocolType/crl",
+                    "https://rdf.spdx.org/v3/Service/AuthenticationProtocolType/ocsp",
+                    "https://rdf.spdx.org/v3/Service/AuthenticationProtocolType/other",
+                    "https://rdf.spdx.org/v3/Service/AuthenticationProtocolType/tls"
+                ]
+        },
+        "prop_https_rdfspdxorgv3ServiceSoftwareService_serviceHostingCountry": {
+                    "pattern": "^[A-Z]{3}$",
+                    "type": "string"
+        },
         "build_Build": {
             "allOf": [
                 {
@@ -3463,6 +3642,59 @@
         },
         "prop_Bundle_context": {
                     "type": "string"
+        },
+        "ContactPointRelationship": {
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "spdxId": { "$ref": "#/$defs/IRI" },
+                        "type": {
+                            "oneOf": [
+                                { "const": "ContactPointRelationship" }
+                            ]
+                        }
+                    },
+                    "required": ["spdxId"]
+                },
+                { "$ref": "#/$defs/ContactPointRelationship_props" }
+            ]
+        },
+        "ContactPointRelationship_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/ContactPointRelationship" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "ContactPointRelationship_props": {
+            "allOf": [
+                { "$ref": "#/$defs/Relationship_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "contactType": {
+                            "$ref": "#/$defs/prop_ContactPointRelationship_contactType"
+                        }
+                    },
+                    "required": [
+                        "contactType"
+                    ]
+                }
+            ]
+        },
+        "prop_ContactPointRelationship_contactType": {
+                "enum": [
+                    "compliance",
+                    "other",
+                    "securityVulnerability",
+                    "support"
+                ]
         },
         "Hash": {
             "allOf": [
@@ -5834,11 +6066,13 @@
                         { "$ref": "#/$defs/IRI" },
                         {
                             "enum": [
+                                "https://rdf.spdx.org/v3/Service/AuthenticationProtocolType",
                                 "ai_EnergyConsumption",
                                 "ai_EnergyConsumptionDescription",
                                 "ai_EnergyUnitType",
                                 "ai_SafetyRiskAssessmentType",
                                 "AnnotationType",
+                                "ContactPointRelationshipType",
                                 "CreationInfo",
                                 "DictionaryEntry",
                                 "ExternalIdentifier",
@@ -5876,10 +6110,12 @@
                                 "software_FileKindType",
                                 "software_SbomType",
                                 "software_SoftwarePurpose",
+                                "https://rdf.spdx.org/v3/Service/SoftwareService",
                                 "build_Build",
                                 "Agent",
                                 "Annotation",
                                 "Bundle",
+                                "ContactPointRelationship",
                                 "Hash",
                                 "LifecycleScopedRelationship",
                                 "Organization",
@@ -5921,11 +6157,13 @@
         },
         "AnyClass": {
             "anyOf": [
+                { "$ref": "#/$defs/https_rdfspdxorgv3ServiceAuthenticationProtocolType" },
                 { "$ref": "#/$defs/ai_EnergyConsumption" },
                 { "$ref": "#/$defs/ai_EnergyConsumptionDescription" },
                 { "$ref": "#/$defs/ai_EnergyUnitType" },
                 { "$ref": "#/$defs/ai_SafetyRiskAssessmentType" },
                 { "$ref": "#/$defs/AnnotationType" },
+                { "$ref": "#/$defs/ContactPointRelationshipType" },
                 { "$ref": "#/$defs/CreationInfo" },
                 { "$ref": "#/$defs/DictionaryEntry" },
                 { "$ref": "#/$defs/ExternalIdentifier" },
@@ -5963,10 +6201,12 @@
                 { "$ref": "#/$defs/software_FileKindType" },
                 { "$ref": "#/$defs/software_SbomType" },
                 { "$ref": "#/$defs/software_SoftwarePurpose" },
+                { "$ref": "#/$defs/https_rdfspdxorgv3ServiceSoftwareService" },
                 { "$ref": "#/$defs/build_Build" },
                 { "$ref": "#/$defs/Agent" },
                 { "$ref": "#/$defs/Annotation" },
                 { "$ref": "#/$defs/Bundle" },
+                { "$ref": "#/$defs/ContactPointRelationship" },
                 { "$ref": "#/$defs/Hash" },
                 { "$ref": "#/$defs/LifecycleScopedRelationship" },
                 { "$ref": "#/$defs/Organization" },
