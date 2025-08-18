@@ -186,3 +186,68 @@ MIT AND (LGPL-2.1-or-later OR BSD-3-Clause)
 
 states the OR operator should be applied before the AND operator. That is, one should first select between the LGPL-2.1-or-later or the BSD-3-Clause license before applying the MIT license.
 
+## Complete grammar
+
+The complete syntax of license expressions,
+including precedence and whitespace,
+is described by the following ABNF:
+
+``` ABNF
+; ABNF Grammar for License Expressions
+
+expression = (or-operand *( required-ws KW_OR required-ws or-operand )) / special-identifier
+
+or-operand = (term required-ws KW_AND required-ws term *( required-ws KW_AND required-ws term )) / base-term
+
+term = base-term / special-identifier
+
+base-term = with-expression / identifier / parenthesized-expression
+
+with-expression = identifier required-ws KW_WITH required-ws addition-identifier
+
+addition-identifier = license-exception-id / addition-ref
+
+identifier = license-id / or-later-expression / licesnse-ref
+
+or-later-expression = license-id PLUS
+
+parenthesized-expression = LPAREN optional-ws expression optional-ws RPAREN
+
+special-identifier = "NONE" / "NOASSERTION"
+
+; --- Keywords ---
+
+KW_AND  = %s"AND"  / %s"and"
+KW_OR   = %s"OR"   / %s"or"
+KW_WITH = %s"WITH" / %s"with"
+
+; --- SPDX License List contents ---
+
+license-id           = <short form license identifier from SPDX License List>
+license-exception-id = <short form license exception identifier from SPDX License List>
+
+; --- User-defined identifiers ---
+
+license-ref  = [%s"DocumentRef-"(idstring)":"]%s"LicenseRef-"(idstring)
+addition-ref = [%s"DocumentRef-"(idstring)":"]%s"AdditionRef-"(idstring)
+
+idstring = *id-char alnum *id-char
+idchar   = alnum / DOT / DASH
+alnum    = ALPHA / DIGIT
+
+; --- Whitespace and characters ---
+
+optional-ws = *SPACE       ; Optional whitespace (zero or more spaces)
+required-ws = 1*SPACE      ; Required whitespace (one or more spaces)
+
+SPACE  = %x20              ; Space character
+LPAREN = %x28              ; ( - Left parenthesis
+RPAREN = %x29              ; ) - Right parenthesis
+PLUS   = %2B               ; + - Plus
+DASH   = %2D               ; - - Dash, hyphen
+DOT    = %2E               ; . - Dot, fullstop, period
+
+ALPHA  = %x41-5A / %x61-7A ; A-Z / a-z
+DIGIT  = %x30-39           ; 0-9
+
+```
