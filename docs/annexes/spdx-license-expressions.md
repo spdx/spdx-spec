@@ -17,9 +17,9 @@ license-id = <short form license identifier from SPDX License List>
 
 license-exception-id = <short form license exception identifier from SPDX License List>
 
-license-ref = [%s"DocumentRef-"(idstring)":"]%s"LicenseRef-"(idstring)
+license-ref = ["DocumentRef-"(idstring)":"]"LicenseRef-"(idstring)
 
-addition-ref = [%s"DocumentRef-"(idstring)":"]%s"AdditionRef-"(idstring)
+addition-ref = ["DocumentRef-"(idstring)":"]"AdditionRef-"(idstring)
 
 simple-expression = license-id / license-id"+" / license-ref / "NONE" / "NOASSERTION"
 
@@ -27,11 +27,11 @@ addition-expression = license-exception-id / addition-ref
 
 compound-expression = (simple-expression /
 
-  simple-expression ( %s"WITH" / %s"with" ) addition-expression /
+  simple-expression "WITH" addition-expression /
 
-  compound-expression ( %s"AND" / %s"and" ) compound-expression /
+  compound-expression "AND" compound-expression /
 
-  compound-expression ( %s"OR" / %s"or" ) compound-expression /
+  compound-expression "OR" compound-expression /
 
   "(" compound-expression ")" )
 
@@ -54,14 +54,14 @@ A license expression MUST be on a single line, and MUST NOT include a line break
 
 ## Case sensitivity
 
-License expression operators (`AND`, `and`, `OR`, `or`, `WITH` and `with`) should be matched in a *case-sensitive* manner, i.e., letters must be all upper case or all lower case.
+In SPDX-3, license expressions are completely *case-insensitive*.
 
-License identifiers (including license exception identifiers) used in SPDX documents or source code files should be matched in a *case-insensitive* manner. In other words, `MIT`, `Mit` and `mIt` should all be treated as the same identifier and referring to the same license.
-However, please be aware that it is often important to match with the case of the canonical identifier on the [SPDX License List](https://spdx.org/licenses). This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.
+That includes the operators (`AND`, `OR`, `WITH`), the special identifiers (`NONE` and `NOASSERTION`), as well as the license identifiers, including the user-defined ones.
 
-For user defined license identifiers, only the variable part (after `LicenseRef-`) is case insensitive.  This means, for example, that `LicenseRef-Name` and `LicenseRef-name` should be treated as the same identifier and considered to refer to the same license, while `licenseref-name` is not a valid license identifier.
+For example, the expressions `MIT AND NOASSERTION AND (BSD-3-Clause OR LicenseRef-Name)` and `mit aNd NoaSSerTion AnD (bSd-3-clausE OR licenseref-NAME)` are equivalent.
 
-The same applies to `AdditionRef-` user defined addition identifiers, as well as to `DocumentRef-` for referencing other SPDX documents.
+However, please be aware that it is often important to note the case of the canonical identifier on the [SPDX License List](https://spdx.org/licenses). This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.
+
 
 ## Simple license expressions
 
@@ -77,7 +77,7 @@ A simple `<license-expression>` is composed one of the following:
   `LicenseRef-MIT-Style-1`, and
   `DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2`
 
-The current set of valid license identifiers can be found in [spdx.org/licenses](https://spdx.org/licenses).
+The current set of valid license identifiers can be found in the SPDX License List.
 
 ## Composite license expressions
 
@@ -113,8 +113,6 @@ LGPL-2.1-only OR MIT OR BSD-3-Clause
 
 The special identifiers "NONE" or "NOASSERTION" cannot be used with the OR operator.
 
-It is allowed to use the operator in lower case form `or`.
-
 ### Conjunctive "AND" operator
 
 If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are valid license expression values.
@@ -139,8 +137,6 @@ LGPL-2.1-only AND MIT AND BSD-2-Clause
 
 The "AND" operator is the only operator that can be used in conjuction with the special identifiers "NONE" or "NOASSERTION".
 
-It is allowed to use the operator in lower case form `and`.
-
 ### Additive "WITH" operator
 
 Sometimes license texts are found with additional text, which might or might not modify the original license terms.
@@ -158,8 +154,6 @@ GPL-2.0-or-later WITH Bison-exception-2.2
 The current set of valid license exceptions identifiers can be found in [spdx.org/licenses](https://spdx.org/licenses).
 
 The special identifiers "NONE" or "NOASSERTION" cannot be used with the WITH operator.
-
-It is allowed to use the operator in lower case form `with`.
 
 ### Order of precedence and parentheses
 
@@ -201,15 +195,15 @@ is described by the following ABNF:
 ``` ABNF
 ; ABNF Grammar for License Expressions
 
-SPSX-license-expression = (or-operand *( required-ws KW_OR required-ws or-operand )) / special-identifier
+SPSX-license-expression = (or-operand *( required-ws "OR" required-ws or-operand )) / special-identifier
 
-or-operand = (term required-ws KW_AND required-ws term *( required-ws KW_AND required-ws term )) / base-term
+or-operand = (term required-ws "AND" required-ws term *( required-ws "AND" required-ws term )) / base-term
 
 term = base-term / special-identifier
 
 base-term = with-expression / identifier / parenthesized-expression
 
-with-expression = identifier required-ws KW_WITH required-ws addition-identifier
+with-expression = identifier required-ws "WITH" required-ws addition-identifier
 
 addition-identifier = license-exception-id / addition-ref
 
@@ -221,12 +215,6 @@ parenthesized-expression = LPAREN optional-ws expression optional-ws RPAREN
 
 special-identifier = "NONE" / "NOASSERTION"
 
-; --- Keywords ---
-
-KW_AND  = %s"AND"  / %s"and"
-KW_OR   = %s"OR"   / %s"or"
-KW_WITH = %s"WITH" / %s"with"
-
 ; --- SPDX License List contents ---
 
 license-id           = <short form license identifier from SPDX License List>
@@ -234,8 +222,8 @@ license-exception-id = <short form license exception identifier from SPDX Licens
 
 ; --- User-defined identifiers ---
 
-license-ref  = [ %s"DocumentRef-" idstring ":" ] %s"LicenseRef-"  idstring
-addition-ref = [ %s"DocumentRef-" idstring ":" ] %s"AdditionRef-" idstring
+license-ref  = [ "DocumentRef-" idstring ":" ] "LicenseRef-"  idstring
+addition-ref = [ "DocumentRef-" idstring ":" ] "AdditionRef-" idstring
 
 idstring = *id-char alnum *id-char
 idchar   = alnum / DOT / DASH
