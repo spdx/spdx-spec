@@ -46,11 +46,11 @@ A valid `<license-expression>` string consists of either:
 
 (ii) a more complex expression constructed by combining smaller valid expressions using Boolean license operators.
 
-There MUST NOT be any space between a license-id and any following `+`. This supports easy parsing and backwards compatibility.
+There shall not be any space between a license-id and any following `+`. This supports easy parsing and backwards compatibility.
 
-There MUST be at least one space on either side of the operators `AND`, `OR`, and "WITH".
+There shall be at least one space on either side of the operators `AND`, `OR`, and "WITH".
 
-A license expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.
+A license expression shall be on a single line, and shall not include a line break in the middle of the expression.
 
 ## Case sensitivity
 
