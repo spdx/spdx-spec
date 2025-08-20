@@ -111,7 +111,7 @@ An example representing a choice between three different licenses would be:
 LGPL-2.1-only OR MIT OR BSD-3-Clause
 ```
 
-The special identifiers "NONE" or "NOASSERTION" cannot be used with the OR operator.
+The special identifiers "NONE" or "NOASSERTION" shall not be used with the OR operator.
 
 ### Conjunctive "AND" operator
 
@@ -153,7 +153,7 @@ GPL-2.0-or-later WITH Bison-exception-2.2
 
 The current set of valid license exceptions identifiers can be found in [spdx.org/licenses](https://spdx.org/licenses).
 
-The special identifiers "NONE" or "NOASSERTION" cannot be used with the WITH operator.
+The special identifiers "NONE" or "NOASSERTION" shall not be used with the WITH operator.
 
 ### Order of precedence and parentheses
 
