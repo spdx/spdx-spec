@@ -2,9 +2,9 @@
 
 ## Overview
 
-Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0-only OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1-only AND BSD-3-Clause).
+Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., `GPL-2.0-only OR BSD-3-Clause`). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., `LGPL-2.1-only AND BSD-3-Clause`).
 
-SPDX License Expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the `LicenseRef-(idstring)`; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., `AND`, `OR`, `WITH` and `+`). We provide the definition of what constitutes a valid SPDX License Expression in this section.
+SPDX License Expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the "LicenseRef-(idstring)"; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., "AND", "OR", "WITH" and "+"). We provide the definition of what constitutes a valid SPDX License Expression in this section.
 
 The general format of license expressions is described below in ABNF, as defined
 in [RFC 5234](https://datatracker.ietf.org/doc/rfc5234/) and expanded
@@ -46,17 +46,17 @@ A valid `<license-expression>` string consists of either:
 
 (ii) a more complex expression constructed by combining smaller valid expressions using Boolean license operators.
 
-There shall not be any space between a license-id and any following `+`. This supports easy parsing and backwards compatibility.
+There shall not be any space between a license-id and any following "+". This supports easy parsing and backwards compatibility.
 
-There shall be at least one space on either side of the operators `AND`, `OR`, and "WITH".
+There shall be at least one space on either side of the operators "AND", "OR", and "WITH".
 
 A license expression shall be on a single line, and shall not include a line break in the middle of the expression.
 
 ## Case sensitivity
 
-In SPDX-3, license expressions are completely *case-insensitive*.
+In SPDX 3, license expressions are completely *case-insensitive*.
 
-That includes the operators (`AND`, `OR`, `WITH`), the special identifiers (`NONE` and `NOASSERTION`), as well as the license identifiers, including the user-defined ones.
+That includes the operators ("AND", "OR", "WITH"), the special identifiers ("NONE" and "NOASSERTION"), as well as the license identifiers, including the user-defined ones.
 
 For example, the expressions `MIT AND NOASSERTION AND (BSD-3-Clause OR LicenseRef-Name)` and `mit aNd NoaSSerTion AnD (bSd-3-clausE OR licenseref-NAME)` are equivalent.
 
@@ -111,7 +111,7 @@ An example representing a choice between three different licenses would be:
 LGPL-2.1-only OR MIT OR BSD-3-Clause
 ```
 
-The special identifiers "NONE" or "NOASSERTION" shall not be used with the OR operator.
+The special identifiers "NONE" or "NOASSERTION" shall not be used with the "OR" operator.
 
 ### Conjunctive "AND" operator
 
@@ -153,7 +153,7 @@ GPL-2.0-or-later WITH Bison-exception-2.2
 
 The current set of valid license exceptions identifiers can be found in [spdx.org/licenses](https://spdx.org/licenses).
 
-The special identifiers "NONE" or "NOASSERTION" shall not be used with the WITH operator.
+The special identifiers "NONE" or "NOASSERTION" shall not be used with the "WITH" operator.
 
 ### Order of precedence and parentheses
 
@@ -174,7 +174,7 @@ For example, the following expression:
 LGPL-2.1-only OR BSD-3-Clause AND MIT
 ```
 
-represents a license choice between either LGPL-2.1-only or the expression "BSD-3-Clause AND MIT" because the AND operator takes precedence over (is applied before) the OR operator.
+represents a license choice between either LGPL-2.1-only or the expression "BSD-3-Clause AND MIT" because the "AND" operator takes precedence over (is applied before) the "OR" operator.
 
 When required to express an order of precedence that is different from the default order a `<license-expression>` can be encapsulated in pairs of parentheses: ( ), to indicate that the operators found inside the parentheses takes precedence over operators outside. This is also similar to the use of parentheses in an algebraic expression e.g., (5+7)/2.
 
@@ -184,7 +184,7 @@ For instance, the following expression:
 (LGPL-2.1-or-later OR BSD-3-Clause) AND MIT
 ```
 
-states the OR operator should be applied before the AND operator. That is, one should first select between the LGPL-2.1-or-later or the BSD-3-Clause license before applying the MIT license.
+states the "OR" operator should be applied before the "AND" operator. That is, one should first select between the LGPL-2.1-or-later or the BSD-3-Clause license before applying the MIT license.
 
 ## Complete grammar
 
@@ -192,7 +192,7 @@ The complete syntax of license expressions,
 including precedence and whitespace,
 is described by the following ABNF:
 
-``` ABNF
+```ABNF
 ; ABNF Grammar for License Expressions
 
 SPSX-license-expression = (or-operand *( required-ws "OR" required-ws or-operand )) / special-identifier
@@ -207,7 +207,7 @@ with-expression = identifier required-ws "WITH" required-ws addition-identifier
 
 addition-identifier = license-exception-id / addition-ref
 
-identifier = license-id / or-later-expression / licesnse-ref
+identifier = license-id / or-later-expression / license-ref
 
 or-later-expression = license-id PLUS
 
