@@ -27,7 +27,7 @@ A _purl_ is a URL composed of seven components:
 
 Components are separated by a specific character for unambiguous parsing.
 
-The definition for each components is:
+The definition for each component is:
 
 - **scheme**: this is the URL scheme with the constant value of "`pkg`". One of the primary reason for this single scheme is to facilitate the future official registration of the "`pkg`" scheme for package URLs. Required.
 - **type**: the package type or package protocol such as maven, npm, nuget, gem, pypi, etc. Required.
@@ -41,7 +41,7 @@ Components are designed such that they form a hierarchy from the most
 significant on the left to the least significant components on the right.
 
 A _purl_ is a valid URL and URI that conforms to the URL definitions
-and specifications in RFC 3986 <https://datatracker.ietf.org/doc/rfc3986>.
+and specifications in RFC 3986 <https://datatracker.ietf.org/doc/rfc3986/>.
 
 A _purl_ must not contain a URL Authority i.e. there is no
 support for username, password, host and port components.
@@ -60,7 +60,7 @@ The _purl_ components are mapped to the following URL components:
 For clarity and simplicity a _purl_ is always an ASCII string.
 To ensure that there is no ambiguity when parsing a _purl_,
 separator characters and non-ASCII characters must be encoded in UTF-8,
-and then percent-encoded as defined in RFC 3986 <https://datatracker.ietf.org/doc/rfc3986>.
+and then percent-encoded as defined in RFC 3986 <https://datatracker.ietf.org/doc/rfc3986/>.
 
 Use these rules for percent-encoding and decoding _purl_ components:
 
@@ -258,7 +258,7 @@ To build a _purl_ string from its components:
     1. Append `?` to the _purl_
     1. Discard any pair where the value is empty
     1. Encode each value in UTF-8-encoding
-    1. If the key is `checksum` and there are more than one checksums, join the list with `,` to create the qualifier value
+    1. If the key is `checksum` and there is more than one checksum, join the list with `,` to create the qualifier value
     1. Create each qualifier string by joining the lowercased key, the equal `=` sign, and the percent-encoded value
     1. Sort this list of qualifier strings lexicographically
     1. Join this list of sorted qualifier strings with `&`
@@ -350,7 +350,7 @@ The following list includes some valid _purl_ examples:
 
 ## Original license
 
-This specification is based on the texts published
+This document is based on the texts published
 in the <https://github.com/package-url/purl-spec> online repository.
 The original license and attribution are reproduced below:
 
