@@ -32,8 +32,8 @@ The lists of properties are in alphabetical order, for easy reference.
 
 - Mandatory
     1. creationInfo
-    1. element (may be multiple), MUST have at least one /Core/Sbom object
-    1. rootElement (may be multiple), SHOULD be objects of type /Core/Sbom
+    1. element (may be multiple), MUST have at least one /Software/Sbom object
+    1. rootElement (may be multiple), SHOULD be objects of type /Software/Sbom
     1. spdxId
 - Recommended
     1. comment
