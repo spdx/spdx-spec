@@ -3,7 +3,9 @@
 ## SPDX License List matching guidelines
 
 The SPDX License List Matching Guidelines provide guidelines to be used for the purposes of matching licenses and license exceptions against those included on the [SPDX License List](https://spdx.org/licenses/).
+
 There is no intent here to make a judgment or interpretation, but merely to ensure that when one SPDX user identifies a license as "BSD-3-Clause," for example, it is indeed the same license as what someone else identifies as "BSD-3-Clause" and the same license as what is listed on the SPDX License List.
+
 As noted here, some of the matching guidelines are implemented in the XML files of the SPDX License List repository.
 
 ## How these guidelines are applied
@@ -31,15 +33,15 @@ To ensure that when matching licenses and exceptions to the SPDX License List, t
 
 ### Guideline: verbatim text
 
-License and exception text should be the same verbatim text (except for the guidelines stated here). The text should be in the same order, e.g., differently ordered paragraphs would not be considered a match.
+License and exception text shall be the same verbatim text (except for the guidelines stated here). The text shall be in the same order, e.g., differently ordered paragraphs shall not be considered a match.
 
 ### Guideline: no additional text
 
-Matched text should only include that found in the vetted license or exception text. Where a license or exception found includes additional text or clauses, this should not be considered a match.
+Matched text shall only include that found in the vetted license or exception text. Where a license or exception found includes additional text or clauses, this shall not be considered a match.
 
 ### Guideline: replaceable text
 
-Some licenses include text that refers to the specific copyright holder or author, yet the rest of the license is exactly the same. The intent here is to avoid the inclusion of a specific name in one part of the license resulting in a non-match where the license is otherwise an exact match to the legally substantive terms (e.g., the third clause and disclaimer in the BSD licenses, or the third, fourth, and fifth clauses of Apache-1.1). In these cases, there should be a positive license match.
+Some licenses include text that refers to the specific copyright holder or author, yet the rest of the license is exactly the same. The intent here is to avoid the inclusion of a specific name in one part of the license resulting in a non-match where the license is otherwise an exact match to the legally substantive terms (e.g., the third clause and disclaimer in the BSD licenses, or the third, fourth, and fifth clauses of Apache-1.1). In these cases, there shall be a positive license match.
 
 The text indicated as such can be replaced with similar values (e.g., a different name or generic term; different date) and still be considered a positive match.
 This rule also applies to text-matching in official license headers,
@@ -59,9 +61,9 @@ The original replaceable text appears on the SPDX License List webpage in red te
 
 ### Guideline: omittable text
 
-Some licenses have text that can simply be ignored. The intent here is to avoid the inclusion of certain text that is superfluous or irrelevant in regard to the substantive license text resulting in a non-match where the license is otherwise an exact match (e.g., directions on how to apply the license or other similar exhibits). In these cases, there should be a positive license match.
+Some licenses have text that can simply be ignored. The intent here is to avoid the inclusion of certain text that is superfluous or irrelevant in regard to the substantive license text resulting in a non-match where the license is otherwise an exact match (e.g., directions on how to apply the license or other similar exhibits). In these cases, there shall be a positive license match.
 
-The license should be considered a match if the text indicated is present and matches OR the text indicated is missing altogether.
+The license shall be considered a match if the text indicated is present and matches, or the text indicated is missing altogether.
 
 The following XML tag is used to implement this guideline: `<optional>`
 
@@ -78,7 +80,7 @@ To avoid the possibility of a non-match due to different spacing of words, line 
 
 ### Guideline
 
-All whitespace should be treated as a single blank space.
+All whitespace shall be treated as a single blank space.
 
 XML files do not require specific markup to implement this guideline.
 
@@ -90,7 +92,7 @@ To avoid the possibility of a non-match due to lowercase or uppercase letters in
 
 ### Guideline
 
-All uppercase and lowercase letters should be treated as lowercase letters.
+All uppercase and lowercase letters shall be treated as lowercase letters.
 
 XML files do not require specific markup to implement this guideline.
 
@@ -104,15 +106,15 @@ XML files do not require specific markup to implement this guideline, unless to 
 
 ### Guideline: punctuation
 
-Punctuation should be matched, unless otherwise stated in these guidelines or unless specific markup is added.
+Punctuation shall be matched, unless otherwise stated in these guidelines or unless specific markup is added.
 
 ### Guideline: hyphens, dashes
 
-Any hyphen, dash, en dash, em dash, or other variation should be considered equivalent.
+Any hyphen, dash, en dash, em dash, or other variation shall be considered equivalent.
 
 ### Guideline: quotes
 
-Any variation of quotations (single, double, curly, etc.) should be considered equivalent.
+Any variation of quotations (single, double, curly, etc.) shall be considered equivalent.
 
 ## Code comment indicators or separators
 
@@ -125,13 +127,13 @@ e.g., `---`, `===`, `___`, or `***`.
 
 ### Guideline
 
-Any kind of code comment indicator or prefix which occurs at the beginning of each line in a matchable section should be ignored for matching purposes.
+Any kind of code comment indicator or prefix which occurs at the beginning of each line in a matchable section shall be ignored for matching purposes.
 
 XML files do not require specific markup to implement this guideline.
 
 ### Guideline
 
-A non-letter character repeated 3 or more times to establish a visual separation should be ignored for matching purposes.
+A non-letter character repeated 3 or more times to establish a visual separation shall be ignored for matching purposes.
 
 XML files do not require specific markup to implement this guideline.
 
@@ -171,7 +173,7 @@ By having a rule regarding the use of "©", "(c)", or "copyright", we avoid the 
 
 ### Guideline
 
-"©", "(c)", or "Copyright" should be considered equivalent and interchangeable.
+"©", "(c)", or "Copyright" shall be considered equivalent and interchangeable.
 
 XML files do not require specific markup to implement this guideline.
 The copyright symbol is part of the copyright notice,
@@ -181,7 +183,7 @@ see implementation of that guideline in [Copyright notice](#copyright-notice).
 
 ### Purpose
 
-To avoid a license mismatch merely because the copyright notice (usually found above the actual license or exception text) is different. The copyright notice is important information to be recorded elsewhere in the SPDX document, but for the purposes of matching a license to the SPDX License List, it should be ignored because it is not part of the substantive license text.
+To avoid a license mismatch merely because the copyright notice (usually found above the actual license or exception text) is different. The copyright notice is important information to be recorded elsewhere in the SPDX document, but for the purposes of matching a license to the SPDX License List, it shall be ignored because it is not part of the substantive license text.
 
 ### Guideline
 
@@ -226,7 +228,7 @@ To avoid a license mismatch due to a difference in a hyperlink protocol (e.g. HT
 
 ### Guideline
 
-`http://` and `https://` should be considered equivalent.
+`http://` and `https://` shall be considered equivalent.
 
 XML files do not require specific markup to implement this guideline.
 
@@ -260,7 +262,7 @@ A legacy template is composed of text with zero or more rules embedded in it.
 A rule is a variable section of a license wrapped between double angle brackets
 `<<>>` and is composed of 4 fields.
 Each field is separated with a semi-colon `;`.
-Rules cannot be embedded within other rules.
+Rules shall not be embedded within other rules.
 Rule fields begin with a case sensitive tag followed by an equal sign `=`.
 
 Rule fields:
