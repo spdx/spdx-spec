@@ -133,7 +133,7 @@ Additionally:
 - Mandatory
     1. created
     1. createdBy (may be multiple), should be objects of type /Core/Agent
-    1. specVersion, shall be a fixed string, “3.1.*” - where \* is
+    1. specVersion, shall be a fixed string, “3.1.n” - where n is
        any supported patch version of the SPDX specification
 - Recommended
     1. comment
