@@ -496,6 +496,7 @@
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSoftwareAgent" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSpdxDocument" },
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSupportRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreTool" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsDatasetDatasetPackage" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsExpandedLicensingConjunctiveLicenseSet" },
@@ -1518,6 +1519,7 @@
                     "anyOf": [
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreContactPointRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreLifecycleScopedRelationship" },
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSupportRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssV2VulnAssessmentRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssV3VulnAssessmentRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssV4VulnAssessmentRelationship" },
@@ -1611,10 +1613,13 @@
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/descendantOf",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/describes",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/doesNotAffect",
+                    "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/evaluatedOn",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/expandsTo",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/exploitCreatedBy",
+                    "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/finetunedOn",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/fixedBy",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/fixedIn",
+                    "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/follows",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/foundBy",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/generates",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/hasAddedFile",
@@ -1650,6 +1655,8 @@
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/other",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/packagedBy",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/patchedBy",
+                    "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/pretrainedOn",
+                    "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/providesSupportFor",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/publishedBy",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/reportedBy",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/republishedBy",
@@ -1820,6 +1827,62 @@
         },
         "prop_https_spdxorgrdf31termsCoreSpdxDocument_namespaceMap": {
                 "$ref": "#/$defs/https_spdxorgrdf31termsCoreNamespaceMap_derived"
+        },
+        "https_spdxorgrdf31termsCoreSupportRelationship": {
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "spdxId": { "$ref": "#/$defs/IRI" },
+                        "type": {
+                            "oneOf": [
+                                { "const": "https://spdx.org/rdf/3.1/terms/Core/SupportRelationship" }
+                            ]
+                        }
+                    },
+                    "required": ["spdxId"]
+                },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSupportRelationship_props" }
+            ]
+        },
+        "https_spdxorgrdf31termsCoreSupportRelationship_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSupportRelationship" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsCoreSupportRelationship_props": {
+            "allOf": [
+                { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRelationship_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "https://spdx.org/rdf/3.1/terms/Core/supportLevel": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsCoreSupportRelationship_supportLevel"
+                        }
+                    },
+                    "required": [
+                        "https://spdx.org/rdf/3.1/terms/Core/supportLevel"
+                    ]
+                }
+            ]
+        },
+        "prop_https_spdxorgrdf31termsCoreSupportRelationship_supportLevel": {
+                "enum": [
+                    "https://spdx.org/rdf/3.1/terms/Core/SupportType/deployed",
+                    "https://spdx.org/rdf/3.1/terms/Core/SupportType/development",
+                    "https://spdx.org/rdf/3.1/terms/Core/SupportType/endOfSupport",
+                    "https://spdx.org/rdf/3.1/terms/Core/SupportType/limitedSupport",
+                    "https://spdx.org/rdf/3.1/terms/Core/SupportType/noAssertion",
+                    "https://spdx.org/rdf/3.1/terms/Core/SupportType/noSupport",
+                    "https://spdx.org/rdf/3.1/terms/Core/SupportType/support"
+                ]
         },
         "https_spdxorgrdf31termsCoreSupportType": {
             "allOf": [
@@ -5830,6 +5893,7 @@
                                 "https://spdx.org/rdf/3.1/terms/Core/RelationshipCompleteness",
                                 "https://spdx.org/rdf/3.1/terms/Core/RelationshipType",
                                 "https://spdx.org/rdf/3.1/terms/Core/SpdxDocument",
+                                "https://spdx.org/rdf/3.1/terms/Core/SupportRelationship",
                                 "https://spdx.org/rdf/3.1/terms/Core/SupportType",
                                 "https://spdx.org/rdf/3.1/terms/Core/Tool",
                                 "https://spdx.org/rdf/3.1/terms/Dataset/ConfidentialityLevelType",
@@ -5921,6 +5985,7 @@
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRelationshipCompleteness" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRelationshipType" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSpdxDocument" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSupportRelationship" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSupportType" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreTool" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsDatasetConfidentialityLevelType" },

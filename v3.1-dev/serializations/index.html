@@ -154,6 +154,8 @@
                 </li>
                 <li class="toctree-l3"><a class="reference internal" href="../model/Core/Classes/SpdxDocument/">SpdxDocument</a>
                 </li>
+                <li class="toctree-l3"><a class="reference internal" href="../model/Core/Classes/SupportRelationship/">SupportRelationship</a>
+                </li>
                 <li class="toctree-l3"><a class="reference internal" href="../model/Core/Classes/Tool/">Tool</a>
                 </li>
     </ul>
@@ -907,23 +909,23 @@ serialization of RDF data, just represented in a consistent way.</p>
 with the following additional characteristics:</p>
 <ul>
 <li>No line breaks</li>
-<li>Key names MUST be wrapped in double quotes</li>
+<li>Key names shall be wrapped in double quotes</li>
 <li>No whitespace outside of strings</li>
-<li><code>true</code>, <code>false</code> and <code>null</code>: the literal names must be lowercase; no other
+<li><code>true</code>, <code>false</code> and <code>null</code>: the literal names shall be lowercase; no other
   literal names are allowed</li>
 <li>Integers: represented in base 10 using decimal digits. This designates an
   integer component that may be prefixed with an optional minus sign.
   Leading zeros are not allowed.</li>
 <li>Strings: UTF-8 representation without specific normalization. A string
   begins and ends with quotation marks (%x22). Any Unicode characters may be
-  placed within the quotation marks, except for the two characters that MUST be
+  placed within the quotation marks, except for the two characters that shall be
   escaped by a reverse solidus: quotation mark, reverse solidus, and the
   control characters (U+0000 through U+001F).</li>
 <li>Arrays: An array structure is represented as square brackets surrounding zero
   or more items. Items are separated by commas.</li>
 <li>Objects: An object structure is represented as a pair of curly brackets
   surrounding zero or more name/value pairs (or members). A name is a string
-  containing only ASCII characters (0x21-0x7F). The names within an object must
+  containing only ASCII characters (0x21-0x7F). The names within an object shall
   be unique. A single colon comes after each name, separating the name from the
   value. A single comma separates a value from a following name. The name/value
   pairs are ordered by name.</li>
@@ -941,8 +943,8 @@ that can be natively represented within the chosen serialization format
 (e.g., <code>@context</code> prefixes in JSON-LD instead of the namespaceMap) may utilize
 these native mechanisms. All remaining properties shall be serialized within
 the SpdxDocument element itself.</p>
-<p>A serialization must not contain more than one SpdxDocument.</p>
-<p>A given instance of serialization must not define more than one SpdxDocument
+<p>A serialization shall not contain more than one SpdxDocument.</p>
+<p>A given instance of serialization shall not define more than one SpdxDocument
 element.</p>
 <h2 id="serialization-in-spdx-3-json">Serialization in SPDX 3 JSON</h2>
 <p>The SPDX 3 JSON format is a strict subset of JSON-LD.
@@ -952,11 +954,11 @@ It may be parsed – not serialized – using standard JSON-LD libraries.</p>
 <h3 id="json-ld-context-file">JSON-LD context file</h3>
 <p>JSON-LD contexts allow JSON documents to use simple, human-readable, locally
 defined terms while ensuring data interoperability across different systems.</p>
-<p>The SPDX global JSON-LD context file must be used universally for all SPDX
+<p>The SPDX global JSON-LD context file shall be used universally for all SPDX
 documents in JSON-LD format that adhere to a specific SPDX version.</p>
 <p>SPDX global JSON-LD context file is available at:
 <a href="https://spdx.org/rdf/3.1/spdx-context.jsonld">https://spdx.org/rdf/3.1/spdx-context.jsonld</a></p>
-<p>All SPDX documents in JSON-LD format must include a reference to the SPDX
+<p>All SPDX documents in JSON-LD format shall include a reference to the SPDX
 global context file at the top level.
 This reference is achieved using the following JSON construct:</p>
 <pre class="codehilite"><code class="language-json">&quot;@context&quot;: &quot;https://spdx.org/rdf/3.1/spdx-context.jsonld&quot;
@@ -974,11 +976,11 @@ the context.</p>
 <p>An SPDX serialization in JSON-LD format is considered conformant to the SPDX
 specification if it adheres to the following two validation criteria:</p>
 <ul>
-<li>Structural validation: The JSON-LD document must structurally validate
+<li>Structural validation: The JSON-LD document shall structurally validate
   against the SPDX 3 JSON Schema. This schema defines the expected structure of
   the JSON-LD document, including the required elements, data types, and
   permissible values.</li>
-<li>Semantic validation: The JSON-LD document must successfully validate against
+<li>Semantic validation: The JSON-LD document shall successfully validate against
   the SPDX 3 OWL ontology. This ontology defines the expected relationships and
   constraints between SPDX elements. The SPDX 3 OWL ontology also incorporates
   SHACL shape restrictions to further specify these constraints.</li>
