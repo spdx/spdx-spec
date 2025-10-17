@@ -38,7 +38,7 @@ In the IEC, see
 This document was prepared by
 [The Linux Foundation](https://www.linuxfoundation.org/) and its Contributors
 under the [SPDX Working Group](https://spdx.dev/)
-(as SPDX® Specification v3.1)
+(as SPDX® Specification v3.0.1)
 and drafted in accordance with its editorial rules.
 Its preparation and publication has been made in coordination with related
 efforts with the [Object Management Group (OMG)](https://www.omg.org/).
