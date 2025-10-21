@@ -110,7 +110,7 @@ License Expression syntax and that relate to the
 [SPDX License List](https://spdx.org/licenses/).
 
 There are two associated profiles, the SimpleLicensing profile
-and the ExpandedLicensing profiles.
+and the ExpandedLicensing profile.
 Both allow expression of the same information,
 albeit in different ways.
 
