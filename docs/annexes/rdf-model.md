@@ -40,11 +40,11 @@ and is published in online at
 
 [![Extension Profile diagram][fig_extension]][fig_extension]
 
-[fig_ai]: ../images/model-AI.png "SPDX 3.0.1 AI Profile diagram"
-[fig_build]: ../images/model-Build.png "SPDX 3.0.1 Build Profile diagram"
-[fig_core]: ../images/model-Core.png "SPDX 3.0.1 Core Profile diagram"
-[fig_dataset]: ../images/model-Dataset.png "SPDX 3.0.1 Dataset Profile diagram"
-[fig_extension]: ../images/model-Extension.png "SPDX 3.0.1 Extension Profile diagram"
-[fig_licensing]: ../images/model-Licensing.png "SPDX 3.0.1 Licensing Profile diagram"
-[fig_security]: ../images/model-Security.png "SPDX 3.0.1 Security Profile diagram"
-[fig_software]: ../images/model-Software.png "SPDX 3.0.1 Software Profile diagram"
+[fig_ai]: ../images/model-AI.png "SPDX 3.0 AI profile diagram"
+[fig_build]: ../images/model-Build.png "SPDX 3.0 Build profile diagram"
+[fig_core]: ../images/model-Core.png "SPDX 3.0 Core profile diagram"
+[fig_dataset]: ../images/model-Dataset.png "SPDX 3.0 Dataset profile diagram"
+[fig_extension]: ../images/model-Extension.png "SPDX 3.0 Extension profile diagram"
+[fig_licensing]: ../images/model-Licensing.png "SPDX 3.0 Licensing profile diagram"
+[fig_security]: ../images/model-Security.png "SPDX 3.0 Security profile diagram"
+[fig_software]: ../images/model-Software.png "SPDX 3.0 Software profile diagram"
