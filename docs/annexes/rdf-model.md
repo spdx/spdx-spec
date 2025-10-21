@@ -4,41 +4,41 @@
 
 The SPDX RDF ontology is expressed in RDF/OWL/SHACL format
 and is published in online at
-[SPDX 3.0 Model](https://spdx.org/rdf/3.0/spdx-model.ttl)
+[SPDX 3.0 model](https://spdx.org/rdf/3.0/spdx-model.ttl)
 
 ## Diagrams
 
-### Core Profile
+### Core profile
 
-[![Core Profile diagram][fig_core]][fig_core]
+[![Core profile diagram][fig_core]][fig_core]
 
-### Software Profile
+### Software profile
 
-[![Software Profile diagram][fig_software]][fig_software]
+[![Software profile diagram][fig_software]][fig_software]
 
-### Security Profile
+### Security profile
 
-[![Security Profile diagram][fig_security]][fig_security]
+[![Security profile diagram][fig_security]][fig_security]
 
-### Licensing Profile
+### Licensing profile
 
-[![Licensing Profile diagram][fig_licensing]][fig_licensing]
+[![Licensing profile diagram][fig_licensing]][fig_licensing]
 
-### Dataset Profile
+### Dataset profile
 
-[![Dataset Profile diagram][fig_dataset]][fig_dataset]
+[![Dataset profile diagram][fig_dataset]][fig_dataset]
 
-### AI Profile
+### AI profile
 
-[![AI Profile diagram][fig_ai]][fig_ai]
+[![AI profile diagram][fig_ai]][fig_ai]
 
-### Build Profile
+### Build profile
 
-[![Build Profile diagram][fig_build]][fig_build]
+[![Build profile diagram][fig_build]][fig_build]
 
-### Extension Profile
+### Extension profile
 
-[![Extension Profile diagram][fig_extension]][fig_extension]
+[![Extension profile diagram][fig_extension]][fig_extension]
 
 [fig_ai]: ../images/model-AI.png "SPDX 3.0 AI profile diagram"
 [fig_build]: ../images/model-Build.png "SPDX 3.0 Build profile diagram"
