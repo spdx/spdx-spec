@@ -14,3 +14,14 @@ A scope of usage for SPDX targeting support for particular use cases and
 scenarios (e.g., software, licensing, security, etc.).
 A profile identifies which particular SPDX namespaces, classes, and properties
 it leverages, along with any custom constraints unique to its use.
+
+**system**
+
+Any organized assembly of resources and procedures 
+united and regulated by interaction or interdependence 
+to accomplish a set of specific functions. 
+Note: Systems also include specialized systems such as 
+industrial/process controls systems, 
+telephone switching and private branch exchange (PBX) systems, 
+and environmental control systems. 
+(From https://csrc.nist.gov/glossary/term/system, from CNSSI 4009-2015)
