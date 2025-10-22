@@ -8,6 +8,16 @@ at the following addresses:
 - IEC Electropedia: available at
   [http://www.electropedia.org/](http://www.electropedia.org/)
 
+**firmware**
+
+Computer programs and data stored in hardware - 
+typically in read-only memory (ROM) or programmable read-only memory (PROM) - 
+such that the programs and data cannot be dynamically written or modified 
+during execution of the programs. 
+(From https://csrc.nist.gov/glossary/term/firmware, 
+from CNSSI 4009-2015, 
+**leveraged** from IETF RFC 4949 Ver 2 at https://datatracker.ietf.org/doc/html/rfc4949)
+
 **hardware**
 
 The material physical components of a system. 
