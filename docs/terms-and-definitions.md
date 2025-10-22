@@ -8,6 +8,11 @@ at the following addresses:
 - IEC Electropedia: available at
   [http://www.electropedia.org/](http://www.electropedia.org/)
 
+**hardware**
+
+The material physical components of a system. 
+(From https://csrc.nist.gov/glossary/term/hardware, from CNSSI 4009-2015)
+
 **information system**
 
 An organized assembly of computing and communication resources and procedures -- 
