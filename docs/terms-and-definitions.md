@@ -8,6 +8,11 @@ at the following addresses:
 - IEC Electropedia: available at
   [http://www.electropedia.org/](http://www.electropedia.org/)
 
+**computer hardware**
+
+All or part of the physical components of an information system. 
+(Leveraged from 'hardware' definition in ISO/IEC 2382:2015 Information technology -- Vocabulary)
+
 **computer program**
 
 Combination of computer instructions and data definitions 
