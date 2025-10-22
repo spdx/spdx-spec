@@ -8,6 +8,12 @@ at the following addresses:
 - IEC Electropedia: available at
   [http://www.electropedia.org/](http://www.electropedia.org/)
 
+**computer program**
+
+Combination of computer instructions and data definitions 
+that enable computer hardware to perform computational or control functions. 
+(From ISO/IEC/IEEE 24765:2017 Systems and software engineering-Vocabulary)
+
 **firmware**
 
 Computer programs and data stored in hardware - 
