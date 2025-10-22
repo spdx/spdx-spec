@@ -8,6 +8,17 @@ at the following addresses:
 - IEC Electropedia: available at
   [http://www.electropedia.org/](http://www.electropedia.org/)
 
+**information system**
+
+An organized assembly of computing and communication resources and procedures -- 
+i.e., equipment and services, together with their supporting infrastructure, facilities, and personnel -- 
+that create, collect, record, process, store, transport, retrieve, 
+display, disseminate, control, or dispose of 
+information to accomplish a specified set of functions. 
+(From https://csrc.nist.gov/glossary/term/information_system, 
+from CNSSI 4009-2015, 
+**leveraged** from IETF RFC 4949 Ver 2 at https://datatracker.ietf.org/doc/html/rfc4949)
+
 **profile**
 
 A scope of usage for SPDX targeting support for particular use cases and
