@@ -15,6 +15,15 @@ scenarios (e.g., software, licensing, security, etc.).
 A profile identifies which particular SPDX namespaces, classes, and properties
 it leverages, along with any custom constraints unique to its use.
 
+**software**
+
+Computer programs (which are stored in and executed by computer hardware) 
+and associated data (which also is stored in the hardware) 
+that may be dynamically written or modified during execution. 
+(From https://csrc.nist.gov/glossary/term/software, 
+from CNSSI 4009-2015, 
+from IETF RFC 4949 Ver 2 at https://datatracker.ietf.org/doc/html/rfc4949)
+
 **system**
 
 Any organized assembly of resources and procedures 
