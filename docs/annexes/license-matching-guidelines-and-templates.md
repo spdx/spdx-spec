@@ -3,9 +3,7 @@
 ## SPDX License List matching guidelines
 
 The SPDX License List Matching Guidelines provide guidelines to be used for the purposes of matching licenses and license exceptions against those included on the [SPDX License List](https://spdx.org/licenses/).
-
 There is no intent here to make a judgment or interpretation, but merely to ensure that when one SPDX user identifies a license as "BSD-3-Clause," for example, it is indeed the same license as what someone else identifies as "BSD-3-Clause" and the same license as what is listed on the SPDX License List.
-
 As noted here, some of the matching guidelines are implemented in the XML files of the SPDX License List repository.
 
 ## How these guidelines are applied
