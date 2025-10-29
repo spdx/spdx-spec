@@ -173,7 +173,7 @@ By having a rule regarding the use of "©", "(c)", or "copyright", we avoid the 
 
 ### Guideline
 
-"©", "(c)", or "Copyright" shall be considered equivalent and interchangeable.
+"©", "(C)", "(c)", or "Copyright" shall be considered equivalent and interchangeable.
 
 XML files do not require specific markup to implement this guideline.
 The copyright symbol is part of the copyright notice,
