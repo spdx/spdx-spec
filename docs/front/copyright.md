@@ -1,4 +1,4 @@
-# Use of Specification - Terms, Conditions & Notices
+# Use of specification — terms, conditions and notices
 
 Copyright © 2010–2025, The Linux Foundation and its Contributors,
 including SPDX Model contributions from OMG and its Contributors.
