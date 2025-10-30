@@ -115,7 +115,7 @@ global context file at the top level.
 This reference is achieved using the following JSON construct:
 
 ```json
-"@context": "https://spdx.org/rdf/3.0/spdx-context.jsonld"
+{ "@context": "https://spdx.org/rdf/3.0/spdx-context.jsonld" }
 ```
 
 The SPDX context file defines aliases for specific JSON-LD properties to
