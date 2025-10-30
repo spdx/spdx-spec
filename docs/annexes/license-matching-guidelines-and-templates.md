@@ -61,7 +61,7 @@ The original replaceable text appears on the SPDX License List webpage in red te
 
 Some licenses have text that can simply be ignored. The intent here is to avoid the inclusion of certain text that is superfluous or irrelevant in regard to the substantive license text resulting in a non-match where the license is otherwise an exact match (e.g., directions on how to apply the license or other similar exhibits). In these cases, there shall be a positive license match.
 
-The license shall be considered a match if the text indicated is present and matches OR the text indicated is missing altogether.
+The license shall be considered a match if the text indicated is present and matches or the text indicated is missing altogether.
 
 The following XML tag is used to implement this guideline: `<optional>`
 
