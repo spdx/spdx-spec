@@ -25,7 +25,7 @@ the SPDX community, it has been preserved in this document.
 ## Introduction to profiles
 
 Profile is the term for a compliance point within the SPDX community across The
-Linux Foundation and OMG. The System Package Data Exchange (SPDX) specification
+Linux Foundation and OMG. This document
 defines the following nine compliance points, defined as “profiles”:
 
 - Core profile
