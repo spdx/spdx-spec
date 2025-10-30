@@ -1,6 +1,4 @@
-# References
-
-## Normative references
+# Normative references
 
 The following documents are referred to in the text in such a way that some or
 all of their content constitutes requirements of this document. For dated
@@ -145,13 +143,13 @@ Tom Preston-Werner and SemVer contributors,
 [https://slsa.dev/spec/v0.2/provenance](https://slsa.dev/spec/v0.2/provenance).
 
 SoftWare Heritage persistent IDentifiers (SWHIDs), in
-Draft International Standard
-*ISO/IEC DIS 18670 Information technology — SoftWare Hash IDentifier (SWHID) Specification V1.2*[https://www.iso.org/standard/89985.html](https://www.iso.org/standard/89985.html),
+International Standard
+*ISO/IEC 18670 Information technology — SoftWare Hash IDentifier (SWHID) Specification V1.2*[https://www.iso.org/standard/89985.html](https://www.iso.org/standard/89985.html),
 also available at
-[https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)
+[https://www.swhid.org/swhid-specification/v1.2/](https://www.swhid.org/swhid-specification/v1.2/)
 
 *SPDX and RDF Ontology*,
-[http://spdx.org/rdf/ontology/spdx-3-0-1](http://spdx.org/rdf/ontology/spdx-3-0-1)
+[http://spdx.org/rdf/ontology/spdx-3-0](http://spdx.org/rdf/ontology/spdx-3-0)
 
 *SPDX License List*, The Linux Foundation,
 [https://spdx.org/licenses/](https://spdx.org/licenses/)
@@ -171,43 +169,3 @@ Forum of Incident Response and Security Teams, Inc (FIRST),
 CISA,
 [https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
-## Non-normative references
-
-The following documents are referred to in the text.
-
-1. CISQ Software Bill of Materials project, *Tool-to-Tool Software Bill of
-  Materials Exchange*,
-  [https://www.it-cisq.org/software-bill-of-materials/](https://www.it-cisq.org/software-bill-of-materials/)
-1. Dan Geer and Joshua Corman, *Almost Too Big to Fail*,
-  Usenix ;login: article, Vol. 39. No. 4, August 2014,
-  [https://www.usenix.org/publications/login/august14/geer](https://www.usenix.org/publications/login/august14/geer)
-1. Josh Corman, testimony at the Cybersecurity of the Internet of Things
-  Hearing Before the Subcommittee on Information Technology of The Committee on
-  Oversight and Government Reform House of Representatives One Hundred
-  Fifteenth Congress First Session calling for software bill of materials in
-  pending legislation, October 3, 2017, page 38,
-  [https://www.govinfo.gov/app/details/CHRG-115hhrg27760/CHRG-115hhrg27760](https://www.govinfo.gov/app/details/CHRG-115hhrg27760/CHRG-115hhrg27760)
-1. MITRE, *Standardizing SBOM within the SW Development Tooling Ecosystem*,
-  Nov 2019,
-  [https://www.mitre.org/news-insights/publication/standardizing-sbom-within-sw-development-tooling-ecosystem](https://www.mitre.org/news-insights/publication/standardizing-sbom-within-sw-development-tooling-ecosystem)
-1. MITRE, *Deliver Uncompromised: Securing Critical Software Supply Chains
-  Proposal to Establish an End-To-End Framework For Software Supply Chain
-  Integrity*, Jan 2021,
-  [https://www.mitre.org/news-insights/publication/deliver-uncompromised-securing-critical-software-supply-chains](https://www.mitre.org/news-insights/publication/deliver-uncompromised-securing-critical-software-supply-chains)
-1. NTIA, *Notice of 07/19/18 Meeting of Multistakeholder Process on Promoting
-  Software Component Transparency*, July 2018.
-  [https://www.ntia.gov/federal-register-notice/notice-071918-meeting-multistakeholder-process-promoting-software-component](https://www.ntia.gov/federal-register-notice/notice-071918-meeting-multistakeholder-process-promoting-software-component)
-1. NTIA Software Bill Of Materials web page,
-  [https://ntia.gov/sbom/](https://ntia.gov/sbom/)
-1. Open Source Initiative (OSI) Approved Licenses;
-  [https://opensource.org/licenses](https://opensource.org/licenses)
-1. Software Package Data Exchange (SPDX®) Specification Version 1.0 and 1.1,
-  1.2, 2.0, 2.1, 2.2 and 2.3; SPDX.dev,
-  [https://spdx.dev/specifications](https://spdx.dev/specifications)
-1. The United States Department of Commerce, *The Minimum Elements For a
-  Software Bill of Materials (SBOM) Pursuant to Executive Order 14028 on
-  Improving the Nation’s Cybersecurity*, Jul 2021,
-  [https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom](https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom)
-1. White House, *Executive Order on Improving the Nation’s Cybersecurity*,
-  May 2021,
-  [https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/](https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/)
