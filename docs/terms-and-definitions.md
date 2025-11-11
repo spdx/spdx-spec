@@ -8,9 +8,66 @@ at the following addresses:
 - IEC Electropedia: available at
   [http://www.electropedia.org/](http://www.electropedia.org/)
 
+**computer hardware**
+
+All or part of the physical components of an information system. 
+(Leveraged from 'hardware' definition in ISO/IEC 2382:2015 Information technology -- Vocabulary)
+
+**computer program**
+
+Combination of computer instructions and data definitions 
+that enable computer hardware to perform computational or control functions. 
+(From ISO/IEC/IEEE 24765:2017 Systems and software engineering-Vocabulary)
+
+**firmware**
+
+Computer programs and data stored in hardware - 
+typically in read-only memory (ROM) or programmable read-only memory (PROM) - 
+such that the programs and data cannot be dynamically written or modified 
+during execution of the programs. 
+(From https://csrc.nist.gov/glossary/term/firmware, 
+from CNSSI 4009-2015, 
+**leveraged** from IETF RFC 4949 Ver 2 at https://datatracker.ietf.org/doc/html/rfc4949)
+
+**hardware**
+
+The material physical components of a system. 
+(From https://csrc.nist.gov/glossary/term/hardware, from CNSSI 4009-2015)
+
+**information system**
+
+An organized assembly of computing and communication resources and procedures -- 
+i.e., equipment and services, together with their supporting infrastructure, facilities, and personnel -- 
+that create, collect, record, process, store, transport, retrieve, 
+display, disseminate, control, or dispose of 
+information to accomplish a specified set of functions. 
+(From https://csrc.nist.gov/glossary/term/information_system, 
+from CNSSI 4009-2015, 
+**leveraged** from IETF RFC 4949 Ver 2 at https://datatracker.ietf.org/doc/html/rfc4949)
+
 **profile**
 
 A scope of usage for SPDX targeting support for particular use cases and
 scenarios (e.g., software, licensing, security, etc.).
 A profile identifies which particular SPDX namespaces, classes, and properties
 it leverages, along with any custom constraints unique to its use.
+
+**software**
+
+Computer programs (which are stored in and executed by computer hardware) 
+and associated data (which also is stored in the hardware) 
+that may be dynamically written or modified during execution. 
+(From https://csrc.nist.gov/glossary/term/software, 
+from CNSSI 4009-2015, 
+from IETF RFC 4949 Ver 2 at https://datatracker.ietf.org/doc/html/rfc4949)
+
+**system**
+
+Any organized assembly of resources and procedures 
+united and regulated by interaction or interdependence 
+to accomplish a set of specific functions. 
+Note: Systems also include specialized systems such as 
+industrial/process controls systems, 
+telephone switching and private branch exchange (PBX) systems, 
+and environmental control systems. 
+(From https://csrc.nist.gov/glossary/term/system, from CNSSI 4009-2015)
