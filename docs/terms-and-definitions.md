@@ -12,13 +12,13 @@ at the following addresses:
 
 All or part of the physical components of an information system.
 (Leveraged from 'hardware' definition in ISO/IEC 2382:2015 Information
-technology -- Vocabulary <https://www.iso.org/standard/63598.html>)
+technology — Vocabulary <https://www.iso.org/standard/63598.html>)
 
 **computer program**
 
 Combination of computer instructions and data definitions
 that enable computer hardware to perform computational or control functions.
-(From ISO/IEC/IEEE 24765:2017 Systems and software engineering -- Vocabulary
+(From ISO/IEC/IEEE 24765:2017 Systems and software engineering — Vocabulary
 <https://www.iso.org/standard/71952.html>)
 
 **firmware**
