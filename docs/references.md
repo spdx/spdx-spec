@@ -13,6 +13,9 @@ edition of the referenced document (including any amendments) applies.
 *Bower API*,
 [https://bower.io/docs/api/#install](https://bower.io/docs/api/#install).
 
+*CNSSI 4009-2015 Committee on National Security Systems (CNSS) Glossary*,
+[https://csrc.nist.gov/glossary](https://csrc.nist.gov/glossary).
+
 *Common Platform Enumeration (CPE) – Specification 2.2*,
 The MITRE Corporation,
 [https://cpe.mitre.org/files/cpe-specification_2.2.pdf](https://cpe.mitre.org/files/cpe-specification_2.2.pdf).
@@ -48,6 +51,12 @@ Forum of Incident Response and Security Teams, Inc (FIRST),
 *EU general risk assessment methodology*,
 European Commission,
 [https://ec.europa.eu/docsroom/documents/17107](https://ec.europa.eu/docsroom/documents/17107).
+
+*ISO/IEC 2382:2015 Information technology — Vocabulary*,
+[https://www.iso.org/standard/63598.html](https://www.iso.org/standard/63598.html).
+
+*ISO/IEC 24765:2017 Systems and software engineering — Vocabulary*,
+[https://www.iso.org/standard/71952.html](https://www.iso.org/standard/71952.html).
 
 *npm-package.json*, npm Inc.,
 [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json).
