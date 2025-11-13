@@ -35,11 +35,10 @@ on:
       - publish_v3_spec
   workflow_dispatch: {}  # Manually trigger from https://github.com/spdx/spdx-spec/actions
   schedule:
-    # rebuild every day at 12:30 UTC, to apply any change to the SPDX 3 model
-    # made in https://github.com/spdx/spdx-3-model/
-    # 12:30 UTC is 30 minutes earlier than the earliest meeting time in
-    # https://github.com/spdx/meetings/
-    - cron: "30 12 * * *"
+    # Rebuild periodically, to apply changes from https://github.com/spdx/spdx-3-model/
+    - cron: "0,30 12-20 * * *"  # Every 30 mins during meeting hours in https://github.com/spdx/meetings/
+    - cron: "0 0,2,4,8,10,22 * * *"  # Every 2 hours off meeting hours
+
 jobs:
   build:
     runs-on: ubuntu-latest
