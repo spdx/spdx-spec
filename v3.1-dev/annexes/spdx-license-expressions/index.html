@@ -1121,9 +1121,9 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#order-of-precedence-and-parentheses">Order of precedence and parentheses</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#license-expressions-in-rdf">License expressions in RDF</a>
-    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#complete-grammar">Complete grammar</a>
     </li>
     </ul>
                   </li>
@@ -1167,9 +1167,9 @@
               
                 <h1 id="spdx-license-expressions-normative">SPDX license expressions (Normative)</h1>
 <h2 id="overview">Overview</h2>
-<p>Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0-only OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1-only AND BSD-3-Clause).</p>
-<p>SPDX license expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the <code>LicenseRef-(idstring)</code>; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., <code>AND</code>, <code>OR</code>, <code>WITH</code> and <code>+</code>). We provide the definition of what constitutes a valid SPDX license expression in this section.</p>
-<p>The exact syntax of license expressions is described below in ABNF, as defined
+<p>Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., <code>GPL-2.0-only OR BSD-3-Clause</code>). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., <code>LGPL-2.1-only AND BSD-3-Clause</code>).</p>
+<p>SPDX License Expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the "LicenseRef-(idstring)"; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., "AND", "OR", "WITH" and "+"). We provide the definition of what constitutes a valid SPDX License Expression in this section.</p>
+<p>The general format of license expressions is described below in ABNF, as defined
 in <a href="https://datatracker.ietf.org/doc/rfc5234/">RFC 5234</a> and expanded
 in <a href="https://datatracker.ietf.org/doc/rfc7405/">RFC 7405</a>.</p>
 <pre class="codehilite"><code class="language-ABNF">idstring = 1*(ALPHA / DIGIT / &quot;-&quot; / &quot;.&quot; )
@@ -1178,21 +1178,21 @@ license-id = &lt;short form license identifier from SPDX License List&gt;
 
 license-exception-id = &lt;short form license exception identifier from SPDX License List&gt;
 
-license-ref = [%s&quot;DocumentRef-&quot;(idstring)&quot;:&quot;]%s&quot;LicenseRef-&quot;(idstring)
+license-ref = [&quot;DocumentRef-&quot;(idstring)&quot;:&quot;]&quot;LicenseRef-&quot;(idstring)
 
-addition-ref = [%s&quot;DocumentRef-&quot;(idstring)&quot;:&quot;]%s&quot;AdditionRef-&quot;(idstring)
+addition-ref = [&quot;DocumentRef-&quot;(idstring)&quot;:&quot;]&quot;AdditionRef-&quot;(idstring)
 
-simple-expression = license-id / license-id&quot;+&quot; / license-ref
+simple-expression = license-id / license-id&quot;+&quot; / license-ref / &quot;NONE&quot; / &quot;NOASSERTION&quot;
 
 addition-expression = license-exception-id / addition-ref
 
 compound-expression = (simple-expression /
 
-  simple-expression ( %s&quot;WITH&quot; / %s&quot;with&quot; ) addition-expression /
+  simple-expression &quot;WITH&quot; addition-expression /
 
-  compound-expression ( %s&quot;AND&quot; / %s&quot;and&quot; ) compound-expression /
+  compound-expression &quot;AND&quot; compound-expression /
 
-  compound-expression ( %s&quot;OR&quot; / %s&quot;or&quot; ) compound-expression /
+  compound-expression &quot;OR&quot; compound-expression /
 
   &quot;(&quot; compound-expression &quot;)&quot; )
 
@@ -1203,36 +1203,33 @@ license-expression = (simple-expression / compound-expression)
 <p>A valid <code>&lt;license-expression&gt;</code> string consists of either:</p>
 <p>(i) a simple license expression, such as a single license identifier; or</p>
 <p>(ii) a more complex expression constructed by combining smaller valid expressions using Boolean license operators.</p>
-<p>There MUST NOT be white space between a license-id and any following <code>+</code>. This supports easy parsing and backward compatibility.
-There MUST be white space on either side of the operator <code>WITH</code>.
-There MUST be white space and/or parentheses on either side of the operators <code>AND</code> and <code>OR</code>.</p>
-<p>In the <code>tag:value</code> format, a license expression MUST be on a single line, and MUST NOT include a line break in the middle of the expression.</p>
+<p>There shall not be any space between a license-id and any following "+". This supports easy parsing and backwards compatibility.</p>
+<p>There shall be at least one space on either side of the operators "AND", "OR", and "WITH".</p>
+<p>A license expression shall be on a single line, and shall not include a line break in the middle of the expression.</p>
 <h2 id="case-sensitivity">Case sensitivity</h2>
-<p>License expression operators (<code>AND</code>, <code>and</code>, <code>OR</code>, <code>or</code>, <code>WITH</code> and <code>with</code>) should be matched in a <em>case-sensitive</em> manner, i.e., letters must be all upper case or all lower case.</p>
-<p>License identifiers (including license exception identifiers) used in SPDX documents or source code files should be matched in a <em>case-insensitive</em> manner. In other words, <code>MIT</code>, <code>Mit</code> and <code>mIt</code> should all be treated as the same identifier and referring to the same license.</p>
-<p>However, please be aware that it is often important to match with the case of the canonical identifier on the <a href="https://spdx.org/licenses">SPDX License List</a>. This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.</p>
-<p>For user defined license identifiers, only the variable part (after <code>LicenseRef-</code>) is case insensitive.  This means, for example, that <code>LicenseRef-Name</code> and <code>LicenseRef-name</code> should be treated as the same identifier and considered to refer to the same license, while <code>licenseref-name</code> is not a valid license identifier.</p>
-<p>The same applies to <code>AdditionRef-</code> user defined identifiers.</p>
+<p>In SPDX 3, license expressions are completely <em>case-insensitive</em>.</p>
+<p>That includes the operators ("AND", "OR", "WITH"), the special identifiers ("NONE" and "NOASSERTION"), as well as the license identifiers, including the user-defined ones.</p>
+<p>For example, the expressions <code>MIT AND NOASSERTION AND (BSD-3-Clause OR LicenseRef-Name)</code> and <code>mit aNd NoaSSerTion AnD (bSd-3-clausE OR licenseref-NAME)</code> are equivalent.</p>
+<p>However, please be aware that it is often important to note the case of the canonical identifier on the <a href="https://spdx.org/licenses">SPDX License List</a>. This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.</p>
 <h2 id="simple-license-expressions">Simple license expressions</h2>
 <p>A simple <code>&lt;license-expression&gt;</code> is composed one of the following:</p>
 <ul>
 <li>An SPDX License List Short Form Identifier. For example: <code>CDDL-1.0</code></li>
 <li>An SPDX License List Short Form Identifier with a unary "+" operator suffix to represent the current version of the license or any later version. For example: <code>CDDL-1.0+</code></li>
-<li>A user defined license reference in the form
+<li>One of the special identifiers "NONE" or "NOASSERTION"</li>
+<li>A user defined license reference:
   <code>["DocumentRef-"(idstring)":"]"LicenseRef-"(idstring)</code>.
   For example:
   <code>LicenseRef-23</code>,
   <code>LicenseRef-MIT-Style-1</code>, and
   <code>DocumentRef-spdx-tool-1.2:LicenseRef-MIT-Style-2</code></li>
 </ul>
-<p>The current set of valid license identifiers can be found in <a href="https://spdx.org/licenses">spdx.org/licenses</a>.</p>
+<p>The current set of valid license identifiers can be found in the SPDX License List.</p>
 <h2 id="composite-license-expressions">Composite license expressions</h2>
 <h3 id="introduction">Introduction</h3>
 <p>More expressive composite license expressions can be constructed using "OR", "AND", and "WITH" operators similar to constructing mathematical expressions using arithmetic operators.</p>
-<p>For the <code>tag:value</code> format, any license expression that consists of more than one license identifier and/or LicenseRef, may optionally be encapsulated by parentheses: "( )".</p>
-<p>Nested parentheses can also be used to specify an order of precedence which is
-discussed in more detail in
-<a href="#order-of-precedence-and-parentheses">Order of precedence and parentheses</a>.</p>
+<p>Any license expression that consists of more than one license identifier and/or LicenseRef, may optionally be encapsulated by parentheses: "( )".</p>
+<p>Nested parentheses can also be used to specify an order of precedence which is discussed in more detail below.</p>
 <h3 id="disjunctive-or-operator">Disjunctive "OR" operator</h3>
 <p>If presented with a choice between two or more licenses, use the disjunctive binary "OR" operator to construct a new license expression, where both the left and right operands are valid license expression values.</p>
 <p>For example, when given a choice between the LGPL-2.1-only or MIT licenses, a valid expression would be:</p>
@@ -1247,7 +1244,7 @@ discussed in more detail in
 <pre class="codehilite"><code class="language-text">LGPL-2.1-only OR MIT OR BSD-3-Clause
 </code></pre>
 
-<p>It is allowed to use the operator in lower case form <code>or</code>.</p>
+<p>The special identifiers "NONE" or "NOASSERTION" shall not be used with the "OR" operator.</p>
 <h3 id="conjunctive-and-operator">Conjunctive "AND" operator</h3>
 <p>If required to simultaneously comply with two or more licenses, use the conjunctive binary "AND" operator to construct a new license expression, where both the left and right operands are valid license expression values.</p>
 <p>For example, when one is required to comply with both the LGPL-2.1-only and MIT licenses, a valid expression would be:</p>
@@ -1258,11 +1255,11 @@ discussed in more detail in
 <pre class="codehilite"><code class="language-text">MIT AND LGPL-2.1-only
 </code></pre>
 
-<p>An example where all three different licenses apply would be:</p>
+<p>An example where three different licenses apply would be:</p>
 <pre class="codehilite"><code class="language-text">LGPL-2.1-only AND MIT AND BSD-2-Clause
 </code></pre>
 
-<p>It is allowed to use the operator in lower case form <code>and</code>.</p>
+<p>The "AND" operator is the only operator that can be used in conjuction with the special identifiers "NONE" or "NOASSERTION".</p>
 <h3 id="additive-with-operator">Additive "WITH" operator</h3>
 <p>Sometimes license texts are found with additional text, which might or might not modify the original license terms.</p>
 <p>In this case, use the binary "WITH" operator to construct a new license expression to represent the special situation. A valid <code>&lt;license-expression&gt;</code> is where the left operand is a <code>&lt;simple-expression&gt;</code> value and the right operand is a <code>&lt;addition-expression&gt;</code> that represents the additional text.</p>
@@ -1272,7 +1269,7 @@ discussed in more detail in
 </code></pre>
 
 <p>The current set of valid license exceptions identifiers can be found in <a href="https://spdx.org/licenses">spdx.org/licenses</a>.</p>
-<p>It is allowed to use the operator in lower case form <code>with</code>.</p>
+<p>The special identifiers "NONE" or "NOASSERTION" shall not be used with the "WITH" operator.</p>
 <h3 id="order-of-precedence-and-parentheses">Order of precedence and parentheses</h3>
 <p>The order of application of the operators in an expression matters (similar to mathematical operators). The default operator order of precedence of a <code>&lt;license-expression&gt;</code> is:</p>
 <pre class="codehilite"><code class="language-text">+
@@ -1286,77 +1283,67 @@ OR
 <pre class="codehilite"><code class="language-text">LGPL-2.1-only OR BSD-3-Clause AND MIT
 </code></pre>
 
-<p>represents a license choice between either LGPL-2.1-only or the expression "BSD-3-Clause AND MIT" because the AND operator takes precedence over (is applied before) the OR operator.</p>
+<p>represents a license choice between either LGPL-2.1-only or the expression "BSD-3-Clause AND MIT" because the "AND" operator takes precedence over (is applied before) the "OR" operator.</p>
 <p>When required to express an order of precedence that is different from the default order a <code>&lt;license-expression&gt;</code> can be encapsulated in pairs of parentheses: ( ), to indicate that the operators found inside the parentheses takes precedence over operators outside. This is also similar to the use of parentheses in an algebraic expression e.g., (5+7)/2.</p>
 <p>For instance, the following expression:</p>
-<pre class="codehilite"><code class="language-text">MIT AND (LGPL-2.1-or-later OR BSD-3-Clause)
+<pre class="codehilite"><code class="language-text">(LGPL-2.1-or-later OR BSD-3-Clause) AND MIT
 </code></pre>
 
-<p>states the OR operator should be applied before the AND operator. That is, one should first select between the LGPL-2.1-or-later or the BSD-3-Clause license before applying the MIT license.</p>
-<h3 id="license-expressions-in-rdf">License expressions in RDF</h3>
-<p>A conjunctive license can be expressed in RDF via a <code>&lt;spdx:ConjunctiveLicenseSet&gt;</code> element, with an spdx:member property for each element in the conjunctive license. Two or more members are required.</p>
-<pre class="codehilite"><code class="language-XML">&lt;spdx:ConjunctiveLicenseSet&gt;
-    &lt;spdx:member rdf:resource=&quot;http://spdx.org/licenses/GPL-2.0-only&quot;/&gt;
-    &lt;spdx:ExtractedLicensingInfo rdf:about
-      =&quot;http://example.org#LicenseRef-EternalSurrender&quot;&gt;
-        &lt;spdx:extractedText&gt;
-            In exchange for using this software, you agree to give
-            its author all your worldly possessions. You will not
-            hold the author liable for all the damage this software
-            will inevitably cause not only to your person and
-            property, but to the entire fabric of the cosmos.
-        &lt;/spdx:extractedText&gt;
-        &lt;spdx:licenseId&gt;LicenseRef-EternalSurrender&lt;/spdx:licenseId&gt;
-    &lt;/spdx:ExtractedLicensingInfo&gt;
-&lt;/spdx:ConjunctiveLicenseSet&gt;
-</code></pre>
+<p>states the "OR" operator should be applied before the "AND" operator. That is, one should first select between the LGPL-2.1-or-later or the BSD-3-Clause license before applying the MIT license.</p>
+<h2 id="complete-grammar">Complete grammar</h2>
+<p>The complete syntax of license expressions,
+including precedence and whitespace,
+is described by the following ABNF:</p>
+<pre class="codehilite"><code class="language-ABNF">; ABNF Grammar for License Expressions
 
-<p>A disjunctive license can be expressed in RDF via a <code>&lt;spdx:DisjunctiveLicenseSet&gt;</code> element, with an spdx:member property for each element in the disjunctive license. Two or more members are required.</p>
-<pre class="codehilite"><code class="language-XML">&lt;spdx:DisjunctiveLicenseSet&gt;
-    &lt;spdx:member rdf:resource=&quot;http://spdx.org/licenses/GPL-2.0-only&quot;/&gt;
-    &lt;spdx:member&gt;
-        &lt;spdx:ExtractedLicensingInfo rdf:about
-          =&quot;http://example.org#LicenseRef-EternalSurrender&quot;&gt;
-            &lt;spdx:extractedText&gt;
-                In exchange for using this software, you agree to
-                give its author all your worldly possessions. You
-                will not hold the author liable for all the damage
-                this software will inevitably cause not only to
-                your person and property, but to the entire fabric
-                of the cosmos.
-            &lt;/spdx:extractedText&gt;
-            &lt;spdx:licenseId&gt;LicenseRef-EternalSurrender&lt;/spdx:licenseId&gt;
-        &lt;/spdx:ExtractedLicensingInfo&gt;
-    &lt;/spdx:member&gt;
-&lt;/spdx:DisjunctiveLicenseSet&gt;
-</code></pre>
+SPSX-license-expression = (or-operand *( required-ws &quot;OR&quot; required-ws or-operand )) / special-identifier
 
-<p>A License Exception can be expressed in RDF via a <code>&lt;spdx:LicenseException&gt;</code> element. This element has the following unique mandatory (unless specified otherwise) attributes:</p>
-<ul>
-<li><code>comment</code> - An <code>rdfs:comment</code> element describing the nature of the exception.</li>
-<li><code>seeAlso</code> (optional, one or more)- An <code>rdfs:seeAlso</code> element referencing external sources of information on the exception.</li>
-<li><code>example</code> (optional) - Text describing examples of this exception.</li>
-<li><code>name</code> - The full human readable name of the item.</li>
-<li><code>licenseExceptionId</code> -  The identifier of an exception in the SPDX License List to which the exception applies.</li>
-<li><code>licenseExceptionText</code> - Full text of the license exception.</li>
-</ul>
-<pre class="codehilite"><code class="language-XML">&lt;rdf:Description rdf:about
-  =&quot;http://example.org#SPDXRef-ButIDontWantToException&quot;&gt;
-    &lt;rdfs:comment&gt;This exception may be invalid in some
-      jurisdictions.&lt;/rdfs:comment&gt;
-    &lt;rdfs:seeAlso&gt;http://dilbert.com/strip/1997-01-15&lt;/rdfs:seeAlso&gt;
-    &lt;spdx:example&gt;So this one time, I had a license exception
-      …&lt;/spdx:example&gt;
-    &lt;spdx:licenseExceptionText&gt;
-        A user of this software may decline to follow any subset of
-        the terms of this license upon finding any or all such terms
-        unfavorable.
-    &lt;/spdx:licenseExceptionText&gt;
-    &lt;spdx:name&gt;&amp;quot;But I Don&amp;apos;t Want To&amp;quot; Exception&lt;/spdx:name&gt;
-    &lt;spdx:licenseExceptionId&gt;SPDXRef-ButIDontWantToException&lt;/spdx:licenseExceptionId&gt;
-    &lt;rdf:type rdf:resource
-      =&quot;http://spdx.org/rdf/terms#LicenseException&quot;/&gt;
-&lt;/rdf:Description&gt;
+or-operand = (term required-ws &quot;AND&quot; required-ws term *( required-ws &quot;AND&quot; required-ws term )) / base-term
+
+term = base-term / special-identifier
+
+base-term = with-expression / identifier / parenthesized-expression
+
+with-expression = identifier required-ws &quot;WITH&quot; required-ws addition-identifier
+
+addition-identifier = license-exception-id / addition-ref
+
+identifier = license-id / or-later-expression / license-ref
+
+or-later-expression = license-id PLUS
+
+parenthesized-expression = LPAREN optional-ws expression optional-ws RPAREN
+
+special-identifier = &quot;NONE&quot; / &quot;NOASSERTION&quot;
+
+; --- SPDX License List contents ---
+
+license-id           = &lt;short form license identifier from SPDX License List&gt;
+license-exception-id = &lt;short form license exception identifier from SPDX License List&gt;
+
+; --- User-defined identifiers ---
+
+license-ref  = [ &quot;DocumentRef-&quot; idstring &quot;:&quot; ] &quot;LicenseRef-&quot;  idstring
+addition-ref = [ &quot;DocumentRef-&quot; idstring &quot;:&quot; ] &quot;AdditionRef-&quot; idstring
+
+idstring = *id-char alnum *id-char
+idchar   = alnum / DOT / DASH
+alnum    = ALPHA / DIGIT
+
+; --- Whitespace and characters ---
+
+optional-ws = *SPACE       ; Optional whitespace (zero or more spaces)
+required-ws = 1*SPACE      ; Required whitespace (one or more spaces)
+
+SPACE  = %x20              ; Space character
+LPAREN = %x28              ; ( - Left parenthesis
+RPAREN = %x29              ; ) - Right parenthesis
+PLUS   = %2B               ; + - Plus
+DASH   = %2D               ; - - Dash, hyphen
+DOT    = %2E               ; . - Dot, fullstop, period
+
+ALPHA  = %x41-5A / %x61-7A ; A-Z / a-z
+DIGIT  = %x30-39           ; 0-9
 </code></pre>
               
             </div>
