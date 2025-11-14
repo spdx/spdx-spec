@@ -61,7 +61,7 @@ The original replaceable text appears on the SPDX License List webpage in red te
 
 Some licenses have text that can simply be ignored. The intent here is to avoid the inclusion of certain text that is superfluous or irrelevant in regard to the substantive license text resulting in a non-match where the license is otherwise an exact match (e.g., directions on how to apply the license or other similar exhibits). In these cases, there shall be a positive license match.
 
-The license shall be considered a match if the text indicated is present and matches or the text indicated is missing altogether.
+The license shall be considered a match if the text indicated is present and matches, or the text indicated is missing altogether.
 
 The following XML tag is used to implement this guideline: `<optional>`
 
@@ -123,13 +123,13 @@ comment indicators placed within the license text, e.g., at the start of each
 line of text, or repetitive characters to establish a separation of text,
 e.g., `---`, `===`, `___`, or `***`.
 
-### Guideline
+### Guideline: prefixes
 
 Any kind of code comment indicator or prefix which occurs at the beginning of each line in a matchable section shall be ignored for matching purposes.
 
 XML files do not require specific markup to implement this guideline.
 
-### Guideline
+### Guideline: repeated characters
 
 A non-letter character repeated 3 or more times to establish a visual separation shall be ignored for matching purposes.
 
