@@ -1446,6 +1446,54 @@
         "prop_https_spdxorgrdf31termsCoreIntegrityMethod_comment": {
                     "type": "string"
         },
+        "https_spdxorgrdf31termsCoreIsoAutomationLevel": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "https://spdx.org/rdf/3.1/terms/Core/IsoAutomationLevel"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/https_spdxorgrdf31termsCoreIsoAutomationLevel_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a https_spdxorgrdf31termsCoreIsoAutomationLevel"
+            }
+        },
+        "https_spdxorgrdf31termsCoreIsoAutomationLevel_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsCoreIsoAutomationLevel" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsCoreIsoAutomationLevel_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                    }
+                }
+            ]
+        },
         "https_spdxorgrdf31termsCoreLifecycleScopeType": {
             "if": {
                 "type": "object",
@@ -9396,6 +9444,9 @@
                         },
                         "https://spdx.org/rdf/3.1/terms/AI/useSensitivePersonalInformation": {
                             "$ref": "#/$defs/prop_https_spdxorgrdf31termsAIAIPackage_useSensitivePersonalInformation"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Core/isoAutomationLevel": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsAIAIPackage_CoreisoAutomationLevel"
                         }
                     }
                 }
@@ -9457,6 +9508,17 @@
                     "https://spdx.org/rdf/3.1/terms/Core/PresenceType/no",
                     "https://spdx.org/rdf/3.1/terms/Core/PresenceType/noAssertion",
                     "https://spdx.org/rdf/3.1/terms/Core/PresenceType/yes"
+                ]
+        },
+        "prop_https_spdxorgrdf31termsAIAIPackage_CoreisoAutomationLevel": {
+                "enum": [
+                    "https://spdx.org/rdf/3.1/terms/Core/IsoAutomationLevel/assistiveAutomation",
+                    "https://spdx.org/rdf/3.1/terms/Core/IsoAutomationLevel/autonomous",
+                    "https://spdx.org/rdf/3.1/terms/Core/IsoAutomationLevel/conditionalAutomation",
+                    "https://spdx.org/rdf/3.1/terms/Core/IsoAutomationLevel/fullAutomation",
+                    "https://spdx.org/rdf/3.1/terms/Core/IsoAutomationLevel/highAutomation",
+                    "https://spdx.org/rdf/3.1/terms/Core/IsoAutomationLevel/notAutomated",
+                    "https://spdx.org/rdf/3.1/terms/Core/IsoAutomationLevel/partialAutomation"
                 ]
         },
         "https_spdxorgrdf31termsDatasetDatasetPackage": {
@@ -10168,6 +10230,7 @@
                                 "https://spdx.org/rdf/3.1/terms/Core/ExternalRefType",
                                 "https://spdx.org/rdf/3.1/terms/Core/HashAlgorithm",
                                 "https://spdx.org/rdf/3.1/terms/Core/IndividualElement",
+                                "https://spdx.org/rdf/3.1/terms/Core/IsoAutomationLevel",
                                 "https://spdx.org/rdf/3.1/terms/Core/LifecycleScopeType",
                                 "https://spdx.org/rdf/3.1/terms/Core/NamespaceMap",
                                 "https://spdx.org/rdf/3.1/terms/Core/PackageVerificationCode",
@@ -10309,6 +10372,7 @@
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreExternalRefType" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreHashAlgorithm" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreIndividualElement" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsCoreIsoAutomationLevel" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreLifecycleScopeType" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreNamespaceMap" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCorePackageVerificationCode" },
