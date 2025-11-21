@@ -10,42 +10,56 @@
     },
     "required": ["@context"],
 
-    "oneOf": [
-        {
-            "type": "object",
-            "properties": {
-                "@graph": {
-                    "description": "Top level container for JSON-LD objects",
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "$ref": "#/$defs/AnyClass",
-                        "unevaluatedProperties": false
-                    }
+    "if": {
+        "type": "object",
+        "required": ["@graph"]
+    },
+    "then": {
+        "type": "object",
+        "properties": {
+            "@graph": {
+                "description": "Top level container for JSON-LD objects",
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "$ref": "#/$defs/AnyClass",
+                    "unevaluatedProperties": false
                 }
-            },
-            "required": ["@graph"]
+            }
         },
-        { "$ref": "#/$defs/AnyClass" }
-    ],
+        "required": ["@graph"]
+    },
+    "else": {
+        "$ref": "#/$defs/AnyClass"
+    },
     "unevaluatedProperties": false,
 
     "$defs": {
         "ai_EnergyConsumption": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "ai_EnergyConsumption" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ai_EnergyConsumption"
                     }
                 },
-                { "$ref": "#/$defs/ai_EnergyConsumption_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/ai_EnergyConsumption_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ai_EnergyConsumption"
+            }
         },
         "ai_EnergyConsumption_derived": {
             "anyOf": [
@@ -66,7 +80,7 @@
                     "type": "object",
                     "properties": {
                         "ai_finetuningEnergyConsumption": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -76,7 +90,7 @@
                             ]
                         },
                         "ai_inferenceEnergyConsumption": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -86,7 +100,7 @@
                             ]
                         },
                         "ai_trainingEnergyConsumption": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -109,20 +123,30 @@
                 "$ref": "#/$defs/ai_EnergyConsumptionDescription_derived"
         },
         "ai_EnergyConsumptionDescription": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "ai_EnergyConsumptionDescription" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ai_EnergyConsumptionDescription"
                     }
                 },
-                { "$ref": "#/$defs/ai_EnergyConsumptionDescription_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/ai_EnergyConsumptionDescription_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ai_EnergyConsumptionDescription"
+            }
         },
         "ai_EnergyConsumptionDescription_derived": {
             "anyOf": [
@@ -157,7 +181,7 @@
             ]
         },
         "prop_ai_EnergyConsumptionDescription_ai_energyQuantity": {
-                    "oneOf": [
+                    "anyOf": [
                         {
                             "type": "number"
                         },
@@ -175,20 +199,30 @@
                 ]
         },
         "ai_EnergyUnitType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "ai_EnergyUnitType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ai_EnergyUnitType"
                     }
                 },
-                { "$ref": "#/$defs/ai_EnergyUnitType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/ai_EnergyUnitType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ai_EnergyUnitType"
+            }
         },
         "ai_EnergyUnitType_derived": {
             "anyOf": [
@@ -216,20 +250,30 @@
             ]
         },
         "ai_SafetyRiskAssessmentType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "ai_SafetyRiskAssessmentType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ai_SafetyRiskAssessmentType"
                     }
                 },
-                { "$ref": "#/$defs/ai_SafetyRiskAssessmentType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/ai_SafetyRiskAssessmentType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ai_SafetyRiskAssessmentType"
+            }
         },
         "ai_SafetyRiskAssessmentType_derived": {
             "anyOf": [
@@ -258,20 +302,30 @@
             ]
         },
         "AnnotationType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "AnnotationType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "AnnotationType"
                     }
                 },
-                { "$ref": "#/$defs/AnnotationType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/AnnotationType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a AnnotationType"
+            }
         },
         "AnnotationType_derived": {
             "anyOf": [
@@ -298,20 +352,30 @@
             ]
         },
         "CreationInfo": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "CreationInfo" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "CreationInfo"
                     }
                 },
-                { "$ref": "#/$defs/CreationInfo_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/CreationInfo_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a CreationInfo"
+            }
         },
         "CreationInfo_derived": {
             "anyOf": [
@@ -338,7 +402,7 @@
                             "$ref": "#/$defs/prop_CreationInfo_created"
                         },
                         "createdBy": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "minItems": 1,
@@ -349,7 +413,7 @@
                             ]
                         },
                         "createdUsing": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -395,20 +459,30 @@
                     "type": "string"
         },
         "DictionaryEntry": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "DictionaryEntry" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "DictionaryEntry"
                     }
                 },
-                { "$ref": "#/$defs/DictionaryEntry_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/DictionaryEntry_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a DictionaryEntry"
+            }
         },
         "DictionaryEntry_derived": {
             "anyOf": [
@@ -520,7 +594,17 @@
                             "$ref": "#/$defs/prop_Element_description"
                         },
                         "extension": {
-                            "oneOf": [
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_Element_extension"
+                                    }
+                                }
+                            ]
+                        },
+                        "extension": {
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -530,7 +614,7 @@
                             ]
                         },
                         "externalIdentifier": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -540,7 +624,7 @@
                             ]
                         },
                         "externalRef": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -556,7 +640,7 @@
                             "$ref": "#/$defs/prop_Element_summary"
                         },
                         "verifiedUsing": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -580,6 +664,9 @@
         },
         "prop_Element_description": {
                     "type": "string"
+        },
+        "prop_Element_extension": {
+                "$ref": "#/$defs/extension_Extension_derived"
         },
         "prop_Element_extension": {
                 "$ref": "#/$defs/extension_Extension_derived"
@@ -621,7 +708,7 @@
                     "type": "object",
                     "properties": {
                         "element": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -631,7 +718,7 @@
                             ]
                         },
                         "profileConformance": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -641,7 +728,7 @@
                             ]
                         },
                         "rootElement": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -675,20 +762,30 @@
                 "$ref": "#/$defs/Element_derived"
         },
         "ExternalIdentifier": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "ExternalIdentifier" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ExternalIdentifier"
                     }
                 },
-                { "$ref": "#/$defs/ExternalIdentifier_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/ExternalIdentifier_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ExternalIdentifier"
+            }
         },
         "ExternalIdentifier_derived": {
             "anyOf": [
@@ -718,7 +815,7 @@
                             "$ref": "#/$defs/prop_ExternalIdentifier_identifier"
                         },
                         "identifierLocator": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -766,20 +863,30 @@
                     "type": "string"
         },
         "ExternalIdentifierType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "ExternalIdentifierType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ExternalIdentifierType"
                     }
                 },
-                { "$ref": "#/$defs/ExternalIdentifierType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/ExternalIdentifierType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ExternalIdentifierType"
+            }
         },
         "ExternalIdentifierType_derived": {
             "anyOf": [
@@ -815,20 +922,30 @@
             ]
         },
         "ExternalMap": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "ExternalMap" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ExternalMap"
                     }
                 },
-                { "$ref": "#/$defs/ExternalMap_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/ExternalMap_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ExternalMap"
+            }
         },
         "ExternalMap_derived": {
             "anyOf": [
@@ -858,7 +975,7 @@
                             "$ref": "#/$defs/prop_ExternalMap_locationHint"
                         },
                         "verifiedUsing": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -887,20 +1004,30 @@
                 "$ref": "#/$defs/IntegrityMethod_derived"
         },
         "ExternalRef": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "ExternalRef" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ExternalRef"
                     }
                 },
-                { "$ref": "#/$defs/ExternalRef_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/ExternalRef_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ExternalRef"
+            }
         },
         "ExternalRef_derived": {
             "anyOf": [
@@ -930,7 +1057,7 @@
                             "$ref": "#/$defs/prop_ExternalRef_externalRefType"
                         },
                         "locator": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -1004,20 +1131,30 @@
                     "type": "string"
         },
         "ExternalRefType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "ExternalRefType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ExternalRefType"
                     }
                 },
-                { "$ref": "#/$defs/ExternalRefType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/ExternalRefType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ExternalRefType"
+            }
         },
         "ExternalRefType_derived": {
             "anyOf": [
@@ -1088,20 +1225,30 @@
             ]
         },
         "HashAlgorithm": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "HashAlgorithm" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "HashAlgorithm"
                     }
                 },
-                { "$ref": "#/$defs/HashAlgorithm_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/HashAlgorithm_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a HashAlgorithm"
+            }
         },
         "HashAlgorithm_derived": {
             "anyOf": [
@@ -1148,21 +1295,31 @@
             ]
         },
         "IndividualElement": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "IndividualElement" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "IndividualElement"
+                    }
                 },
-                { "$ref": "#/$defs/IndividualElement_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/IndividualElement_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a IndividualElement"
+            }
         },
         "IndividualElement_derived": {
             "anyOf": [
@@ -1219,20 +1376,30 @@
                     "type": "string"
         },
         "LifecycleScopeType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "LifecycleScopeType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "LifecycleScopeType"
                     }
                 },
-                { "$ref": "#/$defs/LifecycleScopeType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/LifecycleScopeType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a LifecycleScopeType"
+            }
         },
         "LifecycleScopeType_derived": {
             "anyOf": [
@@ -1263,20 +1430,30 @@
             ]
         },
         "NamespaceMap": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "NamespaceMap" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "NamespaceMap"
                     }
                 },
-                { "$ref": "#/$defs/NamespaceMap_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/NamespaceMap_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a NamespaceMap"
+            }
         },
         "NamespaceMap_derived": {
             "anyOf": [
@@ -1317,20 +1494,30 @@
                     "type": "string"
         },
         "PackageVerificationCode": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "PackageVerificationCode" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "PackageVerificationCode"
                     }
                 },
-                { "$ref": "#/$defs/PackageVerificationCode_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/PackageVerificationCode_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a PackageVerificationCode"
+            }
         },
         "PackageVerificationCode_derived": {
             "anyOf": [
@@ -1357,7 +1544,7 @@
                             "$ref": "#/$defs/prop_PackageVerificationCode_hashValue"
                         },
                         "packageVerificationCodeExcludedFile": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -1407,20 +1594,30 @@
                     "type": "string"
         },
         "PositiveIntegerRange": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "PositiveIntegerRange" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "PositiveIntegerRange"
                     }
                 },
-                { "$ref": "#/$defs/PositiveIntegerRange_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/PositiveIntegerRange_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a PositiveIntegerRange"
+            }
         },
         "PositiveIntegerRange_derived": {
             "anyOf": [
@@ -1463,20 +1660,30 @@
                     "minimum": 1
         },
         "PresenceType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "PresenceType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "PresenceType"
                     }
                 },
-                { "$ref": "#/$defs/PresenceType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/PresenceType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a PresenceType"
+            }
         },
         "PresenceType_derived": {
             "anyOf": [
@@ -1504,20 +1711,30 @@
             ]
         },
         "ProfileIdentifierType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "ProfileIdentifierType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ProfileIdentifierType"
                     }
                 },
-                { "$ref": "#/$defs/ProfileIdentifierType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/ProfileIdentifierType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ProfileIdentifierType"
+            }
         },
         "ProfileIdentifierType_derived": {
             "anyOf": [
@@ -1552,21 +1769,31 @@
             ]
         },
         "Relationship": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "Relationship" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "Relationship"
+                    }
                 },
-                { "$ref": "#/$defs/Relationship_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/Relationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a Relationship"
+            }
         },
         "Relationship_derived": {
             "anyOf": [
@@ -1613,7 +1840,7 @@
                             "$ref": "#/$defs/prop_Relationship_startTime"
                         },
                         "to": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "minItems": 1,
@@ -1731,20 +1958,30 @@
                 "$ref": "#/$defs/Element_derived"
         },
         "RelationshipCompleteness": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "RelationshipCompleteness" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "RelationshipCompleteness"
                     }
                 },
-                { "$ref": "#/$defs/RelationshipCompleteness_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/RelationshipCompleteness_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a RelationshipCompleteness"
+            }
         },
         "RelationshipCompleteness_derived": {
             "anyOf": [
@@ -1772,20 +2009,30 @@
             ]
         },
         "RelationshipType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "RelationshipType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "RelationshipType"
                     }
                 },
-                { "$ref": "#/$defs/RelationshipType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/RelationshipType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a RelationshipType"
+            }
         },
         "RelationshipType_derived": {
             "anyOf": [
@@ -1869,21 +2116,31 @@
             ]
         },
         "SpdxDocument": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "SpdxDocument" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "SpdxDocument"
+                    }
                 },
-                { "$ref": "#/$defs/SpdxDocument_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/SpdxDocument_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a SpdxDocument"
+            }
         },
         "SpdxDocument_derived": {
             "anyOf": [
@@ -1907,7 +2164,7 @@
                             "$ref": "#/$defs/prop_SpdxDocument_dataLicense"
                         },
                         "import": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -1917,7 +2174,7 @@
                             ]
                         },
                         "namespaceMap": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -1940,20 +2197,30 @@
                 "$ref": "#/$defs/NamespaceMap_derived"
         },
         "SupportType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "SupportType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "SupportType"
                     }
                 },
-                { "$ref": "#/$defs/SupportType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/SupportType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a SupportType"
+            }
         },
         "SupportType_derived": {
             "anyOf": [
@@ -1985,21 +2252,31 @@
             ]
         },
         "Tool": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "Tool" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "Tool"
+                    }
                 },
-                { "$ref": "#/$defs/Tool_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/Tool_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a Tool"
+            }
         },
         "Tool_derived": {
             "anyOf": [
@@ -2024,20 +2301,30 @@
             ]
         },
         "dataset_ConfidentialityLevelType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "dataset_ConfidentialityLevelType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "dataset_ConfidentialityLevelType"
                     }
                 },
-                { "$ref": "#/$defs/dataset_ConfidentialityLevelType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/dataset_ConfidentialityLevelType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a dataset_ConfidentialityLevelType"
+            }
         },
         "dataset_ConfidentialityLevelType_derived": {
             "anyOf": [
@@ -2066,20 +2353,30 @@
             ]
         },
         "dataset_DatasetAvailabilityType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "dataset_DatasetAvailabilityType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "dataset_DatasetAvailabilityType"
                     }
                 },
-                { "$ref": "#/$defs/dataset_DatasetAvailabilityType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/dataset_DatasetAvailabilityType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a dataset_DatasetAvailabilityType"
+            }
         },
         "dataset_DatasetAvailabilityType_derived": {
             "anyOf": [
@@ -2109,20 +2406,30 @@
             ]
         },
         "dataset_DatasetType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "dataset_DatasetType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "dataset_DatasetType"
                     }
                 },
-                { "$ref": "#/$defs/dataset_DatasetType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/dataset_DatasetType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a dataset_DatasetType"
+            }
         },
         "dataset_DatasetType_derived": {
             "anyOf": [
@@ -2192,7 +2499,7 @@
                             "$ref": "#/$defs/prop_expandedlicensing_LicenseAddition_expandedlicensing_obsoletedBy"
                         },
                         "expandedlicensing_seeAlso": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -2230,21 +2537,31 @@
                     "type": "string"
         },
         "expandedlicensing_ListedLicenseException": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "expandedlicensing_ListedLicenseException" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "expandedlicensing_ListedLicenseException"
+                    }
                 },
-                { "$ref": "#/$defs/expandedlicensing_ListedLicenseException_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/expandedlicensing_ListedLicenseException_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a expandedlicensing_ListedLicenseException"
+            }
         },
         "expandedlicensing_ListedLicenseException_derived": {
             "anyOf": [
@@ -2281,20 +2598,30 @@
                     "type": "string"
         },
         "extension_CdxPropertyEntry": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "extension_CdxPropertyEntry" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "extension_CdxPropertyEntry"
                     }
                 },
-                { "$ref": "#/$defs/extension_CdxPropertyEntry_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/extension_CdxPropertyEntry_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a extension_CdxPropertyEntry"
+            }
         },
         "extension_CdxPropertyEntry_derived": {
             "anyOf": [
@@ -2333,31 +2660,13 @@
         "prop_extension_CdxPropertyEntry_extension_cdxPropValue": {
                     "type": "string"
         },
-        "extension_Extension": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "unevaluatedProperties": true,
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "allOf":  [
-                                { "$ref": "#/$defs/IRI" },
-                                { "not": { "const": "extension_Extension" } }
-                            ]
-                        }
-                    }
-                },
-                { "$ref": "#/$defs/extension_Extension_props" }
-            ]
-        },
         "extension_Extension_derived": {
             "anyOf": [
                 {
                     "type": "object",
+                    "unevaluatedProperties": false,
                     "anyOf": [
-                        { "$ref": "#/$defs/extension_CdxPropertiesExtension" },
-                        { "$ref": "#/$defs/extension_Extension_props" }
+                        { "$ref": "#/$defs/extension_CdxPropertiesExtension" }
                     ]
                 },
                 { "$ref": "#/$defs/BlankNodeOrIRI" }
@@ -2374,20 +2683,30 @@
             ]
         },
         "security_CvssSeverityType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_CvssSeverityType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_CvssSeverityType"
                     }
                 },
-                { "$ref": "#/$defs/security_CvssSeverityType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/security_CvssSeverityType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_CvssSeverityType"
+            }
         },
         "security_CvssSeverityType_derived": {
             "anyOf": [
@@ -2417,20 +2736,30 @@
             ]
         },
         "security_ExploitCatalogType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_ExploitCatalogType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_ExploitCatalogType"
                     }
                 },
-                { "$ref": "#/$defs/security_ExploitCatalogType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/security_ExploitCatalogType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_ExploitCatalogType"
+            }
         },
         "security_ExploitCatalogType_derived": {
             "anyOf": [
@@ -2457,20 +2786,30 @@
             ]
         },
         "security_SsvcDecisionType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_SsvcDecisionType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_SsvcDecisionType"
                     }
                 },
-                { "$ref": "#/$defs/security_SsvcDecisionType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/security_SsvcDecisionType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_SsvcDecisionType"
+            }
         },
         "security_SsvcDecisionType_derived": {
             "anyOf": [
@@ -2499,20 +2838,30 @@
             ]
         },
         "security_VexJustificationType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_VexJustificationType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_VexJustificationType"
                     }
                 },
-                { "$ref": "#/$defs/security_VexJustificationType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/security_VexJustificationType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_VexJustificationType"
+            }
         },
         "security_VexJustificationType_derived": {
             "anyOf": [
@@ -2658,21 +3007,31 @@
             ]
         },
         "simplelicensing_LicenseExpression": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "simplelicensing_LicenseExpression" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "simplelicensing_LicenseExpression"
+                    }
                 },
-                { "$ref": "#/$defs/simplelicensing_LicenseExpression_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/simplelicensing_LicenseExpression_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a simplelicensing_LicenseExpression"
+            }
         },
         "simplelicensing_LicenseExpression_derived": {
             "anyOf": [
@@ -2693,7 +3052,7 @@
                     "type": "object",
                     "properties": {
                         "simplelicensing_customIdToUri": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -2726,21 +3085,31 @@
                     "type": "string"
         },
         "simplelicensing_SimpleLicensingText": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "simplelicensing_SimpleLicensingText" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "simplelicensing_SimpleLicensingText"
+                    }
                 },
-                { "$ref": "#/$defs/simplelicensing_SimpleLicensingText_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/simplelicensing_SimpleLicensingText_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a simplelicensing_SimpleLicensingText"
+            }
         },
         "simplelicensing_SimpleLicensingText_derived": {
             "anyOf": [
@@ -2774,20 +3143,30 @@
                     "type": "string"
         },
         "software_ContentIdentifier": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "software_ContentIdentifier" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "software_ContentIdentifier"
                     }
                 },
-                { "$ref": "#/$defs/software_ContentIdentifier_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/software_ContentIdentifier_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a software_ContentIdentifier"
+            }
         },
         "software_ContentIdentifier_derived": {
             "anyOf": [
@@ -2831,20 +3210,30 @@
                     "$ref": "#/$defs/anyURI"
         },
         "software_ContentIdentifierType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "software_ContentIdentifierType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "software_ContentIdentifierType"
                     }
                 },
-                { "$ref": "#/$defs/software_ContentIdentifierType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/software_ContentIdentifierType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a software_ContentIdentifierType"
+            }
         },
         "software_ContentIdentifierType_derived": {
             "anyOf": [
@@ -2871,20 +3260,30 @@
             ]
         },
         "software_FileKindType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "software_FileKindType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "software_FileKindType"
                     }
                 },
-                { "$ref": "#/$defs/software_FileKindType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/software_FileKindType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a software_FileKindType"
+            }
         },
         "software_FileKindType_derived": {
             "anyOf": [
@@ -2911,20 +3310,30 @@
             ]
         },
         "software_SbomType": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "software_SbomType" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "software_SbomType"
                     }
                 },
-                { "$ref": "#/$defs/software_SbomType_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/software_SbomType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a software_SbomType"
+            }
         },
         "software_SbomType_derived": {
             "anyOf": [
@@ -2955,20 +3364,30 @@
             ]
         },
         "software_SoftwarePurpose": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "software_SoftwarePurpose" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "software_SoftwarePurpose"
                     }
                 },
-                { "$ref": "#/$defs/software_SoftwarePurpose_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/software_SoftwarePurpose_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a software_SoftwarePurpose"
+            }
         },
         "software_SoftwarePurpose_derived": {
             "anyOf": [
@@ -3022,21 +3441,31 @@
             ]
         },
         "build_Build": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "build_Build" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "build_Build"
+                    }
                 },
-                { "$ref": "#/$defs/build_Build_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/build_Build_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a build_Build"
+            }
         },
         "build_Build_derived": {
             "anyOf": [
@@ -3069,7 +3498,7 @@
                             "$ref": "#/$defs/prop_build_Build_build_buildType"
                         },
                         "build_configSourceDigest": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -3079,7 +3508,7 @@
                             ]
                         },
                         "build_configSourceEntrypoint": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -3089,7 +3518,7 @@
                             ]
                         },
                         "build_configSourceUri": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -3099,7 +3528,7 @@
                             ]
                         },
                         "build_environment": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -3109,7 +3538,7 @@
                             ]
                         },
                         "build_parameter": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -3169,21 +3598,31 @@
                 "$ref": "#/$defs/DictionaryEntry_derived"
         },
         "Agent": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "Agent" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "Agent"
+                    }
                 },
-                { "$ref": "#/$defs/Agent_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/Agent_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a Agent"
+            }
         },
         "Agent_derived": {
             "anyOf": [
@@ -3212,21 +3651,31 @@
             ]
         },
         "Annotation": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "Annotation" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "Annotation"
+                    }
                 },
-                { "$ref": "#/$defs/Annotation_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/Annotation_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a Annotation"
+            }
         },
         "Annotation_derived": {
             "anyOf": [
@@ -3309,7 +3758,7 @@
                             "$ref": "#/$defs/prop_Artifact_builtTime"
                         },
                         "originatedBy": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -3322,7 +3771,7 @@
                             "$ref": "#/$defs/prop_Artifact_releaseTime"
                         },
                         "standardName": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -3335,7 +3784,7 @@
                             "$ref": "#/$defs/prop_Artifact_suppliedBy"
                         },
                         "supportLevel": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -3405,21 +3854,31 @@
                     ]
         },
         "Bundle": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "Bundle" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "Bundle"
+                    }
                 },
-                { "$ref": "#/$defs/Bundle_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/Bundle_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a Bundle"
+            }
         },
         "Bundle_derived": {
             "anyOf": [
@@ -3452,20 +3911,30 @@
                     "type": "string"
         },
         "Hash": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "Hash" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "Hash"
                     }
                 },
-                { "$ref": "#/$defs/Hash_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/Hash_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a Hash"
+            }
         },
         "Hash_derived": {
             "anyOf": [
@@ -3529,21 +3998,31 @@
                     "type": "string"
         },
         "LifecycleScopedRelationship": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "LifecycleScopedRelationship" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "LifecycleScopedRelationship"
+                    }
                 },
-                { "$ref": "#/$defs/LifecycleScopedRelationship_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/LifecycleScopedRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a LifecycleScopedRelationship"
+            }
         },
         "LifecycleScopedRelationship_derived": {
             "anyOf": [
@@ -3581,21 +4060,31 @@
                 ]
         },
         "Organization": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "Organization" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "Organization"
+                    }
                 },
-                { "$ref": "#/$defs/Organization_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/Organization_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a Organization"
+            }
         },
         "Organization_derived": {
             "anyOf": [
@@ -3621,21 +4110,31 @@
             ]
         },
         "Person": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "Person" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "Person"
+                    }
                 },
-                { "$ref": "#/$defs/Person_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/Person_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a Person"
+            }
         },
         "Person_derived": {
             "anyOf": [
@@ -3660,21 +4159,31 @@
             ]
         },
         "SoftwareAgent": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "SoftwareAgent" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "SoftwareAgent"
+                    }
                 },
-                { "$ref": "#/$defs/SoftwareAgent_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/SoftwareAgent_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a SoftwareAgent"
+            }
         },
         "SoftwareAgent_derived": {
             "anyOf": [
@@ -3699,21 +4208,31 @@
             ]
         },
         "expandedlicensing_ConjunctiveLicenseSet": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "expandedlicensing_ConjunctiveLicenseSet" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "expandedlicensing_ConjunctiveLicenseSet"
+                    }
                 },
-                { "$ref": "#/$defs/expandedlicensing_ConjunctiveLicenseSet_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/expandedlicensing_ConjunctiveLicenseSet_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a expandedlicensing_ConjunctiveLicenseSet"
+            }
         },
         "expandedlicensing_ConjunctiveLicenseSet_derived": {
             "anyOf": [
@@ -3734,7 +4253,7 @@
                     "type": "object",
                     "properties": {
                         "expandedlicensing_member": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "minItems": 2,
@@ -3755,21 +4274,31 @@
                 "$ref": "#/$defs/simplelicensing_AnyLicenseInfo_derived"
         },
         "expandedlicensing_CustomLicenseAddition": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "expandedlicensing_CustomLicenseAddition" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "expandedlicensing_CustomLicenseAddition"
+                    }
                 },
-                { "$ref": "#/$defs/expandedlicensing_CustomLicenseAddition_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/expandedlicensing_CustomLicenseAddition_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a expandedlicensing_CustomLicenseAddition"
+            }
         },
         "expandedlicensing_CustomLicenseAddition_derived": {
             "anyOf": [
@@ -3794,21 +4323,31 @@
             ]
         },
         "expandedlicensing_DisjunctiveLicenseSet": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "expandedlicensing_DisjunctiveLicenseSet" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "expandedlicensing_DisjunctiveLicenseSet"
+                    }
                 },
-                { "$ref": "#/$defs/expandedlicensing_DisjunctiveLicenseSet_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/expandedlicensing_DisjunctiveLicenseSet_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a expandedlicensing_DisjunctiveLicenseSet"
+            }
         },
         "expandedlicensing_DisjunctiveLicenseSet_derived": {
             "anyOf": [
@@ -3829,7 +4368,7 @@
                     "type": "object",
                     "properties": {
                         "expandedlicensing_member": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "minItems": 2,
@@ -3874,21 +4413,31 @@
             ]
         },
         "expandedlicensing_IndividualLicensingInfo": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "expandedlicensing_IndividualLicensingInfo" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "expandedlicensing_IndividualLicensingInfo"
+                    }
                 },
-                { "$ref": "#/$defs/expandedlicensing_IndividualLicensingInfo_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/expandedlicensing_IndividualLicensingInfo_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a expandedlicensing_IndividualLicensingInfo"
+            }
         },
         "expandedlicensing_IndividualLicensingInfo_derived": {
             "anyOf": [
@@ -3949,7 +4498,7 @@
                             "$ref": "#/$defs/prop_expandedlicensing_License_expandedlicensing_obsoletedBy"
                         },
                         "expandedlicensing_seeAlso": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -4002,21 +4551,31 @@
                     "type": "string"
         },
         "expandedlicensing_ListedLicense": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "expandedlicensing_ListedLicense" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "expandedlicensing_ListedLicense"
+                    }
                 },
-                { "$ref": "#/$defs/expandedlicensing_ListedLicense_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/expandedlicensing_ListedLicense_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a expandedlicensing_ListedLicense"
+            }
         },
         "expandedlicensing_ListedLicense_derived": {
             "anyOf": [
@@ -4053,21 +4612,31 @@
                     "type": "string"
         },
         "expandedlicensing_OrLaterOperator": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "expandedlicensing_OrLaterOperator" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "expandedlicensing_OrLaterOperator"
+                    }
                 },
-                { "$ref": "#/$defs/expandedlicensing_OrLaterOperator_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/expandedlicensing_OrLaterOperator_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a expandedlicensing_OrLaterOperator"
+            }
         },
         "expandedlicensing_OrLaterOperator_derived": {
             "anyOf": [
@@ -4101,21 +4670,31 @@
                 "$ref": "#/$defs/expandedlicensing_License_derived"
         },
         "expandedlicensing_WithAdditionOperator": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "expandedlicensing_WithAdditionOperator" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "expandedlicensing_WithAdditionOperator"
+                    }
                 },
-                { "$ref": "#/$defs/expandedlicensing_WithAdditionOperator_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/expandedlicensing_WithAdditionOperator_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a expandedlicensing_WithAdditionOperator"
+            }
         },
         "expandedlicensing_WithAdditionOperator_derived": {
             "anyOf": [
@@ -4156,20 +4735,30 @@
                 "$ref": "#/$defs/expandedlicensing_ExtendableLicense_derived"
         },
         "extension_CdxPropertiesExtension": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "extension_CdxPropertiesExtension" }
-                            ]
-                        }
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "extension_CdxPropertiesExtension"
                     }
                 },
-                { "$ref": "#/$defs/extension_CdxPropertiesExtension_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/extension_CdxPropertiesExtension_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a extension_CdxPropertiesExtension"
+            }
         },
         "extension_CdxPropertiesExtension_derived": {
             "anyOf": [
@@ -4190,7 +4779,7 @@
                     "type": "object",
                     "properties": {
                         "extension_cdxProperty": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "minItems": 1,
@@ -4211,21 +4800,31 @@
                 "$ref": "#/$defs/extension_CdxPropertyEntry_derived"
         },
         "security_CvssV2VulnAssessmentRelationship": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_CvssV2VulnAssessmentRelationship" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_CvssV2VulnAssessmentRelationship"
+                    }
                 },
-                { "$ref": "#/$defs/security_CvssV2VulnAssessmentRelationship_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/security_CvssV2VulnAssessmentRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_CvssV2VulnAssessmentRelationship"
+            }
         },
         "security_CvssV2VulnAssessmentRelationship_derived": {
             "anyOf": [
@@ -4260,7 +4859,7 @@
             ]
         },
         "prop_security_CvssV2VulnAssessmentRelationship_security_score": {
-                    "oneOf": [
+                    "anyOf": [
                         {
                             "type": "number"
                         },
@@ -4274,21 +4873,31 @@
                     "type": "string"
         },
         "security_CvssV3VulnAssessmentRelationship": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_CvssV3VulnAssessmentRelationship" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_CvssV3VulnAssessmentRelationship"
+                    }
                 },
-                { "$ref": "#/$defs/security_CvssV3VulnAssessmentRelationship_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/security_CvssV3VulnAssessmentRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_CvssV3VulnAssessmentRelationship"
+            }
         },
         "security_CvssV3VulnAssessmentRelationship_derived": {
             "anyOf": [
@@ -4327,7 +4936,7 @@
             ]
         },
         "prop_security_CvssV3VulnAssessmentRelationship_security_score": {
-                    "oneOf": [
+                    "anyOf": [
                         {
                             "type": "number"
                         },
@@ -4350,21 +4959,31 @@
                     "type": "string"
         },
         "security_CvssV4VulnAssessmentRelationship": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_CvssV4VulnAssessmentRelationship" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_CvssV4VulnAssessmentRelationship"
+                    }
                 },
-                { "$ref": "#/$defs/security_CvssV4VulnAssessmentRelationship_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/security_CvssV4VulnAssessmentRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_CvssV4VulnAssessmentRelationship"
+            }
         },
         "security_CvssV4VulnAssessmentRelationship_derived": {
             "anyOf": [
@@ -4403,7 +5022,7 @@
             ]
         },
         "prop_security_CvssV4VulnAssessmentRelationship_security_score": {
-                    "oneOf": [
+                    "anyOf": [
                         {
                             "type": "number"
                         },
@@ -4426,21 +5045,31 @@
                     "type": "string"
         },
         "security_EpssVulnAssessmentRelationship": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_EpssVulnAssessmentRelationship" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_EpssVulnAssessmentRelationship"
+                    }
                 },
-                { "$ref": "#/$defs/security_EpssVulnAssessmentRelationship_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/security_EpssVulnAssessmentRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_EpssVulnAssessmentRelationship"
+            }
         },
         "security_EpssVulnAssessmentRelationship_derived": {
             "anyOf": [
@@ -4475,7 +5104,7 @@
             ]
         },
         "prop_security_EpssVulnAssessmentRelationship_security_percentile": {
-                    "oneOf": [
+                    "anyOf": [
                         {
                             "type": "number"
                         },
@@ -4486,7 +5115,7 @@
                     ]
         },
         "prop_security_EpssVulnAssessmentRelationship_security_probability": {
-                    "oneOf": [
+                    "anyOf": [
                         {
                             "type": "number"
                         },
@@ -4497,21 +5126,31 @@
                     ]
         },
         "security_ExploitCatalogVulnAssessmentRelationship": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_ExploitCatalogVulnAssessmentRelationship" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_ExploitCatalogVulnAssessmentRelationship"
+                    }
                 },
-                { "$ref": "#/$defs/security_ExploitCatalogVulnAssessmentRelationship_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/security_ExploitCatalogVulnAssessmentRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_ExploitCatalogVulnAssessmentRelationship"
+            }
         },
         "security_ExploitCatalogVulnAssessmentRelationship_derived": {
             "anyOf": [
@@ -4562,21 +5201,31 @@
                     "$ref": "#/$defs/anyURI"
         },
         "security_SsvcVulnAssessmentRelationship": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_SsvcVulnAssessmentRelationship" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_SsvcVulnAssessmentRelationship"
+                    }
                 },
-                { "$ref": "#/$defs/security_SsvcVulnAssessmentRelationship_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/security_SsvcVulnAssessmentRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_SsvcVulnAssessmentRelationship"
+            }
         },
         "security_SsvcVulnAssessmentRelationship_derived": {
             "anyOf": [
@@ -4652,21 +5301,31 @@
                     "type": "string"
         },
         "security_Vulnerability": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_Vulnerability" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_Vulnerability"
+                    }
                 },
-                { "$ref": "#/$defs/security_Vulnerability_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/security_Vulnerability_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_Vulnerability"
+            }
         },
         "security_Vulnerability_derived": {
             "anyOf": [
@@ -4755,7 +5414,7 @@
                     "type": "object",
                     "properties": {
                         "software_additionalPurpose": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -4765,7 +5424,7 @@
                             ]
                         },
                         "software_attributionText": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -4775,7 +5434,7 @@
                             ]
                         },
                         "software_contentIdentifier": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -4870,21 +5529,31 @@
                 ]
         },
         "Bom": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "Bom" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "Bom"
+                    }
                 },
-                { "$ref": "#/$defs/Bom_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/Bom_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a Bom"
+            }
         },
         "Bom_derived": {
             "anyOf": [
@@ -4910,21 +5579,31 @@
             ]
         },
         "expandedlicensing_CustomLicense": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "expandedlicensing_CustomLicense" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "expandedlicensing_CustomLicense"
+                    }
                 },
-                { "$ref": "#/$defs/expandedlicensing_CustomLicense_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/expandedlicensing_CustomLicense_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a expandedlicensing_CustomLicense"
+            }
         },
         "expandedlicensing_CustomLicense_derived": {
             "anyOf": [
@@ -4949,21 +5628,31 @@
             ]
         },
         "security_VexAffectedVulnAssessmentRelationship": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_VexAffectedVulnAssessmentRelationship" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_VexAffectedVulnAssessmentRelationship"
+                    }
                 },
-                { "$ref": "#/$defs/security_VexAffectedVulnAssessmentRelationship_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/security_VexAffectedVulnAssessmentRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_VexAffectedVulnAssessmentRelationship"
+            }
         },
         "security_VexAffectedVulnAssessmentRelationship_derived": {
             "anyOf": [
@@ -5011,21 +5700,31 @@
                     ]
         },
         "security_VexFixedVulnAssessmentRelationship": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_VexFixedVulnAssessmentRelationship" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_VexFixedVulnAssessmentRelationship"
+                    }
                 },
-                { "$ref": "#/$defs/security_VexFixedVulnAssessmentRelationship_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/security_VexFixedVulnAssessmentRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_VexFixedVulnAssessmentRelationship"
+            }
         },
         "security_VexFixedVulnAssessmentRelationship_derived": {
             "anyOf": [
@@ -5050,21 +5749,31 @@
             ]
         },
         "security_VexNotAffectedVulnAssessmentRelationship": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_VexNotAffectedVulnAssessmentRelationship" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_VexNotAffectedVulnAssessmentRelationship"
+                    }
                 },
-                { "$ref": "#/$defs/security_VexNotAffectedVulnAssessmentRelationship_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/security_VexNotAffectedVulnAssessmentRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_VexNotAffectedVulnAssessmentRelationship"
+            }
         },
         "security_VexNotAffectedVulnAssessmentRelationship_derived": {
             "anyOf": [
@@ -5121,21 +5830,31 @@
                 ]
         },
         "security_VexUnderInvestigationVulnAssessmentRelationship": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "security_VexUnderInvestigationVulnAssessmentRelationship" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "security_VexUnderInvestigationVulnAssessmentRelationship"
+                    }
                 },
-                { "$ref": "#/$defs/security_VexUnderInvestigationVulnAssessmentRelationship_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/security_VexUnderInvestigationVulnAssessmentRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a security_VexUnderInvestigationVulnAssessmentRelationship"
+            }
         },
         "security_VexUnderInvestigationVulnAssessmentRelationship_derived": {
             "anyOf": [
@@ -5160,21 +5879,31 @@
             ]
         },
         "software_File": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "software_File" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "software_File"
+                    }
                 },
-                { "$ref": "#/$defs/software_File_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/software_File_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a software_File"
+            }
         },
         "software_File_derived": {
             "anyOf": [
@@ -5215,21 +5944,31 @@
                 ]
         },
         "software_Package": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "software_Package" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "software_Package"
+                    }
                 },
-                { "$ref": "#/$defs/software_Package_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/software_Package_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a software_Package"
+            }
         },
         "software_Package_derived": {
             "anyOf": [
@@ -5286,21 +6025,31 @@
                     "type": "string"
         },
         "software_Sbom": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "software_Sbom" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "software_Sbom"
+                    }
                 },
-                { "$ref": "#/$defs/software_Sbom_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/software_Sbom_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a software_Sbom"
+            }
         },
         "software_Sbom_derived": {
             "anyOf": [
@@ -5321,7 +6070,7 @@
                     "type": "object",
                     "properties": {
                         "software_sbomType": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5345,21 +6094,31 @@
                 ]
         },
         "software_Snippet": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "software_Snippet" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "software_Snippet"
+                    }
                 },
-                { "$ref": "#/$defs/software_Snippet_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/software_Snippet_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a software_Snippet"
+            }
         },
         "software_Snippet_derived": {
             "anyOf": [
@@ -5405,21 +6164,31 @@
                 "$ref": "#/$defs/software_File_derived"
         },
         "ai_AIPackage": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "ai_AIPackage" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ai_AIPackage"
+                    }
                 },
-                { "$ref": "#/$defs/ai_AIPackage_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/ai_AIPackage_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ai_AIPackage"
+            }
         },
         "ai_AIPackage_derived": {
             "anyOf": [
@@ -5443,7 +6212,7 @@
                             "$ref": "#/$defs/prop_ai_AIPackage_ai_autonomyType"
                         },
                         "ai_domain": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5456,7 +6225,7 @@
                             "$ref": "#/$defs/prop_ai_AIPackage_ai_energyConsumption"
                         },
                         "ai_hyperparameter": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5475,7 +6244,7 @@
                             "$ref": "#/$defs/prop_ai_AIPackage_ai_limitation"
                         },
                         "ai_metric": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5485,7 +6254,7 @@
                             ]
                         },
                         "ai_metricDecisionThreshold": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5495,7 +6264,7 @@
                             ]
                         },
                         "ai_modelDataPreprocessing": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5505,7 +6274,7 @@
                             ]
                         },
                         "ai_modelExplainability": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5518,7 +6287,7 @@
                             "$ref": "#/$defs/prop_ai_AIPackage_ai_safetyRiskAssessment"
                         },
                         "ai_standardCompliance": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5528,7 +6297,7 @@
                             ]
                         },
                         "ai_typeOfModel": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5603,21 +6372,31 @@
                 ]
         },
         "dataset_DatasetPackage": {
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "spdxId": { "$ref": "#/$defs/IRI" },
-                        "type": {
-                            "oneOf": [
-                                { "const": "dataset_DatasetPackage" }
-                            ]
-                        }
-                    },
-                    "required": ["spdxId"]
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "dataset_DatasetPackage"
+                    }
                 },
-                { "$ref": "#/$defs/dataset_DatasetPackage_props" }
-            ]
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["@id"]
+                    },
+                    { "$ref": "#/$defs/dataset_DatasetPackage_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a dataset_DatasetPackage"
+            }
         },
         "dataset_DatasetPackage_derived": {
             "anyOf": [
@@ -5638,7 +6417,7 @@
                     "type": "object",
                     "properties": {
                         "dataset_anonymizationMethodUsed": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5654,7 +6433,7 @@
                             "$ref": "#/$defs/prop_dataset_DatasetPackage_dataset_dataCollectionProcess"
                         },
                         "dataset_dataPreprocessing": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5673,7 +6452,7 @@
                             "$ref": "#/$defs/prop_dataset_DatasetPackage_dataset_datasetSize"
                         },
                         "dataset_datasetType": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "minItems": 1,
@@ -5693,7 +6472,7 @@
                             "$ref": "#/$defs/prop_dataset_DatasetPackage_dataset_intendedUse"
                         },
                         "dataset_knownBias": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5703,7 +6482,7 @@
                             ]
                         },
                         "dataset_sensor": {
-                            "oneOf": [
+                            "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
@@ -5798,7 +6577,7 @@
             "pattern": "^_:.+"
         },
         "BlankNodeOrIRI": {
-            "oneOf": [
+            "anyOf": [
                 { "$ref": "#/$defs/IRI" },
                 { "$ref": "#/$defs/BlankNode" }
             ]
@@ -5810,7 +6589,7 @@
             "type": "object",
             "properties": {
                 "type": {
-                    "oneOf": [
+                    "anyOf": [
                         { "$ref": "#/$defs/IRI" },
                         {
                             "enum": [
