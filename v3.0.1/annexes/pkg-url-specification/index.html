@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors." /><link rel="canonical" href="https://spdx.github.io/spdx-spec/v3.0.1/annexes/pkg-url-specification/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>E. Package URL specification - SPDX Specification 3.1-dev</title>
+    <title>E. Package URL specification - SPDX Specification 3.0.1</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -23,7 +23,6 @@
       <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/abnf.min.js"></script>
       <script>hljs.highlightAll();</script> 
 </head>
 
@@ -33,7 +32,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> SPDX Specification 3.1-dev
+          <a href="../.." class="icon icon-home"> SPDX Specification 3.0.1
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -836,7 +835,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">SPDX Specification 3.1-dev</a>
+          <a href="../..">SPDX Specification 3.0.1</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -873,7 +872,7 @@ familiar URLs.</p>
 </code></pre>
 
 <p>Components are separated by a specific character for unambiguous parsing.</p>
-<p>The definition for each component is:</p>
+<p>The definition for each components is:</p>
 <ul>
 <li><strong>scheme</strong>: this is the URL scheme with the constant value of "<code>pkg</code>". One of the primary reason for this single scheme is to facilitate the future official registration of the "<code>pkg</code>" scheme for package URLs. Required.</li>
 <li><strong>type</strong>: the package type or package protocol such as maven, npm, nuget, gem, pypi, etc. Required.</li>
@@ -886,8 +885,8 @@ familiar URLs.</p>
 <p>Components are designed such that they form a hierarchy from the most
 significant on the left to the least significant components on the right.</p>
 <p>A <em>purl</em> is a valid URL and URI that conforms to the URL definitions
-and specifications in RFC 3986 <a href="https://datatracker.ietf.org/doc/rfc3986/">https://datatracker.ietf.org/doc/rfc3986/</a>.</p>
-<p>A <em>purl</em> shall not contain a URL Authority i.e. there is no
+and specifications in RFC 3986 <a href="https://datatracker.ietf.org/doc/rfc3986">https://datatracker.ietf.org/doc/rfc3986</a>.</p>
+<p>A <em>purl</em> must not contain a URL Authority i.e. there is no
 support for username, password, host and port components.
 A <code>namespace</code> segment may sometimes look like a host
 but its interpretation is specific to a type.</p>
@@ -901,68 +900,67 @@ but its interpretation is specific to a type.</p>
 <h2 id="character-encoding">Character encoding</h2>
 <p>For clarity and simplicity a <em>purl</em> is always an ASCII string.
 To ensure that there is no ambiguity when parsing a <em>purl</em>,
-separator characters and non-ASCII characters shall be encoded in UTF-8,
-and then percent-encoded as defined in RFC 3986 <a href="https://datatracker.ietf.org/doc/rfc3986/">https://datatracker.ietf.org/doc/rfc3986/</a>.</p>
+separator characters and non-ASCII characters must be encoded in UTF-8,
+and then percent-encoded as defined in RFC 3986 <a href="https://datatracker.ietf.org/doc/rfc3986">https://datatracker.ietf.org/doc/rfc3986</a>.</p>
 <p>Use these rules for percent-encoding and decoding <em>purl</em> components:</p>
 <ul>
-<li>the type shall not be encoded and shall not contain separators</li>
-<li>the <code>#</code>, <code>?</code>, <code>@</code> and <code>:</code> characters shall not be encoded when used as separators. They may need to be encoded elsewhere</li>
-<li>the <code>:</code> scheme and type separator does not need to and shall not be encoded. It is unambiguous unencoded everywhere</li>
-<li>the <code>/</code> used as type/namespace/name and subpath segments separator does not need to and shall not be percent-encoded. It is unambiguous unencoded everywhere</li>
-<li>the <code>@</code> version separator shall be encoded as <code>%40</code> elsewhere</li>
-<li>the <code>?</code> qualifiers separator shall be encoded as <code>%3F</code> elsewhere</li>
-<li>the <code>=</code> qualifiers key/value separator shall not be encoded</li>
-<li>the <code>#</code> subpath separator shall be encoded as <code>%23</code> elsewhere</li>
-<li>All non-ASCII characters shall be encoded as UTF-8 and then percent-encoded</li>
+<li>the type must NOT be encoded and must NOT contain separators</li>
+<li>the <code>#</code>, <code>?</code>, <code>@</code> and <code>:</code> characters must NOT be encoded when used as separators. They may need to be encoded elsewhere</li>
+<li>the <code>:</code> scheme and type separator does not need to and must NOT be encoded. It is unambiguous unencoded everywhere</li>
+<li>the <code>/</code> used as type/namespace/name and subpath segments separator does not need to and must NOT be percent-encoded. It is unambiguous unencoded everywhere</li>
+<li>the <code>@</code> version separator must be encoded as <code>%40</code> elsewhere</li>
+<li>the <code>?</code> qualifiers separator must be encoded as <code>%3F</code> elsewhere</li>
+<li>the <code>=</code> qualifiers key/value separator must NOT be encoded</li>
+<li>the <code>#</code> subpath separator must be encoded as <code>%23</code> elsewhere</li>
+<li>All non-ASCII characters must be encoded as UTF-8 and then percent-encoded</li>
 </ul>
 <p>It is OK to percent-encode any <em>purl</em> components, except for the type.
 Producers and consumers of <em>purl</em> data
-shall always percent-decode and percent-encode
+must always percent-decode and percent-encode
 components and component segments
 as explained in the "How to produce and consume <em>purl</em> data" section.</p>
 <h2 id="rules-for-each-component">Rules for each component</h2>
 <p>A <em>purl</em> string is an ASCII URL string composed of seven components.</p>
 <p>Some components are allowed to use other characters beyond ASCII: these
-components shall then be UTF-8-encoded strings and percent-encoded as
+components must then be UTF-8-encoded strings and percent-encoded as
 defined in the "Character encoding" section.</p>
 <p>The rules for each component are:</p>
 <h3 id="rules-for-scheme">Rules for scheme</h3>
 <ul>
 <li>The scheme is a constant with the value "<code>pkg</code>"</li>
-<li>Since a <em>purl</em> never contains a URL Authority, its scheme shall not be suffixed with double slash as in <code>pkg://</code> and shall use instead <code>pkg:</code>.</li>
-<li><em>purl</em> parsers shall accept URLs such as 'pkg://' and shall ignore the '//'.</li>
-<li><em>purl</em> builders shall not create invalid URLs with such double slash '//'.</li>
+<li>Since a <em>purl</em> never contains a URL Authority, its scheme must not be suffixed with double slash as in <code>pkg://</code> and should use instead <code>pkg:</code>.</li>
+<li><em>purl</em> parsers must accept URLs such as 'pkg://' and must ignore the '//'.</li>
+<li><em>purl</em> builders must not create invalid URLs with such double slash '//'.</li>
 <li>The scheme is followed by a ':' separator.</li>
+<li>For example, the two purls <code>pkg:gem/ruby-advisory-db-check@0.12.4</code> and <code>pkg://gem/ruby-advisory-db-check@0.12.4</code> are strictly equivalent. The first is in canonical form while the second is an acceptable <em>purl</em> but is an invalid URI/URL per RFC3986.</li>
 </ul>
-<p>For example, the two purls <code>pkg:gem/ruby-advisory-db-check@0.12.4</code> and <code>pkg://gem/ruby-advisory-db-check@0.12.4</code> are strictly equivalent.
-The first is in canonical form while the second is an acceptable <em>purl</em> but is an invalid URI/URL per RFC 3986.</p>
 <h3 id="rules-for-type">Rules for type</h3>
 <ul>
 <li>The package type is composed only of ASCII letters and numbers, <code>.</code>, <code>+</code> and <code>-</code> (period, plus, and dash).</li>
-<li>The type shall not start with a number.</li>
-<li>The type shall not contain spaces.</li>
-<li>The type shall not be percent-encoded.</li>
+<li>The type cannot start with a number.</li>
+<li>The type cannot contain spaces.</li>
+<li>The type must not be percent-encoded.</li>
 <li>The type is case insensitive, with the canonical form being lowercase.</li>
 </ul>
 <h3 id="rules-for-namespace">Rules for namespace</h3>
 <ul>
 <li>The optional namespace contains zero or more segments, separated by slash <code>/</code>.</li>
-<li>Leading and trailing slashes <code>/</code> are not significant and shall be stripped in the canonical form. They are not part of the namespace.</li>
-<li>Each namespace segment shall be a percent-encoded string.</li>
-<li>When percent-decoded, a segment shall not contain a slash <code>/</code> and shall not be empty.</li>
-<li>A URL host or Authority shall not be used as a namespace. Use instead a <code>repository_url</code> qualifier. Note however that for some types, the namespace may look like a host.</li>
+<li>Leading and trailing slashes <code>/</code> are not significant and should be stripped in the canonical form. They are not part of the namespace.</li>
+<li>Each namespace segment must be a percent-encoded string.</li>
+<li>When percent-decoded, a segment must not contain a slash <code>/</code> and must not be empty.</li>
+<li>A URL host or Authority must NOT be used as a namespace. Use instead a <code>repository_url</code> qualifier. Note however that for some types, the namespace may look like a host.</li>
 </ul>
 <h3 id="rules-for-name">Rules for name</h3>
 <ul>
 <li>The name is prefixed by a slash <code>/</code> separator when the namespace is not empty.</li>
 <li>This slash <code>/</code> is not part of the name.</li>
-<li>A name shall be a percent-encoded string.</li>
+<li>A name must be a percent-encoded string.</li>
 </ul>
 <h3 id="rules-for-version">Rules for version</h3>
 <ul>
 <li>The version is prefixed by a at-sign <code>@</code> separator when not empty.</li>
 <li>This at-sign <code>@</code> is not part of the version.</li>
-<li>A version shall be a percent-encoded string.</li>
+<li>A version must be a percent-encoded string.</li>
 <li>A version is a plain and opaque string. Some package types use versioning conventions such as SemVer for NPMs or NEVRA conventions for RPMS. A type may define a procedure to compare and sort versions, but there is no reliable and uniform way to do such comparison consistently.</li>
 </ul>
 <h3 id="rules-for-qualifiers">Rules for qualifiers</h3>
@@ -971,14 +969,14 @@ The first is in canonical form while the second is an acceptable <em>purl</em> b
 <li>This <code>?</code> is not part of the qualifiers.</li>
 <li>This is a string composed of zero or more key=value pairs each separated by an ampersand <code>&amp;</code>. A key and value are separated by an equal <code>=</code> character.</li>
 <li>These <code>&amp;</code> are not part of the key=value pairs.</li>
-<li>Each key shall be unique within the keys of the qualifiers string.</li>
-<li>A value shall not be an empty string; a key=value pair with an empty value is the same as no key/value at all for this key.</li>
-<li>Each key shall be composed only of ASCII letters and numbers, <code>.</code>, <code>-</code> and <code>\_</code> (period, dash and underscore).</li>
-<li>A key shall not start with a number.</li>
-<li>A key shall not be percent-encoded.</li>
+<li>Each key must be unique within the keys of the qualifiers string.</li>
+<li>A value cannot be an empty string; a key=value pair with an empty value is the same as no key/value at all for this key.</li>
+<li>Each key must be composed only of ASCII letters and numbers, <code>.</code>, <code>-</code> and <code>\_</code> (period, dash and underscore).</li>
+<li>A key cannot start with a number.</li>
+<li>A key must NOT be percent-encoded.</li>
 <li>A key is case insensitive, with the canonical form being lowercase.</li>
-<li>A key shall not contain spaces.</li>
-<li>A value shall be a percent-encoded string.</li>
+<li>A key cannot contain spaces.</li>
+<li>A value must be a percent-encoded string.</li>
 <li>The <code>=</code> separator is neither part of the key nor of the value.</li>
 </ul>
 <h3 id="rules-for-subpath">Rules for subpath</h3>
@@ -986,10 +984,10 @@ The first is in canonical form while the second is an acceptable <em>purl</em> b
 <li>The subpath string is prefixed by a <code>#</code> separator when not empty.</li>
 <li>This <code>#</code> is not part of the subpath.</li>
 <li>The subpath contains zero or more segments, separated by slash <code>/</code>.</li>
-<li>Leading and trailing slashes <code>/</code> are not significant and shall be stripped in the canonical form.</li>
-<li>Each subpath segment shall be a percent-encoded string.</li>
-<li>When percent-decoded, a segment shall not contain a <code>/</code>, shall not be any of <code>..</code> or <code>.</code>, and shall not be empty.</li>
-<li>The subpath shall be interpreted as relative to the root of the package.</li>
+<li>Leading and trailing slashes <code>/</code> are not significant and should be stripped in the canonical form.</li>
+<li>Each subpath segment must be a percent-encoded string.</li>
+<li>When percent-decoded, a segment must not contain a <code>/</code>, must not be any of <code>..</code> or <code>.</code>, and must not be empty.</li>
+<li>The subpath must be interpreted as relative to the root of the package.</li>
 </ul>
 <h2 id="known-types">Known types</h2>
 <p>There are several known <em>purl</em> package type definitions.
@@ -1093,7 +1091,7 @@ when building or deconstructing <em>purl</em> instances.</p>
 <li>Append <code>?</code> to the <em>purl</em></li>
 <li>Discard any pair where the value is empty</li>
 <li>Encode each value in UTF-8-encoding</li>
-<li>If the key is <code>checksum</code> and there is more than one checksum, join the list with <code>,</code> to create the qualifier value</li>
+<li>If the key is <code>checksum</code> and there are more than one checksums, join the list with <code>,</code> to create the qualifier value</li>
 <li>Create each qualifier string by joining the lowercased key, the equal <code>=</code> sign, and the percent-encoded value</li>
 <li>Sort this list of qualifier strings lexicographically</li>
 <li>Join this list of sorted qualifier strings with <code>&amp;</code></li>
@@ -1151,7 +1149,7 @@ by splitting the string on different characters.</p>
 <li>
 <p>Split the remainder once from left on <code>:</code>; the right side is the remainder.</p>
 </li>
-<li>The left side lowercased is the scheme. It shall be exactly "<code>pkg:</code>".</li>
+<li>The left side lowercased is the scheme. It should be exactly "<code>pkg:</code>".</li>
 <li>Strip the remainder from leading and trailing <code>/</code>.</li>
 <li>Split this once from left on <code>/</code>; the right side is the remainder.</li>
 <li>The left side lowercased is the type.</li>
@@ -1200,7 +1198,7 @@ by splitting the string on different characters.</p>
 <li><code>pkg:rpm/fedora/curl@7.50.3-1.fc25?arch=i386&amp;distro=fedora-25</code></li>
 </ul>
 <h2 id="original-license">Original license</h2>
-<p>This document is based on the texts published
+<p>This specification is based on the texts published
 in the <a href="https://github.com/package-url/purl-spec">https://github.com/package-url/purl-spec</a> online repository.
 The original license and attribution are reproduced below:</p>
 <p>Copyright (c) the purl authors</p>
@@ -1230,7 +1228,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-      <p>SPDX v3.1-dev Copyright © 2010-2025, The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.</p>
+      <p>SPDX v3.0.1 Copyright © 2010-2024, The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.</p>
   </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.

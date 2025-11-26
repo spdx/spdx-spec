@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors." /><link rel="canonical" href="https://spdx.github.io/spdx-spec/v3.0.1/serializations/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>6. Model and serializations - SPDX Specification 3.1-dev</title>
+    <title>6. Model and serializations - SPDX Specification 3.0.1</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -23,7 +23,6 @@
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/abnf.min.js"></script>
       <script>hljs.highlightAll();</script> 
 </head>
 
@@ -33,7 +32,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> SPDX Specification 3.1-dev
+          <a href=".." class="icon icon-home"> SPDX Specification 3.0.1
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -85,10 +84,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#serialization-information">Serialization information</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#serialization-in-spdx-3-json">Serialization in SPDX 3 JSON</a>
+    <li class="toctree-l2"><a class="reference internal" href="#serialization-in-json-ld">Serialization in JSON-LD</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#a-strict-subset-of-json-ld">A strict subset of JSON-LD</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#json-ld-context-file">JSON-LD context file</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#json-ld-validation">JSON-LD validation</a>
@@ -814,7 +811,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">SPDX Specification 3.1-dev</a>
+          <a href="..">SPDX Specification 3.0.1</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -832,7 +829,7 @@
               
                 <h1 id="model-and-serializations">Model and serializations</h1>
 <h2 id="overview">Overview</h2>
-<p>This document defines the data model of the SPDX standard, describing
+<p>This specification defines the data model of the SPDX standard, describing
 every piece of information about systems with software components. The data
 model is based on the Resource Description Framework (RDF) extensible
 knowledge representation data model, which provides a flexible and extensible
@@ -861,29 +858,29 @@ JSON-LD format.</p>
 reproducible form.</p>
 <p>Such a canonical form normalizes things like ordering and formatting.</p>
 <p>The content of the canonical serialization is exactly the same as the JSON-LD
-serialization of RDF data, just represented in a consistent way.</p>
+serialization of RDF data (see 4.2), just represented in a consistent way.</p>
 <p>Canonical serialization is in JSON format, as defined in
 <a href="https://datatracker.ietf.org/doc/rfc8259/">RFC 8259 (IETF STD 90)</a>,
 with the following additional characteristics:</p>
 <ul>
 <li>No line breaks</li>
-<li>Key names shall be wrapped in double quotes</li>
+<li>Key names MUST be wrapped in double quotes</li>
 <li>No whitespace outside of strings</li>
-<li><code>true</code>, <code>false</code> and <code>null</code>: the literal names shall be lowercase; no other
+<li><code>true</code>, <code>false</code> and <code>null</code>: the literal names must be lowercase; no other
   literal names are allowed</li>
 <li>Integers: represented in base 10 using decimal digits. This designates an
   integer component that may be prefixed with an optional minus sign.
   Leading zeros are not allowed.</li>
-<li>Strings: UTF-8 representation without specific normalization. A string
+<li>Strings: UTF-8 representation without specific canonicalisation. A string
   begins and ends with quotation marks (%x22). Any Unicode characters may be
-  placed within the quotation marks, except for the two characters that shall be
+  placed within the quotation marks, except for the two characters that MUST be
   escaped by a reverse solidus: quotation mark, reverse solidus, and the
   control characters (U+0000 through U+001F).</li>
 <li>Arrays: An array structure is represented as square brackets surrounding zero
   or more items. Items are separated by commas.</li>
 <li>Objects: An object structure is represented as a pair of curly brackets
   surrounding zero or more name/value pairs (or members). A name is a string
-  containing only ASCII characters (0x21-0x7F). The names within an object shall
+  containing only ASCII characters (0x21-0x7F). The names within an object must
   be unique. A single colon comes after each name, separating the name from the
   value. A single comma separates a value from a following name. The name/value
   pairs are ordered by name.</li>
@@ -901,26 +898,21 @@ that can be natively represented within the chosen serialization format
 (e.g., <code>@context</code> prefixes in JSON-LD instead of the namespaceMap) may utilize
 these native mechanisms. All remaining properties shall be serialized within
 the SpdxDocument element itself.</p>
-<p>A serialization shall not contain more than one SpdxDocument.</p>
-<p>A given instance of serialization shall not define more than one SpdxDocument
+<p>A serialization must not contain more than one SpdxDocument.</p>
+<p>A given instance of serialization must not define more than one SpdxDocument
 element.</p>
-<h2 id="serialization-in-spdx-3-json">Serialization in SPDX 3 JSON</h2>
-<h3 id="a-strict-subset-of-json-ld">A strict subset of JSON-LD</h3>
-<p>The SPDX 3 JSON format is a strict subset of JSON-LD.
-It requires data to be serialized according to the defined serialization
-specification and validated against the SPDX 3 JSON Schema.
-It may be parsed – not serialized – using standard JSON-LD libraries.</p>
+<h2 id="serialization-in-json-ld">Serialization in JSON-LD</h2>
 <h3 id="json-ld-context-file">JSON-LD context file</h3>
 <p>JSON-LD contexts allow JSON documents to use simple, human-readable, locally
 defined terms while ensuring data interoperability across different systems.</p>
-<p>The SPDX global JSON-LD context file shall be used universally for all SPDX
+<p>The SPDX global JSON-LD context file must be used universally for all SPDX
 documents in JSON-LD format that adhere to a specific SPDX version.</p>
 <p>SPDX global JSON-LD context file is available at:
-<a href="https://spdx.org/rdf/3.1/spdx-context.jsonld">https://spdx.org/rdf/3.1/spdx-context.jsonld</a></p>
-<p>All SPDX documents in JSON-LD format shall include a reference to the SPDX
+<a href="https://spdx.org/rdf/3.0.1/spdx-context.jsonld">https://spdx.org/rdf/3.0.1/spdx-context.jsonld</a></p>
+<p>All SPDX documents in JSON-LD format must include a reference to the SPDX
 global context file at the top level.
 This reference is achieved using the following JSON construct:</p>
-<pre class="codehilite"><code class="language-json">&quot;@context&quot;: &quot;https://spdx.org/rdf/3.1/spdx-context.jsonld&quot;
+<pre class="codehilite"><code class="language-json">&quot;@context&quot;: &quot;https://spdx.org/rdf/3.0.1/spdx-context.jsonld&quot;
 </code></pre>
 
 <p>The SPDX context file defines aliases for specific JSON-LD properties to
@@ -935,19 +927,19 @@ the context.</p>
 <p>An SPDX serialization in JSON-LD format is considered conformant to the SPDX
 specification if it adheres to the following two validation criteria:</p>
 <ul>
-<li>Structural validation: The JSON-LD document shall structurally validate
-  against the SPDX 3 JSON Schema. This schema defines the expected structure of
+<li>Structural validation: The JSON-LD document must structurally validate
+  against the SPDX JSON Schema. This schema defines the expected structure of
   the JSON-LD document, including the required elements, data types, and
   permissible values.</li>
-<li>Semantic validation: The JSON-LD document shall successfully validate against
-  the SPDX 3 OWL ontology. This ontology defines the expected relationships and
-  constraints between SPDX elements. The SPDX 3 OWL ontology also incorporates
+<li>Semantic validation: The JSON-LD document must successfully validate against
+  the SPDX OWL ontology. This ontology defines the expected relationships and
+  constraints between SPDX elements. The SPDX OWL ontology also incorporates
   SHACL shape restrictions to further specify these constraints.</li>
 </ul>
-<p>The SPDX 3 JSON Schema is available at:
-<a href="https://spdx.org/schema/3.1/spdx-json-schema.json">https://spdx.org/schema/3.1/spdx-json-schema.json</a></p>
-<p>The SPDX 3 OWL ontology is available at:
-<a href="https://spdx.org/rdf/3.1/spdx-model.ttl">https://spdx.org/rdf/3.1/spdx-model.ttl</a></p>
+<p>The SPDX JSON Schema is available at:
+<a href="https://spdx.org/schema/3.0.1/spdx-json-schema.json">https://spdx.org/schema/3.0.1/spdx-json-schema.json</a></p>
+<p>The SPDX OWL ontology is available at:
+<a href="https://spdx.org/rdf/3.0.1/spdx-model.ttl">https://spdx.org/rdf/3.0.1/spdx-model.ttl</a></p>
               
             </div>
           </div><footer>
@@ -960,7 +952,7 @@ specification if it adheres to the following two validation criteria:</p>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-      <p>SPDX v3.1-dev Copyright © 2010-2025, The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.</p>
+      <p>SPDX v3.0.1 Copyright © 2010-2024, The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.</p>
   </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
