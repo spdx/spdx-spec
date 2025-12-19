@@ -644,6 +644,7 @@
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCorePhysicalLocation" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRegulation" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRelationship" },
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRequirement" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSoftwareAgent" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSpdxDocument" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSpecification" },
@@ -663,6 +664,8 @@
                         { "$ref": "#/$defs/https_spdxorgrdf31termsHardwarePhysicalHardware" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsHardwareProductSpecification" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsHardwareVirtualHardware" },
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsExportControlClassificationAssessment" },
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsProject" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssV2VulnAssessmentRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssV3VulnAssessmentRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssV4VulnAssessmentRelationship" },
@@ -836,6 +839,7 @@
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreBom" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreBundle" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSpdxDocument" },
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsProject" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSoftwareSbom" }
                     ]
                 },
@@ -2364,6 +2368,105 @@
                 }
             ]
         },
+        "https_spdxorgrdf31termsCoreRequirement": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "https://spdx.org/rdf/3.1/terms/Core/Requirement"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRequirement_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a https_spdxorgrdf31termsCoreRequirement"
+            }
+        },
+        "https_spdxorgrdf31termsCoreRequirement_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRequirement" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsCoreRequirement_props": {
+            "allOf": [
+                { "$ref": "#/$defs/https_spdxorgrdf31termsCoreElement_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "https://spdx.org/rdf/3.1/terms/Core/devLifecycleStage": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsCoreRequirement_devLifecycleStage"
+                                    }
+                                }
+                            ]
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Core/requirementRationale": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsCoreRequirement_requirementRationale"
+                                    }
+                                }
+                            ]
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Core/requirementStatement": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsCoreRequirement_requirementStatement"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Core/requirementUUID": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsCoreRequirement_requirementUUID"
+                        }
+                    },
+                    "required": [
+                        "https://spdx.org/rdf/3.1/terms/Core/requirementStatement"
+                    ]
+                }
+            ]
+        },
+        "prop_https_spdxorgrdf31termsCoreRequirement_devLifecycleStage": {
+                "enum": [
+                    "https://spdx.org/rdf/3.1/terms/Core/LifecycleScopeType/build",
+                    "https://spdx.org/rdf/3.1/terms/Core/LifecycleScopeType/decommission",
+                    "https://spdx.org/rdf/3.1/terms/Core/LifecycleScopeType/design",
+                    "https://spdx.org/rdf/3.1/terms/Core/LifecycleScopeType/development",
+                    "https://spdx.org/rdf/3.1/terms/Core/LifecycleScopeType/other",
+                    "https://spdx.org/rdf/3.1/terms/Core/LifecycleScopeType/runtime",
+                    "https://spdx.org/rdf/3.1/terms/Core/LifecycleScopeType/test",
+                    "https://spdx.org/rdf/3.1/terms/Core/LifecycleScopeType/update"
+                ]
+        },
+        "prop_https_spdxorgrdf31termsCoreRequirement_requirementRationale": {
+                    "type": "string"
+        },
+        "prop_https_spdxorgrdf31termsCoreRequirement_requirementStatement": {
+                    "type": "string"
+        },
+        "prop_https_spdxorgrdf31termsCoreRequirement_requirementUUID": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsCoreExternalIdentifier_derived"
+        },
         "https_spdxorgrdf31termsCoreSpdxDocument": {
             "if": {
                 "type": "object",
@@ -3229,6 +3332,91 @@
                     }
                 }
             ]
+        },
+        "https_spdxorgrdf31termsOperationsExportControlClassification": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "https://spdx.org/rdf/3.1/terms/Operations/ExportControlClassification"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsExportControlClassification_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a https_spdxorgrdf31termsOperationsExportControlClassification"
+            }
+        },
+        "https_spdxorgrdf31termsOperationsExportControlClassification_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsExportControlClassification" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsOperationsExportControlClassification_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "https://spdx.org/rdf/3.1/terms/Core/comment": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsExportControlClassification_Corecomment"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/exportClassification": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsExportControlClassification_exportClassification"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/exportControlSpecification": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsExportControlClassification_exportControlSpecification"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/exportingCountry": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsExportControlClassification_exportingCountry"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/weight": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsExportControlClassification_weight"
+                        }
+                    },
+                    "required": [
+                        "https://spdx.org/rdf/3.1/terms/Operations/exportClassification",
+                        "https://spdx.org/rdf/3.1/terms/Operations/exportControlSpecification",
+                        "https://spdx.org/rdf/3.1/terms/Operations/exportingCountry"
+                    ]
+                }
+            ]
+        },
+        "prop_https_spdxorgrdf31termsOperationsExportControlClassification_Corecomment": {
+                    "type": "string"
+        },
+        "prop_https_spdxorgrdf31termsOperationsExportControlClassification_exportClassification": {
+                    "type": "string"
+        },
+        "prop_https_spdxorgrdf31termsOperationsExportControlClassification_exportControlSpecification": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsCoreSpecification_derived"
+        },
+        "prop_https_spdxorgrdf31termsOperationsExportControlClassification_exportingCountry": {
+                    "pattern": "^[A-Z]{3}$",
+                    "type": "string"
+        },
+        "prop_https_spdxorgrdf31termsOperationsExportControlClassification_weight": {
+                    "type": "integer",
+                    "minimum": 1
         },
         "https_spdxorgrdf31termsSecurityCvssSeverityType": {
             "if": {
@@ -4429,6 +4617,7 @@
                         { "$ref": "#/$defs/https_spdxorgrdf31termsHardwarePhysicalHardware" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsHardwareProductSpecification" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsHardwareVirtualHardware" },
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsExportControlClassificationAssessment" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityVulnerability" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSoftwareFile" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSoftwarePackage" },
@@ -4616,6 +4805,7 @@
                     "unevaluatedProperties": false,
                     "anyOf": [
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreBom" },
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsProject" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSoftwareSbom" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreBundle" }
                     ]
@@ -6164,6 +6354,219 @@
                     "https://spdx.org/rdf/3.1/terms/Hardware/VirtualHardwareModelType/function",
                     "https://spdx.org/rdf/3.1/terms/Hardware/VirtualHardwareModelType/other"
                 ]
+        },
+        "https_spdxorgrdf31termsOperationsExportControlClassificationAssessment": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "https://spdx.org/rdf/3.1/terms/Operations/ExportControlClassificationAssessment"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a https_spdxorgrdf31termsOperationsExportControlClassificationAssessment"
+            }
+        },
+        "https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsExportControlClassificationAssessment" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_props": {
+            "allOf": [
+                { "$ref": "#/$defs/https_spdxorgrdf31termsCoreArtifact_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "https://spdx.org/rdf/3.1/terms/Operations/assessedElement": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_assessedElement"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/assessmentContext": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_assessmentContext"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/assessmentResult": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_assessmentResult"
+                                    }
+                                }
+                            ]
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/assessmentTimestamp": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_assessmentTimestamp"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/assessor": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_assessor"
+                        }
+                    },
+                    "required": [
+                        "https://spdx.org/rdf/3.1/terms/Operations/assessedElement",
+                        "https://spdx.org/rdf/3.1/terms/Operations/assessmentResult"
+                    ]
+                }
+            ]
+        },
+        "prop_https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_assessedElement": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsCoreElement_derived"
+        },
+        "prop_https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_assessmentContext": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsOperationsProject_derived"
+        },
+        "prop_https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_assessmentResult": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsOperationsExportControlClassification_derived"
+        },
+        "prop_https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_assessmentTimestamp": {
+                    "type": "string",
+                    "allOf": [
+                        {
+                            "pattern": "^[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9](Z|[+-][0-9]{2}:[0-9]{2})$"
+                        },
+                        {
+                            "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+                        }
+                    ]
+        },
+        "prop_https_spdxorgrdf31termsOperationsExportControlClassificationAssessment_assessor": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsCoreAgent_derived"
+        },
+        "https_spdxorgrdf31termsOperationsProject": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "https://spdx.org/rdf/3.1/terms/Operations/Project"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsProject_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a https_spdxorgrdf31termsOperationsProject"
+            }
+        },
+        "https_spdxorgrdf31termsOperationsProject_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsProject" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsOperationsProject_props": {
+            "allOf": [
+                { "$ref": "#/$defs/https_spdxorgrdf31termsCoreBundle_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "https://spdx.org/rdf/3.1/terms/Operations/projectContract": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsProject_projectContract"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/projectEndTime": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsProject_projectEndTime"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/projectOwner": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsProject_projectOwner"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/projectSponsor": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsProject_projectSponsor"
+                                    }
+                                }
+                            ]
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/projectStartTime": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsProject_projectStartTime"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Operations/projectTitle": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsOperationsProject_projectTitle"
+                        }
+                    },
+                    "required": [
+                        "https://spdx.org/rdf/3.1/terms/Operations/projectContract",
+                        "https://spdx.org/rdf/3.1/terms/Operations/projectOwner",
+                        "https://spdx.org/rdf/3.1/terms/Operations/projectStartTime",
+                        "https://spdx.org/rdf/3.1/terms/Operations/projectTitle"
+                    ]
+                }
+            ]
+        },
+        "prop_https_spdxorgrdf31termsOperationsProject_projectContract": {
+                    "$ref": "#/$defs/anyURI"
+        },
+        "prop_https_spdxorgrdf31termsOperationsProject_projectEndTime": {
+                    "type": "string",
+                    "allOf": [
+                        {
+                            "pattern": "^[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9](Z|[+-][0-9]{2}:[0-9]{2})$"
+                        },
+                        {
+                            "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+                        }
+                    ]
+        },
+        "prop_https_spdxorgrdf31termsOperationsProject_projectOwner": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsCoreAgent_derived"
+        },
+        "prop_https_spdxorgrdf31termsOperationsProject_projectSponsor": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsCoreAgent_derived"
+        },
+        "prop_https_spdxorgrdf31termsOperationsProject_projectStartTime": {
+                    "type": "string",
+                    "allOf": [
+                        {
+                            "pattern": "^[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9](Z|[+-][0-9]{2}:[0-9]{2})$"
+                        },
+                        {
+                            "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+                        }
+                    ]
+        },
+        "prop_https_spdxorgrdf31termsOperationsProject_projectTitle": {
+                    "type": "string"
         },
         "https_spdxorgrdf31termsSecurityCvssV2VulnAssessmentRelationship": {
             "if": {
@@ -10242,6 +10645,7 @@
                                 "https://spdx.org/rdf/3.1/terms/Core/Relationship",
                                 "https://spdx.org/rdf/3.1/terms/Core/RelationshipCompleteness",
                                 "https://spdx.org/rdf/3.1/terms/Core/RelationshipType",
+                                "https://spdx.org/rdf/3.1/terms/Core/Requirement",
                                 "https://spdx.org/rdf/3.1/terms/Core/SpdxDocument",
                                 "https://spdx.org/rdf/3.1/terms/Core/SpecificationType",
                                 "https://spdx.org/rdf/3.1/terms/Core/SupportRelationship",
@@ -10255,6 +10659,7 @@
                                 "https://spdx.org/rdf/3.1/terms/Extension/CdxPropertyEntry",
                                 "https://spdx.org/rdf/3.1/terms/Hardware/Dimensions",
                                 "https://spdx.org/rdf/3.1/terms/Hardware/VirtualHardwareModelType",
+                                "https://spdx.org/rdf/3.1/terms/Operations/ExportControlClassification",
                                 "https://spdx.org/rdf/3.1/terms/Security/CvssSeverityType",
                                 "https://spdx.org/rdf/3.1/terms/Security/ExploitCatalogType",
                                 "https://spdx.org/rdf/3.1/terms/Security/SsvcDecisionType",
@@ -10293,6 +10698,8 @@
                                 "https://spdx.org/rdf/3.1/terms/Hardware/PhysicalHardware",
                                 "https://spdx.org/rdf/3.1/terms/Hardware/ProductSpecification",
                                 "https://spdx.org/rdf/3.1/terms/Hardware/VirtualHardware",
+                                "https://spdx.org/rdf/3.1/terms/Operations/ExportControlClassificationAssessment",
+                                "https://spdx.org/rdf/3.1/terms/Operations/Project",
                                 "https://spdx.org/rdf/3.1/terms/Security/CvssV2VulnAssessmentRelationship",
                                 "https://spdx.org/rdf/3.1/terms/Security/CvssV3VulnAssessmentRelationship",
                                 "https://spdx.org/rdf/3.1/terms/Security/CvssV4VulnAssessmentRelationship",
@@ -10384,6 +10791,7 @@
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRelationship" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRelationshipCompleteness" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRelationshipType" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRequirement" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSpdxDocument" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSpecificationType" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSupportRelationship" },
@@ -10397,6 +10805,7 @@
                 { "$ref": "#/$defs/https_spdxorgrdf31termsExtensionCdxPropertyEntry" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsHardwareDimensions" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsHardwareVirtualHardwareModelType" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsExportControlClassification" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssSeverityType" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityExploitCatalogType" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsSecuritySsvcDecisionType" },
@@ -10435,6 +10844,8 @@
                 { "$ref": "#/$defs/https_spdxorgrdf31termsHardwarePhysicalHardware" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsHardwareProductSpecification" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsHardwareVirtualHardware" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsExportControlClassificationAssessment" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsProject" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssV2VulnAssessmentRelationship" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssV3VulnAssessmentRelationship" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssV4VulnAssessmentRelationship" },
