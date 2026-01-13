@@ -895,6 +895,70 @@
         "prop_https_spdxorgrdf31termsCoreElementCollection_rootElement": {
                 "$ref": "#/$defs/https_spdxorgrdf31termsCoreElement_derived"
         },
+        "https_spdxorgrdf31termsCoreElementMap": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "https://spdx.org/rdf/3.1/terms/Core/ElementMap"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/https_spdxorgrdf31termsCoreElementMap_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a https_spdxorgrdf31termsCoreElementMap"
+            }
+        },
+        "https_spdxorgrdf31termsCoreElementMap_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsCoreElementMap" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsCoreElementMap_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "https://spdx.org/rdf/3.1/terms/Core/elementValue": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsCoreElementMap_elementValue"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/Core/key": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsCoreElementMap_key"
+                        }
+                    },
+                    "required": [
+                        "https://spdx.org/rdf/3.1/terms/Core/elementValue",
+                        "https://spdx.org/rdf/3.1/terms/Core/key"
+                    ]
+                }
+            ]
+        },
+        "prop_https_spdxorgrdf31termsCoreElementMap_elementValue": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsCoreElement_derived"
+        },
+        "prop_https_spdxorgrdf31termsCoreElementMap_key": {
+                    "type": "string"
+        },
         "https_spdxorgrdf31termsCoreExternalIdentifier": {
             "if": {
                 "type": "object",
@@ -3902,6 +3966,16 @@
                 {
                     "type": "object",
                     "properties": {
+                        "https://spdx.org/rdf/3.1/terms/SimpleLicensing/customIdToLicense": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsSimpleLicensingLicenseExpression_customIdToLicense"
+                                    }
+                                }
+                            ]
+                        },
                         "https://spdx.org/rdf/3.1/terms/SimpleLicensing/customIdToUri": {
                             "anyOf": [
                                 {
@@ -3924,6 +3998,9 @@
                     ]
                 }
             ]
+        },
+        "prop_https_spdxorgrdf31termsSimpleLicensingLicenseExpression_customIdToLicense": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsCoreElementMap_derived"
         },
         "prop_https_spdxorgrdf31termsSimpleLicensingLicenseExpression_customIdToUri": {
                 "$ref": "#/$defs/https_spdxorgrdf31termsCoreDictionaryEntry_derived"
@@ -10613,6 +10690,7 @@
                                 "https://spdx.org/rdf/3.1/terms/Core/CreationInfo",
                                 "https://spdx.org/rdf/3.1/terms/Core/DefinedType",
                                 "https://spdx.org/rdf/3.1/terms/Core/DictionaryEntry",
+                                "https://spdx.org/rdf/3.1/terms/Core/ElementMap",
                                 "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifier",
                                 "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType",
                                 "https://spdx.org/rdf/3.1/terms/Core/ExternalMap",
@@ -10759,6 +10837,7 @@
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreCreationInfo" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreDefinedType" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreDictionaryEntry" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsCoreElementMap" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreExternalIdentifier" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreExternalIdentifierType" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsCoreExternalMap" },
