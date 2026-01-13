@@ -99,7 +99,7 @@ The branches in use are:
 ## Related documents and repositories
 
 | Documentation | Link |
-|---------|------|
+| ------------- | ---- |
 | Changes between versions | [CHANGELOG.md](./CHANGELOG.md) |
 | Contributing guidelines | [CONTRIBUTING.md](./CONTRIBUTING.md) |
 | Building the specification website (for testing purpose) | [build.md](build.md) |

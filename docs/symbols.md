@@ -3,7 +3,7 @@
 List of symbols/abbreviations.
 
 | | |
-|-|-|
+| - | - |
 | 3T-SBOM | Tool-to-Tool Software Bill of Materials Exchange |
 | ABNF | Augmented Backus–Naur form |
 | AI | Artificial Intelligence |
