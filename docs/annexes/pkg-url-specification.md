@@ -27,7 +27,7 @@ A _purl_ is a URL composed of seven components:
 
 Components are separated by a specific character for unambiguous parsing.
 
-The definition for each components is:
+The definition for each component is:
 
 - **scheme**: this is the URL scheme with the constant value of "`pkg`". One of the primary reason for this single scheme is to facilitate the future official registration of the "`pkg`" scheme for package URLs. Required.
 - **type**: the package type or package protocol such as maven, npm, nuget, gem, pypi, etc. Required.
@@ -41,9 +41,9 @@ Components are designed such that they form a hierarchy from the most
 significant on the left to the least significant components on the right.
 
 A _purl_ is a valid URL and URI that conforms to the URL definitions
-and specifications in RFC 3986 <https://datatracker.ietf.org/doc/rfc3986>.
+and specifications in RFC 3986 <https://datatracker.ietf.org/doc/rfc3986/>.
 
-A _purl_ must not contain a URL Authority i.e. there is no
+A _purl_ shall not contain a URL Authority i.e. there is no
 support for username, password, host and port components.
 A `namespace` segment may sometimes look like a host
 but its interpretation is specific to a type.
@@ -59,24 +59,24 @@ The _purl_ components are mapped to the following URL components:
 
 For clarity and simplicity a _purl_ is always an ASCII string.
 To ensure that there is no ambiguity when parsing a _purl_,
-separator characters and non-ASCII characters must be encoded in UTF-8,
-and then percent-encoded as defined in RFC 3986 <https://datatracker.ietf.org/doc/rfc3986>.
+separator characters and non-ASCII characters shall be encoded in UTF-8,
+and then percent-encoded as defined in RFC 3986 <https://datatracker.ietf.org/doc/rfc3986/>.
 
 Use these rules for percent-encoding and decoding _purl_ components:
 
-- the type must NOT be encoded and must NOT contain separators
-- the `#`, `?`, `@` and `:` characters must NOT be encoded when used as separators. They may need to be encoded elsewhere
-- the `:` scheme and type separator does not need to and must NOT be encoded. It is unambiguous unencoded everywhere
-- the `/` used as type/namespace/name and subpath segments separator does not need to and must NOT be percent-encoded. It is unambiguous unencoded everywhere
-- the `@` version separator must be encoded as `%40` elsewhere
-- the `?` qualifiers separator must be encoded as `%3F` elsewhere
-- the `=` qualifiers key/value separator must NOT be encoded
-- the `#` subpath separator must be encoded as `%23` elsewhere
-- All non-ASCII characters must be encoded as UTF-8 and then percent-encoded
+- the type shall not be encoded and shall not contain separators
+- the `#`, `?`, `@` and `:` characters shall not be encoded when used as separators. They may need to be encoded elsewhere
+- the `:` scheme and type separator does not need to and shall not be encoded. It is unambiguous unencoded everywhere
+- the `/` used as type/namespace/name and subpath segments separator does not need to and shall not be percent-encoded. It is unambiguous unencoded everywhere
+- the `@` version separator shall be encoded as `%40` elsewhere
+- the `?` qualifiers separator shall be encoded as `%3F` elsewhere
+- the `=` qualifiers key/value separator shall not be encoded
+- the `#` subpath separator shall be encoded as `%23` elsewhere
+- All non-ASCII characters shall be encoded as UTF-8 and then percent-encoded
 
 It is OK to percent-encode any _purl_ components, except for the type.
 Producers and consumers of _purl_ data
-must always percent-decode and percent-encode
+shall always percent-decode and percent-encode
 components and component segments
 as explained in the "How to produce and consume _purl_ data" section.
 
@@ -85,7 +85,7 @@ as explained in the "How to produce and consume _purl_ data" section.
 A _purl_ string is an ASCII URL string composed of seven components.
 
 Some components are allowed to use other characters beyond ASCII: these
-components must then be UTF-8-encoded strings and percent-encoded as
+components shall then be UTF-8-encoded strings and percent-encoded as
 defined in the "Character encoding" section.
 
 The rules for each component are:
@@ -93,39 +93,41 @@ The rules for each component are:
 ### Rules for scheme
 
 - The scheme is a constant with the value "`pkg`"
-- Since a _purl_ never contains a URL Authority, its scheme must not be suffixed with double slash as in `pkg://` and should use instead `pkg:`.
-- _purl_ parsers must accept URLs such as 'pkg://' and must ignore the '//'.
-- _purl_ builders must not create invalid URLs with such double slash '//'.
+- Since a _purl_ never contains a URL Authority, its scheme shall not be suffixed with double slash as in `pkg://` and shall use instead `pkg:`.
+- _purl_ parsers shall accept URLs such as 'pkg://' and shall ignore the '//'.
+- _purl_ builders shall not create invalid URLs with such double slash '//'.
 - The scheme is followed by a ':' separator.
-- For example, the two purls `pkg:gem/ruby-advisory-db-check@0.12.4` and `pkg://gem/ruby-advisory-db-check@0.12.4` are strictly equivalent. The first is in canonical form while the second is an acceptable _purl_ but is an invalid URI/URL per RFC3986.
+
+For example, the two purls `pkg:gem/ruby-advisory-db-check@0.12.4` and `pkg://gem/ruby-advisory-db-check@0.12.4` are strictly equivalent.
+The first is in canonical form while the second is an acceptable _purl_ but is an invalid URI/URL per RFC 3986.
 
 ### Rules for type
 
 - The package type is composed only of ASCII letters and numbers, `.`, `+` and `-` (period, plus, and dash).
-- The type cannot start with a number.
-- The type cannot contain spaces.
-- The type must not be percent-encoded.
+- The type shall not start with a number.
+- The type shall not contain spaces.
+- The type shall not be percent-encoded.
 - The type is case insensitive, with the canonical form being lowercase.
 
 ### Rules for namespace
 
 - The optional namespace contains zero or more segments, separated by slash `/`.
-- Leading and trailing slashes `/` are not significant and should be stripped in the canonical form. They are not part of the namespace.
-- Each namespace segment must be a percent-encoded string.
-- When percent-decoded, a segment must not contain a slash `/` and must not be empty.
-- A URL host or Authority must NOT be used as a namespace. Use instead a `repository_url` qualifier. Note however that for some types, the namespace may look like a host.
+- Leading and trailing slashes `/` are not significant and shall be stripped in the canonical form. They are not part of the namespace.
+- Each namespace segment shall be a percent-encoded string.
+- When percent-decoded, a segment shall not contain a slash `/` and shall not be empty.
+- A URL host or Authority shall not be used as a namespace. Use instead a `repository_url` qualifier. Note however that for some types, the namespace may look like a host.
 
 ### Rules for name
 
 - The name is prefixed by a slash `/` separator when the namespace is not empty.
 - This slash `/` is not part of the name.
-- A name must be a percent-encoded string.
+- A name shall be a percent-encoded string.
 
 ### Rules for version
 
 - The version is prefixed by a at-sign `@` separator when not empty.
 - This at-sign `@` is not part of the version.
-- A version must be a percent-encoded string.
+- A version shall be a percent-encoded string.
 - A version is a plain and opaque string. Some package types use versioning conventions such as SemVer for NPMs or NEVRA conventions for RPMS. A type may define a procedure to compare and sort versions, but there is no reliable and uniform way to do such comparison consistently.
 
 ### Rules for qualifiers
@@ -134,14 +136,14 @@ The rules for each component are:
 - This `?` is not part of the qualifiers.
 - This is a string composed of zero or more key=value pairs each separated by an ampersand `&`. A key and value are separated by an equal `=` character.
 - These `&` are not part of the key=value pairs.
-- Each key must be unique within the keys of the qualifiers string.
-- A value cannot be an empty string; a key=value pair with an empty value is the same as no key/value at all for this key.
-- Each key must be composed only of ASCII letters and numbers, `.`, `-` and `\_` (period, dash and underscore).
-- A key cannot start with a number.
-- A key must NOT be percent-encoded.
+- Each key shall be unique within the keys of the qualifiers string.
+- A value shall not be an empty string; a key=value pair with an empty value is the same as no key/value at all for this key.
+- Each key shall be composed only of ASCII letters and numbers, `.`, `-` and `\_` (period, dash and underscore).
+- A key shall not start with a number.
+- A key shall not be percent-encoded.
 - A key is case insensitive, with the canonical form being lowercase.
-- A key cannot contain spaces.
-- A value must be a percent-encoded string.
+- A key shall not contain spaces.
+- A value shall be a percent-encoded string.
 - The `=` separator is neither part of the key nor of the value.
 
 ### Rules for subpath
@@ -149,10 +151,10 @@ The rules for each component are:
 - The subpath string is prefixed by a `#` separator when not empty.
 - This `#` is not part of the subpath.
 - The subpath contains zero or more segments, separated by slash `/`.
-- Leading and trailing slashes `/` are not significant and should be stripped in the canonical form.
-- Each subpath segment must be a percent-encoded string.
-- When percent-decoded, a segment must not contain a `/`, must not be any of `..` or `.`, and must not be empty.
-- The subpath must be interpreted as relative to the root of the package.
+- Leading and trailing slashes `/` are not significant and shall be stripped in the canonical form.
+- Each subpath segment shall be a percent-encoded string.
+- When percent-decoded, a segment shall not contain a `/`, shall not be any of `..` or `.`, and shall not be empty.
+- The subpath shall be interpreted as relative to the root of the package.
 
 ## Known types
 
@@ -258,7 +260,7 @@ To build a _purl_ string from its components:
     1. Append `?` to the _purl_
     1. Discard any pair where the value is empty
     1. Encode each value in UTF-8-encoding
-    1. If the key is `checksum` and there are more than one checksums, join the list with `,` to create the qualifier value
+    1. If the key is `checksum` and there is more than one checksum, join the list with `,` to create the qualifier value
     1. Create each qualifier string by joining the lowercased key, the equal `=` sign, and the percent-encoded value
     1. Sort this list of qualifier strings lexicographically
     1. Join this list of sorted qualifier strings with `&`
@@ -306,7 +308,7 @@ To parse a _purl_ string in its components:
     1. This list of keys/values is the qualifiers.
 
 1. Split the remainder once from left on `:`; the right side is the remainder.
-1. The left side lowercased is the scheme. It should be exactly "`pkg:`".
+1. The left side lowercased is the scheme. It shall be exactly "`pkg:`".
 1. Strip the remainder from leading and trailing `/`.
 1. Split this once from left on `/`; the right side is the remainder.
 1. The left side lowercased is the type.
@@ -350,7 +352,7 @@ The following list includes some valid _purl_ examples:
 
 ## Original license
 
-This specification is based on the texts published
+This document is based on the texts published
 in the <https://github.com/package-url/purl-spec> online repository.
 The original license and attribution are reproduced below:
 
