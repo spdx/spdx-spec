@@ -4,15 +4,22 @@
 # documentation
 #
 # SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: Copyright 2024 The SPDX Contributors
+# SPDX-FileCopyrightText: Copyright 2024-2026 The SPDX Contributors
+#
+# It was the case that we use MAJOR.MINOR.PATCH (3-part) version number
+# (e.g., "3.0.1") in IRI of terms and RDF files.
+# With ISO submission of SPDX 3.0 in December 2025, we decided to use MAJOR.MINOR
+# (2-part) version number (e.g., "3.0") instead.
+# This needs update in RDF files, tools, publication CI, and IRI redirections.
 
 set -e
+
+SPDX_VERSION="3.1"
 
 THIS_DIR="$(dirname "$0")"
 MD_DIR=docs/annexes
 JSON_DIR=examples/jsonld
 
-SPDX_VERSION="3.1"
 SPDX_VERSION_MAJOR_MINOR="$(echo "$SPDX_VERSION" | cut -d. -f1,2)"  # 3.0.1 -> 3.0; 3.0 -> 3.0
 SCHEMA_URL="https://spdx.org/schema/${SPDX_VERSION_MAJOR_MINOR}/spdx-json-schema.json"
 RDF_URL="https://spdx.org/rdf/${SPDX_VERSION_MAJOR_MINOR}/spdx-model.ttl"
