@@ -1,7 +1,9 @@
 # Examples
 
-All the examples in this directory are for the same SPDX document.
-Most of the supported document elements are present here.
+The JSONLD directory contains 2 files:
+
+- package_sbom.json - An example of an SBOM containing a single package_sbom
+- spdx-full-example.json - A fabricated example containing all the classes for the current version of the Specification
 
 A JSON schema can be found in the schema directory of this repository.
 
