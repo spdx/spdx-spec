@@ -4,6 +4,12 @@
 # documentation
 #
 # SPDX-License-Identifier: MIT
+#
+# It was the case that we use MAJOR.MINOR.PATCH (3-part) version number
+# (e.g., "3.0.1") in IRI of terms and RDF files.
+# With ISO submission of SPDX 3.0 in December 2025, we decided to use MAJOR.MINOR
+# (2-part) version number (e.g., "3.0") instead.
+# This needs update in RDF files, tools, publication CI, and IRI redirections.
 
 set -e
 
