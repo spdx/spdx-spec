@@ -158,7 +158,7 @@ International Standard
 *ISO/IEC 18670:2025 Information technology — SoftWare Hash IDentifier (SWHID) Specification V1.2*,
 [https://www.iso.org/standard/89985.html](https://www.iso.org/standard/89985.html),
 also available at
-[https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html).
+[https://www.swhid.org/swhid-specification/v1.2/](https://www.swhid.org/swhid-specification/v1.2/).
 
 *SPDX and RDF Ontology*,
 [http://spdx.org/rdf/ontology/spdx-3-0-1](http://spdx.org/rdf/ontology/spdx-3-0-1).

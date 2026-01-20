@@ -11,13 +11,15 @@ at the following addresses:
 **computer hardware**
 
 All or part of the physical components of an information system.
-(Leveraged from 'hardware' definition in ISO/IEC 2382:2015 Information technology -- Vocabulary)
+(Leveraged from 'hardware' definition in ISO/IEC 2382:2015 Information
+technology — Vocabulary <https://www.iso.org/standard/63598.html>)
 
 **computer program**
 
 Combination of computer instructions and data definitions
 that enable computer hardware to perform computational or control functions.
-(From ISO/IEC/IEEE 24765:2017 Systems and software engineering-Vocabulary)
+(From ISO/IEC/IEEE 24765:2017 Systems and software engineering — Vocabulary
+<https://www.iso.org/standard/71952.html>)
 
 **firmware**
 
@@ -27,7 +29,8 @@ such that the programs and data cannot be dynamically written or modified
 during execution of the programs.
 (From <https://csrc.nist.gov/glossary/term/firmware>,
 from CNSSI 4009-2015,
-**leveraged** from IETF RFC 4949 Ver 2 at <https://datatracker.ietf.org/doc/html/rfc4949>)
+*leveraged* from IETF RFC 4949 Ver 2 at
+<https://datatracker.ietf.org/doc/rfc4949/>)
 
 **hardware**
 
@@ -36,14 +39,15 @@ The material physical components of a system.
 
 **information system**
 
-An organized assembly of computing and communication resources and procedures --
-i.e., equipment and services, together with their supporting infrastructure, facilities, and personnel --
-that create, collect, record, process, store, transport, retrieve,
-display, disseminate, control, or dispose of
+An organized assembly of computing and communication resources and procedures
+-- i.e., equipment and services, together with their supporting infrastructure,
+facilities, and personnel -- that create, collect, record, process, store,
+transport, retrieve, display, disseminate, control, or dispose of
 information to accomplish a specified set of functions.
 (From <https://csrc.nist.gov/glossary/term/information_system>,
 from CNSSI 4009-2015,
-**leveraged** from IETF RFC 4949 Ver 2 at <https://datatracker.ietf.org/doc/html/rfc4949>)
+*leveraged* from IETF RFC 4949 Ver 2 at
+<https://datatracker.ietf.org/doc/rfc4949/>)
 
 **profile**
 
@@ -59,7 +63,7 @@ and associated data (which also is stored in the hardware)
 that may be dynamically written or modified during execution.
 (From <https://csrc.nist.gov/glossary/term/software>,
 from CNSSI 4009-2015,
-from IETF RFC 4949 Ver 2 at <https://datatracker.ietf.org/doc/html/rfc4949>)
+from IETF RFC 4949 Ver 2 at <https://datatracker.ietf.org/doc/rfc4949/>)
 
 **system**
 
