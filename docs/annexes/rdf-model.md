@@ -52,6 +52,14 @@ and is published in online at
 
 [![SupplyChain profile diagram][fig_supplychain]][fig_supplychain]
 
+### Operations profile
+
+[![Operations profile diagram][fig_operations]][fig_operations]
+
+### FunctionalSafety profile
+
+[![FunctionalSafety profile diagram][fig_functionalsafety]][fig_functionalsafety]
+
 [fig_ai]: ../images/model-AI.png "SPDX 3.1 AI profile diagram"
 [fig_build]: ../images/model-Build.png "SPDX 3.1 Build profile diagram"
 [fig_core]: ../images/model-Core.png "SPDX 3.1 Core profile diagram"
@@ -63,3 +71,5 @@ and is published in online at
 [fig_hardware]: ../images/model-Hardware.png "SPDX 3.1 Hardware profile diagram"
 [fig_service]: ../images/model-Service.png "SPDX 3.1 Service profile diagram"
 [fig_supplychain]: ../images/model-SupplyChain.png "SPDX 3.1 SupplyChain profile diagram"
+[fig_operations]: ../images/model-Operations.png "SPDX 3.1 Operations profile diagram"
+[fig_functionalsafety]: ../images/model-FunctionalSafety.png "SPDX 3.1 FunctionalSafety profile diagram"
