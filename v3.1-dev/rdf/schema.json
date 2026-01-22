@@ -660,6 +660,9 @@
                         { "$ref": "#/$defs/https_spdxorgrdf31termsExpandedLicensingListedLicenseException" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsExpandedLicensingOrLaterOperator" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsExpandedLicensingWithAdditionOperator" },
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvaluationResult" },
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship" },
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyRequirementVerification" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsHardwareBulkHardware" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsHardwarePhysicalHardware" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsHardwareProductSpecification" },
@@ -1043,6 +1046,7 @@
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/cve",
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/duns",
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/email",
+                    "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/evidenceUUID",
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/gitoid",
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/gln",
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/glue",
@@ -1052,10 +1056,12 @@
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/other",
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/packageUrl",
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/phoneNumber",
+                    "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/requirementUUID",
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/securityOther",
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/swhid",
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/swid",
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/urlScheme",
+                    "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/verificationUUID",
                     "https://spdx.org/rdf/3.1/terms/Core/ExternalIdentifierType/webpage"
                 ]
         },
@@ -2154,6 +2160,7 @@
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreContactPointRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreLifecycleScopedRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsCoreSupportRelationship" },
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssV2VulnAssessmentRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssV3VulnAssessmentRelationship" },
                         { "$ref": "#/$defs/https_spdxorgrdf31termsSecurityCvssV4VulnAssessmentRelationship" },
@@ -2287,6 +2294,7 @@
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/hasTest",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/hasTestCase",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/hasVariant",
+                    "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/implementedBy",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/invokedBy",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/locatedAt",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/modifiedBy",
@@ -2303,10 +2311,12 @@
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/runsOn",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/serializedInArtifact",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/testedOn",
+                    "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/tracedToDetail",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/trainedOn",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/underInvestigationFor",
                     "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/usesTool",
-                    "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/validatedOn"
+                    "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/validatedOn",
+                    "https://spdx.org/rdf/3.1/terms/Core/RelationshipType/verifiedBy"
                 ]
         },
         "prop_https_spdxorgrdf31termsCoreRelationship_startTime": {
@@ -3256,6 +3266,409 @@
             ]
         },
         "https_spdxorgrdf31termsExtensionExtension_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                    }
+                }
+            ]
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyEvaluationResult": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvaluationResult"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvaluationResult_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a https_spdxorgrdf31termsFunctionalSafetyEvaluationResult"
+            }
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyEvaluationResult_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvaluationResult" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyEvaluationResult_props": {
+            "allOf": [
+                { "$ref": "#/$defs/https_spdxorgrdf31termsCoreElement_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/evaluation": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsFunctionalSafetyEvaluationResult_evaluation"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/evaluationBasedOn": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsFunctionalSafetyEvaluationResult_evaluationBasedOn"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/evaluationRationale": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsFunctionalSafetyEvaluationResult_evaluationRationale"
+                        }
+                    },
+                    "required": [
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/evaluation",
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/evaluationBasedOn",
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/evaluationRationale"
+                    ]
+                }
+            ]
+        },
+        "prop_https_spdxorgrdf31termsFunctionalSafetyEvaluationResult_evaluation": {
+                "enum": [
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvaluationResultType/fail",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvaluationResultType/inconclusive",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvaluationResultType/pass"
+                ]
+        },
+        "prop_https_spdxorgrdf31termsFunctionalSafetyEvaluationResult_evaluationBasedOn": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_derived"
+        },
+        "prop_https_spdxorgrdf31termsFunctionalSafetyEvaluationResult_evaluationRationale": {
+                    "type": "string"
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyEvaluationResultType": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvaluationResultType"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvaluationResultType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a https_spdxorgrdf31termsFunctionalSafetyEvaluationResultType"
+            }
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyEvaluationResultType_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvaluationResultType" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyEvaluationResultType_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                    }
+                }
+            ]
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvidenceRelationship"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship"
+            }
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship_props": {
+            "allOf": [
+                { "$ref": "#/$defs/https_spdxorgrdf31termsCoreRelationship_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/evidenceCategory": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship_evidenceCategory"
+                                    }
+                                }
+                            ]
+                        },
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/evidenceUUID": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship_evidenceUUID"
+                        }
+                    }
+                }
+            ]
+        },
+        "prop_https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship_evidenceCategory": {
+                "enum": [
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvidenceType/log",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvidenceType/observation",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvidenceType/other",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvidenceType/recording",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvidenceType/report"
+                ]
+        },
+        "prop_https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship_evidenceUUID": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsCoreExternalIdentifier_derived"
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyEvidenceType": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvidenceType"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvidenceType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a https_spdxorgrdf31termsFunctionalSafetyEvidenceType"
+            }
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyEvidenceType_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvidenceType" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyEvidenceType_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                    }
+                }
+            ]
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyRequirementVerification": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "https://spdx.org/rdf/3.1/terms/FunctionalSafety/RequirementVerification"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a https_spdxorgrdf31termsFunctionalSafetyRequirementVerification"
+            }
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyRequirementVerification" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_props": {
+            "allOf": [
+                { "$ref": "#/$defs/https_spdxorgrdf31termsCoreElement_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/verificationMethod": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_verificationMethod"
+                                    }
+                                }
+                            ]
+                        },
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/verificationPostcondition": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_verificationPostcondition"
+                                    }
+                                }
+                            ]
+                        },
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/verificationPrecondition": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_verificationPrecondition"
+                                    }
+                                }
+                            ]
+                        },
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/verificationRationale": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_verificationRationale"
+                        },
+                        "https://spdx.org/rdf/3.1/terms/FunctionalSafety/verificationUUID": {
+                            "$ref": "#/$defs/prop_https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_verificationUUID"
+                        }
+                    }
+                }
+            ]
+        },
+        "prop_https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_verificationMethod": {
+                "enum": [
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/VerificationType/analysis",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/VerificationType/assessment",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/VerificationType/audit",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/VerificationType/demonstration",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/VerificationType/inspection",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/VerificationType/other",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/VerificationType/review",
+                    "https://spdx.org/rdf/3.1/terms/FunctionalSafety/VerificationType/test"
+                ]
+        },
+        "prop_https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_verificationPostcondition": {
+                    "type": "string"
+        },
+        "prop_https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_verificationPrecondition": {
+                    "type": "string"
+        },
+        "prop_https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_verificationRationale": {
+                    "type": "string"
+        },
+        "prop_https_spdxorgrdf31termsFunctionalSafetyRequirementVerification_verificationUUID": {
+                "$ref": "#/$defs/https_spdxorgrdf31termsCoreExternalIdentifier_derived"
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyVerificationType": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "https://spdx.org/rdf/3.1/terms/FunctionalSafety/VerificationType"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyVerificationType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a https_spdxorgrdf31termsFunctionalSafetyVerificationType"
+            }
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyVerificationType_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyVerificationType" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "https_spdxorgrdf31termsFunctionalSafetyVerificationType_props": {
             "allOf": [
                 { "$ref": "#/$defs/SHACLClass" },
                 {
@@ -7763,12 +8176,12 @@
                         "https://spdx.org/rdf/3.1/terms/SupplyChain/plannedPrevious": {
                             "$ref": "#/$defs/prop_https_spdxorgrdf31termsSupplyChainResponsibilityChangeProcess_plannedPrevious"
                         },
-                        "https://spdx.org/rdf/3.1/terms/SupplyChain/plannedProductofResponsibilityChange": {
+                        "https://spdx.org/rdf/3.1/terms/SupplyChain/plannedProductOfResponsibilityChange": {
                             "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsSupplyChainResponsibilityChangeProcess_plannedProductofResponsibilityChange"
+                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsSupplyChainResponsibilityChangeProcess_plannedProductOfResponsibilityChange"
                                     }
                                 }
                             ]
@@ -7789,7 +8202,7 @@
         "prop_https_spdxorgrdf31termsSupplyChainResponsibilityChangeProcess_plannedPrevious": {
                 "$ref": "#/$defs/https_spdxorgrdf31termsCoreAgent_derived"
         },
-        "prop_https_spdxorgrdf31termsSupplyChainResponsibilityChangeProcess_plannedProductofResponsibilityChange": {
+        "prop_https_spdxorgrdf31termsSupplyChainResponsibilityChangeProcess_plannedProductOfResponsibilityChange": {
                 "$ref": "#/$defs/https_spdxorgrdf31termsCoreElement_derived"
         },
         "prop_https_spdxorgrdf31termsSupplyChainResponsibilityChangeProcess_responsibilityCategory": {
@@ -9090,25 +9503,25 @@
                 {
                     "type": "object",
                     "properties": {
-                        "https://spdx.org/rdf/3.1/terms/SupplyChain/vaildState": {
+                        "https://spdx.org/rdf/3.1/terms/SupplyChain/validState": {
                             "anyOf": [
                                 {
                                     "type": "array",
                                     "minItems": 1,
                                     "items": {
-                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsSupplyChainDefinedStateProcess_vaildState"
+                                        "$ref": "#/$defs/prop_https_spdxorgrdf31termsSupplyChainDefinedStateProcess_validState"
                                     }
                                 }
                             ]
                         }
                     },
                     "required": [
-                        "https://spdx.org/rdf/3.1/terms/SupplyChain/vaildState"
+                        "https://spdx.org/rdf/3.1/terms/SupplyChain/validState"
                     ]
                 }
             ]
         },
-        "prop_https_spdxorgrdf31termsSupplyChainDefinedStateProcess_vaildState": {
+        "prop_https_spdxorgrdf31termsSupplyChainDefinedStateProcess_validState": {
                 "$ref": "#/$defs/https_spdxorgrdf31termsSupplyChainState_derived"
         },
         "https_spdxorgrdf31termsSupplyChainDestroyAction": {
@@ -10722,6 +11135,12 @@
                                 "https://spdx.org/rdf/3.1/terms/Dataset/DatasetType",
                                 "https://spdx.org/rdf/3.1/terms/ExpandedLicensing/ListedLicenseException",
                                 "https://spdx.org/rdf/3.1/terms/Extension/CdxPropertyEntry",
+                                "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvaluationResult",
+                                "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvaluationResultType",
+                                "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvidenceRelationship",
+                                "https://spdx.org/rdf/3.1/terms/FunctionalSafety/EvidenceType",
+                                "https://spdx.org/rdf/3.1/terms/FunctionalSafety/RequirementVerification",
+                                "https://spdx.org/rdf/3.1/terms/FunctionalSafety/VerificationType",
                                 "https://spdx.org/rdf/3.1/terms/Hardware/Dimensions",
                                 "https://spdx.org/rdf/3.1/terms/Hardware/VirtualHardwareModelType",
                                 "https://spdx.org/rdf/3.1/terms/Operations/ExportControlClassification",
@@ -10869,6 +11288,12 @@
                 { "$ref": "#/$defs/https_spdxorgrdf31termsDatasetDatasetType" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsExpandedLicensingListedLicenseException" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsExtensionCdxPropertyEntry" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvaluationResult" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvaluationResultType" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvidenceRelationship" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyEvidenceType" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyRequirementVerification" },
+                { "$ref": "#/$defs/https_spdxorgrdf31termsFunctionalSafetyVerificationType" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsHardwareDimensions" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsHardwareVirtualHardwareModelType" },
                 { "$ref": "#/$defs/https_spdxorgrdf31termsOperationsExportControlClassification" },
