@@ -65,6 +65,9 @@ on:
 
 jobs:
   build:
+    # Don't run scheduled builds for forks
+    if: >-
+      github.event_name != 'schedule' || github.repository == 'spdx/spdx-spec'
     runs-on: ubuntu-latest
     env:
       REF_SPEC: "${{ github.event.inputs.REF_SPEC || 'develop' }}"   # spdx-spec branch:    "main" or "develop" or "support/x.y" or tag/commit ID
@@ -132,17 +135,20 @@ jobs:
             done
           }
 
-          # Add VERSION, its lowercase, and numeric (no 'v') variants
-          add_alias "$VERSION"
-          lower_version=$(echo "$VERSION" | tr '[:upper:]' '[:lower:]')
-          add_alias "$lower_version"
-          if [[ $VERSION =~ ^v[0-9] ]]; then
+            # Add lowercase VERSION and numeric (no 'v') variants, but do NOT add the exact VERSION
+            lower_version=$(echo "$VERSION" | tr '[:upper:]' '[:lower:]')
+            add_alias "$lower_version"
+            if [[ $VERSION =~ ^v[0-9] ]]; then
               add_alias "${VERSION#v}"
               add_alias "${lower_version#v}"
-          fi
+            fi
 
           # Add original aliases and their lowercase and numeric variants
           for version in $original_aliases; do
+            # skip exact match to VERSION
+            if [ "$version" = "$VERSION" ]; then
+              continue
+            fi
             add_alias "$version"
             lower_alias=$(echo "$version" | tr '[:upper:]' '[:lower:]')
             add_alias "$lower_alias"
