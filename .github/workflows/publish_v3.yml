@@ -158,8 +158,8 @@ jobs:
             fi
           done
 
-          # Deduplicate aliases
-          expanded_aliases=$(printf "%s\n" $expanded_aliases | sort -u | tr '\n' ' ' | sed 's/^ *//; s/ *$//')
+          # Deduplicate aliases and remove the exact version from the list
+          expanded_aliases=$(printf "%s\n" $expanded_aliases | sort -u | grep -Fxv "$VERSION" | tr '\n' ' ' | sed 's/^ *//; s/ *$//')
           echo "VERSION_ALIASES=$expanded_aliases" >> $GITHUB_ENV
       - name: Check expanded version aliases
         run: |
