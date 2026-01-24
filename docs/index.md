@@ -1,4 +1,4 @@
-# The System Package Data Exchange™ (SPDX®) Specification Version 3.1-dev
+# The System Package Data Exchange™ (SPDX®) Specification Version 3.1-RC1
 
 Copyright © 2010-2026, The Linux Foundation and its Contributors,
 including SPDX Model contributions from OMG and its Contributors.
