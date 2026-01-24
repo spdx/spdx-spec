@@ -135,13 +135,13 @@ jobs:
             done
           }
 
-            # Add lowercase VERSION and numeric (no 'v') variants, but do NOT add the exact VERSION
-            lower_version=$(echo "$VERSION" | tr '[:upper:]' '[:lower:]')
-            add_alias "$lower_version"
-            if [[ $VERSION =~ ^v[0-9] ]]; then
-              add_alias "${VERSION#v}"
-              add_alias "${lower_version#v}"
-            fi
+          # Add lowercase VERSION and numeric (no 'v') variants, but do NOT add the exact VERSION
+          lower_version=$(echo "$VERSION" | tr '[:upper:]' '[:lower:]')
+          add_alias "$lower_version"
+          if [[ $VERSION =~ ^v[0-9] ]]; then
+            add_alias "${VERSION#v}"
+            add_alias "${lower_version#v}"
+          fi
 
           # Add original aliases and their lowercase and numeric variants
           for version in $original_aliases; do
