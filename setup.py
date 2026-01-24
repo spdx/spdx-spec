@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name = "spdx_specification",
-    version = "3.1-RC1",
+    version = "__VERSION__",
     author = "The Linux Foundation and SPDX Contributors",
     author_email = "spdx-tech@lists.spdx.org",
     description = ("The System Package Data Exchange™ (SPDX®) specification is an open standard capable of representing systems with software components in as SBOMs (Software Bill of Materials) and other AI, data and security references supporting a range of risk management use cases."),
