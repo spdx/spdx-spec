@@ -4,9 +4,9 @@
 # "main", "develop", and "support" branches, each publishing to a unique URL.
 #
 # For example,
-# the workflow in "main" may publish to https://spdx.github.io/spdx-spec/v3.0.1/,
+# the workflow in "main" may publish to https://spdx.github.io/spdx-spec/v3.0/,
 # the workflow in "develop" may publish to https://spdx.github.io/spdx-spec/v3.1-dev/,
-# the workflow in "support/3.0" may publish to https://spdx.github.io/spdx-spec/v3.0.x/.
+# the workflow in "support/3.0" may publish to https://spdx.github.io/spdx-spec/v3.0-dev/.
 #
 # The workflow should be configured to have an URL without a version number
 # specified be redirected to an URL published from "main" branch.
@@ -38,11 +38,11 @@ on:
   workflow_dispatch:
     inputs:
       REF_SPEC:
-        description: 'Branch or tag of specification documents to publish (e.g., refs/heads/develop, refs/heads/support/3.0, refs/tags/v3.0, refs/tags/v3.1-RC1)'
+        description: 'Branch/tag of specification docs to use (e.g., refs/heads/develop, refs/heads/support/3.0, refs/tags/v3.1-RC1)'
         required: false
         default: 'develop'
       REF_MODEL:
-        description: 'Branch or tag of model files to use (e.g., refs/heads/develop, refs/heads/support/3.0, refs/tags/3.0, refs/tags/3.1-rc1)'
+        description: 'Branch/tag of model files to use (e.g., refs/heads/develop, refs/heads/support/3.0, refs/tags/3.1-rc1)'
         required: false
         default: 'develop'
       VERSION:
@@ -70,11 +70,14 @@ jobs:
       github.event_name != 'schedule' || github.repository == 'spdx/spdx-spec'
     runs-on: ubuntu-latest
     env:
-      REF_SPEC: "${{ github.event.inputs.REF_SPEC || 'develop' }}"   # spdx-spec branch:    "main" or "develop" or "support/x.y" or tag/commit ID
-      REF_MODEL: "${{ github.event.inputs.REF_MODEL || 'develop' }}" # spdx-3-model branch: "main" or "develop" or "support/x.y" or tag/commit ID
+      REF_SPEC: "${{ github.event.inputs.REF_SPEC || 'develop' }}"
+                                            # spdx-spec branch:    "main" or "develop" or "support/x.y" or tag/commit ID
+      REF_MODEL: "${{ github.event.inputs.REF_MODEL || 'develop' }}"
+                                            # spdx-3-model branch: "main" or "develop" or "support/x.y" or tag/commit ID
       REF_PARSER: "main"                    # spec-parser branch:  "main" or tag/commit ID
       GH_PAGES_BRANCH: "gh-pages"           # spdx-spec branch to publish HTML to
-      VERSION_DEFAULT: "${{ github.event.inputs.VERSION_DEFAULT || 'v3.0.1' }}"             # Default version:
+      VERSION_DEFAULT: "${{ github.event.inputs.VERSION_DEFAULT || 'v3.0.1' }}"
+                                            # Default version:
                                             # - A version to be redirected to from the URL without
                                             #   a version number specified
                                             # - Should be the latest stable version from the "main" branch
@@ -82,7 +85,8 @@ jobs:
                                             #   branches/tags
                                             # - VERSION_DEFAULT should also match the
                                             #   mike's canonical_version in mkdocs.yml
-      VERSION: "${{ github.event.inputs.VERSION || 'v3.1-dev' }}"                   # Publishing version, to be published from this branch:
+      VERSION: "${{ github.event.inputs.VERSION || 'v3.1-dev' }}"
+                                            # Publishing version, appear on the website URL:
                                             # - VERSION can be different from VERSION_DEFAULT;
                                             #   For example, if VERSION is a draft/release candidate,
                                             #   or if VERSION is a stable version that is behind the
@@ -120,7 +124,7 @@ jobs:
       - name: Expand version aliases to include a version without 'v' prefix and lowercase aliases
         # For example, given
         # - VERSION: "v3.0.1"; and
-        # - Original VERSION_ALIASES: "latest V3.0 v3.0-RC1"
+        # - Original VERSION_ALIASES: "latest v3.0 v3.0-RC1"
         # the expanded VERSION_ALIASES will be "3.0.1 latest v3.0 3.0 v3.0-RC1 3.0-RC1 v3.0-rc1 3.0-rc1"
         run: |
           echo VERSION: $VERSION
