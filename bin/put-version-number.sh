@@ -4,7 +4,7 @@
 # SPDX-FileCopyrightText: Copyright 2026 The SPDX Contributors
 #
 # Replace version placeholders in the repository files.
-# Usage: put-version-number.sh VERSION DEFAULT_VERSION [file...]
+# Usage: put-version-number.sh VERSION VERSION_DEFAULT [file...]
 # If no files are provided, the script updates the following defaults:
 # - docs/index.md
 # - mkdocs.yml
@@ -14,9 +14,9 @@ set -eu
 
 usage() {
 	cat <<EOF >&2
-Usage: $0 VERSION DEFAULT_VERSION [file...]
+Usage: $0 VERSION VERSION_DEFAULT [file...]
 
-Replaces __VERSION__ and __DEFAULT_VERSION__ placeholders in the given files.
+Replaces __VERSION__ and __VERSION_DEFAULT__ placeholders in the given files.
 If no files are provided, the defaults are: docs/index.md mkdocs.yml setup.py
 EOF
 	exit 2
@@ -27,7 +27,7 @@ if [ "$#" -lt 2 ]; then
 fi
 
 VERSION=$1
-DEFAULT_VERSION=$2
+VERSION_DEFAULT=$2
 shift 2
 
 if [ "$#" -gt 0 ]; then
@@ -46,7 +46,7 @@ for f in $FILES; do
 	fi
 
 	tmp="${f}.tmp.${timestamp}"
-	awk -v v="$VERSION" -v dv="$DEFAULT_VERSION" '{ gsub(/__VERSION__/, v); gsub(/__DEFAULT_VERSION__/, dv); print }' "$f" > "$tmp" && mv "$tmp" "$f"
+	awk -v v="$VERSION" -v dv="$VERSION_DEFAULT" '{ gsub(/__VERSION__/, v); gsub(/__VERSION_DEFAULT__/, dv); print }' "$f" > "$tmp" && mv "$tmp" "$f"
 	echo "Updated: $f"
 done
 
