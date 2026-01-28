@@ -302,12 +302,12 @@ jobs:
         run: |
           mike set-default --config-file "$MKDOCS_FULL_YML" --branch $GH_PAGES_BRANCH --push $VERSION_DEFAULT
       - name: Revert placeholder replacements after mike/MkDocs build
+        # Revert any local changes made to content/config files so the
+        # workflow does not modify branch files. This resets the three
+        # files to the checked-out commit state.
         if: always()
         working-directory: spdx-spec
         run: |
-          # Revert any local changes made to content/config files so the
-          # workflow does not modify branch files. This resets the three
-          # files to the checked-out commit state.
           git checkout -- docs/index.md mkdocs.yml setup.py || true
           echo "Reverted docs/index.md, mkdocs.yml, setup.py to HEAD"
       - name: Copy JSON annotations, JSON schema, JSON-LD context, and RDFs to alias directories
