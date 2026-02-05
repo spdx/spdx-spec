@@ -65,6 +65,14 @@ that may be dynamically written or modified during execution.
 from CNSSI 4009-2015,
 from IETF RFC 4949 Ver 2 at <https://datatracker.ietf.org/doc/rfc4949/>)
 
+**stakeholder**
+
+Individual or organization having a right, share, claim, or interest 
+in a system or in its possession of characteristics 
+that meet their needs and expectations. 
+(From https://csrc.nist.gov/glossary/term/stakeholder, 
+from NIST SP 800-160v1r1 from ISO/IEC/IEEE 15288:2015)
+
 **system**
 
 Any organized assembly of resources and procedures
