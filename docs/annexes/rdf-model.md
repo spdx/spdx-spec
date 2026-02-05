@@ -40,6 +40,26 @@ and is published in online at
 
 [![Extension profile diagram][fig_extension]][fig_extension]
 
+### Hardware profile
+
+[![Hardware profile diagram][fig_hardware]][fig_hardware]
+
+### Service profile
+
+[![Service profile diagram][fig_service]][fig_service]
+
+### SupplyChain profile
+
+[![SupplyChain profile diagram][fig_supplychain]][fig_supplychain]
+
+### Operations profile
+
+[![Operations profile diagram][fig_operations]][fig_operations]
+
+### FunctionalSafety profile
+
+[![FunctionalSafety profile diagram][fig_functionalsafety]][fig_functionalsafety]
+
 [fig_ai]: ../images/model-AI.png "SPDX 3.1 AI profile diagram"
 [fig_build]: ../images/model-Build.png "SPDX 3.1 Build profile diagram"
 [fig_core]: ../images/model-Core.png "SPDX 3.1 Core profile diagram"
@@ -48,3 +68,8 @@ and is published in online at
 [fig_licensing]: ../images/model-Licensing.png "SPDX 3.1 Licensing profile diagram"
 [fig_security]: ../images/model-Security.png "SPDX 3.1 Security profile diagram"
 [fig_software]: ../images/model-Software.png "SPDX 3.1 Software profile diagram"
+[fig_hardware]: ../images/model-Hardware.png "SPDX 3.1 Hardware profile diagram"
+[fig_service]: ../images/model-Service.png "SPDX 3.1 Service profile diagram"
+[fig_supplychain]: ../images/model-SupplyChain.png "SPDX 3.1 SupplyChain profile diagram"
+[fig_operations]: ../images/model-Operations.png "SPDX 3.1 Operations profile diagram"
+[fig_functionalsafety]: ../images/model-FunctionalSafety.png "SPDX 3.1 FunctionalSafety profile diagram"

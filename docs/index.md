@@ -1,6 +1,6 @@
-# The System Package Data Exchange™ (SPDX®) Specification Version 3.1-dev
+# The System Package Data Exchange™ (SPDX®) Specification Version 3.1-RC1
 
-Copyright © 2010-2025, The Linux Foundation and its Contributors,
+Copyright © 2010-2026, The Linux Foundation and its Contributors,
 including SPDX Model contributions from OMG and its Contributors.
 
 With thanks to
@@ -8,6 +8,7 @@ Adam Cohn,
 Adolfo García Veytia,
 Alan Tse,
 Alexios Zavras,
+Alfred Strauch,
 Andrew Back,
 Ann Thornton,
 Armin Tänzer,
@@ -98,6 +99,7 @@ Sebastian Crane,
 Shane Coughlan,
 Steve Cropper,
 Steve Winslow,
+Steven Carbno,
 Stuart Hughes,
 Takashi Ninjouji,
 Thomas F. Incorvia,

@@ -26,7 +26,7 @@ the SPDX community, it has been preserved in this document.
 
 Profile is the term for a compliance point within the SPDX community across The
 Linux Foundation and OMG. The System Package Data Exchange (SPDX) specification
-defines the following nine compliance points, defined as “profiles”:
+defines the following thirteen compliance points, defined as “profiles”:
 
 - Core profile
 - Software profile
@@ -37,6 +37,11 @@ defines the following nine compliance points, defined as “profiles”:
 - Build profile
 - Lite profile
 - Extension profile
+- Hardware profile
+- Service profile
+- SupplyChain profile
+- Operations profile
+- FunctionalSafety profile
 
 The Core profile is mandatory. All others are optional.
 
@@ -259,7 +264,7 @@ License, as stated in the [SPDX Trademark Page](https://spdx.dev/trademark).
 The official copyright notice that shall be used with any verbatim reproduction and/or distribution of
 this SPDX Specification 3.1 is:
 
-"Official SPDX® Specification 3.1 Copyright © 2010–2025 Linux Foundation and its Contributors.
+"Official SPDX® Specification 3.1 Copyright © 2010–2026 Linux Foundation and its Contributors.
 Licensed under the Community Specification License 1.0. All other rights are expressly reserved."
 
 The official copyright notice that shall be used with any non-verbatim reproduction and/or distribution
@@ -267,7 +272,7 @@ of this SPDX Specification 3.1, including without limitation any partial use or 
 Specification with another work, is:
 
 "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX®
-Specification 3.1 found at spdx.dev. These portions are Copyright © 2010–2025 Linux Foundation and
+Specification 3.1 found at spdx.dev. These portions are Copyright © 2010–2026 Linux Foundation and
 its Contributors, and are licensed under the Community Specification License 1.0 by the
 Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and
 its Contributors."
