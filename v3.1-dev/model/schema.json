@@ -2710,12 +2710,12 @@
                                 }
                             ]
                         },
-                        "requirementRationale": {
+                        "rationale": {
                             "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/$defs/prop_Requirement_requirementRationale"
+                                        "$ref": "#/$defs/prop_Requirement_rationale"
                                     }
                                 }
                             ]
@@ -2745,7 +2745,7 @@
                     "spdx:Core/LifecycleScopeType/update"
                 ]
         },
-        "prop_Requirement_requirementRationale": {
+        "prop_Requirement_rationale": {
                     "type": "string"
         },
         "prop_Requirement_requirementStatement": {
@@ -3580,23 +3580,26 @@
                 {
                     "type": "object",
                     "properties": {
+                        "rationale": {
+                            "$ref": "#/$defs/prop_functionalsafety_EvaluationResult_rationale"
+                        },
                         "functionalsafety_evaluation": {
                             "$ref": "#/$defs/prop_functionalsafety_EvaluationResult_functionalsafety_evaluation"
                         },
                         "functionalsafety_evaluationBasedOn": {
                             "$ref": "#/$defs/prop_functionalsafety_EvaluationResult_functionalsafety_evaluationBasedOn"
-                        },
-                        "functionalsafety_evaluationRationale": {
-                            "$ref": "#/$defs/prop_functionalsafety_EvaluationResult_functionalsafety_evaluationRationale"
                         }
                     },
                     "required": [
+                        "rationale",
                         "functionalsafety_evaluation",
-                        "functionalsafety_evaluationBasedOn",
-                        "functionalsafety_evaluationRationale"
+                        "functionalsafety_evaluationBasedOn"
                     ]
                 }
             ]
+        },
+        "prop_functionalsafety_EvaluationResult_rationale": {
+                    "type": "string"
         },
         "prop_functionalsafety_EvaluationResult_functionalsafety_evaluation": {
                 "enum": [
@@ -3607,9 +3610,6 @@
         },
         "prop_functionalsafety_EvaluationResult_functionalsafety_evaluationBasedOn": {
                 "$ref": "#/$defs/functionalsafety_RequirementVerification_derived"
-        },
-        "prop_functionalsafety_EvaluationResult_functionalsafety_evaluationRationale": {
-                    "type": "string"
         },
         "functionalsafety_EvaluationResultType": {
             "if": {
@@ -3834,6 +3834,9 @@
                 {
                     "type": "object",
                     "properties": {
+                        "rationale": {
+                            "$ref": "#/$defs/prop_functionalsafety_RequirementVerification_rationale"
+                        },
                         "functionalsafety_verificationMethod": {
                             "anyOf": [
                                 {
@@ -3864,15 +3867,15 @@
                                 }
                             ]
                         },
-                        "functionalsafety_verificationRationale": {
-                            "$ref": "#/$defs/prop_functionalsafety_RequirementVerification_functionalsafety_verificationRationale"
-                        },
                         "functionalsafety_verificationUUID": {
                             "$ref": "#/$defs/prop_functionalsafety_RequirementVerification_functionalsafety_verificationUUID"
                         }
                     }
                 }
             ]
+        },
+        "prop_functionalsafety_RequirementVerification_rationale": {
+                    "type": "string"
         },
         "prop_functionalsafety_RequirementVerification_functionalsafety_verificationMethod": {
                 "enum": [
@@ -3890,9 +3893,6 @@
                     "type": "string"
         },
         "prop_functionalsafety_RequirementVerification_functionalsafety_verificationPrecondition": {
-                    "type": "string"
-        },
-        "prop_functionalsafety_RequirementVerification_functionalsafety_verificationRationale": {
                     "type": "string"
         },
         "prop_functionalsafety_RequirementVerification_functionalsafety_verificationUUID": {
@@ -5238,6 +5238,12 @@
                                     }
                                 }
                             ]
+                        },
+                        "endTime": {
+                            "$ref": "#/$defs/prop_build_Build_endTime"
+                        },
+                        "startTime": {
+                            "$ref": "#/$defs/prop_build_Build_startTime"
                         }
                     },
                     "required": [
@@ -5288,6 +5294,28 @@
         },
         "prop_build_Build_build_parameter": {
                 "$ref": "#/$defs/DictionaryEntry_derived"
+        },
+        "prop_build_Build_endTime": {
+                    "type": "string",
+                    "allOf": [
+                        {
+                            "pattern": "^[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9](Z|[+-][0-9]{2}:[0-9]{2})$"
+                        },
+                        {
+                            "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+                        }
+                    ]
+        },
+        "prop_build_Build_startTime": {
+                    "type": "string",
+                    "allOf": [
+                        {
+                            "pattern": "^[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9](Z|[+-][0-9]{2}:[0-9]{2})$"
+                        },
+                        {
+                            "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+                        }
+                    ]
         },
         "Agent": {
             "if": {
@@ -5744,14 +5772,14 @@
                 {
                     "type": "object",
                     "properties": {
-                        "processRationale": {
-                            "$ref": "#/$defs/prop_DefinedProcess_processRationale"
-                        },
                         "processReadiness": {
                             "$ref": "#/$defs/prop_DefinedProcess_processReadiness"
                         },
                         "processVersion": {
                             "$ref": "#/$defs/prop_DefinedProcess_processVersion"
+                        },
+                        "rationale": {
+                            "$ref": "#/$defs/prop_DefinedProcess_rationale"
                         }
                     },
                     "required": [
@@ -5759,9 +5787,6 @@
                     ]
                 }
             ]
-        },
-        "prop_DefinedProcess_processRationale": {
-                    "type": "string"
         },
         "prop_DefinedProcess_processReadiness": {
                 "enum": [
@@ -5772,6 +5797,9 @@
                 ]
         },
         "prop_DefinedProcess_processVersion": {
+                    "type": "string"
+        },
+        "prop_DefinedProcess_rationale": {
                     "type": "string"
         },
         "Hash": {
@@ -7322,11 +7350,14 @@
                 {
                     "type": "object",
                     "properties": {
+                        "endTime": {
+                            "$ref": "#/$defs/prop_operations_Project_endTime"
+                        },
+                        "startTime": {
+                            "$ref": "#/$defs/prop_operations_Project_startTime"
+                        },
                         "operations_projectContract": {
                             "$ref": "#/$defs/prop_operations_Project_operations_projectContract"
-                        },
-                        "operations_projectEndTime": {
-                            "$ref": "#/$defs/prop_operations_Project_operations_projectEndTime"
                         },
                         "operations_projectOwner": {
                             "$ref": "#/$defs/prop_operations_Project_operations_projectOwner"
@@ -7341,26 +7372,20 @@
                                 }
                             ]
                         },
-                        "operations_projectStartTime": {
-                            "$ref": "#/$defs/prop_operations_Project_operations_projectStartTime"
-                        },
                         "operations_projectTitle": {
                             "$ref": "#/$defs/prop_operations_Project_operations_projectTitle"
                         }
                     },
                     "required": [
+                        "startTime",
                         "operations_projectContract",
                         "operations_projectOwner",
-                        "operations_projectStartTime",
                         "operations_projectTitle"
                     ]
                 }
             ]
         },
-        "prop_operations_Project_operations_projectContract": {
-                    "$ref": "#/$defs/anyURI"
-        },
-        "prop_operations_Project_operations_projectEndTime": {
+        "prop_operations_Project_endTime": {
                     "type": "string",
                     "allOf": [
                         {
@@ -7370,23 +7395,26 @@
                             "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
                         }
                     ]
+        },
+        "prop_operations_Project_startTime": {
+                    "type": "string",
+                    "allOf": [
+                        {
+                            "pattern": "^[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9](Z|[+-][0-9]{2}:[0-9]{2})$"
+                        },
+                        {
+                            "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+                        }
+                    ]
+        },
+        "prop_operations_Project_operations_projectContract": {
+                    "$ref": "#/$defs/anyURI"
         },
         "prop_operations_Project_operations_projectOwner": {
                 "$ref": "#/$defs/Agent_derived"
         },
         "prop_operations_Project_operations_projectSponsor": {
                 "$ref": "#/$defs/Agent_derived"
-        },
-        "prop_operations_Project_operations_projectStartTime": {
-                    "type": "string",
-                    "allOf": [
-                        {
-                            "pattern": "^[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9](Z|[+-][0-9]{2}:[0-9]{2})$"
-                        },
-                        {
-                            "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
-                        }
-                    ]
         },
         "prop_operations_Project_operations_projectTitle": {
                     "type": "string"
@@ -8815,9 +8843,6 @@
                 {
                     "type": "object",
                     "properties": {
-                        "actionEndTime": {
-                            "$ref": "#/$defs/prop_Action_actionEndTime"
-                        },
                         "actionLocation": {
                             "anyOf": [
                                 {
@@ -8828,9 +8853,6 @@
                                 }
                             ]
                         },
-                        "actionStartTime": {
-                            "$ref": "#/$defs/prop_Action_actionStartTime"
-                        },
                         "additionalInformation": {
                             "anyOf": [
                                 {
@@ -8840,26 +8862,24 @@
                                     }
                                 }
                             ]
+                        },
+                        "endTime": {
+                            "$ref": "#/$defs/prop_Action_endTime"
+                        },
+                        "startTime": {
+                            "$ref": "#/$defs/prop_Action_startTime"
                         }
                     }
                 }
             ]
         },
-        "prop_Action_actionEndTime": {
-                    "type": "string",
-                    "allOf": [
-                        {
-                            "pattern": "^[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9](Z|[+-][0-9]{2}:[0-9]{2})$"
-                        },
-                        {
-                            "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
-                        }
-                    ]
-        },
         "prop_Action_actionLocation": {
                 "$ref": "#/$defs/Location_derived"
         },
-        "prop_Action_actionStartTime": {
+        "prop_Action_additionalInformation": {
+                "$ref": "#/$defs/DictionaryEntry_derived"
+        },
+        "prop_Action_endTime": {
                     "type": "string",
                     "allOf": [
                         {
@@ -8870,8 +8890,16 @@
                         }
                     ]
         },
-        "prop_Action_additionalInformation": {
-                "$ref": "#/$defs/DictionaryEntry_derived"
+        "prop_Action_startTime": {
+                    "type": "string",
+                    "allOf": [
+                        {
+                            "pattern": "^[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9](Z|[+-][0-9]{2}:[0-9]{2})$"
+                        },
+                        {
+                            "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$"
+                        }
+                    ]
         },
         "Bom": {
             "if": {
