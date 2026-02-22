@@ -226,17 +226,36 @@ jobs:
         # from https://spdx.org/schema/<version>/spdx-json-schema.json
         # to https://spdx.github.io/spdx-spec/v<version>/rdf/schema.json
         #
+        # A JSON-LD context document URL is needed to generate the JSON schema.
+        #
         # For development versions (versions with suffix "-dev", etc.),
         # JSON context may not be available yet at https://spdx.org/,
         # use one at https://spdx.github.io/spdx-spec/ instead.
+        # The JSON-LD context document URL is determined by checking the
+        # following URLs in order:
+        #
+        # 1. spdx.org (no "v" prefix, no suffix) (if not 404)
+        # 2. spdx.org (no "v" prefix) (if not 404)
+        # 3. spdx.github.io/spdx-spec/ (fallback)
         run: |
-          V=$(echo "$VERSION" | tr '[:upper:]' '[:lower:]')
-          if [[ "$V" == "develop" || "$V" == "dev" || "$V" =~ -dev$ || "$V" =~ -draft$ || "$V" =~ -rc[0-9]*$ ]]; then
-            CONTEXT_URL="https://spdx.github.io/spdx-spec/$VERSION/rdf/spdx-context.jsonld"
+          VER_WO_V=${VERSION#[vV]}
+          VER_CLEAN=$(echo "$VER_WO_V" | sed -E 's/-.*//')
+
+          URL_1="https://spdx.org/rdf/$VER_CLEAN/spdx-context.jsonld"
+          URL_2="https://spdx.org/rdf/$VER_WO_V/spdx-context.jsonld"
+          URL_3="https://spdx.github.io/spdx-spec/$VERSION/rdf/spdx-context.jsonld"
+
+          if curl --output /dev/null --silent --head --fail "$URL_1"; then
+            CONTEXT_URL="$URL_1"
+          elif [ "$URL_1" != "$URL_2" ] && curl --output /dev/null --silent --head --fail "$URL_2"; then
+            CONTEXT_URL="$URL_2"
           else
-            VER_WO_V=${VERSION#v}
-            CONTEXT_URL="https://spdx.org/rdf/$VER_WO_V/spdx-context.jsonld"
+            CONTEXT_URL="$URL_3"
           fi
+
+          echo "JSON-LD context document URL:"
+          echo "$CONTEXT_URL"
+
           shacl2code generate \
             --input spdx-spec/docs/rdf/spdx-model.ttl \
             --input spdx-spec/docs/rdf/jsonld-annotations.ttl \
