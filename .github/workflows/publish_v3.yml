@@ -33,21 +33,48 @@ on:
   repository_dispatch:
     types:
       - publish_v3_spec
-  workflow_dispatch: {}  # Manually trigger from https://github.com/spdx/spdx-spec/actions
+  # Manually trigger from https://github.com/spdx/spdx-spec/actions
+  # Allows specifying inputs for different branches/tags and versions
+  workflow_dispatch:
+    inputs:
+      REF_SPEC:
+        description: 'Branch or tag of specification documents to publish (e.g., refs/heads/develop, refs/heads/support/3.0, refs/tags/v3.0, refs/tags/v3.1-RC1)'
+        required: false
+        default: 'develop'
+      REF_MODEL:
+        description: 'Branch or tag of model files to use (e.g., refs/heads/develop, refs/heads/support/3.0, refs/tags/v3.0.1, refs/tags/v3.1-rc1)'
+        required: false
+        default: 'develop'
+      VERSION:
+        description: 'Version to publish (e.g., v3.1-dev, v3.1-RC1)'
+        required: false
+        default: 'v3.1-dev'
+      VERSION_ALIASES:
+        description: 'Space-delimited aliases for the version being published (e.g., "v3 latest")'
+        required: false
+        default: 'v3.1 develop dev'
+      VERSION_DEFAULT:
+        description: 'Default version to redirect to, when no version is specified in the URL (e.g., v3.0)'
+        required: false
+        default: 'v3.0.1'
   schedule:
     # Rebuild periodically, to apply changes from https://github.com/spdx/spdx-3-model/
-    - cron: "0,30 12-20 * * *"  # Every 30 mins during meeting hours in https://github.com/spdx/meetings/
-    - cron: "0 0,2,4,8,10,22 * * *"  # Every 2 hours off meeting hours
+    - cron: "0,30 12-20 * * 1-5"  # Every 30 mins during meeting hours (Mon-Fri)
+    - cron: "0 0,2,4,8,10,22 * * 1-5"  # Every 2 hours off meeting hours (Mon-Fri)
+    - cron: "0 12 * * 6,0"  # Noon once on weekends (Sat & Sun)
 
 jobs:
   build:
+    # Don't run scheduled builds for forks
+    if: >-
+      github.event_name != 'schedule' || github.repository == 'spdx/spdx-spec'
     runs-on: ubuntu-latest
     env:
-      REF_SPEC: "develop"                   # spdx-spec branch:    "main" or "develop" or "support/x.y" or tag/commit ID
-      REF_MODEL: "develop"                  # spdx-3-model branch: "main" or "develop" or "support/x.y" or tag/commit ID
+      REF_SPEC: "${{ github.event.inputs.REF_SPEC || 'develop' }}"   # spdx-spec branch:    "main" or "develop" or "support/x.y" or tag/commit ID
+      REF_MODEL: "${{ github.event.inputs.REF_MODEL || 'develop' }}" # spdx-3-model branch: "main" or "develop" or "support/x.y" or tag/commit ID
       REF_PARSER: "main"                    # spec-parser branch:  "main" or tag/commit ID
       GH_PAGES_BRANCH: "gh-pages"           # spdx-spec branch to publish HTML to
-      VERSION_DEFAULT: "v3.0.1"             # Default version:
+      VERSION_DEFAULT: "${{ github.event.inputs.VERSION_DEFAULT || 'v3.0.1' }}"             # Default version:
                                             # - A version to be redirected to from the URL without
                                             #   a version number specified
                                             # - Should be the latest stable version from the "main" branch
@@ -55,7 +82,7 @@ jobs:
                                             #   branches/tags
                                             # - VERSION_DEFAULT should also match the
                                             #   mike's canonical_version in mkdocs.yml
-      VERSION: "v3.1-dev"                   # Publishing version, to be published from this branch:
+      VERSION: "${{ github.event.inputs.VERSION || 'v3.1-dev' }}"                   # Publishing version, to be published from this branch:
                                             # - VERSION can be different from VERSION_DEFAULT;
                                             #   For example, if VERSION is a draft/release candidate,
                                             #   or if VERSION is a stable version that is behind the
@@ -74,7 +101,7 @@ jobs:
                                             #   redirected to the release version later.
                                             #   For example, v3.0-RC1 was redirected to v3.0 and
                                             #   will be redirected to v3.0.1 later.
-      VERSION_ALIASES: "v3.1 develop dev"
+      VERSION_ALIASES: "${{ github.event.inputs.VERSION_ALIASES || 'v3.1 develop dev' }}"
                                             # VERSION_ALIASES are names that will be redirected to VERSION
                                             # - Can be empty, can be multiple; separated by space
                                             # - "latest" should be reserved for the latest stable version
@@ -90,47 +117,67 @@ jobs:
       REDIRECT_MAP_PATH: "etc/redirect-map.csv"             # URL redirect map
       REDIRECT_TEMPLATE_PATH: "etc/redirect-template.html"  # URL redirect HTML template
     steps:
-      - name: Expand version aliases to include a version without 'v' prefix
+      - name: Expand version aliases to include a version without 'v' prefix and lowercase aliases
         # For example, given
         # - VERSION: "v3.0.1"; and
-        # - Original VERSION_ALIASES: "latest v3.0"
-        # the expanded VERSION_ALIASES will be "3.0.1 latest v3.0 3.0"
+        # - Original VERSION_ALIASES: "latest V3.0 v3.0-RC1"
+        # the expanded VERSION_ALIASES will be "3.0.1 latest v3.0 3.0 v3.0-RC1 3.0-RC1 v3.0-rc1 3.0-rc1"
         run: |
           echo VERSION: $VERSION
           echo Original VERSION_ALIASES: $VERSION_ALIASES
           original_aliases="$VERSION_ALIASES"
           expanded_aliases=""
 
+          add_alias() {
+            for a in "$@"; do
+              [ -z "$a" ] && continue
+              expanded_aliases="$expanded_aliases $a"
+            done
+          }
+
+          # Add lowercase VERSION and numeric (no 'v') variants, but do NOT add the exact VERSION
+          lower_version=$(echo "$VERSION" | tr '[:upper:]' '[:lower:]')
+          add_alias "$lower_version"
           if [[ $VERSION =~ ^v[0-9] ]]; then
-              expanded_aliases="$expanded_aliases ${VERSION#v}"
+            add_alias "${VERSION#v}"
+            add_alias "${lower_version#v}"
           fi
 
+          # Add original aliases and their lowercase and numeric variants
           for version in $original_aliases; do
-            expanded_aliases="$expanded_aliases $version"
+            # skip exact match to VERSION
+            if [ "$version" = "$VERSION" ]; then
+              continue
+            fi
+            add_alias "$version"
+            lower_alias=$(echo "$version" | tr '[:upper:]' '[:lower:]')
+            add_alias "$lower_alias"
             if [[ $version =~ ^v[0-9] ]]; then
-              expanded_aliases="$expanded_aliases ${version#v}"
+              add_alias "${version#v}"
+              add_alias "${lower_alias#v}"
             fi
           done
 
-          expanded_aliases=$(echo $expanded_aliases | sed 's/^ *//g')
+          # Deduplicate aliases and remove the exact version from the list
+          expanded_aliases=$(printf "%s\n" $expanded_aliases | sort -u | grep -Fxv "$VERSION" | tr '\n' ' ' | sed 's/^ *//; s/ *$//')
           echo "VERSION_ALIASES=$expanded_aliases" >> $GITHUB_ENV
       - name: Check expanded version aliases
         run: |
           echo Expanded VERSION_ALIASES: $VERSION_ALIASES
       - name: Checkout spdx-spec
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  #v6.0.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  #v6.0.2
         with:
           ref: ${{ env.REF_SPEC }}
           path: spdx-spec
           fetch-depth: 0  # Because we will be pushing the gh-pages branch
       - name: Checkout spdx-3-model
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  #v6.0.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  #v6.0.2
         with:
           repository: spdx/spdx-3-model
           ref: ${{ env.REF_MODEL }}
           path: spdx-3-model
       - name: Checkout spec-parser
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  #v6.0.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  #v6.0.2
         with:
           repository: spdx/spec-parser
           ref: ${{ env.REF_PARSER }}
