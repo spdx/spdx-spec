@@ -192,11 +192,13 @@ jobs:
       - name: Install pre-requisites for spec-parser
         run: pip install -r spec-parser/requirements.txt
       - name: Build model files
-        # Also move the model file list to spdx-spec/ directory,
-        # as it should not be part of the publicly accessible website.
+        # Generates model documents and RDFs
+        # Move the model file list to spdx-spec/
+        # Move Class hierarchy annex to spdx-spec/annexes/
         run: |
           python3 spec-parser/main.py --force --generate-rdf --output-rdf spdx-spec/docs/rdf --generate-mkdocs --output-mkdocs spdx-spec/docs/model --generate-plantuml --output-plantuml spdx-spec/docs/diagram --generate-jsondump --output-jsondump spdx-spec/docs/jsondump spdx-3-model/model
           mv spdx-spec/docs/model/$MKDOCS_MODEL_YML spdx-spec/
+          mv spdx-spec/docs/model/class-hierarchy.md spdx-spec/annexes/
       - name: Copy JSON annotations
         # JSON annotations URL will be redirected
         # from https://spdx.org/rdf/<version>/spdx-json-serialize-annotations.ttl
