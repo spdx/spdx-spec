@@ -41,6 +41,7 @@ defines the following thirteen compliance points, defined as “profiles”:
 - Service profile
 - SupplyChain profile
 - Operations profile
+- FunctionalSafety profile
 
 The Core profile is mandatory. All others are optional.
 
