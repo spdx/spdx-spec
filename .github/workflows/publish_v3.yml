@@ -194,11 +194,9 @@ jobs:
       - name: Build model files
         # Generates model documents and RDFs
         # Move the model file list to spdx-spec/
-        # Move Class hierarchy annex to spdx-spec/docs/annexes/
         run: |
           python3 spec-parser/main.py --force --generate-rdf --output-rdf spdx-spec/docs/rdf --generate-mkdocs --output-mkdocs spdx-spec/docs/model --generate-plantuml --output-plantuml spdx-spec/docs/diagram --generate-jsondump --output-jsondump spdx-spec/docs/jsondump spdx-3-model/model
           mv spdx-spec/docs/model/$MKDOCS_MODEL_YML spdx-spec/
-          mv spdx-spec/docs/model/class-hierarchy.md spdx-spec/docs/annexes/
       - name: Copy JSON annotations
         # JSON annotations URL will be redirected
         # from https://spdx.org/rdf/<version>/spdx-json-serialize-annotations.ttl
@@ -273,6 +271,10 @@ jobs:
           echo "--------------------"
           cat "$MKDOCS_FULL_YML"
           echo "===================="
+      - name: Move generated documents
+        working-directory: spdx-spec
+        run: |
+          mv docs/model/class-hierarchy.md docs/annexes/
       - name: Deploy and set aliases
         # mike is used here to manage multiple versions of MkDocs-powered documentation
         # This step does 2 things:
