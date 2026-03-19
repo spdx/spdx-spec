@@ -227,27 +227,36 @@ jobs:
         # to https://spdx.github.io/spdx-spec/v<version>/rdf/schema.json
         #
         # A JSON-LD context document URL is needed to generate the JSON schema.
+        # The preferred URL is at spdx.org, but for development versions it may not
+        # be available yet, so spdx.github.io is used as a fallback.
         #
-        # For development versions (versions with suffix "-dev", etc.),
-        # JSON context may not be available yet at https://spdx.org/,
-        # use one at https://spdx.github.io/spdx-spec/ instead.
-        # The JSON-LD context document URL is determined by checking the
-        # following URLs in order:
+        # The context URL is resolved by trying the following candidates in order:
         #
-        # 1. spdx.org (no "v" prefix, no suffix) (if not 404)
-        # 2. spdx.org (no "v" prefix) (if not 404)
-        # 3. spdx.github.io/spdx-spec/ (fallback)
+        # 1. https://spdx.org/rdf/<base>/spdx-context.jsonld   (e.g. 3.1)
+        # 2. https://spdx.org/rdf/<full>/spdx-context.jsonld   (e.g. 3.1-RC1)
+        # 3. https://spdx.github.io/spdx-spec/<VERSION>/rdf/spdx-context.jsonld  (fallback)
+        #
+        # For each spdx.org candidate, availability is confirmed by either:
+        # a. a GitHub tag in spdx/spdx-spec — deterministic; a tag confirms a release
+        # b. a curl check — catches the case where spdx.org is live before the tag is created
+        #
+        # Note: tags in spdx/spdx-spec may or may not have a "v" prefix (e.g., v3.0 vs 3.0.1),
+        # so both forms are checked. The spdx-spec repo is checked out with fetch-depth: 0.
         run: |
           VER_WO_V=${VERSION#[vV]}
-          VER_CLEAN=$(echo "$VER_WO_V" | sed -E 's/-.*//')
+          VER_BASE=$(echo "$VER_WO_V" | sed -E 's/-.*//')
 
-          URL_1="https://spdx.org/rdf/$VER_CLEAN/spdx-context.jsonld"
+          URL_1="https://spdx.org/rdf/$VER_BASE/spdx-context.jsonld"
           URL_2="https://spdx.org/rdf/$VER_WO_V/spdx-context.jsonld"
           URL_3="https://spdx.github.io/spdx-spec/$VERSION/rdf/spdx-context.jsonld"
 
-          if curl --output /dev/null --silent --head --fail "$URL_1"; then
+          has_tag_base() { git -C spdx-spec tag -l "v$VER_BASE" "$VER_BASE" | grep -q .; }
+          has_tag_full() { git -C spdx-spec tag -l "v$VER_WO_V" "$VER_WO_V" | grep -q .; }
+          url_ok()       { curl --output /dev/null --silent --head --fail "$1"; }
+
+          if has_tag_base || url_ok "$URL_1"; then
             CONTEXT_URL="$URL_1"
-          elif [ "$URL_1" != "$URL_2" ] && curl --output /dev/null --silent --head --fail "$URL_2"; then
+          elif [ "$VER_WO_V" != "$VER_BASE" ] && { has_tag_full || url_ok "$URL_2"; }; then
             CONTEXT_URL="$URL_2"
           else
             CONTEXT_URL="$URL_3"
