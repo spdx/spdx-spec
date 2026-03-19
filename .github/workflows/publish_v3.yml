@@ -243,23 +243,23 @@ jobs:
         # Note: tags in spdx/spdx-spec may or may not have a "v" prefix (e.g., v3.0 vs 3.0.1),
         # so both forms are checked. The spdx-spec repo is checked out with fetch-depth: 0.
         run: |
-          VER_WO_V=${VERSION#[vV]}
-          VER_BASE=$(echo "$VER_WO_V" | sed -E 's/-.*//')
+          VER_FULL=${VERSION#[vV]}
+          VER_BASE=$(echo "$VER_FULL" | sed -E 's/-.*//')
 
-          URL_1="https://spdx.org/rdf/$VER_BASE/spdx-context.jsonld"
-          URL_2="https://spdx.org/rdf/$VER_WO_V/spdx-context.jsonld"
-          URL_3="https://spdx.github.io/spdx-spec/$VERSION/rdf/spdx-context.jsonld"
+          URL_RELEASE="https://spdx.org/rdf/$VER_BASE/spdx-context.jsonld"
+          URL_DEV="https://spdx.org/rdf/$VER_FULL/spdx-context.jsonld"
+          URL_FALLBACK="https://spdx.github.io/spdx-spec/$VERSION/rdf/spdx-context.jsonld"
 
-          has_tag_base() { git -C spdx-spec tag -l "v$VER_BASE" "$VER_BASE" | grep -q .; }
-          has_tag_full() { git -C spdx-spec tag -l "v$VER_WO_V" "$VER_WO_V" | grep -q .; }
-          url_ok()       { curl --output /dev/null --silent --head --fail "$1"; }
+          has_tag_release() { git -C spdx-spec tag -l "v$VER_BASE" "$VER_BASE" | grep -q .; }
+          has_tag_dev()     { git -C spdx-spec tag -l "v$VER_FULL" "$VER_FULL" | grep -q .; }
+          url_ok()          { curl --output /dev/null --silent --head --fail "$1"; }
 
-          if has_tag_base || url_ok "$URL_1"; then
-            CONTEXT_URL="$URL_1"
-          elif [ "$VER_WO_V" != "$VER_BASE" ] && { has_tag_full || url_ok "$URL_2"; }; then
-            CONTEXT_URL="$URL_2"
+          if has_tag_release || url_ok "$URL_RELEASE"; then
+            CONTEXT_URL="$URL_RELEASE"
+          elif [ "$VER_FULL" != "$VER_BASE" ] && { has_tag_dev || url_ok "$URL_DEV"; }; then
+            CONTEXT_URL="$URL_DEV"
           else
-            CONTEXT_URL="$URL_3"
+            CONTEXT_URL="$URL_FALLBACK"
           fi
 
           echo "JSON-LD context document URL:"
