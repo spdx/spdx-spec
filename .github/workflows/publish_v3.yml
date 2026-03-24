@@ -169,19 +169,19 @@ jobs:
         run: |
           echo Expanded VERSION_ALIASES: $VERSION_ALIASES
       - name: Checkout spdx-spec
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  #v6.0.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  #v6.0.2
         with:
           ref: ${{ env.REF_SPEC }}
           path: spdx-spec
           fetch-depth: 0  # Because we will be pushing the gh-pages branch
       - name: Checkout spdx-3-model
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  #v6.0.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  #v6.0.2
         with:
           repository: spdx/spdx-3-model
           ref: ${{ env.REF_MODEL }}
           path: spdx-3-model
       - name: Checkout spec-parser
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  #v6.0.1
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  #v6.0.2
         with:
           repository: spdx/spec-parser
           ref: ${{ env.REF_PARSER }}
@@ -196,8 +196,8 @@ jobs:
       - name: Install pre-requisites for spec-parser
         run: pip install -r spec-parser/requirements.txt
       - name: Build model files
-        # Also move the model file list to spdx-spec/ directory,
-        # as it should not be part of the publicly accessible website.
+        # Generates model documents and RDFs
+        # Move the model file list to spdx-spec/ root
         run: |
           python3 spec-parser/main.py --force --generate-rdf --output-rdf spdx-spec/docs/rdf --generate-mkdocs --output-mkdocs spdx-spec/docs/model --generate-plantuml --output-plantuml spdx-spec/docs/diagram --generate-jsondump --output-jsondump spdx-spec/docs/jsondump spdx-3-model/model
           mv spdx-spec/docs/model/$MKDOCS_MODEL_YML spdx-spec/
@@ -230,17 +230,45 @@ jobs:
         # from https://spdx.org/schema/<version>/spdx-json-schema.json
         # to https://spdx.github.io/spdx-spec/v<version>/rdf/schema.json
         #
-        # For development versions (versions with suffix "-dev", etc.),
-        # JSON context may not be available yet at https://spdx.org/,
-        # use one at https://spdx.github.io/spdx-spec/ instead.
+        # A JSON-LD context document URL is needed to generate the JSON schema.
+        # The preferred URL is at spdx.org, but for development versions it may not
+        # be available yet, so spdx.github.io is used as a fallback.
+        #
+        # The context URL is resolved by trying the following candidates in order:
+        #
+        # 1. https://spdx.org/rdf/<base>/spdx-context.jsonld   (e.g. 3.1)
+        # 2. https://spdx.org/rdf/<full>/spdx-context.jsonld   (e.g. 3.1-RC1)
+        # 3. https://spdx.github.io/spdx-spec/<VERSION>/rdf/spdx-context.jsonld  (fallback)
+        #
+        # For each spdx.org candidate, availability is confirmed by either:
+        # a. a GitHub tag in spdx/spdx-spec — deterministic; a tag confirms a release
+        # b. a curl check — catches the case where spdx.org is live before the tag is created
+        #
+        # Note: tags in spdx/spdx-spec may or may not have a "v" prefix (e.g., v3.0 vs 3.0.1),
+        # so both forms are checked. The spdx-spec repo is checked out with fetch-depth: 0.
         run: |
-          V=$(echo "$VERSION" | tr '[:upper:]' '[:lower:]')
-          if [[ "$V" == "develop" || "$V" == "dev" || "$V" =~ -dev$ || "$V" =~ -draft$ || "$V" =~ -rc[0-9]*$ ]]; then
-            CONTEXT_URL="https://spdx.github.io/spdx-spec/$VERSION/rdf/spdx-context.jsonld"
+          VER_FULL=${VERSION#[vV]}
+          VER_BASE=$(echo "$VER_FULL" | sed -E 's/-.*//')
+
+          URL_RELEASE="https://spdx.org/rdf/$VER_BASE/spdx-context.jsonld"
+          URL_DEV="https://spdx.org/rdf/$VER_FULL/spdx-context.jsonld"
+          URL_FALLBACK="https://spdx.github.io/spdx-spec/$VERSION/rdf/spdx-context.jsonld"
+
+          has_tag_release() { git -C spdx-spec tag -l "v$VER_BASE" "$VER_BASE" | grep -q .; }
+          has_tag_dev()     { git -C spdx-spec tag -l "v$VER_FULL" "$VER_FULL" | grep -q .; }
+          url_ok()          { curl --output /dev/null --silent --head --fail "$1"; }
+
+          if has_tag_release || url_ok "$URL_RELEASE"; then
+            CONTEXT_URL="$URL_RELEASE"
+          elif [ "$VER_FULL" != "$VER_BASE" ] && { has_tag_dev || url_ok "$URL_DEV"; }; then
+            CONTEXT_URL="$URL_DEV"
           else
-            VER_WO_V=${VERSION#v}
-            CONTEXT_URL="https://spdx.org/rdf/$VER_WO_V/spdx-context.jsonld"
+            CONTEXT_URL="$URL_FALLBACK"
           fi
+
+          echo "JSON-LD context document URL:"
+          echo "$CONTEXT_URL"
+
           shacl2code generate \
             --input spdx-spec/docs/rdf/spdx-model.ttl \
             --input spdx-spec/docs/rdf/jsonld-annotations.ttl \
@@ -255,6 +283,12 @@ jobs:
       - name: Sync GitHub Pages
         working-directory: spdx-spec
         run: git checkout $GH_PAGES_BRANCH && git pull && git checkout $REF_SPEC
+      - name: Move generated model-related documents to annexes
+        # Must happen after git sync, because class-hierarchy.md is a tracked file
+        # in the spec branch; moving it before the sync would cause git checkout to fail
+        # with "local changes would be overwritten by checkout"
+        run: |
+          mv spdx-spec/docs/model/class-hierarchy.md spdx-spec/docs/annexes/
       - name: Build complete MkDocs configuration
         # Combines model file list (MKDOCS_MODEL_YML, generated by spec-parser)
         # with the base MkDocs configuration file (MKDOCS_BASE_YML),
@@ -308,6 +342,7 @@ jobs:
         # since it cannot use the HTML refresh mechanism.
         working-directory: spdx-spec
         run: |
+          git checkout -- docs/annexes/class-hierarchy.md
           git checkout $GH_PAGES_BRANCH
           dirs="$VERSION_ALIASES"
           for dir in $dirs; do
