@@ -49,6 +49,19 @@ from CNSSI 4009-2015,
 *leveraged* from IETF RFC 4949 Ver 2 at
 <https://datatracker.ietf.org/doc/rfc4949/>)
 
+**persona**
+
+Representation of a type of user that includes 
+a concise summary of the characteristics of the user 
+that is most informative to the design or illustrative of specific user requirements 
+
+Note 1 to entry: A persona typically includes behavior patterns, goals, skills, attitudes, and environment, 
+with a few fictional personal details to make the persona a realistic character.
+
+(From ISO/IEC 25063:2014 Systems and software engineering — 
+Systems and software product Quality Requirements and Evaluation (SQuaRE) 
+Common Industry Format (CIF) for usability: Context of use description)
+
 **profile**
 
 A scope of usage for SPDX targeting support for particular use cases and
@@ -64,6 +77,14 @@ that may be dynamically written or modified during execution.
 (From <https://csrc.nist.gov/glossary/term/software>,
 from CNSSI 4009-2015,
 from IETF RFC 4949 Ver 2 at <https://datatracker.ietf.org/doc/rfc4949/>)
+
+**stakeholder**
+
+Individual or organization having a right, share, claim, or interest 
+in a system or in its possession of characteristics 
+that meet their needs and expectations. 
+(From https://csrc.nist.gov/glossary/term/stakeholder, 
+from NIST SP 800-160v1r1 from ISO/IEC/IEEE 15288:2015)
 
 **system**
 
