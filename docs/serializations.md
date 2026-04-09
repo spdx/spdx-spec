@@ -73,6 +73,7 @@ Please note that entries appearing in the
 
 1. The JSON schema is available at:
   `https://spdx.org/schema/X.Y/spdx-json-schema.json`
+
 ## Canonical serialization
 
 Canonical serialization is a single, consistent, normalized, deterministic, and
