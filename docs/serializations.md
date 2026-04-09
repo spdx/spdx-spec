@@ -61,7 +61,7 @@ because there are no changes to the data model between patch versions.
   `https://spdx.org/rdf/X.Y/terms/{Namespacename}/{Individualname}`
 
 Please note that entries appearing in the
-[SPDX License List](https://spdx.org/licenses/) are not under this namespace!
+[SPDX License List](https://spdx.org/licenses/) are not under this namespace.
 
 ### Resources
 
@@ -73,8 +73,6 @@ Please note that entries appearing in the
 
 1. The JSON schema is available at:
   `https://spdx.org/schema/X.Y/spdx-json-schema.json`
-
-
 ## Canonical serialization
 
 Canonical serialization is a single, consistent, normalized, deterministic, and
@@ -245,7 +243,7 @@ The object consists of key-value pairs that allow the shortening of IDs and whic
 For deserialization purposes, follow this process:
 
 - For every string that is an ID (that includes values of the keys "spdxId" and "@id",
-  as well as all strings where you would expect objects according to the SPDX-3 model),
+  as well as all strings where you would expect objects according to the SPDX 3 model),
   split that string at the first colon into "prefix:suffix".
 - If the suffix does not start with "//" and the prefix is a key in the namespace map,
   replace "prefix:" with the value found under that key in the namespace map.
@@ -256,7 +254,8 @@ After you are done applying this process to all IDs, you can ignore the "@contex
 #### Parsing "@graph"
 
 You will find an array of objects under the "@graph" key.
-Every one of these objects has a "type" key that tells you the class of the SPDX-3 model that the object is an instance of.
+Every one of these objects has a "type" key that tells you
+the class of the SPDX 3 model that the object is an instance of.
 The rest of the keys then correspond to the properties of that SPDX class.
 Take special note of the "spdxId" key which specifies the ID by which the object can be referenced from other places.
 
@@ -264,5 +263,6 @@ One thing to note is that not all objects in that list have to be subclasses of 
 As only Elements have an spdxId, there is no "spdxId" key in these cases but an "@id" key.
 However, the value of "@id" serves the same function of identifying and referencing that object from within other objects.
 
-Last but not least, whenever you encounter a string where you would expect an object according to the SPDX-3 model,
+Last but not least, whenever you encounter a string where you would
+expect an object according to the SPDX 3 model,
 you can substitute that string with the object that has that string as its "spdxId" or "@id".
