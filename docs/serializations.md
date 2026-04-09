@@ -154,6 +154,6 @@ It should be easy to recognize an SPDX 3 file in a file system without opening t
 A suggested naming convention is:
 
 | Format  | Extension    |
-|---------|--------------|
+| ------- | ------------ |
 | JSON-LD | *.spdx3.json |
 | RDF/XML | *.spdx3.rdf  |
