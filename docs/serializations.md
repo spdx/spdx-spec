@@ -227,9 +227,9 @@ The SPDX 3 OWL ontology is available at:
 
 ### Examples
 
-- JSON-LD serialization examples can be found at <https://github.com/spdx/spdx-examples>
+Informational JSON-LD serialization examples can be found at <https://github.com/spdx/spdx-examples>
 
-## JSON serialization
+## Reading JSON serialization
 
 ### Parsing JSON-LD as JSON
 
