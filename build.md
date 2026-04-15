@@ -118,7 +118,7 @@ python3 spec-parser/main.py \
   spdx-3-model/model/
 ```
 
-The command will instruct the spec-parser to read the input from 
+The command will instruct the spec-parser to read the input from
 `spdx-3-model/model/` and generate processed Markdown files (`.md`),
 placing them in the `spdx-spec/docs/model/` directory.
 These files will then be used by MkDocs.
