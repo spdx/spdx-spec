@@ -688,6 +688,7 @@
                         { "$ref": "#/$defs/expandedlicensing_ListedLicenseException" },
                         { "$ref": "#/$defs/expandedlicensing_OrLaterOperator" },
                         { "$ref": "#/$defs/expandedlicensing_WithAdditionOperator" },
+                        { "$ref": "#/$defs/functionalsafety_Assumption" },
                         { "$ref": "#/$defs/functionalsafety_EvaluationResult" },
                         { "$ref": "#/$defs/functionalsafety_EvidenceRelationship" },
                         { "$ref": "#/$defs/functionalsafety_RequirementVerification" },
@@ -3599,6 +3600,83 @@
                     }
                 }
             ]
+        },
+        "functionalsafety_Assumption": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "functionalsafety_Assumption"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/functionalsafety_Assumption_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a functionalsafety_Assumption"
+            }
+        },
+        "functionalsafety_Assumption_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/functionalsafety_Assumption" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "functionalsafety_Assumption_props": {
+            "allOf": [
+                { "$ref": "#/$defs/Element_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "rationale": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_functionalsafety_Assumption_rationale"
+                                    }
+                                }
+                            ]
+                        },
+                        "functionalsafety_assumptionStatement": {
+                            "$ref": "#/$defs/prop_functionalsafety_Assumption_functionalsafety_assumptionStatement"
+                        },
+                        "functionalsafety_assumptionUUID": {
+                            "$ref": "#/$defs/prop_functionalsafety_Assumption_functionalsafety_assumptionUUID"
+                        }
+                    },
+                    "required": [
+                        "functionalsafety_assumptionStatement"
+                    ]
+                }
+            ]
+        },
+        "prop_functionalsafety_Assumption_rationale": {
+                    "type": "string"
+        },
+        "prop_functionalsafety_Assumption_functionalsafety_assumptionStatement": {
+                    "type": "string"
+        },
+        "prop_functionalsafety_Assumption_functionalsafety_assumptionUUID": {
+                "$ref": "#/$defs/ExternalIdentifier_derived"
         },
         "functionalsafety_EvaluationResult": {
             "if": {
@@ -11574,6 +11652,7 @@
                                 "dataset_DatasetType",
                                 "expandedlicensing_ListedLicenseException",
                                 "extension_CdxPropertyEntry",
+                                "functionalsafety_Assumption",
                                 "functionalsafety_EvaluationResult",
                                 "functionalsafety_EvaluationResultType",
                                 "functionalsafety_EvidenceRelationship",
@@ -11727,6 +11806,7 @@
                 { "$ref": "#/$defs/dataset_DatasetType" },
                 { "$ref": "#/$defs/expandedlicensing_ListedLicenseException" },
                 { "$ref": "#/$defs/extension_CdxPropertyEntry" },
+                { "$ref": "#/$defs/functionalsafety_Assumption" },
                 { "$ref": "#/$defs/functionalsafety_EvaluationResult" },
                 { "$ref": "#/$defs/functionalsafety_EvaluationResultType" },
                 { "$ref": "#/$defs/functionalsafety_EvidenceRelationship" },
