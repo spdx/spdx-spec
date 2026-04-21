@@ -62,7 +62,6 @@ For example, the expressions `MIT AND NOASSERTION AND (BSD-3-Clause OR LicenseRe
 
 However, please be aware that it is often important to note the case of the canonical identifier on the [SPDX License List](https://spdx.org/licenses). This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.
 
-
 ## Simple license expressions
 
 A simple `<license-expression>` is composed one of the following:
