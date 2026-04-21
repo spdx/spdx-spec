@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2026 SPDX contributors
+# SPDX-FileType: SOURCE
+# SPDX-License-Identifier: Apache-2.0
+
+name: Markdown lint
+
+on:
+  push:
+    paths:
+      - ".github/workflows/markdownlint.yml"
+      - "**/*.md"
+  pull_request:
+    paths:
+      - ".github/workflows/markdownlint.yml"
+      - "**/*.md"
+
+jobs:
+  markdownlint:
+    name: Run Markdown lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: DavidAnson/markdownlint-cli2-action@v22
+        with:
+          globs: |
+            **/*.md
+            !License.md
+            !docs/licenses/**/*.md
