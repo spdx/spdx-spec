@@ -267,3 +267,14 @@ However, the value of "@id" serves the same function of identifying and referenc
 Last but not least, whenever you encounter a string where you would
 expect an object according to the SPDX 3 model,
 you can substitute that string with the object that has that string as its "spdxId" or "@id".
+
+## File naming
+
+It should be easy to recognize an SPDX 3 file in a file system without opening the file.
+
+A suggested naming convention is:
+
+| Format  | Extension    |
+| ------- | ------------ |
+| JSON-LD | *.spdx3.json |
+| RDF/XML | *.spdx3.rdf  |
