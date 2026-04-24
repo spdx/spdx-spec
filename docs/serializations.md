@@ -201,7 +201,7 @@ URI of the referenced Element.
 Inlining/Embedding of Element nodes into other nodes is not allowed.
 
 Non-element data (like those of type "ExternalReference" or
-similar complex data classes) may be inlined or included as a 
+similar complex data classes) may be inlined or included as a
 [blank node](https://www.w3.org/TR/rdf12-concepts/#section-blank-nodes)
 on top-level under the "@graph".
 
