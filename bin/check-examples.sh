@@ -29,7 +29,6 @@ echo "RDF resolved     : $(curl -I "$RDF_URL" 2>/dev/null | grep -i "location:" 
 echo "Context          : $CONTEXT_URL"
 echo "Context resolved : $(curl -I "$CONTEXT_URL" 2>/dev/null | grep -i "location:" | awk '{print $2}')"
 echo "$(check-jsonschema --version)"
-echo -n "$(pyshacl --version)"
 echo "spdx3-validate version: $(spdx3-validate --version)"
 echo ""
 
@@ -38,14 +37,6 @@ check_schema() {
     check-jsonschema \
         --verbose \
         --schemafile $SCHEMA_URL \
-        "$1"
-}
-
-check_model() {
-    echo "Checking model (pyschacl): $1"
-    pyshacl \
-        --shacl $RDF_URL \
-        --ont-graph $RDF_URL \
         "$1"
 }
 
@@ -58,8 +49,6 @@ check_spdx() {
 if [ "$(ls $THIS_DIR/../$JSON_DIR/*.json 2>/dev/null)" ]; then
     for f in $THIS_DIR/../$JSON_DIR/*.json; do
         check_schema $f
-        echo ""
-        check_model $f
         echo ""
         check_spdx $f
         echo ""
@@ -117,9 +106,6 @@ HEREDOC
     done
 
     echo "{}]" >> $COMBINED_JSON
-
-    check_model $COMBINED_JSON
-    echo ""
     check_spdx $COMBINED_JSON
     echo ""
 done

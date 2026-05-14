@@ -1,6 +1,6 @@
 # References
 
-## Normative References
+## Normative references
 
 The following documents are referred to in the text in such a way that some or
 all of their content constitutes requirements of this document. For dated
@@ -12,6 +12,9 @@ edition of the referenced document (including any amendments) applies.
 
 *Bower API*,
 [https://bower.io/docs/api/#install](https://bower.io/docs/api/#install).
+
+*CNSSI 4009-2015 Committee on National Security Systems (CNSS) Glossary*,
+[https://csrc.nist.gov/glossary](https://csrc.nist.gov/glossary).
 
 *Common Platform Enumeration (CPE) – Specification 2.2*,
 The MITRE Corporation,
@@ -48,6 +51,12 @@ Forum of Incident Response and Security Teams, Inc (FIRST),
 *EU general risk assessment methodology*,
 European Commission,
 [https://ec.europa.eu/docsroom/documents/17107](https://ec.europa.eu/docsroom/documents/17107).
+
+*ISO/IEC 2382:2015 Information technology — Vocabulary*,
+[https://www.iso.org/standard/63598.html](https://www.iso.org/standard/63598.html).
+
+*ISO/IEC 24765:2017 Systems and software engineering — Vocabulary*,
+[https://www.iso.org/standard/71952.html](https://www.iso.org/standard/71952.html).
 
 *npm-package.json*, npm Inc.,
 [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json).
@@ -149,7 +158,7 @@ International Standard
 *ISO/IEC 18670:2025 Information technology — SoftWare Hash IDentifier (SWHID) Specification V1.2*,
 [https://www.iso.org/standard/89985.html](https://www.iso.org/standard/89985.html),
 also available at
-[https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html).
+[https://www.swhid.org/swhid-specification/v1.2/](https://www.swhid.org/swhid-specification/v1.2/).
 
 *SPDX and RDF Ontology*,
 [http://spdx.org/rdf/ontology/spdx-3-0-1](http://spdx.org/rdf/ontology/spdx-3-0-1).
@@ -172,7 +181,7 @@ Forum of Incident Response and Security Teams, Inc (FIRST),
 CISA,
 [https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 
-## Non-normative References
+## Non-normative references
 
 The following documents are referred to in the text.
 

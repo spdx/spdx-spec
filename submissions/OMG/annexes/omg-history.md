@@ -1,6 +1,6 @@
 # History with OMG, Motivation and Rational (Informative)
 
-The OMG and CISQ involvement in developing this specification had its start due
+The OMG and CISQ involvement in developing this document had its start due
 to a need that came from the several years of work in the Department of
 Commerce’s National Telecommunications and Information Administration (NTIA) in
 creating an Initiative to Improve Software Component Transparency in July of

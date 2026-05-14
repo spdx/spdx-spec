@@ -2,7 +2,7 @@
 
 ## Overview
 
-This specification defines the data model of the SPDX standard, describing
+This document defines the data model of the SPDX standard, describing
 every piece of information about systems with software components. The data
 model is based on the Resource Description Framework (RDF) extensible
 knowledge representation data model, which provides a flexible and extensible
@@ -45,23 +45,23 @@ Canonical serialization is in JSON format, as defined in
 with the following additional characteristics:
 
 - No line breaks
-- Key names MUST be wrapped in double quotes
+- Key names shall be wrapped in double quotes
 - No whitespace outside of strings
-- `true`, `false` and `null`: the literal names must be lowercase; no other
+- `true`, `false` and `null`: the literal names shall be lowercase; no other
   literal names are allowed
 - Integers: represented in base 10 using decimal digits. This designates an
   integer component that may be prefixed with an optional minus sign.
   Leading zeros are not allowed.
 - Strings: UTF-8 representation without specific normalization. A string
   begins and ends with quotation marks (%x22). Any Unicode characters may be
-  placed within the quotation marks, except for the two characters that MUST be
+  placed within the quotation marks, except for the two characters that shall be
   escaped by a reverse solidus: quotation mark, reverse solidus, and the
   control characters (U+0000 through U+001F).
 - Arrays: An array structure is represented as square brackets surrounding zero
   or more items. Items are separated by commas.
 - Objects: An object structure is represented as a pair of curly brackets
   surrounding zero or more name/value pairs (or members). A name is a string
-  containing only ASCII characters (0x21-0x7F). The names within an object must
+  containing only ASCII characters (0x21-0x7F). The names within an object shall
   be unique. A single colon comes after each name, separating the name from the
   value. A single comma separates a value from a following name. The name/value
   pairs are ordered by name.
@@ -85,12 +85,14 @@ that can be natively represented within the chosen serialization format
 these native mechanisms. All remaining properties shall be serialized within
 the SpdxDocument element itself.
 
-A serialization must not contain more than one SpdxDocument.
+A serialization shall not contain more than one SpdxDocument.
 
-A given instance of serialization must not define more than one SpdxDocument
+A given instance of serialization shall not define more than one SpdxDocument
 element.
 
 ## Serialization in SPDX 3 JSON
+
+### A strict subset of JSON-LD
 
 The SPDX 3 JSON format is a strict subset of JSON-LD.
 It requires data to be serialized according to the defined serialization
@@ -102,18 +104,18 @@ It may be parsed – not serialized – using standard JSON-LD libraries.
 JSON-LD contexts allow JSON documents to use simple, human-readable, locally
 defined terms while ensuring data interoperability across different systems.
 
-The SPDX global JSON-LD context file must be used universally for all SPDX
+The SPDX global JSON-LD context file shall be used universally for all SPDX
 documents in JSON-LD format that adhere to a specific SPDX version.
 
 SPDX global JSON-LD context file is available at:
-[https://spdx.org/rdf/3.0.1/spdx-context.jsonld](https://spdx.org/rdf/3.0.1/spdx-context.jsonld)
+<https://spdx.org/rdf/3.1/spdx-context.jsonld>
 
-All SPDX documents in JSON-LD format must include a reference to the SPDX
+All SPDX documents in JSON-LD format shall include a reference to the SPDX
 global context file at the top level.
 This reference is achieved using the following JSON construct:
 
 ```json
-"@context": "https://spdx.org/rdf/3.0.1/spdx-context.jsonld"
+"@context": "https://spdx.org/rdf/3.1/spdx-context.jsonld"
 ```
 
 The SPDX context file defines aliases for specific JSON-LD properties to
@@ -130,17 +132,28 @@ the context.
 An SPDX serialization in JSON-LD format is considered conformant to the SPDX
 specification if it adheres to the following two validation criteria:
 
-- Structural validation: The JSON-LD document must structurally validate
+- Structural validation: The JSON-LD document shall structurally validate
   against the SPDX 3 JSON Schema. This schema defines the expected structure of
   the JSON-LD document, including the required elements, data types, and
   permissible values.
-- Semantic validation: The JSON-LD document must successfully validate against
+- Semantic validation: The JSON-LD document shall successfully validate against
   the SPDX 3 OWL ontology. This ontology defines the expected relationships and
   constraints between SPDX elements. The SPDX 3 OWL ontology also incorporates
   SHACL shape restrictions to further specify these constraints.
 
 The SPDX 3 JSON Schema is available at:
-[https://spdx.org/schema/3.0.1/spdx-json-schema.json](https://spdx.org/schema/3.0.1/spdx-json-schema.json)
+<https://spdx.org/schema/3.1/spdx-json-schema.json>
 
 The SPDX 3 OWL ontology is available at:
-[https://spdx.org/rdf/3.0.1/spdx-model.ttl](https://spdx.org/rdf/3.0.1/spdx-model.ttl)
+<https://spdx.org/rdf/3.1/spdx-model.ttl>
+
+## File naming
+
+It should be easy to recognize an SPDX 3 file in a file system without opening the file.
+
+A suggested naming convention is:
+
+| Format  | Extension    |
+| ------- | ------------ |
+| JSON-LD | *.spdx3.json |
+| RDF/XML | *.spdx3.rdf  |

@@ -1,6 +1,6 @@
-# Use of Specification - Terms, Conditions & Notices
+# Use of specification - terms, conditions & notices
 
-Copyright © 2010-2024, The Linux Foundation and its Contributors,
+Copyright © 2010–2026, The Linux Foundation and its Contributors,
 including SPDX Model contributions from OMG and its Contributors.
 
 This work is licensed under the
