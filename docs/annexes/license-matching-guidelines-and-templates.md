@@ -19,7 +19,7 @@ itself, the official license header, or the SPDX License List short identifier.
 
 The matching guidelines apply to license and exception text, as well as official license headers.
 Official license headers are defined by the SPDX License List as specific text specified within the license itself to be put in the header of files.
-(see [explanation of SPDX License List fields](https://github.com/spdx/license-list-XML/blob/v3.25.0/DOCS/license-fields.md) for more info).
+(see [explanation of SPDX License List fields](https://github.com/spdx/license-list-XML/blob/v3.28.0/DOCS/license-fields.md) for more info).
 
 The following XML tag is used to implement this guideline: `<standardLicenseHeader>`
 
@@ -246,7 +246,7 @@ Only tagged released versions of the license list are considered stable.
 ### License List XML format
 
 A full schema for the License List XML can be found at
-[SPDX License List XML Schema](https://github.com/spdx/license-list-XML/blob/v3.25.0/schema/ListedLicense.xsd).
+[SPDX License List XML Schema](https://github.com/spdx/license-list-XML/blob/v3.28.0/schema/ListedLicense.xsd).
 
 ### Legacy Text Template format
 
