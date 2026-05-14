@@ -146,3 +146,14 @@ The SPDX 3 JSON Schema is available at:
 
 The SPDX 3 OWL ontology is available at:
 <https://spdx.org/rdf/3.1/spdx-model.ttl>
+
+## File naming
+
+It should be easy to recognize an SPDX 3 file in a file system without opening the file.
+
+A suggested naming convention is:
+
+| Format  | Extension    |
+| ------- | ------------ |
+| JSON-LD | *.spdx3.json |
+| RDF/XML | *.spdx3.rdf  |
