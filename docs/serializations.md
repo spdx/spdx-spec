@@ -35,44 +35,42 @@ JSON-LD format.
 SPDX data can be serialized in RDF.
 This can be saved in a variety of formats, like XML, JSON-LD, Turtle, etc.
 
-IRIs for SPDX 3 are versioned based on the major and minor version numbers of
-the SPDX specification. The patch (third-level) version number is omitted
-because there are no changes to the data model between patch versions.
-
-1. The namespace for SPDX vX.Y.Z is
-  `https://spdx.org/rdf/X.Y/terms`
+1. The namespace for SPDX is
+  `https://spdx.org/rdf/3/terms`
 
 1. IRIs for a namespace/profile are of the form:
-  `https://spdx.org/rdf/X.Y/terms/{Namespacename}`
+  `https://spdx.org/rdf/3/terms/{Namespacename}`
 
 1. IRIs for a class are of the form:
-  `https://spdx.org/rdf/X.Y/terms/{Namespacename}/{Classname}`
+  `https://spdx.org/rdf/3/terms/{Namespacename}/{Classname}`
 
 1. IRIs for a property are of the form:
-  `https://spdx.org/rdf/X.Y/terms/{Namespacename}/{Propertyname}`
+  `https://spdx.org/rdf/3/terms/{Namespacename}/{Propertyname}`
 
 1. IRIs for a vocabulary (an enumerated value list) are of the form:
-  `https://spdx.org/rdf/X.Y/terms/{Namespacename}/{Vocabularyname}`
+  `https://spdx.org/rdf/3/terms/{Namespacename}/{Vocabularyname}`
 
 1. IRIs for an enumerated value are of the form:
-  `https://spdx.org/rdf/X.Y/terms/{Namespacename}/{Vocabularyname}/{Entryname}`
+  `https://spdx.org/rdf/3/terms/{Namespacename}/{Vocabularyname}/{Entryname}`
 
 1. IRIs for an individual value list are of the form:
-  `https://spdx.org/rdf/X.Y/terms/{Namespacename}/{Individualname}`
+  `https://spdx.org/rdf/3/terms/{Namespacename}/{Individualname}`
 
 Please note that entries appearing in the
 [SPDX License List](https://spdx.org/licenses/) are not under this namespace.
 
 ### Resources
 
+For a minor version X of the SPDX spec:
+
 1. The ontology is available at:
-  `https://spdx.org/rdf/X.Y/spdx-model.ttl`
+  `https://spdx.org/rdf/3.X/spdx-model.ttl`
 
 1. The JSON-LD context definition is available at:
-  `https://spdx.org/rdf/X.Y/spdx-context.jsonld`
+  `https://spdx.org/rdf/3.X/spdx-context.jsonld`
 
 1. The JSON schema is available at:
-  `https://spdx.org/schema/X.Y/spdx-json-schema.json`
+  `https://spdx.org/schema/3.X/spdx-json-schema.json`
 
 ## Canonical serialization
 
@@ -152,14 +150,14 @@ The SPDX global JSON-LD context file shall be used universally for all SPDX
 documents in JSON-LD format that adhere to a specific SPDX version.
 
 SPDX global JSON-LD context file is available at:
-<https://spdx.org/rdf/3.1/spdx-context.jsonld>
+<https://spdx.org/rdf/3.X/spdx-context.jsonld>
 
 All SPDX documents in JSON-LD format shall include a reference to the SPDX
 global context file at the top level.
 This reference is achieved using the following JSON construct:
 
 ```json
-"@context": "https://spdx.org/rdf/3.1/spdx-context.jsonld"
+"@context": "https://spdx.org/rdf/3.X/spdx-context.jsonld"
 ```
 
 The SPDX context file defines aliases for specific JSON-LD properties to
