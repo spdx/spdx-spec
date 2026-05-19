@@ -28629,7 +28629,7 @@
           "name": "File",
           "fqname": "/Software/File",
           "summary": "Refers to any object that stores content on a computer.",
-          "description": "Refers to any object that stores content on a computer.\nThe type of content can optionally be provided in the contentType property.\n\nThe fileKind property can be set to `directory` to indicate the file represents\na directory and all content stored in that directory.",
+          "description": "Refers to any object that stores content on a computer.\nThe type of content can optionally be provided in the contentType property.\n\nThe fileKind property can be set to `directory` to indicate the file represents\na directory and all content stored in that directory.\n\nThe fileKind property can be set to `symlink` to indicate the file represents a link to another file or directory, it does not represent the file or directory referenced by the symlink.",
           "metadata": {
             "name": "File",
             "SubclassOf": "/Software/SoftwareArtifact",
@@ -30011,13 +30011,14 @@
           "name": "FileKindType",
           "fqname": "/Software/FileKindType",
           "summary": "Enumeration of the different kinds of SPDX file.",
-          "description": "An SPDX file may represent a file on disk or a directory of files.\n\nIn the future, this may be extended to other kinds (e.g. network based files).",
+          "description": "An SPDX File can represent a regular file, a directory of zero or more Files, or a symbolic link to a File.\n\nIn the future, this can be extended to other kinds (e.g. network based files).",
           "metadata": {
             "name": "FileKindType"
           },
           "entries": {
             "file": "The file represents a single file (default).",
-            "directory": "The file represents a directory and all content stored in that directory."
+            "directory": "The file represents a directory and all content stored in that directory.",
+            "symlink": "This file represents a symbolic link (soft link)."
           },
           "iri": "https://spdx.org/rdf/3.1/terms/Software/FileKindType"
         },
@@ -32572,9 +32573,9 @@
     ]
   },
   "toplevel_classes": [
-    "/Extension/Extension",
     "/Core/UnitOfMeasure",
+    "/Core/Element",
     "/Core/IntegrityMethod",
-    "/Core/Element"
+    "/Extension/Extension"
   ]
 }
