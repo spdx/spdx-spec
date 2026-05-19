@@ -150,14 +150,14 @@ The SPDX global JSON-LD context file shall be used universally for all SPDX
 documents in JSON-LD format that adhere to a specific SPDX version.
 
 SPDX global JSON-LD context file is available at:
-<https://spdx.org/rdf/3.X/spdx-context.jsonld>
+<https://spdx.org/rdf/3.1/spdx-context.jsonld>
 
 All SPDX documents in JSON-LD format shall include a reference to the SPDX
 global context file at the top level.
 This reference is achieved using the following JSON construct:
 
 ```json
-"@context": "https://spdx.org/rdf/3.X/spdx-context.jsonld"
+"@context": "https://spdx.org/rdf/3.1/spdx-context.jsonld"
 ```
 
 The SPDX context file defines aliases for specific JSON-LD properties to
