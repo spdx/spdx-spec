@@ -10,6 +10,9 @@
 # (e.g., "3.0.1") in IRI of terms and RDF files.
 # With ISO submission of SPDX 3.0 in December 2025, we decided to use MAJOR.MINOR
 # (2-part) version number (e.g., "3.0") instead.
+# In 12 May 2026 Tech call, we agree to use MAJOR version only in term IRIs:
+# https://github.com/spdx/spdx-spec/issues/1378
+# But we will still keep the MAJOR.MINOR for ontoloty/schema/context URL.
 # This needs update in RDF files, tools, publication CI, and IRI redirections.
 
 set -e
