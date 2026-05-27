@@ -1,27 +1,27 @@
-# Package URL specification v1 (Normative)
+# Package-URL specification v1 (Normative)
 
 ## Introduction
 
-The Package URL core specification defines a versioned and formalized
-format, syntax, and rules used to represent and validate package URLs.
+The Package-URL core specification defines a versioned and formalized
+format, syntax, and rules used to represent and validate Package-URLs.
 
-A package URL or _purl_ is an attempt to standardize existing approaches
+A Package-URL or _PURL_ is an attempt to standardize existing approaches
 to reliably identify the location of software packages.
 
-A _purl_ is a URL string used to identify the location of a
+A _PURL_ is a URL string used to identify the location of a
 software package in a mostly universal and uniform way across
 programming languages, package managers, packaging conventions, tools,
 APIs and databases.
 
-Such a package URL is useful to reliably reference the same software
+Such a Package-URL is useful to reliably reference the same software
 package using a simple and expressive syntax and conventions based on
 familiar URLs.
 
 ## Syntax definition
 
-_purl_ stands for **package URL**.
+_PURL_ stands for **Package-URL**.
 
-A _purl_ is a URL composed of seven components:
+A _PURL_ is a URL composed of seven components:
 
     scheme:type/namespace/name@version?qualifiers#subpath
 
@@ -29,7 +29,7 @@ Components are separated by a specific character for unambiguous parsing.
 
 The definition for each component is:
 
-- **scheme**: this is the URL scheme with the constant value of "`pkg`". One of the primary reason for this single scheme is to facilitate the future official registration of the "`pkg`" scheme for package URLs. Required.
+- **scheme**: this is the URL scheme with the constant value of "`pkg`". One of the primary reason for this single scheme is to facilitate the future official registration of the "`pkg`" scheme for Package-URLs. Required.
 - **type**: the package type or package protocol such as maven, npm, nuget, gem, pypi, etc. Required.
 - **namespace**: some name prefix such as a Maven groupid, a Docker image owner, a GitHub user or organization. Optional and type-specific.
 - **name**: the name of the package. Required.
@@ -40,29 +40,29 @@ The definition for each component is:
 Components are designed such that they form a hierarchy from the most
 significant on the left to the least significant components on the right.
 
-A _purl_ is a valid URL and URI that conforms to the URL definitions
+A _PURL_ is a valid URL and URI that conforms to the URL definitions
 and specifications in RFC 3986 <https://datatracker.ietf.org/doc/rfc3986/>.
 
-A _purl_ shall not contain a URL Authority i.e. there is no
+A _PURL_ shall not contain a URL Authority i.e. there is no
 support for username, password, host and port components.
 A `namespace` segment may sometimes look like a host
 but its interpretation is specific to a type.
 
-The _purl_ components are mapped to the following URL components:
+The _PURL_ components are mapped to the following URL components:
 
-- _purl_ scheme: this is a URL scheme with a constant value: `pkg`
-- _purl_ type, namespace, name and version components: these are collectively mapped to a URL path
-- _purl_ qualifiers: this maps to a URL query
-- _purl_ subpath: this is a URL fragment
+- _PURL_ scheme: this is a URL scheme with a constant value: `pkg`
+- _PURL_ type, namespace, name and version components: these are collectively mapped to a URL path
+- _PURL_ qualifiers: this maps to a URL query
+- _PURL_ subpath: this is a URL fragment
 
 ## Character encoding
 
-For clarity and simplicity a _purl_ is always an ASCII string.
-To ensure that there is no ambiguity when parsing a _purl_,
+For clarity and simplicity a _PURL_ is always an ASCII string.
+To ensure that there is no ambiguity when parsing a _PURL_,
 separator characters and non-ASCII characters shall be encoded in UTF-8,
 and then percent-encoded as defined in RFC 3986 <https://datatracker.ietf.org/doc/rfc3986/>.
 
-Use these rules for percent-encoding and decoding _purl_ components:
+Use these rules for percent-encoding and decoding _PURL_ components:
 
 - the type shall not be encoded and shall not contain separators
 - the `#`, `?`, `@` and `:` characters shall not be encoded when used as separators. They may need to be encoded elsewhere
@@ -74,15 +74,15 @@ Use these rules for percent-encoding and decoding _purl_ components:
 - the `#` subpath separator shall be encoded as `%23` elsewhere
 - All non-ASCII characters shall be encoded as UTF-8 and then percent-encoded
 
-It is OK to percent-encode any _purl_ components, except for the type.
-Producers and consumers of _purl_ data
+It is OK to percent-encode any _PURL_ components, except for the type.
+Producers and consumers of _PURL_ data
 shall always percent-decode and percent-encode
 components and component segments
-as explained in the "How to produce and consume _purl_ data" section.
+as explained in the "How to produce and consume _PURL_ data" section.
 
 ## Rules for each component
 
-A _purl_ string is an ASCII URL string composed of seven components.
+A _PURL_ string is an ASCII URL string composed of seven components.
 
 Some components are allowed to use other characters beyond ASCII: these
 components shall then be UTF-8-encoded strings and percent-encoded as
@@ -93,13 +93,13 @@ The rules for each component are:
 ### Rules for scheme
 
 - The scheme is a constant with the value "`pkg`"
-- Since a _purl_ never contains a URL Authority, its scheme shall not be suffixed with double slash as in `pkg://` and shall use instead `pkg:`.
-- _purl_ parsers shall accept URLs such as 'pkg://' and shall ignore the '//'.
-- _purl_ builders shall not create invalid URLs with such double slash '//'.
+- Since a _PURL_ never contains a URL Authority, its scheme shall not be suffixed with double slash as in `pkg://` and shall use instead `pkg:`.
+- _PURL_ parsers shall accept URLs such as 'pkg://' and shall ignore the '//'.
+- _PURL_ builders shall not create invalid URLs with such double slash '//'.
 - The scheme is followed by a ':' separator.
 
-For example, the two purls `pkg:gem/ruby-advisory-db-check@0.12.4` and `pkg://gem/ruby-advisory-db-check@0.12.4` are strictly equivalent.
-The first is in canonical form while the second is an acceptable _purl_ but is an invalid URI/URL per RFC 3986.
+For example, the two PURLs `pkg:gem/ruby-advisory-db-check@0.12.4` and `pkg://gem/ruby-advisory-db-check@0.12.4` are strictly equivalent.
+The first is in canonical form while the second is an acceptable _PURL_ but is an invalid URI/URL per RFC 3986.
 
 ### Rules for type
 
@@ -158,7 +158,7 @@ The first is in canonical form while the second is an acceptable _purl_ but is a
 
 ## Known types
 
-There are several known _purl_ package type definitions.
+There are several known _PURL_ package type definitions.
 The current list of known types is:
 `alpm`,
 `apk`,
@@ -202,8 +202,8 @@ in the online repository
 
 Qualifiers should be limited to the bare minimum
 for proper package identification,
-to ensure that a _purl_ stays compact and readable in most cases.
-Separate external attributes stored outside of a _purl_
+to ensure that a _PURL_ stays compact and readable in most cases.
+Separate external attributes stored outside of a _PURL_
 are the preferred mechanism to convey extra long and optional information.
 API, database or web form.
 
@@ -218,20 +218,20 @@ The following keys are valid for use in all package types:
   Each item in the list is in form of algorithm:hex\_value (all lowercase),
   such as `sha1:ad9503c3e994a4f611a4892f2e67ac82df727086`.
 
-## How to produce and consume _purl_ data
+## How to produce and consume _PURL_ data
 
 The following provides rules to be followed
-when building or deconstructing _purl_ instances.
+when building or deconstructing _PURL_ instances.
 
-### How to build _purl_ string from its components
+### How to build _PURL_ string from its components
 
-Building a _purl_ ASCII string works from left to right, from type to subpath.
+Building a _PURL_ ASCII string works from left to right, from type to subpath.
 
-To build a _purl_ string from its components:
+To build a _PURL_ string from its components:
 
-1. Start a _purl_ string with the "`pkg:`" scheme as a lowercase ASCII string
-1. Append the type string to the _purl_ as a lowercase ASCII string
-1. Append `/` to the _purl_
+1. Start a _PURL_ string with the "`pkg:`" scheme as a lowercase ASCII string
+1. Append the type string to the _PURL_ as a lowercase ASCII string
+1. Append `/` to the _PURL_
 1. If the namespace is not empty:
 
     1. Strip the namespace from leading and trailing `/`
@@ -240,51 +240,51 @@ To build a _purl_ string from its components:
     1. Encode each segment in UTF-8-encoding
     1. Percent-encode each segment
     1. Join the segments with `/`
-    1. Append this to the _purl_
-    1. Append `/` to the _purl_
+    1. Append this to the _PURL_
+    1. Append `/` to the _PURL_
 
 1. Strip the name from leading and trailing `/`
 1. Apply type-specific normalization to the name, if needed
 1. Encode the name in UTF-8-encoding
 1. Percent-encode the name
-1. Append the percent-encoded name to the _purl_
+1. Append the percent-encoded name to the _PURL_
 1. If the version is not empty:
 
-    1. Append `@` to the _purl_
+    1. Append `@` to the _PURL_
     1. Encode the version in UTF-8-encoding
     1. Percent-encode the version
-    1. Append the percent-encoded version to the _purl_
+    1. Append the percent-encoded version to the _PURL_
 
 1. If the qualifiers are not empty and not composed only of key/value pairs where the value is empty:
 
-    1. Append `?` to the _purl_
+    1. Append `?` to the _PURL_
     1. Discard any pair where the value is empty
     1. Encode each value in UTF-8-encoding
     1. If the key is `checksum` and there is more than one checksum, join the list with `,` to create the qualifier value
     1. Create each qualifier string by joining the lowercased key, the equal `=` sign, and the percent-encoded value
     1. Sort this list of qualifier strings lexicographically
     1. Join this list of sorted qualifier strings with `&`
-    1. Append this string to the _purl_
+    1. Append this string to the _PURL_
 
 1. If the subpath is not empty and not composed only of empty, `.`, and `..` segments:
 
-    1. Append `#` to the _purl_
+    1. Append `#` to the _PURL_
     1. Strip the subpath from leading and trailing `/`
     1. Split the subpath on `/` as a list of segments
     1. Discard empty, `.`, and `..` segments
     1. Encode each segment in UTF-8-encoding
     1. Percent-encode each segment
     1. Join the segments with `/`
-    1. Append this string to the _purl_
+    1. Append this string to the _PURL_
 
-### How to parse a _purl_ string to its components
+### How to parse a _PURL_ string to its components
 
-Parsing a _purl_ ASCII string into its components works
+Parsing a _PURL_ ASCII string into its components works
 by splitting the string on different characters.
 
-To parse a _purl_ string in its components:
+To parse a _PURL_ string in its components:
 
-1. Split the _purl_ string once from right on `#`, if present; the left side is the remainder.
+1. Split the _PURL_ string once from right on `#`, if present; the left side is the remainder.
 1. If the right side is not empty, it contains subpath information:
 
     1. Strip it from leading and trailing `/`.
@@ -337,7 +337,7 @@ To parse a _purl_ string in its components:
 
 ## Examples
 
-The following list includes some valid _purl_ examples:
+The following list includes some valid _PURL_ examples:
 
 - `pkg:bitbucket/birkenfeld/pygments-main@244fd47e07d1014f0aed9c`
 - `pkg:deb/debian/curl@7.50.3-1?arch=i386&distro=jessie`
@@ -356,7 +356,7 @@ This document is based on the texts published
 in the <https://github.com/package-url/purl-spec> online repository.
 The original license and attribution are reproduced below:
 
-Copyright (c) the purl authors
+Copyright (c) the PURL authors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

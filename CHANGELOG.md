@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file.
   * [Using SPDX license list short identifiers in source files](https://github.com/spdx/using/blob/main/docs/using-SPDX-short-identifiers-in-source-files.md)
   * [Using SPDX to comply with Norms, Standards and Regulation](https://github.com/spdx/using/blob/main/docs/using-SPDX-to-comply-with-industry-guidance.md)
 * The following documents are added for the completeness of the specification:
-  * [Package URL specification v1](./docs/annexes/pkg-url-specification.md)
+  * [Package-URL specification v1](./docs/annexes/pkg-url-specification.md)
   * [SPDX License List matching guidelines and templates](./docs/annexes/license-matching-guidelines-and-templates.md)
 * [SPDX Lite](./docs/annexes/spdx-lite.md) has been updated with more explicit
   sections on "Mandatory" and "Recommended" properties.
