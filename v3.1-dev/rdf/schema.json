@@ -673,6 +673,8 @@
                         { "$ref": "#/$defs/Regulation" },
                         { "$ref": "#/$defs/Relationship" },
                         { "$ref": "#/$defs/Requirement" },
+                        { "$ref": "#/$defs/Role" },
+                        { "$ref": "#/$defs/RoleRelationship" },
                         { "$ref": "#/$defs/SoftwareAgent" },
                         { "$ref": "#/$defs/SpdxDocument" },
                         { "$ref": "#/$defs/Specification" },
@@ -2370,6 +2372,7 @@
                     "anyOf": [
                         { "$ref": "#/$defs/ContactPointRelationship" },
                         { "$ref": "#/$defs/LifecycleScopedRelationship" },
+                        { "$ref": "#/$defs/RoleRelationship" },
                         { "$ref": "#/$defs/SupportRelationship" },
                         { "$ref": "#/$defs/functionalsafety_EvidenceRelationship" },
                         { "$ref": "#/$defs/security_CvssV2VulnAssessmentRelationship" },
@@ -2501,6 +2504,7 @@
                     "hasProvidedDependency",
                     "hasRequirement",
                     "hasResolution",
+                    "hasRoleIn",
                     "hasSpecification",
                     "hasStaticLink",
                     "hasTest",
@@ -2680,6 +2684,7 @@
                 { "const": "spdx:Core/RelationshipType/hasProvidedDependency" },
                 { "const": "spdx:Core/RelationshipType/hasRequirement" },
                 { "const": "spdx:Core/RelationshipType/hasResolution" },
+                { "const": "spdx:Core/RelationshipType/hasRoleIn" },
                 { "const": "spdx:Core/RelationshipType/hasSpecification" },
                 { "const": "spdx:Core/RelationshipType/hasStaticLink" },
                 { "const": "spdx:Core/RelationshipType/hasTest" },
@@ -2819,6 +2824,190 @@
         },
         "prop_Requirement_requirementUID": {
                 "$ref": "#/$defs/ExternalIdentifier_derived"
+        },
+        "Role": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "Role"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/Role_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a Role"
+            }
+        },
+        "Role_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/Role" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "Role_props": {
+            "allOf": [
+                { "$ref": "#/$defs/Element_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "authorization": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_Role_authorization"
+                                    }
+                                }
+                            ]
+                        },
+                        "referenceSpecification": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_Role_referenceSpecification"
+                                    }
+                                }
+                            ]
+                        },
+                        "responsibility": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_Role_responsibility"
+                                    }
+                                }
+                            ]
+                        },
+                        "roleQualification": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                        "$ref": "#/$defs/prop_Role_roleQualification"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "roleQualification"
+                    ]
+                }
+            ]
+        },
+        "prop_Role_authorization": {
+                    "type": "string"
+        },
+        "prop_Role_referenceSpecification": {
+                "$ref": "#/$defs/DefinedType_derived"
+        },
+        "prop_Role_responsibility": {
+                "$ref": "#/$defs/Requirement_derived"
+        },
+        "prop_Role_roleQualification": {
+                "$ref": "#/$defs/Requirement_derived"
+        },
+        "RoleRelationship": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "RoleRelationship"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/RoleRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a RoleRelationship"
+            }
+        },
+        "RoleRelationship_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/RoleRelationship" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "RoleRelationship_props": {
+            "allOf": [
+                { "$ref": "#/$defs/Relationship_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "assignedBy": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_RoleRelationship_assignedBy"
+                                    }
+                                }
+                            ]
+                        },
+                        "givenRole": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                        "$ref": "#/$defs/prop_RoleRelationship_givenRole"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "required": [
+                        "givenRole"
+                    ]
+                }
+            ]
+        },
+        "prop_RoleRelationship_assignedBy": {
+                "$ref": "#/$defs/Agent_derived"
+        },
+        "prop_RoleRelationship_givenRole": {
+                "$ref": "#/$defs/Role_derived"
         },
         "SpdxDocument": {
             "if": {
@@ -5919,15 +6108,15 @@
                         "processReadiness": {
                             "$ref": "#/$defs/prop_DefinedProcess_processReadiness"
                         },
-                        "processVersion": {
-                            "$ref": "#/$defs/prop_DefinedProcess_processVersion"
-                        },
                         "rationale": {
                             "$ref": "#/$defs/prop_DefinedProcess_rationale"
+                        },
+                        "version": {
+                            "$ref": "#/$defs/prop_DefinedProcess_version"
                         }
                     },
                     "required": [
-                        "processVersion"
+                        "version"
                     ]
                 }
             ]
@@ -5940,10 +6129,10 @@
                     "spdx:Core/ProcessReadinessType/other"
                 ]
         },
-        "prop_DefinedProcess_processVersion": {
+        "prop_DefinedProcess_rationale": {
                     "type": "string"
         },
-        "prop_DefinedProcess_rationale": {
+        "prop_DefinedProcess_version": {
                     "type": "string"
         },
         "Hash": {
@@ -7028,6 +7217,9 @@
                 {
                     "type": "object",
                     "properties": {
+                        "version": {
+                            "$ref": "#/$defs/prop_hardware_Hardware_version"
+                        },
                         "hardware_additionalInformation": {
                             "anyOf": [
                                 {
@@ -7061,9 +7253,6 @@
                                 }
                             ]
                         },
-                        "hardware_hardwareVersion": {
-                            "$ref": "#/$defs/prop_hardware_Hardware_hardware_hardwareVersion"
-                        },
                         "hardware_hazard": {
                             "anyOf": [
                                 {
@@ -7094,6 +7283,9 @@
                 }
             ]
         },
+        "prop_hardware_Hardware_version": {
+                    "type": "string"
+        },
         "prop_hardware_Hardware_hardware_additionalInformation": {
                 "$ref": "#/$defs/DictionaryEntry_derived"
         },
@@ -7105,9 +7297,6 @@
         },
         "prop_hardware_Hardware_hardware_category": {
                 "$ref": "#/$defs/DefinedType_derived"
-        },
-        "prop_hardware_Hardware_hardware_hardwareVersion": {
-                    "type": "string"
         },
         "prop_hardware_Hardware_hardware_hazard": {
                 "$ref": "#/$defs/DefinedType_derived"
@@ -7244,22 +7433,22 @@
                 {
                     "type": "object",
                     "properties": {
+                        "version": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_hardware_ProductSpecification_version"
+                                    }
+                                }
+                            ]
+                        },
                         "hardware_hazard": {
                             "anyOf": [
                                 {
                                     "type": "array",
                                     "items": {
                                         "$ref": "#/$defs/prop_hardware_ProductSpecification_hardware_hazard"
-                                    }
-                                }
-                            ]
-                        },
-                        "hardware_itemVersion": {
-                            "anyOf": [
-                                {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/$defs/prop_hardware_ProductSpecification_hardware_itemVersion"
                                     }
                                 }
                             ]
@@ -7282,11 +7471,11 @@
                 }
             ]
         },
+        "prop_hardware_ProductSpecification_version": {
+                    "type": "string"
+        },
         "prop_hardware_ProductSpecification_hardware_hazard": {
                 "$ref": "#/$defs/DefinedType_derived"
-        },
-        "prop_hardware_ProductSpecification_hardware_itemVersion": {
-                    "type": "string"
         },
         "prop_hardware_ProductSpecification_hardware_partNumber": {
                     "type": "string"
@@ -9615,6 +9804,9 @@
                 {
                     "type": "object",
                     "properties": {
+                        "version": {
+                            "$ref": "#/$defs/prop_software_Package_version"
+                        },
                         "software_downloadLocation": {
                             "$ref": "#/$defs/prop_software_Package_software_downloadLocation"
                         },
@@ -9633,6 +9825,9 @@
                     }
                 }
             ]
+        },
+        "prop_software_Package_version": {
+                    "type": "string"
         },
         "prop_software_Package_software_downloadLocation": {
                     "$ref": "#/$defs/anyURI"
@@ -11643,6 +11838,8 @@
                                 "RelationshipCompleteness",
                                 "RelationshipType",
                                 "Requirement",
+                                "Role",
+                                "RoleRelationship",
                                 "SpdxDocument",
                                 "SpecificationType",
                                 "SupportRelationship",
@@ -11797,6 +11994,8 @@
                 { "$ref": "#/$defs/RelationshipCompleteness" },
                 { "$ref": "#/$defs/RelationshipType" },
                 { "$ref": "#/$defs/Requirement" },
+                { "$ref": "#/$defs/Role" },
+                { "$ref": "#/$defs/RoleRelationship" },
                 { "$ref": "#/$defs/SpdxDocument" },
                 { "$ref": "#/$defs/SpecificationType" },
                 { "$ref": "#/$defs/SupportRelationship" },
