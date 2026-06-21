@@ -70,9 +70,7 @@ conform with one of the SPDX serialization formats defined SPDX serialization
 formats.
 
 Conformance to the Software profile compliance point
-does not entail support for the
-AI, Build, Dataset, Extension, Licensing, Lite, or Security
-profiles of the SPDX.
+only entails support for the Core profile.
 
 This compliance point, in combination with the Core profile compliance point,
 provides a baseline of functionality that facilitates interchange of the bills
@@ -93,9 +91,7 @@ mechanism to express how a vulnerability may affect a specific software element
 including if a fix is available.
 
 Conformance to the Security profile compliance point
-does not entail support for the
-AI, Build, Dataset, Extension, Licensing, Lite, or Software
-profiles of the SPDX.
+only entails support for the Core profile.
 
 This compliance point facilitates interchange of the security information
 produced by tools supporting SPDX.
@@ -117,9 +113,7 @@ Both allow expression of the same information,
 albeit in different ways.
 
 Conformance to the Licensing profile compliance point
-does not entail support for the
-AI, Build, Dataset, Extension, Lite, Security, or Software
-profiles of the SPDX.
+only entails support for the Core profile.
 
 This compliance point facilitates interchange of the licensing documents
 expressing which licenses and copyright notices are determined by persons or
@@ -143,9 +137,7 @@ and properties of a dataset, helping users understand and analyze the data more
 effectively.
 
 Conformance to the Dataset profile compliance point
-does not entail support for the
-AI, Build, Extension, Licensing, Lite, Security, or Software
-profiles of the SPDX.
+only entails support for the Core profile.
 
 This compliance point facilitates interchange of the information about
 datasets produced by tools supporting SPDX.
@@ -167,9 +159,7 @@ information about their versions, licenses, and useful security references
 including ethical and security information.
 
 Conformance to the AI profile compliance point
-does not entail support for the
-Build, Dataset, Extension, Licensing, Lite, Security, or Software
-profiles of the SPDX.
+only entails support for the Core profile.
 
 This compliance point facilitates interchange of the AI model related
 information produced by tools supporting SPDX.
@@ -188,9 +178,7 @@ procedures/instructions, environments and actors from the build process along
 with the associated evidence.
 
 Conformance to the Build profile compliance point
-does not entail support for the
-AI, Dataset, Extension, Licensing, Lite, Security, or Software
-profiles of the SPDX.
+only entails support for the Core profile.
 
 This compliance point facilitates interchange of the build information produced
 by tools supporting SPDX.
@@ -208,9 +196,7 @@ formats, including creation of the SBOM, package lists with licensing and other
 related items, and their relationships.
 
 Conformance to the Lite profile compliance point
-does not entail support for the
-AI, Build, Dataset, Extension, Licensing, Security, or Software
-profiles of the SPDX.
+only entails support for the Core profile.
 
 This compliance point facilitates interchange of minimal licensing information
 when produced by tools supporting SPDX.
@@ -250,10 +236,7 @@ formats, including the abstract Extension class serving as the base for all
 defined Extension subclasses.
 
 Conformance to the Extension profile compliance point
-does not entail support for the
-AI, Build, Dataset, Licensing, Lite, Security, or Software
-profiles of the SPDX but
-is expected to be used in combination with the other profiles to extend them.
+only entails support for the Core profile.
 
 This compliance point facilitates interchange of extended information that goes
 beyond the standard SPDX produced by tools supporting SPDX and is used between
@@ -268,7 +251,7 @@ License, as stated in the [SPDX Trademark Page](https://spdx.dev/trademark).
 The official copyright notice that shall be used with any verbatim reproduction and/or distribution of
 this SPDX Specification 3.0 is:
 
-"Official SPDX® Specification 3.0 Copyright © 2010–2025 Linux Foundation and its Contributors.
+"Official SPDX® Specification 3.0 Copyright © 2010–2026 Linux Foundation and its Contributors.
 Licensed under the Community Specification License 1.0. All other rights are expressly reserved."
 
 The official copyright notice that shall be used with any non-verbatim reproduction and/or distribution
@@ -276,7 +259,7 @@ of this SPDX Specification 3.0, including without limitation any partial use or 
 Specification with another work, is:
 
 "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX®
-Specification 3.0 found at spdx.dev. These portions are Copyright © 2010–2025 Linux Foundation and
+Specification 3.0 found at spdx.dev. These portions are Copyright © 2010–2026 Linux Foundation and
 its Contributors, and are licensed under the Community Specification License 1.0 by the
 Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and
 its Contributors."
