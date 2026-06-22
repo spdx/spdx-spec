@@ -49,6 +49,24 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
+    - name: Commit JSON schema to schemas/$VERSION in develop
+      # Commit the schema to schemas/<version>/ in the develop branch
+      working-directory: spdx-spec
+      env:
+        AS_VERSION: ${{ github.event.client_payload.as_version || github.event.inputs.as_version }}
+      run: |
+        VER=${AS_VERSION#[vV]}
+        # Use an isolated worktree to leave the support-branch checkout untouched
+        git fetch origin develop
+        WT=$(mktemp -d)
+        git worktree add --force "$WT" origin/develop
+        mkdir -p "$WT/schemas/$VER"
+        cp schemas/spdx-schema.json "$WT/schemas/$VER/spdx-schema.json"
+        git -C "$WT" add "schemas/$VER/spdx-schema.json"
+        git -C "$WT" diff --cached --quiet || \
+          git -C "$WT" commit -m "Update schemas/$VER"
+        git -C "$WT" push origin HEAD:develop
+        git worktree remove --force "$WT"
     - name: Build docs
       working-directory: spdx-spec
       env:
