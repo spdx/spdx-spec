@@ -8,9 +8,9 @@
 > to be persistent.
 > Always use the canonical URLs at `spdx.org`, for example:
 >
-> - https://spdx.org/rdf/3.0/spdx-model.ttl
-> - https://spdx.org/rdf/3.1/spdx-context.jsonld
-> - https://spdx.org/rdf/MAJOR.MINOR/spdx-json-serialize-annotations.ttl
+> - <https://spdx.org/rdf/3.0/spdx-model.ttl>
+> - <https://spdx.org/rdf/3.1/spdx-context.jsonld>
+> - <https://spdx.org/rdf/MAJOR.MINOR/spdx-json-serialize-annotations.ttl>
 
 RDF ontology files for SPDX 3, organized by version. `MAJOR.MINOR` directories
 are symlinks to the latest stable `MAJOR.MINOR.PATCH` of that minor series.

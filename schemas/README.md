@@ -7,8 +7,8 @@
 > -- they are not guaranteed to be persistent.
 > Always use the canonical URLs at `spdx.org`, for example:
 >
-> - https://spdx.org/schema/3.0/spdx-json-schema.json
-> - https://spdx.org/schema/3.1/spdx-json-schema.json
+> - <https://spdx.org/schema/3.0/spdx-json-schema.json>
+> - <https://spdx.org/schema/3.1/spdx-json-schema.json>
 
 JSON Schemas for SPDX, organized by version. `MAJOR.MINOR` directories are
 symlinks to the latest stable `MAJOR.MINOR.PATCH` of that minor series.
