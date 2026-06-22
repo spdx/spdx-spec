@@ -59,7 +59,7 @@ jobs:
         # Use an isolated worktree to leave the support-branch checkout untouched
         git fetch origin develop
         WT=$(mktemp -d)
-        git worktree add --force "$WT" origin/develop
+        git worktree add --force "$WT" FETCH_HEAD
         mkdir -p "$WT/schemas/$VER"
         cp schemas/spdx-schema.json "$WT/schemas/$VER/spdx-schema.json"
         git -C "$WT" add "schemas/$VER/spdx-schema.json"

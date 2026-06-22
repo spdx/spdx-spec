@@ -16,7 +16,7 @@ symlinks to the latest stable `MAJOR.MINOR.PATCH` of that minor series.
 ```text
 schemas/
 ├── spdx-schema.json    # symlink --> latest stable 2 (SPDX 2 canonical reference)
-├── 2.2/  2.2.2/        # latest stable 2.2 patch
+├── 2.2/ --> 2.2.2/     # latest stable 2.2 patch
 ├── 2.2.0/
 ├── 2.2.1/
 ├── 2.2.2/

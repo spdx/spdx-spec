@@ -289,7 +289,7 @@ jobs:
           # Use an isolated worktree to avoid touching the primary working tree
           git fetch origin "$REF_SPEC"
           WT=$(mktemp -d)
-          git worktree add --force "$WT" "origin/$REF_SPEC"
+          git worktree add --force "$WT" FETCH_HEAD
           mkdir -p "$WT/ontology/$VER" "$WT/schemas/$VER"
           cp docs/rdf/spdx-model.* "$WT/ontology/$VER/"
           cp docs/rdf/spdx-context.jsonld "$WT/ontology/$VER/"
