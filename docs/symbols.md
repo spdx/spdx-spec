@@ -4,7 +4,6 @@ The following symbols and abbreviations are used throughout this document:
 
 | | |
 |-|-|
-| 3T-SBOM | Tool-to-Tool Software Bill of Materials Exchange |
 | ABNF | Augmented Backus–Naur form |
 | AI | Artificial Intelligence |
 | BNF | Backus–Naur form |
