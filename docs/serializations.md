@@ -110,6 +110,9 @@ documents in JSON-LD format that adhere to a specific SPDX version.
 SPDX global JSON-LD context file is available at:
 <https://spdx.org/rdf/3.1/spdx-context.jsonld>
 
+SPDX JSON-LD serialization annotations file is available at:
+<https://spdx.org/rdf/3.1/spdx-json-serialize-annotations.ttl>
+
 All SPDX documents in JSON-LD format shall include a reference to the SPDX
 global context file at the top level.
 This reference is achieved using the following JSON construct:
