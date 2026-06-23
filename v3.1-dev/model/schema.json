@@ -1617,10 +1617,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/IndividualElement_props" }
                 ]
@@ -2009,10 +2009,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/PhysicalLocation_props" }
                 ]
@@ -2352,10 +2352,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/Relationship_props" }
                 ]
@@ -2741,10 +2741,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/Requirement_props" }
                 ]
@@ -2840,10 +2840,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/Role_props" }
                 ]
@@ -2945,10 +2945,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/RoleRelationship_props" }
                 ]
@@ -3024,10 +3024,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/SpdxDocument_props" }
                 ]
@@ -3157,10 +3157,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/SupportRelationship_props" }
                 ]
@@ -3278,10 +3278,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/Tool_props" }
                 ]
@@ -3629,10 +3629,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/expandedlicensing_ListedLicenseException_props" }
                 ]
@@ -3738,13 +3738,43 @@
         "prop_extension_CdxPropertyEntry_extension_cdxPropValue": {
                     "type": "string"
         },
+        "extension_Extension": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "allOf":  [
+                            { "$ref": "#/$defs/IRI" },
+                            { "not": { "const": "extension_Extension" } }
+                        ]
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "unevaluatedProperties": true,
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/extension_Extension_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a extension_Extension"
+            }
+        },
         "extension_Extension_derived": {
             "anyOf": [
                 {
                     "type": "object",
-                    "unevaluatedProperties": false,
                     "anyOf": [
-                        { "$ref": "#/$defs/extension_CdxPropertiesExtension" }
+                        { "$ref": "#/$defs/extension_CdxPropertiesExtension" },
+                        { "$ref": "#/$defs/extension_Extension_props" }
                     ]
                 },
                 { "$ref": "#/$defs/BlankNodeOrIRI" }
@@ -3775,10 +3805,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/functionalsafety_Assumption_props" }
                 ]
@@ -3852,10 +3882,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/functionalsafety_EvaluationResult_props" }
                 ]
@@ -3979,10 +4009,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/functionalsafety_EvidenceRelationship_props" }
                 ]
@@ -4106,10 +4136,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/functionalsafety_RequirementVerification_props" }
                 ]
@@ -4823,10 +4853,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/service_SoftwareService_props" }
                 ]
@@ -4952,10 +4982,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/simplelicensing_LicenseExpression_props" }
                 ]
@@ -5043,10 +5073,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/simplelicensing_SimpleLicensingText_props" }
                 ]
@@ -5450,10 +5480,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/build_Build_props" }
                 ]
@@ -5635,10 +5665,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/Agent_props" }
                 ]
@@ -5688,10 +5718,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/Annotation_props" }
                 ]
@@ -5937,10 +5967,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/Bundle_props" }
                 ]
@@ -5995,10 +6025,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/ContactPointRelationship_props" }
                 ]
@@ -6207,10 +6237,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/LifecycleScopedRelationship_props" }
                 ]
@@ -6367,10 +6397,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/Organization_props" }
                 ]
@@ -6430,10 +6460,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/Person_props" }
                 ]
@@ -6479,10 +6509,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/SoftwareAgent_props" }
                 ]
@@ -6528,10 +6558,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/Specification_props" }
                 ]
@@ -6590,10 +6620,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/expandedlicensing_ConjunctiveLicenseSet_props" }
                 ]
@@ -6656,10 +6686,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/expandedlicensing_CustomLicenseAddition_props" }
                 ]
@@ -6705,10 +6735,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/expandedlicensing_DisjunctiveLicenseSet_props" }
                 ]
@@ -6795,10 +6825,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/expandedlicensing_IndividualLicensingInfo_props" }
                 ]
@@ -6933,10 +6963,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/expandedlicensing_ListedLicense_props" }
                 ]
@@ -6994,10 +7024,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/expandedlicensing_OrLaterOperator_props" }
                 ]
@@ -7052,10 +7082,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/expandedlicensing_WithAdditionOperator_props" }
                 ]
@@ -7306,10 +7336,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/hardware_PhysicalHardware_props" }
                 ]
@@ -7373,10 +7403,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/hardware_ProductSpecification_props" }
                 ]
@@ -7465,10 +7495,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/hardware_VirtualHardware_props" }
                 ]
@@ -7524,10 +7554,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/operations_ExportControlClassificationAssessment_props" }
                 ]
@@ -7623,10 +7653,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/operations_Project_props" }
                 ]
@@ -7737,10 +7767,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/security_CvssV2VulnAssessmentRelationship_props" }
                 ]
@@ -7810,10 +7840,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/security_CvssV3VulnAssessmentRelationship_props" }
                 ]
@@ -7896,10 +7926,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/security_CvssV4VulnAssessmentRelationship_props" }
                 ]
@@ -7982,10 +8012,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/security_EpssVulnAssessmentRelationship_props" }
                 ]
@@ -8063,10 +8093,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/security_ExploitCatalogVulnAssessmentRelationship_props" }
                 ]
@@ -8138,10 +8168,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/security_SsvcVulnAssessmentRelationship_props" }
                 ]
@@ -8238,10 +8268,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/security_Vulnerability_props" }
                 ]
@@ -8473,10 +8503,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_BoundaryDefinitionProcess_props" }
                 ]
@@ -8548,10 +8578,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_DestroyProcess_props" }
                 ]
@@ -8597,10 +8627,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_HarvestProcess_props" }
                 ]
@@ -8646,10 +8676,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_InstantiateVirtualHardwareProcess_props" }
                 ]
@@ -8695,10 +8725,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_ManufactureProcess_props" }
                 ]
@@ -8768,10 +8798,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_ReproduceProcess_props" }
                 ]
@@ -8817,10 +8847,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_ResponsibilityChangeProcess_props" }
                 ]
@@ -8903,10 +8933,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_State_props" }
                 ]
@@ -8952,10 +8982,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_StorageProcess_props" }
                 ]
@@ -9014,10 +9044,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_TransportProcess_props" }
                 ]
@@ -9219,10 +9249,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/Bom_props" }
                 ]
@@ -9269,10 +9299,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/Regulation_props" }
                 ]
@@ -9318,10 +9348,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/expandedlicensing_CustomLicense_props" }
                 ]
@@ -9367,10 +9397,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/hardware_BulkHardware_props" }
                 ]
@@ -9425,10 +9455,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/security_VexAffectedVulnAssessmentRelationship_props" }
                 ]
@@ -9497,10 +9527,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/security_VexFixedVulnAssessmentRelationship_props" }
                 ]
@@ -9546,10 +9576,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/security_VexNotAffectedVulnAssessmentRelationship_props" }
                 ]
@@ -9627,10 +9657,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/security_VexUnderInvestigationVulnAssessmentRelationship_props" }
                 ]
@@ -9676,10 +9706,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/software_File_props" }
                 ]
@@ -9742,10 +9772,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/software_Package_props" }
                 ]
@@ -9829,10 +9859,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/software_Sbom_props" }
                 ]
@@ -9898,10 +9928,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/software_Snippet_props" }
                 ]
@@ -9968,10 +9998,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_AssemblyProcess_props" }
                 ]
@@ -10017,10 +10047,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_BoundaryDefinitionAction_props" }
                 ]
@@ -10083,10 +10113,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_ChangeProcess_props" }
                 ]
@@ -10157,10 +10187,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_DefinedStateProcess_props" }
                 ]
@@ -10223,10 +10253,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_DestroyAction_props" }
                 ]
@@ -10289,10 +10319,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_HarvestAction_props" }
                 ]
@@ -10338,10 +10368,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_InspectionProcess_props" }
                 ]
@@ -10400,10 +10430,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_ManufactureAction_props" }
                 ]
@@ -10473,10 +10503,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_PlanProcess_props" }
                 ]
@@ -10522,10 +10552,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_ReproduceAction_props" }
                 ]
@@ -10571,10 +10601,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_ResponsibilityChangeAction_props" }
                 ]
@@ -10660,10 +10690,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_StorageAction_props" }
                 ]
@@ -10709,10 +10739,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_TestProcess_props" }
                 ]
@@ -10758,10 +10788,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_TransportAction_props" }
                 ]
@@ -10878,10 +10908,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/ai_AIPackage_props" }
                 ]
@@ -11100,10 +11130,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/dataset_DatasetPackage_props" }
                 ]
@@ -11311,10 +11341,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_AssemblyAction_props" }
                 ]
@@ -11360,10 +11390,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_BoundaryCrossingAction_props" }
                 ]
@@ -11409,10 +11439,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_ChangeAction_props" }
                 ]
@@ -11458,10 +11488,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_InspectionAction_props" }
                 ]
@@ -11507,10 +11537,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_OutOfSpecAction_props" }
                 ]
@@ -11556,10 +11586,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_PlanAction_props" }
                 ]
@@ -11605,10 +11635,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_ResolutionAction_props" }
                 ]
@@ -11654,10 +11684,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_StateAction_props" }
                 ]
@@ -11719,10 +11749,10 @@
                     {
                         "type": "object",
                         "properties": {
-                            "@id": { "$ref": "#/$defs/IRI" },
+                            "spdxId": { "$ref": "#/$defs/IRI" },
                             "type": { "type": "string" }
                         },
-                        "required": ["@id"]
+                        "required": ["spdxId"]
                     },
                     { "$ref": "#/$defs/supplychain_TestAction_props" }
                 ]
