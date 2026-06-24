@@ -1,13 +1,14 @@
 # Examples
 
-The JSONLD directory contains 2 files:
+The `jsonld` directory contains 2 files:
 
-- package_sbom.json - An example of an SBOM containing a single package_sbom
-- spdx-full-example.json - A fabricated example containing all the classes for the current version of the Specification
+- `package_sbom.json` - An example of an SBOM containing a single package.
+- `spdx-full-example.json` - A fabricated example containing all the classes
+  for the current version of the Specification
 
-A JSON schema can be found in the schema directory of this repository.
+A JSON schema can be found in the `schemas` directory of this repository.
 
-An RDF OWL Ontology and a JSON-LD context can be found in the ontology
+An RDF OWL Ontology and a JSON-LD context can be found in the `ontology`
 directory of this repository.
 
 For more SPDX examples, including examples using different SPDX versions,
