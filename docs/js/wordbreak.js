@@ -22,20 +22,39 @@ function insertWordBreaks(child) {
   child.parentNode.replaceChild(frag, child);
 }
 
-function run() {
-  document.querySelectorAll('td').forEach(function (cell) {
-    var walker = document.createTreeWalker(cell, NodeFilter.SHOW_TEXT);
-    var nodes = [];
-    var node;
-    while ((node = walker.nextNode())) nodes.push(node);
-    nodes.forEach(insertWordBreaks);
-  });
+function processCell(cell) {
+  var walker = document.createTreeWalker(cell, NodeFilter.SHOW_TEXT);
+  var nodes = [];
+  var node;
+  while ((node = walker.nextNode())) nodes.push(node);
+  nodes.forEach(insertWordBreaks);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  var cells = Array.from(document.querySelectorAll('td'));
+  if (!cells.length) return;
+
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(run);
+    function processChunk(deadline) {
+      while (cells.length > 0 && deadline.timeRemaining() > 1) {
+        processCell(cells.shift());
+      }
+      if (cells.length > 0) {
+        requestIdleCallback(processChunk);
+      }
+    }
+    requestIdleCallback(processChunk);
   } else {
-    run();
+    // Fallback: chunk via setTimeout to avoid blocking initial render
+    function processChunkSync() {
+      var deadline = performance.now() + 10;
+      while (cells.length > 0 && performance.now() < deadline) {
+        processCell(cells.shift());
+      }
+      if (cells.length > 0) {
+        setTimeout(processChunkSync, 0);
+      }
+    }
+    setTimeout(processChunkSync, 0);
   }
 });
