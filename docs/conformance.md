@@ -96,7 +96,7 @@ mechanism to express how a vulnerability may affect a specific software element
 including if a fix is available.
 
 Conformance to the Security profile compliance point
-only entails support for the Core profile.
+only entails support for the Security and Core profile.
 
 This compliance point facilitates interchange of the security information
 produced by tools supporting SPDX.
