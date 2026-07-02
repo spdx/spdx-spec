@@ -142,7 +142,7 @@ and properties of a dataset, helping users understand and analyze the data more
 effectively.
 
 Conformance to the Dataset profile compliance point
-only entails support for the Core profile.
+only entails support for the Dataset and Core profile.
 
 This compliance point facilitates interchange of the information about
 datasets produced by tools supporting SPDX.
