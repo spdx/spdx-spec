@@ -164,7 +164,7 @@ information about their versions, licenses, and useful security references
 including ethical and security information.
 
 Conformance to the AI profile compliance point
-only entails support for the Core profile.
+only entails support for the AI and Core profile.
 
 This compliance point facilitates interchange of the AI model related
 information produced by tools supporting SPDX.
