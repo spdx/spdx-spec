@@ -75,7 +75,7 @@ conform with one of the SPDX serialization formats defined SPDX serialization
 formats.
 
 Conformance to the Software profile compliance point
-only entails support for the Core profile.
+only entails support for the Software and Core profile.
 
 This compliance point, in combination with the Core profile compliance point,
 provides a baseline of functionality that facilitates interchange of the bills
