@@ -241,7 +241,7 @@ formats, including the abstract Extension class serving as the base for all
 defined Extension subclasses.
 
 Conformance to the Extension profile compliance point
-only entails support for the Core profile.
+only entails support for the Extension and Core profile.
 
 This compliance point facilitates interchange of extended information that goes
 beyond the standard SPDX produced by tools supporting SPDX and is used between
