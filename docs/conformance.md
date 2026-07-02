@@ -183,7 +183,7 @@ procedures/instructions, environments and actors from the build process along
 with the associated evidence.
 
 Conformance to the Build profile compliance point
-only entails support for the Core profile.
+only entails support for the Build and Core profile.
 
 This compliance point facilitates interchange of the build information produced
 by tools supporting SPDX.
