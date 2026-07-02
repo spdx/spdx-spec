@@ -201,7 +201,7 @@ formats, including creation of the SBOM, package lists with licensing and other
 related items, and their relationships.
 
 Conformance to the Lite profile compliance point
-only entails support for the Core profile.
+only entails support for the Lite and Core profile.
 
 This compliance point facilitates interchange of minimal licensing information
 when produced by tools supporting SPDX.
