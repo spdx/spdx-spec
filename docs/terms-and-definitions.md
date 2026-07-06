@@ -8,6 +8,23 @@ at the following addresses:
 - IEC Electropedia: available at
   [http://www.electropedia.org/](http://www.electropedia.org/)
 
+**asset**
+
+An item of value to stakeholders. An asset may be tangible (e.g., a physical 
+item such as hardware, firmware, computing platform, network device, or other 
+technology component) or intangible (e.g., humans, data, information, software, 
+capability, function, service, trademark, copyright, patent, intellectual 
+property, image, or reputation). The value of an asset is determined by 
+stakeholders in consideration of loss concerns across the entire system life 
+cycle. Such concerns include but are not limited to business or mission concerns.
+
+<https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-160v2r1.pdf>
+
+**capability**
+
+Expression of a system, product, function, or process ability to achieve a specific 
+objective under stated conditions (INCOSE Systems Engineering Handbook, 5th ed.)
+
 **computer hardware**
 
 All or part of the physical components of an information system.
@@ -36,6 +53,12 @@ from CNSSI 4009-2015,
 
 The material physical components of a system.
 (From <https://csrc.nist.gov/glossary/term/hardware>, from CNSSI 4009-2015)
+
+**hazard**
+
+Intrinsic property or condition that has the potential to cause harm or damage
+(IEEE 1012-2024 IEEE Standard for System, Software, and Hardware Verification and
+Validation, 3.1.11)
 
 **information system**
 
@@ -98,3 +121,21 @@ industrial/process controls systems,
 telephone switching and private branch exchange (PBX) systems,
 and environmental control systems.
 (From <https://csrc.nist.gov/glossary/term/system>, from CNSSI 4009-2015)
+
+**threat**
+
+Any circumstance or event with the potential to adversely impact organizational 
+operations (including mission, functions, image, or reputation), organizational 
+assets, individuals, other organizations, or the Nation through a system via 
+unauthorized access, destruction, disclosure, modification of information, and/or 
+denial of service.
+
+(From https://doi.org/10.6028/NIST.SP.800-12r1; see Threats)
+
+Notes:
+* Hazards, in contrast to threats, are inherent conditions or reflect intrinsic properties — they
+  exist without a threat actor. A threat involves a threat actor acting in a scenario to adversely impact protected
+  resources; a hazard is a latent potential for harm arising from the nature of the thing itself.
+* A realized threat may in turn provide the circumstances for a hazard
+  (e.g. a successful attack disables a safety control or damages a system, creating a new inherent condition for harm).
+  So security failures can give rise to safety hazards.
