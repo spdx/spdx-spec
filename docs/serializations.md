@@ -110,9 +110,6 @@ documents in JSON-LD format that adhere to a specific SPDX version.
 SPDX global JSON-LD context file is available at:
 <https://spdx.org/rdf/3.0/spdx-context.jsonld>
 
-SPDX JSON-LD serialization annotations file is available at:
-<https://spdx.org/rdf/3.0/spdx-json-serialize-annotations.ttl>
-
 All SPDX documents in JSON-LD format shall include a reference to the SPDX
 global context file at the top level.
 This reference is achieved using the following JSON construct:
@@ -129,6 +126,24 @@ improve compatibility with the SPDX model. These aliases are:
 
 Additional namespace mappings may be defined within a separate object within
 the context.
+
+### JSON-LD serialization annotations
+
+To assist implementers in developing software bindings and serialization
+tooling, a serialization annotations file is provided.
+While the core RDF model defines the semantic data relationships,
+this file provides supplementary metadata to guide how specific elements
+should be structured in code and subsequently serialized.
+
+For example, the annotations are used to instruct serialization logic to:
+
+- Map logical identifier properties of core model elements to specific JSON-LD
+  field names.
+- Flag designated extension classes as extensible, indicating that software
+  implementations should permit the inclusion of custom or arbitrary properties.
+
+The SPDX JSON-LD serialization annotations file is available at:
+<https://spdx.org/rdf/3.0/spdx-json-serialize-annotations.ttl>
 
 ### JSON-LD validation
 
