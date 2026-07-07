@@ -94,6 +94,25 @@ scenarios (e.g., software, licensing, security, etc.).
 A profile identifies which particular SPDX namespaces, classes, and properties
 it leverages, along with any custom constraints unique to its use.
 
+**security conduit**
+
+A security conduit bridges two or more security zones. A security conduit is composed of communication assets.
+
+Note:
+A specific definition of a conduit is available in the ISA/IEC 62443-1. The definition is not publicly available.
+
+**security control**
+
+A protection measure for a system.
+(From <https://csrc.nist.gov/glossary/term/security_control>, from NIST SP 800-123)
+
+**security zone**
+
+A security zone groups assets in a compartment with the same security level.
+
+Note:
+A specific definition of a zone is available in the ISA/IEC 62443-1. The definition is not publicly available.
+
 **software**
 
 Computer programs (which are stored in and executed by computer hardware)
@@ -139,3 +158,4 @@ Notes:
 * A realized threat may in turn provide the circumstances for a hazard
   (e.g. a successful attack disables a safety control or damages a system, creating a new inherent condition for harm).
   So security failures can give rise to safety hazards.
+
