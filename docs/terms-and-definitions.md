@@ -1,5 +1,7 @@
 # Terms and definitions
 
+For the purposes of this document, the following terms and definitions apply.
+
 ISO and IEC maintain terminological databases for use in standardization
 at the following addresses:
 
@@ -10,7 +12,4 @@ at the following addresses:
 
 **profile**
 
-A scope of usage for SPDX targeting support for particular use cases and
-scenarios (e.g., software, licensing, security, etc.).
-A profile identifies which particular SPDX namespaces, classes, and properties
-it leverages, along with any custom constraints unique to its use.
+a scope of usage for SPDX targeting support for particular use cases and scenarios (e.g., software, licensing, security, etc.) that identifies which particular SPDX namespaces, classes, and properties it leverages, along with any custom constraints unique to its use
