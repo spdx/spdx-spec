@@ -49,6 +49,13 @@ from CNSSI 4009-2015,
 *leveraged* from IETF RFC 4949 Ver 2 at
 <https://datatracker.ietf.org/doc/rfc4949/>)
 
+**interface**
+
+Point at which two or more logical, physical, or both,
+system elements or software system elements meet and act on or communicate with each other
+(From ISO/IEC/IEEE 12207:2026 Systems and software engineering--Software life cycle processes, 3.1.33.
+From ISO/IEC/IEEE 15288:2023 Systems and software engineering--System life cycle processes, 3.20)
+
 **persona**
 
 Representation of a type of user that includes
