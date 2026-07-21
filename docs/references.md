@@ -220,4 +220,4 @@ The following documents are referred to in the text.
   [https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom](https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom).
 1. White House, *Executive Order on Improving the Nation’s Cybersecurity*,
   May 2021,
-  [https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/](https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/).
+  <https://www.govinfo.gov/content/pkg/DCPD-202100401/pdf/DCPD-202100401.pdf>.
