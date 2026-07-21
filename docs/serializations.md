@@ -131,10 +131,6 @@ improve compatibility with the SPDX model. These aliases are:
 Additional namespace mappings may be defined within a separate object within
 the context.
 
-The provided SPDX JSOserialization annotations file supplies supplementary
-metadata—including property mappings and extensibility flags—to standardise
-software bindings and JSON-LD serialization logic across implementations.
-
 ### JSON-LD validation
 
 An SPDX serialization in JSON-LD format is considered conformant to the SPDX
