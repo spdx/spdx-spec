@@ -53,7 +53,7 @@ This can be saved in a variety of formats, like XML, JSON-LD, Turtle, etc.
 1. IRIs for an enumerated value are of the form:
   `https://spdx.org/rdf/3/terms/{Namespacename}/{Vocabularyname}/{Entryname}`
 
-1. IRIs for an individual value list are of the form:
+1. IRIs for an individual value are of the form:
   `https://spdx.org/rdf/3/terms/{Namespacename}/{Individualname}`
 
 Please note that entries appearing in the
@@ -68,6 +68,9 @@ For a minor version X of the SPDX spec:
 
 1. The JSON-LD context definition is available at:
   `https://spdx.org/rdf/3.X/spdx-context.jsonld`
+
+1. The JSON-LD serialization annotations file is available at:
+   `https://spdx.org/rdf/3.X/spdx-json-serialize-annotations.ttl`
 
 1. The JSON schema is available at:
   `https://spdx.org/schema/3.X/spdx-json-schema.json`
@@ -195,7 +198,7 @@ This reference is achieved using the following JSON construct:
 ```
 
 The SPDX context file defines aliases for specific JSON-LD properties to
-improve compatibility with the SPDX model.  These aliases are:
+improve compatibility with the SPDX model. These aliases are:
 
 - `spdxId`: An alias for the `@id` property.
 - `type`: An alias for the `@type` property.
