@@ -99,6 +99,10 @@ It requires data to be serialized according to the defined serialization
 specification and validated against the SPDX 3 JSON Schema.
 It may be parsed – not serialized – using standard JSON-LD libraries.
 
+To assist implementers in developing software bindings and serialization
+tooling, a JSON-LD serialization annotations file is provided at:
+<https://spdx.org/rdf/3.0/spdx-json-serialize-annotations.ttl>
+
 ### JSON-LD context file
 
 JSON-LD contexts allow JSON documents to use simple, human-readable, locally
@@ -127,23 +131,9 @@ improve compatibility with the SPDX model. These aliases are:
 Additional namespace mappings may be defined within a separate object within
 the context.
 
-### JSON-LD serialization annotations
-
-To assist implementers in developing software bindings and serialization
-tooling, a serialization annotations file is provided.
-While the core RDF model defines the semantic data relationships,
-this file provides supplementary metadata to guide how specific elements
-should be structured in code and subsequently serialized.
-
-For example, the annotations are used to instruct serialization logic to:
-
-- Map logical identifier properties of core model elements to specific JSON-LD
-  field names.
-- Flag designated extension classes as extensible, indicating that software
-  implementations should permit the inclusion of custom or arbitrary properties.
-
-The SPDX JSON-LD serialization annotations file is available at:
-<https://spdx.org/rdf/3.0/spdx-json-serialize-annotations.ttl>
+The provided SPDX JSOserialization annotations file supplies supplementary
+metadata—including property mappings and extensibility flags—to standardise
+software bindings and JSON-LD serialization logic across implementations.
 
 ### JSON-LD validation
 
