@@ -24,8 +24,8 @@ as an SPDX document in the software supply chain.
 
 ## Mandatory and recommended properties
 
-The Lite profile specifies that some properties shall be present
-and some others should be present, as much as possible.
+The Lite profile specifies that some properties shall be present,
+and some others should be present as much as possible.
 
 The following lists collect and present this information
 for every class present in the SPDX data,
@@ -70,7 +70,7 @@ The lists of properties are in alphabetical order, for easy reference.
     1. builtTime
     1. comment
     1. downloadLocation
-    1. homepage
+    1. homePage
     1. originatedBy (may be multiple), should be objects of type /Core/Agent
     1. packageUrl
     1. releaseTime
@@ -144,7 +144,7 @@ Additionally:
     1. externalIdentifierType
     1. identifier
 
-### /Core/NameSpaceMap
+### /Core/NamespaceMap
 
 - Mandatory
     1. namespace
