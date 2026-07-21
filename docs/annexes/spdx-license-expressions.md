@@ -210,7 +210,7 @@ identifier = license-id / or-later-expression / license-ref
 
 or-later-expression = license-id PLUS
 
-parenthesized-expression = LPAREN optional-ws expression optional-ws RPAREN
+parenthesized-expression = LPAREN optional-ws SPDX-license-expression optional-ws RPAREN
 
 special-identifier = "NONE" / "NOASSERTION"
 
@@ -242,5 +242,4 @@ DOT    = %2E               ; . - Dot, fullstop, period
 
 ALPHA  = %x41-5A / %x61-7A ; A-Z / a-z
 DIGIT  = %x30-39           ; 0-9
-
 ```
