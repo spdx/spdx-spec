@@ -53,7 +53,7 @@ This can be saved in a variety of formats, like XML, JSON-LD, Turtle, etc.
 1. IRIs for an enumerated value are of the form:
   `https://spdx.org/rdf/3/terms/{Namespacename}/{Vocabularyname}/{Entryname}`
 
-1. IRIs for an individual value list are of the form:
+1. IRIs for an individual value are of the form:
   `https://spdx.org/rdf/3/terms/{Namespacename}/{Individualname}`
 
 Please note that entries appearing in the
@@ -65,6 +65,9 @@ For a minor version X of the SPDX spec:
 
 1. The ontology is available at:
   `https://spdx.org/rdf/3.X/spdx-model.ttl`
+
+1. The JSON-LD serialization annotations file is available at:
+   `https://spdx.org/rdf/3.X/spdx-json-serialize-annotations.ttl`
 
 1. The JSON-LD context definition is available at:
   `https://spdx.org/rdf/3.X/spdx-context.jsonld`
@@ -141,34 +144,6 @@ It requires data to be serialized according to the defined serialization
 specification and validated against the SPDX 3 JSON Schema.
 It may be parsed – not serialized – using standard JSON-LD libraries.
 
-### JSON-LD context file
-
-JSON-LD contexts allow JSON documents to use simple, human-readable, locally
-defined terms while ensuring data interoperability across different systems.
-
-The SPDX global JSON-LD context file shall be used universally for all SPDX
-documents in JSON-LD format that adhere to a specific SPDX version.
-
-SPDX global JSON-LD context file is available at:
-<https://spdx.org/rdf/3.1/spdx-context.jsonld>
-
-All SPDX documents in JSON-LD format shall include a reference to the SPDX
-global context file at the top level.
-This reference is achieved using the following JSON construct:
-
-```json
-{ "@context": "https://spdx.org/rdf/3.1/spdx-context.jsonld" }
-```
-
-The SPDX context file defines aliases for specific JSON-LD properties to
-improve compatibility with the SPDX model.  These aliases are:
-
-- `spdxId`: An alias for the `@id` property.
-- `type`: An alias for the `@type` property.
-
-Additional namespace mappings may be defined within a separate object within
-the context.
-
 ### SpdxDocument
 
 The following SpdxDocument properties are mapped to native JSON-LD mechanisms
@@ -203,6 +178,52 @@ similar complex data classes) may be inlined or included as a
 [blank node](https://www.w3.org/TR/rdf12-concepts/#section-blank-nodes)
 on top-level under the "@graph".
 
+### JSON-LD serialization annotations
+
+To assist implementers in developing software bindings and serialization
+tooling, a serialization annotations file is provided.
+While the core RDF model defines the semantic data relationships,
+this file provides supplementary metadata to guide how specific elements
+should be structured in code and subsequently serialized.
+
+For example, the annotations are used to instruct serialization logic to:
+
+- Map logical identifier properties of core model elements to specific JSON-LD
+  field names.
+- Flag designated extension classes as extensible, indicating that software
+  implementations should permit the inclusion of custom or arbitrary properties.
+
+The SPDX JSON-LD serialization annotations file is available at:
+<https://spdx.org/rdf/3.1/spdx-json-serialize-annotations.ttl>
+
+### JSON-LD context file
+
+JSON-LD contexts allow JSON documents to use simple, human-readable, locally
+defined terms while ensuring data interoperability across different systems.
+
+The SPDX global JSON-LD context file shall be used universally for all SPDX
+documents in JSON-LD format that adhere to a specific SPDX version.
+
+SPDX global JSON-LD context file is available at:
+<https://spdx.org/rdf/3.1/spdx-context.jsonld>
+
+All SPDX documents in JSON-LD format shall include a reference to the SPDX
+global context file at the top level.
+This reference is achieved using the following JSON construct:
+
+```json
+{ "@context": "https://spdx.org/rdf/3.1/spdx-context.jsonld" }
+```
+
+The SPDX context file defines aliases for specific JSON-LD properties to
+improve compatibility with the SPDX model. These aliases are:
+
+- `spdxId`: An alias for the `@id` property.
+- `type`: An alias for the `@type` property.
+
+Additional namespace mappings may be defined within a separate object within
+the context.
+
 ### JSON-LD validation
 
 An SPDX serialization in JSON-LD format is considered conformant to the SPDX
@@ -225,7 +246,8 @@ The SPDX 3 OWL ontology is available at:
 
 ### Examples
 
-Informational JSON-LD serialization examples can be found at <https://github.com/spdx/spdx-examples>
+Informational JSON-LD serialization examples can be found at:
+<https://github.com/spdx/spdx-examples>
 
 ## Reading JSON serialization
 
@@ -272,7 +294,7 @@ It should be easy to recognize an SPDX 3 file in a file system without opening t
 
 A suggested naming convention is:
 
-| Format  | Extension    |
-| ------- | ------------ |
-| JSON-LD | *.spdx3.json |
-| RDF/XML | *.spdx3.rdf  |
+| Format  | Extension     |
+| ------- | ------------- |
+| JSON-LD | \*.spdx3.json |
+| RDF/XML | \*.spdx3.rdf  |
