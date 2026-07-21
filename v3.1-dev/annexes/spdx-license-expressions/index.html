@@ -1253,9 +1253,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../spdx-lite/">D. SPDX Lite</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../pkg-url-specification/">E. Package URL specification</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../class-hierarchy/">F. Class hierarchy</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../class-hierarchy/">E. Class hierarchy</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">licenses</span></p>
@@ -1420,7 +1418,7 @@ including precedence and whitespace,
 is described by the following ABNF:</p>
 <pre class="codehilite"><code class="language-ABNF">; ABNF Grammar for License Expressions
 
-SPSX-license-expression = (or-operand *( required-ws &quot;OR&quot; required-ws or-operand )) / special-identifier
+SPDX-license-expression = (or-operand *( required-ws &quot;OR&quot; required-ws or-operand )) / special-identifier
 
 or-operand = (term required-ws &quot;AND&quot; required-ws term *( required-ws &quot;AND&quot; required-ws term )) / base-term
 
@@ -1436,7 +1434,7 @@ identifier = license-id / or-later-expression / license-ref
 
 or-later-expression = license-id PLUS
 
-parenthesized-expression = LPAREN optional-ws expression optional-ws RPAREN
+parenthesized-expression = LPAREN optional-ws SPDX-license-expression optional-ws RPAREN
 
 special-identifier = &quot;NONE&quot; / &quot;NOASSERTION&quot;
 
@@ -1450,7 +1448,7 @@ license-exception-id = &lt;short form license exception identifier from SPDX Lic
 license-ref  = [ &quot;DocumentRef-&quot; idstring &quot;:&quot; ] &quot;LicenseRef-&quot;  idstring
 addition-ref = [ &quot;DocumentRef-&quot; idstring &quot;:&quot; ] &quot;AdditionRef-&quot; idstring
 
-idstring = *id-char alnum *id-char
+idstring = *idchar alnum *idchar
 idchar   = alnum / DOT / DASH
 alnum    = ALPHA / DIGIT
 
