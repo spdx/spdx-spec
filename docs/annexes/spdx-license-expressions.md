@@ -194,7 +194,7 @@ is described by the following ABNF:
 ```ABNF
 ; ABNF Grammar for License Expressions
 
-SPSX-license-expression = (or-operand *( required-ws "OR" required-ws or-operand )) / special-identifier
+SPDX-license-expression = (or-operand *( required-ws "OR" required-ws or-operand )) / special-identifier
 
 or-operand = (term required-ws "AND" required-ws term *( required-ws "AND" required-ws term )) / base-term
 
@@ -210,7 +210,7 @@ identifier = license-id / or-later-expression / license-ref
 
 or-later-expression = license-id PLUS
 
-parenthesized-expression = LPAREN optional-ws expression optional-ws RPAREN
+parenthesized-expression = LPAREN optional-ws SPDX-license-expression optional-ws RPAREN
 
 special-identifier = "NONE" / "NOASSERTION"
 
@@ -224,7 +224,7 @@ license-exception-id = <short form license exception identifier from SPDX Licens
 license-ref  = [ "DocumentRef-" idstring ":" ] "LicenseRef-"  idstring
 addition-ref = [ "DocumentRef-" idstring ":" ] "AdditionRef-" idstring
 
-idstring = *id-char alnum *id-char
+idstring = *idchar alnum *idchar
 idchar   = alnum / DOT / DASH
 alnum    = ALPHA / DIGIT
 
@@ -242,5 +242,4 @@ DOT    = %2E               ; . - Dot, fullstop, period
 
 ALPHA  = %x41-5A / %x61-7A ; A-Z / a-z
 DIGIT  = %x30-39           ; 0-9
-
 ```
