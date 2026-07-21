@@ -37,21 +37,21 @@ The lists of properties are in alphabetical order, for easy reference.
 - Mandatory
     1. creationInfo
     1. element (may be multiple), shall have at least one /Software/Sbom object
-    1. rootElement (may be multiple), shall be objects of type /Software/Sbom
+    1. rootElement (may be multiple), should be objects of type /Software/Sbom
     1. spdxId
 - Recommended
     1. comment
     1. dataLicense
     1. name
     1. namespaceMap (may be multiple)
-    1. verifiedUsing (may be multiple), shall be objects of type /Core/Hash
+    1. verifiedUsing (may be multiple), should be objects of type /Core/Hash
 
 ### /Software/Sbom
 
 - Mandatory
     1. creationInfo
     1. element (may be multiple), shall have at least one /Software/Package object
-    1. rootElement (may be multiple), shall be objects of type /Software/Package
+    1. rootElement (may be multiple), should be objects of type /Software/Package
     1. spdxId
 - Recommended
     1. sbomType (may be multiple)
@@ -64,19 +64,19 @@ The lists of properties are in alphabetical order, for easy reference.
     1. name
     1. packageVersion
     1. spdxId
-    1. suppliedBy, shall be an object of type /Core/Agent
+    1. suppliedBy, should be an object of type /Core/Agent
 - Recommended
     1. attributionText (may be multiple)
     1. builtTime
     1. comment
     1. downloadLocation
     1. homePage
-    1. originatedBy (may be multiple), shall be objects of type /Core/Agent
+    1. originatedBy (may be multiple), should be objects of type /Core/Agent
     1. packageUrl
     1. releaseTime
     1. supportLevel (may be multiple)
     1. validUntilTime
-    1. verifiedUsing (may be multiple), shall be objects of type /Core/Hash
+    1. verifiedUsing (may be multiple), should be objects of type /Core/Hash
 
 However, there shall be at least a “downloadLocation” or “packageUrl” property.
 
@@ -132,8 +132,8 @@ Additionally:
 
 - Mandatory
     1. created
-    1. createdBy (may be multiple), shall be objects of type /Core/Agent
-    1. specVersion, shall be a fixed string, “3.1.n” - where n is
+    1. createdBy (may be multiple), should be objects of type /Core/Agent
+    1. specVersion, should be a fixed string, “3.1.n” - where n is
        any supported patch version of the SPDX specification
 - Recommended
     1. comment
