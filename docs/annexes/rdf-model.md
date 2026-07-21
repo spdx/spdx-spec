@@ -3,7 +3,7 @@
 ## Model definition
 
 The SPDX RDF ontology is expressed in RDF/OWL/SHACL format
-and is published in online at
+and is published online at
 [SPDX 3.0 model](https://spdx.org/rdf/3.0/spdx-model.ttl)
 
 ## Diagrams
