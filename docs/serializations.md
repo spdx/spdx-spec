@@ -264,7 +264,7 @@ At the top level, the JSON-LD shall contain two keys: `@context` and `@graph`.
 
 The `@context` key contains a list comprising a string and an object.
 The string may be ignored.
-The object contains key-value pairs used for identifier abbreviation,
+The object contains key-value pairs used for substituting identifiers with shorter abbreviations,
 hereafter referred to as the "namespace map".
 
 During deserialization, the following procedure shall be applied:
