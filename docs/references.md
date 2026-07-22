@@ -48,6 +48,10 @@ Forum of Incident Response and Security Teams, Inc (FIRST),
 Forum of Incident Response and Security Teams, Inc (FIRST),
 [https://www.first.org/cvss/cvss-v4.0.json](https://www.first.org/cvss/cvss-v4.0.json).
 
+*ECMA-427 Package-URL (PURL) specification*, 1st edition, December 2025,
+Ecma International,
+<https://ecma-international.org/publications-and-standards/standards/ecma-427/>.
+
 *EU general risk assessment methodology*,
 European Commission,
 [https://ec.europa.eu/docsroom/documents/17107](https://ec.europa.eu/docsroom/documents/17107).
