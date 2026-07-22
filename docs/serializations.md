@@ -258,19 +258,19 @@ Informational JSON-LD serialization examples can be found at:
 This section specifies the procedure for deserializing JSON-LD as a pure JSON
 format, independent of RDF semantics.
 
-At the top level, the JSON-LD shall contain two keys: "@context" and "@graph".
+At the top level, the JSON-LD shall contain two keys: `@context` and `@graph`.
 
 #### Parsing "@context"
 
-The "@context" key contains a list comprising a string and an object.
+The `@context` key contains a list comprising a string and an object.
 The string may be ignored.
 The object contains key-value pairs used for identifier abbreviation,
 hereafter referred to as the "namespace map".
 
 During deserialization, the following procedure shall be applied:
 
-- Each string functioning as an identifier (including values of the "spdxId"
-  and "@id" keys, as well as all strings where objects are expected in
+- Each string functioning as an identifier (including values of the `spdxId`
+  and `@id` keys, as well as all strings where objects are expected in
   accordance with the SPDX 3 model) shall be split at the first colon into
   a "prefix:suffix" format.
 - If the suffix does not begin with "//" and the prefix corresponds to a key
@@ -278,7 +278,7 @@ During deserialization, the following procedure shall be applied:
   corresponding value from the namespace map.
 - Otherwise, the string shall remain unmodified.
 
-Upon completion of this procedure for all identifiers, the "@context" shall
+Upon completion of this procedure for all identifiers, the `@context` shall
 be ignored.
 
 #### Parsing "@graph"
