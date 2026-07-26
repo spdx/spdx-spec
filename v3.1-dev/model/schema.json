@@ -2794,6 +2794,9 @@
                         "requirementStatement": {
                             "$ref": "#/$defs/prop_Requirement_requirementStatement"
                         },
+                        "requirementStatus": {
+                            "$ref": "#/$defs/prop_Requirement_requirementStatus"
+                        },
                         "requirementUID": {
                             "$ref": "#/$defs/prop_Requirement_requirementUID"
                         }
@@ -2822,8 +2825,70 @@
         "prop_Requirement_requirementStatement": {
                     "type": "string"
         },
+        "prop_Requirement_requirementStatus": {
+                "enum": [
+                    "spdx:Core/RequirementStatusType/active",
+                    "spdx:Core/RequirementStatusType/backlog",
+                    "spdx:Core/RequirementStatusType/draft",
+                    "spdx:Core/RequirementStatusType/retired",
+                    "spdx:Core/RequirementStatusType/reviewable"
+                ]
+        },
         "prop_Requirement_requirementUID": {
                 "$ref": "#/$defs/ExternalIdentifier_derived"
+        },
+        "RequirementStatusType": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "RequirementStatusType"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/RequirementStatusType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a RequirementStatusType"
+            }
+        },
+        "RequirementStatusType_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/RequirementStatusType" }
+                    ]
+                },
+                { "const": "spdx:Core/RequirementStatusType/active" },
+                { "const": "spdx:Core/RequirementStatusType/backlog" },
+                { "const": "spdx:Core/RequirementStatusType/draft" },
+                { "const": "spdx:Core/RequirementStatusType/retired" },
+                { "const": "spdx:Core/RequirementStatusType/reviewable" },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "RequirementStatusType_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                    }
+                }
+            ]
         },
         "Role": {
             "if": {
@@ -11844,6 +11909,7 @@
                                 "RelationshipCompleteness",
                                 "RelationshipType",
                                 "Requirement",
+                                "RequirementStatusType",
                                 "Role",
                                 "RoleRelationship",
                                 "SpdxDocument",
@@ -12000,6 +12066,7 @@
                 { "$ref": "#/$defs/RelationshipCompleteness" },
                 { "$ref": "#/$defs/RelationshipType" },
                 { "$ref": "#/$defs/Requirement" },
+                { "$ref": "#/$defs/RequirementStatusType" },
                 { "$ref": "#/$defs/Role" },
                 { "$ref": "#/$defs/RoleRelationship" },
                 { "$ref": "#/$defs/SpdxDocument" },
