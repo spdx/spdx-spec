@@ -42,7 +42,7 @@ The Core profile is mandatory. All others are optional.
 
 ## Core profile compliance point
 
-The Core profile includes the definitions of classes properties and
+The Core profile includes the definitions of classes, properties and
 vocabularies usable by all SPDX profiles when producing or consuming SPDX
 content. Although the classes, properties and vocabularies are somewhat
 extensive, the required fields are rather minimal to allow maximum flexibility
