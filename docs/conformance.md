@@ -113,7 +113,7 @@ Both allow expression of the same information,
 albeit in different ways.
 
 Conformance to the Licensing profile compliance point
-only entails support for the Core profile.
+only entails support for the Core and Software profiles.
 
 This compliance point facilitates interchange of the licensing documents
 expressing which licenses and copyright notices are determined by persons or
