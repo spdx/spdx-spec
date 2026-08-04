@@ -134,7 +134,7 @@ An example where three different licenses apply would be:
 LGPL-2.1-only AND MIT AND BSD-2-Clause
 ```
 
-The "AND" operator is the only operator that can be used in conjuction with the special identifiers "NONE" or "NOASSERTION".
+The "AND" operator is the only operator that can be used in conjunction with the special identifiers "NONE" or "NOASSERTION".
 
 ### Additive "WITH" operator
 
@@ -236,9 +236,9 @@ required-ws = 1*SPACE      ; Required whitespace (one or more spaces)
 SPACE  = %x20              ; Space character
 LPAREN = %x28              ; ( - Left parenthesis
 RPAREN = %x29              ; ) - Right parenthesis
-PLUS   = %2B               ; + - Plus
-DASH   = %2D               ; - - Dash, hyphen
-DOT    = %2E               ; . - Dot, fullstop, period
+PLUS   = %x2B              ; + - Plus
+DASH   = %x2D              ; - - Dash, hyphen
+DOT    = %x2E              ; . - Dot, fullstop, period
 
 ALPHA  = %x41-5A / %x61-7A ; A-Z / a-z
 DIGIT  = %x30-39           ; 0-9
