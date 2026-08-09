@@ -42,7 +42,7 @@ The Core profile is mandatory. All others are optional.
 
 ## Core profile compliance point
 
-The Core profile includes the definitions of classes properties and
+The Core profile includes the definitions of classes, properties and
 vocabularies usable by all SPDX profiles when producing or consuming SPDX
 content. Although the classes, properties and vocabularies are somewhat
 extensive, the required fields are rather minimal to allow maximum flexibility
@@ -113,7 +113,7 @@ Both allow expression of the same information,
 albeit in different ways.
 
 Conformance to the Licensing profile compliance point
-only entails support for the Core profile.
+only entails support for the Core and Software profiles.
 
 This compliance point facilitates interchange of the licensing documents
 expressing which licenses and copyright notices are determined by persons or
@@ -236,7 +236,8 @@ formats, including the abstract Extension class serving as the base for all
 defined Extension subclasses.
 
 Conformance to the Extension profile compliance point
-only entails support for the Core profile.
+only entails support for the Core profile
+and any other profile that gets extended.
 
 This compliance point facilitates interchange of extended information that goes
 beyond the standard SPDX produced by tools supporting SPDX and is used between
