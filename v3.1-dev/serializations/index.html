@@ -1453,28 +1453,30 @@ specification and validated against the SPDX 3 JSON Schema.
 It may be parsed – not serialized – using standard JSON-LD libraries.</p>
 <h3 id="spdxdocument">SpdxDocument</h3>
 <p>The following SpdxDocument properties are mapped to native JSON-LD mechanisms
-defined within the JSON-LD syntax specifications. Any properties not listed
-below should be serialized as part of the SpdxDocument element itself within
-the JSON-LD serialized data.</p>
-<p>Deserialization of any JSON-LD serialized SPDX content MUST expand the inverse
-of these native mappings such that the logical SpdxDocument element directly
-contains its full set of properties.</p>
+in accordance with JSON-LD syntax specifications. Any property not explicitly
+listed below shall be serialized directly within the SpdxDocument element of
+the JSON-LD data.</p>
+<p>During deserialization of JSON-LD formatted SPDX content, the inverse of these
+native mappings shall be expanded to ensure the logical SpdxDocument element
+directly contains its complete set of properties.</p>
 <h4 id="namespacemap">namespaceMap</h4>
-<p>The namespaceMap uses the
+<p>The namespaceMap shall utilize the
 <a href="https://www.w3.org/TR/json-ld11/#example-11-term-expansion-from-context-definition">term to IRI mapping</a>
-in the <a href="https://www.w3.org/TR/json-ld11/#the-context">JSON-LD context</a>.</p>
+defined within the
+<a href="https://www.w3.org/TR/json-ld11/#the-context">JSON-LD context</a>.</p>
 <h4 id="element">element</h4>
-<p>The <a href="https://www.w3.org/TR/json-ld11/#graph-objects">graph objects</a> <code>@graph</code>
-lists the elements for the SpdxDocument.</p>
-<p>The RDF graph of an instance of the SPDX model shall contain all Element nodes
-(i.e. objects that are subclasses of Element) as a list on top-level under the
-"@graph" key. This means that all references to Element nodes have to use the
-URI of the referenced Element.</p>
-<p>Inlining/Embedding of Element nodes into other nodes is not allowed.</p>
-<p>Non-element data (like those of type "ExternalReference" or
-similar complex data classes) may be inlined or included as a
+<p>The <a href="https://www.w3.org/TR/json-ld11/#graph-objects">graph objects</a>, <code>@graph</code>,
+shall enumerate the elements comprising the SpdxDocument.</p>
+<p>Within the RDF graph of an SPDX model instance, all Element nodes
+(i.e., objects that are subclasses of Element) shall be represented as
+a top-level list under the <code>@graph</code> key.
+Accordingly, all references to Element nodes shall use the URI of the
+referenced Element.</p>
+<p>Element nodes shall not be inlined or embedded into other nodes.</p>
+<p>Non-element data (e.g., instances of ExternalRef or comparable complex data
+classes) may be inlined, or they may be included as a top-level
 <a href="https://www.w3.org/TR/rdf12-concepts/#section-blank-nodes">blank node</a>
-on top-level under the "@graph".</p>
+under the <code>@graph</code>.</p>
 <h3 id="json-ld-serialization-annotations">JSON-LD serialization annotations</h3>
 <p>To assist implementers in developing software bindings and serialization
 tooling, a serialization annotations file is provided.
@@ -1533,35 +1535,44 @@ specification if it adheres to the following two validation criteria:</p>
 <a href="https://github.com/spdx/spdx-examples">https://github.com/spdx/spdx-examples</a></p>
 <h2 id="reading-json-serialization">Reading JSON serialization</h2>
 <h3 id="parsing-json-ld-as-json">Parsing JSON-LD as JSON</h3>
-<p>This is a description of how to deserialize JSON-LD as a pure JSON format without any knowledge of RDF.
-On top-level, JSON-LD has two keys, "@context" and "@graph".</p>
+<p>This section specifies the procedure for deserializing JSON-LD as a pure JSON
+format, independent of RDF semantics.</p>
+<p>At the top level, the JSON-LD shall contain two keys: <code>@context</code> and <code>@graph</code>.</p>
 <h4 id="parsing-context">Parsing "@context"</h4>
-<p>The context is a list of a string and an object. You can ignore the string.
-The object consists of key-value pairs that allow the shortening of IDs and which we will call "namespace map" in the following.</p>
-<p>For deserialization purposes, follow this process:</p>
+<p>The <code>@context</code> key contains a list comprising a string and an object.
+The string may be ignored.
+The object contains key-value pairs used for substituting identifiers with
+shorter abbreviations, hereafter referred to as the "namespace map".</p>
+<p>During deserialization, the following procedure shall be applied:</p>
 <ul>
-<li>For every string that is an ID (that includes values of the keys "spdxId" and "@id",
-  as well as all strings where you would expect objects according to the SPDX 3 model),
-  split that string at the first colon into "prefix:suffix".</li>
-<li>If the suffix does not start with "//" and the prefix is a key in the namespace map,
-  replace "prefix:" with the value found under that key in the namespace map.</li>
-<li>Else do nothing to that string.</li>
+<li>Each string functioning as an identifier (including values of the <code>spdxId</code>
+  and <code>@id</code> keys, as well as all strings where objects are expected in
+  accordance with the SPDX 3 model) shall be split at the first colon into
+  a "prefix:suffix" format.</li>
+<li>If the suffix does not begin with "//" and the prefix corresponds to a key
+  within the namespace map, the "prefix:" shall be replaced with the
+  corresponding value from the namespace map.</li>
+<li>Otherwise, the string shall remain unmodified.</li>
 </ul>
-<p>After you are done applying this process to all IDs, you can ignore the "@context".</p>
+<p>Upon completion of this procedure for all identifiers, the <code>@context</code> shall
+be ignored.</p>
 <h4 id="parsing-graph">Parsing "@graph"</h4>
-<p>You will find an array of objects under the "@graph" key.
-Every one of these objects has a "type" key that tells you
-the class of the SPDX 3 model that the object is an instance of.
-The rest of the keys then correspond to the properties of that SPDX class.
-Take special note of the "spdxId" key which specifies the ID by which the object can be referenced from other places.</p>
-<p>One thing to note is that not all objects in that list have to be subclasses of Element.
-As only Elements have an spdxId, there is no "spdxId" key in these cases but an "@id" key.
-However, the value of "@id" serves the same function of identifying and referencing that object from within other objects.</p>
-<p>Last but not least, whenever you encounter a string where you would
-expect an object according to the SPDX 3 model,
-you can substitute that string with the object that has that string as its "spdxId" or "@id".</p>
+<p>The <code>@graph</code> key contains an array of objects.
+Each object includes a <code>type</code> key specifying its corresponding class within
+the SPDX 3 model.
+The remaining keys within the object represent the properties of that class.
+The <code>spdxId</code> key specifies the identifier used to reference the object.</p>
+<p>Not all objects within this array are subclasses of Element.
+Because the <code>spdxId</code> key is exclusive to Element instances,
+non-element objects utilize an <code>@id</code> key instead.
+The <code>@id</code> value functions identically to <code>spdxId</code> for the purpose of
+identifying and referencing the object.</p>
+<p>During deserialization, if a string is present in a position where the SPDX 3
+model specifies an object, that string shall be substituted with the resolved
+object possessing the matching <code>spdxId</code> or <code>@id</code> value.</p>
 <h2 id="file-naming">File naming</h2>
-<p>It should be easy to recognize an SPDX 3 file in a file system without opening the file.</p>
+<p>An SPDX 3 file should be identifiable within a file system without inspecting
+its contents.</p>
 <p>A suggested naming convention is:</p>
 <table>
 <thead>
