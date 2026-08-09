@@ -99,6 +99,10 @@ It requires data to be serialized according to the defined serialization
 specification and validated against the SPDX 3 JSON Schema.
 It may be parsed – not serialized – using standard JSON-LD libraries.
 
+To assist implementers in developing software bindings and serialization
+tooling, a JSON-LD serialization annotations file is provided at:
+<https://spdx.org/rdf/3.0/spdx-json-serialize-annotations.ttl>
+
 ### JSON-LD context file
 
 JSON-LD contexts allow JSON documents to use simple, human-readable, locally
