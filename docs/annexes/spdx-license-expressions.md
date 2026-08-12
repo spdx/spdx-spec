@@ -206,11 +206,9 @@ with-expression = identifier required-ws "WITH" required-ws addition-identifier
 
 addition-identifier = license-exception-id / addition-ref
 
-identifier = license-id / or-later-expression / license-ref
+identifier = license-id / license-id "+" / license-ref
 
-or-later-expression = license-id PLUS
-
-parenthesized-expression = LPAREN optional-ws SPDX-license-expression optional-ws RPAREN
+parenthesized-expression = "(" optional-ws SPDX-license-expression optional-ws ")"
 
 special-identifier = "NONE" / "NOASSERTION"
 
@@ -224,22 +222,14 @@ license-exception-id = <short form license exception identifier from SPDX Licens
 license-ref  = [ "DocumentRef-" idstring ":" ] "LicenseRef-"  idstring
 addition-ref = [ "DocumentRef-" idstring ":" ] "AdditionRef-" idstring
 
+; ---
+
 idstring = *idchar alnum *idchar
-idchar   = alnum / DOT / DASH
+idchar   = alnum / "." / "-"
 alnum    = ALPHA / DIGIT
 
 ; --- Whitespace and characters ---
 
-optional-ws = *SPACE       ; Optional whitespace (zero or more spaces)
-required-ws = 1*SPACE      ; Required whitespace (one or more spaces)
-
-SPACE  = %x20              ; Space character
-LPAREN = %x28              ; ( - Left parenthesis
-RPAREN = %x29              ; ) - Right parenthesis
-PLUS   = %x2B              ; + - Plus
-DASH   = %x2D              ; - - Dash, hyphen
-DOT    = %x2E              ; . - Dot, fullstop, period
-
-ALPHA  = %x41-5A / %x61-7A ; A-Z / a-z
-DIGIT  = %x30-39           ; 0-9
+optional-ws = *SP          ; Optional whitespace (zero or more spaces)
+required-ws = 1*SP         ; Required whitespace (one or more spaces)
 ```
