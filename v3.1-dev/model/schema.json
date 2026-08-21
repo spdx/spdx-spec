@@ -694,6 +694,7 @@
                         { "$ref": "#/$defs/functionalsafety_EvaluationResult" },
                         { "$ref": "#/$defs/functionalsafety_EvidenceRelationship" },
                         { "$ref": "#/$defs/functionalsafety_RequirementVerification" },
+                        { "$ref": "#/$defs/functionalsafety_SafetyContextRelationship" },
                         { "$ref": "#/$defs/hardware_BulkHardware" },
                         { "$ref": "#/$defs/hardware_PhysicalHardware" },
                         { "$ref": "#/$defs/hardware_ProductSpecification" },
@@ -2381,6 +2382,7 @@
                         { "$ref": "#/$defs/RoleRelationship" },
                         { "$ref": "#/$defs/SupportRelationship" },
                         { "$ref": "#/$defs/functionalsafety_EvidenceRelationship" },
+                        { "$ref": "#/$defs/functionalsafety_SafetyContextRelationship" },
                         { "$ref": "#/$defs/security_CvssV2VulnAssessmentRelationship" },
                         { "$ref": "#/$defs/security_CvssV3VulnAssessmentRelationship" },
                         { "$ref": "#/$defs/security_CvssV4VulnAssessmentRelationship" },
@@ -4307,6 +4309,70 @@
         },
         "prop_functionalsafety_RequirementVerification_functionalsafety_verificationUID": {
                 "$ref": "#/$defs/ExternalIdentifier_derived"
+        },
+        "functionalsafety_SafetyIntegrityLevelType": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "functionalsafety_SafetyIntegrityLevelType"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/functionalsafety_SafetyIntegrityLevelType_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a functionalsafety_SafetyIntegrityLevelType"
+            }
+        },
+        "functionalsafety_SafetyIntegrityLevelType_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/functionalsafety_SafetyIntegrityLevelType" }
+                    ]
+                },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/asilA" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/asilB" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/asilC" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/asilD" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/dalA" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/dalB" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/dalC" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/dalD" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/dalE" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/noAssertion" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/other" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/qm" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/sil1" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/sil2" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/sil3" },
+                { "const": "spdx:FunctionalSafety/SafetyIntegrityLevelType/sil4" },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "functionalsafety_SafetyIntegrityLevelType_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                    }
+                }
+            ]
         },
         "functionalsafety_VerificationType": {
             "if": {
@@ -6236,6 +6302,7 @@
                     "type": "object",
                     "unevaluatedProperties": false,
                     "anyOf": [
+                        { "$ref": "#/$defs/functionalsafety_SafetyContextRelationship" },
                         { "$ref": "#/$defs/LifecycleScopedRelationship" }
                     ]
                 },
@@ -7177,6 +7244,78 @@
         },
         "prop_extension_CdxPropertiesExtension_extension_cdxProperty": {
                 "$ref": "#/$defs/extension_CdxPropertyEntry_derived"
+        },
+        "functionalsafety_SafetyContextRelationship": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "functionalsafety_SafetyContextRelationship"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/functionalsafety_SafetyContextRelationship_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a functionalsafety_SafetyContextRelationship"
+            }
+        },
+        "functionalsafety_SafetyContextRelationship_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/functionalsafety_SafetyContextRelationship" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "functionalsafety_SafetyContextRelationship_props": {
+            "allOf": [
+                { "$ref": "#/$defs/LifecycleScopedRelationship_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "functionalsafety_safetyIntegrityLevel": {
+                            "$ref": "#/$defs/prop_functionalsafety_SafetyContextRelationship_functionalsafety_safetyIntegrityLevel"
+                        }
+                    }
+                }
+            ]
+        },
+        "prop_functionalsafety_SafetyContextRelationship_functionalsafety_safetyIntegrityLevel": {
+                "enum": [
+                    "asilA",
+                    "asilB",
+                    "asilC",
+                    "asilD",
+                    "dalA",
+                    "dalB",
+                    "dalC",
+                    "dalD",
+                    "dalE",
+                    "noAssertion",
+                    "other",
+                    "qm",
+                    "sil1",
+                    "sil2",
+                    "sil3",
+                    "sil4"
+                ]
         },
         "hardware_Hardware_derived": {
             "anyOf": [
@@ -11921,6 +12060,7 @@
                                 "functionalsafety_EvidenceRelationship",
                                 "functionalsafety_EvidenceType",
                                 "functionalsafety_RequirementVerification",
+                                "functionalsafety_SafetyIntegrityLevelType",
                                 "functionalsafety_VerificationType",
                                 "hardware_Dimensions",
                                 "hardware_VirtualHardwareModelType",
@@ -11959,6 +12099,7 @@
                                 "expandedlicensing_OrLaterOperator",
                                 "expandedlicensing_WithAdditionOperator",
                                 "extension_CdxPropertiesExtension",
+                                "functionalsafety_SafetyContextRelationship",
                                 "hardware_PhysicalHardware",
                                 "hardware_ProductSpecification",
                                 "hardware_VirtualHardware",
@@ -12078,6 +12219,7 @@
                 { "$ref": "#/$defs/functionalsafety_EvidenceRelationship" },
                 { "$ref": "#/$defs/functionalsafety_EvidenceType" },
                 { "$ref": "#/$defs/functionalsafety_RequirementVerification" },
+                { "$ref": "#/$defs/functionalsafety_SafetyIntegrityLevelType" },
                 { "$ref": "#/$defs/functionalsafety_VerificationType" },
                 { "$ref": "#/$defs/hardware_Dimensions" },
                 { "$ref": "#/$defs/hardware_VirtualHardwareModelType" },
@@ -12116,6 +12258,7 @@
                 { "$ref": "#/$defs/expandedlicensing_OrLaterOperator" },
                 { "$ref": "#/$defs/expandedlicensing_WithAdditionOperator" },
                 { "$ref": "#/$defs/extension_CdxPropertiesExtension" },
+                { "$ref": "#/$defs/functionalsafety_SafetyContextRelationship" },
                 { "$ref": "#/$defs/hardware_PhysicalHardware" },
                 { "$ref": "#/$defs/hardware_ProductSpecification" },
                 { "$ref": "#/$defs/hardware_VirtualHardware" },
