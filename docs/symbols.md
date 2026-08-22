@@ -27,7 +27,7 @@ List of symbols/abbreviations.
 | PAS | Publicly Available Specification |
 | POSIX | Portable Operating System Interface |
 | PTF | Platform Task Force |
-| PURL | Package URL |
+| PURL | Package-URL |
 | RDF | Resource Description Framework |
 | RFC | Request For Comments |
 | SBOM | Software Bill of Materials |
