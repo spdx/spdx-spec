@@ -7010,48 +7010,6 @@
             }
           }
         },
-        "/Core/MeasureOfMass": {
-          "py/object": "spec_parser.model.Class",
-          "ns": {
-            "py/id": 881
-          },
-          "license": "Community-Spec-1.0",
-          "name": "MeasureOfMass",
-          "fqname": "/Core/MeasureOfMass",
-          "summary": "The measure of mass refers to the quantity of matter in an object or substance.",
-          "description": "The measure of mass refers to the quantity of matter in an object or substance. Mass is a fundamental property of matter and is typically measured in various units depending on the system of measurement being used.",
-          "metadata": {
-            "name": "MeasureOfMass",
-            "SubclassOf": "UnitOfMeasure",
-            "Instantiability": "Concrete"
-          },
-          "properties": {},
-          "ext_prop_restrs": {},
-          "iri": "https://spdx.org/rdf/3/terms/Core/MeasureOfMass",
-          "fqsupercname": "/Core/UnitOfMeasure",
-          "inheritance_stack": [
-            "/Core/UnitOfMeasure"
-          ],
-          "direct_subclasses": [],
-          "all_properties": {
-            "quantity": {
-              "type": "xsd:string",
-              "minCount": "1",
-              "maxCount": "1",
-              "fqname": "/Core/quantity",
-              "fullname": "/Core/quantity",
-              "fulltype": "xsd:string"
-            },
-            "unitQUDT": {
-              "type": "xsd:string",
-              "minCount": "1",
-              "maxCount": "1",
-              "fqname": "/Core/unitQUDT",
-              "fullname": "/Core/unitQUDT",
-              "fulltype": "xsd:string"
-            }
-          }
-        },
         "/Core/ExternalIdentifier": {
           "py/object": "spec_parser.model.Class",
           "ns": {
@@ -9502,8 +9460,8 @@
           "license": "Community-Spec-1.0",
           "name": "UnitOfMeasure",
           "fqname": "/Core/UnitOfMeasure",
-          "summary": "UnitOfMeasure specify information structures through industry standards for\nUnits of Measure, Quantity Kinds, Dimensions and Data Types.",
-          "description": "The QUDT, or \"Quantity, Unit, Dimension and Type\" schema defines the base classes properties, and restrictions used for modeling physical quantities, units of measure, and their dimensions in various measurement systems.",
+          "summary": "A class that represents a measured quantity paired with a unit of measure from the QUDT ontology.",
+          "description": "UnitOfMeasure class provides a structured way to express measurements: such as size, weight, volume, or other quantities.\nIt combines a numerical value `quantity` with a unit reference `unitQUDT` that points to a URI in the QUDT (Quantity, Unit, Dimension and Type) ontology.\nThe QUDT ontology and specifications are available at [www.qudt.org](https://www.qudt.org/).",
           "metadata": {
             "name": "UnitOfMeasure",
             "Instantiability": "Concrete"
@@ -9516,7 +9474,7 @@
               "fqname": "/Core/quantity"
             },
             "unitQUDT": {
-              "type": "xsd:string",
+              "type": "xsd:anyURI",
               "minCount": "1",
               "maxCount": "1",
               "fqname": "/Core/unitQUDT"
@@ -9526,10 +9484,7 @@
           "iri": "https://spdx.org/rdf/3/terms/Core/UnitOfMeasure",
           "fqsupercname": null,
           "inheritance_stack": [],
-          "direct_subclasses": [
-            "/Core/MeasureOfMass",
-            "/Core/MeasureOfLength"
-          ],
+          "direct_subclasses": [],
           "all_properties": {
             "quantity": {
               "type": "xsd:string",
@@ -9540,12 +9495,12 @@
               "fulltype": "xsd:string"
             },
             "unitQUDT": {
-              "type": "xsd:string",
+              "type": "xsd:anyURI",
               "minCount": "1",
               "maxCount": "1",
               "fqname": "/Core/unitQUDT",
               "fullname": "/Core/unitQUDT",
-              "fulltype": "xsd:string"
+              "fulltype": "xsd:anyURI"
             }
           }
         },
@@ -9767,48 +9722,6 @@
               "maxCount": "*",
               "fullname": "/Core/extension",
               "fulltype": "/Extension/Extension"
-            }
-          }
-        },
-        "/Core/MeasureOfLength": {
-          "py/object": "spec_parser.model.Class",
-          "ns": {
-            "py/id": 881
-          },
-          "license": "Community-Spec-1.0",
-          "name": "MeasureOfLength",
-          "fqname": "/Core/MeasureOfLength",
-          "summary": "The measure of length refers to the dimension of an object or space that describes how long it is, typically expressed in various units depending on the system of measurement being used.",
-          "description": "The measure of length refers to the dimension of an object or space that describes how long it is, typically expressed in various units depending on the system of measurement being used.",
-          "metadata": {
-            "name": "MeasureOfLength",
-            "SubclassOf": "UnitOfMeasure",
-            "Instantiability": "Concrete"
-          },
-          "properties": {},
-          "ext_prop_restrs": {},
-          "iri": "https://spdx.org/rdf/3/terms/Core/MeasureOfLength",
-          "fqsupercname": "/Core/UnitOfMeasure",
-          "inheritance_stack": [
-            "/Core/UnitOfMeasure"
-          ],
-          "direct_subclasses": [],
-          "all_properties": {
-            "quantity": {
-              "type": "xsd:string",
-              "minCount": "1",
-              "maxCount": "1",
-              "fqname": "/Core/quantity",
-              "fullname": "/Core/quantity",
-              "fulltype": "xsd:string"
-            },
-            "unitQUDT": {
-              "type": "xsd:string",
-              "minCount": "1",
-              "maxCount": "1",
-              "fqname": "/Core/unitQUDT",
-              "fullname": "/Core/unitQUDT",
-              "fulltype": "xsd:string"
             }
           }
         },
@@ -11464,12 +11377,12 @@
           "license": "Community-Spec-1.0",
           "name": "unitQUDT",
           "fqname": "/Core/unitQUDT",
-          "summary": "A QUDT unit applied to measurement criteria based on product type, region,\nand use.",
-          "description": "QUDT (Quantity, Unit, Dimension and Type) specifies a standardized framework\nfor describing measurable quantities, units of measure, numerical values,\nand their underlying data structures and types.\n\nThe QUDT ontology and specifications are available at <https://www.qudt.org/>.",
+          "summary": "A QUDT (Quantity, Unit, Dimension and Type) unit applied to measurement criteria based on product type, region,\nand use.",
+          "description": "QUDT (Quantity, Unit, Dimension and Type) specifies a standardized framework\nfor describing measurable quantities, units of measure, numerical values,\nand their underlying data structures and types.\n\nThe value is constrained to the QUDT ontology and specifications. The QUDT ontology and specifications are available at <https://www.qudt.org/>.",
           "metadata": {
             "name": "unitQUDT",
             "Nature": "DataProperty",
-            "Range": "xsd:string"
+            "Range": "xsd:anyURI"
           },
           "iri": "https://spdx.org/rdf/3/terms/Core/unitQUDT",
           "used_in": [
@@ -13645,7 +13558,7 @@
         "/Operations/Project": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "Project",
@@ -13870,7 +13783,7 @@
         "/Operations/ExportControlClassificationAssessment": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "ExportControlClassificationAssessment",
@@ -14112,7 +14025,7 @@
         "/Operations/ExportControlClassification": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "ExportControlClassification",
@@ -14208,7 +14121,7 @@
         "/Operations/assessmentResult": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "assessmentResult",
@@ -14228,7 +14141,7 @@
         "/Operations/assessmentTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "assessmentTime",
@@ -14248,7 +14161,7 @@
         "/Operations/exportClassification": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "exportClassification",
@@ -14268,7 +14181,7 @@
         "/Operations/projectContract": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "projectContract",
@@ -14288,7 +14201,7 @@
         "/Operations/projectSponsor": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "projectSponsor",
@@ -14308,7 +14221,7 @@
         "/Operations/assessmentContext": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "assessmentContext",
@@ -14328,7 +14241,7 @@
         "/Operations/projectOwner": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "projectOwner",
@@ -14348,7 +14261,7 @@
         "/Operations/assessor": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "assessor",
@@ -14368,7 +14281,7 @@
         "/Operations/projectTitle": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "projectTitle",
@@ -14388,7 +14301,7 @@
         "/Operations/exportingCountry": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "exportingCountry",
@@ -14408,7 +14321,7 @@
         "/Operations/exportControlSpecification": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "exportControlSpecification",
@@ -14428,7 +14341,7 @@
         "/Operations/assessedElement": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "assessedElement",
@@ -14448,7 +14361,7 @@
         "/Operations/exportControlClassificationResult": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "exportControlClassificationResult",
@@ -14466,7 +14379,7 @@
         "/Operations/weight": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2062
+            "py/id": 2044
           },
           "license": "Community-Spec-1.0",
           "name": "weight",
@@ -14504,7 +14417,7 @@
         "/SupplyChain/StorageAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "StorageAction",
@@ -14716,7 +14629,7 @@
         "/SupplyChain/DefinedStateProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "DefinedStateProcess",
@@ -14928,7 +14841,7 @@
         "/SupplyChain/ModifyAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "ModifyAction",
@@ -15140,7 +15053,7 @@
         "/SupplyChain/ManufactureAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "ManufactureAction",
@@ -15345,7 +15258,7 @@
         "/SupplyChain/UseProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "UseProcess",
@@ -15550,7 +15463,7 @@
         "/SupplyChain/BoundaryDefinitionAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "BoundaryDefinitionAction",
@@ -15773,7 +15686,7 @@
         "/SupplyChain/TestProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "TestProcess",
@@ -15970,7 +15883,7 @@
         "/SupplyChain/BoundaryCrossingAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "BoundaryCrossingAction",
@@ -16179,7 +16092,7 @@
         "/SupplyChain/TransportAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "TransportAction",
@@ -16427,7 +16340,7 @@
         "/SupplyChain/ReproduceAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "ReproduceAction",
@@ -16632,7 +16545,7 @@
         "/SupplyChain/ResolutionAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "ResolutionAction",
@@ -16841,7 +16754,7 @@
         "/SupplyChain/State": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "State",
@@ -17022,7 +16935,7 @@
         "/SupplyChain/UseAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "UseAction",
@@ -17238,7 +17151,7 @@
         "/SupplyChain/StateAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "StateAction",
@@ -17472,7 +17385,7 @@
         "/SupplyChain/DestroyAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "DestroyAction",
@@ -17701,7 +17614,7 @@
         "/SupplyChain/ModifyProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "ModifyProcess",
@@ -17905,7 +17818,7 @@
         "/SupplyChain/AssemblyProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "AssemblyProcess",
@@ -18102,7 +18015,7 @@
         "/SupplyChain/BoundaryDefinitionProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "BoundaryDefinitionProcess",
@@ -18302,7 +18215,7 @@
         "/SupplyChain/ResponsibilityChangeAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "ResponsibilityChangeAction",
@@ -18570,7 +18483,7 @@
         "/SupplyChain/CreateAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "CreateAction",
@@ -18783,7 +18696,7 @@
         "/SupplyChain/AssemblyAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "AssemblyAction",
@@ -18988,7 +18901,7 @@
         "/SupplyChain/ChangeAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "ChangeAction",
@@ -19197,7 +19110,7 @@
         "/SupplyChain/ReproduceProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "ReproduceProcess",
@@ -19394,7 +19307,7 @@
         "/SupplyChain/PlanAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "PlanAction",
@@ -19603,7 +19516,7 @@
         "/SupplyChain/TransportProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "TransportProcess",
@@ -19843,7 +19756,7 @@
         "/SupplyChain/HarvestProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "HarvestProcess",
@@ -20040,7 +19953,7 @@
         "/SupplyChain/DestroyProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "DestroyProcess",
@@ -20240,7 +20153,7 @@
         "/SupplyChain/InstantiateVirtualHardwareProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "InstantiateVirtualHardwareProcess",
@@ -20437,7 +20350,7 @@
         "/SupplyChain/HarvestAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "HarvestAction",
@@ -20642,7 +20555,7 @@
         "/SupplyChain/TestAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "TestAction",
@@ -20851,7 +20764,7 @@
         "/SupplyChain/InspectionProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "InspectionProcess",
@@ -21063,7 +20976,7 @@
         "/SupplyChain/InspectionAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "InspectionAction",
@@ -21272,7 +21185,7 @@
         "/SupplyChain/ManufactureProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "ManufactureProcess",
@@ -21469,7 +21382,7 @@
         "/SupplyChain/ResponsibilityChangeProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "ResponsibilityChangeProcess",
@@ -21722,7 +21635,7 @@
         "/SupplyChain/ChangeProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "ChangeProcess",
@@ -21923,7 +21836,7 @@
         "/SupplyChain/PlanProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "PlanProcess",
@@ -22120,7 +22033,7 @@
         "/SupplyChain/CreateProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "CreateProcess",
@@ -22326,7 +22239,7 @@
         "/SupplyChain/OutOfSpecAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "OutOfSpecAction",
@@ -22535,7 +22448,7 @@
         "/SupplyChain/StorageProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "StorageProcess",
@@ -22749,7 +22662,7 @@
         "/SupplyChain/destructionPerformedBy": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "destructionPerformedBy",
@@ -22769,7 +22682,7 @@
         "/SupplyChain/responsibilityChangedOn": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "responsibilityChangedOn",
@@ -22789,7 +22702,7 @@
         "/SupplyChain/pickupLocation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "pickupLocation",
@@ -22809,7 +22722,7 @@
         "/SupplyChain/plannedProductOfResponsibilityChange": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "plannedProductOfResponsibilityChange",
@@ -22829,7 +22742,7 @@
         "/SupplyChain/decisionProcess": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "decisionProcess",
@@ -22849,7 +22762,7 @@
         "/SupplyChain/currentState": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "currentState",
@@ -22869,7 +22782,7 @@
         "/SupplyChain/forDropoffLocation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "forDropoffLocation",
@@ -22889,7 +22802,7 @@
         "/SupplyChain/validState": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0.",
           "name": "validState",
@@ -22909,7 +22822,7 @@
         "/SupplyChain/plannedStorageLocation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "plannedStorageLocation",
@@ -22929,7 +22842,7 @@
         "/SupplyChain/plannedInspectionLocation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "plannedInspectionLocation",
@@ -22949,7 +22862,7 @@
         "/SupplyChain/dropoffLocation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "dropoffLocation",
@@ -22969,7 +22882,7 @@
         "/SupplyChain/forPickupLocation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "forPickupLocation",
@@ -22989,7 +22902,7 @@
         "/SupplyChain/boundaryParameter": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "boundaryParameter",
@@ -23009,7 +22922,7 @@
         "/SupplyChain/plannedTransportRoute": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "plannedTransportRoute",
@@ -23029,7 +22942,7 @@
         "/SupplyChain/plannedCurrent": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "plannedCurrent",
@@ -23049,7 +22962,7 @@
         "/SupplyChain/current": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "current",
@@ -23069,7 +22982,7 @@
         "/SupplyChain/plannedPrevious": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "plannedPrevious",
@@ -23089,7 +23002,7 @@
         "/SupplyChain/responsibilityCategory": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "responsibilityCategory",
@@ -23110,7 +23023,7 @@
         "/SupplyChain/transportRoute": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "transportRoute",
@@ -23130,7 +23043,7 @@
         "/SupplyChain/previous": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "previous",
@@ -23152,7 +23065,7 @@
         "/SupplyChain/ResponsibilityType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 2196
+            "py/id": 2178
           },
           "license": "Community-Spec-1.0",
           "name": "ResponsibilityType",
@@ -23188,7 +23101,7 @@
         "/Dataset/DatasetPackage": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "DatasetPackage",
@@ -23652,7 +23565,7 @@
         "/Dataset/datasetSize": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "datasetSize",
@@ -23672,7 +23585,7 @@
         "/Dataset/datasetType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "datasetType",
@@ -23692,7 +23605,7 @@
         "/Dataset/dataPreprocessing": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "dataPreprocessing",
@@ -23712,7 +23625,7 @@
         "/Dataset/knownBias": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "knownBias",
@@ -23732,7 +23645,7 @@
         "/Dataset/sensor": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "sensor",
@@ -23752,7 +23665,7 @@
         "/Dataset/datasetAvailability": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "datasetAvailability",
@@ -23772,7 +23685,7 @@
         "/Dataset/datasetNoise": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "datasetNoise",
@@ -23792,7 +23705,7 @@
         "/Dataset/hasSensitivePersonalInformation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "hasSensitivePersonalInformation",
@@ -23812,7 +23725,7 @@
         "/Dataset/dataCollectionProcess": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "dataCollectionProcess",
@@ -23832,7 +23745,7 @@
         "/Dataset/confidentialityLevel": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "confidentialityLevel",
@@ -23852,7 +23765,7 @@
         "/Dataset/intendedUse": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "intendedUse",
@@ -23872,7 +23785,7 @@
         "/Dataset/datasetUpdateMechanism": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "datasetUpdateMechanism",
@@ -23892,7 +23805,7 @@
         "/Dataset/anonymizationMethodUsed": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "anonymizationMethodUsed",
@@ -23914,7 +23827,7 @@
         "/Dataset/DatasetAvailabilityType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "DatasetAvailabilityType",
@@ -23936,7 +23849,7 @@
         "/Dataset/ConfidentialityLevelType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "ConfidentialityLevelType",
@@ -23958,7 +23871,7 @@
         "/Dataset/DatasetType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 3444
+            "py/id": 3426
           },
           "license": "Community-Spec-1.0",
           "name": "DatasetType",
@@ -24006,7 +23919,7 @@
         "/Service/SoftwareService": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3564
+            "py/id": 3546
           },
           "license": "Community-Spec-1.0",
           "name": "SoftwareService",
@@ -24208,7 +24121,7 @@
         "/Service/serviceHostingCountry": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3564
+            "py/id": 3546
           },
           "license": "Community-Spec-1.0",
           "name": "serviceHostingCountry",
@@ -24228,7 +24141,7 @@
         "/Service/serverAuthenticationProtocol": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3564
+            "py/id": 3546
           },
           "license": "Community-Spec-1.0",
           "name": "serverAuthenticationProtocol",
@@ -24250,7 +24163,7 @@
         "/Service/AuthenticationProtocolType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 3564
+            "py/id": 3546
           },
           "license": "Community-Spec-1.0",
           "name": "AuthenticationProtocolType",
@@ -24288,7 +24201,7 @@
         "/Hardware/BulkHardware": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "BulkHardware",
@@ -24562,7 +24475,7 @@
         "/Hardware/VirtualHardware": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "VirtualHardware",
@@ -24829,7 +24742,7 @@
         "/Hardware/Dimensions": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "Dimensions",
@@ -24842,19 +24755,19 @@
           },
           "properties": {
             "xAxisLength": {
-              "type": "/Core/MeasureOfLength",
+              "type": "/Core/UnitOfMeasure",
               "minCount": "1",
               "maxCount": "1",
               "fqname": "/Hardware/xAxisLength"
             },
             "yAxisLength": {
-              "type": "/Core/MeasureOfLength",
+              "type": "/Core/UnitOfMeasure",
               "minCount": "1",
               "maxCount": "1",
               "fqname": "/Hardware/yAxisLength"
             },
             "zAxisLength": {
-              "type": "/Core/MeasureOfLength",
+              "type": "/Core/UnitOfMeasure",
               "minCount": "1",
               "maxCount": "1",
               "fqname": "/Hardware/zAxisLength"
@@ -24867,35 +24780,35 @@
           "direct_subclasses": [],
           "all_properties": {
             "xAxisLength": {
-              "type": "/Core/MeasureOfLength",
+              "type": "/Core/UnitOfMeasure",
               "minCount": "1",
               "maxCount": "1",
               "fqname": "/Hardware/xAxisLength",
               "fullname": "/Hardware/xAxisLength",
-              "fulltype": "/Core/MeasureOfLength"
+              "fulltype": "/Core/UnitOfMeasure"
             },
             "yAxisLength": {
-              "type": "/Core/MeasureOfLength",
+              "type": "/Core/UnitOfMeasure",
               "minCount": "1",
               "maxCount": "1",
               "fqname": "/Hardware/yAxisLength",
               "fullname": "/Hardware/yAxisLength",
-              "fulltype": "/Core/MeasureOfLength"
+              "fulltype": "/Core/UnitOfMeasure"
             },
             "zAxisLength": {
-              "type": "/Core/MeasureOfLength",
+              "type": "/Core/UnitOfMeasure",
               "minCount": "1",
               "maxCount": "1",
               "fqname": "/Hardware/zAxisLength",
               "fullname": "/Hardware/zAxisLength",
-              "fulltype": "/Core/MeasureOfLength"
+              "fulltype": "/Core/UnitOfMeasure"
             }
           }
         },
         "/Hardware/Hardware": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "Hardware",
@@ -25230,7 +25143,7 @@
         "/Hardware/ProductSpecification": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "ProductSpecification",
@@ -25453,7 +25366,7 @@
         "/Hardware/PhysicalHardware": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "PhysicalHardware",
@@ -25467,7 +25380,7 @@
           },
           "properties": {
             "massOfHardware": {
-              "type": "/Core/MeasureOfMass",
+              "type": "/Core/UnitOfMeasure",
               "minCount": "0",
               "maxCount": "1",
               "fqname": "/Hardware/massOfHardware"
@@ -25496,12 +25409,12 @@
           "direct_subclasses": [],
           "all_properties": {
             "massOfHardware": {
-              "type": "/Core/MeasureOfMass",
+              "type": "/Core/UnitOfMeasure",
               "minCount": "0",
               "maxCount": "1",
               "fqname": "/Hardware/massOfHardware",
               "fullname": "/Hardware/massOfHardware",
-              "fulltype": "/Core/MeasureOfMass"
+              "fulltype": "/Core/UnitOfMeasure"
             },
             "dimensions": {
               "type": "Dimensions",
@@ -25750,7 +25663,7 @@
         "/Hardware/additionalInformationSpecification": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "additionalInformationSpecification",
@@ -25770,17 +25683,17 @@
         "/Hardware/xAxisLength": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "xAxisLength",
           "fqname": "/Hardware/xAxisLength",
-          "summary": "Information related to hardware dimension.",
-          "description": "Information related to xAxis measurement of an object.",
+          "summary": "The length along the x-axis.",
+          "description": "This property specifies the length along the x-axis of a hardware component. The value must be expressed using the /Core/UnitOfMeasure type which requires both a quantity, and a unitQUDT which must be a unit of length from the QUDT vocabulary, specifically constrained to the http://qudt.org/vocab/quantitykind/Length.",
           "metadata": {
             "name": "xAxisLength",
             "Nature": "ObjectProperty",
-            "Range": "/Core/MeasureOfLength"
+            "Range": "/Core/UnitOfMeasure"
           },
           "iri": "https://spdx.org/rdf/3/terms/Hardware/xAxisLength",
           "used_in": [
@@ -25790,7 +25703,7 @@
         "/Hardware/releaseDate": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "releaseDate",
@@ -25810,45 +25723,27 @@
         "/Hardware/massOfHardware": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "massOfHardware",
           "fqname": "/Hardware/massOfHardware",
-          "summary": "Information related to massOfHardware physical hardware.",
-          "description": "Mass is defined as an intrinsic property of a body for describing a physical hardware component.",
+          "summary": "The physical mass of a hardware component.",
+          "description": "This property specifies the mass of a physical hardware element. The value must be expressed using the `Core/UnitOfMeasure` type, which requires both a `quantity` and a `unitQUDT`. The `quantity` must denote a mass quantity, and the `unitQUDT` must be a unit of mass from the QUDT vocabulary, specifically constrained to the quantity kind `http://qudt.org/vocab/quantitykind/Mass`.",
           "metadata": {
             "name": "massOfHardware",
             "Nature": "DataProperty",
-            "Range": "/Core/MeasureOfMass"
+            "Range": "/Core/UnitOfMeasure"
           },
           "iri": "https://spdx.org/rdf/3/terms/Hardware/massOfHardware",
           "used_in": [
             "/Hardware/PhysicalHardware"
           ]
         },
-        "/Hardware/mass": {
-          "py/object": "spec_parser.model.Property",
-          "ns": {
-            "py/id": 3609
-          },
-          "license": "Community-Spec-1.0",
-          "name": "mass",
-          "fqname": "/Hardware/mass",
-          "summary": "Information related to physical hardware.",
-          "description": "Mass is defined as an intrinsic property of a body for describing a physical hardware component.",
-          "metadata": {
-            "name": "mass",
-            "Nature": "DataProperty",
-            "Range": "xsd:decimal"
-          },
-          "iri": "https://spdx.org/rdf/3/terms/Hardware/mass",
-          "used_in": []
-        },
         "/Hardware/additionalInformation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "additionalInformation",
@@ -25868,7 +25763,7 @@
         "/Hardware/serialNumber": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "serialNumber",
@@ -25888,17 +25783,17 @@
         "/Hardware/zAxisLength": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "zAxisLength",
           "fqname": "/Hardware/zAxisLength",
-          "summary": "Information related to hardware dimension.",
-          "description": "Information related to zAxis measurement of an object.\n\nZ axis is the height of the object.",
+          "summary": "The length along the z-axis.",
+          "description": "This property specifies the length along the z-axis of a hardware component. The value must be expressed using the /Core/UnitOfMeasure type which requires both a quantity, and a unitQUDT which must be a unit of length from the QUDT vocabulary, specifically constrained to the http://qudt.org/vocab/quantitykind/Length.\n\nZ axis is the height of the object.",
           "metadata": {
             "name": "zAxisLength",
             "Nature": "ObjectProperty",
-            "Range": "/Core/MeasureOfLength"
+            "Range": "/Core/UnitOfMeasure"
           },
           "iri": "https://spdx.org/rdf/3/terms/Hardware/zAxisLength",
           "used_in": [
@@ -25908,7 +25803,7 @@
         "/Hardware/category": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "category",
@@ -25928,7 +25823,7 @@
         "/Hardware/virtualHardwareModel": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "virtualHardwareModel",
@@ -25948,7 +25843,7 @@
         "/Hardware/centerOfMass": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "centerOfMass",
@@ -25968,7 +25863,7 @@
         "/Hardware/batchNumber": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "batchNumber",
@@ -25988,7 +25883,7 @@
         "/Hardware/dimensions": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "dimensions",
@@ -26008,17 +25903,17 @@
         "/Hardware/yAxisLength": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "yAxisLength",
           "fqname": "/Hardware/yAxisLength",
-          "summary": "Information related to hardware dimension.",
-          "description": "Information related to yAxis measurement of an object.",
+          "summary": "The length along the y-axis.",
+          "description": "This property specifies the length along the y-axis of a hardware component. The value must be expressed using the /Core/UnitOfMeasure type which requires both a quantity, and a unitQUDT which must be a unit of length from the QUDT vocabulary, specifically constrained to the http://qudt.org/vocab/quantitykind/Length.",
           "metadata": {
             "name": "yAxisLength",
             "Nature": "ObjectProperty",
-            "Range": "/Core/MeasureOfLength"
+            "Range": "/Core/UnitOfMeasure"
           },
           "iri": "https://spdx.org/rdf/3/terms/Hardware/yAxisLength",
           "used_in": [
@@ -26028,7 +25923,7 @@
         "/Hardware/hazard": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "hazard",
@@ -26049,7 +25944,7 @@
         "/Hardware/productAgent": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "productAgent",
@@ -26069,7 +25964,7 @@
         "/Hardware/bulkQuantity": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "bulkQuantity",
@@ -26089,7 +25984,7 @@
         "/Hardware/partNumber": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "partNumber",
@@ -26112,7 +26007,7 @@
         "/Hardware/VirtualHardwareModelType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 3609
+            "py/id": 3591
           },
           "license": "Community-Spec-1.0",
           "name": "VirtualHardwareModelType",
@@ -26149,7 +26044,7 @@
         "/Security/VexNotAffectedVulnAssessmentRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "VexNotAffectedVulnAssessmentRelationship",
@@ -26405,7 +26300,7 @@
         "/Security/VexFixedVulnAssessmentRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "VexFixedVulnAssessmentRelationship",
@@ -26618,7 +26513,7 @@
         "/Security/VulnAssessmentRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "VulnAssessmentRelationship",
@@ -26852,7 +26747,7 @@
         "/Security/CvssV2VulnAssessmentRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "CvssV2VulnAssessmentRelationship",
@@ -27077,7 +26972,7 @@
         "/Security/Vulnerability": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "Vulnerability",
@@ -27291,7 +27186,7 @@
         "/Security/SsvcVulnAssessmentRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "SsvcVulnAssessmentRelationship",
@@ -27502,7 +27397,7 @@
         "/Security/VexAffectedVulnAssessmentRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "VexAffectedVulnAssessmentRelationship",
@@ -27744,7 +27639,7 @@
         "/Security/CvssV3VulnAssessmentRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "CvssV3VulnAssessmentRelationship",
@@ -27983,7 +27878,7 @@
         "/Security/CvssV4VulnAssessmentRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "CvssV4VulnAssessmentRelationship",
@@ -28222,7 +28117,7 @@
         "/Security/EpssVulnAssessmentRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "EpssVulnAssessmentRelationship",
@@ -28451,7 +28346,7 @@
         "/Security/VexUnderInvestigationVulnAssessmentRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "VexUnderInvestigationVulnAssessmentRelationship",
@@ -28664,7 +28559,7 @@
         "/Security/VexVulnAssessmentRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "VexVulnAssessmentRelationship",
@@ -28894,7 +28789,7 @@
         "/Security/ExploitCatalogVulnAssessmentRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "ExploitCatalogVulnAssessmentRelationship",
@@ -29135,7 +29030,7 @@
         "/Security/catalogType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "catalogType",
@@ -29155,7 +29050,7 @@
         "/Security/locator": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "locator",
@@ -29175,7 +29070,7 @@
         "/Security/impactStatement": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "impactStatement",
@@ -29195,7 +29090,7 @@
         "/Security/decisionType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "decisionType",
@@ -29215,7 +29110,7 @@
         "/Security/justificationType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "justificationType",
@@ -29235,7 +29130,7 @@
         "/Security/actionStatement": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "actionStatement",
@@ -29255,7 +29150,7 @@
         "/Security/statusNotes": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "statusNotes",
@@ -29275,7 +29170,7 @@
         "/Security/withdrawnTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "withdrawnTime",
@@ -29296,7 +29191,7 @@
         "/Security/actionStatementTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "actionStatementTime",
@@ -29316,7 +29211,7 @@
         "/Security/impactStatementTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "impactStatementTime",
@@ -29336,7 +29231,7 @@
         "/Security/publishedTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "publishedTime",
@@ -29357,7 +29252,7 @@
         "/Security/score": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "score",
@@ -29379,7 +29274,7 @@
         "/Security/exploited": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "exploited",
@@ -29399,7 +29294,7 @@
         "/Security/probability": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "probability",
@@ -29419,7 +29314,7 @@
         "/Security/vexVersion": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "vexVersion",
@@ -29439,7 +29334,7 @@
         "/Security/percentile": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "percentile",
@@ -29459,7 +29354,7 @@
         "/Security/vectorString": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "vectorString",
@@ -29481,7 +29376,7 @@
         "/Security/assessedElement": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "assessedElement",
@@ -29501,7 +29396,7 @@
         "/Security/modifiedTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "modifiedTime",
@@ -29522,7 +29417,7 @@
         "/Security/severity": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "severity",
@@ -29545,7 +29440,7 @@
         "/Security/SsvcDecisionType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "SsvcDecisionType",
@@ -29566,7 +29461,7 @@
         "/Security/VexJustificationType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "VexJustificationType",
@@ -29588,7 +29483,7 @@
         "/Security/ExploitCatalogType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "ExploitCatalogType",
@@ -29607,7 +29502,7 @@
         "/Security/CvssSeverityType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 3886
+            "py/id": 3865
           },
           "license": "Community-Spec-1.0",
           "name": "CvssSeverityType",
@@ -29646,7 +29541,7 @@
         "/AI/EnergyConsumptionDescription": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "EnergyConsumptionDescription",
@@ -29698,7 +29593,7 @@
         "/AI/EnergyConsumption": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "EnergyConsumption",
@@ -29764,7 +29659,7 @@
         "/AI/AIPackage": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "AIPackage",
@@ -30264,7 +30159,7 @@
         "/AI/useSensitivePersonalInformation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "useSensitivePersonalInformation",
@@ -30284,7 +30179,7 @@
         "/AI/metricDecisionThreshold": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "metricDecisionThreshold",
@@ -30304,7 +30199,7 @@
         "/AI/inferenceEnergyConsumption": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "inferenceEnergyConsumption",
@@ -30324,7 +30219,7 @@
         "/AI/standardCompliance": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "standardCompliance",
@@ -30344,7 +30239,7 @@
         "/AI/modelDataPreprocessing": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "modelDataPreprocessing",
@@ -30364,7 +30259,7 @@
         "/AI/hyperparameter": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "hyperparameter",
@@ -30384,7 +30279,7 @@
         "/AI/energyConsumption": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "energyConsumption",
@@ -30404,7 +30299,7 @@
         "/AI/finetuningEnergyConsumption": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "finetuningEnergyConsumption",
@@ -30424,7 +30319,7 @@
         "/AI/metric": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "metric",
@@ -30444,7 +30339,7 @@
         "/AI/domain": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "domain",
@@ -30464,7 +30359,7 @@
         "/AI/energyQuantity": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "energyQuantity",
@@ -30484,7 +30379,7 @@
         "/AI/limitation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "limitation",
@@ -30504,7 +30399,7 @@
         "/AI/informationAboutTraining": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "informationAboutTraining",
@@ -30524,7 +30419,7 @@
         "/AI/typeOfModel": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "typeOfModel",
@@ -30544,7 +30439,7 @@
         "/AI/energyUnit": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "energyUnit",
@@ -30564,7 +30459,7 @@
         "/AI/safetyRiskAssessment": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "safetyRiskAssessment",
@@ -30584,7 +30479,7 @@
         "/AI/trainingEnergyConsumption": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "trainingEnergyConsumption",
@@ -30604,7 +30499,7 @@
         "/AI/modelExplainability": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "modelExplainability",
@@ -30624,7 +30519,7 @@
         "/AI/informationAboutApplication": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "informationAboutApplication",
@@ -30644,7 +30539,7 @@
         "/AI/autonomyType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "autonomyType",
@@ -30666,7 +30561,7 @@
         "/AI/SafetyRiskAssessmentType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "SafetyRiskAssessmentType",
@@ -30687,7 +30582,7 @@
         "/AI/EnergyUnitType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 4388
+            "py/id": 4367
           },
           "license": "Community-Spec-1.0",
           "name": "EnergyUnitType",
@@ -30724,7 +30619,7 @@
         "/Extension/Extension": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4555
+            "py/id": 4534
           },
           "license": "Community-Spec-1.0",
           "name": "Extension",
@@ -30748,7 +30643,7 @@
         "/Extension/CdxPropertyEntry": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4555
+            "py/id": 4534
           },
           "license": "Community-Spec-1.0",
           "name": "CdxPropertyEntry",
@@ -30800,7 +30695,7 @@
         "/Extension/CdxPropertiesExtension": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4555
+            "py/id": 4534
           },
           "license": "Community-Spec-1.0",
           "name": "CdxPropertiesExtension",
@@ -30843,7 +30738,7 @@
         "/Extension/cdxPropName": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4555
+            "py/id": 4534
           },
           "license": "Community-Spec-1.0",
           "name": "cdxPropName",
@@ -30863,7 +30758,7 @@
         "/Extension/cdxProperty": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4555
+            "py/id": 4534
           },
           "license": "Community-Spec-1.0",
           "name": "cdxProperty",
@@ -30883,7 +30778,7 @@
         "/Extension/cdxPropValue": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4555
+            "py/id": 4534
           },
           "license": "Community-Spec-1.0",
           "name": "cdxPropValue",
@@ -30939,7 +30834,7 @@
         "/Build/Build": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4605
+            "py/id": 4584
           },
           "license": "Community-Spec-1.0",
           "name": "Build",
@@ -31202,7 +31097,7 @@
         "/Build/configSourceUri": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4605
+            "py/id": 4584
           },
           "license": "Community-Spec-1.0",
           "name": "configSourceUri",
@@ -31222,7 +31117,7 @@
         "/Build/environment": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4605
+            "py/id": 4584
           },
           "license": "Community-Spec-1.0",
           "name": "environment",
@@ -31242,7 +31137,7 @@
         "/Build/buildId": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4605
+            "py/id": 4584
           },
           "license": "Community-Spec-1.0",
           "name": "buildId",
@@ -31262,7 +31157,7 @@
         "/Build/parameter": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4605
+            "py/id": 4584
           },
           "license": "Community-Spec-1.0",
           "name": "parameter",
@@ -31282,7 +31177,7 @@
         "/Build/configSourceDigest": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4605
+            "py/id": 4584
           },
           "license": "Community-Spec-1.0",
           "name": "configSourceDigest",
@@ -31302,7 +31197,7 @@
         "/Build/buildEndTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4605
+            "py/id": 4584
           },
           "license": "Community-Spec-1.0",
           "name": "buildEndTime",
@@ -31322,7 +31217,7 @@
         "/Build/buildStartTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4605
+            "py/id": 4584
           },
           "license": "Community-Spec-1.0",
           "name": "buildStartTime",
@@ -31342,7 +31237,7 @@
         "/Build/configSourceEntrypoint": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4605
+            "py/id": 4584
           },
           "license": "Community-Spec-1.0",
           "name": "configSourceEntrypoint",
@@ -31362,7 +31257,7 @@
         "/Build/buildType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4605
+            "py/id": 4584
           },
           "license": "Community-Spec-1.0",
           "name": "buildType",
@@ -31504,308 +31399,302 @@
     "/Core/Agent": {
       "py/id": 1055
     },
-    "/Core/MeasureOfMass": {
+    "/Core/ExternalIdentifier": {
       "py/id": 1072
     },
-    "/Core/ExternalIdentifier": {
-      "py/id": 1081
-    },
     "/Core/Regulation": {
-      "py/id": 1098
+      "py/id": 1089
     },
     "/Core/SpdxDocument": {
-      "py/id": 1124
+      "py/id": 1115
     },
     "/Core/LifecycleScopedRelationship": {
-      "py/id": 1150
+      "py/id": 1141
     },
     "/Core/Specification": {
-      "py/id": 1175
+      "py/id": 1166
     },
     "/Core/Bom": {
-      "py/id": 1203
+      "py/id": 1194
     },
     "/Core/DictionaryEntry": {
-      "py/id": 1224
+      "py/id": 1215
     },
     "/Core/IndividualElement": {
-      "py/id": 1235
+      "py/id": 1226
     },
     "/Core/SupportRelationship": {
-      "py/id": 1252
+      "py/id": 1243
     },
     "/Core/ElementMap": {
-      "py/id": 1279
+      "py/id": 1270
     },
     "/Core/Relationship": {
-      "py/id": 1290
+      "py/id": 1281
     },
     "/Core/Requirement": {
-      "py/id": 1319
+      "py/id": 1310
     },
     "/Core/ElementCollection": {
-      "py/id": 1346
+      "py/id": 1337
     },
     "/Core/Role": {
-      "py/id": 1369
+      "py/id": 1360
     },
     "/Core/ContactPointRelationship": {
-      "py/id": 1395
+      "py/id": 1386
     },
     "/Core/PositiveIntegerRange": {
-      "py/id": 1420
+      "py/id": 1411
     },
     "/Core/RoleRelationship": {
-      "py/id": 1431
+      "py/id": 1422
     },
     "/Core/UnitOfMeasure": {
-      "py/id": 1458
+      "py/id": 1449
     },
     "/Core/DefinedProcess": {
-      "py/id": 1469
-    },
-    "/Core/MeasureOfLength": {
-      "py/id": 1500
+      "py/id": 1460
     },
     "/Core/Action": {
-      "py/id": 1509
+      "py/id": 1491
     },
     "/Core/Bundle": {
-      "py/id": 1543
+      "py/id": 1525
     },
     "/Core/Annotation": {
-      "py/id": 1565
+      "py/id": 1547
     },
     "/Core/Organization": {
-      "py/id": 1590
+      "py/id": 1572
     },
     "/Core/DefinedType": {
-      "py/id": 1609
+      "py/id": 1591
     },
     "/Core/NamespaceMap": {
-      "py/id": 1620
+      "py/id": 1602
     },
     "/Core/ExternalRef": {
-      "py/id": 1631
+      "py/id": 1613
     },
     "/Core/Tool": {
-      "py/id": 1646
+      "py/id": 1628
     },
     "/Core/Element": {
-      "py/id": 1665
+      "py/id": 1647
     },
     "/Core/CreationInfo": {
-      "py/id": 1692
+      "py/id": 1674
     },
     "/Operations/Project": {
-      "py/id": 2064
+      "py/id": 2046
     },
     "/Operations/ExportControlClassificationAssessment": {
-      "py/id": 2097
+      "py/id": 2079
     },
     "/Operations/ExportControlClassification": {
-      "py/id": 2132
+      "py/id": 2114
     },
     "/SupplyChain/StorageAction": {
-      "py/id": 2198
+      "py/id": 2180
     },
     "/SupplyChain/DefinedStateProcess": {
-      "py/id": 2229
+      "py/id": 2211
     },
     "/SupplyChain/ModifyAction": {
-      "py/id": 2259
+      "py/id": 2241
     },
     "/SupplyChain/ManufactureAction": {
-      "py/id": 2289
+      "py/id": 2271
     },
     "/SupplyChain/UseProcess": {
-      "py/id": 2318
+      "py/id": 2300
     },
     "/SupplyChain/BoundaryDefinitionAction": {
-      "py/id": 2347
+      "py/id": 2329
     },
     "/SupplyChain/TestProcess": {
-      "py/id": 2379
+      "py/id": 2361
     },
     "/SupplyChain/BoundaryCrossingAction": {
-      "py/id": 2407
+      "py/id": 2389
     },
     "/SupplyChain/TransportAction": {
-      "py/id": 2437
+      "py/id": 2419
     },
     "/SupplyChain/ReproduceAction": {
-      "py/id": 2472
+      "py/id": 2454
     },
     "/SupplyChain/ResolutionAction": {
-      "py/id": 2501
+      "py/id": 2483
     },
     "/SupplyChain/State": {
-      "py/id": 2531
+      "py/id": 2513
     },
     "/SupplyChain/UseAction": {
-      "py/id": 2559
+      "py/id": 2541
     },
     "/SupplyChain/StateAction": {
-      "py/id": 2589
+      "py/id": 2571
     },
     "/SupplyChain/DestroyAction": {
-      "py/id": 2622
+      "py/id": 2604
     },
     "/SupplyChain/ModifyProcess": {
-      "py/id": 2656
+      "py/id": 2638
     },
     "/SupplyChain/AssemblyProcess": {
-      "py/id": 2685
+      "py/id": 2667
     },
     "/SupplyChain/BoundaryDefinitionProcess": {
-      "py/id": 2713
+      "py/id": 2695
     },
     "/SupplyChain/ResponsibilityChangeAction": {
-      "py/id": 2742
+      "py/id": 2724
     },
     "/SupplyChain/CreateAction": {
-      "py/id": 2781
+      "py/id": 2763
     },
     "/SupplyChain/AssemblyAction": {
-      "py/id": 2811
+      "py/id": 2793
     },
     "/SupplyChain/ChangeAction": {
-      "py/id": 2840
+      "py/id": 2822
     },
     "/SupplyChain/ReproduceProcess": {
-      "py/id": 2870
+      "py/id": 2852
     },
     "/SupplyChain/PlanAction": {
-      "py/id": 2898
+      "py/id": 2880
     },
     "/SupplyChain/TransportProcess": {
-      "py/id": 2928
+      "py/id": 2910
     },
     "/SupplyChain/HarvestProcess": {
-      "py/id": 2962
+      "py/id": 2944
     },
     "/SupplyChain/DestroyProcess": {
-      "py/id": 2990
+      "py/id": 2972
     },
     "/SupplyChain/InstantiateVirtualHardwareProcess": {
-      "py/id": 3019
+      "py/id": 3001
     },
     "/SupplyChain/HarvestAction": {
-      "py/id": 3047
+      "py/id": 3029
     },
     "/SupplyChain/TestAction": {
-      "py/id": 3076
+      "py/id": 3058
     },
     "/SupplyChain/InspectionProcess": {
-      "py/id": 3106
+      "py/id": 3088
     },
     "/SupplyChain/InspectionAction": {
-      "py/id": 3136
+      "py/id": 3118
     },
     "/SupplyChain/ManufactureProcess": {
-      "py/id": 3166
+      "py/id": 3148
     },
     "/SupplyChain/ResponsibilityChangeProcess": {
-      "py/id": 3194
+      "py/id": 3176
     },
     "/SupplyChain/ChangeProcess": {
-      "py/id": 3230
+      "py/id": 3212
     },
     "/SupplyChain/PlanProcess": {
-      "py/id": 3259
+      "py/id": 3241
     },
     "/SupplyChain/CreateProcess": {
-      "py/id": 3287
+      "py/id": 3269
     },
     "/SupplyChain/OutOfSpecAction": {
-      "py/id": 3316
+      "py/id": 3298
     },
     "/SupplyChain/StorageProcess": {
-      "py/id": 3346
+      "py/id": 3328
     },
     "/Dataset/DatasetPackage": {
-      "py/id": 3446
+      "py/id": 3428
     },
     "/Service/SoftwareService": {
-      "py/id": 3566
+      "py/id": 3548
     },
     "/Hardware/BulkHardware": {
-      "py/id": 3611
+      "py/id": 3593
     },
     "/Hardware/VirtualHardware": {
-      "py/id": 3650
+      "py/id": 3632
     },
     "/Hardware/Dimensions": {
-      "py/id": 3687
+      "py/id": 3669
     },
     "/Hardware/Hardware": {
-      "py/id": 3700
+      "py/id": 3682
     },
     "/Hardware/ProductSpecification": {
-      "py/id": 3751
+      "py/id": 3733
     },
     "/Hardware/PhysicalHardware": {
-      "py/id": 3783
+      "py/id": 3765
     },
     "/Security/VexNotAffectedVulnAssessmentRelationship": {
-      "py/id": 3888
+      "py/id": 3867
     },
     "/Security/VexFixedVulnAssessmentRelationship": {
-      "py/id": 3924
+      "py/id": 3903
     },
     "/Security/VulnAssessmentRelationship": {
-      "py/id": 3954
+      "py/id": 3933
     },
     "/Security/CvssV2VulnAssessmentRelationship": {
-      "py/id": 3987
+      "py/id": 3966
     },
     "/Security/Vulnerability": {
-      "py/id": 4019
+      "py/id": 3998
     },
     "/Security/SsvcVulnAssessmentRelationship": {
-      "py/id": 4050
+      "py/id": 4029
     },
     "/Security/VexAffectedVulnAssessmentRelationship": {
-      "py/id": 4080
+      "py/id": 4059
     },
     "/Security/CvssV3VulnAssessmentRelationship": {
-      "py/id": 4114
+      "py/id": 4093
     },
     "/Security/CvssV4VulnAssessmentRelationship": {
-      "py/id": 4148
+      "py/id": 4127
     },
     "/Security/EpssVulnAssessmentRelationship": {
-      "py/id": 4182
+      "py/id": 4161
     },
     "/Security/VexUnderInvestigationVulnAssessmentRelationship": {
-      "py/id": 4215
+      "py/id": 4194
     },
     "/Security/VexVulnAssessmentRelationship": {
-      "py/id": 4245
+      "py/id": 4224
     },
     "/Security/ExploitCatalogVulnAssessmentRelationship": {
-      "py/id": 4277
+      "py/id": 4256
     },
     "/AI/EnergyConsumptionDescription": {
-      "py/id": 4390
+      "py/id": 4369
     },
     "/AI/EnergyConsumption": {
-      "py/id": 4401
+      "py/id": 4380
     },
     "/AI/AIPackage": {
-      "py/id": 4414
+      "py/id": 4393
     },
     "/Extension/Extension": {
-      "py/id": 4557
+      "py/id": 4536
     },
     "/Extension/CdxPropertyEntry": {
-      "py/id": 4564
+      "py/id": 4543
     },
     "/Extension/CdxPropertiesExtension": {
-      "py/id": 4575
+      "py/id": 4554
     },
     "/Build/Build": {
-      "py/id": 4607
+      "py/id": 4586
     }
   },
   "properties": {
@@ -31963,640 +31852,637 @@
       "py/id": 868
     },
     "/Core/issuingAuthority": {
-      "py/id": 1710
+      "py/id": 1692
     },
     "/Core/locator": {
-      "py/id": 1713
+      "py/id": 1695
     },
     "/Core/prefix": {
-      "py/id": 1716
+      "py/id": 1698
     },
     "/Core/supportLevel": {
-      "py/id": 1719
+      "py/id": 1701
     },
     "/Core/createdBy": {
-      "py/id": 1722
+      "py/id": 1704
     },
     "/Core/headquartersLocation": {
-      "py/id": 1725
+      "py/id": 1707
     },
     "/Core/locationHint": {
-      "py/id": 1728
+      "py/id": 1710
     },
     "/Core/streetAddress": {
-      "py/id": 1731
+      "py/id": 1713
     },
     "/Core/elementValue": {
-      "py/id": 1734
+      "py/id": 1716
     },
     "/Core/value": {
-      "py/id": 1737
+      "py/id": 1719
     },
     "/Core/postalName": {
-      "py/id": 1740
+      "py/id": 1722
     },
     "/Core/beginIntegerRange": {
-      "py/id": 1743
+      "py/id": 1725
     },
     "/Core/import": {
-      "py/id": 1746
+      "py/id": 1728
     },
     "/Core/startTime": {
-      "py/id": 1749
+      "py/id": 1731
     },
     "/Core/statement": {
-      "py/id": 1752
+      "py/id": 1734
     },
     "/Core/endTime": {
-      "py/id": 1755
+      "py/id": 1737
     },
     "/Core/suppliedBy": {
-      "py/id": 1758
+      "py/id": 1740
     },
     "/Core/specVersion": {
-      "py/id": 1761
+      "py/id": 1743
     },
     "/Core/validUntilTime": {
-      "py/id": 1764
+      "py/id": 1746
     },
     "/Core/unitQUDT": {
-      "py/id": 1767
+      "py/id": 1749
     },
     "/Core/endIntegerRange": {
-      "py/id": 1770
+      "py/id": 1752
     },
     "/Core/authorization": {
-      "py/id": 1773
+      "py/id": 1755
     },
     "/Core/assignedBy": {
-      "py/id": 1776
+      "py/id": 1758
     },
     "/Core/additionalInformation": {
-      "py/id": 1779
+      "py/id": 1761
     },
     "/Core/definingArtifact": {
-      "py/id": 1782
+      "py/id": 1764
     },
     "/Core/geographicPointLocation": {
-      "py/id": 1785
+      "py/id": 1767
     },
     "/Core/referenceSpecification": {
-      "py/id": 1788
+      "py/id": 1770
     },
     "/Core/spdxId": {
-      "py/id": 1791
+      "py/id": 1773
     },
     "/Core/inLanguage": {
-      "py/id": 1794
+      "py/id": 1776
     },
     "/Core/contentType": {
-      "py/id": 1797
+      "py/id": 1779
     },
     "/Core/packageVerificationCodeExcludedFile": {
-      "py/id": 1800
+      "py/id": 1782
     },
     "/Core/scope": {
-      "py/id": 1803
+      "py/id": 1785
     },
     "/Core/locationTime": {
-      "py/id": 1806
+      "py/id": 1788
     },
     "/Core/name": {
-      "py/id": 1809
+      "py/id": 1791
     },
     "/Core/externalIdentifier": {
-      "py/id": 1812
+      "py/id": 1794
     },
     "/Core/roleQualification": {
-      "py/id": 1815
+      "py/id": 1797
     },
     "/Core/givenRole": {
-      "py/id": 1818
+      "py/id": 1800
     },
     "/Core/processReadiness": {
-      "py/id": 1821
+      "py/id": 1803
     },
     "/Core/rootElement": {
-      "py/id": 1824
+      "py/id": 1806
     },
     "/Core/externalSpdxId": {
-      "py/id": 1827
+      "py/id": 1809
     },
     "/Core/comment": {
-      "py/id": 1830
+      "py/id": 1812
     },
     "/Core/summary": {
-      "py/id": 1833
+      "py/id": 1815
     },
     "/Core/releaseTime": {
-      "py/id": 1836
+      "py/id": 1818
     },
     "/Core/postOfficeBoxNumber": {
-      "py/id": 1839
+      "py/id": 1821
     },
     "/Core/responsibility": {
-      "py/id": 1842
+      "py/id": 1824
     },
     "/Core/creationInfo": {
-      "py/id": 1845
+      "py/id": 1827
     },
     "/Core/createdUsing": {
-      "py/id": 1848
+      "py/id": 1830
     },
     "/Core/externalIdentifierType": {
-      "py/id": 1851
+      "py/id": 1833
     },
     "/Core/subject": {
-      "py/id": 1854
+      "py/id": 1836
     },
     "/Core/version": {
-      "py/id": 1857
+      "py/id": 1839
     },
     "/Core/originatedBy": {
-      "py/id": 1860
+      "py/id": 1842
     },
     "/Core/description": {
-      "py/id": 1863
+      "py/id": 1845
     },
     "/Core/specType": {
-      "py/id": 1866
+      "py/id": 1848
     },
     "/Core/standardName": {
-      "py/id": 1869
+      "py/id": 1851
     },
     "/Core/actionLocation": {
-      "py/id": 1872
+      "py/id": 1854
     },
     "/Core/quantity": {
-      "py/id": 1875
+      "py/id": 1857
     },
     "/Core/city": {
-      "py/id": 1878
+      "py/id": 1860
     },
     "/Core/requirementStatus": {
-      "py/id": 1881
+      "py/id": 1863
     },
     "/Core/from": {
-      "py/id": 1884
+      "py/id": 1866
     },
     "/Core/requirementUID": {
-      "py/id": 1887
+      "py/id": 1869
     },
     "/Core/context": {
-      "py/id": 1890
+      "py/id": 1872
     },
     "/Core/requirementStatement": {
-      "py/id": 1893
+      "py/id": 1875
     },
     "/Core/typeFromSource": {
-      "py/id": 1896
+      "py/id": 1878
     },
     "/Core/dataLicense": {
-      "py/id": 1899
+      "py/id": 1881
     },
     "/Core/rationale": {
-      "py/id": 1902
+      "py/id": 1884
     },
     "/Core/intendedUse": {
-      "py/id": 1905
+      "py/id": 1887
     },
     "/Core/created": {
-      "py/id": 1908
+      "py/id": 1890
     },
     "/Core/hashValue": {
-      "py/id": 1911
+      "py/id": 1893
     },
     "/Core/countyCode": {
-      "py/id": 1914
+      "py/id": 1896
     },
     "/Core/country": {
-      "py/id": 1917
+      "py/id": 1899
     },
     "/Core/definitionSource": {
-      "py/id": 1920
+      "py/id": 1902
     },
     "/Core/namespaceMap": {
-      "py/id": 1923
+      "py/id": 1905
     },
     "/Core/completeness": {
-      "py/id": 1926
+      "py/id": 1908
     },
     "/Core/isoAutomationLevel": {
-      "py/id": 1929
+      "py/id": 1911
     },
     "/Core/namespace": {
-      "py/id": 1932
+      "py/id": 1914
     },
     "/Core/relationshipType": {
-      "py/id": 1935
+      "py/id": 1917
     },
     "/Core/builtTime": {
-      "py/id": 1938
+      "py/id": 1920
     },
     "/Core/provinceStateCode": {
-      "py/id": 1941
+      "py/id": 1923
     },
     "/Core/externalRefType": {
-      "py/id": 1944
+      "py/id": 1926
     },
     "/Core/identifierLocator": {
-      "py/id": 1947
+      "py/id": 1929
     },
     "/Core/verifiedUsing": {
-      "py/id": 1950
+      "py/id": 1932
     },
     "/Core/contactType": {
-      "py/id": 1953
+      "py/id": 1935
     },
     "/Core/postalCode": {
-      "py/id": 1956
+      "py/id": 1938
     },
     "/Core/element": {
-      "py/id": 1959
+      "py/id": 1941
     },
     "/Core/algorithm": {
-      "py/id": 1962
+      "py/id": 1944
     },
     "/Core/identifier": {
-      "py/id": 1965
+      "py/id": 1947
     },
     "/Core/devLifecycleStage": {
-      "py/id": 1968
+      "py/id": 1950
     },
     "/Core/externalRef": {
-      "py/id": 1971
+      "py/id": 1953
     },
     "/Core/to": {
-      "py/id": 1974
+      "py/id": 1956
     },
     "/Core/profileConformance": {
-      "py/id": 1977
+      "py/id": 1959
     },
     "/Core/extension": {
-      "py/id": 1980
+      "py/id": 1962
     },
     "/Core/annotationType": {
-      "py/id": 1983
+      "py/id": 1965
     },
     "/Core/key": {
-      "py/id": 1986
+      "py/id": 1968
     },
     "/Operations/assessmentResult": {
-      "py/id": 2150
+      "py/id": 2132
     },
     "/Operations/assessmentTime": {
-      "py/id": 2153
+      "py/id": 2135
     },
     "/Operations/exportClassification": {
-      "py/id": 2156
+      "py/id": 2138
     },
     "/Operations/projectContract": {
-      "py/id": 2159
+      "py/id": 2141
     },
     "/Operations/projectSponsor": {
-      "py/id": 2162
+      "py/id": 2144
     },
     "/Operations/assessmentContext": {
-      "py/id": 2165
+      "py/id": 2147
     },
     "/Operations/projectOwner": {
-      "py/id": 2168
+      "py/id": 2150
     },
     "/Operations/assessor": {
-      "py/id": 2171
+      "py/id": 2153
     },
     "/Operations/projectTitle": {
-      "py/id": 2174
+      "py/id": 2156
     },
     "/Operations/exportingCountry": {
-      "py/id": 2177
+      "py/id": 2159
     },
     "/Operations/exportControlSpecification": {
-      "py/id": 2180
+      "py/id": 2162
     },
     "/Operations/assessedElement": {
-      "py/id": 2183
+      "py/id": 2165
     },
     "/Operations/exportControlClassificationResult": {
-      "py/id": 2186
+      "py/id": 2168
     },
     "/Operations/weight": {
-      "py/id": 2189
+      "py/id": 2171
     },
     "/SupplyChain/destructionPerformedBy": {
-      "py/id": 3377
+      "py/id": 3359
     },
     "/SupplyChain/responsibilityChangedOn": {
-      "py/id": 3380
+      "py/id": 3362
     },
     "/SupplyChain/pickupLocation": {
-      "py/id": 3383
+      "py/id": 3365
     },
     "/SupplyChain/plannedProductOfResponsibilityChange": {
-      "py/id": 3386
+      "py/id": 3368
     },
     "/SupplyChain/decisionProcess": {
-      "py/id": 3389
+      "py/id": 3371
     },
     "/SupplyChain/currentState": {
-      "py/id": 3392
+      "py/id": 3374
     },
     "/SupplyChain/forDropoffLocation": {
-      "py/id": 3395
+      "py/id": 3377
     },
     "/SupplyChain/validState": {
-      "py/id": 3398
+      "py/id": 3380
     },
     "/SupplyChain/plannedStorageLocation": {
-      "py/id": 3401
+      "py/id": 3383
     },
     "/SupplyChain/plannedInspectionLocation": {
-      "py/id": 3404
+      "py/id": 3386
     },
     "/SupplyChain/dropoffLocation": {
-      "py/id": 3407
+      "py/id": 3389
     },
     "/SupplyChain/forPickupLocation": {
-      "py/id": 3410
+      "py/id": 3392
     },
     "/SupplyChain/boundaryParameter": {
-      "py/id": 3413
+      "py/id": 3395
     },
     "/SupplyChain/plannedTransportRoute": {
-      "py/id": 3416
+      "py/id": 3398
     },
     "/SupplyChain/plannedCurrent": {
-      "py/id": 3419
+      "py/id": 3401
     },
     "/SupplyChain/current": {
-      "py/id": 3422
+      "py/id": 3404
     },
     "/SupplyChain/plannedPrevious": {
-      "py/id": 3425
+      "py/id": 3407
     },
     "/SupplyChain/responsibilityCategory": {
-      "py/id": 3428
+      "py/id": 3410
     },
     "/SupplyChain/transportRoute": {
-      "py/id": 3431
+      "py/id": 3413
     },
     "/SupplyChain/previous": {
-      "py/id": 3434
+      "py/id": 3416
     },
     "/Dataset/datasetSize": {
-      "py/id": 3512
+      "py/id": 3494
     },
     "/Dataset/datasetType": {
-      "py/id": 3515
+      "py/id": 3497
     },
     "/Dataset/dataPreprocessing": {
-      "py/id": 3518
+      "py/id": 3500
     },
     "/Dataset/knownBias": {
-      "py/id": 3521
+      "py/id": 3503
     },
     "/Dataset/sensor": {
-      "py/id": 3524
+      "py/id": 3506
     },
     "/Dataset/datasetAvailability": {
-      "py/id": 3527
+      "py/id": 3509
     },
     "/Dataset/datasetNoise": {
-      "py/id": 3530
+      "py/id": 3512
     },
     "/Dataset/hasSensitivePersonalInformation": {
-      "py/id": 3533
+      "py/id": 3515
     },
     "/Dataset/dataCollectionProcess": {
-      "py/id": 3536
+      "py/id": 3518
     },
     "/Dataset/confidentialityLevel": {
-      "py/id": 3539
+      "py/id": 3521
     },
     "/Dataset/intendedUse": {
-      "py/id": 3542
+      "py/id": 3524
     },
     "/Dataset/datasetUpdateMechanism": {
-      "py/id": 3545
+      "py/id": 3527
     },
     "/Dataset/anonymizationMethodUsed": {
-      "py/id": 3548
+      "py/id": 3530
     },
     "/Service/serviceHostingCountry": {
-      "py/id": 3596
+      "py/id": 3578
     },
     "/Service/serverAuthenticationProtocol": {
-      "py/id": 3599
+      "py/id": 3581
     },
     "/Hardware/additionalInformationSpecification": {
-      "py/id": 3825
+      "py/id": 3807
     },
     "/Hardware/xAxisLength": {
-      "py/id": 3828
+      "py/id": 3810
     },
     "/Hardware/releaseDate": {
-      "py/id": 3831
+      "py/id": 3813
     },
     "/Hardware/massOfHardware": {
-      "py/id": 3834
-    },
-    "/Hardware/mass": {
-      "py/id": 3837
+      "py/id": 3816
     },
     "/Hardware/additionalInformation": {
-      "py/id": 3840
+      "py/id": 3819
     },
     "/Hardware/serialNumber": {
-      "py/id": 3843
+      "py/id": 3822
     },
     "/Hardware/zAxisLength": {
-      "py/id": 3846
+      "py/id": 3825
     },
     "/Hardware/category": {
-      "py/id": 3849
+      "py/id": 3828
     },
     "/Hardware/virtualHardwareModel": {
-      "py/id": 3852
+      "py/id": 3831
     },
     "/Hardware/centerOfMass": {
-      "py/id": 3855
+      "py/id": 3834
     },
     "/Hardware/batchNumber": {
-      "py/id": 3858
+      "py/id": 3837
     },
     "/Hardware/dimensions": {
-      "py/id": 3861
+      "py/id": 3840
     },
     "/Hardware/yAxisLength": {
-      "py/id": 3864
+      "py/id": 3843
     },
     "/Hardware/hazard": {
-      "py/id": 3867
+      "py/id": 3846
     },
     "/Hardware/productAgent": {
-      "py/id": 3870
+      "py/id": 3849
     },
     "/Hardware/bulkQuantity": {
-      "py/id": 3873
+      "py/id": 3852
     },
     "/Hardware/partNumber": {
-      "py/id": 3876
+      "py/id": 3855
     },
     "/Security/catalogType": {
-      "py/id": 4312
+      "py/id": 4291
     },
     "/Security/locator": {
-      "py/id": 4315
+      "py/id": 4294
     },
     "/Security/impactStatement": {
-      "py/id": 4318
+      "py/id": 4297
     },
     "/Security/decisionType": {
-      "py/id": 4321
+      "py/id": 4300
     },
     "/Security/justificationType": {
-      "py/id": 4324
+      "py/id": 4303
     },
     "/Security/actionStatement": {
-      "py/id": 4327
+      "py/id": 4306
     },
     "/Security/statusNotes": {
-      "py/id": 4330
+      "py/id": 4309
     },
     "/Security/withdrawnTime": {
-      "py/id": 4333
+      "py/id": 4312
     },
     "/Security/actionStatementTime": {
-      "py/id": 4336
+      "py/id": 4315
     },
     "/Security/impactStatementTime": {
-      "py/id": 4339
+      "py/id": 4318
     },
     "/Security/publishedTime": {
-      "py/id": 4342
+      "py/id": 4321
     },
     "/Security/score": {
-      "py/id": 4345
+      "py/id": 4324
     },
     "/Security/exploited": {
-      "py/id": 4348
+      "py/id": 4327
     },
     "/Security/probability": {
-      "py/id": 4351
+      "py/id": 4330
     },
     "/Security/vexVersion": {
-      "py/id": 4354
+      "py/id": 4333
     },
     "/Security/percentile": {
-      "py/id": 4357
+      "py/id": 4336
     },
     "/Security/vectorString": {
-      "py/id": 4360
+      "py/id": 4339
     },
     "/Security/assessedElement": {
-      "py/id": 4363
+      "py/id": 4342
     },
     "/Security/modifiedTime": {
-      "py/id": 4366
+      "py/id": 4345
     },
     "/Security/severity": {
-      "py/id": 4369
+      "py/id": 4348
     },
     "/AI/useSensitivePersonalInformation": {
-      "py/id": 4485
+      "py/id": 4464
     },
     "/AI/metricDecisionThreshold": {
-      "py/id": 4488
+      "py/id": 4467
     },
     "/AI/inferenceEnergyConsumption": {
-      "py/id": 4491
+      "py/id": 4470
     },
     "/AI/standardCompliance": {
-      "py/id": 4494
+      "py/id": 4473
     },
     "/AI/modelDataPreprocessing": {
-      "py/id": 4497
+      "py/id": 4476
     },
     "/AI/hyperparameter": {
-      "py/id": 4500
+      "py/id": 4479
     },
     "/AI/energyConsumption": {
-      "py/id": 4503
+      "py/id": 4482
     },
     "/AI/finetuningEnergyConsumption": {
-      "py/id": 4506
+      "py/id": 4485
     },
     "/AI/metric": {
-      "py/id": 4509
+      "py/id": 4488
     },
     "/AI/domain": {
-      "py/id": 4512
+      "py/id": 4491
     },
     "/AI/energyQuantity": {
-      "py/id": 4515
+      "py/id": 4494
     },
     "/AI/limitation": {
-      "py/id": 4518
+      "py/id": 4497
     },
     "/AI/informationAboutTraining": {
-      "py/id": 4521
+      "py/id": 4500
     },
     "/AI/typeOfModel": {
-      "py/id": 4524
+      "py/id": 4503
     },
     "/AI/energyUnit": {
-      "py/id": 4527
+      "py/id": 4506
     },
     "/AI/safetyRiskAssessment": {
-      "py/id": 4530
+      "py/id": 4509
     },
     "/AI/trainingEnergyConsumption": {
-      "py/id": 4533
+      "py/id": 4512
     },
     "/AI/modelExplainability": {
-      "py/id": 4536
+      "py/id": 4515
     },
     "/AI/informationAboutApplication": {
-      "py/id": 4539
+      "py/id": 4518
     },
     "/AI/autonomyType": {
-      "py/id": 4542
+      "py/id": 4521
     },
     "/Extension/cdxPropName": {
-      "py/id": 4585
+      "py/id": 4564
     },
     "/Extension/cdxProperty": {
-      "py/id": 4588
+      "py/id": 4567
     },
     "/Extension/cdxPropValue": {
-      "py/id": 4591
+      "py/id": 4570
     },
     "/Build/configSourceUri": {
-      "py/id": 4647
+      "py/id": 4626
     },
     "/Build/environment": {
-      "py/id": 4650
+      "py/id": 4629
     },
     "/Build/buildId": {
-      "py/id": 4653
+      "py/id": 4632
     },
     "/Build/parameter": {
-      "py/id": 4656
+      "py/id": 4635
     },
     "/Build/configSourceDigest": {
-      "py/id": 4659
+      "py/id": 4638
     },
     "/Build/buildEndTime": {
-      "py/id": 4662
+      "py/id": 4641
     },
     "/Build/buildStartTime": {
-      "py/id": 4665
+      "py/id": 4644
     },
     "/Build/configSourceEntrypoint": {
-      "py/id": 4668
+      "py/id": 4647
     },
     "/Build/buildType": {
-      "py/id": 4671
+      "py/id": 4650
     }
   },
   "vocabularies": {
@@ -32625,85 +32511,85 @@
       "py/id": 522
     },
     "/Core/HashAlgorithm": {
-      "py/id": 1990
+      "py/id": 1972
     },
     "/Core/SpecificationType": {
-      "py/id": 1993
+      "py/id": 1975
     },
     "/Core/IsoAutomationLevel": {
-      "py/id": 1996
+      "py/id": 1978
     },
     "/Core/ExternalIdentifierType": {
-      "py/id": 1999
+      "py/id": 1981
     },
     "/Core/PresenceType": {
-      "py/id": 2002
+      "py/id": 1984
     },
     "/Core/ProfileIdentifierType": {
-      "py/id": 2005
+      "py/id": 1987
     },
     "/Core/RequirementStatusType": {
-      "py/id": 2008
+      "py/id": 1990
     },
     "/Core/AnnotationType": {
-      "py/id": 2011
+      "py/id": 1993
     },
     "/Core/ContactPointRelationshipType": {
-      "py/id": 2014
+      "py/id": 1996
     },
     "/Core/ProcessReadinessType": {
-      "py/id": 2017
+      "py/id": 1999
     },
     "/Core/ExternalRefType": {
-      "py/id": 2020
+      "py/id": 2002
     },
     "/Core/RelationshipType": {
-      "py/id": 2023
+      "py/id": 2005
     },
     "/Core/SupportType": {
-      "py/id": 2026
+      "py/id": 2008
     },
     "/Core/LifecycleScopeType": {
-      "py/id": 2029
+      "py/id": 2011
     },
     "/Core/RelationshipCompleteness": {
-      "py/id": 2032
+      "py/id": 2014
     },
     "/SupplyChain/ResponsibilityType": {
-      "py/id": 3438
+      "py/id": 3420
     },
     "/Dataset/DatasetAvailabilityType": {
-      "py/id": 3552
+      "py/id": 3534
     },
     "/Dataset/ConfidentialityLevelType": {
-      "py/id": 3555
+      "py/id": 3537
     },
     "/Dataset/DatasetType": {
-      "py/id": 3558
+      "py/id": 3540
     },
     "/Service/AuthenticationProtocolType": {
-      "py/id": 3603
+      "py/id": 3585
     },
     "/Hardware/VirtualHardwareModelType": {
-      "py/id": 3880
+      "py/id": 3859
     },
     "/Security/SsvcDecisionType": {
-      "py/id": 4373
+      "py/id": 4352
     },
     "/Security/VexJustificationType": {
-      "py/id": 4376
+      "py/id": 4355
     },
     "/Security/ExploitCatalogType": {
-      "py/id": 4379
+      "py/id": 4358
     },
     "/Security/CvssSeverityType": {
-      "py/id": 4382
+      "py/id": 4361
     },
     "/AI/SafetyRiskAssessmentType": {
-      "py/id": 4546
+      "py/id": 4525
     },
     "/AI/EnergyUnitType": {
-      "py/id": 4549
+      "py/id": 4528
     }
   },
   "individuals": {
@@ -32714,30 +32600,30 @@
       "py/id": 876
     },
     "/Core/SpdxOrganization": {
-      "py/id": 2036
+      "py/id": 2018
     },
     "/Core/NoneElement": {
-      "py/id": 2039
+      "py/id": 2021
     },
     "/Core/NoAssertionElement": {
-      "py/id": 2042
+      "py/id": 2024
     }
   },
   "datatypes": {
     "/Core/VersionNumber": {
-      "py/id": 2046
+      "py/id": 2028
     },
     "/Core/DateTime": {
-      "py/id": 2049
+      "py/id": 2031
     },
     "/Core/CountryCodeAlpha3": {
-      "py/id": 2052
+      "py/id": 2034
     },
     "/Core/LanguageTag": {
-      "py/id": 2055
+      "py/id": 2037
     },
     "/Core/MediaType": {
-      "py/id": 2058
+      "py/id": 2040
     }
   },
   "types": {
@@ -32849,308 +32735,302 @@
     "/Core/Agent": {
       "py/id": 1055
     },
-    "/Core/MeasureOfMass": {
+    "/Core/ExternalIdentifier": {
       "py/id": 1072
     },
-    "/Core/ExternalIdentifier": {
-      "py/id": 1081
-    },
     "/Core/Regulation": {
-      "py/id": 1098
+      "py/id": 1089
     },
     "/Core/SpdxDocument": {
-      "py/id": 1124
+      "py/id": 1115
     },
     "/Core/LifecycleScopedRelationship": {
-      "py/id": 1150
+      "py/id": 1141
     },
     "/Core/Specification": {
-      "py/id": 1175
+      "py/id": 1166
     },
     "/Core/Bom": {
-      "py/id": 1203
+      "py/id": 1194
     },
     "/Core/DictionaryEntry": {
-      "py/id": 1224
+      "py/id": 1215
     },
     "/Core/IndividualElement": {
-      "py/id": 1235
+      "py/id": 1226
     },
     "/Core/SupportRelationship": {
-      "py/id": 1252
+      "py/id": 1243
     },
     "/Core/ElementMap": {
-      "py/id": 1279
+      "py/id": 1270
     },
     "/Core/Relationship": {
-      "py/id": 1290
+      "py/id": 1281
     },
     "/Core/Requirement": {
-      "py/id": 1319
+      "py/id": 1310
     },
     "/Core/ElementCollection": {
-      "py/id": 1346
+      "py/id": 1337
     },
     "/Core/Role": {
-      "py/id": 1369
+      "py/id": 1360
     },
     "/Core/ContactPointRelationship": {
-      "py/id": 1395
+      "py/id": 1386
     },
     "/Core/PositiveIntegerRange": {
-      "py/id": 1420
+      "py/id": 1411
     },
     "/Core/RoleRelationship": {
-      "py/id": 1431
+      "py/id": 1422
     },
     "/Core/UnitOfMeasure": {
-      "py/id": 1458
+      "py/id": 1449
     },
     "/Core/DefinedProcess": {
-      "py/id": 1469
-    },
-    "/Core/MeasureOfLength": {
-      "py/id": 1500
+      "py/id": 1460
     },
     "/Core/Action": {
-      "py/id": 1509
+      "py/id": 1491
     },
     "/Core/Bundle": {
-      "py/id": 1543
+      "py/id": 1525
     },
     "/Core/Annotation": {
-      "py/id": 1565
+      "py/id": 1547
     },
     "/Core/Organization": {
-      "py/id": 1590
+      "py/id": 1572
     },
     "/Core/DefinedType": {
-      "py/id": 1609
+      "py/id": 1591
     },
     "/Core/NamespaceMap": {
-      "py/id": 1620
+      "py/id": 1602
     },
     "/Core/ExternalRef": {
-      "py/id": 1631
+      "py/id": 1613
     },
     "/Core/Tool": {
-      "py/id": 1646
+      "py/id": 1628
     },
     "/Core/Element": {
-      "py/id": 1665
+      "py/id": 1647
     },
     "/Core/CreationInfo": {
-      "py/id": 1692
+      "py/id": 1674
     },
     "/Operations/Project": {
-      "py/id": 2064
+      "py/id": 2046
     },
     "/Operations/ExportControlClassificationAssessment": {
-      "py/id": 2097
+      "py/id": 2079
     },
     "/Operations/ExportControlClassification": {
-      "py/id": 2132
+      "py/id": 2114
     },
     "/SupplyChain/StorageAction": {
-      "py/id": 2198
+      "py/id": 2180
     },
     "/SupplyChain/DefinedStateProcess": {
-      "py/id": 2229
+      "py/id": 2211
     },
     "/SupplyChain/ModifyAction": {
-      "py/id": 2259
+      "py/id": 2241
     },
     "/SupplyChain/ManufactureAction": {
-      "py/id": 2289
+      "py/id": 2271
     },
     "/SupplyChain/UseProcess": {
-      "py/id": 2318
+      "py/id": 2300
     },
     "/SupplyChain/BoundaryDefinitionAction": {
-      "py/id": 2347
+      "py/id": 2329
     },
     "/SupplyChain/TestProcess": {
-      "py/id": 2379
+      "py/id": 2361
     },
     "/SupplyChain/BoundaryCrossingAction": {
-      "py/id": 2407
+      "py/id": 2389
     },
     "/SupplyChain/TransportAction": {
-      "py/id": 2437
+      "py/id": 2419
     },
     "/SupplyChain/ReproduceAction": {
-      "py/id": 2472
+      "py/id": 2454
     },
     "/SupplyChain/ResolutionAction": {
-      "py/id": 2501
+      "py/id": 2483
     },
     "/SupplyChain/State": {
-      "py/id": 2531
+      "py/id": 2513
     },
     "/SupplyChain/UseAction": {
-      "py/id": 2559
+      "py/id": 2541
     },
     "/SupplyChain/StateAction": {
-      "py/id": 2589
+      "py/id": 2571
     },
     "/SupplyChain/DestroyAction": {
-      "py/id": 2622
+      "py/id": 2604
     },
     "/SupplyChain/ModifyProcess": {
-      "py/id": 2656
+      "py/id": 2638
     },
     "/SupplyChain/AssemblyProcess": {
-      "py/id": 2685
+      "py/id": 2667
     },
     "/SupplyChain/BoundaryDefinitionProcess": {
-      "py/id": 2713
+      "py/id": 2695
     },
     "/SupplyChain/ResponsibilityChangeAction": {
-      "py/id": 2742
+      "py/id": 2724
     },
     "/SupplyChain/CreateAction": {
-      "py/id": 2781
+      "py/id": 2763
     },
     "/SupplyChain/AssemblyAction": {
-      "py/id": 2811
+      "py/id": 2793
     },
     "/SupplyChain/ChangeAction": {
-      "py/id": 2840
+      "py/id": 2822
     },
     "/SupplyChain/ReproduceProcess": {
-      "py/id": 2870
+      "py/id": 2852
     },
     "/SupplyChain/PlanAction": {
-      "py/id": 2898
+      "py/id": 2880
     },
     "/SupplyChain/TransportProcess": {
-      "py/id": 2928
+      "py/id": 2910
     },
     "/SupplyChain/HarvestProcess": {
-      "py/id": 2962
+      "py/id": 2944
     },
     "/SupplyChain/DestroyProcess": {
-      "py/id": 2990
+      "py/id": 2972
     },
     "/SupplyChain/InstantiateVirtualHardwareProcess": {
-      "py/id": 3019
+      "py/id": 3001
     },
     "/SupplyChain/HarvestAction": {
-      "py/id": 3047
+      "py/id": 3029
     },
     "/SupplyChain/TestAction": {
-      "py/id": 3076
+      "py/id": 3058
     },
     "/SupplyChain/InspectionProcess": {
-      "py/id": 3106
+      "py/id": 3088
     },
     "/SupplyChain/InspectionAction": {
-      "py/id": 3136
+      "py/id": 3118
     },
     "/SupplyChain/ManufactureProcess": {
-      "py/id": 3166
+      "py/id": 3148
     },
     "/SupplyChain/ResponsibilityChangeProcess": {
-      "py/id": 3194
+      "py/id": 3176
     },
     "/SupplyChain/ChangeProcess": {
-      "py/id": 3230
+      "py/id": 3212
     },
     "/SupplyChain/PlanProcess": {
-      "py/id": 3259
+      "py/id": 3241
     },
     "/SupplyChain/CreateProcess": {
-      "py/id": 3287
+      "py/id": 3269
     },
     "/SupplyChain/OutOfSpecAction": {
-      "py/id": 3316
+      "py/id": 3298
     },
     "/SupplyChain/StorageProcess": {
-      "py/id": 3346
+      "py/id": 3328
     },
     "/Dataset/DatasetPackage": {
-      "py/id": 3446
+      "py/id": 3428
     },
     "/Service/SoftwareService": {
-      "py/id": 3566
+      "py/id": 3548
     },
     "/Hardware/BulkHardware": {
-      "py/id": 3611
+      "py/id": 3593
     },
     "/Hardware/VirtualHardware": {
-      "py/id": 3650
+      "py/id": 3632
     },
     "/Hardware/Dimensions": {
-      "py/id": 3687
+      "py/id": 3669
     },
     "/Hardware/Hardware": {
-      "py/id": 3700
+      "py/id": 3682
     },
     "/Hardware/ProductSpecification": {
-      "py/id": 3751
+      "py/id": 3733
     },
     "/Hardware/PhysicalHardware": {
-      "py/id": 3783
+      "py/id": 3765
     },
     "/Security/VexNotAffectedVulnAssessmentRelationship": {
-      "py/id": 3888
+      "py/id": 3867
     },
     "/Security/VexFixedVulnAssessmentRelationship": {
-      "py/id": 3924
+      "py/id": 3903
     },
     "/Security/VulnAssessmentRelationship": {
-      "py/id": 3954
+      "py/id": 3933
     },
     "/Security/CvssV2VulnAssessmentRelationship": {
-      "py/id": 3987
+      "py/id": 3966
     },
     "/Security/Vulnerability": {
-      "py/id": 4019
+      "py/id": 3998
     },
     "/Security/SsvcVulnAssessmentRelationship": {
-      "py/id": 4050
+      "py/id": 4029
     },
     "/Security/VexAffectedVulnAssessmentRelationship": {
-      "py/id": 4080
+      "py/id": 4059
     },
     "/Security/CvssV3VulnAssessmentRelationship": {
-      "py/id": 4114
+      "py/id": 4093
     },
     "/Security/CvssV4VulnAssessmentRelationship": {
-      "py/id": 4148
+      "py/id": 4127
     },
     "/Security/EpssVulnAssessmentRelationship": {
-      "py/id": 4182
+      "py/id": 4161
     },
     "/Security/VexUnderInvestigationVulnAssessmentRelationship": {
-      "py/id": 4215
+      "py/id": 4194
     },
     "/Security/VexVulnAssessmentRelationship": {
-      "py/id": 4245
+      "py/id": 4224
     },
     "/Security/ExploitCatalogVulnAssessmentRelationship": {
-      "py/id": 4277
+      "py/id": 4256
     },
     "/AI/EnergyConsumptionDescription": {
-      "py/id": 4390
+      "py/id": 4369
     },
     "/AI/EnergyConsumption": {
-      "py/id": 4401
+      "py/id": 4380
     },
     "/AI/AIPackage": {
-      "py/id": 4414
+      "py/id": 4393
     },
     "/Extension/Extension": {
-      "py/id": 4557
+      "py/id": 4536
     },
     "/Extension/CdxPropertyEntry": {
-      "py/id": 4564
+      "py/id": 4543
     },
     "/Extension/CdxPropertiesExtension": {
-      "py/id": 4575
+      "py/id": 4554
     },
     "/Build/Build": {
-      "py/id": 4607
+      "py/id": 4586
     },
     "/Software/ContentIdentifierType": {
       "py/id": 252
@@ -33177,100 +33057,100 @@
       "py/id": 522
     },
     "/Core/HashAlgorithm": {
-      "py/id": 1990
+      "py/id": 1972
     },
     "/Core/SpecificationType": {
-      "py/id": 1993
+      "py/id": 1975
     },
     "/Core/IsoAutomationLevel": {
-      "py/id": 1996
+      "py/id": 1978
     },
     "/Core/ExternalIdentifierType": {
-      "py/id": 1999
+      "py/id": 1981
     },
     "/Core/PresenceType": {
-      "py/id": 2002
+      "py/id": 1984
     },
     "/Core/ProfileIdentifierType": {
-      "py/id": 2005
+      "py/id": 1987
     },
     "/Core/RequirementStatusType": {
-      "py/id": 2008
+      "py/id": 1990
     },
     "/Core/AnnotationType": {
-      "py/id": 2011
+      "py/id": 1993
     },
     "/Core/ContactPointRelationshipType": {
-      "py/id": 2014
+      "py/id": 1996
     },
     "/Core/ProcessReadinessType": {
-      "py/id": 2017
+      "py/id": 1999
     },
     "/Core/ExternalRefType": {
-      "py/id": 2020
+      "py/id": 2002
     },
     "/Core/RelationshipType": {
-      "py/id": 2023
+      "py/id": 2005
     },
     "/Core/SupportType": {
-      "py/id": 2026
+      "py/id": 2008
     },
     "/Core/LifecycleScopeType": {
-      "py/id": 2029
+      "py/id": 2011
     },
     "/Core/RelationshipCompleteness": {
-      "py/id": 2032
+      "py/id": 2014
     },
     "/SupplyChain/ResponsibilityType": {
-      "py/id": 3438
+      "py/id": 3420
     },
     "/Dataset/DatasetAvailabilityType": {
-      "py/id": 3552
+      "py/id": 3534
     },
     "/Dataset/ConfidentialityLevelType": {
-      "py/id": 3555
+      "py/id": 3537
     },
     "/Dataset/DatasetType": {
-      "py/id": 3558
+      "py/id": 3540
     },
     "/Service/AuthenticationProtocolType": {
-      "py/id": 3603
+      "py/id": 3585
     },
     "/Hardware/VirtualHardwareModelType": {
-      "py/id": 3880
+      "py/id": 3859
     },
     "/Security/SsvcDecisionType": {
-      "py/id": 4373
+      "py/id": 4352
     },
     "/Security/VexJustificationType": {
-      "py/id": 4376
+      "py/id": 4355
     },
     "/Security/ExploitCatalogType": {
-      "py/id": 4379
+      "py/id": 4358
     },
     "/Security/CvssSeverityType": {
-      "py/id": 4382
+      "py/id": 4361
     },
     "/AI/SafetyRiskAssessmentType": {
-      "py/id": 4546
+      "py/id": 4525
     },
     "/AI/EnergyUnitType": {
-      "py/id": 4549
+      "py/id": 4528
     },
     "/Core/VersionNumber": {
-      "py/id": 2046
+      "py/id": 2028
     },
     "/Core/DateTime": {
-      "py/id": 2049
+      "py/id": 2031
     },
     "/Core/CountryCodeAlpha3": {
-      "py/id": 2052
+      "py/id": 2034
     },
     "/Core/LanguageTag": {
-      "py/id": 2055
+      "py/id": 2037
     },
     "/Core/MediaType": {
-      "py/id": 2058
+      "py/id": 2040
     }
   },
   "class_hierarchy": {
@@ -33355,10 +33235,6 @@
     ],
     "/Core/Location": [
       "/Core/PhysicalLocation"
-    ],
-    "/Core/UnitOfMeasure": [
-      "/Core/MeasureOfMass",
-      "/Core/MeasureOfLength"
     ],
     "/Core/Specification": [
       "/Core/Regulation",
@@ -33456,8 +33332,7 @@
   },
   "toplevel_classes": [
     "/Extension/Extension",
-    "/Core/UnitOfMeasure",
-    "/Core/IntegrityMethod",
-    "/Core/Element"
+    "/Core/Element",
+    "/Core/IntegrityMethod"
   ]
 }

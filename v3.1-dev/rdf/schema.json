@@ -3423,8 +3423,6 @@
                     "type": "object",
                     "unevaluatedProperties": false,
                     "anyOf": [
-                        { "$ref": "#/$defs/MeasureOfLength" },
-                        { "$ref": "#/$defs/MeasureOfMass" },
                         { "$ref": "#/$defs/UnitOfMeasure" }
                     ]
                 },
@@ -3455,7 +3453,7 @@
                     "type": "string"
         },
         "prop_UnitOfMeasure_unitQUDT": {
-                    "type": "string"
+                    "$ref": "#/$defs/anyURI"
         },
         "dataset_ConfidentialityLevelType": {
             "if": {
@@ -4493,13 +4491,13 @@
             ]
         },
         "prop_hardware_Dimensions_hardware_xAxisLength": {
-                "$ref": "#/$defs/MeasureOfLength_derived"
+                "$ref": "#/$defs/UnitOfMeasure_derived"
         },
         "prop_hardware_Dimensions_hardware_yAxisLength": {
-                "$ref": "#/$defs/MeasureOfLength_derived"
+                "$ref": "#/$defs/UnitOfMeasure_derived"
         },
         "prop_hardware_Dimensions_hardware_zAxisLength": {
-                "$ref": "#/$defs/MeasureOfLength_derived"
+                "$ref": "#/$defs/UnitOfMeasure_derived"
         },
         "hardware_VirtualHardwareModelType": {
             "if": {
@@ -6334,102 +6332,6 @@
                     "update"
                 ]
         },
-        "MeasureOfLength": {
-            "if": {
-                "type": "object",
-                "properties": {
-                    "type": {
-                        "const": "MeasureOfLength"
-                    }
-                },
-                "required": ["type"]
-            },
-            "then": {
-                "allOf": [
-                    {
-                        "type": "object",
-                        "properties": {
-                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                            "type": { "type": "string" }
-                        }
-                    },
-                    { "$ref": "#/$defs/MeasureOfLength_props" }
-                ]
-            },
-            "else": {
-                "const": "Not a MeasureOfLength"
-            }
-        },
-        "MeasureOfLength_derived": {
-            "anyOf": [
-                {
-                    "type": "object",
-                    "unevaluatedProperties": false,
-                    "anyOf": [
-                        { "$ref": "#/$defs/MeasureOfLength" }
-                    ]
-                },
-                { "$ref": "#/$defs/BlankNodeOrIRI" }
-            ]
-        },
-        "MeasureOfLength_props": {
-            "allOf": [
-                { "$ref": "#/$defs/UnitOfMeasure_props" },
-                {
-                    "type": "object",
-                    "properties": {
-                    }
-                }
-            ]
-        },
-        "MeasureOfMass": {
-            "if": {
-                "type": "object",
-                "properties": {
-                    "type": {
-                        "const": "MeasureOfMass"
-                    }
-                },
-                "required": ["type"]
-            },
-            "then": {
-                "allOf": [
-                    {
-                        "type": "object",
-                        "properties": {
-                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
-                            "type": { "type": "string" }
-                        }
-                    },
-                    { "$ref": "#/$defs/MeasureOfMass_props" }
-                ]
-            },
-            "else": {
-                "const": "Not a MeasureOfMass"
-            }
-        },
-        "MeasureOfMass_derived": {
-            "anyOf": [
-                {
-                    "type": "object",
-                    "unevaluatedProperties": false,
-                    "anyOf": [
-                        { "$ref": "#/$defs/MeasureOfMass" }
-                    ]
-                },
-                { "$ref": "#/$defs/BlankNodeOrIRI" }
-            ]
-        },
-        "MeasureOfMass_props": {
-            "allOf": [
-                { "$ref": "#/$defs/UnitOfMeasure_props" },
-                {
-                    "type": "object",
-                    "properties": {
-                    }
-                }
-            ]
-        },
         "Organization": {
             "if": {
                 "type": "object",
@@ -7506,7 +7408,7 @@
                 "$ref": "#/$defs/hardware_Dimensions_derived"
         },
         "prop_hardware_PhysicalHardware_hardware_massOfHardware": {
-                "$ref": "#/$defs/MeasureOfMass_derived"
+                "$ref": "#/$defs/UnitOfMeasure_derived"
         },
         "hardware_ProductSpecification": {
             "if": {
@@ -12085,8 +11987,6 @@
                                 "ContactPointRelationship",
                                 "Hash",
                                 "LifecycleScopedRelationship",
-                                "MeasureOfLength",
-                                "MeasureOfMass",
                                 "Organization",
                                 "Person",
                                 "SoftwareAgent",
@@ -12244,8 +12144,6 @@
                 { "$ref": "#/$defs/ContactPointRelationship" },
                 { "$ref": "#/$defs/Hash" },
                 { "$ref": "#/$defs/LifecycleScopedRelationship" },
-                { "$ref": "#/$defs/MeasureOfLength" },
-                { "$ref": "#/$defs/MeasureOfMass" },
                 { "$ref": "#/$defs/Organization" },
                 { "$ref": "#/$defs/Person" },
                 { "$ref": "#/$defs/SoftwareAgent" },
