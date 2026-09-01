@@ -97,11 +97,13 @@ with the following additional characteristics:
 - Integers: represented in base 10 using decimal digits. This designates an
   integer component that may be prefixed with an optional minus sign.
   Leading zeros are not allowed.
-- Strings: UTF-8 representation without specific normalization. A string
-  begins and ends with quotation marks (%x22). Any Unicode characters may be
-  placed within the quotation marks, except for the two characters that shall be
-  escaped by a reverse solidus: quotation mark, reverse solidus, and the
-  control characters (U+0000 through U+001F).
+- Strings: UTF-8 representation without specific normalization. A string shall
+  begin and end with a quotation mark (`"`, Unicode code point U+0022).
+  Any Unicode character may be placed within the enclosing quotation marks,
+  except for the following, which shall not appear unescaped and shall be
+  escaped using a preceding reverse solidus (`\`, U+005C): quotation mark
+  (`"`, U+0022), reverse solidus (`\`, U+005C), and control characters in the
+  range U+0000 through U+001F inclusive.
 - Arrays: An array structure is represented as square brackets surrounding zero
   or more items. Items are separated by commas.
 - Objects: An object structure is represented as a pair of curly brackets
