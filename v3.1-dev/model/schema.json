@@ -659,6 +659,7 @@
                     "unevaluatedProperties": false,
                     "anyOf": [
                         { "$ref": "#/$defs/ai_AIPackage" },
+                        { "$ref": "#/$defs/ai_InteractionTemplate" },
                         { "$ref": "#/$defs/build_Build" },
                         { "$ref": "#/$defs/Agent" },
                         { "$ref": "#/$defs/Annotation" },
@@ -5835,6 +5836,7 @@
                     "unevaluatedProperties": false,
                     "anyOf": [
                         { "$ref": "#/$defs/ai_AIPackage" },
+                        { "$ref": "#/$defs/ai_InteractionTemplate" },
                         { "$ref": "#/$defs/Regulation" },
                         { "$ref": "#/$defs/Specification" },
                         { "$ref": "#/$defs/dataset_DatasetPackage" },
@@ -9251,6 +9253,74 @@
                 }
             ]
         },
+        "ai_InteractionTemplate": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ai_InteractionTemplate"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/ai_InteractionTemplate_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ai_InteractionTemplate"
+            }
+        },
+        "ai_InteractionTemplate_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/ai_InteractionTemplate" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "ai_InteractionTemplate_props": {
+            "allOf": [
+                { "$ref": "#/$defs/Artifact_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "ai_interactionTemplateDictionary": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_ai_InteractionTemplate_ai_interactionTemplateDictionary"
+                                    }
+                                }
+                            ]
+                        },
+                        "ai_interactionTemplateString": {
+                            "$ref": "#/$defs/prop_ai_InteractionTemplate_ai_interactionTemplateString"
+                        }
+                    }
+                }
+            ]
+        },
+        "prop_ai_InteractionTemplate_ai_interactionTemplateDictionary": {
+                "$ref": "#/$defs/DictionaryEntry_derived"
+        },
+        "prop_ai_InteractionTemplate_ai_interactionTemplateString": {
+                    "type": "string"
+        },
         "Action_derived": {
             "anyOf": [
                 {
@@ -12023,6 +12093,7 @@
                                 "supplychain_State",
                                 "supplychain_StorageProcess",
                                 "supplychain_TransportProcess",
+                                "ai_InteractionTemplate",
                                 "Bom",
                                 "Regulation",
                                 "expandedlicensing_CustomLicense",
@@ -12180,6 +12251,7 @@
                 { "$ref": "#/$defs/supplychain_State" },
                 { "$ref": "#/$defs/supplychain_StorageProcess" },
                 { "$ref": "#/$defs/supplychain_TransportProcess" },
+                { "$ref": "#/$defs/ai_InteractionTemplate" },
                 { "$ref": "#/$defs/Bom" },
                 { "$ref": "#/$defs/Regulation" },
                 { "$ref": "#/$defs/expandedlicensing_CustomLicense" },
