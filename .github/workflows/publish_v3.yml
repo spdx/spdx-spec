@@ -200,7 +200,7 @@ jobs:
       - name: Copy JSON annotations
         # JSON annotations URL will be redirected
         # from https://spdx.org/rdf/<version>/spdx-json-serialize-annotations.ttl
-        # to https://spdx.github.io/spdx-spec/v<version>/rdf/jsonld-annotations.ttl
+        # to https://spdx.github.io/spdx-spec/v<version>/rdf/spdx-json-serialize-annotations.ttl
         #
         # To maintain availability of files at the old location at
         # https://spdx.github.io/spdx-spec/v3.0/model/<filename>,
@@ -208,8 +208,8 @@ jobs:
         #
         # Note: When release a new version, update the content of annotations.ttl to match the version
         run: |
-          cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/rdf/jsonld-annotations.ttl
-          cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/model/jsonld-annotations.ttl
+          cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/rdf/spdx-json-serialize-annotations.ttl
+          cp spdx-spec/serialization/jsonld/annotations.ttl spdx-spec/docs/model/spdx-json-serialize-annotations.ttl
       - name: Copy JSON-LD context and RDFs
         # JSON-LD context and RDF URLs will be redirected
         # from https://spdx.org/rdf/<version>/spdx-context.jsonld, spdx-model.ttl, etc.
@@ -224,7 +224,7 @@ jobs:
       - name: Generate JSON schema
         # JSON schema URL will be redirected
         # from https://spdx.org/schema/<version>/spdx-json-schema.json
-        # to https://spdx.github.io/spdx-spec/v<version>/rdf/schema.json
+        # to https://spdx.github.io/spdx-spec/v<version>/schema/spdx-json-schema.json
         #
         # A JSON-LD context document URL is needed to generate the JSON schema.
         # The preferred URL is at spdx.org, but for development versions it may not
@@ -267,12 +267,12 @@ jobs:
 
           shacl2code generate \
             --input spdx-spec/docs/rdf/spdx-model.ttl \
-            --input spdx-spec/docs/rdf/jsonld-annotations.ttl \
+            --input spdx-spec/docs/rdf/spdx-json-serialize-annotations.ttl \
             --context-url spdx-spec/docs/rdf/spdx-context.jsonld $CONTEXT_URL \
             jsonschema \
-            --output spdx-spec/docs/rdf/schema.json
-          head spdx-spec/docs/rdf/schema.json
-          cp spdx-spec/docs/rdf/schema.json spdx-spec/docs/model/schema.json
+            --output spdx-spec/docs/schema/spdx-json-schema.json
+          head spdx-spec/docs/schema/spdx-json-schema.json
+          cp spdx-spec/docs/schema/spdx-json-schema.json spdx-spec/docs/model/spdx-json-schema.json
       - name: Set Git identity
         working-directory: spdx-spec
         run: git config user.name $GIT_USER_NAME; git config user.email $GIT_USER_EMAIL
@@ -332,7 +332,7 @@ jobs:
         # directories, so they can be accessible from all old URLs.
         # For example,
         # - https://spdx.github.io/spdx-spec/v3.0/model/schema.json (old directory structure)
-        # - https://spdx.github.io/spdx-spec/v3.0.1/rdf/schema.json (new directory structure)
+        # - https://spdx.github.io/spdx-spec/v3.0.1/schema/spdx-json-schema.json (new directory structure)
         # will all be accessible and have the same content.
         # Unlike HTML files, these files have to be a copy,
         # since it cannot use the HTML refresh mechanism.
@@ -344,13 +344,15 @@ jobs:
           for dir in $dirs; do
             mkdir -p "$dir"/rdf
             mkdir -p "$dir"/model
+            mkdir -p "$dir"/schema
             cp $VERSION/rdf/* "$dir"/rdf
             cp $VERSION/rdf/* "$dir"/model
+            cp $VERSION/rdf/* "$dir"/schema
             mkdir -p "$dir"/diagram
             cp $VERSION/diagram/* "$dir"/diagram
             mkdir -p "$dir"/jsondump
             cp $VERSION/jsondump/* "$dir"/jsondump
-            git add "$dir"/rdf/* "$dir"/model/* "$dir"/diagram/* "$dir"/jsondump/*
+            git add "$dir"/rdf/* "$dir"/model/* "$dir"/schema/* "$dir"/diagram/* "$dir"/jsondump/*
           done
           git commit -m "Copy schema and RDFs to alias directories: $VERSION_ALIASES"
           git push origin $GH_PAGES_BRANCH
