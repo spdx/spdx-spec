@@ -54,13 +54,15 @@ A license expression shall be on a single line, and shall not include a line bre
 
 ## Case sensitivity
 
-In SPDX 3, license expressions are completely *case-insensitive*.
+In SPDX 3.1 and thereafter, license expressions are completely *case-insensitive*.
 
 That includes the operators ("AND", "OR", "WITH"), the special identifiers ("NONE" and "NOASSERTION"), as well as the license identifiers, including the user-defined ones.
 
 For example, the expressions `MIT AND NOASSERTION AND (BSD-3-Clause OR LicenseRef-Name)` and `mit aNd NoaSSerTion AnD (bSd-3-clausE OR licenseref-NAME)` are equivalent.
 
 However, please be aware that it is often important to note the case of the canonical identifier on the [SPDX License List](https://spdx.org/licenses). This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.
+
+It is recommended, when creating license expressions, to use all upper-case letters for operators and special identifiers, to use the exact case of the license and exception identifiers as they are present in the License List, and to use a single space character wherever whitespace is used.
 
 ## Simple license expressions
 
