@@ -635,12 +635,13 @@ This field provides an independently reproducible mechanism that permits unique 
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
+| Required | No |
 | Cardinality | 0..1 if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (must be omitted) if `FilesAnalyzed` is `false`.|
 | Algorithm | (see the algorithm below) |
 | Format | Single line of text with 160 bit binary represented as 40 lowercase hexadecimal digits |
 
 Algorithm
+
 ```text
 verificationcode = 0
 filelist = templist = ""
@@ -806,6 +807,7 @@ This specification uses the prefix `doap:` to refer to the [DOAP][doap] namespac
 ```text
 http://usefulinc.com/ns/doap#
 ```
+
 ## 7.12 Source information field <a name="7.12"></a>
 
 ### 7.12.1 Description
