@@ -350,4 +350,5 @@ Notes:
 | Component Version                 | (7.1) Package Version |
 
 Notes:
+
 * The “Component License” can be represented either by “Concluded License” or “Declared License”. At least one of these fields must be different from NOASSERTION.
