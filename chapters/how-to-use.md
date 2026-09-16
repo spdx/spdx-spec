@@ -287,7 +287,7 @@ Guidance:
 
 ### K.4.1 2026 Minimum Elements for a Software Bill of Materials (SBOM)
 
-In July 2026, CISA published the "[2026 Minimum Elements for a Software Bill of Materials (SBOM)](https://www.cisa.gov/sites/default/files/2026-07/2026_cisa_sbom_minimum_elements_508c.pdf)" document.
+In July 2026, the U.S. Cybersecurity and Infrastructure Security Agency (CISA), in partnership with international co-authoring organizations, published the "[2026 Minimum Elements for a Software Bill of Materials (SBOM)](https://www.cisa.gov/sites/default/files/2026-07/2026_cisa_sbom_minimum_elements_508c.pdf)" document.
 This document "updates and replaces the [Minimum Elements for a Software Bill of Materials published by the National Telecommunications and Information Administration (NTIA)](https://www.ntia.doc.gov/files/ntia/publications/sbom_minimum_elements_report.pdf)".
 
 The Minimum Elements are summarized below:
