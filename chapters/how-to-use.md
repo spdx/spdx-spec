@@ -332,6 +332,7 @@ The SPDX Specification contains fields able to address some of the 2026 CISA min
 | SBOM Version                 | (6.5) SPDX Document Namespace |
 
 Notes:
+
 * There is no field in SPDX 2.3.1 to represent the SBOM Author signature inside the SBOM. It should be put in an external document.
 * The “Creator Comment” should contain the “SBOM Generation Context” using one of the six keywords “Design,” “Source,” “Build,” “Analyzed,” “Deployed,” “Runtime” as defined in CISA document [Types of Software Bill of Material (SBOM) Documents](https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf).
 * The “Tool Name” and the “Tool Version” are in the same field; they should be separated by a “-” (see section 6.8.1).
