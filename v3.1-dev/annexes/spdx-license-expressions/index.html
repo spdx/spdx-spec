@@ -1446,11 +1446,9 @@ with-expression = identifier required-ws &quot;WITH&quot; required-ws addition-i
 
 addition-identifier = license-exception-id / addition-ref
 
-identifier = license-id / or-later-expression / license-ref
+identifier = license-id / license-id &quot;+&quot; / license-ref
 
-or-later-expression = license-id PLUS
-
-parenthesized-expression = LPAREN optional-ws SPDX-license-expression optional-ws RPAREN
+parenthesized-expression = &quot;(&quot; optional-ws SPDX-license-expression optional-ws &quot;)&quot;
 
 special-identifier = &quot;NONE&quot; / &quot;NOASSERTION&quot;
 
@@ -1464,24 +1462,16 @@ license-exception-id = &lt;short form license exception identifier from SPDX Lic
 license-ref  = [ &quot;DocumentRef-&quot; idstring &quot;:&quot; ] &quot;LicenseRef-&quot;  idstring
 addition-ref = [ &quot;DocumentRef-&quot; idstring &quot;:&quot; ] &quot;AdditionRef-&quot; idstring
 
+; ---
+
 idstring = *idchar alnum *idchar
-idchar   = alnum / DOT / DASH
+idchar   = alnum / &quot;.&quot; / &quot;-&quot;
 alnum    = ALPHA / DIGIT
 
 ; --- Whitespace and characters ---
 
-optional-ws = *SPACE       ; Optional whitespace (zero or more spaces)
-required-ws = 1*SPACE      ; Required whitespace (one or more spaces)
-
-SPACE  = %x20              ; Space character
-LPAREN = %x28              ; ( - Left parenthesis
-RPAREN = %x29              ; ) - Right parenthesis
-PLUS   = %x2B              ; + - Plus
-DASH   = %x2D              ; - - Dash, hyphen
-DOT    = %x2E              ; . - Dot, fullstop, period
-
-ALPHA  = %x41-5A / %x61-7A ; A-Z / a-z
-DIGIT  = %x30-39           ; 0-9
+optional-ws = *SP          ; Optional whitespace (zero or more spaces)
+required-ws = 1*SP         ; Required whitespace (one or more spaces)
 </code></pre>
               
             </div>
