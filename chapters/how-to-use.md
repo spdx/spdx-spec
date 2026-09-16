@@ -338,7 +338,6 @@ Notes:
 * The “Tool Name” and the “Tool Version” are in the same field; they should be separated by a “-” (see section 6.8.1).
 * The “SPDX Document Namespace” is the best approximation for the “SBOM Version”.
 
-
 | Component Data Minimum Field      | Satisfying SPDX field |
 | --------------------------------- | :-------------------- |
 | Component Producer                | (7.6) Package Originator |
