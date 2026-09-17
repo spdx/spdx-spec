@@ -6,7 +6,7 @@ SPDX 2.x has the concept of an External Reference for a Package to "reference an
 
 The specification for External Reference identifiers (Annex F) has four defined categories:
 
-* Security: CPE, SWID tag identifier, or reference to security information 
+* Security: CPE, SWID tag identifier, or reference to security information
 * Package-Manager: package identifier and locator
 * Persistent-id: identifier which is guaranteed to remain stable (persistent) over time
 * Other: Use if none of the above match your use case
@@ -205,7 +205,7 @@ US Executive Order 14028 in conjunction with the National Telecommunications and
 | SBOM Minimum Field | Description |
 | ----------- | :----------- |
 | Author Name | Author of the SBOM entry (this may not always be the supplier). |
-| Supplier Name  | Name or identity of the supplier of the component in the SBOM entry. |
+| Supplier Name | Name or identity of the supplier of the component in the SBOM entry. |
 | Component Name | Designation assigned to a unit of software defined by the original supplier. |
 | Version String | Version used to identify a component. |
 | Component Hash | A cryptographic hash to uniquely identify a component. |
@@ -235,13 +235,15 @@ Several use cases for SPDX depend on the consumer being able to verify the prove
 ### K.3.1 General Guidance
 
 If a Package can be represented as a single blob of bytes, such as a tar archive:
-  * `PackageChecksum` must be computed by applying one of the supported hashing algorithms to the package blob.
-  * `PackageDownloadLocation` should be a download locator that retrieves the package blob.
-  * A supplier can define a `PackageChecksum` in a Package without providing a `PackageDownloadLocation`. This lets consumers perform an offline verification of private blobs.
+
+* `PackageChecksum` must be computed by applying one of the supported hashing algorithms to the package blob.
+* `PackageDownloadLocation` should be a download locator that retrieves the package blob.
+* A supplier can define a `PackageChecksum` in a Package without providing a `PackageDownloadLocation`. This lets consumers perform an offline verification of private blobs.
 
 If a Package represents an artifact that logically binds a number of single files together (such as a zip file or a directory):
-  * If the files bound by the Package are described in the document, `PackageVerificationCode` should be computed by using the files' [SHA1](https://www.rfc-editor.org/rfc/rfc3174) checksums. Additionally, the `FilesAnalyzed` field in the Package **MUST** be set to `true`.
-  * If the SHA1 checksum of any files bound by the Package is not available or the File needs to be excluded from the computation, it MUST be marked so by appending `(excludes: FileName)` at the end of the package verification code value.
+
+* If the files bound by the Package are described in the document, `PackageVerificationCode` should be computed by using the files' [SHA1](https://www.rfc-editor.org/rfc/rfc3174) checksums. Additionally, the `FilesAnalyzed` field in the Package **MUST** be set to `true`.
+* If the SHA1 checksum of any files bound by the Package is not available or the File needs to be excluded from the computation, it MUST be marked so by appending `(excludes: FileName)` at the end of the package verification code value.
 
 ### K.3.2 Examples
 
@@ -252,7 +254,8 @@ Examples include: tarball binding one or more files to a SPDX package, installat
 SPDX Field To Use: [7.9 Package verification code](package-information.md#79-package-verification-code-field-)
 
 Guidance:
-  * With the SPDX document included in the archive, it is not possible for the SPDX document to include a checksum for the archive itself. Generate a Package verification code and include the SPDX Document file name in the Excluded Files field.
+
+* With the SPDX document included in the archive, it is not possible for the SPDX document to include a checksum for the archive itself. Generate a Package verification code and include the SPDX Document file name in the Excluded Files field.
 
 #### K.3.2.2 SPDX Package Delivered as an Archive File Separate from the SPDX Document
 
@@ -260,9 +263,10 @@ Examples include: tarball, installation file
 
 SPDX Field to Use: [7.10 Package checksum](package-information.md#710-package-checksum-field-)
 
-Guidance: 
-  * Generate a checksum for the archive file and include it in the SPDX Package checksum field. The archive file name should also be included in the [Package file name](package-information.md#74-package-file-name-field-) field.
-  * If source files for the Package are included in the Package distribution archive, the Package verification code for that Package should also be included in the SPDX document and the [Files analyzed](package-information.md#78-files-analyzed-field-) field should be set to `true`.
+Guidance:
+
+* Generate a checksum for the archive file and include it in the SPDX Package checksum field. The archive file name should also be included in the [Package file name](package-information.md#74-package-file-name-field-) field.
+* If source files for the Package are included in the Package distribution archive, the Package verification code for that Package should also be included in the SPDX document and the [Files analyzed](package-information.md#78-files-analyzed-field-) field should be set to `true`.
 
 #### K.3.2.3 A Single File Represented as a SPDX Package
 
@@ -270,9 +274,10 @@ Examples include: tarball, binary image, single executable
 
 SPDX Field To Use: [7.10 Package checksum](package-information.md#710-package-checksum-field-)
 
-Guidance: 
-  * If a [Package download location](package-information.md#77-package-download-location-field-) exists, the Package checksum should be the cryptographic hash of the Package blob at the Package download location specified.
-  * If the Package download location is not known, not available, or not accessible to the software consumer, the producer should include a Package checksum for the included Package file.
+Guidance:
+
+* If a [Package download location](package-information.md#77-package-download-location-field-) exists, the Package checksum should be the cryptographic hash of the Package blob at the Package download location specified.
+* If the Package download location is not known, not available, or not accessible to the software consumer, the producer should include a Package checksum for the included Package file.
 
 #### K.3.2.4 Directory of Software Represented as a SPDX Package
 
@@ -281,7 +286,8 @@ Examples include: source code, containers
 SPDX Field To Use: [7.9 Package verification code](package-information.md#79-package-verification-code-field-)
 
 Guidance:
-  * Include [File name](file-information.md#81-file-name-field-) field in the SPDX document for every file in the directory, include each file’s cryptographic hash as a [File checksum](file-information.md#84-file-checksum-field-), create a [CONTAINS relationship](relationships-between-SPDX-elements.md#111-relationship-field-) between the Package and the files, and set [Files analyzed](package-information.md#78-files-analyzed-field-) to `true` on the Package. **Note**: if Files analyzed is set to `false` you __cannot__ provide a Package verification code.
+
+* Include [File name](file-information.md#81-file-name-field-) field in the SPDX document for every file in the directory, include each file’s cryptographic hash as a [File checksum](file-information.md#84-file-checksum-field-), create a [CONTAINS relationship](relationships-between-SPDX-elements.md#111-relationship-field-) between the Package and the files, and set [Files analyzed](package-information.md#78-files-analyzed-field-) to `true` on the Package. **Note**: if Files analyzed is set to `false` you **cannot** provide a Package verification code.
 
 ## K.4 Satisfying 2026 CISA Minimum Elements for an SBOM using SPDX
 
