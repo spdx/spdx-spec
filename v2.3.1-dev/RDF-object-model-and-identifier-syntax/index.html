@@ -193,40 +193,40 @@ tool and, optionally, provide contact information. For example, "Person: Jane Do
 "Organization: ExampleCodeInspect (contact@example.com)" and "Tool: LicenseFind - 1.0". The exact syntax of agent and tool identifications is described below in <a href="http://tools.ietf.org/html/rfc5234">ABNF</a>.</p>
 <div class="codehilite"><pre><span></span><code>agent            = person / organization
 
-tool             = &quot;Tool: &quot; name 0*1( &quot; &quot; DASH &quot; &quot; version)
+tool             = "Tool: " name 0*1( " " DASH " " version)
 
-person           = &quot;Person: &quot; name 0*1contact-info
+person           = "Person: " name 0*1contact-info
 
-organization     = &quot;Organization: &quot; name 0*1contact-info
+organization     = "Organization: " name 0*1contact-info
 
 name             = 1*( UNRESERVED ) / U+0022 1*( VCHAR-SANS-QUOTE ) U+0022
 
-contact-info     = &quot; (&quot; email-addr &quot;)&quot;
+contact-info     = " (" email-addr ")"
 
-email-addr       = local-name-atom *( &quot;.&quot; local-name-atom ) &quot;@&quot; domain-name-atom 1*( &quot;.&quot; domain-name-atom )
+email-addr       = local-name-atom *( "." local-name-atom ) "@" domain-name-atom 1*( "." domain-name-atom )
 
 version          = 1*VCHAR-SANS-QUOTE
 
 local-name-atom  = 1*( ALPHA / DIGIT /    ; Printable US-ASCII
-                       &quot;!&quot; / &quot;#&quot; /        ;  characters not including
-                       &quot;$&quot; / &quot;%&quot; /        ;  specials.
-                       &quot;&amp;&quot; / &quot;&#39;&quot; /
-                       &quot;*&quot; / &quot;+&quot; /
-                       &quot;-&quot; / &quot;/&quot; /
-                       &quot;=&quot; / &quot;?&quot; /
-                       &quot;^&quot; / &quot;_&quot; /
-                       &quot;`&quot; / &quot;{&quot; /
-                       &quot;|&quot; / &quot;}&quot; /
-                       &quot;~&quot; )
+                       "!" / "#" /        ;  characters not including
+                       "$" / "%" /        ;  specials.
+                       "&amp;" / "'" /
+                       "*" / "+" /
+                       "-" / "/" /
+                       "=" / "?" /
+                       "^" / "_" /
+                       "`" / "{" /
+                       "|" / "}" /
+                       "~" )
 
-domain-name-atom = 1*( ALPHA / DIGIT / &quot;-&quot; )
+domain-name-atom = 1*( ALPHA / DIGIT / "-" )
 
 DASH             = U+2010 / U+2212 /   ; hyphen, minus, em dash and
                    U+2013 / U+2014     ;  en dash
 
 
 UNRESERVED       = U+0020-U+0027 /     ; visible unicode characters
-                   U+0029-U+0080 /     ;  except &#39;(&#39; and dashes
+                   U+0029-U+0080 /     ;  except '(' and dashes
                    U+00A0-U+200F /
                    U+2011-U+2027 /
                    U+202A-U+2211 /

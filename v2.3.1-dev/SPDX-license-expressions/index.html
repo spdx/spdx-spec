@@ -202,26 +202,26 @@
 <p>Often a single license can be used to represent the licensing terms of a source code or binary file, but there are situations where a single license identifier is not sufficient. A common example is when software is offered under a choice of one or more licenses (e.g., GPL-2.0-only OR BSD-3-Clause). Another example is when a set of licenses is needed to represent a binary program constructed by compiling and linking two (or more) different source files each governed by different licenses (e.g., LGPL-2.1-only AND BSD-3-Clause).</p>
 <p>SPDX License Expressions provide a way for one to construct expressions that more accurately represent the licensing terms typically found in open source software source code. A license expression could be a single license identifier found on the SPDX License List; a user defined license reference denoted by the LicenseRef-<code>[idString]</code>; a license identifier combined with an SPDX exception; or some combination of license identifiers, license references and exceptions constructed using a small set of defined operators (e.g., <code>AND</code>, <code>OR</code>, <code>WITH</code> and <code>+</code>). We provide the definition of what constitutes a valid SPDX License Expression in this section.</p>
 <p>The exact syntax of license expressions is described below in <a href="http://tools.ietf.org/html/rfc5234">ABNF</a>.</p>
-<div class="codehilite"><pre><span></span><code>idstring = 1*(ALPHA / DIGIT / &quot;-&quot; / &quot;.&quot; )
+<div class="codehilite"><pre><span></span><code>idstring = 1*(ALPHA / DIGIT / "-" / "." )
 
 license-id = &lt;short form license identifier in Annex A.1&gt;
 
 license-exception-id = &lt;short form license exception identifier in Annex A.2&gt;
 
-license-ref = [&quot;DocumentRef-&quot;(idstring)&quot;:&quot;]&quot;LicenseRef-&quot;(idstring)
+license-ref = ["DocumentRef-"(idstring)":"]"LicenseRef-"(idstring)
 
-simple-expression = license-id / license-id&quot;+&quot; / license-ref
+simple-expression = license-id / license-id"+" / license-ref
 
 compound-expression = (simple-expression /
 
 
-simple-expression &quot;WITH&quot; license-exception-id /
+simple-expression "WITH" license-exception-id /
 
-  compound-expression &quot;AND&quot; compound-expression /
+  compound-expression "AND" compound-expression /
 
-  compound-expression &quot;OR&quot; compound-expression /
+  compound-expression "OR" compound-expression /
 
-  &quot;(&quot; compound-expression &quot;)&quot; )
+  "(" compound-expression ")" )
 
 license-expression = (simple-expression / compound-expression)
 </code></pre></div>
@@ -314,9 +314,9 @@ OR
 <h3 id="d46-license-expressions-in-rdf">D.4.6 License expressions in RDF <a name="D.4.6"></a></h3>
 <p>A conjunctive license can be expressed in RDF via a <code>&lt;spdx:ConjunctiveLicenseSet&gt;</code> element, with an spdx:member property for each element in the conjunctive license. Two or more members are required.</p>
 <div class="codehilite"><pre><span></span><code>&lt;spdx:ConjunctiveLicenseSet&gt;
-    &lt;spdx:member rdf:resource=&quot;http://spdx.org/licenses/GPL-2.0-only&quot;/&gt;
+    &lt;spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/&gt;
     &lt;spdx:ExtractedLicensingInfo rdf:about
-      =&quot;http://example.org#LicenseRef-EternalSurrender&quot;&gt;
+      ="http://example.org#LicenseRef-EternalSurrender"&gt;
         &lt;spdx:extractedText&gt;
             In exchange for using this software, you agree to give
             its author all your worldly possessions. You will not
@@ -331,10 +331,10 @@ OR
 
 <p>A disjunctive license can be expressed in RDF via a <code>&lt;spdx:DisjunctiveLicenseSet&gt;</code> element, with an spdx:member property for each element in the disjunctive license. Two or more members are required.</p>
 <div class="codehilite"><pre><span></span><code>&lt;spdx:DisjunctiveLicenseSet&gt;
-    &lt;spdx:member rdf:resource=&quot;http://spdx.org/licenses/GPL-2.0-only&quot;/&gt;
+    &lt;spdx:member rdf:resource="http://spdx.org/licenses/GPL-2.0-only"/&gt;
     &lt;spdx:member&gt;
         &lt;spdx:ExtractedLicensingInfo rdf:about
-          =&quot;http://example.org#LicenseRef-EternalSurrender&quot;&gt;
+          ="http://example.org#LicenseRef-EternalSurrender"&gt;
             &lt;spdx:extractedText&gt;
                 In exchange for using this software, you agree to
                 give its author all your worldly possessions. You
@@ -359,7 +359,7 @@ OR
 <li><code>licenseExceptionText</code> - Full text of the license exception.</li>
 </ul>
 <div class="codehilite"><pre><span></span><code>&lt;rdf:Description rdf:about
-  =&quot;http://example.org#SPDXRef-ButIdDontWantToException&quot;&gt;
+  ="http://example.org#SPDXRef-ButIdDontWantToException"&gt;
     &lt;rdfs:comment&gt;This exception may be invalid in some
       jurisdictions.&lt;/rdfs:comment&gt;
     &lt;rdfs:seeAlso&gt;http://dilbert.com/strip/1997-01-15&lt;/rdfs:seeAlso&gt;
@@ -373,7 +373,7 @@ OR
     &lt;spdx:name&gt;&amp;quot;But I Don&amp;apos;t Want To&amp;quot; Exception&lt;/spdx:name&gt;
     &lt;spdx:licenseExceptionId&gt;SPDXRef-ButIdDontWantToException&lt;/spdx:licenseExceptionId&gt;
     &lt;rdf:type rdf:resource
-      =&quot;http://spdx.org/rdf/terms#LicenseException&quot;/&gt;
+      ="http://spdx.org/rdf/terms#LicenseException"/&gt;
 &lt;/rdf:Description&gt;
 </code></pre></div>
               
