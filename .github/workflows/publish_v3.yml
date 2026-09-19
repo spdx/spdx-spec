@@ -276,6 +276,30 @@ jobs:
       - name: Set Git identity
         working-directory: spdx-spec
         run: git config user.name $GIT_USER_NAME; git config user.email $GIT_USER_EMAIL
+      - name: Commit RDFs and context to ontology/$VERSION and JSON schema to schemas/$VERSION
+        # Commit generated artifacts to ontology/<version>/ and schemas/<version>/
+        working-directory: spdx-spec
+        run: |
+          # Skip on tag/commit refs (detached HEAD): no branch to push to
+          if ! git symbolic-ref -q HEAD >/dev/null; then
+            echo "Detached HEAD (REF_SPEC=$REF_SPEC); skipping commit."
+            exit 0
+          fi
+          VER=${VERSION#[vV]}
+          # Use an isolated worktree to avoid touching the primary working tree
+          git fetch origin "$REF_SPEC"
+          WT=$(mktemp -d)
+          git worktree add --force "$WT" FETCH_HEAD
+          mkdir -p "$WT/ontology/$VER" "$WT/schemas/$VER"
+          cp docs/rdf/spdx-model.* "$WT/ontology/$VER/"
+          cp docs/rdf/spdx-context.jsonld "$WT/ontology/$VER/"
+          cp docs/rdf/jsonld-annotations.ttl "$WT/ontology/$VER/"
+          cp docs/rdf/schema.json "$WT/schemas/$VER/spdx-schema.json"
+          git -C "$WT" add "ontology/$VER" "schemas/$VER"
+          git -C "$WT" diff --cached --quiet || \
+            git -C "$WT" commit -m "Update ontology/$VER and schemas/$VER"
+          git -C "$WT" push origin "HEAD:$REF_SPEC"
+          git worktree remove --force "$WT"
       - name: Sync GitHub Pages
         working-directory: spdx-spec
         run: git checkout $GH_PAGES_BRANCH && git pull && git checkout $REF_SPEC
