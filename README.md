@@ -97,6 +97,19 @@ The branches in use are:
 - `gh-pages` - This branch hosts generated HTML websites for all versions of
   the specification. It is primarily managed by an automated workflow.
 
+## SPDX 3.0 semantic model canonical URLs
+
+The following canonical IRIs/URLs represent the artifacts for the SPDX 3.0 semantic model:
+
+| Artifact | Canonical URL / IRI | Purpose |
+| --- | --- | --- |
+| **Ontology & SHACL shapes** | <https://spdx.org/rdf/3.0/spdx-model.ttl> | Defines the SPDX 3 vocabulary and graph validation rules. |
+| **Serialization annotations** | <https://spdx.org/rdf/3.0/spdx-json-serialize-annotations.ttl> | Provide structural overrides for translating the RDF model into JSON. |
+| **JSON-LD context** | <https://spdx.org/rdf/3.0/spdx-context.jsonld> | Maps SPDX 3 JSON fields to their corresponding semantic model IRIs. |
+| **JSON schema** | <https://spdx.org/schema/3.0/spdx-json-schema.json> | Validates the structural syntax of SPDX 3 JSON documents. |
+
+> Production notice: Use only these canonical URLs in production. Development URLs on spdx.github.io are volatile, non-persistent, and subject to change.
+
 ## Related documents and repositories
 
 | Documentation | Link |

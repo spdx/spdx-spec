@@ -134,7 +134,7 @@ An example where three different licenses apply would be:
 LGPL-2.1-only AND MIT AND BSD-2-Clause
 ```
 
-The "AND" operator is the only operator that can be used in conjuction with the special identifiers "NONE" or "NOASSERTION".
+The "AND" operator is the only operator that can be used in conjunction with the special identifiers "NONE" or "NOASSERTION".
 
 ### Additive "WITH" operator
 
@@ -194,7 +194,7 @@ is described by the following ABNF:
 ```ABNF
 ; ABNF Grammar for License Expressions
 
-SPSX-license-expression = (or-operand *( required-ws "OR" required-ws or-operand )) / special-identifier
+SPDX-license-expression = (or-operand *( required-ws "OR" required-ws or-operand )) / special-identifier
 
 or-operand = (term required-ws "AND" required-ws term *( required-ws "AND" required-ws term )) / base-term
 
@@ -206,11 +206,9 @@ with-expression = identifier required-ws "WITH" required-ws addition-identifier
 
 addition-identifier = license-exception-id / addition-ref
 
-identifier = license-id / or-later-expression / license-ref
+identifier = license-id / license-id "+" / license-ref
 
-or-later-expression = license-id PLUS
-
-parenthesized-expression = LPAREN optional-ws expression optional-ws RPAREN
+parenthesized-expression = "(" optional-ws SPDX-license-expression optional-ws ")"
 
 special-identifier = "NONE" / "NOASSERTION"
 
@@ -224,23 +222,14 @@ license-exception-id = <short form license exception identifier from SPDX Licens
 license-ref  = [ "DocumentRef-" idstring ":" ] "LicenseRef-"  idstring
 addition-ref = [ "DocumentRef-" idstring ":" ] "AdditionRef-" idstring
 
-idstring = *id-char alnum *id-char
-idchar   = alnum / DOT / DASH
+; ---
+
+idstring = *idchar alnum *idchar
+idchar   = alnum / "." / "-"
 alnum    = ALPHA / DIGIT
 
 ; --- Whitespace and characters ---
 
-optional-ws = *SPACE       ; Optional whitespace (zero or more spaces)
-required-ws = 1*SPACE      ; Required whitespace (one or more spaces)
-
-SPACE  = %x20              ; Space character
-LPAREN = %x28              ; ( - Left parenthesis
-RPAREN = %x29              ; ) - Right parenthesis
-PLUS   = %2B               ; + - Plus
-DASH   = %2D               ; - - Dash, hyphen
-DOT    = %2E               ; . - Dot, fullstop, period
-
-ALPHA  = %x41-5A / %x61-7A ; A-Z / a-z
-DIGIT  = %x30-39           ; 0-9
-
+optional-ws = *SP          ; Optional whitespace (zero or more spaces)
+required-ws = 1*SP         ; Required whitespace (one or more spaces)
 ```

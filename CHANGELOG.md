@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 3.1 (TBA)
+
+* Changes in document structure and location.
+  * "Package URL specification v1" annex is removed in favor of the
+    [ECMA-427 Package-URL (PURL) specification](https://ecma-international.org/publications-and-standards/standards/ecma-427/)
+
 ## 3.0.1 (2024-12-17)
 
 * Changes in document structure and location.

@@ -53,7 +53,7 @@ The following XML tag is used to implement this guideline. `<alt>` with 2 attrib
 The original text is enclosed within the beginning and ending alt tags.
 
 For example:
-`<alt match="(?i:copyright.{0,200})." name="copyright1">Copyright The Linux Foundation</alt>`
+`<alt match="[Cc]opyright.{0,200}." name="copyright1">Copyright The Linux Foundation</alt>`
 
 The original replaceable text appears on the SPDX License List webpage in red text.
 
@@ -258,7 +258,7 @@ the more expressive XML format.
 A legacy template is composed of text with zero or more rules embedded in it.
 
 A rule is a variable section of a license wrapped between double angle brackets
-`<<>>` and is composed of 4 fields.
+`<<>>` and is composed of either 2 or 4 fields.
 Each field is separated with a semi-colon `;`.
 Rules shall not be embedded within other rules.
 Rule fields begin with a case sensitive tag followed by an equal sign `=`.
