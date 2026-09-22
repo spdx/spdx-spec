@@ -6,6 +6,43 @@ The SPDX RDF ontology is expressed in RDF/OWL/SHACL format
 and is published online at
 [SPDX 3.1 Model](https://spdx.org/rdf/3.1/spdx-model.ttl)
 
+The terms the ontology defines are identified in the SPDX 3 vocabulary
+namespace, `https://spdx.org/rdf/3/terms/`, which does not carry a minor or
+patch version.
+The URL above identifies the published document for one minor version of the
+specification, and the ontology records that version using `owl:versionIRI`
+and `owl:versionInfo`.
+These two identifiers are distinct and are not interchangeable.
+
+The ontology header therefore takes the following form, where the subject is
+the version-independent namespace and the version IRI is the published
+document for one minor version:
+
+```turtle
+<https://spdx.org/rdf/3/terms/>
+    a owl:Ontology ;
+    owl:versionIRI <https://spdx.org/rdf/3.1/spdx-model.ttl> ;
+    owl:versionInfo "3.1" .
+```
+
+The values of the three identifiers look like this:
+
+| Identifier | Example value |
+| ---------- | ------------- |
+| Term IRI | `https://spdx.org/rdf/3/terms/Software/Package` |
+| Ontology version IRI | `https://spdx.org/rdf/3.1/spdx-model.ttl` |
+| `specVersion`, as recorded in SPDX data | `3.1.0` |
+
+The term IRI carries no minor or patch version, the version IRI carries the
+major and minor version, and `specVersion` carries the major, minor and patch
+version.
+
+For the normative rules governing term IRIs, resource URLs and `specVersion`,
+see
+[Namespace and IRIs](../serializations.md#namespace-and-iris)
+and
+[Version identifiers](../serializations.md#version-identifiers).
+
 ## Diagrams
 
 ### Core profile
