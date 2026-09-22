@@ -8558,8 +8558,8 @@
           "license": "Community-Spec-1.0",
           "name": "Specification",
           "fqname": "/Core/Specification",
-          "summary": "A specification is a detailed description of the design, requirements,\nor features of a product, process, or system.",
-          "description": "A specification (spec) is a detailed document that outlines the\ndesign, requirements, or features for a product, process, or system.\n\nRequirements, standards, specifications and processes\ncan be referenced in this class.",
+          "summary": "A specification is a detailed description of the design, requirements,\nor features of a product, process, system or regulatory framework.",
+          "description": "A specification (spec) is a detailed document that outlines the\ndesign, requirements, or features for a product, process, system or regulatory framework.\n\nRequirements, standards, specifications and processes\ncan be referenced in this class.",
           "metadata": {
             "name": "Specification",
             "SubclassOf": "Artifact",
@@ -12666,8 +12666,8 @@
           "license": "Community-Spec-1.0",
           "name": "ContactPointRelationship",
           "fqname": "/Core/ContactPointRelationship",
-          "summary": "A contact point from an Artifact to an Agent.",
-          "description": "Specifies a point of contact specific to an Artifact. For example, a software package may have a security contact point that researchers should use for reporting security vulnerabilities. This relationship is restricted to using the `hasContactPoint` relationship type.",
+          "summary": "Provide context for a contact point relationship from an Artifact to an Agent.",
+          "description": "Defines a specific contact point relationship linking an Artifact to an Agent.\n\nFor example, a software package (Artifact) may designate a security\nvulnerability contact point (Agent) as the official channel for researchers\nto report security vulnerabilities.\n\nThis relationship is restricted to the `hasContactPoint` relationship type.",
           "metadata": {
             "name": "ContactPointRelationship",
             "SubclassOf": "Relationship",
@@ -12675,7 +12675,7 @@
           },
           "properties": {
             "contactType": {
-              "type": "ContactPointRelationshipType",
+              "type": "ContactType",
               "minCount": "1",
               "maxCount": "1",
               "fqname": "/Core/contactType"
@@ -12692,12 +12692,12 @@
           "direct_subclasses": [],
           "all_properties": {
             "contactType": {
-              "type": "ContactPointRelationshipType",
+              "type": "ContactType",
               "minCount": "1",
               "maxCount": "1",
               "fqname": "/Core/contactType",
               "fullname": "/Core/contactType",
-              "fulltype": "/Core/ContactPointRelationshipType"
+              "fulltype": "/Core/ContactType"
             },
             "from": {
               "type": "Element",
@@ -13431,7 +13431,7 @@
           "description": "The status specifies the state of a requirement in its lifecycle.",
           "metadata": {
             "name": "requirementStatus",
-            "Nature": "DataProperty",
+            "Nature": "ObjectProperty",
             "Range": "RequirementStatusType"
           },
           "sparql": {},
@@ -14298,12 +14298,12 @@
           "license": "Community-Spec-1.0",
           "name": "contactType",
           "fqname": "/Core/contactType",
-          "summary": "Identifies the nature of the contactPointRelationship.",
+          "summary": "Identifies the nature of the `ContactPointRelationship`.",
           "description": "Identifies the role of the Artifact to the contact point.",
           "metadata": {
             "name": "contactType",
             "Nature": "ObjectProperty",
-            "Range": "ContactPointRelationshipType"
+            "Range": "ContactType"
           },
           "sparql": {},
           "iri": "https://spdx.org/rdf/3/terms/Core/contactType",
@@ -15194,8 +15194,8 @@
           "license": "Community-Spec-1.0",
           "name": "standardName",
           "fqname": "/Core/standardName",
-          "summary": "The name of a relevant standard that may apply to an artifact.",
-          "description": "Various standards may be relevant or useful to capture for specific artifacts.\n\nThis does not imply that the artifact is compliant with the standard,\nbut rather that the standard is used as a reference or guideline for\nthe design, implementation, production, or evaluation of the artifact.\n\nFor compliance with a standard, use the `standardCompliance` property instead.",
+          "summary": "The name of a standard applicable to an artifact.",
+          "description": "A standard applicable as a reference or guideline for the\ndesign, implementation, production, or evaluation of the artifact.\n\nThis property does not imply that the artifact complies with the standard.\n\nFor compliance with a standard, use\na [Relationship](../Classes/Relationship.md)\nwith \"conformsTo\" relationship type to\na [Specification](../Classes/Specification.md)\ninstead.",
           "metadata": {
             "name": "standardName",
             "Nature": "DataProperty",
@@ -15600,6 +15600,28 @@
           "sparql": {},
           "iri": "https://spdx.org/rdf/3/terms/Core/ExternalRefType"
         },
+        "/Core/ContactType": {
+          "py/object": "spec_parser.model.Vocabulary",
+          "ns": {
+            "py/id": 1308
+          },
+          "license": "Community-Spec-1.0",
+          "name": "ContactType",
+          "fqname": "/Core/ContactType",
+          "summary": "An enumeration of contact types.",
+          "description": "This enumeration defines common contact types.",
+          "metadata": {
+            "name": "ContactType"
+          },
+          "entries": {
+            "compliance": "A contact point for compliance matters (i.e. export control, licensing).",
+            "other": "A generic contact point to be used when the contact type does not match any of the other options.",
+            "securityVulnerability": "A contact for reporting security vulnerabilities.",
+            "support": "A contact point for support."
+          },
+          "sparql": {},
+          "iri": "https://spdx.org/rdf/3/terms/Core/ContactType"
+        },
         "/Core/LifecycleScopeType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
@@ -15625,28 +15647,6 @@
           },
           "sparql": {},
           "iri": "https://spdx.org/rdf/3/terms/Core/LifecycleScopeType"
-        },
-        "/Core/ContactPointRelationshipType": {
-          "py/object": "spec_parser.model.Vocabulary",
-          "ns": {
-            "py/id": 1308
-          },
-          "license": "Community-Spec-1.0",
-          "name": "ContactPointRelationshipType",
-          "fqname": "/Core/ContactPointRelationshipType",
-          "summary": "Information about the type of contact point for `ContactPointRelationship`s.",
-          "description": "Provides information about the type of contact point. For example, the `securityVulnerability` contact type can represent a type of contact to be used for reporting security vulnerabilities.",
-          "metadata": {
-            "name": "ContactPointRelationshipType"
-          },
-          "entries": {
-            "compliance": "A contact point for compliance (i.e. export control, licensing).",
-            "other": "A generic contact point to be used when the contact type does not match any of the other options.",
-            "securityVulnerability": "A contact for reporting security vulnerabilities.",
-            "support": "A contact point for support."
-          },
-          "sparql": {},
-          "iri": "https://spdx.org/rdf/3/terms/Core/ContactPointRelationshipType"
         },
         "/Core/HashAlgorithm": {
           "py/object": "spec_parser.model.Vocabulary",
@@ -15731,7 +15731,7 @@
             "hasAssessmentFor": "Relates a `from` /Security/Vulnerability and each `to` Element with a security assessment. The use of the `hasAssessmentFor` type is constrained to `/Security/VulnAssessmentRelationship` classed relationships.",
             "hasAssociatedVulnerability": "Used to associate a `from` Artifact with each `to` /Security/Vulnerability.",
             "hasConcludedLicense": "The `from` Artifact is concluded by the SPDX data creator to be governed by each `to` /SimpleLicensing/AnyLicenseInfo. If the `to` of an Artifact's `hasConcludedLicense` is not the same as the `to` of its `hasDeclaredLicense`, a written explanation should be provided in the comment field of the `hasConcludedLicense` relationship.",
-            "hasContactPoint": "The `from` Artifact has each `to` Agent as a contact point. The use of the `hasContactPoint` type is constrained to `ContactPointRelationship` classed relationships. The type of contact (i.e. security) may be specified using a `ContactPointRelationship` element.",
+            "hasContactPoint": "The `from` Artifact has each `to` Agent as a contact point. The use of the `hasContactPoint` type is constrained to `ContactPointRelationship` classed relationships. The type of contact can be specified using a `contactType` property on the `to` Agent.",
             "hasDataFile": "The `from` Element treats each `to` Element as a data file. A data file is an artifact that stores data required or optional for the `from` Element's functionality. The `hasDataFile` relationship does not imply a dependency. Examples of data files include database files, index files, log files, AI model files, calibration data files, temporary files, and backup files. For configuration data, build input data, build output data, test artifacts, test datasets, and training datasets, the more specific relationship types `configures`, `hasInput`, `hasOutput`, `hasTest`, `testedOn`, and `trainedOn` shall be used, respectively.",
             "hasDeclaredLicense": "The `from` Artifact was discovered to actually contain each `to` /SimpleLicensing/AnyLicenseInfo (for example, as detected by automated tooling).",
             "hasDeletedFile": "Every `to` Element is a file deleted from the `from` Element (`from` hasDeletedFile `to`).",
@@ -15743,6 +15743,7 @@
             "hasExample": "Every `to` Element is an example for the `from` Element (`from` hasExample `to`).",
             "hasHost": "The `from` /Build/Build was run on the `to` Element during a LifecycleScopeType period (e.g. the host that the build runs on).",
             "hasInput": "The `from` /Build/Build, DefinedProcess or Action element has each `to` Element as an input.",
+            "hasInstall": "The `from` Element has each `to` Artifact installed (placed into position for use) into it during a LifecycleScopeType period. To express the Agent doing the install, link this relationship as the `from` in `performedBy`.",
             "hasMetadata": "Every `to` Element is metadata about the `from` Element (`from` hasMetadata `to`).",
             "hasOptionalComponent": "Every `to` Element is an optional component of the `from` Element (`from` hasOptionalComponent `to`).",
             "hasOptionalDependency": "The `from` Element optionally depends on each `to` Element, during a LifecycleScopeType period.",
@@ -15756,6 +15757,7 @@
             "hasStaticLink": "The `from` Element statically links in each `to` Element, during a LifecycleScopeType period.",
             "hasTest": "Every `to` Element is a test artifact for the `from` Element (`from` hasTest `to`), during a LifecycleScopeType period.",
             "hasTestCase": "Every `to` Element is a test case for the `from` Element (`from` hasTestCase `to`).",
+            "hasUninstall": "The `from` Element has each `to` Artifact uninstalled (removed from position for use) from it during a LifecycleScopeType period. To express the Agent doing the uninstall, link this relationship as the `from` in `performedBy`.",
             "hasVariant": "Every `to` Element is a variant the `from` Element (`from` hasVariant `to`).",
             "implementedBy": "The `from` Requirement is implemented in the `to` Element(s).",
             "invokedBy": "The `from` Element was invoked by the `to` Agent, during a LifecycleScopeType period (for example, a /Build/Build element that describes a build step).",
@@ -15764,7 +15766,7 @@
             "other": "Every `to` Element is related to the `from` Element where the relationship type is not described by any of the SPDX relationship types (this relationship is directionless).",
             "packagedBy": "Every `to` Element is a packaged instance of the `from` Element (`from` packagedBy `to`).",
             "patchedBy": "Every `to` Element is a patch for the `from` Element (`from` patchedBy `to`).",
-            "performedBy": "Every `from` Action is performedBy `to` Agent.",
+            "performedBy": "Every `from` Action, or Relationship of type hasInstall or hasUninstall, is performed by `to` Agent.",
             "pretrainedOn": "The `from` Element has been pretrained on the `to` Element(s).",
             "providesSupportFor": "The `from` Agent provides support for each `to` Artifact. The use of the `providesSupportFor` type is constrained to `SupportRelationship` classed relationships.",
             "publishedBy": "Designates a `from` /Security/Vulnerability was made available for public use or reference by each `to` Agent.",
@@ -15781,7 +15783,677 @@
             "validatedOn": "The `from` Element has been validated on the `to` Element(s).",
             "verifiedBy": "The `from` Requirement that has verification (test, review, analysis etc.) details defined in the `to` /FunctionalSafety/RequirementVerification."
           },
-          "sparql": {},
+          "sparql": {
+            "affects_from": {
+              "message": "When relationship is affects, from must be a Vulnerability, Action, or DefinedProcess",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/affects> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Security/Vulnerability> }",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/Action> }",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/DefinedProcess> }",
+                "}"
+              ]
+            },
+            "assumes_to": {
+              "message": "When relationship is assumes, to must be an Assumption",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/assumes> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <FunctionalSafety/Assumption> }",
+                "}"
+              ]
+            },
+            "configures_type": {
+              "message": "When relationship is configures, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/configures> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "conformsTo_to": {
+              "message": "When relationship is conformsTo, to must be an Assumption or Specification",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/conformsTo> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <FunctionalSafety/Assumption> }",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Specification> }",
+                "}"
+              ]
+            },
+            "coordinatedBy_from": {
+              "message": "When relationship is coordinatedBy, from must be a Vulnerability",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/coordinatedBy> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Security/Vulnerability> }",
+                "}"
+              ]
+            },
+            "createdBy_from": {
+              "message": "When relationship is createdBy, from must be an Action or DefinedProcess",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/createdBy> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/Action> }",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/DefinedProcess> }",
+                "}"
+              ]
+            },
+            "createdBy_to": {
+              "message": "When relationship is createdBy, to must be an Agent",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/createdBy> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Agent> }",
+                "}"
+              ]
+            },
+            "delegatedTo_from": {
+              "message": "When relationship is delegatedTo, from must be an Agent",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/delegatedTo> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/Agent> }",
+                "}"
+              ]
+            },
+            "delegatedTo_to": {
+              "message": "When relationship is delegatedTo, to must be a Relationship whose relationshipType is invokedBy",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/delegatedTo> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS {",
+                "        ?to rdf:type/rdfs:subClassOf* <Core/Relationship> .",
+                "        ?to <Core/relationshipType> <Core/RelationshipType/invokedBy> .",
+                "    }",
+                "}"
+              ]
+            },
+            "delegatedTo_type": {
+              "message": "When relationship is delegatedTo, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/delegatedTo> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "dependsOn_type": {
+              "message": "When relationship id dependsOn, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/dependsOn> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "doesNotAffect_from": {
+              "message": "When relationship is doesNotAffect, from must be a Vulnerability",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/doesNotAffect> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Security/Vulnerability> }",
+                "}"
+              ]
+            },
+            "doesNotAffect_type": {
+              "message": "When relationship is doesNotAffect, class must be VexNotAffectedVulnAssessmentRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/doesNotAffect> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Security/VexNotAffectedVulnAssessmentRelationship> }",
+                "}"
+              ]
+            },
+            "exploitCreatedBy_to": {
+              "message": "When relationship is exploitCreatedBy, to must be an Agent",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/exploitCreatedBy> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Agent> }",
+                "}"
+              ]
+            },
+            "fixedBy_from": {
+              "message": "When relationship is fixedBy, from must be a Vulnerability",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/fixedBy> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Security/Vulnerability> }",
+                "}"
+              ]
+            },
+            "fixedBy_to": {
+              "message": "When relationship is fixedBy, to must be an Agent",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/fixedBy> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Agent> }",
+                "}"
+              ]
+            },
+            "fixedIn_from": {
+              "message": "When relationship is fixedIn, from must be a Vulnerability",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/fixedIn> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Security/Vulnerability> }",
+                "}"
+              ]
+            },
+            "fixedIn_type": {
+              "message": "When relationship is fixedIn, class must be VexFixedVulnAssessmentRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/fixedIn> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Security/VexFixedVulnAssessmentRelationship> }",
+                "}"
+              ]
+            },
+            "foundBy_to": {
+              "message": "When relationship is foundBy, to must be an Agent",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/foundBy> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Agent> }",
+                "}"
+              ]
+            },
+            "hasAssessmentFor_from": {
+              "message": "When relationship is hasAssessmentFor, from must be a Vulnerability",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasAssessmentFor> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Security/Vulnerability> }",
+                "}"
+              ]
+            },
+            "hasAssessmentFor_type": {
+              "message": "When relationship is hasAssessmentFor, class must be VulnAssessmentRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasAssessmentFor> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Security/VulnAssessmentRelationship> }",
+                "}"
+              ]
+            },
+            "hasAssociatedVulnerability_to": {
+              "message": "When relationship is hasAssociatedVulnerability, to must be a Vulnerability",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasAssociatedVulnerability> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Security/Vulnerability> }",
+                "}"
+              ]
+            },
+            "hasConcludedLicense_to": {
+              "message": "When relationship is hasConcludedLicense, to must be an AnyLicenseInfo",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasConcludedLicense> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <SimpleLicensing/AnyLicenseInfo> }",
+                "}"
+              ]
+            },
+            "hasContactPoint_to": {
+              "message": "When relationship is hasContactPoint, to must be an Agent",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasContactPoint> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Agent> }",
+                "}"
+              ]
+            },
+            "hasContactPoint_type": {
+              "message": "When relationship is hasContactPoint, class must be ContactPointRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasContactPoint> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/ContactPointRelationship> }",
+                "}"
+              ]
+            },
+            "hasDeclaredLicense_to": {
+              "message": "When relationship is hasDeclaredLicense, to must be an AnyLicenseInfo",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasDeclaredLicense> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <SimpleLicensing/AnyLicenseInfo> }",
+                "}"
+              ]
+            },
+            "hasDynamicLink_type": {
+              "message": "When relationship is hasDynamicLink, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasDynamicLink> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "hasHost_from": {
+              "message": "When relationship is hasHost, from must be a Build",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasHost> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Build/Build> }",
+                "}"
+              ]
+            },
+            "hasHost_type": {
+              "message": "When relationship is hasHost, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasHost> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "hasInput_from": {
+              "message": "When relationship is hasInput, from must be a Build, DefinedProcess, or Action",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasInput> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Build/Build> }",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/DefinedProcess> }",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/Action> }",
+                "}"
+              ]
+            },
+            "hasOptionalDependency_type": {
+              "message": "When relationship is hasOptionalDependency, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasOptionalDependency> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "hasOutput_from": {
+              "message": "When relationship is hasOutput, from must be a Build, DefinedProcess, or Action",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasOutput> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Build/Build> }",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/DefinedProcess> }",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/Action> }",
+                "}"
+              ]
+            },
+            "hasPrerequisite_type": {
+              "message": "When relationship is hasPrerequisite, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasPrerequisite> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "hasProvidedDependency_type": {
+              "message": "When relationship is hasProvidedDependency, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasProvidedDependency> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "hasRequirement_type": {
+              "message": "When relationship is hasRequirement, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasRequirement> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "hasResolution_from": {
+              "message": "When relationship is hasResolution, from must be a ResolutionAction",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasResolution> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <SupplyChain/ResolutionAction> }",
+                "}"
+              ]
+            },
+            "hasResolution_to": {
+              "message": "When relationship is hasResolution, to must be an OutOfSpecAction",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasResolution> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <SupplyChain/OutOfSpecAction> }",
+                "}"
+              ]
+            },
+            "hasRoleIn_type": {
+              "message": "When relationship is hasRoleIn, class must be RoleRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasRoleIn> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/RoleRelationship> }",
+                "}"
+              ]
+            },
+            "hasSpecification_type": {
+              "message": "When relationship is hasSpecification, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasSpecification> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "hasStaticLink_type": {
+              "message": "When relationship is hasStaticLink, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasStaticLink> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "hasTest_type": {
+              "message": "When relationship is hasTest, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasTest> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "implementedBy_from": {
+              "message": "When relationship is implementedBy, from must be a Requirement",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/implementedBy> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/Requirement> }",
+                "}"
+              ]
+            },
+            "invokedBy_to": {
+              "message": "When relationship is invokedBy, to must be an Agent",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/invokedBy> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Agent> }",
+                "}"
+              ]
+            },
+            "invokedBy_type": {
+              "message": "When relationship is invokedBy, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/invokedBy> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "performedBy_from": {
+              "message": "When relationship is performedBy, from must be an Action",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/performedBy> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/Action> }",
+                "}"
+              ]
+            },
+            "performedBy_to": {
+              "message": "When relationship is performedBy, to must be an Agent",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/performedBy> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Agent> }",
+                "}"
+              ]
+            },
+            "providesSupportFor_from": {
+              "message": "When relationship is providesSupportFor, from must be an Agent",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/providesSupportFor> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/Agent> }",
+                "}"
+              ]
+            },
+            "providesSupportFor_to": {
+              "message": "When relationship is providesSupportFor, to must be an Artifact",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/providesSupportFor> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Artifact> }",
+                "}"
+              ]
+            },
+            "providesSupportFor_type": {
+              "message": "When relationship is providesSupportFor, class must be SupportRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/providesSupportFor> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/SupportRelationship> }",
+                "}"
+              ]
+            },
+            "publishedBy_from": {
+              "message": "When relationship is publishedBy, from must be a Vulnerability",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/publishedBy> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Security/Vulnerability> }",
+                "}"
+              ]
+            },
+            "publishedBy_to": {
+              "message": "When relationship is publishedBy, to must be an Agent",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/publishedBy> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Agent> }",
+                "}"
+              ]
+            },
+            "reportedBy_from": {
+              "message": "When relationship is reportedBy, from must be a Vulnerability",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/reportedBy> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Security/Vulnerability> }",
+                "}"
+              ]
+            },
+            "reportedBy_to": {
+              "message": "When relationship is reportedBy, to must be an Agent",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/reportedBy> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Agent> }",
+                "}"
+              ]
+            },
+            "republishedBy_from": {
+              "message": "When relationship is republishedBy, from must be a Vulnerability",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/republishedBy> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Security/Vulnerability> }",
+                "}"
+              ]
+            },
+            "republishedBy_to": {
+              "message": "When relationship is republishedBy, to must be an Agent",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/republishedBy> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Agent> }",
+                "}"
+              ]
+            },
+            "resolved_from": {
+              "message": "When relationship is resolved, from must be a ResolutionAction",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/resolved> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <SupplyChain/ResolutionAction> }",
+                "}"
+              ]
+            },
+            "resolved_to": {
+              "message": "When relationship is resolved, to must be an OutOfSpecAction",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/resolved> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <SupplyChain/OutOfSpecAction> }",
+                "}"
+              ]
+            },
+            "runsOn_to": {
+              "message": "When relationship is runsOn, to must be a Hardware",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/runsOn> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Hardware/Hardware> }",
+                "}"
+              ]
+            },
+            "runsOn_type": {
+              "message": "When relationship is runsOn, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/runsOn> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "serializedInArtifact_from": {
+              "message": "When relationship is serializedInArtifact, from must be a SpdxDocument",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/serializedInArtifact> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/SpdxDocument> }",
+                "}"
+              ]
+            },
+            "serializedInArtifact_to": {
+              "message": "When relationship is serializedInArtifact, to must be an Artifact",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/serializedInArtifact> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Artifact> }",
+                "}"
+              ]
+            },
+            "tracedToDetail_from": {
+              "message": "When relationship is tracedToDetail, from must be a Requirement",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/tracedToDetail> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/Requirement> }",
+                "}"
+              ]
+            },
+            "tracedToDetail_to": {
+              "message": "When relationship is tracedToDetail, to must be a Requirement",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/tracedToDetail> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Requirement> }",
+                "}"
+              ]
+            },
+            "underInvestigationFor_from": {
+              "message": "When relationship is underInvestigationFor, from must be a Vulnerability",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/underInvestigationFor> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Security/Vulnerability> }",
+                "}"
+              ]
+            },
+            "underInvestigationFor_type": {
+              "message": "When relationship is underInvestigationFor, class must be VexUnderInvestigationVulnAssessmentRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/underInvestigationFor> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Security/VexUnderInvestigationVulnAssessmentRelationship> }",
+                "}"
+              ]
+            },
+            "usesTool_type": {
+              "message": "When relationship is usesTool, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/usesTool> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
+            "verifiedBy_from": {
+              "message": "When relationship is verifiedBy, from must be a Requirement",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/verifiedBy> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/Requirement> }",
+                "}"
+              ]
+            },
+            "verifiedBy_to": {
+              "message": "When relationship is verifiedBy, to must be a RequirementVerification",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/verifiedBy> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <FunctionalSafety/RequirementVerification> }",
+                "}"
+              ]
+            }
+          },
           "iri": "https://spdx.org/rdf/3/terms/Core/RelationshipType"
         },
         "/Core/ExternalIdentifierType": {
@@ -16105,7 +16777,7 @@
         "/Operations/ExportControlClassification": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "ExportControlClassification",
@@ -16200,7 +16872,7 @@
         "/Operations/Project": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "Project",
@@ -16426,7 +17098,7 @@
         "/Operations/ExportControlClassificationAssessment": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "ExportControlClassificationAssessment",
@@ -16671,7 +17343,7 @@
         "/Operations/assessedElement": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "assessedElement",
@@ -16692,7 +17364,7 @@
         "/Operations/projectOwner": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "projectOwner",
@@ -16713,7 +17385,7 @@
         "/Operations/assessmentTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "assessmentTime",
@@ -16734,7 +17406,7 @@
         "/Operations/assessmentResult": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "assessmentResult",
@@ -16755,7 +17427,7 @@
         "/Operations/projectTitle": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "projectTitle",
@@ -16776,7 +17448,7 @@
         "/Operations/exportClassification": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "exportClassification",
@@ -16797,7 +17469,7 @@
         "/Operations/projectContract": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "projectContract",
@@ -16818,7 +17490,7 @@
         "/Operations/exportControlClassificationResult": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "exportControlClassificationResult",
@@ -16837,7 +17509,7 @@
         "/Operations/assessmentContext": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "assessmentContext",
@@ -16858,7 +17530,7 @@
         "/Operations/assessor": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "assessor",
@@ -16879,7 +17551,7 @@
         "/Operations/exportingCountry": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "exportingCountry",
@@ -16900,7 +17572,7 @@
         "/Operations/exportControlSpecification": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "exportControlSpecification",
@@ -16921,7 +17593,7 @@
         "/Operations/projectSponsor": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "projectSponsor",
@@ -16942,7 +17614,7 @@
         "/Operations/weight": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2622
+            "py/id": 2758
           },
           "license": "Community-Spec-1.0",
           "name": "weight",
@@ -16981,7 +17653,7 @@
         "/FunctionalSafety/SafetyContextRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "SafetyContextRelationship",
@@ -17161,7 +17833,7 @@
         "/FunctionalSafety/Assumption": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "Assumption",
@@ -17311,7 +17983,7 @@
         "/FunctionalSafety/RequirementVerification": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "RequirementVerification",
@@ -17489,7 +18161,7 @@
         "/FunctionalSafety/EvidenceRelationship": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "EvidenceRelationship",
@@ -17674,7 +18346,7 @@
         "/FunctionalSafety/EvaluationResult": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "EvaluationResult",
@@ -17826,7 +18498,7 @@
         "/FunctionalSafety/evidenceUID": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "evidenceUID",
@@ -17847,7 +18519,7 @@
         "/FunctionalSafety/assumptionUID": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "assumptionUID",
@@ -17868,7 +18540,7 @@
         "/FunctionalSafety/evaluationBasedOn": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "evaluationBasedOn",
@@ -17889,7 +18561,7 @@
         "/FunctionalSafety/verificationUID": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "verificationUID",
@@ -17910,7 +18582,7 @@
         "/FunctionalSafety/verificationPrecondition": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "verificationPrecondition",
@@ -17931,7 +18603,7 @@
         "/FunctionalSafety/evaluation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "evaluation",
@@ -17952,7 +18624,7 @@
         "/FunctionalSafety/assumptionStatement": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "assumptionStatement",
@@ -17973,7 +18645,7 @@
         "/FunctionalSafety/safetyIntegrityLevel": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "safetyIntegrityLevel",
@@ -17994,7 +18666,7 @@
         "/FunctionalSafety/evidenceCategory": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "evidenceCategory",
@@ -18015,7 +18687,7 @@
         "/FunctionalSafety/verificationMethod": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "verificationMethod",
@@ -18036,7 +18708,7 @@
         "/FunctionalSafety/verificationPostcondition": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "verificationPostcondition",
@@ -18059,7 +18731,7 @@
         "/FunctionalSafety/VerificationType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "VerificationType",
@@ -18085,7 +18757,7 @@
         "/FunctionalSafety/EvaluationResultType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "EvaluationResultType",
@@ -18106,7 +18778,7 @@
         "/FunctionalSafety/EvidenceType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "EvidenceType",
@@ -18129,7 +18801,7 @@
         "/FunctionalSafety/SafetyIntegrityLevelType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 2773
+            "py/id": 2909
           },
           "license": "Community-Spec-1.0",
           "name": "SafetyIntegrityLevelType",
@@ -18180,7 +18852,7 @@
         "/Dataset/DatasetPackage": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "DatasetPackage",
@@ -18645,7 +19317,7 @@
         "/Dataset/dataPreprocessing": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "dataPreprocessing",
@@ -18666,7 +19338,7 @@
         "/Dataset/datasetUpdateMechanism": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "datasetUpdateMechanism",
@@ -18687,7 +19359,7 @@
         "/Dataset/confidentialityLevel": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "confidentialityLevel",
@@ -18708,7 +19380,7 @@
         "/Dataset/datasetAvailability": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "datasetAvailability",
@@ -18729,7 +19401,7 @@
         "/Dataset/sensor": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "sensor",
@@ -18750,7 +19422,7 @@
         "/Dataset/dataCollectionProcess": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "dataCollectionProcess",
@@ -18771,7 +19443,7 @@
         "/Dataset/intendedUse": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "intendedUse",
@@ -18792,7 +19464,7 @@
         "/Dataset/hasSensitivePersonalInformation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "hasSensitivePersonalInformation",
@@ -18813,7 +19485,7 @@
         "/Dataset/anonymizationMethodUsed": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "anonymizationMethodUsed",
@@ -18834,7 +19506,7 @@
         "/Dataset/datasetSize": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "datasetSize",
@@ -18855,7 +19527,7 @@
         "/Dataset/datasetType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "datasetType",
@@ -18876,7 +19548,7 @@
         "/Dataset/knownBias": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "knownBias",
@@ -18897,7 +19569,7 @@
         "/Dataset/datasetNoise": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "datasetNoise",
@@ -18920,7 +19592,7 @@
         "/Dataset/ConfidentialityLevelType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "ConfidentialityLevelType",
@@ -18943,7 +19615,7 @@
         "/Dataset/DatasetType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "DatasetType",
@@ -18975,7 +19647,7 @@
         "/Dataset/DatasetAvailabilityType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 2971
+            "py/id": 3107
           },
           "license": "Community-Spec-1.0",
           "name": "DatasetAvailabilityType",
@@ -19015,7 +19687,7 @@
         "/Build/Build": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3108
+            "py/id": 3244
           },
           "license": "Community-Spec-1.0",
           "name": "Build",
@@ -19279,7 +19951,7 @@
         "/Build/buildType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3108
+            "py/id": 3244
           },
           "license": "Community-Spec-1.0",
           "name": "buildType",
@@ -19300,7 +19972,7 @@
         "/Build/buildId": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3108
+            "py/id": 3244
           },
           "license": "Community-Spec-1.0",
           "name": "buildId",
@@ -19321,7 +19993,7 @@
         "/Build/parameter": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3108
+            "py/id": 3244
           },
           "license": "Community-Spec-1.0",
           "name": "parameter",
@@ -19342,7 +20014,7 @@
         "/Build/configSourceDigest": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3108
+            "py/id": 3244
           },
           "license": "Community-Spec-1.0",
           "name": "configSourceDigest",
@@ -19363,7 +20035,7 @@
         "/Build/buildEndTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3108
+            "py/id": 3244
           },
           "license": "Community-Spec-1.0",
           "name": "buildEndTime",
@@ -19384,7 +20056,7 @@
         "/Build/configSourceUri": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3108
+            "py/id": 3244
           },
           "license": "Community-Spec-1.0",
           "name": "configSourceUri",
@@ -19405,7 +20077,7 @@
         "/Build/environment": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3108
+            "py/id": 3244
           },
           "license": "Community-Spec-1.0",
           "name": "environment",
@@ -19426,7 +20098,7 @@
         "/Build/buildStartTime": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3108
+            "py/id": 3244
           },
           "license": "Community-Spec-1.0",
           "name": "buildStartTime",
@@ -19447,7 +20119,7 @@
         "/Build/configSourceEntrypoint": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3108
+            "py/id": 3244
           },
           "license": "Community-Spec-1.0",
           "name": "configSourceEntrypoint",
@@ -19486,7 +20158,7 @@
         "/SupplyChain/HarvestAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "HarvestAction",
@@ -19692,7 +20364,7 @@
         "/SupplyChain/StateProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "StateProcess",
@@ -19905,7 +20577,7 @@
         "/SupplyChain/AssemblyProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "AssemblyProcess",
@@ -20103,7 +20775,7 @@
         "/SupplyChain/ResolutionAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "ResolutionAction",
@@ -20313,7 +20985,7 @@
         "/SupplyChain/ReproduceProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "ReproduceProcess",
@@ -20511,7 +21183,7 @@
         "/SupplyChain/BoundaryDefinitionAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "BoundaryDefinitionAction",
@@ -20735,7 +21407,7 @@
         "/SupplyChain/ResponsibilityChangeProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "ResponsibilityChangeProcess",
@@ -20989,7 +21661,7 @@
         "/SupplyChain/StorageAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "StorageAction",
@@ -21202,7 +21874,7 @@
         "/SupplyChain/TransportProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "TransportProcess",
@@ -21443,7 +22115,7 @@
         "/SupplyChain/ChangeProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "ChangeProcess",
@@ -21645,7 +22317,7 @@
         "/SupplyChain/DestroyAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "DestroyAction",
@@ -21875,7 +22547,7 @@
         "/SupplyChain/ModifyAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "ModifyAction",
@@ -22088,7 +22760,7 @@
         "/SupplyChain/TestAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "TestAction",
@@ -22298,7 +22970,7 @@
         "/SupplyChain/OutOfSpecAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "OutOfSpecAction",
@@ -22508,7 +23180,7 @@
         "/SupplyChain/InstantiateVirtualHardwareProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "InstantiateVirtualHardwareProcess",
@@ -22706,7 +23378,7 @@
         "/SupplyChain/ResponsibilityChangeAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "ResponsibilityChangeAction",
@@ -22975,7 +23647,7 @@
         "/SupplyChain/BoundaryCrossingAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "BoundaryCrossingAction",
@@ -23185,7 +23857,7 @@
         "/SupplyChain/ReproduceAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "ReproduceAction",
@@ -23391,7 +24063,7 @@
         "/SupplyChain/ManufactureProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "ManufactureProcess",
@@ -23589,7 +24261,7 @@
         "/SupplyChain/StorageProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "StorageProcess",
@@ -23802,13 +24474,13 @@
         "/SupplyChain/CreateAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "CreateAction",
           "fqname": "/SupplyChain/CreateAction",
-          "summary": "CreationAction represents an event of product creation.",
-          "description": "CreationAction represents the lifecycle event of Product creation. A product could be manufactured, assembled, mined/extracted directly from the nature etc.\n\nRelationship:\n\nFor each `CreateAction` there is at least one `/Core/Relationship` class or subclass with the relationshipType of 'hasOutput\u2019 on the from and a `/Core/Element` class or subclass on the to.",
+          "summary": "CreateAction represents an event of product creation.",
+          "description": "CreateAction represents the lifecycle event of Product creation. A product could be manufactured, assembled, mined/extracted directly from the nature etc.\n\nRelationship:\n\nFor each `CreateAction` there is at least one `/Core/Relationship` class or subclass with the relationshipType of 'hasOutput\u2019 on the from and a `/Core/Element` class or subclass on the to.",
           "metadata": {
             "name": "CreateAction",
             "SubclassOf": "/Core/Action",
@@ -24016,7 +24688,7 @@
         "/SupplyChain/State": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "State",
@@ -24198,7 +24870,7 @@
         "/SupplyChain/PlanAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "PlanAction",
@@ -24408,7 +25080,7 @@
         "/SupplyChain/StateAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "StateAction",
@@ -24643,7 +25315,7 @@
         "/SupplyChain/HarvestProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "HarvestProcess",
@@ -24841,7 +25513,7 @@
         "/SupplyChain/ManufactureAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "ManufactureAction",
@@ -25047,7 +25719,7 @@
         "/SupplyChain/BoundaryDefinitionProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "BoundaryDefinitionProcess",
@@ -25248,7 +25920,7 @@
         "/SupplyChain/TransportAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "TransportAction",
@@ -25497,7 +26169,7 @@
         "/SupplyChain/PlanProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "PlanProcess",
@@ -25695,7 +26367,7 @@
         "/SupplyChain/InspectionProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "InspectionProcess",
@@ -25908,7 +26580,7 @@
         "/SupplyChain/ModifyProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "ModifyProcess",
@@ -26113,7 +26785,7 @@
         "/SupplyChain/AssemblyAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "AssemblyAction",
@@ -26319,7 +26991,7 @@
         "/SupplyChain/CreateProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "CreateProcess",
@@ -26526,7 +27198,7 @@
         "/SupplyChain/DestroyProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "DestroyProcess",
@@ -26727,7 +27399,7 @@
         "/SupplyChain/UseAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "UseAction",
@@ -26944,13 +27616,13 @@
         "/SupplyChain/TestProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "TestProcess",
           "fqname": "/SupplyChain/TestProcess",
           "summary": "Test Process defines the testing process for an element.",
-          "description": "Tests are processes based on requirements. The process's requirements are met by the test process.\n\nRelationship:\n\nFor each `TestProcess` there is at least one `/Core/Relationship` class or subclass with the relationshipType of 'contains\u2019 on the from and a `Requirements` class or subclass on the to.",
+          "description": "Tests are processes based on requirements. The process's requirements are met by the test process.\n\nRelationship:\n\nFor each `TestProcess` there is at least one `/Core/Relationship` class or subclass with the relationshipType of 'contains\u2019 on the from and a `/Core/Requirement` class or subclass on the to.",
           "metadata": {
             "name": "TestProcess",
             "SubclassOf": "UseProcess",
@@ -27142,7 +27814,7 @@
         "/SupplyChain/UseProcess": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "UseProcess",
@@ -27348,7 +28020,7 @@
         "/SupplyChain/ChangeAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "ChangeAction",
@@ -27558,7 +28230,7 @@
         "/SupplyChain/InspectionAction": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "InspectionAction",
@@ -27770,7 +28442,7 @@
         "/SupplyChain/plannedCurrentResponsibleAgent": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "plannedCurrentResponsibleAgent",
@@ -27791,7 +28463,7 @@
         "/SupplyChain/plannedStorageLocation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "plannedStorageLocation",
@@ -27812,7 +28484,7 @@
         "/SupplyChain/responsibilityChangedOn": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "responsibilityChangedOn",
@@ -27833,7 +28505,7 @@
         "/SupplyChain/plannedDropoffLocation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "plannedDropoffLocation",
@@ -27854,7 +28526,7 @@
         "/SupplyChain/decisionProcess": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "decisionProcess",
@@ -27875,7 +28547,7 @@
         "/SupplyChain/plannedPreviousResponsibleAgent": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "plannedPreviousResponsibleAgent",
@@ -27896,7 +28568,7 @@
         "/SupplyChain/destructionPerformedBy": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "destructionPerformedBy",
@@ -27917,7 +28589,7 @@
         "/SupplyChain/currentState": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "currentState",
@@ -27938,7 +28610,7 @@
         "/SupplyChain/plannedPickupLocation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "plannedPickupLocation",
@@ -27959,7 +28631,7 @@
         "/SupplyChain/plannedInspectionLocation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "plannedInspectionLocation",
@@ -27980,7 +28652,7 @@
         "/SupplyChain/dropoffLocation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "dropoffLocation",
@@ -28001,7 +28673,7 @@
         "/SupplyChain/plannedTransportRoute": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "plannedTransportRoute",
@@ -28022,7 +28694,7 @@
         "/SupplyChain/plannedProductOfResponsibilityChange": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "plannedProductOfResponsibilityChange",
@@ -28043,7 +28715,7 @@
         "/SupplyChain/currentResponsibleAgent": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "currentResponsibleAgent",
@@ -28064,7 +28736,7 @@
         "/SupplyChain/responsibilityCategory": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "responsibilityCategory",
@@ -28086,7 +28758,7 @@
         "/SupplyChain/boundaryParameter": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "boundaryParameter",
@@ -28107,7 +28779,7 @@
         "/SupplyChain/pickupLocation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "pickupLocation",
@@ -28128,7 +28800,7 @@
         "/SupplyChain/previousResponsibleAgent": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "previousResponsibleAgent",
@@ -28149,7 +28821,7 @@
         "/SupplyChain/validState": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0.",
           "name": "validState",
@@ -28170,7 +28842,7 @@
         "/SupplyChain/transportRoute": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "transportRoute",
@@ -28193,7 +28865,7 @@
         "/SupplyChain/ResponsibilityType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 3191
+            "py/id": 3327
           },
           "license": "Community-Spec-1.0",
           "name": "ResponsibilityType",
@@ -28230,7 +28902,7 @@
         "/Hardware/BulkHardware": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "BulkHardware",
@@ -28505,7 +29177,7 @@
         "/Hardware/Hardware": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "Hardware",
@@ -28841,7 +29513,7 @@
         "/Hardware/VirtualHardware": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "VirtualHardware",
@@ -29109,7 +29781,7 @@
         "/Hardware/PhysicalHardware": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "PhysicalHardware",
@@ -29405,7 +30077,7 @@
         "/Hardware/ProductSpecification": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "ProductSpecification",
@@ -29629,7 +30301,7 @@
         "/Hardware/Dimensions": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "Dimensions",
@@ -29698,7 +30370,7 @@
         "/Hardware/virtualHardwareModel": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "virtualHardwareModel",
@@ -29719,7 +30391,7 @@
         "/Hardware/additionalInformation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "additionalInformation",
@@ -29740,7 +30412,7 @@
         "/Hardware/partNumber": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "partNumber",
@@ -29762,7 +30434,7 @@
         "/Hardware/zAxisLength": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "zAxisLength",
@@ -29783,7 +30455,7 @@
         "/Hardware/bulkQuantity": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "bulkQuantity",
@@ -29804,7 +30476,7 @@
         "/Hardware/releaseDate": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "releaseDate",
@@ -29825,7 +30497,7 @@
         "/Hardware/centerOfMass": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "centerOfMass",
@@ -29846,7 +30518,7 @@
         "/Hardware/dimensions": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "dimensions",
@@ -29867,7 +30539,7 @@
         "/Hardware/serialNumber": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "serialNumber",
@@ -29888,7 +30560,7 @@
         "/Hardware/hazard": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "hazard",
@@ -29910,7 +30582,7 @@
         "/Hardware/category": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "category",
@@ -29931,7 +30603,7 @@
         "/Hardware/productAgent": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "productAgent",
@@ -29952,7 +30624,7 @@
         "/Hardware/xAxisLength": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "xAxisLength",
@@ -29973,7 +30645,7 @@
         "/Hardware/yAxisLength": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "yAxisLength",
@@ -29994,7 +30666,7 @@
         "/Hardware/massOfHardware": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "massOfHardware",
@@ -30015,7 +30687,7 @@
         "/Hardware/additionalInformationSpecification": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "additionalInformationSpecification",
@@ -30036,7 +30708,7 @@
         "/Hardware/batchNumber": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "batchNumber",
@@ -30059,7 +30731,7 @@
         "/Hardware/VirtualHardwareModelType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 4499
+            "py/id": 4635
           },
           "license": "Community-Spec-1.0",
           "name": "VirtualHardwareModelType",
@@ -30097,7 +30769,7 @@
         "/SimpleLicensing/LicenseExpression": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4797
+            "py/id": 4933
           },
           "license": "Community-Spec-1.0",
           "name": "LicenseExpression",
@@ -30262,7 +30934,7 @@
         "/SimpleLicensing/SimpleLicensingText": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4797
+            "py/id": 4933
           },
           "license": "Community-Spec-1.0",
           "name": "SimpleLicensingText",
@@ -30384,7 +31056,7 @@
         "/SimpleLicensing/AnyLicenseInfo": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4797
+            "py/id": 4933
           },
           "license": "Community-Spec-1.0",
           "name": "AnyLicenseInfo",
@@ -30500,7 +31172,7 @@
         "/SimpleLicensing/licenseExpression": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4797
+            "py/id": 4933
           },
           "license": "Community-Spec-1.0",
           "name": "licenseExpression",
@@ -30521,7 +31193,7 @@
         "/SimpleLicensing/customIdToLicense": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4797
+            "py/id": 4933
           },
           "license": "Community-Spec-1.0",
           "name": "customIdToLicense",
@@ -30542,7 +31214,7 @@
         "/SimpleLicensing/licenseListVersion": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4797
+            "py/id": 4933
           },
           "license": "Community-Spec-1.0",
           "name": "licenseListVersion",
@@ -30563,7 +31235,7 @@
         "/SimpleLicensing/customIdToUri": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4797
+            "py/id": 4933
           },
           "license": "Community-Spec-1.0",
           "name": "customIdToUri",
@@ -30584,7 +31256,7 @@
         "/SimpleLicensing/licenseText": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4797
+            "py/id": 4933
           },
           "license": "Community-Spec-1.0",
           "name": "licenseText",
@@ -30624,7 +31296,7 @@
         "/AI/EnergyConsumption": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "EnergyConsumption",
@@ -30691,7 +31363,7 @@
         "/AI/AIPackage": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "AIPackage",
@@ -31190,7 +31862,7 @@
         "/AI/InteractionTemplate": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "InteractionTemplate",
@@ -31391,7 +32063,7 @@
         "/AI/EnergyConsumptionDescription": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "EnergyConsumptionDescription",
@@ -31446,7 +32118,7 @@
         "/AI/energyConsumption": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "energyConsumption",
@@ -31467,7 +32139,7 @@
         "/AI/energyQuantity": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "energyQuantity",
@@ -31488,7 +32160,7 @@
         "/AI/trainingEnergyConsumption": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "trainingEnergyConsumption",
@@ -31509,7 +32181,7 @@
         "/AI/modelExplainability": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "modelExplainability",
@@ -31530,7 +32202,7 @@
         "/AI/informationAboutTraining": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "informationAboutTraining",
@@ -31551,7 +32223,7 @@
         "/AI/inferenceEnergyConsumption": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "inferenceEnergyConsumption",
@@ -31572,7 +32244,7 @@
         "/AI/finetuningEnergyConsumption": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "finetuningEnergyConsumption",
@@ -31593,7 +32265,7 @@
         "/AI/safetyRiskAssessment": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "safetyRiskAssessment",
@@ -31614,7 +32286,7 @@
         "/AI/interactionTemplateString": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "interactionTemplateString",
@@ -31635,7 +32307,7 @@
         "/AI/limitation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "limitation",
@@ -31656,7 +32328,7 @@
         "/AI/informationAboutApplication": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "informationAboutApplication",
@@ -31677,7 +32349,7 @@
         "/AI/modelDataPreprocessing": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "modelDataPreprocessing",
@@ -31698,7 +32370,7 @@
         "/AI/metric": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "metric",
@@ -31719,7 +32391,7 @@
         "/AI/metricDecisionThreshold": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "metricDecisionThreshold",
@@ -31740,7 +32412,7 @@
         "/AI/energyUnit": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "energyUnit",
@@ -31761,7 +32433,7 @@
         "/AI/hyperparameter": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "hyperparameter",
@@ -31782,7 +32454,7 @@
         "/AI/typeOfModel": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "typeOfModel",
@@ -31803,7 +32475,7 @@
         "/AI/domain": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "domain",
@@ -31824,7 +32496,7 @@
         "/AI/useSensitivePersonalInformation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "useSensitivePersonalInformation",
@@ -31845,13 +32517,13 @@
         "/AI/standardCompliance": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "standardCompliance",
           "fqname": "/AI/standardCompliance",
-          "summary": "A standard with which the artifact complies.",
-          "description": "A free-form textual description that captures a standard with which the\nartifact complies.\n\nThe standard may, but is not necessarily required to, satisfy a legal or\nregulatory requirement.\n\nIf the artifact is using a standard as a reference or guideline, but not\nnecessarily compliant with it, use the `/Core/standardName` property instead.\n\nFor a detailed compliance information, please consider defining\na `/Core/Relationship` with \"conformsTo\" relationship type to\na `/Core/Regulation`.",
+          "summary": "**DEPRECATED in SPDX 3.1.**\nUse [/Core/Relationship](../../Core/Classes/Relationship.md)\nwith \"conformsTo\" relationship type instead.\n\nA standard with which the artifact complies.",
+          "description": "**NOTE:**\nThis property is deprecated and only included for backward compatibility.\nNew documents should use\na [/Core/Relationship](../../Core/Classes/Relationship.md)\nwith \"conformsTo\" relationship type to\na [/Core/Specification](../../Core/Classes/Specification.md)\ninstead.\n\nA free-form textual description that captures a standard with which the\nartifact complies.\n\nThe standard can, but is not necessarily required to, satisfy a legal or\nregulatory requirement.\n\nIf the artifact is using a standard as a reference or guideline, but not\nnecessarily compliant with it, use the `/Core/standardName` property instead.",
           "metadata": {
             "name": "standardCompliance",
             "Nature": "DataProperty",
@@ -31866,7 +32538,7 @@
         "/AI/autonomyType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "autonomyType",
@@ -31887,7 +32559,7 @@
         "/AI/interactionTemplateDictionary": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "interactionTemplateDictionary",
@@ -31910,7 +32582,7 @@
         "/AI/SafetyRiskAssessmentType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "SafetyRiskAssessmentType",
@@ -31932,7 +32604,7 @@
         "/AI/EnergyUnitType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 4888
+            "py/id": 5024
           },
           "license": "Community-Spec-1.0",
           "name": "EnergyUnitType",
@@ -32225,190 +32897,190 @@
       "py/id": 2143
     },
     "/Operations/ExportControlClassification": {
-      "py/id": 2624
+      "py/id": 2760
     },
     "/Operations/Project": {
-      "py/id": 2642
+      "py/id": 2778
     },
     "/Operations/ExportControlClassificationAssessment": {
-      "py/id": 2676
+      "py/id": 2812
     },
     "/FunctionalSafety/SafetyContextRelationship": {
-      "py/id": 2775
+      "py/id": 2911
     },
     "/FunctionalSafety/Assumption": {
-      "py/id": 2802
+      "py/id": 2938
     },
     "/FunctionalSafety/RequirementVerification": {
-      "py/id": 2826
+      "py/id": 2962
     },
     "/FunctionalSafety/EvidenceRelationship": {
-      "py/id": 2854
+      "py/id": 2990
     },
     "/FunctionalSafety/EvaluationResult": {
-      "py/id": 2882
+      "py/id": 3018
     },
     "/Dataset/DatasetPackage": {
-      "py/id": 2973
+      "py/id": 3109
     },
     "/Build/Build": {
-      "py/id": 3110
+      "py/id": 3246
     },
     "/SupplyChain/HarvestAction": {
-      "py/id": 3193
+      "py/id": 3329
     },
     "/SupplyChain/StateProcess": {
-      "py/id": 3223
+      "py/id": 3359
     },
     "/SupplyChain/AssemblyProcess": {
-      "py/id": 3254
+      "py/id": 3390
     },
     "/SupplyChain/ResolutionAction": {
-      "py/id": 3283
+      "py/id": 3419
     },
     "/SupplyChain/ReproduceProcess": {
-      "py/id": 3314
+      "py/id": 3450
     },
     "/SupplyChain/BoundaryDefinitionAction": {
-      "py/id": 3343
+      "py/id": 3479
     },
     "/SupplyChain/ResponsibilityChangeProcess": {
-      "py/id": 3376
+      "py/id": 3512
     },
     "/SupplyChain/StorageAction": {
-      "py/id": 3413
+      "py/id": 3549
     },
     "/SupplyChain/TransportProcess": {
-      "py/id": 3445
+      "py/id": 3581
     },
     "/SupplyChain/ChangeProcess": {
-      "py/id": 3480
+      "py/id": 3616
     },
     "/SupplyChain/DestroyAction": {
-      "py/id": 3510
+      "py/id": 3646
     },
     "/SupplyChain/ModifyAction": {
-      "py/id": 3545
+      "py/id": 3681
     },
     "/SupplyChain/TestAction": {
-      "py/id": 3576
+      "py/id": 3712
     },
     "/SupplyChain/OutOfSpecAction": {
-      "py/id": 3607
+      "py/id": 3743
     },
     "/SupplyChain/InstantiateVirtualHardwareProcess": {
-      "py/id": 3638
+      "py/id": 3774
     },
     "/SupplyChain/ResponsibilityChangeAction": {
-      "py/id": 3667
+      "py/id": 3803
     },
     "/SupplyChain/BoundaryCrossingAction": {
-      "py/id": 3707
+      "py/id": 3843
     },
     "/SupplyChain/ReproduceAction": {
-      "py/id": 3738
+      "py/id": 3874
     },
     "/SupplyChain/ManufactureProcess": {
-      "py/id": 3768
+      "py/id": 3904
     },
     "/SupplyChain/StorageProcess": {
-      "py/id": 3797
+      "py/id": 3933
     },
     "/SupplyChain/CreateAction": {
-      "py/id": 3828
+      "py/id": 3964
     },
     "/SupplyChain/State": {
-      "py/id": 3859
+      "py/id": 3995
     },
     "/SupplyChain/PlanAction": {
-      "py/id": 3888
+      "py/id": 4024
     },
     "/SupplyChain/StateAction": {
-      "py/id": 3919
+      "py/id": 4055
     },
     "/SupplyChain/HarvestProcess": {
-      "py/id": 3953
+      "py/id": 4089
     },
     "/SupplyChain/ManufactureAction": {
-      "py/id": 3982
+      "py/id": 4118
     },
     "/SupplyChain/BoundaryDefinitionProcess": {
-      "py/id": 4012
+      "py/id": 4148
     },
     "/SupplyChain/TransportAction": {
-      "py/id": 4042
+      "py/id": 4178
     },
     "/SupplyChain/PlanProcess": {
-      "py/id": 4078
+      "py/id": 4214
     },
     "/SupplyChain/InspectionProcess": {
-      "py/id": 4107
+      "py/id": 4243
     },
     "/SupplyChain/ModifyProcess": {
-      "py/id": 4138
+      "py/id": 4274
     },
     "/SupplyChain/AssemblyAction": {
-      "py/id": 4168
+      "py/id": 4304
     },
     "/SupplyChain/CreateProcess": {
-      "py/id": 4198
+      "py/id": 4334
     },
     "/SupplyChain/DestroyProcess": {
-      "py/id": 4228
+      "py/id": 4364
     },
     "/SupplyChain/UseAction": {
-      "py/id": 4258
+      "py/id": 4394
     },
     "/SupplyChain/TestProcess": {
-      "py/id": 4289
+      "py/id": 4425
     },
     "/SupplyChain/UseProcess": {
-      "py/id": 4318
+      "py/id": 4454
     },
     "/SupplyChain/ChangeAction": {
-      "py/id": 4348
+      "py/id": 4484
     },
     "/SupplyChain/InspectionAction": {
-      "py/id": 4379
+      "py/id": 4515
     },
     "/Hardware/BulkHardware": {
-      "py/id": 4501
+      "py/id": 4637
     },
     "/Hardware/Hardware": {
-      "py/id": 4541
+      "py/id": 4677
     },
     "/Hardware/VirtualHardware": {
-      "py/id": 4593
+      "py/id": 4729
     },
     "/Hardware/PhysicalHardware": {
-      "py/id": 4631
+      "py/id": 4767
     },
     "/Hardware/ProductSpecification": {
-      "py/id": 4673
+      "py/id": 4809
     },
     "/Hardware/Dimensions": {
-      "py/id": 4706
+      "py/id": 4842
     },
     "/SimpleLicensing/LicenseExpression": {
-      "py/id": 4799
+      "py/id": 4935
     },
     "/SimpleLicensing/SimpleLicensingText": {
-      "py/id": 4825
+      "py/id": 4961
     },
     "/SimpleLicensing/AnyLicenseInfo": {
-      "py/id": 4845
+      "py/id": 4981
     },
     "/AI/EnergyConsumption": {
-      "py/id": 4890
+      "py/id": 5026
     },
     "/AI/AIPackage": {
-      "py/id": 4904
+      "py/id": 5040
     },
     "/AI/InteractionTemplate": {
-      "py/id": 4975
+      "py/id": 5111
     },
     "/AI/EnergyConsumptionDescription": {
-      "py/id": 5005
+      "py/id": 5141
     }
   },
   "properties": {
@@ -32872,337 +33544,337 @@
       "py/id": 2530
     },
     "/Operations/assessedElement": {
-      "py/id": 2713
+      "py/id": 2849
     },
     "/Operations/projectOwner": {
-      "py/id": 2717
+      "py/id": 2853
     },
     "/Operations/assessmentTime": {
-      "py/id": 2721
+      "py/id": 2857
     },
     "/Operations/assessmentResult": {
-      "py/id": 2725
+      "py/id": 2861
     },
     "/Operations/projectTitle": {
-      "py/id": 2729
+      "py/id": 2865
     },
     "/Operations/exportClassification": {
-      "py/id": 2733
+      "py/id": 2869
     },
     "/Operations/projectContract": {
-      "py/id": 2737
+      "py/id": 2873
     },
     "/Operations/exportControlClassificationResult": {
-      "py/id": 2741
+      "py/id": 2877
     },
     "/Operations/assessmentContext": {
-      "py/id": 2745
+      "py/id": 2881
     },
     "/Operations/assessor": {
-      "py/id": 2749
+      "py/id": 2885
     },
     "/Operations/exportingCountry": {
-      "py/id": 2753
+      "py/id": 2889
     },
     "/Operations/exportControlSpecification": {
-      "py/id": 2757
+      "py/id": 2893
     },
     "/Operations/projectSponsor": {
-      "py/id": 2761
+      "py/id": 2897
     },
     "/Operations/weight": {
-      "py/id": 2765
+      "py/id": 2901
     },
     "/FunctionalSafety/evidenceUID": {
-      "py/id": 2907
+      "py/id": 3043
     },
     "/FunctionalSafety/assumptionUID": {
-      "py/id": 2911
+      "py/id": 3047
     },
     "/FunctionalSafety/evaluationBasedOn": {
-      "py/id": 2915
+      "py/id": 3051
     },
     "/FunctionalSafety/verificationUID": {
-      "py/id": 2919
+      "py/id": 3055
     },
     "/FunctionalSafety/verificationPrecondition": {
-      "py/id": 2923
+      "py/id": 3059
     },
     "/FunctionalSafety/evaluation": {
-      "py/id": 2927
+      "py/id": 3063
     },
     "/FunctionalSafety/assumptionStatement": {
-      "py/id": 2931
+      "py/id": 3067
     },
     "/FunctionalSafety/safetyIntegrityLevel": {
-      "py/id": 2935
+      "py/id": 3071
     },
     "/FunctionalSafety/evidenceCategory": {
-      "py/id": 2939
+      "py/id": 3075
     },
     "/FunctionalSafety/verificationMethod": {
-      "py/id": 2943
+      "py/id": 3079
     },
     "/FunctionalSafety/verificationPostcondition": {
-      "py/id": 2947
+      "py/id": 3083
     },
     "/Dataset/dataPreprocessing": {
-      "py/id": 3040
+      "py/id": 3176
     },
     "/Dataset/datasetUpdateMechanism": {
-      "py/id": 3044
+      "py/id": 3180
     },
     "/Dataset/confidentialityLevel": {
-      "py/id": 3048
+      "py/id": 3184
     },
     "/Dataset/datasetAvailability": {
-      "py/id": 3052
+      "py/id": 3188
     },
     "/Dataset/sensor": {
-      "py/id": 3056
+      "py/id": 3192
     },
     "/Dataset/dataCollectionProcess": {
-      "py/id": 3060
+      "py/id": 3196
     },
     "/Dataset/intendedUse": {
-      "py/id": 3064
+      "py/id": 3200
     },
     "/Dataset/hasSensitivePersonalInformation": {
-      "py/id": 3068
+      "py/id": 3204
     },
     "/Dataset/anonymizationMethodUsed": {
-      "py/id": 3072
+      "py/id": 3208
     },
     "/Dataset/datasetSize": {
-      "py/id": 3076
+      "py/id": 3212
     },
     "/Dataset/datasetType": {
-      "py/id": 3080
+      "py/id": 3216
     },
     "/Dataset/knownBias": {
-      "py/id": 3084
+      "py/id": 3220
     },
     "/Dataset/datasetNoise": {
-      "py/id": 3088
+      "py/id": 3224
     },
     "/Build/buildType": {
-      "py/id": 3151
+      "py/id": 3287
     },
     "/Build/buildId": {
-      "py/id": 3155
+      "py/id": 3291
     },
     "/Build/parameter": {
-      "py/id": 3159
+      "py/id": 3295
     },
     "/Build/configSourceDigest": {
-      "py/id": 3163
+      "py/id": 3299
     },
     "/Build/buildEndTime": {
-      "py/id": 3167
+      "py/id": 3303
     },
     "/Build/configSourceUri": {
-      "py/id": 3171
+      "py/id": 3307
     },
     "/Build/environment": {
-      "py/id": 3175
+      "py/id": 3311
     },
     "/Build/buildStartTime": {
-      "py/id": 3179
+      "py/id": 3315
     },
     "/Build/configSourceEntrypoint": {
-      "py/id": 3183
+      "py/id": 3319
     },
     "/SupplyChain/plannedCurrentResponsibleAgent": {
-      "py/id": 4411
+      "py/id": 4547
     },
     "/SupplyChain/plannedStorageLocation": {
-      "py/id": 4415
+      "py/id": 4551
     },
     "/SupplyChain/responsibilityChangedOn": {
-      "py/id": 4419
+      "py/id": 4555
     },
     "/SupplyChain/plannedDropoffLocation": {
-      "py/id": 4423
+      "py/id": 4559
     },
     "/SupplyChain/decisionProcess": {
-      "py/id": 4427
+      "py/id": 4563
     },
     "/SupplyChain/plannedPreviousResponsibleAgent": {
-      "py/id": 4431
+      "py/id": 4567
     },
     "/SupplyChain/destructionPerformedBy": {
-      "py/id": 4435
+      "py/id": 4571
     },
     "/SupplyChain/currentState": {
-      "py/id": 4439
+      "py/id": 4575
     },
     "/SupplyChain/plannedPickupLocation": {
-      "py/id": 4443
+      "py/id": 4579
     },
     "/SupplyChain/plannedInspectionLocation": {
-      "py/id": 4447
+      "py/id": 4583
     },
     "/SupplyChain/dropoffLocation": {
-      "py/id": 4451
+      "py/id": 4587
     },
     "/SupplyChain/plannedTransportRoute": {
-      "py/id": 4455
+      "py/id": 4591
     },
     "/SupplyChain/plannedProductOfResponsibilityChange": {
-      "py/id": 4459
+      "py/id": 4595
     },
     "/SupplyChain/currentResponsibleAgent": {
-      "py/id": 4463
+      "py/id": 4599
     },
     "/SupplyChain/responsibilityCategory": {
-      "py/id": 4467
+      "py/id": 4603
     },
     "/SupplyChain/boundaryParameter": {
-      "py/id": 4471
+      "py/id": 4607
     },
     "/SupplyChain/pickupLocation": {
-      "py/id": 4475
+      "py/id": 4611
     },
     "/SupplyChain/previousResponsibleAgent": {
-      "py/id": 4479
+      "py/id": 4615
     },
     "/SupplyChain/validState": {
-      "py/id": 4483
+      "py/id": 4619
     },
     "/SupplyChain/transportRoute": {
-      "py/id": 4487
+      "py/id": 4623
     },
     "/Hardware/virtualHardwareModel": {
-      "py/id": 4721
+      "py/id": 4857
     },
     "/Hardware/additionalInformation": {
-      "py/id": 4725
+      "py/id": 4861
     },
     "/Hardware/partNumber": {
-      "py/id": 4729
+      "py/id": 4865
     },
     "/Hardware/zAxisLength": {
-      "py/id": 4733
+      "py/id": 4869
     },
     "/Hardware/bulkQuantity": {
-      "py/id": 4737
+      "py/id": 4873
     },
     "/Hardware/releaseDate": {
-      "py/id": 4741
+      "py/id": 4877
     },
     "/Hardware/centerOfMass": {
-      "py/id": 4745
+      "py/id": 4881
     },
     "/Hardware/dimensions": {
-      "py/id": 4749
+      "py/id": 4885
     },
     "/Hardware/serialNumber": {
-      "py/id": 4753
+      "py/id": 4889
     },
     "/Hardware/hazard": {
-      "py/id": 4757
+      "py/id": 4893
     },
     "/Hardware/category": {
-      "py/id": 4761
+      "py/id": 4897
     },
     "/Hardware/productAgent": {
-      "py/id": 4765
+      "py/id": 4901
     },
     "/Hardware/xAxisLength": {
-      "py/id": 4769
+      "py/id": 4905
     },
     "/Hardware/yAxisLength": {
-      "py/id": 4773
+      "py/id": 4909
     },
     "/Hardware/massOfHardware": {
-      "py/id": 4777
+      "py/id": 4913
     },
     "/Hardware/additionalInformationSpecification": {
-      "py/id": 4781
+      "py/id": 4917
     },
     "/Hardware/batchNumber": {
-      "py/id": 4785
+      "py/id": 4921
     },
     "/SimpleLicensing/licenseExpression": {
-      "py/id": 4864
+      "py/id": 5000
     },
     "/SimpleLicensing/customIdToLicense": {
-      "py/id": 4868
+      "py/id": 5004
     },
     "/SimpleLicensing/licenseListVersion": {
-      "py/id": 4872
+      "py/id": 5008
     },
     "/SimpleLicensing/customIdToUri": {
-      "py/id": 4876
+      "py/id": 5012
     },
     "/SimpleLicensing/licenseText": {
-      "py/id": 4880
+      "py/id": 5016
     },
     "/AI/energyConsumption": {
-      "py/id": 5018
+      "py/id": 5154
     },
     "/AI/energyQuantity": {
-      "py/id": 5022
+      "py/id": 5158
     },
     "/AI/trainingEnergyConsumption": {
-      "py/id": 5026
+      "py/id": 5162
     },
     "/AI/modelExplainability": {
-      "py/id": 5030
+      "py/id": 5166
     },
     "/AI/informationAboutTraining": {
-      "py/id": 5034
+      "py/id": 5170
     },
     "/AI/inferenceEnergyConsumption": {
-      "py/id": 5038
+      "py/id": 5174
     },
     "/AI/finetuningEnergyConsumption": {
-      "py/id": 5042
+      "py/id": 5178
     },
     "/AI/safetyRiskAssessment": {
-      "py/id": 5046
+      "py/id": 5182
     },
     "/AI/interactionTemplateString": {
-      "py/id": 5050
+      "py/id": 5186
     },
     "/AI/limitation": {
-      "py/id": 5054
+      "py/id": 5190
     },
     "/AI/informationAboutApplication": {
-      "py/id": 5058
+      "py/id": 5194
     },
     "/AI/modelDataPreprocessing": {
-      "py/id": 5062
+      "py/id": 5198
     },
     "/AI/metric": {
-      "py/id": 5066
+      "py/id": 5202
     },
     "/AI/metricDecisionThreshold": {
-      "py/id": 5070
+      "py/id": 5206
     },
     "/AI/energyUnit": {
-      "py/id": 5074
+      "py/id": 5210
     },
     "/AI/hyperparameter": {
-      "py/id": 5078
+      "py/id": 5214
     },
     "/AI/typeOfModel": {
-      "py/id": 5082
+      "py/id": 5218
     },
     "/AI/domain": {
-      "py/id": 5086
+      "py/id": 5222
     },
     "/AI/useSensitivePersonalInformation": {
-      "py/id": 5090
+      "py/id": 5226
     },
     "/AI/standardCompliance": {
-      "py/id": 5094
+      "py/id": 5230
     },
     "/AI/autonomyType": {
-      "py/id": 5098
+      "py/id": 5234
     },
     "/AI/interactionTemplateDictionary": {
-      "py/id": 5102
+      "py/id": 5238
     }
   },
   "vocabularies": {
@@ -33254,10 +33926,10 @@
     "/Core/ExternalRefType": {
       "py/id": 2559
     },
-    "/Core/LifecycleScopeType": {
+    "/Core/ContactType": {
       "py/id": 2563
     },
-    "/Core/ContactPointRelationshipType": {
+    "/Core/LifecycleScopeType": {
       "py/id": 2567
     },
     "/Core/HashAlgorithm": {
@@ -33267,49 +33939,49 @@
       "py/id": 2575
     },
     "/Core/ExternalIdentifierType": {
-      "py/id": 2579
+      "py/id": 2715
     },
     "/Core/ProfileIdentifierType": {
-      "py/id": 2583
+      "py/id": 2719
     },
     "/Core/SupportType": {
-      "py/id": 2587
+      "py/id": 2723
     },
     "/Core/SpecificationType": {
-      "py/id": 2591
+      "py/id": 2727
     },
     "/FunctionalSafety/VerificationType": {
-      "py/id": 2952
+      "py/id": 3088
     },
     "/FunctionalSafety/EvaluationResultType": {
-      "py/id": 2956
+      "py/id": 3092
     },
     "/FunctionalSafety/EvidenceType": {
-      "py/id": 2960
+      "py/id": 3096
     },
     "/FunctionalSafety/SafetyIntegrityLevelType": {
-      "py/id": 2964
+      "py/id": 3100
     },
     "/Dataset/ConfidentialityLevelType": {
-      "py/id": 3093
+      "py/id": 3229
     },
     "/Dataset/DatasetType": {
-      "py/id": 3097
+      "py/id": 3233
     },
     "/Dataset/DatasetAvailabilityType": {
-      "py/id": 3101
+      "py/id": 3237
     },
     "/SupplyChain/ResponsibilityType": {
-      "py/id": 4492
+      "py/id": 4628
     },
     "/Hardware/VirtualHardwareModelType": {
-      "py/id": 4790
+      "py/id": 4926
     },
     "/AI/SafetyRiskAssessmentType": {
-      "py/id": 5107
+      "py/id": 5243
     },
     "/AI/EnergyUnitType": {
-      "py/id": 5111
+      "py/id": 5247
     }
   },
   "individuals": {
@@ -33320,30 +33992,30 @@
       "py/id": 1303
     },
     "/Core/SpdxOrganization": {
-      "py/id": 2596
+      "py/id": 2732
     },
     "/Core/NoAssertionElement": {
-      "py/id": 2599
+      "py/id": 2735
     },
     "/Core/NoneElement": {
-      "py/id": 2602
+      "py/id": 2738
     }
   },
   "datatypes": {
     "/Core/CountryCodeAlpha3": {
-      "py/id": 2606
+      "py/id": 2742
     },
     "/Core/MediaType": {
-      "py/id": 2609
+      "py/id": 2745
     },
     "/Core/LanguageTag": {
-      "py/id": 2612
+      "py/id": 2748
     },
     "/Core/DateTime": {
-      "py/id": 2615
+      "py/id": 2751
     },
     "/Core/VersionNumber": {
-      "py/id": 2618
+      "py/id": 2754
     }
   },
   "types": {
@@ -33570,190 +34242,190 @@
       "py/id": 2143
     },
     "/Operations/ExportControlClassification": {
-      "py/id": 2624
+      "py/id": 2760
     },
     "/Operations/Project": {
-      "py/id": 2642
+      "py/id": 2778
     },
     "/Operations/ExportControlClassificationAssessment": {
-      "py/id": 2676
+      "py/id": 2812
     },
     "/FunctionalSafety/SafetyContextRelationship": {
-      "py/id": 2775
+      "py/id": 2911
     },
     "/FunctionalSafety/Assumption": {
-      "py/id": 2802
+      "py/id": 2938
     },
     "/FunctionalSafety/RequirementVerification": {
-      "py/id": 2826
+      "py/id": 2962
     },
     "/FunctionalSafety/EvidenceRelationship": {
-      "py/id": 2854
+      "py/id": 2990
     },
     "/FunctionalSafety/EvaluationResult": {
-      "py/id": 2882
+      "py/id": 3018
     },
     "/Dataset/DatasetPackage": {
-      "py/id": 2973
+      "py/id": 3109
     },
     "/Build/Build": {
-      "py/id": 3110
+      "py/id": 3246
     },
     "/SupplyChain/HarvestAction": {
-      "py/id": 3193
+      "py/id": 3329
     },
     "/SupplyChain/StateProcess": {
-      "py/id": 3223
+      "py/id": 3359
     },
     "/SupplyChain/AssemblyProcess": {
-      "py/id": 3254
+      "py/id": 3390
     },
     "/SupplyChain/ResolutionAction": {
-      "py/id": 3283
+      "py/id": 3419
     },
     "/SupplyChain/ReproduceProcess": {
-      "py/id": 3314
+      "py/id": 3450
     },
     "/SupplyChain/BoundaryDefinitionAction": {
-      "py/id": 3343
+      "py/id": 3479
     },
     "/SupplyChain/ResponsibilityChangeProcess": {
-      "py/id": 3376
+      "py/id": 3512
     },
     "/SupplyChain/StorageAction": {
-      "py/id": 3413
+      "py/id": 3549
     },
     "/SupplyChain/TransportProcess": {
-      "py/id": 3445
+      "py/id": 3581
     },
     "/SupplyChain/ChangeProcess": {
-      "py/id": 3480
+      "py/id": 3616
     },
     "/SupplyChain/DestroyAction": {
-      "py/id": 3510
+      "py/id": 3646
     },
     "/SupplyChain/ModifyAction": {
-      "py/id": 3545
+      "py/id": 3681
     },
     "/SupplyChain/TestAction": {
-      "py/id": 3576
+      "py/id": 3712
     },
     "/SupplyChain/OutOfSpecAction": {
-      "py/id": 3607
+      "py/id": 3743
     },
     "/SupplyChain/InstantiateVirtualHardwareProcess": {
-      "py/id": 3638
+      "py/id": 3774
     },
     "/SupplyChain/ResponsibilityChangeAction": {
-      "py/id": 3667
+      "py/id": 3803
     },
     "/SupplyChain/BoundaryCrossingAction": {
-      "py/id": 3707
+      "py/id": 3843
     },
     "/SupplyChain/ReproduceAction": {
-      "py/id": 3738
+      "py/id": 3874
     },
     "/SupplyChain/ManufactureProcess": {
-      "py/id": 3768
+      "py/id": 3904
     },
     "/SupplyChain/StorageProcess": {
-      "py/id": 3797
+      "py/id": 3933
     },
     "/SupplyChain/CreateAction": {
-      "py/id": 3828
+      "py/id": 3964
     },
     "/SupplyChain/State": {
-      "py/id": 3859
+      "py/id": 3995
     },
     "/SupplyChain/PlanAction": {
-      "py/id": 3888
+      "py/id": 4024
     },
     "/SupplyChain/StateAction": {
-      "py/id": 3919
+      "py/id": 4055
     },
     "/SupplyChain/HarvestProcess": {
-      "py/id": 3953
+      "py/id": 4089
     },
     "/SupplyChain/ManufactureAction": {
-      "py/id": 3982
+      "py/id": 4118
     },
     "/SupplyChain/BoundaryDefinitionProcess": {
-      "py/id": 4012
+      "py/id": 4148
     },
     "/SupplyChain/TransportAction": {
-      "py/id": 4042
+      "py/id": 4178
     },
     "/SupplyChain/PlanProcess": {
-      "py/id": 4078
+      "py/id": 4214
     },
     "/SupplyChain/InspectionProcess": {
-      "py/id": 4107
+      "py/id": 4243
     },
     "/SupplyChain/ModifyProcess": {
-      "py/id": 4138
+      "py/id": 4274
     },
     "/SupplyChain/AssemblyAction": {
-      "py/id": 4168
+      "py/id": 4304
     },
     "/SupplyChain/CreateProcess": {
-      "py/id": 4198
+      "py/id": 4334
     },
     "/SupplyChain/DestroyProcess": {
-      "py/id": 4228
+      "py/id": 4364
     },
     "/SupplyChain/UseAction": {
-      "py/id": 4258
+      "py/id": 4394
     },
     "/SupplyChain/TestProcess": {
-      "py/id": 4289
+      "py/id": 4425
     },
     "/SupplyChain/UseProcess": {
-      "py/id": 4318
+      "py/id": 4454
     },
     "/SupplyChain/ChangeAction": {
-      "py/id": 4348
+      "py/id": 4484
     },
     "/SupplyChain/InspectionAction": {
-      "py/id": 4379
+      "py/id": 4515
     },
     "/Hardware/BulkHardware": {
-      "py/id": 4501
+      "py/id": 4637
     },
     "/Hardware/Hardware": {
-      "py/id": 4541
+      "py/id": 4677
     },
     "/Hardware/VirtualHardware": {
-      "py/id": 4593
+      "py/id": 4729
     },
     "/Hardware/PhysicalHardware": {
-      "py/id": 4631
+      "py/id": 4767
     },
     "/Hardware/ProductSpecification": {
-      "py/id": 4673
+      "py/id": 4809
     },
     "/Hardware/Dimensions": {
-      "py/id": 4706
+      "py/id": 4842
     },
     "/SimpleLicensing/LicenseExpression": {
-      "py/id": 4799
+      "py/id": 4935
     },
     "/SimpleLicensing/SimpleLicensingText": {
-      "py/id": 4825
+      "py/id": 4961
     },
     "/SimpleLicensing/AnyLicenseInfo": {
-      "py/id": 4845
+      "py/id": 4981
     },
     "/AI/EnergyConsumption": {
-      "py/id": 4890
+      "py/id": 5026
     },
     "/AI/AIPackage": {
-      "py/id": 4904
+      "py/id": 5040
     },
     "/AI/InteractionTemplate": {
-      "py/id": 4975
+      "py/id": 5111
     },
     "/AI/EnergyConsumptionDescription": {
-      "py/id": 5005
+      "py/id": 5141
     },
     "/Software/SbomType": {
       "py/id": 277
@@ -33803,10 +34475,10 @@
     "/Core/ExternalRefType": {
       "py/id": 2559
     },
-    "/Core/LifecycleScopeType": {
+    "/Core/ContactType": {
       "py/id": 2563
     },
-    "/Core/ContactPointRelationshipType": {
+    "/Core/LifecycleScopeType": {
       "py/id": 2567
     },
     "/Core/HashAlgorithm": {
@@ -33816,64 +34488,64 @@
       "py/id": 2575
     },
     "/Core/ExternalIdentifierType": {
-      "py/id": 2579
+      "py/id": 2715
     },
     "/Core/ProfileIdentifierType": {
-      "py/id": 2583
+      "py/id": 2719
     },
     "/Core/SupportType": {
-      "py/id": 2587
+      "py/id": 2723
     },
     "/Core/SpecificationType": {
-      "py/id": 2591
+      "py/id": 2727
     },
     "/FunctionalSafety/VerificationType": {
-      "py/id": 2952
+      "py/id": 3088
     },
     "/FunctionalSafety/EvaluationResultType": {
-      "py/id": 2956
+      "py/id": 3092
     },
     "/FunctionalSafety/EvidenceType": {
-      "py/id": 2960
+      "py/id": 3096
     },
     "/FunctionalSafety/SafetyIntegrityLevelType": {
-      "py/id": 2964
+      "py/id": 3100
     },
     "/Dataset/ConfidentialityLevelType": {
-      "py/id": 3093
+      "py/id": 3229
     },
     "/Dataset/DatasetType": {
-      "py/id": 3097
+      "py/id": 3233
     },
     "/Dataset/DatasetAvailabilityType": {
-      "py/id": 3101
+      "py/id": 3237
     },
     "/SupplyChain/ResponsibilityType": {
-      "py/id": 4492
+      "py/id": 4628
     },
     "/Hardware/VirtualHardwareModelType": {
-      "py/id": 4790
+      "py/id": 4926
     },
     "/AI/SafetyRiskAssessmentType": {
-      "py/id": 5107
+      "py/id": 5243
     },
     "/AI/EnergyUnitType": {
-      "py/id": 5111
+      "py/id": 5247
     },
     "/Core/CountryCodeAlpha3": {
-      "py/id": 2606
+      "py/id": 2742
     },
     "/Core/MediaType": {
-      "py/id": 2609
+      "py/id": 2745
     },
     "/Core/LanguageTag": {
-      "py/id": 2612
+      "py/id": 2748
     },
     "/Core/DateTime": {
-      "py/id": 2615
+      "py/id": 2751
     },
     "/Core/VersionNumber": {
-      "py/id": 2618
+      "py/id": 2754
     }
   },
   "class_hierarchy": {
@@ -34055,8 +34727,8 @@
     ]
   },
   "toplevel_classes": [
-    "/Core/IntegrityMethod",
+    "/Extension/Extension",
     "/Core/Element",
-    "/Extension/Extension"
+    "/Core/IntegrityMethod"
   ]
 }
