@@ -7,6 +7,10 @@ all of their content constitutes requirements of this document. For dated
 references, only the edition cited applies. For undated references, the latest
 edition of the referenced document (including any amendments) applies.
 
+*A Guide to the Project Management Body of Knowledge (PMBOK® Guide)*,
+8th edition, Conshohocken, PA: Project Management Institute, 2026,
+<https://www.pmi.org/standards/pmbok>.
+
 *Apache Maven*, Apache Software Foundation,
 [https://maven.apache.org/](https://maven.apache.org/).
 
