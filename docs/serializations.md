@@ -106,23 +106,23 @@ The `CreationInfo` instances are published directly under
 - `https://spdx.org/rdf/3/creationInfo_NoneLicense`
 - `https://spdx.org/rdf/3/creationInfo_SpdxOrganization`
 
-The property values of these instances are fixed at the point the individual
-they describe was first defined.
-The value of `specVersion` shall be the version of this specification in which
-that individual was first defined, and shall not be the version of the ontology
-document in which the `CreationInfo` instance appears.
-The value of `created` shall be fixed at the same point.
-A later version of this specification shall not change either value.
-For example, `NoneElement` was first defined in SPDX 3.0.0, so the instance
-describing it records a `specVersion` of `3.0.0` in every subsequent SPDX 3.x
-version of the ontology.
+The property values of each of these instances are those with which the
+instance was first published in a released version of this specification.
+A later version of this specification shall not change them.
+In particular, `specVersion` and `created` shall retain the values first
+published together, and shall not be updated to the version or the date of the
+ontology document in which the instance appears.
+For example, the instance describing `NoneElement` was first published in
+SPDX 3.0.1 with a `specVersion` of `3.0.1` and a `created` of
+`2024-11-22T03:00:01Z`, and it records those values in every subsequent
+SPDX 3.x version of the ontology.
 
 The IRIs of these instances are stable across the SPDX 3 series, so if each
-version of the ontology asserted a different `specVersion` for the same
-instance, merging the ontologies of two versions into a single graph would give
-that instance more than one `specVersion`.
-The cardinality of `specVersion` is exactly one, so the merged graph would not
-satisfy the SHACL shapes of this specification.
+version of the ontology asserted different values for the same instance,
+merging the ontologies of two versions into a single graph would give that
+instance more than one `specVersion` and more than one `created`.
+The cardinality of each is exactly one, so the merged graph would not satisfy
+the SHACL shapes of this specification.
 
 #### Legacy version-qualified IRIs
 
