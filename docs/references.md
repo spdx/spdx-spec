@@ -7,6 +7,10 @@ all of their content constitutes requirements of this document. For dated
 references, only the edition cited applies. For undated references, the latest
 edition of the referenced document (including any amendments) applies.
 
+*A Guide to the Project Management Body of Knowledge (PMBOK® Guide)*,
+8th edition, Conshohocken, PA: Project Management Institute, 2026,
+<https://www.pmi.org/standards/pmbok>.
+
 *Apache Maven*, Apache Software Foundation,
 [https://maven.apache.org/](https://maven.apache.org/).
 
@@ -75,6 +79,10 @@ European Commission,
 POSIX.1-2017 *The Open Group Base Specifications Issue 7*, 2018 edition,
 IEEE/Open Group,
 [https://pubs.opengroup.org/onlinepubs/9699919799/](https://pubs.opengroup.org/onlinepubs/9699919799/).
+
+*Quantities, Units, Dimensions and Types (QUDT) Ontology*,
+Version 3.5.1. September 2026.
+<https://www.qudt.org/catalog/qudt-catalog.html>.
 
 *Resource Description Framework (RDF)*, 2014-02-25, W3C,
 [http://www.w3.org/standards/techs/rdf](http://www.w3.org/standards/techs/rdf).
