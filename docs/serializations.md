@@ -186,8 +186,9 @@ has a different IRI in each of them.
 
 - Data that uses SPDX 3.0.1 term IRIs is handled as described in
   [Legacy version-qualified IRIs](#legacy-version-qualified-iris).
-  Once its term IRIs have been rewritten, data that is valid under SPDX 3.0.1
-  is valid under SPDX 3.1 and later minor versions.
+  Once its term IRIs have been rewritten, data that conforms to SPDX 3.0.1 is
+  valid under SPDX 3.1 and later minor versions, including data that uses
+  terms deprecated in those versions.
 - Data that uses SPDX 3.0.0 term IRIs is not covered by that rewrite, because
   SPDX 3.0.1 renamed some of its terms and tightened some of its constraints
   (see [Annex F](annexes/compatibility.md#spdx-300)).
@@ -263,6 +264,8 @@ This identity is established by rewriting the IRIs, not by asserting axioms
 about them
 (see [Annex F](annexes/compatibility.md#rewriting-rather-than-aliasing)).
 
+A consumer that conforms to SPDX 3.1 or a later minor version should accept
+SPDX data expressed using SPDX 3.0.1 term IRIs.
 A consumer shall rewrite legacy IRIs to their canonical form on ingest,
 before validation, query, or merging into a graph.
 After the rewrite, data originating from SPDX 3.0.1 and from later SPDX 3.x
