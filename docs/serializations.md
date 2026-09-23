@@ -90,28 +90,32 @@ Canonical serialization is in JSON format, as defined in
 with the following additional characteristics:
 
 - No line breaks
-- Key names shall be wrapped in double quotes
 - No whitespace outside of strings
-- `true`, `false` and `null`: the literal names shall be lowercase; no other
-  literal names are allowed
+- A key name shall be preceded and followed by a quotation mark
+  (`"`, Unicode code point U+0022)
+- `true`, `false` and `null`: the literal names shall be lowercase;
+  no other literal names are allowed
 - Integers: represented in base 10 using decimal digits. This designates an
   integer component that may be prefixed with an optional minus sign.
   Leading zeros are not allowed.
-- Strings: UTF-8 representation without specific normalization. A string shall
-  begin and end with a quotation mark (`"`, Unicode code point U+0022).
+- Strings: UTF-8 representation without specific normalization.
+  A string shall begin and end with a quotation mark.
   Any Unicode character may be placed within the enclosing quotation marks,
-  except for the following, which shall not appear unescaped and shall be
-  escaped using a preceding reverse solidus (`\`, U+005C): quotation mark
-  (`"`, U+0022), reverse solidus (`\`, U+005C), and control characters in the
-  range U+0000 through U+001F inclusive.
+  except for the following, which shall be escaped
+  using a preceding reverse solidus (`\`, U+005C):
+  quotation mark (`"`, U+0022),
+  reverse solidus (`\`, U+005C),
+  and control characters in the range U+0000 through U+001F inclusive.
 - Arrays: An array structure is represented as square brackets surrounding zero
   or more items. Items are separated by commas.
 - Objects: An object structure is represented as a pair of curly brackets
-  surrounding zero or more name/value pairs (or members). A name is a string
-  containing only ASCII characters (0x21-0x7F). The names within an object shall
-  be unique. A single colon comes after each name, separating the name from the
-  value. A single comma separates a value from a following name. The name/value
-  pairs are ordered by name.
+  surrounding zero or more name/value pairs (or members).
+  A name is a string containing only printable non-space ASCII characters
+  (U+0021 through U+007F inclusive).
+  The names within an object shall be unique.
+  A single colon comes after each name, separating the name from the value.
+  A single comma separates a value from a following name.
+  The name/value pairs are ordered by name.
 
 ## Serialization information
 
