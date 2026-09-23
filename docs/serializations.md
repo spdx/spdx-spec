@@ -103,14 +103,14 @@ with the following additional characteristics:
   Any Unicode character may be placed within the enclosing quotation marks,
   except for the following, which shall be escaped
   using a preceding reverse solidus (`\`, U+005C):
-  quotation mark (`"`, U+0022),
-  reverse solidus (`\`, U+005C),
+  quotation mark,
+  reverse solidus,
   and control characters in the range U+0000 through U+001F inclusive.
 - Arrays: An array structure is represented as square brackets surrounding zero
   or more items. Items are separated by commas.
 - Objects: An object structure is represented as a pair of curly brackets
   surrounding zero or more name/value pairs (or members).
-  A name is a string containing only printable non-space ASCII characters
+  A name is a string containing only ASCII characters
   (U+0021 through U+007F inclusive).
   The names within an object shall be unique.
   A single colon comes after each name, separating the name from the value.
