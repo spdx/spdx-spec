@@ -66,11 +66,19 @@ European Commission,
 *ISO/IEC 24765:2017 Systems and software engineering — Vocabulary*,
 [https://www.iso.org/standard/71952.html](https://www.iso.org/standard/71952.html).
 
+*JSON-LD 1.1: A JSON-based Serialization for Linked Data*,
+W3C Recommendation, 2020-07-16,
+<https://www.w3.org/TR/json-ld11/>.
+
 *npm-package.json*, npm Inc.,
 [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json).
 
 *NuGet documentation*, Microsoft,
 [https://docs.nuget.org/](https://docs.nuget.org/).
+
+*OWL 2 Web Ontology Language Structural Specification and Functional-Style
+Syntax (Second Edition)*, W3C Recommendation, 2012-12-11,
+<https://www.w3.org/TR/owl2-syntax/>.
 
 POSIX.1-2017 *The Open Group Base Specifications Issue 7*, 2018 edition,
 IEEE/Open Group,
@@ -80,8 +88,21 @@ IEEE/Open Group,
 Version 3.5.1. September 2026.
 <https://www.qudt.org/catalog/qudt-catalog.html>.
 
-*Resource Description Framework (RDF)*, 2014-02-25, W3C,
-[http://www.w3.org/standards/techs/rdf](http://www.w3.org/standards/techs/rdf).
+*RDF 1.1 Concepts and Abstract Syntax*,
+W3C Recommendation, 2014-02-25,
+<https://www.w3.org/TR/rdf11-concepts/>.
+
+*RDF 1.1 N-Triples: A line-based syntax for an RDF graph*,
+W3C Recommendation, 2014-02-25,
+<https://www.w3.org/TR/n-triples/>.
+
+*RDF 1.1 Turtle: Terse RDF Triple Language*,
+W3C Recommendation, 2014-02-25,
+<https://www.w3.org/TR/turtle/>.
+
+*RDF 1.1 XML Syntax*,
+W3C Recommendation, 2014-02-25,
+<https://www.w3.org/TR/rdf-syntax-grammar/>.
 
 RFC 1319,
 *The MD2 Message-Digest Algorithm*,
@@ -162,6 +183,14 @@ Internet Engineering Task Force,
 Tom Preston-Werner and SemVer contributors,
 [https://semver.org](https://semver.org).
 
+*Shapes Constraint Language (SHACL)*,
+W3C Recommendation, 2017-07-20,
+<https://www.w3.org/TR/shacl/>.
+
+*SKOS Simple Knowledge Organization System Reference*,
+W3C Recommendation, 2009-08-18,
+<https://www.w3.org/TR/skos-reference/>.
+
 *SLSA Provenance v0.2*, The Linux Foundation,
 [https://slsa.dev/spec/v0.2/provenance](https://slsa.dev/spec/v0.2/provenance).
 
@@ -172,8 +201,11 @@ International Standard
 also available at
 [https://www.swhid.org/swhid-specification/v1.2/](https://www.swhid.org/swhid-specification/v1.2/).
 
-*SPDX and RDF Ontology*,
-[http://spdx.org/rdf/ontology/spdx-3-0-1](http://spdx.org/rdf/ontology/spdx-3-0-1).
+*SPDX 3 vocabulary namespace*, The Linux Foundation,
+<https://spdx.org/rdf/3/terms/>.
+
+*SPDX 3.1 ontology and SHACL shapes*, The Linux Foundation,
+<https://spdx.org/rdf/3.1/spdx-model.ttl>.
 
 *SPDX License List*, The Linux Foundation,
 [https://spdx.org/licenses/](https://spdx.org/licenses/).
@@ -184,6 +216,10 @@ also available at
 *Stakeholder-Specific Vulnerability Categorization Guide*,
 CISA,
 [https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc).
+
+*Subresource Integrity*,
+W3C Recommendation, 2016-06-23,
+<https://www.w3.org/TR/SRI/>.
 
 *The EPSS Model*,
 Forum of Incident Response and Security Teams, Inc (FIRST),

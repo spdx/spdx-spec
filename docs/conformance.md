@@ -22,6 +22,25 @@ required, and if so, how many occurrences are required; also, whether a feature
 is permitted, and if so, in what number. As this is the format long familiar to
 the SPDX community, it has been preserved in this document.
 
+## Normative text and machine-readable artifacts
+
+This specification is published together with machine-readable artifacts that
+express its requirements in a form that software can process: the ontology and
+its SHACL shapes, the JSON-LD context, and the JSON schema
+(see [Published resources](serializations.md#published-resources)).
+The text of this specification and these artifacts are intended to agree.
+
+Some requirements of this specification are not expressed in the artifacts,
+because they cannot yet be expressed in the languages the artifacts use.
+Successful validation against the artifacts therefore does not by itself
+establish that SPDX data conforms to this specification.
+
+Where the text of this specification and an artifact disagree, the text
+prevails.
+Such a disagreement is an error in the artifact, and is corrected in a later
+version of the artifact
+(see [Version identifiers](serializations.md#version-identifiers)).
+
 ## Introduction to profiles
 
 Profile is the term for a compliance point within the SPDX community across The
