@@ -196,7 +196,7 @@ also available at
 *SPDX 3 vocabulary namespace*, The Linux Foundation,
 <https://spdx.org/rdf/3/terms/>.
 
-*SPDX 3.1 ontology (RDF/OWL/SHACL)*, The Linux Foundation,
+*SPDX 3.1 ontology and SHACL shapes*, The Linux Foundation,
 <https://spdx.org/rdf/3.1/spdx-model.ttl>.
 
 *SPDX License List*, The Linux Foundation,
