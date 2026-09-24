@@ -78,7 +78,7 @@ For a minor version X of the SPDX spec:
 ## Canonical serialization
 
 The canonical serialization shall provide a single, deterministic, normalized,
-and reproducible byte-level representation of the underlying data.
+and reproducible representation of the underlying data.
 The semantic content of the canonical serialization
 shall remain identical to the original data model (e.g., the RDF data),
 irrespective of the serialization format employed.
