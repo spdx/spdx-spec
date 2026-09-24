@@ -1,5 +1,22 @@
 # Conformance
 
+## Normative text and machine-readable artifacts
+
+This specification is published together with machine-readable artifacts that
+express its requirements in a form that software can process:
+the ontology and its SHACL shapes, the JSON-LD context, and the JSON schema.
+The normative text of this specification and these artifacts are intended
+to agree.
+
+Some requirements of this specification are not expressed in the artifacts.
+Some of these cannot be expressed in the languages the artifacts use;
+others could be, but have not yet been implemented in the artifacts.
+Successful validation against the artifacts therefore does not by itself
+establish that SPDX data conforms to this specification.
+
+Where the normative text of this specification and an artifact disagree,
+the text prevails.
+
 ## Alternate notation for some conformance requirements
 
 This document contains more than a few cardinality assertions, each of which
