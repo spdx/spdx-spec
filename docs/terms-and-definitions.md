@@ -60,6 +60,14 @@ system elements or software system elements meet and act on or communicate with 
 (From ISO/IEC/IEEE 12207:2026 Systems and software engineering--Software life cycle processes, 3.1.33.
 From ISO/IEC/IEEE 15288:2023 Systems and software engineering--System life cycle processes, 3.20)
 
+**namespace**
+
+Named set of classes, properties, vocabularies, and individuals
+of the SPDX model.
+
+Note 1 to entry: A namespace defines terms; a profile states requirements on
+their use. A profile and a namespace may share a name.
+
 **persona**
 
 Representation of a type of user that includes
@@ -80,7 +88,7 @@ Common Industry Format (CIF) for usability: Context of use description)
 A scope of usage for SPDX targeting support for particular use cases and
 scenarios (e.g., software, licensing, security, etc.).
 A profile identifies which particular SPDX namespaces, classes, and properties
-it leverages, along with any custom constraints unique to its use.
+it leverages, along with any custom constraints.
 
 **software**
 
