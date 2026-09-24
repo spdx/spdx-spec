@@ -85,37 +85,38 @@ Such a canonical form normalizes things like ordering and formatting.
 The content of the canonical serialization is exactly the same as the JSON-LD
 serialization of RDF data, just represented in a consistent way.
 
-Canonical serialization is in JSON format, as defined in
+Canonical serialization shall conform to the JSON format, as defined in
 [RFC 8259 (IETF STD 90)](https://datatracker.ietf.org/doc/rfc8259/),
-with the following additional characteristics:
+subject to the following additional constraints:
 
-- No line breaks
-- No whitespace outside of strings
-- A key name shall be preceded and followed by a quotation mark
-  (`"`, Unicode code point U+0022)
-- `true`, `false` and `null`: the literal names shall be lowercase;
-  no other literal names are allowed
-- Integers: represented in base 10 using decimal digits. This designates an
-  integer component that may be prefixed with an optional minus sign.
-  Leading zeros are not allowed.
-- Strings: UTF-8 representation without specific normalization.
-  A string shall begin and end with a quotation mark.
+- Line breaks: Line breaks shall not be permitted.
+- Whitespace: Whitespace characters shall not occur outside of strings.
+- Key names: A key name shall be preceded and followed by a quotation mark
+  (`"`, Unicode code point U+0022).
+- Literals: A literal name shall be exactly one of the lowercase values
+  `true`, `false`, or `null`. Other literal names shall not be used.
+- Integers: An integer shall be represented as a sequence of base-10
+  decimal digits. The sequence may be prefixed with a minus sign.
+  Leading zeros shall not be permitted.
+- Strings: A string shall use a UTF-8 representation without specific
+  normalization. The string shall begin and end with a quotation mark.
   Any Unicode character may be placed within the enclosing quotation marks,
-  except for the following, which shall be escaped
-  using a preceding reverse solidus (`\`, U+005C):
-  quotation mark,
-  reverse solidus,
+  except for the following characters, which shall be escaped using
+  a preceding reverse solidus (`\`, U+005C):
+  the quotation mark, the reverse solidus,
   and control characters in the range U+0000 through U+001F inclusive.
-- Arrays: An array structure is represented as square brackets surrounding zero
-  or more items. Items are separated by commas.
-- Objects: An object structure is represented as a pair of curly brackets
-  surrounding zero or more name/value pairs (or members).
-  A name is a string containing only ASCII characters
-  (U+0021 through U+007F inclusive).
-  The names within an object shall be unique.
-  A single colon comes after each name, separating the name from the value.
-  A single comma separates a value from a following name.
-  The name/value pairs are ordered by name.
+- Arrays: An array structure shall be represented by square brackets
+  surrounding zero or more items.
+  Adjacent items shall be separated by a single comma.
+- Objects: An object structure shall be represented by a pair of
+  curly brackets surrounding zero or more name/value pairs.
+  A name shall be a string containing only printable non-space ASCII
+  characters in the range U+0021 through U+007E inclusive.
+  The names within a single object shall be unique.
+  A single colon shall follow each name,
+  separating the name from its corresponding value.
+  A single comma shall separate a value from a subsequent name.
+  The name/value pairs shall be ordered by name.
 
 ## Serialization information
 
