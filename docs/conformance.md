@@ -112,8 +112,8 @@ serialization formats, including the classes and fields that comprise the SPDX
 License Expression syntax and that relate to the
 [SPDX License List](https://spdx.org/licenses/).
 
-There are two associated profiles, the SimpleLicensing profile
-and the ExpandedLicensing profile.
+There are two associated namespaces, the SimpleLicensing namespace
+and the ExpandedLicensing namespace.
 Both allow expression of the same information,
 albeit in different ways.
 
