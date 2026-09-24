@@ -143,6 +143,11 @@ RFC 7405,
 Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc7405/](https://datatracker.ietf.org/doc/rfc7405/).
 
+RFC 7493,
+*The I-JSON Message Format*,
+Internet Engineering Task Force,
+<https://datatracker.ietf.org/doc/rfc7493>.
+
 RFC 7693,
 *The BLAKE2 Cryptographic Hash and Message Authentication Code (MAC)*,
 Internet Engineering Task Force,
@@ -152,6 +157,11 @@ RFC 8259,
 *The JavaScript Object Notation (JSON) Data Interchange Format*,
 Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc8259/](https://datatracker.ietf.org/doc/rfc8259/).
+
+RFC 8785,
+*JSON Canonicalization Scheme (JCS)*,
+Internet Engineering Task Force,
+<https://datatracker.ietf.org/doc/rfc8785/>.
 
 RFC 9393,
 *Concise Software Identification Tags*,
