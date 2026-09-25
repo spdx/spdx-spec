@@ -6,7 +6,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://spdx.org/rdf/terms> .
+@base <http://spdx.org/rdf/terms#> .
 
 <http://spdx.org/rdf/terms> rdf:type owl:Ontology ;
                              owl:versionIRI <http://spdx.org/rdf/terms/2.3> ;
@@ -1339,6 +1339,11 @@ rdfs:seeAlso rdf:type owl:DatatypeProperty .
                         owl:onDataRange xsd:string
                       ] ,
                       [ rdf:type owl:Restriction ;
+                        owl:onProperty :name ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
                         owl:onProperty :noticeText ;
                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                         owl:onDataRange xsd:string
@@ -1535,6 +1540,11 @@ rdfs:seeAlso rdf:type owl:DatatypeProperty .
                            owl:onProperty :downloadLocation ;
                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                            owl:onDataRange xsd:anyURI
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :name ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
                          ] ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :builtDate ;
@@ -1790,6 +1800,11 @@ rdfs:seeAlso rdf:type owl:DatatypeProperty .
                                 owl:onClass :AnyLicenseInfo
                               ] ,
                               [ rdf:type owl:Restriction ;
+                                owl:onProperty :name ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:string
+                              ] ,
+                              [ rdf:type owl:Restriction ;
                                 owl:onProperty :specVersion ;
                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                 owl:onDataRange xsd:string
@@ -1812,7 +1827,7 @@ rdfs:seeAlso rdf:type owl:DatatypeProperty .
                              ] ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty :name ;
-                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
                                owl:onDataRange xsd:string
                              ] ,
                              [ rdf:type owl:Restriction ;
@@ -1969,6 +1984,7 @@ rdfs:Container rdf:type owl:Class .
 ###  http://spdx.org/rdf/terms#annotationType_other
 :annotationType_other rdf:type owl:NamedIndividual ,
                                :AnnotationType ;
+                      owl:differentFrom :annotationType_review ;
                       rdfs:comment "Type of annotation which does not fit in any of the pre-defined annotation types."@en ;
                       ns:term_status "stable"@en .
 
@@ -2179,6 +2195,7 @@ IMAGE if the file is associated with an picture image file (MIME type of image/*
 
 ###  http://spdx.org/rdf/terms#noassertion
 :noassertion rdf:type owl:NamedIndividual ;
+             owl:differentFrom :none ;
              rdfs:comment "Individual to indicate the creator of the SPDX document does not assert any value for the object." .
 
 
@@ -2630,10 +2647,10 @@ IMAGE if the file is associated with an picture image file (MIME type of image/*
 #    Annotations
 #################################################################
 
-:reviewed rdfs:comment "This property has been deprecated since SPDX version 2.0.  It has been replaced by an Annotation with an annotation type review."@en ,
-                        "Reviewed" ;
-           ns:term_status "deprecated"@en ;
-           owl:deprecated "true"^^xsd:boolean .
+:reviewed rdfs:comment "Reviewed" ,
+                        "This property has been deprecated since SPDX version 2.0.  It has been replaced by an Annotation with an annotation type review."@en ;
+           owl:deprecated "true"^^xsd:boolean ;
+           ns:term_status "deprecated"@en .
 
 
 #################################################################
@@ -2648,18 +2665,4 @@ IMAGE if the file is associated with an picture image file (MIME type of image/*
 ] .
 
 
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( :annotationType_other
-                        :annotationType_review
-                      )
-] .
-
-
-[ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( :noassertion
-                        :none
-                      )
-] .
-
-
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

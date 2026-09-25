@@ -1834,6 +1834,13 @@ If the copyrightText field is not present, it implies an equivalent meaning to N
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#noticeText"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -2106,6 +2113,13 @@ If the copyrightText field is not present, it implies an equivalent meaning to N
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#downloadLocation"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2469,6 +2483,13 @@ If the copyrightText field is not present, it implies an equivalent meaning to N
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#name"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#specVersion"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -2500,7 +2521,7 @@ If the copyrightText field is not present, it implies an equivalent meaning to N
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://spdx.org/rdf/terms#name"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2728,6 +2749,7 @@ If the copyrightText field is not present, it implies an equivalent meaning to N
 
     <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#annotationType_other">
         <rdf:type rdf:resource="http://spdx.org/rdf/terms#AnnotationType"/>
+        <owl:differentFrom rdf:resource="http://spdx.org/rdf/terms#annotationType_review"/>
         <rdfs:comment xml:lang="en">Type of annotation which does not fit in any of the pre-defined annotation types.</rdfs:comment>
         <ns:term_status xml:lang="en">stable</ns:term_status>
     </owl:NamedIndividual>
@@ -3028,6 +3050,7 @@ IMAGE if the file is associated with an picture image file (MIME type of image/*
     <!-- http://spdx.org/rdf/terms#noassertion -->
 
     <owl:NamedIndividual rdf:about="http://spdx.org/rdf/terms#noassertion">
+        <owl:differentFrom rdf:resource="http://spdx.org/rdf/terms#none"/>
         <rdfs:comment>Individual to indicate the creator of the SPDX document does not assert any value for the object.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -3677,10 +3700,10 @@ IMAGE if the file is associated with an picture image file (MIME type of image/*
      -->
 
     <rdf:Description rdf:about="http://spdx.org/rdf/terms#reviewed">
-        <rdfs:comment xml:lang="en">This property has been deprecated since SPDX version 2.0.  It has been replaced by an Annotation with an annotation type review.</rdfs:comment>
         <rdfs:comment>Reviewed</rdfs:comment>
-        <ns:term_status xml:lang="en">deprecated</ns:term_status>
+        <rdfs:comment xml:lang="en">This property has been deprecated since SPDX version 2.0.  It has been replaced by an Annotation with an annotation type review.</rdfs:comment>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <ns:term_status xml:lang="en">deprecated</ns:term_status>
     </rdf:Description>
     
 
@@ -3701,23 +3724,9 @@ IMAGE if the file is associated with an picture image file (MIME type of image/*
             <rdf:Description rdf:about="http://spdx.org/rdf/terms#SpdxElement"/>
         </owl:members>
     </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
-        <owl:distinctMembers rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://spdx.org/rdf/terms#annotationType_other"/>
-            <rdf:Description rdf:about="http://spdx.org/rdf/terms#annotationType_review"/>
-        </owl:distinctMembers>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
-        <owl:distinctMembers rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://spdx.org/rdf/terms#noassertion"/>
-            <rdf:Description rdf:about="http://spdx.org/rdf/terms#none"/>
-        </owl:distinctMembers>
-    </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
 
