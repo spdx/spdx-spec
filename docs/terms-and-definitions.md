@@ -159,16 +159,17 @@ and environmental control systems.
 Any circumstance or event with the potential to adversely impact organizational
 operations (including mission, functions, image, or reputation), organizational
 assets, individuals, other organizations, or the Nation through a system via
-unauthorized access, destruction, disclosure, modification of information, and/or 
+unauthorized access, destruction, disclosure, modification of information, and/or
 denial of service.
 
-(From https://doi.org/10.6028/NIST.SP.800-12r1; see Threats)
+(From <https://doi.org/10.6028/NIST.SP.800-12r1>; see Threats)
 
 Notes:
-* Hazards, in contrast to threats, are inherent conditions or reflect intrinsic properties — they
+
+- Hazards, in contrast to threats, are inherent conditions or reflect intrinsic properties — they
   exist without a threat actor. A threat involves a threat actor acting in a scenario to adversely impact protected
   resources; a hazard is a latent potential for harm arising from the nature of the thing itself.
-* A realized threat may in turn provide the circumstances for a hazard
+- A realized threat may in turn provide the circumstances for a hazard
   (e.g. a successful attack disables a safety control or damages a system, creating a new inherent condition for harm).
   So security failures can give rise to safety hazards.
 
