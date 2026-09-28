@@ -157,7 +157,7 @@ and environmental control systems.
 **threat**
 
 Any circumstance or event with the potential to adversely impact organizational
-operations (including mission, functions, image, or reputation), organizational 
+operations (including mission, functions, image, or reputation), organizational
 assets, individuals, other organizations, or the Nation through a system via 
 unauthorized access, destruction, disclosure, modification of information, and/or 
 denial of service.
