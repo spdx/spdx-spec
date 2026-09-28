@@ -22,7 +22,7 @@ cycle. Such concerns include but are not limited to business or mission concerns
 
 **capability**
 
-Expression of a system, product, function, or process ability to achieve a specific 
+Expression of a system, product, function, or process ability to achieve a specific
 objective under stated conditions (INCOSE Systems Engineering Handbook, 5th ed.)
 
 **computer hardware**
