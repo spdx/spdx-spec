@@ -15,7 +15,7 @@ item such as hardware, firmware, computing platform, network device, or other
 technology component) or intangible (e.g., humans, data, information, software,
 capability, function, service, trademark, copyright, patent, intellectual 
 property, image, or reputation). The value of an asset is determined by
-stakeholders in consideration of loss concerns across the entire system life 
+stakeholders in consideration of loss concerns across the entire system life
 cycle. Such concerns include but are not limited to business or mission concerns.
 
 <https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-160v2r1.pdf>
