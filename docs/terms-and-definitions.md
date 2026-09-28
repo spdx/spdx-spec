@@ -10,7 +10,7 @@ at the following addresses:
 
 **asset**
 
-An item of value to stakeholders. An asset may be tangible (e.g., a physical 
+An item of value to stakeholders. An asset may be tangible (e.g., a physical
 item such as hardware, firmware, computing platform, network device, or other 
 technology component) or intangible (e.g., humans, data, information, software, 
 capability, function, service, trademark, copyright, patent, intellectual 
