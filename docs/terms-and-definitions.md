@@ -172,4 +172,3 @@ Notes:
 - A realized threat may in turn provide the circumstances for a hazard
   (e.g. a successful attack disables a safety control or damages a system, creating a new inherent condition for harm).
   So security failures can give rise to safety hazards.
-
