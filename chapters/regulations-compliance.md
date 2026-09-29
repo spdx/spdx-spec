@@ -1,8 +1,8 @@
 # Annex L: Compliance with regulatory frameworks
 
-## L.1 Satisfying NTIA Minimum Elements for an SBOM using SPDX
+## L.1 Satisfying 2021 NTIA Minimum Elements for an SBOM using SPDX
 
-### L.1.1 US Executive Order 14028 Minimum Elements for an SBOM
+### L.1.1 2021 NTIA Minimum Elements for a Software Bill of Materials (SBOM)
 
 US Executive Order 14028 in conjunction with the National Telecommunications and Information Administration (NTIA) outlined minimum elements for an SBOM. The minimum elements are detailed in [NTIA's Framing Software Component Transparency: Establishing a Common Software Bill of Maternials](https://www.ntia.gov/files/ntia/publications/framingsbom_20191112.pdf) and [The Minimum Elements for a SBOM](https://www.ntia.doc.gov/files/ntia/publications/sbom_minimum_elements_report.pdf) documents and summarized below:
 
