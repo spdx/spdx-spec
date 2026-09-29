@@ -17,7 +17,7 @@ US Executive Order 14028 in conjunction with the National Telecommunications and
 | Relationship | Characterizing the relationship that an upstream component X is included in software Y. |
 | Timestamp | Record of the date and time of the SBOM data assembly. |
 
-### L.1.2 Mapping NTIA Minimum Elements to SPDX Fields
+### L.1.2 Mapping 2021 NTIA Minimum Elements to SPDX Fields
 
 The SPDX Specification contains fields able to address each of the NTIA minimum required data fields.
 
