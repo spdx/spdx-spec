@@ -7,15 +7,21 @@ express its requirements in a form that software can process:
 the ontology and its SHACL shapes, the JSON-LD context, and the JSON schema.
 The normative text of this specification and these artifacts are intended
 to agree.
+A disagreement between the text and an artifact is a defect,
+to be resolved by correcting the text, the artifact, or both.
+Until the defect is resolved, the text prevails.
 
-Some requirements of this specification are not expressed in the artifacts.
-Some of these cannot be expressed in the languages the artifacts use;
-others could be, but have not yet been implemented in the artifacts.
+An artifact disagrees with the normative text when it expresses a requirement
+differently from the text
+(for example, with a different cardinality, datatype, or set of permitted
+values), or when it rejects SPDX data that conforms to the text.
+A requirement that an artifact does not express at all is not a disagreement.
+
+Some requirements of this specification are not expressed in the artifacts:
+some cannot be expressed in the languages the artifacts use,
+and others could be but have not yet been implemented.
 Successful validation against the artifacts therefore does not by itself
 establish that SPDX data conforms to this specification.
-
-Where the normative text of this specification and an artifact disagree,
-the text prevails.
 
 ## Alternate notation for some conformance requirements
 
