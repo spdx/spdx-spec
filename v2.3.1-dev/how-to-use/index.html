@@ -167,41 +167,29 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#k2-satisfying-ntia-minimum-elements-for-an-sbom-using-spdx">K.2 Satisfying NTIA Minimum Elements for an SBOM using SPDX</a>
+    <li class="toctree-l2"><a class="reference internal" href="#k2-verifying-spdx-packages">K.2 Verifying SPDX Packages</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#k21-us-executive-order-14028-minimum-elements-for-an-sbom">K.2.1 US Executive Order 14028 Minimum Elements for an SBOM</a>
+    <li class="toctree-l3"><a class="reference internal" href="#k21-general-guidance">K.2.1 General Guidance</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#k22-mapping-ntia-minimum-elements-to-spdx-fields">K.2.2 Mapping NTIA Minimum Elements to SPDX Fields</a>
+    <li class="toctree-l3"><a class="reference internal" href="#k22-examples">K.2.2 Examples</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#k221-spdx-package-and-spdx-document-both-contained-in-archive-file">K.2.2.1 SPDX Package and SPDX Document both contained in Archive File</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#k222-spdx-package-delivered-as-an-archive-file-separate-from-the-spdx-document">K.2.2.2 SPDX Package Delivered as an Archive File Separate from the SPDX Document</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#k223-a-single-file-represented-as-a-spdx-package">K.2.2.3 A Single File Represented as a SPDX Package</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#k224-directory-of-software-represented-as-a-spdx-package">K.2.2.4 Directory of Software Represented as a SPDX Package</a>
     </li>
         </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#k3-verifying-spdx-packages">K.3 Verifying SPDX Packages</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#k31-general-guidance">K.3.1 General Guidance</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#k32-examples">K.3.2 Examples</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#k321-spdx-package-and-spdx-document-both-contained-in-archive-file">K.3.2.1 SPDX Package and SPDX Document both contained in Archive File</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#k322-spdx-package-delivered-as-an-archive-file-separate-from-the-spdx-document">K.3.2.2 SPDX Package Delivered as an Archive File Separate from the SPDX Document</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#k323-a-single-file-represented-as-a-spdx-package">K.3.2.3 A Single File Represented as a SPDX Package</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#k324-directory-of-software-represented-as-a-spdx-package">K.3.2.4 Directory of Software Represented as a SPDX Package</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#k4-satisfying-2026-cisa-minimum-elements-for-an-sbom-using-spdx">K.4 Satisfying 2026 CISA Minimum Elements for an SBOM using SPDX</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#k41-2026-minimum-elements-for-a-software-bill-of-materials-sbom">K.4.1 2026 Minimum Elements for a Software Bill of Materials (SBOM)</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#k42-mapping-2026-cisa-minimum-elements-to-spdx-fields">K.4.2 Mapping 2026 CISA Minimum Elements to SPDX Fields</a>
     </li>
         </ul>
     </li>
     </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../regulations-compliance/">Annex L: Compliance with regulation frameworks</a>
                 </li>
               </ul>
               <ul>
@@ -236,7 +224,7 @@
 <p>SPDX 2.x has the concept of an External Reference for a Package to "reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package."</p>
 <p>The specification for External Reference identifiers (Annex F) has four defined categories:</p>
 <ul>
-<li>Security: CPE, SWID tag identifier, or reference to security information </li>
+<li>Security: CPE, SWID tag identifier, or reference to security information</li>
 <li>Package-Manager: package identifier and locator</li>
 <li>Persistent-id: identifier which is guaranteed to remain stable (persistent) over time</li>
 <li>Other: Use if none of the above match your use case</li>
@@ -385,328 +373,57 @@ Oracle patch information for <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-
 <span class="p">}</span><span class="w"> </span><span class="p">]</span>
 </code></pre></div>
 
-<h2 id="k2-satisfying-ntia-minimum-elements-for-an-sbom-using-spdx">K.2 Satisfying NTIA Minimum Elements for an SBOM using SPDX</h2>
-<h3 id="k21-us-executive-order-14028-minimum-elements-for-an-sbom">K.2.1 US Executive Order 14028 Minimum Elements for an SBOM</h3>
-<p>US Executive Order 14028 in conjunction with the National Telecommunications and Information Administration (NTIA) outlined minimum elements for an SBOM. The minimum elements are detailed in <a href="https://www.ntia.gov/files/ntia/publications/framingsbom_20191112.pdf">NTIA's Framing Software Component Transparency: Establishing a Common Software Bill of Maternials</a> and <a href="https://www.ntia.doc.gov/files/ntia/publications/sbom_minimum_elements_report.pdf">The Minimum Elements for a SBOM</a> documents and summarized below:</p>
-<table>
-<thead>
-<tr>
-<th>SBOM Minimum Field</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Author Name</td>
-<td style="text-align: left;">Author of the SBOM entry (this may not always be the supplier).</td>
-</tr>
-<tr>
-<td>Supplier Name</td>
-<td style="text-align: left;">Name or identity of the supplier of the component in the SBOM entry.</td>
-</tr>
-<tr>
-<td>Component Name</td>
-<td style="text-align: left;">Designation assigned to a unit of software defined by the original supplier.</td>
-</tr>
-<tr>
-<td>Version String</td>
-<td style="text-align: left;">Version used to identify a component.</td>
-</tr>
-<tr>
-<td>Component Hash</td>
-<td style="text-align: left;">A cryptographic hash to uniquely identify a component.</td>
-</tr>
-<tr>
-<td>Unique Identifier</td>
-<td style="text-align: left;">A unique identifier to help identify components or serve as a look-up key for relevant databases.</td>
-</tr>
-<tr>
-<td>Relationship</td>
-<td style="text-align: left;">Characterizing the relationship that an upstream component X is included in software Y.</td>
-</tr>
-<tr>
-<td>Timestamp</td>
-<td style="text-align: left;">Record of the date and time of the SBOM data assembly.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="k22-mapping-ntia-minimum-elements-to-spdx-fields">K.2.2 Mapping NTIA Minimum Elements to SPDX Fields</h3>
-<p>The SPDX Specification contains fields able to address each of the NTIA minimum required data fields.</p>
-<table>
-<thead>
-<tr>
-<th>NTIA SBOM Minimum Field</th>
-<th style="text-align: left;">Satisfying SPDX field</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Author Name</td>
-<td style="text-align: left;">(6.8) Creator</td>
-</tr>
-<tr>
-<td>Supplier Name</td>
-<td style="text-align: left;">(7.5) Package Supplier</td>
-</tr>
-<tr>
-<td>Component Name</td>
-<td style="text-align: left;">(7.1) Package Name</td>
-</tr>
-<tr>
-<td>Version String</td>
-<td style="text-align: left;">(7.3) Package Version</td>
-</tr>
-<tr>
-<td>Component Hash</td>
-<td style="text-align: left;">(7.10) Package Checksum</td>
-</tr>
-<tr>
-<td>Unique Identifier</td>
-<td style="text-align: left;">(7.2) Package SPDX Identifier <br>(6.5) SPDX Document Namespace</br></td>
-</tr>
-<tr>
-<td>Relationship</td>
-<td style="text-align: left;">(11.1) Relationship: <code>CONTAINS</code>, <code>DESCRIBES</code> <br>The document must <code>DESCRIBES</code> at least one package.</br></td>
-</tr>
-<tr>
-<td>Timestamp</td>
-<td style="text-align: left;">(6.9) Created</td>
-</tr>
-</tbody>
-</table>
-<h2 id="k3-verifying-spdx-packages">K.3 Verifying SPDX Packages</h2>
+<h2 id="k2-verifying-spdx-packages">K.2 Verifying SPDX Packages</h2>
 <p>Several use cases for SPDX depend on the consumer being able to verify the provenance and integrity of their software. SPDX can support several different scenarios depending on what information is available to the producer, what information is available to the consumer, and how the SPDX document is delivered. These scenarios are described below along with recommended approaches to verifying the SPDX packages.</p>
-<h3 id="k31-general-guidance">K.3.1 General Guidance</h3>
-<p>If a Package can be represented as a single blob of bytes, such as a tar archive:
-  * <code>PackageChecksum</code> must be computed by applying one of the supported hashing algorithms to the package blob.
-  * <code>PackageDownloadLocation</code> should be a download locator that retrieves the package blob.
-  * A supplier can define a <code>PackageChecksum</code> in a Package without providing a <code>PackageDownloadLocation</code>. This lets consumers perform an offline verification of private blobs.</p>
-<p>If a Package represents an artifact that logically binds a number of single files together (such as a zip file or a directory):
-  * If the files bound by the Package are described in the document, <code>PackageVerificationCode</code> should be computed by using the files' <a href="https://www.rfc-editor.org/rfc/rfc3174">SHA1</a> checksums. Additionally, the <code>FilesAnalyzed</code> field in the Package <strong>MUST</strong> be set to <code>true</code>.
-  * If the SHA1 checksum of any files bound by the Package is not available or the File needs to be excluded from the computation, it MUST be marked so by appending <code>(excludes: FileName)</code> at the end of the package verification code value.</p>
-<h3 id="k32-examples">K.3.2 Examples</h3>
-<h4 id="k321-spdx-package-and-spdx-document-both-contained-in-archive-file">K.3.2.1 SPDX Package and SPDX Document both contained in Archive File</h4>
+<h3 id="k21-general-guidance">K.2.1 General Guidance</h3>
+<p>If a Package can be represented as a single blob of bytes, such as a tar archive:</p>
+<ul>
+<li><code>PackageChecksum</code> must be computed by applying one of the supported hashing algorithms to the package blob.</li>
+<li><code>PackageDownloadLocation</code> should be a download locator that retrieves the package blob.</li>
+<li>A supplier can define a <code>PackageChecksum</code> in a Package without providing a <code>PackageDownloadLocation</code>. This lets consumers perform an offline verification of private blobs.</li>
+</ul>
+<p>If a Package represents an artifact that logically binds a number of single files together (such as a zip file or a directory):</p>
+<ul>
+<li>If the files bound by the Package are described in the document, <code>PackageVerificationCode</code> should be computed by using the files' <a href="https://www.rfc-editor.org/rfc/rfc3174">SHA1</a> checksums. Additionally, the <code>FilesAnalyzed</code> field in the Package <strong>MUST</strong> be set to <code>true</code>.</li>
+<li>If the SHA1 checksum of any files bound by the Package is not available or the File needs to be excluded from the computation, it MUST be marked so by appending <code>(excludes: FileName)</code> at the end of the package verification code value.</li>
+</ul>
+<h3 id="k22-examples">K.2.2 Examples</h3>
+<h4 id="k221-spdx-package-and-spdx-document-both-contained-in-archive-file">K.2.2.1 SPDX Package and SPDX Document both contained in Archive File</h4>
 <p>Examples include: tarball binding one or more files to a SPDX package, installation file which installs the package and extracts SPDX document in the same directory</p>
 <p>SPDX Field To Use: <a href="../package-information/#79-package-verification-code-field-">7.9 Package verification code</a></p>
-<p>Guidance:
-  * With the SPDX document included in the archive, it is not possible for the SPDX document to include a checksum for the archive itself. Generate a Package verification code and include the SPDX Document file name in the Excluded Files field.</p>
-<h4 id="k322-spdx-package-delivered-as-an-archive-file-separate-from-the-spdx-document">K.3.2.2 SPDX Package Delivered as an Archive File Separate from the SPDX Document</h4>
+<p>Guidance:</p>
+<ul>
+<li>With the SPDX document included in the archive, it is not possible for the SPDX document to include a checksum for the archive itself. Generate a Package verification code and include the SPDX Document file name in the Excluded Files field.</li>
+</ul>
+<h4 id="k222-spdx-package-delivered-as-an-archive-file-separate-from-the-spdx-document">K.2.2.2 SPDX Package Delivered as an Archive File Separate from the SPDX Document</h4>
 <p>Examples include: tarball, installation file</p>
 <p>SPDX Field to Use: <a href="../package-information/#710-package-checksum-field-">7.10 Package checksum</a></p>
-<p>Guidance: 
-  * Generate a checksum for the archive file and include it in the SPDX Package checksum field. The archive file name should also be included in the <a href="../package-information/#74-package-file-name-field-">Package file name</a> field.
-  * If source files for the Package are included in the Package distribution archive, the Package verification code for that Package should also be included in the SPDX document and the <a href="../package-information/#78-files-analyzed-field-">Files analyzed</a> field should be set to <code>true</code>.</p>
-<h4 id="k323-a-single-file-represented-as-a-spdx-package">K.3.2.3 A Single File Represented as a SPDX Package</h4>
+<p>Guidance:</p>
+<ul>
+<li>Generate a checksum for the archive file and include it in the SPDX Package checksum field. The archive file name should also be included in the <a href="../package-information/#74-package-file-name-field-">Package file name</a> field.</li>
+<li>If source files for the Package are included in the Package distribution archive, the Package verification code for that Package should also be included in the SPDX document and the <a href="../package-information/#78-files-analyzed-field-">Files analyzed</a> field should be set to <code>true</code>.</li>
+</ul>
+<h4 id="k223-a-single-file-represented-as-a-spdx-package">K.2.2.3 A Single File Represented as a SPDX Package</h4>
 <p>Examples include: tarball, binary image, single executable</p>
 <p>SPDX Field To Use: <a href="../package-information/#710-package-checksum-field-">7.10 Package checksum</a></p>
-<p>Guidance: 
-  * If a <a href="../package-information/#77-package-download-location-field-">Package download location</a> exists, the Package checksum should be the cryptographic hash of the Package blob at the Package download location specified.
-  * If the Package download location is not known, not available, or not accessible to the software consumer, the producer should include a Package checksum for the included Package file.</p>
-<h4 id="k324-directory-of-software-represented-as-a-spdx-package">K.3.2.4 Directory of Software Represented as a SPDX Package</h4>
+<p>Guidance:</p>
+<ul>
+<li>If a <a href="../package-information/#77-package-download-location-field-">Package download location</a> exists, the Package checksum should be the cryptographic hash of the Package blob at the Package download location specified.</li>
+<li>If the Package download location is not known, not available, or not accessible to the software consumer, the producer should include a Package checksum for the included Package file.</li>
+</ul>
+<h4 id="k224-directory-of-software-represented-as-a-spdx-package">K.2.2.4 Directory of Software Represented as a SPDX Package</h4>
 <p>Examples include: source code, containers</p>
 <p>SPDX Field To Use: <a href="../package-information/#79-package-verification-code-field-">7.9 Package verification code</a></p>
-<p>Guidance:
-  * Include <a href="../file-information/#81-file-name-field-">File name</a> field in the SPDX document for every file in the directory, include each file’s cryptographic hash as a <a href="../file-information/#84-file-checksum-field-">File checksum</a>, create a <a href="../relationships-between-SPDX-elements/#111-relationship-field-">CONTAINS relationship</a> between the Package and the files, and set <a href="../package-information/#78-files-analyzed-field-">Files analyzed</a> to <code>true</code> on the Package. <strong>Note</strong>: if Files analyzed is set to <code>false</code> you <strong>cannot</strong> provide a Package verification code.</p>
-<h2 id="k4-satisfying-2026-cisa-minimum-elements-for-an-sbom-using-spdx">K.4 Satisfying 2026 CISA Minimum Elements for an SBOM using SPDX</h2>
-<h3 id="k41-2026-minimum-elements-for-a-software-bill-of-materials-sbom">K.4.1 2026 Minimum Elements for a Software Bill of Materials (SBOM)</h3>
-<p>In July 2026, the U.S. Cybersecurity and Infrastructure Security Agency (CISA), in partnership with international co-authoring organizations, published the "<a href="https://www.cisa.gov/sites/default/files/2026-07/2026_cisa_sbom_minimum_elements_508c.pdf">2026 Minimum Elements for a Software Bill of Materials (SBOM)</a>" document.
-This document "updates and replaces the <a href="https://www.ntia.doc.gov/files/ntia/publications/sbom_minimum_elements_report.pdf">Minimum Elements for a Software Bill of Materials published by the National Telecommunications and Information Administration (NTIA)</a>".</p>
-<p>The Minimum Elements are summarized below:</p>
-<table>
-<thead>
-<tr>
-<th>SBOM Metatdata Minimum Field</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SBOM Author</td>
-<td style="text-align: left;">The name of the entity that creates the SBOM data for the target component.</td>
-</tr>
-<tr>
-<td>SBOM Author signature</td>
-<td style="text-align: left;">A digital signature attributable to the SBOM author.</td>
-</tr>
-<tr>
-<td>SBOM Data Format Name</td>
-<td style="text-align: left;">The name of the data format used to represent the SBOM data.</td>
-</tr>
-<tr>
-<td>SBOM Data Format Version</td>
-<td style="text-align: left;">Identifier designated by the SBOM data format to specify the version of the data format.</td>
-</tr>
-<tr>
-<td>SBOM Generation Context</td>
-<td style="text-align: left;">The relative software lifecycle phase and data available at the time the SBOM author generated the SBOM.</td>
-</tr>
-<tr>
-<td>SBOM Timestamp</td>
-<td style="text-align: left;">Record of the date and time of the most recent update to the SBOM data.</td>
-</tr>
-<tr>
-<td>SBOM Tool Name</td>
-<td style="text-align: left;">The name of the tool used by the SBOM author to generate or amend the SBOM.</td>
-</tr>
-<tr>
-<td>SBOM Tool Version</td>
-<td style="text-align: left;">Identifier for the version of the tool identified in the SBOM Tool Name element.</td>
-</tr>
-<tr>
-<td>SBOM Version</td>
-<td style="text-align: left;">Identifier designated by the SBOM author to specify a change in the SBOM document from a previously identified version or to indicate that it is the first version.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Component Data Minimum Field</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Component Producer</td>
-<td style="text-align: left;">The name of an entity that creates, defines, and identifies components. </td>
-</tr>
-<tr>
-<td>Component Dependency Relationship</td>
-<td style="text-align: left;">The relationship between two components, where one component is necessary for the operation of the other. </td>
-</tr>
-<tr>
-<td>Component Hash Value</td>
-<td style="text-align: left;">The output generated from applying a cryptographic hash algorithm to an executable component artifact. </td>
-</tr>
-<tr>
-<td>Component Hash Algorithm</td>
-<td style="text-align: left;">The cryptographic algorithm used to compute the Component Hash Value of the software component. </td>
-</tr>
-<tr>
-<td>Component Identifiers</td>
-<td style="text-align: left;">Identifiers used to identify a component or serve as a look-up key for relevant databases. </td>
-</tr>
-<tr>
-<td>Component License</td>
-<td style="text-align: left;">The identifier(s) for the license(s) under which the software component is available. </td>
-</tr>
-<tr>
-<td>Component Name</td>
-<td style="text-align: left;">The name assigned by the component producer to a software component. </td>
-</tr>
-<tr>
-<td>Component Version</td>
-<td style="text-align: left;">Identifier used by the component producer to specify a change in a software component from a previously identified version or to indicate that it is the first version. </td>
-</tr>
-</tbody>
-</table>
-<h3 id="k42-mapping-2026-cisa-minimum-elements-to-spdx-fields">K.4.2 Mapping 2026 CISA Minimum Elements to SPDX Fields</h3>
-<p>The SPDX Specification contains fields able to address some of the 2026 CISA minimum required data fields.</p>
-<table>
-<thead>
-<tr>
-<th>SBOM Metatdata Minimum Field</th>
-<th style="text-align: left;">Satisfying SPDX field</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SBOM Author</td>
-<td style="text-align: left;">(6.8) Creator</td>
-</tr>
-<tr>
-<td>SBOM Author signature</td>
-<td style="text-align: left;"><em>(see note below)</em></td>
-</tr>
-<tr>
-<td>SBOM Data Format Name</td>
-<td style="text-align: left;">(6.1) SPDX version</td>
-</tr>
-<tr>
-<td>SBOM Data Format Version</td>
-<td style="text-align: left;">(6.1) SPDX version</td>
-</tr>
-<tr>
-<td>SBOM Generation Context</td>
-<td style="text-align: left;">(6.10) Creator Comment</td>
-</tr>
-<tr>
-<td>SBOM Timestamp</td>
-<td style="text-align: left;">(6.9) Created</td>
-</tr>
-<tr>
-<td>SBOM Tool Name</td>
-<td style="text-align: left;">(6.8) Creator, Tool entry</td>
-</tr>
-<tr>
-<td>SBOM Tool Version</td>
-<td style="text-align: left;">(6.8) Creator, Tool entry</td>
-</tr>
-<tr>
-<td>SBOM Version</td>
-<td style="text-align: left;">(6.5) SPDX Document Namespace</td>
-</tr>
-</tbody>
-</table>
-<p>Notes:</p>
+<p>Guidance:</p>
 <ul>
-<li>There is no field in SPDX 2.3.1 to represent the SBOM Author signature inside the SBOM. It should be put in an external document.</li>
-<li>The “Creator Comment” should contain the “SBOM Generation Context” using one of the six keywords “Design,” “Source,” “Build,” “Analyzed,” “Deployed,” “Runtime” as defined in CISA document <a href="https://www.cisa.gov/sites/default/files/2023-04/sbom-types-document-508c.pdf">Types of Software Bill of Material (SBOM) Documents</a>.</li>
-<li>The “Tool Name” and the “Tool Version” are in the same field; they should be separated by a “-” (see section 6.8.1).</li>
-<li>The “SPDX Document Namespace” is the best approximation for the “SBOM Version”.</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Component Data Minimum Field</th>
-<th style="text-align: left;">Satisfying SPDX field</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Component Producer</td>
-<td style="text-align: left;">(7.6) Package Originator</td>
-</tr>
-<tr>
-<td>Component Dependency Relationship</td>
-<td style="text-align: left;">(11.1) Relationship: <code>DEPENDS_ON</code></td>
-</tr>
-<tr>
-<td>Component Hash Value</td>
-<td style="text-align: left;">(7.10) Package Checksum (checksums[].checksumValue)</td>
-</tr>
-<tr>
-<td>Component Hash Algorithm</td>
-<td style="text-align: left;">(7.10) Package Checksum (checksums[].algorithm)</td>
-</tr>
-<tr>
-<td>Component Identifiers</td>
-<td style="text-align: left;">(7.21) External reference: PACKAGE-MANAGER for PURL (Package-URL); OTHER for SWID/gitoid</td>
-</tr>
-<tr>
-<td>Component License</td>
-<td style="text-align: left;">(7.13) Concluded License or (7.15) Declared License</td>
-</tr>
-<tr>
-<td>Component Name</td>
-<td style="text-align: left;">(7.1) Package Name</td>
-</tr>
-<tr>
-<td>Component Version</td>
-<td style="text-align: left;">(7.1) Package Version</td>
-</tr>
-</tbody>
-</table>
-<p>Notes:</p>
-<ul>
-<li>The “Component License” can be represented either by “Concluded License” or “Declared License”. At least one of these fields must be different from NOASSERTION.</li>
+<li>Include <a href="../file-information/#81-file-name-field-">File name</a> field in the SPDX document for every file in the directory, include each file’s cryptographic hash as a <a href="../file-information/#84-file-checksum-field-">File checksum</a>, create a <a href="../relationships-between-SPDX-elements/#111-relationship-field-">CONTAINS relationship</a> between the Package and the files, and set <a href="../package-information/#78-files-analyzed-field-">Files analyzed</a> to <code>true</code> on the Package. <strong>Note</strong>: if Files analyzed is set to <code>false</code> you <strong>cannot</strong> provide a Package verification code.</li>
 </ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../creative-commons-attribution-license-3.0-unported/" class="btn btn-neutral float-left" title="Annex J: Creative Commons Attribution License 3.0 Unported"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../bibliography/" class="btn btn-neutral float-right" title="Bibliography">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../regulations-compliance/" class="btn btn-neutral float-right" title="Annex L: Compliance with regulation frameworks">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -733,7 +450,7 @@ This document "updates and replaces the <a href="https://www.ntia.doc.gov/files/
       <span><a href="../creative-commons-attribution-license-3.0-unported/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../bibliography/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../regulations-compliance/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
