@@ -1,4 +1,4 @@
-# Annex K: How to use SPDX in different scenarios
+# Annex K How to use SPDX in different scenarios
 
 ## K.1 Including security information in a SPDX document <a name="K.1"></a>
 
