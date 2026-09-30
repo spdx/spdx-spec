@@ -1,8 +1,8 @@
 # Annex L: Compliance with regulatory frameworks
 
-## L.1 Satisfying 2021 NTIA Minimum Elements for an SBOM using SPDX
+## L.1 Satisfying 2021 NTIA Minimum Elements for an SBOM using SPDX <a name="L.1"></a>
 
-### L.1.1 2021 NTIA Minimum Elements for a Software Bill of Materials (SBOM)
+### L.1.1 2021 NTIA Minimum Elements for a Software Bill of Materials (SBOM) <a name="L.1.1"></a>
 
 US Executive Order 14028 in conjunction with the National Telecommunications and Information Administration (NTIA) outlined minimum elements for an SBOM. The required minimum elements are detailed in [NTIA's Framing Software Component Transparency: Establishing a Common Software Bill of Maternials](https://www.ntia.gov/files/ntia/publications/framingsbom_20191112.pdf) and [The Minimum Elements for a SBOM](https://www.ntia.doc.gov/files/ntia/publications/sbom_minimum_elements_report.pdf) documents and summarized below:
 
@@ -16,7 +16,7 @@ US Executive Order 14028 in conjunction with the National Telecommunications and
 | Relationship | Characterizing the relationship that an upstream component X is included in software Y. |
 | Timestamp | Record of the date and time of the SBOM data assembly. |
 
-### L.1.2 Mapping 2021 NTIA Minimum Elements to SPDX Fields
+### L.1.2 Mapping 2021 NTIA Minimum Elements to SPDX fields <a name="L.1.2"></a>
 
 The SPDX Specification contains fields able to address each of the NTIA minimum required data fields.
 
@@ -30,9 +30,9 @@ The SPDX Specification contains fields able to address each of the NTIA minimum 
 | Relationship | (11.1) Relationship: `CONTAINS`, `DESCRIBES` <br>The document must `DESCRIBES` at least one package.</br> |
 | Timestamp | (6.9) Created |
 
-## L.2 Satisfying 2026 CISA Minimum Elements for an SBOM using SPDX
+## L.2 Satisfying 2026 CISA Minimum Elements for an SBOM using SPDX <a name="L.2"></a>
 
-### L.2.1 2026 Minimum Elements for a Software Bill of Materials (SBOM)
+### L.2.1 2026 Minimum Elements for a Software Bill of Materials (SBOM) <a name="L.2.1"></a>
 
 In July 2026, the U.S. Cybersecurity and Infrastructure Security Agency (CISA), in partnership with international co-authoring organizations, published the "[2026 Minimum Elements for a Software Bill of Materials (SBOM)](https://www.cisa.gov/sites/default/files/2026-07/2026_cisa_sbom_minimum_elements_508c.pdf)" document.
 This document updates and replaces the [Minimum Elements for a Software Bill of Materials (2021)](https://www.ntia.doc.gov/files/ntia/publications/sbom_minimum_elements_report.pdf) published by the National Telecommunications and Information Administration (NTIA), which was referenced in the previous section.
@@ -62,7 +62,7 @@ The Minimum Elements are summarized below:
 | Component Name                    | The name assigned by the component producer to a software component. |
 | Component Version                 | Identifier used by the component producer to specify a change in a software component from a previously identified version or to indicate that it is the first version. |
 
-### L.2.2 Mapping 2026 CISA Minimum Elements to SPDX Fields
+### L.2.2 Mapping 2026 CISA Minimum Elements to SPDX fields <a name="L.2.2"></a>
 
 The SPDX Specification contains fields able to address some of the 2026 CISA minimum required data fields.
 

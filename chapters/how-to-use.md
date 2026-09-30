@@ -1,6 +1,6 @@
-# Annex K: How To Use SPDX in Different Scenarios
+# Annex K: How to use SPDX in different scenarios
 
-## K.1 Including security information in a SPDX document
+## K.1 Including security information in a SPDX document <a name="K.1"></a>
 
 SPDX 2.x has the concept of an External Reference for a Package to "reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package."
 
@@ -15,7 +15,7 @@ This section provides usage scenarios of how to leverage the Security and Persis
 
 Note that identifiers (e.g. CPE, GitBOM, SWID) are spread throughout Annex F and sometimes locators refer to identifiers.
 
-### K.1.1 Linking to an advisory
+### K.1.1 Linking to an advisory <a name="K.1.1"></a>
 
 Including a reference to a Common Vulnerabilities and Exposures (CVE) advisory applicable to a package is shown in the example below. A SPDX creator should include current publicly known vulnerabilities at the time of document creation. SPDX consumers should always assume vulnerabilities enumerated by a SPDX creator to be out-of-date.
 
@@ -36,7 +36,7 @@ Including a reference to a Common Vulnerabilities and Exposures (CVE) advisory a
 } ]
 ```
 
-### K.1.2 Linking to a CSAF
+### K.1.2 Linking to a CSAF <a name="K.1.2"></a>
 
 To learn how to reference to [CSAF](https://docs.oasis-open.org/csaf/csaf/v2.0/cs01/csaf-v2.0-cs01.html) formatted security information
 applicable to a package see the example below, and additional examples here and here.
@@ -49,7 +49,7 @@ applicable to a package see the example below, and additional examples here and 
 } ]
 ```
 
-### K.1.3 Linking to a CycloneDX
+### K.1.3 Linking to a CycloneDX <a name="K.1.3"></a>
 
 To reference to [CycloneDX](https://cyclonedx.org) formatted security information applicable to a package see the example below.
 
@@ -61,7 +61,7 @@ To reference to [CycloneDX](https://cyclonedx.org) formatted security informatio
 } ]
 ```
 
-### K.1.4 Linking to an OSV
+### K.1.4 Linking to an OSV <a name="K.1.4"></a>
 
 To learn how to include a reference to [Open Source Vulnerability](https://github.com/google/osv) (OSV) formatted security information applicable to a package see the example below.
 
@@ -73,7 +73,7 @@ To learn how to include a reference to [Open Source Vulnerability](https://githu
 } ]
 ```
 
-### K.1.5 Linking to a GitBOM
+### K.1.5 Linking to a GitBOM <a name="K.1.5"></a>
 
 To reference to [GitBOM](https://gitbom.dev) formatted security information applicable to a package see the example below.
 
@@ -92,7 +92,7 @@ To reference to [GitBOM](https://gitbom.dev) formatted security information appl
 } ]
 ```
 
-### K.1.6 Linking to a vulnerability disclosure document
+### K.1.6 Linking to a vulnerability disclosure document <a name="K.1.6"></a>
 
 To express a reference to a vulnerability disclosure document for a package such Cisco’s response to Apache log4j vulnerability.
 
@@ -124,7 +124,7 @@ To refer to a security disclosure feed, such as the security bulletins from [CER
 } ]
 ```
 
-### K.1.7 Linking to a code fix for a security issue
+### K.1.7 Linking to a code fix for a security issue <a name="K.1.7"></a>
 
 To reference a code fix for a security issue applicable to a package see the example below.
 In this example, the link points to a specific code revision containing the fix for [CVE-2020-28498](https://nvd.nist.gov/vuln/detail/CVE-2020-28498).
@@ -158,7 +158,7 @@ Oracle patch information for [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/C
 } ]
 ```
 
-### K.1.8 Linking to any security related document
+### K.1.8 Linking to any security related document <a name="K.1.8"></a>
 
 If you want to reference any security information related to a package but cannot or do not wish to specify its kind, use the `url` referenceType.
 
@@ -180,7 +180,7 @@ One can also use it to refer to guidance related to a vulnerability such as CISA
 } ]
 ```
 
-### K.1.9 Linking to an SBOM vulnerability report for a Software Product (per NIST Executive Order 14028)
+### K.1.9 Linking to an SBOM vulnerability report for a software product (per NIST Executive Order 14028) <a name="K.1.9"></a>
 
 The National Institute of Standards and Technology (NIST) describes the concept of correlating vulnerability and SBOM information for a software product at the component level in “[Software Security in Supply Chains: Software Bill of Materials (SBOM)](https://www.nist.gov/itl/executive-order-14028-improving-nations-cybersecurity/software-security-supply-chains-software-1)”. Use the ExternalRefs `SECURITY` category and `advisory` referenceType to report on vulnerabilities related to the components contained in a software product’s SBOM.
 
@@ -196,11 +196,11 @@ Providing a link to such data at the time the SBOM is published provides a point
 } ]
 ```
 
-## K.2 Verifying SPDX Packages
+## K.2 Verifying SPDX packages <a name="K.2"></a>
 
 Several use cases for SPDX depend on the consumer being able to verify the provenance and integrity of their software. SPDX can support several different scenarios depending on what information is available to the producer, what information is available to the consumer, and how the SPDX document is delivered. These scenarios are described below along with recommended approaches to verifying the SPDX packages.
 
-### K.2.1 General Guidance
+### K.2.1 General guidance <a name="K.2.1"></a>
 
 If a Package can be represented as a single blob of bytes, such as a tar archive:
 
@@ -213,9 +213,9 @@ If a Package represents an artifact that logically binds a number of single file
 * If the files bound by the Package are described in the document, `PackageVerificationCode` should be computed by using the files' [SHA1](https://www.rfc-editor.org/rfc/rfc3174) checksums. Additionally, the `FilesAnalyzed` field in the Package **MUST** be set to `true`.
 * If the SHA1 checksum of any files bound by the Package is not available or the File needs to be excluded from the computation, it MUST be marked so by appending `(excludes: FileName)` at the end of the package verification code value.
 
-### K.2.2 Examples
+### K.2.2 Examples <a name="K.2.2"></a>
 
-#### K.2.2.1 SPDX Package and SPDX Document both contained in Archive File
+#### K.2.2.1 SPDX package and SPDX document both contained in archive file <a name="K.2.2.1"></a>
 
 Examples include: tarball binding one or more files to a SPDX package, installation file which installs the package and extracts SPDX document in the same directory
 
@@ -225,7 +225,7 @@ Guidance:
 
 * With the SPDX document included in the archive, it is not possible for the SPDX document to include a checksum for the archive itself. Generate a Package verification code and include the SPDX Document file name in the Excluded Files field.
 
-#### K.2.2.2 SPDX Package Delivered as an Archive File Separate from the SPDX Document
+#### K.2.2.2 SPDX package delivered as an archive file separate from the SPDX document <a name="K.2.2.2"></a>
 
 Examples include: tarball, installation file
 
@@ -236,7 +236,7 @@ Guidance:
 * Generate a checksum for the archive file and include it in the SPDX Package checksum field. The archive file name should also be included in the [Package file name](package-information.md#74-package-file-name-field-) field.
 * If source files for the Package are included in the Package distribution archive, the Package verification code for that Package should also be included in the SPDX document and the [Files analyzed](package-information.md#78-files-analyzed-field-) field should be set to `true`.
 
-#### K.2.2.3 A Single File Represented as a SPDX Package
+#### K.2.2.3 A single file represented as a SPDX package <a name="K.2.2.3"></a>
 
 Examples include: tarball, binary image, single executable
 
@@ -247,7 +247,7 @@ Guidance:
 * If a [Package download location](package-information.md#77-package-download-location-field-) exists, the Package checksum should be the cryptographic hash of the Package blob at the Package download location specified.
 * If the Package download location is not known, not available, or not accessible to the software consumer, the producer should include a Package checksum for the included Package file.
 
-#### K.2.2.4 Directory of Software Represented as a SPDX Package
+#### K.2.2.4 Directory of software represented as a SPDX package <a name="K.2.2.4"></a>
 
 Examples include: source code, containers
 
@@ -256,4 +256,3 @@ SPDX Field To Use: [7.9 Package verification code](package-information.md#79-pac
 Guidance:
 
 * Include [File name](file-information.md#81-file-name-field-) field in the SPDX document for every file in the directory, include each file’s cryptographic hash as a [File checksum](file-information.md#84-file-checksum-field-), create a [CONTAINS relationship](relationships-between-SPDX-elements.md#111-relationship-field-) between the Package and the files, and set [Files analyzed](package-information.md#78-files-analyzed-field-) to `true` on the Package. **Note**: if Files analyzed is set to `false` you **cannot** provide a Package verification code.
-
