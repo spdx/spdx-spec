@@ -122,7 +122,6 @@ The metadata for the license name field is shown in Table 65.
 | Cardinality | 0..1 conditional (optional, one) if license is not on SPDX License List. |
 | Format | Single line of text | `NOASSERTION` |
 
-
 ### 10.3.2 Intent
 
 Provides a human readable name suitable for use as a title or label of the license when showing compact lists of licenses from the SPDX document to humans.

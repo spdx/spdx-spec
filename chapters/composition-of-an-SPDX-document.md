@@ -14,7 +14,7 @@ The object model is illustrated by [Annex C](RDF-object-model-and-identifier-syn
 
 An instance of this section provides the necessary information for forward and backward compatibility for processing tools.
 
-One instance shall be present for each SPDX document produced. 
+One instance shall be present for each SPDX document produced.
 
 Cardinality: Mandatory, one.
 
@@ -51,7 +51,6 @@ In `tag:value` format, the order in which package and files occur is syntactical
 * A new package information section (via package name) denotes the start of another package.
 * Sub-packages shall not be nested inside a package information section, but shall be separate and shall use a relationship to clarify.
 * Annotations and relationships for the package may appear after the package information before any file information.
-
 
 ### 5.2.3 File information section <a name="5.2.3"></a>
 
@@ -90,12 +89,11 @@ When implementing `tag:value` format, the positioning of snippet elements is syn
 * The first field to start off the description of a snippet shall be the snippet identifier in `tag:value` format.
 * Annotations on the snippet and relationships from the snippet may appear after the snippet information, before the next file or package section.
 
-
 ### 5.2.5 Other licensing information detected section <a name="5.2.5"></a>
 
 This section is used for any detected, declared or concluded licenses that are NOT on the SPDX License List. For the most up-to-date version of the list, see [https://spdx.org/licenses/](https://spdx.org/licenses/). The SPDX License List can also be found in [Annex A](SPDX-license-list.md).
 
-One instance shall be created for every unique license or licensing information being referenced that does not match one of the licenses on the SPDX License List. 
+One instance shall be created for every unique license or licensing information being referenced that does not match one of the licenses on the SPDX License List.
 
 Cardinality: Optional, zero or many.
 
@@ -103,7 +101,7 @@ See [Clause 10](other-licensing-information-detected.md) for details of the fiel
 
 ### 5.2.6 Relationships between SPDX elements information section <a name="5.2.6"></a>
 
-Packages, files, and snippets are all considered to be SPDX elements, and relationships can be made explicit between these SPDX elements by using the fields in this section. 
+Packages, files, and snippets are all considered to be SPDX elements, and relationships can be made explicit between these SPDX elements by using the fields in this section.
 
 Cardinality: Optional, zero or many.
 
