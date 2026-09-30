@@ -1,4 +1,4 @@
-# Annex L: Compliance with regulatory frameworks
+# Annex L Compliance with regulatory frameworks
 
 ## L.1 Satisfying 2021 NTIA Minimum Elements for an SBOM using SPDX <a name="L.1"></a>
 
