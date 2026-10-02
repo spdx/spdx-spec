@@ -1,13 +1,30 @@
 # 4 Conformance
 
-## 4.1 SPDX Current and Previous Versions <a name="4.1"></a>
+## 4.1 SPDX current and previous versions <a name="4.1"></a>
 
-This edition has the version number 2.3 as part of its title. This is a follow on from [ISO/IEC 5962:2021
-Information technology — SPDX® Specification V2.2.1](https://www.iso.org/standard/81870.html), and includes new fields.  Earlier editions were published by the SPDX workgroup via the Linux Foundation. The SPDX Specification was subsequently transposed into the Joint Development Foundation. [Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012), 1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), and 2.2 (May 2020).] Differences between this edition and earlier ones are reported in [Annex I](diffs-from-previous-editions.md); see also [[1]](bibliography.md).
+This edition has the version number 2.3.1 as part of its title.
+It is a maintenance release of version 2.3 (November 2022):
+it corrects errors and aligns the text with the JSON schema and the RDF
+ontology, and does not add new fields.
+
+Version 2.3 followed
+[ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1](https://www.iso.org/standard/81870.html)
+and added new fields.
+
+Editions before ISO/IEC 5962:2021 were published by the SPDX workgroup
+via the Linux Foundation.
+The SPDX Specification was subsequently transposed into the
+Joint Development Foundation.
+[Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012),
+1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), and 2.2 (May 2020).]
+The latest edition of the SPDX Specification is version 3.0.1 (December 2024).
+
+Differences between this edition and earlier ones are reported in
+[Annex I](diffs-from-previous-editions.md); see also [[1]](bibliography.md).
 
 ## 4.2 Obsolete features <a name="4.2"></a>
 
-Over the life of a standard, some older approaches can become obsolete and are dropped from subsequent editions, possibly with a replacement approach being provided. Such action involves *deprecating* those outdated features. This edition identifies all currently deprecated features.  No features present in 2.2.1 have been deprecated in this 2.3 release.
+Over the life of a standard, some older approaches can become obsolete and are dropped from subsequent editions, possibly with a replacement approach being provided. Such action involves *deprecating* those outdated features. This edition identifies all currently deprecated features.  No features present in 2.3 have been deprecated in this 2.3.1 release.
 
 ## 4.3 Alternate notation for some conformance requirements <a name="4.3"></a>
 
@@ -21,7 +38,7 @@ This standard contains more than a few *cardinality assertions*, each of which i
 * Cardinality: 1..1
 * Cardinality: 1..\*
 
-Each of these assertions can easily be understood as to whether a feature is required, and if so, how many occurrences are required; also, whether a feature is permitted, and if so, in what number. As this is the format long familiar to the SPDX community, it has been preserved in this document. Unless specified otherwise, omission of an optional field should be interpretted as signaling NOASSERTION.
+Each of these assertions can easily be understood as to whether a feature is required, and if so, how many occurrences are required; also, whether a feature is permitted, and if so, in what number. As this is the format long familiar to the SPDX community, it has been preserved in this document. Unless specified otherwise, omission of an optional field should be interpreted as signaling NOASSERTION.
 
 ## 4.4 Standard data format requirements <a name="4.4"></a>
 
@@ -64,17 +81,17 @@ The data format specification and recommendations are subject to the following c
 
 * The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Uniform Resource Indicator (URI) should be present.
 
-## 4.5 Trademark Compliance <a name="4.5"></a>
+## 4.5 Trademark compliance <a name="4.5"></a>
 
 To be designated an SPDX document, a file shall comply with the requirements of the SPDX Trademark License (See the [SPDX Trademark Page](https://spdx.dev/trademark/)).
 
-The official copyright notice that shall be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.3 is:
+The official copyright notice that shall be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.3.1 is:
 
-> "Official SPDX Specification 2.3 Copyright © 2010-2022 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
+> "Official SPDX Specification 2.3.1 Copyright © 2010-2026 Linux Foundation and its Contributors. Licensed under the Creative Commons Attribution License 3.0 Unported. All other rights are expressly reserved."
 
-The official copyright notice that shall be used with any non-verbatim reproduction and/or distribution of this SPDX Specification 2.3, including without limitation any partial use or combining this SPDX Specification with another work, is:
+The official copyright notice that shall be used with any non-verbatim reproduction and/or distribution of this SPDX Specification 2.3.1, including without limitation any partial use or combining this SPDX Specification with another work, is:
 
-> "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX Specification 2.3 found at spdx.dev. These portions are Copyright © 2010-2022 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
+> "This is not an official SPDX Specification. Portions herein have been reproduced from SPDX Specification 2.3.1 found at spdx.dev. These portions are Copyright © 2010-2026 Linux Foundation and its Contributors, and are licensed under the Creative Commons Attribution License 3.0 Unported by the Linux Foundation and its Contributors. All other rights are expressly reserved by Linux Foundation and its Contributors."
 
 ## 4.6 The SPDX Lite profile <a name="4.6"></a>
 
