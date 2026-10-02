@@ -6,6 +6,7 @@ This edition has the version number 2.3.1 as part of its title.
 It is a maintenance release of version 2.3 (November 2022):
 it corrects errors and aligns the text with the JSON schema and the RDF
 ontology, and does not add new fields.
+
 Version 2.3 followed
 [ISO/IEC 5962:2021 Information technology — SPDX® Specification V2.2.1](https://www.iso.org/standard/81870.html)
 and added new fields.
