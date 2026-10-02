@@ -37,7 +37,9 @@ the [v2.3.1 GitHub release notes](https://github.com/spdx/spdx-spec/releases/tag
 ### RDF ontology ([`spdx-ontology.owl.*`](ontology/))
 
 * Changed `@base` to `http://spdx.org/rdf/terms#`.
-* Made the cardinality of snippet `name` optional (0..1),
+* Moved the requirement of exactly one `name` from `SpdxElement` to `File`,
+  `Package` and `SpdxDocument`, and made `name` optional on `SpdxElement`.
+  As a result, a `Snippet` no longer requires a `name`,
   as stated in the Snippet name field ([9.10](chapters/snippet-information.md)).
 * Fixed typos in descriptions.
 * Regenerated the ontology files and the HTML documentation
