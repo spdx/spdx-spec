@@ -2,11 +2,73 @@
 
 All notable changes to this project will be documented in this file.
 
-## 2.3.1 (2025-05-30)
+## 2.3.1 (2026-10-30)
 
-* Fixed a `primaryPackagePurpose` enum entry typo in
-  [`spdx-schema.json`](schemas/spdx-schema.json)
+V2.3.1 is a maintenance release of V2.3.
+It corrects errors, aligns the text with the machine-readable artifacts,
+and adds informative guidance.
+No new fields or relationship types were added.
+See also
+[Annex I](chapters/diffs-from-previous-editions.md) of the specification and
+the [v2.3.1 GitHub release notes](https://github.com/spdx/spdx-spec/releases/tag/v2.3.1).
+
+### JSON schema ([`spdx-schema.json`](schemas/spdx-schema.json))
+
+* Fixed a `primaryPackagePurpose` enum entry typo,
   from the wrong `OPERATING_SYSTEM`, to the correct `OPERATING-SYSTEM`.
+* Added `documentNamespace` to the required properties of the document.
+* Removed `name` from the required properties of a snippet,
+  as the Snippet name field ([9.10](chapters/snippet-information.md)) is optional.
+* Added `pattern` constraints for:
+  * `SPDXID` of packages, files and snippets (`^SPDXRef-[a-zA-Z0-9.-]+$`);
+  * `checksumValue` (hexadecimal digits); and
+  * dates and timestamps: `annotationDate`, `created`, `reviewDate`,
+    `builtDate`, `releaseDate`, `validUntilDate` and `timestamp`.
+    The leap second `23:59:60` is accepted.
+* Added an optional top-level `$schema` property.
+* Added `PERSISTENT_ID` and `PACKAGE_MANAGER` to the allowed values of
+  `referenceCategory`, in addition to `PERSISTENT-ID` and `PACKAGE-MANAGER`.
+* Marked `revieweds`, `documentDescribes`, `hasFiles` and `fileDependencies`
+  as `deprecated`.
+* Changed the JSON Schema dialect from draft-07 to 2019-09,
+  which defines the `deprecated` keyword.
+* Fixed typos in descriptions.
+
+### RDF ontology ([`spdx-ontology.owl.*`](ontology/))
+
+* Changed `@base` to `http://spdx.org/rdf/terms#`.
+* Moved the requirement of exactly one `name` from `SpdxElement` to `File`,
+  `Package` and `SpdxDocument`, and made `name` optional on `SpdxElement`.
+  As a result, a `Snippet` no longer requires a `name`,
+  as stated in the Snippet name field ([9.10](chapters/snippet-information.md)).
+* Fixed typos in descriptions.
+* Regenerated the ontology files and the HTML documentation
+  with a newer version of the OWL API.
+  This reorders some statements and replaces `owl:AllDifferent` axioms with
+  `owl:differentFrom`, without changing their meaning.
+
+### Specification text
+
+* Package verification code field
+  ([7.9](chapters/package-information.md)): changed `Required` to `No`
+  and revised the description.
+  The description of the Package checksum field
+  ([7.10](chapters/package-information.md)) was revised to explain when to use it
+  instead of the package verification code.
+* Corrected the cardinality of the External document references field
+  ([6.6](chapters/document-creation-information.md)) to 0..\*, and of the
+  Primary package purpose field ([7.24](chapters/package-information.md)) to 0..1.
+* Clarified in [4.3](chapters/conformance.md) that, unless specified otherwise,
+  omission of an optional field should be interpreted as signaling `NOASSERTION`.
+* Added [K.2](chapters/how-to-use.md) (Verifying SPDX packages) to Annex K.
+* Moved the mapping of the 2021 NTIA Minimum Elements for an SBOM from
+  Annex K to the new Annex L
+  ([Compliance with regulatory frameworks](chapters/regulations-compliance.md)),
+  and added the mapping of the 2026 CISA Minimum Elements for an SBOM.
+* Fixed the rendering of examples and lists in Annex K,
+  the NVD CPE link and the CPE regular expression in Annex F,
+  the SWID example, a broken image link in Annex C,
+  and various typos.
 
 ## 2.3 (2022-11-03)
 
