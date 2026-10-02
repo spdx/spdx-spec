@@ -63,6 +63,10 @@ on:
     - cron: "0 0,2,4,8,10,22 * * 1-5"  # Every 2 hours off meeting hours (Mon-Fri)
     - cron: "0 12 * * 6,0"  # Noon once on weekends (Sat & Sun)
 
+concurrency:
+  group: publish-gh-pages
+  cancel-in-progress: false  # Cancelling mid-push could leave gh-pages half-updated
+
 jobs:
   build:
     # Don't run scheduled builds for forks
