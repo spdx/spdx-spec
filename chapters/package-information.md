@@ -67,7 +67,7 @@ SPDXID: SPDXRef-1
 EXAMPLE 2 RDF: The URI for the element will follow the form:
 
 ```text
-[SPDX document namespace]#[SPDX identifier]
+[SPDX Document namespace]#[SPDX identifier]
 ```
 
 See [6.5](document-creation-information.md#6.5) for the definition of the SPDX Document namespace and [6.3](document-creation-information.md#6.3) for the definition of the SPDX identifier
