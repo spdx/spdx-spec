@@ -11,7 +11,7 @@ ISO and IEC maintain terminological databases for use in standardization at the 
 
 **annotations information section**
 
-*section* (3.9) type, an instance of which contains comments about an SPDX document, SPDX file, SPDX package, or SPDX snippet
+*section* (3.9) type, an instance of which contains comments about an SPDX Document, SPDX File, SPDX Package, or SPDX Snippet
 
 **3.2**
 
@@ -69,15 +69,15 @@ a part of this SPDX specification
 
 **3.11**
 
-**SPDX document**
+**SPDX Document**
 
 collection of *section* (3.8) instances each of which contains information about software organized using the *SPDX format* (3.11)
 
 **3.12**
 
-**SPDX document creation information section**
+**SPDX Document creation information section**
 
-*section* (3.9) type, an instance of which contains metadata that associates analysis results with a specific version of an SPDX document (3.11) and license for use, and provides information on how, when, and by whom the SPDX document was created
+*section* (3.9) type, an instance of which contains metadata that associates analysis results with a specific version of an SPDX Document (3.11) and license for use, and provides information on how, when, and by whom the SPDX Document was created
 
 **3.13**
 
