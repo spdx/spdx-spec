@@ -140,7 +140,7 @@ Differences from Earlier SPDX Versions            | N/A           | Annex J/I* |
 
 * A new appendix "SPDX Lite" has been added to document a lightweight subset of the SPDX specification for scenarios where a full SPDX Document is not required. See Appendix VIII for more information.
 
-* Additional relationship options have been added to enable expression of different forms of dependencies between SPDX Elements. As well, NONE and NOASSERTION keywords are now permitted to be used with relationships to indicate what is unknown.
+* Additional relationship options have been added to enable expression of different forms of dependencies between SPDX elements. As well, NONE and NOASSERTION keywords are now permitted to be used with relationships to indicate what is unknown.
 
 * Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the spdx-spec GitHub repository.
 
