@@ -174,7 +174,7 @@ The URI shall be unique for the SPDX Document including the specific version of 
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Format | Unique absolute Uniform Resource Identifier (URI) as specified in [RFC-3986](https://tools.ietf.org/html/rfc3986), with the following exceptions:<br><br>The SPDX Document URI cannot contain a URI "part" (e.g., the `#` delimiter), since the `#` is used to uniquely identify SPDX Element identifiers. The URI shall contain a scheme (e.g., `https:`).<br><br>The URI shall be unique for the SPDX Document including the specific version of the SPDX Document. If the SPDX Document is updated, thereby creating a new version, a new URI for the updated document shall be used. There can only be one URI for an SPDX Document and only one SPDX Document for a given URI. |
+| Format | Unique absolute Uniform Resource Identifier (URI) as specified in [RFC-3986](https://tools.ietf.org/html/rfc3986), with the following exceptions:<br><br>The SPDX Document URI cannot contain a URI "part" (e.g., the `#` delimiter), since the `#` is used to uniquely identify SPDX element identifiers. The URI shall contain a scheme (e.g., `https:`).<br><br>The URI shall be unique for the SPDX Document including the specific version of the SPDX Document. If the SPDX Document is updated, thereby creating a new version, a new URI for the updated document shall be used. There can only be one URI for an SPDX Document and only one SPDX Document for a given URI. |
 
 ### 6.5.2 Intent
 
