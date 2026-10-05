@@ -119,7 +119,7 @@ more information.
 
 * Abstraction has been applied to the underlying model with the inclusion of SPDX elements. With SPDX 2.0, the concept of an SPDX element is introduced (see Appendix III). This includes SPDX Documents, SPDX Files, and SPDX Packages, each of which gets associated with an SPDX identifier which is denoted by “SPDXRef-”.
 
-* SPDX relationships have been added to allow any SPDX Element to have a relationship to other SPDX Elements. Documented the origin of an SPDX hierarchy of sub-packages, documenting the origin of an SPDX Element, and documenting modifications or corrections (annotations) to an SPDX Element.
+* SPDX relationships have been added to allow any SPDX element to have a relationship to other SPDX Elements. Documented the origin of an SPDX hierarchy of sub-packages, documenting the origin of an SPDX Element, and documenting modifications or corrections (annotations) to an SPDX element.
 
 * The ability to reference SPDX Elements outside the current SPDX Document itself (external references).
 
