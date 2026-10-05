@@ -1,6 +1,6 @@
 # 4 Conformance
 
-## 4.1 SPDX Current and Previous Versions <a name="4.1"></a>
+## 4.1 SPDX current and previous versions <a name="4.1"></a>
 
 This edition has the version number 2.3 as part of its title. This is a follow on from [ISO/IEC 5962:2021
 Information technology — SPDX® Specification V2.2.1](https://www.iso.org/standard/81870.html), and includes new fields.  Earlier editions were published by the SPDX workgroup via the Linux Foundation. The SPDX Specification was subsequently transposed into the Joint Development Foundation. [Those earlier editions are: 1.0 (August 2011), 1.1 (August 2012), 1.2 (October 2013), 2.0 (May 2015), 2.1 (November 2016), and 2.2 (May 2020).] Differences between this edition and earlier ones are reported in [Annex I](diffs-from-previous-editions.md); see also [[1]](bibliography.md).
@@ -33,7 +33,7 @@ The data format specification and recommendations are subject to the following c
 
 * Shall be suitable to be checked for syntactic correctness automatically, independent of how it was generated (human or tool).
 
-* The SPDX document character set shall support UTF-8 encoding.
+* The SPDX Document character set shall support UTF-8 encoding.
 
 * Multiple serialization formats may be used to represent the information being exchanged. Current supported formats include:
 
@@ -64,9 +64,9 @@ The data format specification and recommendations are subject to the following c
 
 * The convention in this specification is for the RDF examples to use `rdf:about="..."` to represent that a proper Uniform Resource Indicator (URI) should be present.
 
-## 4.5 Trademark Compliance <a name="4.5"></a>
+## 4.5 Trademark compliance <a name="4.5"></a>
 
-To be designated an SPDX document, a file shall comply with the requirements of the SPDX Trademark License (See the [SPDX Trademark Page](https://spdx.dev/trademark/)).
+To be designated an SPDX Document, a file shall comply with the requirements of the SPDX Trademark License (See the [SPDX Trademark Page](https://spdx.dev/trademark/)).
 
 The official copyright notice that shall be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.3 is:
 

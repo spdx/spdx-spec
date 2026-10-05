@@ -65,7 +65,7 @@ Scope                                             | N/A           | Clause 1   |
 Normative references                              | N/A           | Clause 2   | Clause 2
 Terms and definitions                             | N/A           | Clause 3   | Clause 3
 Conformance                                       | N/A           | Clause 4   | Clause 4
-Composition of an SPDX document                   | N/A           | Clause 5   | Clause 5
+Composition of an SPDX Document                   | N/A           | Clause 5   | Clause 5
 Document Creation Information                     | Chapter 2     | Clause 6   | Clause 6
 Package Information                               | Chapter 3     | Clause 7   | Clause 7
 File Information                                  | Chapter 4     | Clause 8   | Clause 8
@@ -94,9 +94,9 @@ Differences from Earlier SPDX Versions            | N/A           | Annex J/I* |
 
 * A new appendix "SPDX File Tags" has been added to describe a method that developers can use to document other SPDX file-specific information (such as copyright notices, file type, etc.) in a standardized and easily machine-readable manner. See Appendix IX for more information.
 
-* A new appendix "SPDX Lite" has been added to document a lightweight subset of the SPDX specification for scenarios where a full SPDX document is not required. See Appendix VIII for more information.
+* A new appendix "SPDX Lite" has been added to document a lightweight subset of the SPDX specification for scenarios where a full SPDX Document is not required. See Appendix VIII for more information.
 
-* Additional relationship options have been added to enable expression of different forms of dependencies between SPDX elements. As well, NONE and NOASSERTION keywords are now permitted to be used with relationships to indicate what is unknown.
+* Additional relationship options have been added to enable expression of different forms of dependencies between SPDX Elements. As well, NONE and NOASSERTION keywords are now permitted to be used with relationships to indicate what is unknown.
 
 * Miscellaneous bug fixes and non-breaking improvements as reported on the mailing list and reported as issues on the spdx-spec GitHub repository.
 
@@ -104,7 +104,7 @@ Differences from Earlier SPDX Versions            | N/A           | Annex J/I* |
 
 * Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in.  The use of snippets is completely optional and it is not mandatory for snippets to be identified. See section 5 Snippet Information for further details on the fields available to describe snippets.
 
-* External Packages can now be referred to in SPDX documents.  When there is no SPDX file information available to document the content of these external packages, then the filesAnalyzed attribute on a package should be set to false. See section 3.8 Files Analyzed for more information.
+* External Packages can now be referred to in SPDX Documents.  When there is no SPDX file information available to document the content of these external packages, then the filesAnalyzed attribute on a package should be set to false. See section 3.8 Files Analyzed for more information.
 
 * Packages are now able to associate with an “External Reference” which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package.   See: section 3.21  External Reference, 3.22 External Reference Comment and Appendix VI:  External Repository Identifiers for
 more information.
@@ -117,11 +117,11 @@ more information.
 
 # I.6 Differences between V2.0 and V1.2 <a name="I.6"></a>
 
-* Abstraction has been applied to the underlying model with the inclusion of SPDX elements. With SPDX 2.0, the concept of an SPDX element is introduced (see Appendix III). This includes SPDX documents, SPDX files, and SPDX packages, each of which gets associated with an SPDX identifier which is denoted by “SPDXRef-”.
+* Abstraction has been applied to the underlying model with the inclusion of SPDX Elements. With SPDX 2.0, the concept of an SPDX Element is introduced (see Appendix III). This includes SPDX Documents, SPDX files, and SPDX Packages, each of which gets associated with an SPDX identifier which is denoted by “SPDXRef-”.
 
-* SPDX relationships have been added to allow any SPDX element to have a relationship to other SPDX elements. Documented the origin of an SPDX hierarchy of sub-packages, documenting the origin of an SPDX element, and documenting modifications or corrections (annotations) to an SPDX element.
+* SPDX relationships have been added to allow any SPDX Element to have a relationship to other SPDX Elements. Documented the origin of an SPDX hierarchy of sub-packages, documenting the origin of an SPDX Element, and documenting modifications or corrections (annotations) to an SPDX Element.
 
-* The ability to reference SPDX elements outside the current SPDX document itself (external references).
+* The ability to reference SPDX Elements outside the current SPDX Document itself (external references).
 
 * Additional file types are now supported.
 

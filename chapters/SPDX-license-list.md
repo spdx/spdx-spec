@@ -1,8 +1,8 @@
-# Annex A SPDX license List (Informative)
+# Annex An SPDX License List (Informative)
 
 The SPDX License List is an integral part of the SPDX Specification. The SPDX License List itself is a list of commonly found licenses and exceptions used in free and open or collaborative software, data, hardware, or documentation. The SPDX License List includes a standardized short identifier, the full name, the license text, and a canonical permanent URL for each license and exception.
 
-The purpose of the SPDX License List is to enable efficient and reliable identification of such licenses and exceptions in an SPDX document, in source files or elsewhere.
+The purpose of the SPDX License List is to enable efficient and reliable identification of such licenses and exceptions in an SPDX Document, in source files or elsewhere.
 
 * [Overview][overview]: For general information about the SPDX License List, including principles for inclusion of a license and an explanation of the [fields][fields] contained on the list.
 * [Matching Guidelines][matching]: Guidelines for what constitutes a license match to the SPDX License List. For licenses that include markup, the license text on the HTML pages here will display omitable text in blue and replaceable text in red (see Guideline #2 for more information).

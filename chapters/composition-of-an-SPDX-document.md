@@ -1,20 +1,20 @@
-# 5 Composition of an SPDX document
+# 5 Composition of an SPDX Document
 
 ## 5.1 What this specification covers <a name="5.1"></a>
 
-This document contains the specification for an SPDX document, which is made up of a set of one or more sections, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of sections allowed. The fields for each kind of section are defined in the clause corresponding to that section.  Within an SPDX document, sections may be organized, as follows:
+This document contains the specification for an SPDX Document, which is made up of a set of one or more sections, instances of which contain information in the form of *fields*. The following subclauses introduce the different kinds of sections allowed. The fields for each kind of section are defined in the clause corresponding to that section.  Within an SPDX Document, sections may be organized, as follows:
 
-![Overview of SPDX document contents](img/spdx-2.3-document.png)
+![Overview of SPDX Document contents](img/spdx-2.3-document.png)
 
 The object model is illustrated by [Annex C](RDF-object-model-and-identifier-syntax.md).
 
 ## 5.2 Sections <a name="5.2"></a>
 
-### 5.2.1 SPDX document creation information section <a name="5.2.1"></a>
+### 5.2.1 SPDX Document creation information section <a name="5.2.1"></a>
 
 An instance of this section provides the necessary information for forward and backward compatibility for processing tools.
 
-One instance shall be present for each SPDX document produced.
+One instance shall be present for each SPDX Document produced.
 
 Cardinality: Mandatory, one.
 
@@ -24,7 +24,7 @@ See [Clause 6](document-creation-information.md) for details of the fields in th
 
 If SPDX information is being used to describe packages, then one instance of the package information per package being described shall exist.  It provides important meta information about the package as a whole.  Packages are an abstract concept that can be used to refer to any distribution of software, typically consisting of one or more files and capable of containing sub-packages.  Starting with SPDX 2.0, it is not necessary to have a package wrapping a set of files.
 
-A package refers to any unit of content that can be associated with a distribution of software. Typically, a package is composed of one or more files. An SPDX document may, but is not required to, provide details about the individual files comprising a package (see [Clause 8](file-information.md)).
+A package refers to any unit of content that can be associated with a distribution of software. Typically, a package is composed of one or more files. An SPDX Document may, but is not required to, provide details about the individual files comprising a package (see [Clause 8](file-information.md)).
 
 Any of the following non-limiting examples may be (but are not required to be) represented in SPDX as a package:
 
@@ -37,7 +37,7 @@ Any of the following non-limiting examples may be (but are not required to be) r
 
 Note that some of these could be represented in SPDX as a file as well.
 
-In an SPDX document, relationship elements can be used to indicate relationships between packages, such as dependency relationships.
+In an SPDX Document, relationship elements can be used to indicate relationships between packages, such as dependency relationships.
 
 Cardinality: Optional, zero or many.
 
@@ -65,7 +65,7 @@ When implementing `tag:value` format, the positioning of file elements is syntac
 * Files are assumed to be associated with the package information that immediately precedes it, if a package exists.
 * Presence of a new package information signals the end of the set of files associated with the preceding package, unless an explicit relationship is used.
 * If a package contains files, the file information sections shall follow its package information section.
-* If a file is not part of any package, it shall precede any package information section reference in the SPDX document.
+* If a file is not part of any package, it shall precede any package information section reference in the SPDX Document.
 * The first field to start off the description of a file shall be the file name in `tag:value` format.
 * File information is associated with the file name that precedes it.
 * Annotations on the file and relationships from the file may appear after the file information, before the next file or package information section.
@@ -76,7 +76,7 @@ When implementing file information in RDF, the `spdx:hasFile` property is used t
 
 Snippets can optionally be used when a file is known to have some content that has been included from another original source. They are useful for denoting when part of a file may have been originally created under another license or copied from a place with a known vulnerability.
 
-Each instance of Snippet Information shall be associated with a specific file in an SPDX document.
+Each instance of Snippet Information shall be associated with a specific file in an SPDX Document.
 
 Cardinality: Optional, zero or many.
 
@@ -99,9 +99,9 @@ Cardinality: Optional, zero or many.
 
 See [Clause 10](other-licensing-information-detected.md) for details of the fields in this kind of section.
 
-### 5.2.6 Relationships between SPDX elements information section <a name="5.2.6"></a>
+### 5.2.6 Relationships between SPDX Elements information section <a name="5.2.6"></a>
 
-Packages, files, and snippets are all considered to be SPDX elements, and relationships can be made explicit between these SPDX elements by using the fields in this section.
+Packages, files, and snippets are all considered to be SPDX Elements, and relationships can be made explicit between these SPDX Elements by using the fields in this section.
 
 Cardinality: Optional, zero or many.
 
@@ -109,7 +109,7 @@ See [Clause 11](relationships-between-SPDX-elements.md) for details of the field
 
 ### 5.2.7 Annotations information section <a name="5.2.7"></a>
 
-Annotations permit the addition of information to validate and clarify ambiguous SPDX elements (packages, files or snippets).
+Annotations permit the addition of information to validate and clarify ambiguous SPDX Elements (packages, files or snippets).
 
 Cardinality: Optional, zero or many.
 
@@ -121,7 +121,7 @@ This section is now the preferred home for review information.
 
 The review information section is included for compatibility with SPDX 1.2, and is deprecated since SPDX 2.0. Any review information shall use an annotation (as described in [Clause 12](annotations.md)) with an annotation type of `REVIEW`.
 
-Review information may be added after the initial SPDX document has been created. The set of fields are optional and multiple instances may be added. Once a reviewer entry is added, the review date associated with the review is mandatory. The created date shall not be modified as a result of the addition of information regarding the conduct of a review. A review comments is optional.
+Review information may be added after the initial SPDX Document has been created. The set of fields are optional and multiple instances may be added. Once a reviewer entry is added, the review date associated with the review is mandatory. The created date shall not be modified as a result of the addition of information regarding the conduct of a review. A review comments is optional.
 
 See [Clause 13](review-information-deprecated.md) for details of the fields in this kind of section.
 
@@ -130,6 +130,6 @@ See [Clause 13](review-information-deprecated.md) for details of the fields in t
 This document does not address the following:
 
 * Information that cannot be derived from an inspection (whether manual or using automated tools) of the package to be analyzed.
-* How the data stored in an SPDX document is used by the recipient.
+* How the data stored in an SPDX Document is used by the recipient.
 * Any identification of any patent(s) which may or may not relate to the package.
 * Legal interpretation of the licenses or any compliance actions that have been or may need to be taken.
