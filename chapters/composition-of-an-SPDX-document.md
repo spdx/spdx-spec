@@ -101,7 +101,7 @@ See [Clause 10](other-licensing-information-detected.md) for details of the fiel
 
 ### 5.2.6 Relationships between SPDX elements information section <a name="5.2.6"></a>
 
-Packages, files, and snippets are all considered to be SPDX Elements, and relationships can be made explicit between these SPDX Elements by using the fields in this section.
+Packages, files, and snippets are all considered to be SPDX elements, and relationships can be made explicit between these SPDX elements by using the fields in this section.
 
 Cardinality: Optional, zero or many.
 
