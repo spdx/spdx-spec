@@ -8,7 +8,7 @@ This field provides information about the relationship between two SPDX Elements
 
 In cases where there are "known unknowns", the use of the keyword `NOASSERTION` can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX Elements (package/file/snippet) that are connected by relationships or not. That is, there could be some, but the author is not asserting one way or another.
 
-Similarly, the use of the keyword `NONE` can be used to indicate that an SPDX Element (package/file/snippet) has no other elements connected by some relationship to it.
+Similarly, the use of the keyword `NONE` can be used to indicate that an SPDX element (package/file/snippet) has no other elements connected by some relationship to it.
 
 The use of `NOASSERTION`or `NONE` is not mandatory for any relationship. If no relationship of a particular type is specified, then the document author is not presumed to be asserting whether or not there are relationships of that type. If some relationships of a particular type are specified, then the document author is not presumed to be asserting whether there are more possible relationships of that type.
 
