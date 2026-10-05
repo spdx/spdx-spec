@@ -6,7 +6,7 @@
 
 This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. 
 
-In cases where there are "known unknowns", the use of the keyword `NOASSERTION` can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX Elements (package/file/snippet) that are connected by relationships or not. That is, there could be some, but the author is not asserting one way or another.
+In cases where there are "known unknowns", the use of the keyword `NOASSERTION` can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX elements (package/file/snippet) that are connected by relationships or not. That is, there could be some, but the author is not asserting one way or another.
 
 Similarly, the use of the keyword `NONE` can be used to indicate that an SPDX element (package/file/snippet) has no other elements connected by some relationship to it.
 
