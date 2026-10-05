@@ -211,11 +211,11 @@ XML files do not require specific markup to implement this guideline.
 
 The license XML can be accessed in the license-list-data repository under the license-list-XML directory.  Although the license list XML files can also be found in the [license-list-XML](https://github.com/spdx/license-list-XML) repo, users are encouraged to use the published versions in the [license-list-data](https://github.com/spdx/license-list-data) repository.  The license-list-data repository is tagged by release.  Only tagged released versions of the license list are considered stable.
 
-### B.15.2 License List XML format
+### B.15.2 License List XML format <a name="B.15.2"></a>
   
 A full schema for the License List XML can be found at https://github.com/spdx/license-list-XML/blob/master/schema/ListedLicense.xsd.
   
-### B.15.3 Legacy text template format <a name="B.15.2"></a>
+### B.15.3 Legacy text template format <a name="B.15.3"></a>
 
 Prior to the XML format, a text template was used to express variable and optional text in licenses.  This text template is still supported, however, users are encouraged to use the more expressive XML format.
   

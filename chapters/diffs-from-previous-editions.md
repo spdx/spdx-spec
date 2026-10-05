@@ -136,7 +136,7 @@ Differences from Earlier SPDX Versions            | N/A           | Annex J/I* |
 
 * JSON, YAML, and a development version of XML have been added as supported file formats.
 
-* A new appendix "SPDX File Tags" has been added to describe a method that developers can use to document other SPDX file-specific information (such as copyright notices, file type, etc.) in a standardized and easily machine-readable manner. See Appendix IX for more information.
+* A new appendix "SPDX File Tags" has been added to describe a method that developers can use to document other SPDX File-specific information (such as copyright notices, file type, etc.) in a standardized and easily machine-readable manner. See Appendix IX for more information.
 
 * A new appendix "SPDX Lite" has been added to document a lightweight subset of the SPDX specification for scenarios where a full SPDX Document is not required. See Appendix VIII for more information.
 
@@ -148,7 +148,7 @@ Differences from Earlier SPDX Versions            | N/A           | Annex J/I* |
 
 * Snippets have been added to allow a portion of a file to be identified as having different properties from the file it resides in.  The use of snippets is completely optional and it is not mandatory for snippets to be identified. See section 5 Snippet Information for further details on the fields available to describe snippets.
 
-* External Packages can now be referred to in SPDX Documents.  When there is no SPDX file information available to document the content of these external packages, then the filesAnalyzed attribute on a package should be set to false. See section 3.8 Files Analyzed for more information.
+* External Packages can now be referred to in SPDX Documents.  When there is no SPDX File information available to document the content of these external packages, then the filesAnalyzed attribute on a package should be set to false. See section 3.8 Files Analyzed for more information.
 
 * Packages are now able to associate with an “External Reference” which allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package.  See: section 3.21 External Reference, 3.22 External Reference Comment and Appendix VI: External Repository Identifiers for
 more information.
@@ -161,7 +161,7 @@ more information.
 
 # I.7 Differences between V2.0 and V1.2 <a name="I.7"></a>
 
-* Abstraction has been applied to the underlying model with the inclusion of SPDX Elements. With SPDX 2.0, the concept of an SPDX Element is introduced (see Appendix III). This includes SPDX Documents, SPDX files, and SPDX Packages, each of which gets associated with an SPDX identifier which is denoted by “SPDXRef-”.
+* Abstraction has been applied to the underlying model with the inclusion of SPDX Elements. With SPDX 2.0, the concept of an SPDX Element is introduced (see Appendix III). This includes SPDX Documents, SPDX Files, and SPDX Packages, each of which gets associated with an SPDX identifier which is denoted by “SPDXRef-”.
 
 * SPDX relationships have been added to allow any SPDX Element to have a relationship to other SPDX Elements. Documented the origin of an SPDX hierarchy of sub-packages, documenting the origin of an SPDX Element, and documenting modifications or corrections (annotations) to an SPDX Element.
 
