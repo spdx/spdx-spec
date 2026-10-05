@@ -66,7 +66,7 @@ def format_license_table(license_list):
 
 def format_deprecated_license_table(license_list):
     yield from format_table(
-        headers=['Full Name of License', 'Deprecated SDPX Short Identifier'],
+        headers=['Full Name of License', 'Deprecated SPDX Short Identifier'],
         rows=[
             [
                 license['name'],

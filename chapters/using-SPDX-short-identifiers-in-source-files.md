@@ -1,4 +1,4 @@
-# Annex E Using SPDX license list short identifiers in source files (Informative)
+# Annex E Using SPDX License List short identifiers in source files (Informative)
 
 ## E.1 Introduction <a name="E.1"></a>
 

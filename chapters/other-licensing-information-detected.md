@@ -4,7 +4,7 @@
 
 ### 10.1.1 Description
 
-Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages, files and snippets sections of the SPDX document (Clause [7](package-information.md), Clause [8](file-information.md) and Clause [9](snippet-information.md), respectively). The metadata for the license identifier field is shown in Table 63.
+Provide a locally unique identifier to refer to licenses that are not found on the SPDX License List. This unique identifier can then be used in the packages, files and snippets sections of the SPDX Document (Clause [7](package-information.md), Clause [8](file-information.md) and Clause [9](snippet-information.md), respectively). The metadata for the license identifier field is shown in Table 63.
 
 **Table 63 — Metadata for the license identifier field**
 
@@ -16,7 +16,7 @@ Provide a locally unique identifier to refer to licenses that are not found on t
 
 ### 10.1.2 Intent
 
-Create a human readable short form license identifier for a license not on the SPDX License List. This identifier shall be unique within the SPDX document. In previous versions of SPDX, the references were required to be sequential numbers, but as of version 1.2, creators may specify references that are easier for humans to remember and mentally map.
+Create a human readable short form license identifier for a license not on the SPDX License List. This identifier shall be unique within the SPDX Document. In previous versions of SPDX, the references were required to be sequential numbers, but as of version 1.2, creators may specify references that are easier for humans to remember and mentally map.
 
 ### 10.1.3 Examples
 
@@ -122,10 +122,9 @@ The metadata for the license name field is shown in Table 65.
 | Cardinality | 0..1 conditional (optional, one) if license is not on SPDX License List. |
 | Format | Single line of text | `NOASSERTION` |
 
-
 ### 10.3.2 Intent
 
-Provides a human readable name suitable for use as a title or label of the license when showing compact lists of licenses from the SPDX document to humans.
+Provides a human readable name suitable for use as a title or label of the license when showing compact lists of licenses from the SPDX Document to humans.
 
 ### 10.3.3 Examples
 
@@ -181,7 +180,7 @@ EXAMPLE 2 RDF: Property `rdfs:seeAlso` in class `spdx:ExtractedLicensingInfo`
 
 ### 10.5.1 Description
 
-This field provides a place for the SPDX document creator to record any general comments about the license. The metadata for the license comment field is shown in Table 67.
+This field provides a place for the SPDX Document creator to record any general comments about the license. The metadata for the license comment field is shown in Table 67.
 
 **Table 67 — Metadata for the license comment field**
 
@@ -193,7 +192,7 @@ This field provides a place for the SPDX document creator to record any general 
 
 ### 10.5.2 Intent
 
-Here, the intent is to provide the recipient of the SPDX document with more information determined after careful analysis of a license, or addition cross references.
+Here, the intent is to provide the recipient of the SPDX Document with more information determined after careful analysis of a license, or addition cross references.
 
 ### 10.5.3 Examples
 

@@ -42,7 +42,7 @@ EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:Package`
 
 ### 7.2.1 Description
 
-Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the package SPDX identifier field is shown in Table 14.
+Uniquely identify any element in an SPDX Document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document identifier. The metadata for the package SPDX identifier field is shown in Table 14.
 
 **Table 14 — Metadata for the package SPDX identifier field**
 
@@ -54,7 +54,7 @@ Uniquely identify any element in an SPDX document which may be referenced by oth
 
 ### 7.2.2 Intent
 
-There may be several versions of the same package within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
+There may be several versions of the same package within an SPDX Document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
 
 ### 7.2.3 Examples
 
@@ -67,10 +67,10 @@ SPDXID: SPDXRef-1
 EXAMPLE 2 RDF: The URI for the element will follow the form:
 
 ```text
-[SPDX document namespace]#[SPDX identifier]
+[SPDX Document namespace]#[SPDX identifier]
 ```
 
-See [6.5](document-creation-information.md#6.5) for the definition of the SPDX document namespace and [6.3](document-creation-information.md#6.3) for the definition of the SPDX identifier
+See [6.5](document-creation-information.md#6.5) for the definition of the SPDX Document namespace and [6.3](document-creation-information.md#6.3) for the definition of the SPDX identifier
 
 Using `xml:base`:
 
@@ -183,15 +183,15 @@ Sub-directory being treated as a package:
 
 ### 7.5.1 Description
 
-Identify the actual distribution source for the package/directory identified in the SPDX document. This might or might not be different from the originating distribution source for the package. The name of the Package Supplier shall be an organization or recognized author and not a web site. For example, [SourceForge][] is a host website, not a supplier, the supplier for https://sourceforge.net/projects/bridge/ is “[The Linux Foundation][LinuxFoundation].”
+Identify the actual distribution source for the package/directory identified in the SPDX Document. This might or might not be different from the originating distribution source for the package. The name of the Package Supplier shall be an organization or recognized author and not a web site. For example, [SourceForge][] is a host website, not a supplier, the supplier for https://sourceforge.net/projects/bridge/ is “[The Linux Foundation][LinuxFoundation].”
 
 Use `NOASSERTION` if:
 
-- the SPDX document creator has attempted to but cannot reach a reasonable objective determination;
+- the SPDX Document creator has attempted to but cannot reach a reasonable objective determination;
 
-- the SPDX document creator has made no attempt to determine this field; or
+- the SPDX Document creator has made no attempt to determine this field; or
 
-- the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+- the SPDX Document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 The metadata for the package supplier field is shown in Table 17.
 
@@ -205,7 +205,7 @@ The metadata for the package supplier field is shown in Table 17.
 
 ### 7.5.2 Intent
 
-Assist with understanding the point of distribution for the code in the package. This field is vital for ensuring that downstream package recipients can address any ambiguity or concerns that might arise with the information in the SPDX document or the contents of the package it documents.
+Assist with understanding the point of distribution for the code in the package. This field is vital for ensuring that downstream package recipients can address any ambiguity or concerns that might arise with the information in the SPDX Document or the contents of the package it documents.
 
 ### 7.5.3 Examples
 
@@ -229,15 +229,15 @@ EXAMPLE 2 RDF: Property `spdx:supplier` in class `spdx:Package`
 
 ### 7.6.1 Description
 
-If the package identified in the SPDX document originated from a different person or organization than identified as Package Supplier (see [7.5](#7.5) above), this field identifies from where or whom the package originally came. In some cases, a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX document identifies the package as [glibc][] and the Package Supplier as [Red Hat][], but the [Free Software Foundation][FSF] is the Package Originator.
+If the package identified in the SPDX Document originated from a different person or organization than identified as Package Supplier (see [7.5](#7.5) above), this field identifies from where or whom the package originally came. In some cases, a package may be created and originally distributed by a different third party than the Package Supplier of the package. For example, the SPDX Document identifies the package as [glibc][] and the Package Supplier as [Red Hat][], but the [Free Software Foundation][FSF] is the Package Originator.
 
 Use `NOASSERTION` if:
 
-- the SPDX document creator has attempted to but cannot reach a reasonable objective determination;
+- the SPDX Document creator has attempted to but cannot reach a reasonable objective determination;
 
-- the SPDX document creator has made no attempt to determine this field; or
+- the SPDX Document creator has made no attempt to determine this field; or
 
-- the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+- the SPDX Document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 The metadata for the package originator field is shown in Table 18.
 
@@ -251,7 +251,7 @@ The metadata for the package originator field is shown in Table 18.
 
 ### 7.6.2 Intent
 
-Assist with understanding the point of origin of the code in the package. This field is vital for understanding who originally distributed a package and should help in addressing any ambiguity or concerns that might arise with the information in the SPDX document or the contents of the Package it documents.
+Assist with understanding the point of origin of the code in the package. This field is vital for understanding who originally distributed a package and should help in addressing any ambiguity or concerns that might arise with the information in the SPDX Document or the contents of the Package it documents.
 
 ### 7.6.3 Examples
 
@@ -274,18 +274,18 @@ EXAMPLE 2 RDF: Property `spdx:originator` in class `spdx:Package`
 
 ### 7.7.1 Description
 
-This section identifies the download Uniform Resource Locator (URL), or a specific location within a version control system (VCS) for the package at the time that the SPDX document was created.
+This section identifies the download Uniform Resource Locator (URL), or a specific location within a version control system (VCS) for the package at the time that the SPDX Document was created.
 
 Use:
 
 * `NONE` if there is no download location whatsoever.
 * `NOASSERTION` if:
 
-    - the SPDX document creator has attempted to but cannot reach a reasonable objective determination;
+    - the SPDX Document creator has attempted to but cannot reach a reasonable objective determination;
 
-    - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX Document creator has made no attempt to determine this field; or
 
-    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX Document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 The metadata for the package download location field is shown in Table 19.
 
@@ -295,7 +295,7 @@ The metadata for the package download location field is shown in Table 19.
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Format | Uniform resource locator \| VCS location \| `NONE` \| `NOASSERTION`<br><br>For version-controlled files, a VCS location is similar to a URL and has the following syntax:<br><br>`<vcs_tool>+<transport>://<host_name>[/<path_to_repository>][@<revision_tag_or_branch>][#<sub_path>]`<br><br>For git, `<revision_tag_or_branch>` is a `<rev>` as described by [gitrevisions(1)](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gitrevisions.html). It is RECOMMENDED to use the unambiguous `refs/heads/<branch>` or `refs/tags/<tag>`, rather than only `<branch>` or `<tag>`, in order to prevent issues caused by shadowing. Formats that are local to the client (`...@...` and `:[<n>:]<path>`) or involve regular expressions (`<rev>^{/<text>}` and `:/<text>`) SHOULD NOT be used.<br><br>This VCS location compact notation (inspired and mostly adopted from [pip][pip-vcs] as of 2015-02-20) supports referencing locations in version control systems such as [Git][], [Mercurial][], [Subversion][] and [Bazaar][], and specifies the type of VCS tool using url prefixes: `git+`, `hg+`, `bzr+`, `svn+` and specific transport schemes such as SSH or HTTPS.<br><br>Specifying sub-paths, branch names, a commit hash, a revision or a tag name is recommended, and supported using the `@` delimiter for commits and the `#` delimiter for sub-paths.<br><br>Using user names and password in the `<host_name>` is not supported and should be considered as an error. User access control to URLs or VCS repositories shall be handled outside of an SPDX document.<br><br>In VCS location compact notations, the trailing slashes in `<host_name>`, `<path_to_repository>` are not significant. Leading and trailing slashes in `<sub_path>` are not significant. |
+| Format | Uniform resource locator \| VCS location \| `NONE` \| `NOASSERTION`<br><br>For version-controlled files, a VCS location is similar to a URL and has the following syntax:<br><br>`<vcs_tool>+<transport>://<host_name>[/<path_to_repository>][@<revision_tag_or_branch>][#<sub_path>]`<br><br>For git, `<revision_tag_or_branch>` is a `<rev>` as described by [gitrevisions(1)](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gitrevisions.html). It is RECOMMENDED to use the unambiguous `refs/heads/<branch>` or `refs/tags/<tag>`, rather than only `<branch>` or `<tag>`, in order to prevent issues caused by shadowing. Formats that are local to the client (`...@...` and `:[<n>:]<path>`) or involve regular expressions (`<rev>^{/<text>}` and `:/<text>`) SHOULD NOT be used.<br><br>This VCS location compact notation (inspired and mostly adopted from [pip][pip-vcs] as of 2015-02-20) supports referencing locations in version control systems such as [Git][], [Mercurial][], [Subversion][] and [Bazaar][], and specifies the type of VCS tool using url prefixes: `git+`, `hg+`, `bzr+`, `svn+` and specific transport schemes such as SSH or HTTPS.<br><br>Specifying sub-paths, branch names, a commit hash, a revision or a tag name is recommended, and supported using the `@` delimiter for commits and the `#` delimiter for sub-paths.<br><br>Using user names and password in the `<host_name>` is not supported and should be considered as an error. User access control to URLs or VCS repositories shall be handled outside of an SPDX Document.<br><br>In VCS location compact notations, the trailing slashes in `<host_name>`, `<path_to_repository>` are not significant. Leading and trailing slashes in `<sub_path>` are not significant. |
 
 ### 7.7.2 Intent
 
@@ -587,7 +587,7 @@ EXAMPLE 2 RDF: Property `spdx:downloadLocation` in class `spdx:Package`
 
 ### 7.8.1 Description
 
-Indicates whether the file content of this package has been available for or subjected to analysis when creating the SPDX document. If `false`, indicates packages that represent metadata or URI references to a project, product, artifact, distribution or a component. If `false`, the package shall not contain any files. The metadata for the files analyzed field is shown in Table 20.
+Indicates whether the file content of this package has been available for or subjected to analysis when creating the SPDX Document. If `false`, indicates packages that represent metadata or URI references to a project, product, artifact, distribution or a component. If `false`, the package shall not contain any files. The metadata for the files analyzed field is shown in Table 20.
 
 **Table 20 — Metadata for the files analyzed field**
 
@@ -599,11 +599,11 @@ Indicates whether the file content of this package has been available for or sub
 
 ### 7.8.2 Intent
 
-A package can refer to a project, product, artifact, distribution or a component that is external to the SPDX document.
+A package can refer to a project, product, artifact, distribution or a component that is external to the SPDX Document.
 
 Some examples:
 
-1. **A bundle of external products**: Package A can be metadata about Packages and their dependencies. It may also be a loosely organized manifest of references to Packages involved in a product or project. Build or execution may transitively discover more Packages and dependencies. All of these referenced Packages can have their own SPDX documents. In this case, Package A may be defined with its File Analyzed attribute set to `false`. Package A includes External Document References to SPDX documents containing Packages referenced in all the available relationships. The Relationships section then relates the SPDX documents and contained SPDX elements with appropriate semantics per the dependencies in the scope of Package A.
+1. **A bundle of external products**: Package A can be metadata about Packages and their dependencies. It may also be a loosely organized manifest of references to Packages involved in a product or project. Build or execution may transitively discover more Packages and dependencies. All of these referenced Packages can have their own SPDX Documents. In this case, Package A may be defined with its File Analyzed attribute set to `false`. Package A includes External Document References to SPDX Documents containing Packages referenced in all the available relationships. The Relationships section then relates the SPDX Documents and contained SPDX elements with appropriate semantics per the dependencies in the scope of Package A.
 2. **Package relation to external product**: Package A can have a STATIC_LINK relationship to Package B, but the binary representation of Package B is furnished by the build process and thus not contained in the file list of Package A. In this case, Package B needs to be defined with its Files Analyzed attribute set to false and all the other attributes subject to the subsequently defined constraints. Then, the relationship between Package A and Package B can be documented as described in Clause [11](relationships-between-SPDX-elements.md).
 3. **File derived from external product**: Package A contains multiple files derived from an outside project. Rather than use the `artifactOf*` attributes (F.9-4.11) to describe the relation of these files to their project, the outside project can be represented by another package, Package B, whose `FilesAnalyzed` ([7.8](#7.8)) attribute is set to `false`. Each of the binary files can then have a relationship to package B (Clause 10). This allows the outside project to be represented by a single SPDX identifier (the identifier of Package B). It also allows the relationship(s) between the outside project and each of the files be represented in much more detail.
 
@@ -629,18 +629,19 @@ EXAMPLE 2 RDF: Property `spdx:filesAnalyzed` in class `spdx:Package`
 
 ### 7.9.1 Description
 
-This field provides an independently reproducible mechanism identifying specific contents of a package based on the actual files (except the SPDX document itself, if it is included in the package) that make up each package and that correlates to the data in this SPDX document. This identifier enables a recipient to determine if any file in the original package (that the analysis was done on) has been changed and permits inclusion of an SPDX document as part of a package. The metadata for the package verification code field is shown in Table 21.
+This field provides an independently reproducible mechanism that permits unique identification of the contents of the files contained within a package (except the SPDX Document itself, if it is included in the package). The metadata for the package verification code field is shown in Table 21. For more specific use cases and examples of how to apply the package verification code field, see [Annex K.3 Verifying SPDX Packages](how-to-use.md#k3-verifying-spdx-packages).
 
 **Table 21 — Metadata for the package verification code field**
 
 | Attribute | Value |
 | --------- | ----- |
-| Required | Yes |
+| Required | No |
 | Cardinality | 0..1 if `FilesAnalyzed` ([7.8](#7.8)) is `true` or omitted, 0..0 (must be omitted) if `FilesAnalyzed` is `false`.|
 | Algorithm | (see the algorithm below) |
 | Format | Single line of text with 160 bit binary represented as 40 lowercase hexadecimal digits |
 
 Algorithm
+
 ```text
 verificationcode = 0
 filelist = templist = ""
@@ -662,7 +663,7 @@ Required sort order: '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e'
 
 ### 7.9.2 Intent
 
-Provide a unique identifier based on the files inside each package, eliminating confusion over which version or modification of a specific package the SPDX document refers to. This field also permits embedding the SPDX document within the package without altering the identifier.
+Verify, based on the files inside each package, which version or modification of a specific package the SPDX Document references. This field also permits embedding the SPDX Document within the package without altering the verification. This verification enables a recipient to determine which, if any, files in the original package have been changed.
 
 ### 7.9.3 Examples
 
@@ -695,7 +696,7 @@ EXAMPLE 2 RDF: Properties `spdx:packageVerificationCodeValue`, `spdx:packageVeri
 
 ### 7.10.1 Description
 
-Provide an independently reproducible mechanism that permits unique identification of a specific package that correlates to the data in this SPDX document. This identifier enables a recipient to determine if any file in the original package has been changed. If the SPDX document is to be included in a package, this value should not be calculated. The [SHA1][SHA-1] algorithm shall be used to provide the checksum by default. The metadata for the package checksum field is shown in Table 22.
+Provide an independently reproducible mechanism that permits unique identification of a specific package in this SPDX Document. If the SPDX Document is to be included in the package, the `PackageVerificationCode` field should be used instead. The metadata for the package checksum field is shown in Table 22. For more specific use cases and examples of how to apply the package checksum field, see [Annex K.3 Verifying SPDX Packages](how-to-use.md#k3-verifying-spdx-packages).
 
 **Table 22 — Metadata for the package checksum field**
 
@@ -708,7 +709,7 @@ Provide an independently reproducible mechanism that permits unique identificati
 
 ### 7.10.2 Intent
 
-Eliminate confusion over which version or modification of a specific package the SPDX document references by providing a unique identifier of the package.
+Verify, based on the binary blob, which version or modification of a specific package content the SPDX Document references. This verification enables a recipient to determine if any bits in the original package have been changed but does not specify which bits.
 
 ### 7.10.3 Examples
 
@@ -758,18 +759,18 @@ EXAMPLE 2 RDF: Properties `spdx:algorithm`, `spdx:checksumValue` in class `spdx:
 
 ### 7.11.1 Description
 
-Provide a place for the SPDX document creator to record a web site that serves as the package's home page. This link can also be used to reference further information about the package referenced by the SPDX document creator.
+Provide a place for the SPDX Document creator to record a web site that serves as the package's home page. This link can also be used to reference further information about the package referenced by the SPDX Document creator.
 
 Use:
 
 * `NONE` if there is no package home page whatsoever.
 * `NOASSERTION` if:
 
-    - the SPDX document creator has attempted to but cannot reach a reasonable objective determination;
+    - the SPDX Document creator has attempted to but cannot reach a reasonable objective determination;
 
-    - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX Document creator has made no attempt to determine this field; or
 
-    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX Document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 The metadata for the package home page field is shown in Table 23.
 
@@ -783,7 +784,7 @@ The metadata for the package home page field is shown in Table 23.
 
 ### 7.11.2 Intent
 
-Save the recipient of the SPDX document who is looking for more info from having to search for and verify a match between the package and the associated project homepage.
+Save the recipient of the SPDX Document who is looking for more info from having to search for and verify a match between the package and the associated project homepage.
 
 ### 7.11.3 Examples
 
@@ -806,11 +807,12 @@ This specification uses the prefix `doap:` to refer to the [DOAP][doap] namespac
 ```text
 http://usefulinc.com/ns/doap#
 ```
+
 ## 7.12 Source information field <a name="7.12"></a>
 
 ### 7.12.1 Description
 
-Provide a place for the SPDX document creator to record any relevant background information or additional comments about the origin of the package. For example, this field might include comments indicating whether the package was pulled from a source code management system or has been repackaged. The metadata for the source information field is shown in Table 24.
+Provide a place for the SPDX Document creator to record any relevant background information or additional comments about the origin of the package. For example, this field might include comments indicating whether the package was pulled from a source code management system or has been repackaged. The metadata for the source information field is shown in Table 24.
 
 Table 24 — Metadata for the source information field
 
@@ -822,7 +824,7 @@ Table 24 — Metadata for the source information field
 
 ### 7.12.2 Intent
 
-The SPDX document creator can provide additional information to describe any anomalies or discoveries in the determination of the origin of the package.
+The SPDX Document creator can provide additional information to describe any anomalies or discoveries in the determination of the origin of the package.
 
 ### 7.12.3 Examples
 
@@ -847,19 +849,19 @@ EXAMPLE 2 RDF: Property `spdx:sourceInfo` in class `spdx:Package`
 
 ### 7.13.1 Description
 
-Contain the license the SPDX document creator has concluded as governing the package or alternative values, if the governing license cannot be determined.
+Contain the license the SPDX Document creator has concluded as governing the package or alternative values, if the governing license cannot be determined.
 
 The options to populate this field are limited to:
 
 * A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md);
-* `NONE`, if the SPDX document creator concludes there is no license available for this package; or
+* `NONE`, if the SPDX Document creator concludes there is no license available for this package; or
 * `NOASSERTION` if:
 
-    - the SPDX document creator has attempted to but cannot reach a reasonable objective determination;
+    - the SPDX Document creator has attempted to but cannot reach a reasonable objective determination;
 
-    - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX Document creator has made no attempt to determine this field; or
 
-    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX Document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If the Concluded License is not the same as the Declared License ([7.15](#7.15)), a written explanation should be provided in the Comments on License field ([7.16](#7.16)). With respect to `NOASSERTION`, a written explanation in the Comments on License field ([7.16](#7.16)) is preferred. If the Concluded License field is not present in a package, it implies an equivalent meaning to `NOASSERTION`.
 
@@ -875,7 +877,7 @@ The metadata for the concluded license field is shown in Table 25.
 
 ### 7.13.2 Intent
 
-Here, the intent is for the SPDX document creator to analyze the license information in package, and other objective information, e.g., COPYING file, together with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the package.
+Here, the intent is for the SPDX Document creator to analyze the license information in package, and other objective information, e.g., COPYING file, together with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the package.
 
 ### 7.13.3 Examples
 
@@ -924,10 +926,10 @@ The options to populate this field are limited to:
 * `NONE`, if no license information is detected in any of the files; or
 * `NOASSERTION`, if:
 
-    - the SPDX document creator has made no attempt to determine this field; or
-    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX Document creator has made no attempt to determine this field; or
+    - the SPDX Document creator has intentionally provided no information (no meaning should be implied by doing so).
 
-If the All Licenses Information from Files field is not present for a package and `FilesAnalyzed` field ([7.8](#7.8)) for that same pacakge is `true` or omitted, it implies an equivalent meaning to `NOASSERTION`. The metadata for all license information from files field is shown in Table 26.
+If the All Licenses Information from Files field is not present for a package and `FilesAnalyzed` field ([7.8](#7.8)) for that same package is `true` or omitted, it implies an equivalent meaning to `NOASSERTION`. The metadata for all license information from files field is shown in Table 26.
 
 **Table 26 — Metadata for the all licenses information from files field**
 
@@ -982,9 +984,9 @@ The options to populate this field are limited to:
 * `NONE`, if the package contains no license information whatsoever; or
 * `NOASSERTION` if:
 
-    - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX Document creator has made no attempt to determine this field; or
 
-    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX Document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If the Declared License field is not present for a package, it implies an equivalent meaning to `NOASSERTION`. The metadata for the declared license field is shown in Table 27.
 
@@ -1039,7 +1041,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseDeclared` in class `spdx:Package`
 
 ### 7.16.1 Description
 
-This field provides a place for the SPDX document creator to record any relevant background information or analysis that went in to arriving at the Concluded License for a package. If the Concluded License does not match the Declared License or License Information from Files, this should be explained by the SPDX document creator. It is also preferable to include an explanation here when the Concluded License is `NOASSERTION`. The metadata for the comments on license field is shown in Table 28.
+This field provides a place for the SPDX Document creator to record any relevant background information or analysis that went in to arriving at the Concluded License for a package. If the Concluded License does not match the Declared License or License Information from Files, this should be explained by the SPDX Document creator. It is also preferable to include an explanation here when the Concluded License is `NOASSERTION`. The metadata for the comments on license field is shown in Table 28.
 
 **Table 28 — Metadata for the comments on license field**
 
@@ -1051,7 +1053,7 @@ This field provides a place for the SPDX document creator to record any relevant
 
 ### 7.16.2 Intent
 
-Here, the intent is to provide the recipient of the SPDX document with a detailed explanation of how the Concluded License was determined if it does not match the License Information from the files or the source code package, is marked `NOASSERTION`, or other helpful information relevant to determining the license of the package.
+Here, the intent is to provide the recipient of the SPDX Document with a detailed explanation of how the Concluded License was determined if it does not match the License Information from the files or the source code package, is marked `NOASSERTION`, or other helpful information relevant to determining the license of the package.
 
 ### 7.16.3 Examples
 
@@ -1087,9 +1089,9 @@ Identify the copyright holders of the package, as well as any dates present. Thi
 * `NONE` if the package contains no copyright information whatsoever; or
 * `NOASSERTION`, if
 
-    - the SPDX document creator has made no attempt to determine this field; or
+    - the SPDX Document creator has made no attempt to determine this field; or
 
-    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX Document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If the Copyright Text field is not present for a package, it implies an equivalent meaning to `NOASSERTION`. The metadata for the copyright text field is shown in Table 29.
 
@@ -1141,7 +1143,7 @@ This field is a short description of the package. The metadata for the package s
 
 ### 7.18.2 Intent
 
-Here, the intent is to allow the SPDX document creator to provide concise information about the function or use of the package without having to parse the source code of the actual package.
+Here, the intent is to allow the SPDX Document creator to provide concise information about the function or use of the package without having to parse the source code of the actual package.
 
 ### 7.18.3 Examples
 
@@ -1179,7 +1181,7 @@ This field is a more detailed description of the package. It may also be extract
 
 ### 7.19.2 Intent
 
-Here, the intent is to provide recipients of the SPDX document with a detailed technical explanation of the functionality, anticipated use, and anticipated implementation of the package. This field may also include a description of improvements over prior versions of the package.
+Here, the intent is to provide recipients of the SPDX Document with a detailed technical explanation of the functionality, anticipated use, and anticipated implementation of the package. This field may also include a description of improvements over prior versions of the package.
 
 ### 7.19.3 Examples
 
@@ -1213,7 +1215,7 @@ EXAMPLE 2 RDF: Property `spdx:description` in class `spdx:Package`
 
 ### 7.20.1 Description
 
-This field provides a place for the SPDX document creator to record any general comments about the package being described. The metadata for the package comment field is shown in Table 32.
+This field provides a place for the SPDX Document creator to record any general comments about the package being described. The metadata for the package comment field is shown in Table 32.
 
 **Table 32 — Metadata for the package comment field**
 
@@ -1225,7 +1227,7 @@ This field provides a place for the SPDX document creator to record any general 
 
 ### 7.20.2 Intent
 
-Here, the intent is to provide the recipient of the SPDX document with more information determined after careful analysis of a package.
+Here, the intent is to provide the recipient of the SPDX Document with more information determined after careful analysis of a package.
 
 ### 7.20.3 Examples
 
@@ -1321,7 +1323,7 @@ For an unlisted location:
 </spdx:package>
 ```
 
-The referenceType value for a non-listed location consists of the SPDX document namespace (see [6.5](document-creation-information.md#6.5)) followed by a `#` and the category as defined in [7.21](#7.21).
+The referenceType value for a non-listed location consists of the SPDX Document namespace (see [6.5](document-creation-information.md#6.5)) followed by a `#` and the category as defined in [7.21](#7.21).
 
 ## 7.22 External reference comment field <a name="7.22"></a>
 
@@ -1379,7 +1381,7 @@ EXAMPLE 2 RDF: Property `rdfs:comment` in class `spdx:ExternalRef`
 
 ### 7.23.1 Description
 
-This field provides a place for the SPDX document creator to record, at the package level, acknowledgements that might be required to be communicated in some contexts. This is not meant to include the package's actual complete license text (see `PackageLicenseConcluded`, `PackageLicenseDeclared` and `PackageLicenseInfoFromFiles`), and might or might not include copyright notices (see also `PackageCopyrightText`). The SPDX document creator might use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce. The metadata for the package attribution text field is shown in Table 35.
+This field provides a place for the SPDX Document creator to record, at the package level, acknowledgements that might be required to be communicated in some contexts. This is not meant to include the package's actual complete license text (see `PackageLicenseConcluded`, `PackageLicenseDeclared` and `PackageLicenseInfoFromFiles`), and might or might not include copyright notices (see also `PackageCopyrightText`). The SPDX Document creator might use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce. The metadata for the package attribution text field is shown in Table 35.
 
 **Table 35 — Metadata for the package attribution text field**
 
@@ -1391,7 +1393,7 @@ This field provides a place for the SPDX document creator to record, at the pack
 
 ### 7.23.2 Intent
 
-The intent is to provide the recipient of the SPDX document with acknowledgement content at a package level, to assist redistributors of the package with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX document creator might or might not explain elsewhere how they intend for this field to be used.
+The intent is to provide the recipient of the SPDX Document with acknowledgement content at a package level, to assist redistributors of the package with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX Document creator might or might not explain elsewhere how they intend for this field to be used.
 
 ### 7.23.3 Examples
 
@@ -1419,7 +1421,7 @@ EXAMPLE 2 RDF: Property `spdx:attributionText` in class `spdx:Package`
 </Package>
 ```
 
-## 7.24 Primary Package Purpose field <a name="7.24"></a>
+## 7.24 Primary package purpose field <a name="7.24"></a>
 
 ### 7.24.1 Description
 
@@ -1468,7 +1470,8 @@ EXAMPLE 2 RDF: Property `spdx:purpose` in class `spdx:Package`
 </Package>
 ```
   
-## 7.25 Release Date <a name="7.25"></a>
+## 7.25 Release date <a name="7.25"></a>
+
 ### 7.25.1 Description
 
 This field provides a place for recording the date the package was released.
@@ -1502,7 +1505,8 @@ EXAMPLE 2 RDF: Property `spdx:releaseDate` in class `spdx:Package`
 </Package>
 ```
 
-## 7.26 Built Date <a name="7.26"></a>
+## 7.26 Built date <a name="7.26"></a>
+
 ### 7.26.1 Description
 
 This field provides a place for recording the actual date the package was built.
@@ -1536,7 +1540,8 @@ EXAMPLE 2 RDF: Property `spdx:builtDate` in class `spdx:Package`
     <builtDate> 2010-01-29T18:30:22Z </builtDate>
 </Package>
 ```
-## 7.27 Valid Until Date <a name="7.27"></a>
+## 7.27 Valid until date <a name="7.27"></a>
+
 ### 7.27.1 Description
 
 This field provides a place for recording the end of the support period for a package from the supplier.
