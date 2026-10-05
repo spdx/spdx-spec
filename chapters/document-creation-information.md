@@ -178,7 +178,7 @@ The URI shall be unique for the SPDX Document including the specific version of 
 
 ### 6.5.2 Intent
 
-The URI provides an unambiguous mechanism for other SPDX Documents to reference SPDX Elements within this SPDX Document. See [6.6](#6.6) for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX Document can be found. For example, the URI can be a URL referencing the SPDX Document itself, if it is available on the internet. A best practice for creating the URI for SPDX Documents available on the public internet is `https://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
+The URI provides an unambiguous mechanism for other SPDX Documents to reference SPDX elements within this SPDX Document. See [6.6](#6.6) for a description on how external documents are referenced. Although it is not required, the URI can be constructed in a way which provides information on how the SPDX Document can be found. For example, the URI can be a URL referencing the SPDX Document itself, if it is available on the internet. A best practice for creating the URI for SPDX Documents available on the public internet is `https://[CreatorWebsite]/[pathToSpdx]/[DocumentName]-[UUID]` where:
 
 * `CreatorWebsite` is a website hosted by the creator of the document. (e.g. an SPDX Document provided by SPDX would be spdx.org)
 * `PathToSpdx` is a path to where SPDX Documents are stored on the website (e.g. /spdx/spdxdocs)
