@@ -109,7 +109,7 @@ See [Clause 11](relationships-between-SPDX-elements.md) for details of the field
 
 ### 5.2.7 Annotations information section <a name="5.2.7"></a>
 
-Annotations permit the addition of information to validate and clarify ambiguous SPDX Elements (packages, files or snippets).
+Annotations permit the addition of information to validate and clarify ambiguous SPDX elements (packages, files or snippets).
 
 Cardinality: Optional, zero or many.
 
