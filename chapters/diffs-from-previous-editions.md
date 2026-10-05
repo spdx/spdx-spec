@@ -136,7 +136,7 @@ Differences from Earlier SPDX Versions            | N/A           | Annex J/I* |
 
 * JSON, YAML, and a development version of XML have been added as supported file formats.
 
-* A new appendix "SPDX File Tags" has been added to describe a method that developers can use to document other SPDX File-specific information (such as copyright notices, file type, etc.) in a standardized and easily machine-readable manner. See Appendix IX for more information.
+* A new appendix "SPDX File Tags" has been added to describe a method that developers can use to document other SPDX file-specific information (such as copyright notices, file type, etc.) in a standardized and easily machine-readable manner. See Appendix IX for more information.
 
 * A new appendix "SPDX Lite" has been added to document a lightweight subset of the SPDX specification for scenarios where a full SPDX Document is not required. See Appendix VIII for more information.
 
