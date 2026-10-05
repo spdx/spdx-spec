@@ -14,7 +14,7 @@ The use of `NOASSERTION`or `NONE` is not mandatory for any relationship. If no r
 
 The relationships between two SPDX Elements that are supported are shown in Table 68.
 
-**Table 68 — Relationships between two SPDX Elements that are supported**
+**Table 68 — Relationships between two SPDX elements that are supported**
 
 | Relationship           | Description | Example |
 |------------------------|-------------|---------|
