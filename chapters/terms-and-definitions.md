@@ -45,7 +45,7 @@ any unit of content that can be associated with a distribution of software
 
 **3.7**
 
-**relationships between SPDX Elements information section**
+**relationships between SPDX elements information section**
 
 *section* (3.9) type, an instance of which contains information on how documents, *packages* (3.5), files and snippets relate to each other
 
