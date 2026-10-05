@@ -10,13 +10,13 @@ The mandatory part of the Package information in SPDX Lite is basic but useful f
 
 SPDX Lite has affinity with SPDX tools due to its containing the mandatory part of the Document Creation and Package Information in the SPDX Lite definition.
 
-An SPDX Lite document can be used in parallel with SPDX documents in software supply chains.
+An SPDX Lite document can be used in parallel with SPDX Documents in software supply chains.
 
 ## G.2 Format of SPDX Lite <a name="G.2"></a>
 
 The SPDX Lite profile is a subset of the SPDX specification. SPDX Lite consists of mandatory fields of the Document Creation and Package Information sections and other basic information. Cardinality of each item is not changed.
 
-The mandatory part of the SPDX document creation information section (which consists of SPDX Version, Data License, SPDX Identifier, Document Name, SPDX Document Namespace, Creator and Created) is used for keeping compatibility with SPDX tools.
+The mandatory part of the SPDX Document creation information section (which consists of SPDX Version, Data License, SPDX Identifier, Document Name, SPDX Document Namespace, Creator and Created) is used for keeping compatibility with SPDX tools.
 
 The main part of the Package Information (those are Package Name, Package Version, Package File Name, Package Supplier, Package Download Location, Package Home Page, Concluded License, Declared License, Comments on License and Copyright Text) is used for exchanging license information.
 

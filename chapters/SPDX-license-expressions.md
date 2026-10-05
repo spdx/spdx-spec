@@ -49,7 +49,7 @@ In the `tag:value` format, a license expression MUST be on a single line, and MU
 
 License expression operators (`AND`, `OR` and `WITH`) should be matched in a *case-sensitive* manner.
 
-License identifiers (including license exception identifiers) used in SPDX documents or source code files should be matched in a *case-insensitive* manner. In other words, `MIT`, `Mit` and `mIt` should all be treated as the same identifier and referring to the same license.
+License identifiers (including license exception identifiers) used in SPDX Documents or source code files should be matched in a *case-insensitive* manner. In other words, `MIT`, `Mit` and `mIt` should all be treated as the same identifier and referring to the same license.
 
 However, please be aware that it is often important to match with the case of the canonical identifier on the [SPDX License List](https://spdx.org/licenses). This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.
 

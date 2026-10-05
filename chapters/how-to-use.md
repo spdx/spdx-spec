@@ -1,6 +1,6 @@
 # Annex K How to use SPDX in different scenarios
 
-## K.1 Including security information in a SPDX document <a name="K.1"></a>
+## K.1 Including security information in an SPDX Document <a name="K.1"></a>
 
 SPDX 2.x has the concept of an External Reference for a Package to "reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package."
 
@@ -11,13 +11,13 @@ The specification for External Reference identifiers (Annex F) has four defined 
 * Persistent-id: identifier which is guaranteed to remain stable (persistent) over time
 * Other: Use if none of the above match your use case
 
-This section provides usage scenarios of how to leverage the Security and Persistent-id category external references specified above to refer to external security information. A complete SPDX document using these can be found in the examples directory within the SPDX code repository. Multiple instances and types of external security information may be included within a SPDX document.
+This section provides usage scenarios of how to leverage the Security and Persistent-id category external references specified above to refer to external security information. A complete SPDX Document using these can be found in the examples directory within the SPDX code repository. Multiple instances and types of external security information may be included within an SPDX Document.
 
 Note that identifiers (e.g. CPE, GitBOM, SWID) are spread throughout Annex F and sometimes locators refer to identifiers.
 
 ### K.1.1 Linking to an advisory <a name="K.1.1"></a>
 
-Including a reference to a Common Vulnerabilities and Exposures (CVE) advisory applicable to a package is shown in the example below. A SPDX creator should include current publicly known vulnerabilities at the time of document creation. SPDX consumers should always assume vulnerabilities enumerated by a SPDX creator to be out-of-date.
+Including a reference to a Common Vulnerabilities and Exposures (CVE) advisory applicable to a package is shown in the example below. An SPDX creator should include current publicly known vulnerabilities at the time of document creation. SPDX consumers should always assume vulnerabilities enumerated by an SPDX creator to be out-of-date.
 
 ```json
 "externalRefs" : [ {
@@ -196,9 +196,9 @@ Providing a link to such data at the time the SBOM is published provides a point
 } ]
 ```
 
-## K.2 Verifying SPDX packages <a name="K.2"></a>
+## K.2 Verifying SPDX Packages <a name="K.2"></a>
 
-Several use cases for SPDX depend on the consumer being able to verify the provenance and integrity of their software. SPDX can support several different scenarios depending on what information is available to the producer, what information is available to the consumer, and how the SPDX document is delivered. These scenarios are described below along with recommended approaches to verifying the SPDX packages.
+Several use cases for SPDX depend on the consumer being able to verify the provenance and integrity of their software. SPDX can support several different scenarios depending on what information is available to the producer, what information is available to the consumer, and how the SPDX Document is delivered. These scenarios are described below along with recommended approaches to verifying the SPDX Packages.
 
 ### K.2.1 General guidance <a name="K.2.1"></a>
 
@@ -215,17 +215,17 @@ If a Package represents an artifact that logically binds a number of single file
 
 ### K.2.2 Examples <a name="K.2.2"></a>
 
-#### K.2.2.1 SPDX package and SPDX document both contained in archive file <a name="K.2.2.1"></a>
+#### K.2.2.1 SPDX Package and SPDX Document both contained in archive file <a name="K.2.2.1"></a>
 
-Examples include: tarball binding one or more files to a SPDX package, installation file which installs the package and extracts SPDX document in the same directory
+Examples include: tarball binding one or more files to an SPDX Package, installation file which installs the package and extracts SPDX Document in the same directory
 
 SPDX Field To Use: [7.9 Package verification code](package-information.md#79-package-verification-code-field-)
 
 Guidance:
 
-* With the SPDX document included in the archive, it is not possible for the SPDX document to include a checksum for the archive itself. Generate a Package verification code and include the SPDX Document file name in the Excluded Files field.
+* With the SPDX Document included in the archive, it is not possible for the SPDX Document to include a checksum for the archive itself. Generate a Package verification code and include the SPDX Document file name in the Excluded Files field.
 
-#### K.2.2.2 SPDX package delivered as an archive file separate from the SPDX document <a name="K.2.2.2"></a>
+#### K.2.2.2 SPDX Package delivered as an archive file separate from the SPDX Document <a name="K.2.2.2"></a>
 
 Examples include: tarball, installation file
 
@@ -234,9 +234,9 @@ SPDX Field to Use: [7.10 Package checksum](package-information.md#710-package-ch
 Guidance:
 
 * Generate a checksum for the archive file and include it in the SPDX Package checksum field. The archive file name should also be included in the [Package file name](package-information.md#74-package-file-name-field-) field.
-* If source files for the Package are included in the Package distribution archive, the Package verification code for that Package should also be included in the SPDX document and the [Files analyzed](package-information.md#78-files-analyzed-field-) field should be set to `true`.
+* If source files for the Package are included in the Package distribution archive, the Package verification code for that Package should also be included in the SPDX Document and the [Files analyzed](package-information.md#78-files-analyzed-field-) field should be set to `true`.
 
-#### K.2.2.3 A single file represented as a SPDX package <a name="K.2.2.3"></a>
+#### K.2.2.3 A single file represented as an SPDX Package <a name="K.2.2.3"></a>
 
 Examples include: tarball, binary image, single executable
 
@@ -247,7 +247,7 @@ Guidance:
 * If a [Package download location](package-information.md#77-package-download-location-field-) exists, the Package checksum should be the cryptographic hash of the Package blob at the Package download location specified.
 * If the Package download location is not known, not available, or not accessible to the software consumer, the producer should include a Package checksum for the included Package file.
 
-#### K.2.2.4 Directory of software represented as a SPDX package <a name="K.2.2.4"></a>
+#### K.2.2.4 Directory of software represented as an SPDX Package <a name="K.2.2.4"></a>
 
 Examples include: source code, containers
 
@@ -255,4 +255,4 @@ SPDX Field To Use: [7.9 Package verification code](package-information.md#79-pac
 
 Guidance:
 
-* Include [File name](file-information.md#81-file-name-field-) field in the SPDX document for every file in the directory, include each file’s cryptographic hash as a [File checksum](file-information.md#84-file-checksum-field-), create a [CONTAINS relationship](relationships-between-SPDX-elements.md#111-relationship-field-) between the Package and the files, and set [Files analyzed](package-information.md#78-files-analyzed-field-) to `true` on the Package. **Note**: if Files analyzed is set to `false` you **cannot** provide a Package verification code.
+* Include [File name](file-information.md#81-file-name-field-) field in the SPDX Document for every file in the directory, include each file’s cryptographic hash as a [File checksum](file-information.md#84-file-checksum-field-), create a [CONTAINS relationship](relationships-between-SPDX-elements.md#111-relationship-field-) between the Package and the files, and set [Files analyzed](package-information.md#78-files-analyzed-field-) to `true` on the Package. **Note**: if Files analyzed is set to `false` you **cannot** provide a Package verification code.

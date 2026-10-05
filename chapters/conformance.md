@@ -50,7 +50,7 @@ The data format specification and recommendations are subject to the following c
 
 * Shall be suitable to be checked for syntactic correctness automatically, independent of how it was generated (human or tool).
 
-* The SPDX document character set shall support UTF-8 encoding.
+* The SPDX Document character set shall support UTF-8 encoding.
 
 * Multiple serialization formats may be used to represent the information being exchanged. Current supported formats include:
 
@@ -83,7 +83,7 @@ The data format specification and recommendations are subject to the following c
 
 ## 4.5 Trademark compliance <a name="4.5"></a>
 
-To be designated an SPDX document, a file shall comply with the requirements of the SPDX Trademark License (See the [SPDX Trademark Page](https://spdx.dev/trademark/)).
+To be designated an SPDX Document, a file shall comply with the requirements of the SPDX Trademark License (See the [SPDX Trademark Page](https://spdx.dev/trademark/)).
 
 The official copyright notice that shall be used with any verbatim reproduction and/or distribution of this SPDX Specification 2.3.1 is:
 

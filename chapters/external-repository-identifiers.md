@@ -3,7 +3,7 @@
 ## F.1 Introduction <a name="F.1"></a>
 
 This specification allows external resources
-to be referenced from SPDX documents.
+to be referenced from SPDX Documents.
 The identifiers are a combination of a category, a type and a locator.
 
 There are currently four defined categories:

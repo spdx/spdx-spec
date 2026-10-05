@@ -1,25 +1,25 @@
-# 11 Relationships between SPDX elements information section
+# 11 Relationships between SPDX Elements information section
 
 ## 11.1 Relationship field <a name="11.1"></a>
 
 ### 11.1.1 Description
 
-This field provides information about the relationship between two SPDX elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. 
+This field provides information about the relationship between two SPDX Elements. For example, you can represent a relationship between two different Files, between a Package and a File, between two Packages, or between one SPDXDocument and another SPDXDocument. 
 
-In cases where there are "known unknowns", the use of the keyword `NOASSERTION` can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX elements (package/file/snippet) that are connected by relationships or not. That is, there could be some, but the author is not asserting one way or another.
+In cases where there are "known unknowns", the use of the keyword `NOASSERTION` can be used on the right hand side of a relationship to indicate that the author is not asserting whether there are other SPDX Elements (package/file/snippet) that are connected by relationships or not. That is, there could be some, but the author is not asserting one way or another.
 
-Similarly, the use of the keyword `NONE` can be used to indicate that an SPDX element (package/file/snippet) has no other elements connected by some relationship to it.
+Similarly, the use of the keyword `NONE` can be used to indicate that an SPDX Element (package/file/snippet) has no other elements connected by some relationship to it.
 
 The use of `NOASSERTION`or `NONE` is not mandatory for any relationship. If no relationship of a particular type is specified, then the document author is not presumed to be asserting whether or not there are relationships of that type. If some relationships of a particular type are specified, then the document author is not presumed to be asserting whether there are more possible relationships of that type.
 
-The relationships between two SPDX elements that are supported are shown in Table 68.
+The relationships between two SPDX Elements that are supported are shown in Table 68.
 
-**Table 68 — Relationships between two SPDX elements that are supported**
+**Table 68 — Relationships between two SPDX Elements that are supported**
 
 | Relationship           | Description | Example |
 |------------------------|-------------|---------|
-| DESCRIBES              | Is to be used when SPDXRef-DOCUMENT describes SPDXRef-A.                                              | An SPDX document `WildFly.spdx` describes package ‘WildFly’. Note this is a logical relationship to help organize related items within an SPDX document that is mandatory if more than one package or set of files (not in a package) is present. |
-| DESCRIBED_BY           | Is to be used when SPDXRef-A is described by SPDXREF-Document.                                        | The package ‘WildFly’ is described by SPDX document `WildFly.spdx`. |
+| DESCRIBES              | Is to be used when SPDXRef-DOCUMENT describes SPDXRef-A.                                              | An SPDX Document `WildFly.spdx` describes package ‘WildFly’. Note this is a logical relationship to help organize related items within an SPDX Document that is mandatory if more than one package or set of files (not in a package) is present. |
+| DESCRIBED_BY           | Is to be used when SPDXRef-A is described by SPDXREF-Document.                                        | The package ‘WildFly’ is described by SPDX Document `WildFly.spdx`. |
 | CONTAINS               | Is to be used when SPDXRef-A contains SPDXRef-B.                                                      | An ARCHIVE file `bar.tgz` contains a SOURCE file `foo.c`. |
 | CONTAINED_BY           | Is to be used when SPDXRef-A is contained by SPDXRef-B.                                               | A SOURCE file `foo.c` is contained by ARCHIVE file `bar.tgz` |
 | DEPENDS_ON             | Is to be used when SPDXRef-A depends on SPDXRef-B.                                                    | Package A depends on the presence of package B in order to build and run |
@@ -57,7 +57,7 @@ The relationships between two SPDX elements that are supported are shown in Tabl
 | OPTIONAL\_COMPONENT_OF | Is to be used when SPDXRef-A is an optional component of SPDXRef-B.                                   | A SOURCE file `fool.c` (which is in the contributors directory) may or may not be included in the build of APPLICATION ‘atthebar’. |
 | METAFILE_OF            | Is to be used when SPDXRef-A is a metafile of SPDXRef-B.                                              | A SOURCE file `pom.xml` is a metafile of the APPLICATION ‘Apache Xerces’. |
 | PACKAGE_OF             | Is to be used when SPDXRef-A is used as a package as part of SPDXRef-B.                               | A Linux distribution contains an APPLICATION package gawk as part of the distribution MyLinuxDistro. |
-| AMENDS                 | Is to be used when (current) SPDXRef-DOCUMENT amends the SPDX information in SPDXRef-B.               | (Current) SPDX document A version 2 contains a correction to a previous version of the SPDX document A version 1. Note the reserved identifier SPDXRef-DOCUMENT for the current document is required. |
+| AMENDS                 | Is to be used when (current) SPDXRef-DOCUMENT amends the SPDX information in SPDXRef-B.               | (Current) SPDX Document A version 2 contains a correction to a previous version of the SPDX Document A version 1. Note the reserved identifier SPDXRef-DOCUMENT for the current document is required. |
 | PREREQUISITE_FOR       | Is to be used when SPDXRef-A is a prerequisite for SPDXRef-B.                                         | A library `bar.dll` is a prerequisite or dependency for APPLICATION `foo.exe`|
 | HAS_PREREQUISITE       | Is to be used when SPDXRef-A has as a prerequisite SPDXRef-B.                                         | An APPLICATION `foo.exe` has prerequisite or dependency on `bar.dll` |
 | REQUIREMENT_DESCRIPTION_FOR        | Is to be used when SPDXRef-A describes, illustrates, or specifies a requirement statement for SPDXRef-B. | A PDF document that describes a list of disallowed licences to inherit in certain build-subtrees. |
@@ -72,7 +72,7 @@ The metadata for the relationship field is shown in Table 69.
 | --------- | ----- |
 | Required | No |
 | Cardinality | 0..* see `DESCRIBES` relationship for one mandatory case. |
-| Format | ["DocumentRef-"[idstring]":"]SPDXID \<relationship\> ["DocumentRef-"[idstring]":"]`SPDXID` \| `NONE` \| `NOASSERTION`<br>where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2), [8.2](file-information.md#8.2).<br>where `<relationship>` is one of the documented relationship types in Table 68.<br>where `NONE` can be used to explicitly indicate there are NO other relationships.<br>where `NOASSERTION` can be used to explicitly indicate it is not clear if there are relationships that may apply or not. |
+| Format | ["DocumentRef-"[idstring]":"]SPDXID \<relationship\> ["DocumentRef-"[idstring]":"]`SPDXID` \| `NONE` \| `NOASSERTION`<br>where "DocumentRef-"`[idstring]`":" is an optional reference to an external SPDX Document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2), [8.2](file-information.md#8.2).<br>where `<relationship>` is one of the documented relationship types in Table 68.<br>where `NONE` can be used to explicitly indicate there are NO other relationships.<br>where `NOASSERTION` can be used to explicitly indicate it is not clear if there are relationships that may apply or not. |
 
 ### 11.1.2 Intent
 
@@ -135,7 +135,7 @@ EXAMPLE 2 RDF: Property `spdx:relationship` in any `spdx:SpdxDocument`, `spdx:Pa
 
 ### 11.2.1 Description
 
-This field provides a place for the SPDX document creator to record any general comments about the relationship. The metadata for the relationship comment field is shown in Table 70.
+This field provides a place for the SPDX Document creator to record any general comments about the relationship. The metadata for the relationship comment field is shown in Table 70.
 
 **Table 70 — Metadata for the relationship comment field**
 
@@ -147,7 +147,7 @@ This field provides a place for the SPDX document creator to record any general 
 
 ### 11.2.2 Intent
 
-Here, the intent is to provide the recipient of the SPDX document with more information determined after careful analysis of the relationship between two elements in an SPDX document.
+Here, the intent is to provide the recipient of the SPDX Document with more information determined after careful analysis of the relationship between two elements in an SPDX Document.
 
 ### 11.2.3 Examples
 

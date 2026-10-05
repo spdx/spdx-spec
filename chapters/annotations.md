@@ -72,7 +72,7 @@ EXAMPLE 2 RDF: Property `spdx:annotationDate` in class `spdx:Annotation`
 
 ### 12.3.1 Description
 
-This field describes the type of annotation. Annotations are usually created when someone reviews the SPDX document, and if this is the case the annotation type should be `REVIEW`. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of `OTHER`. The metadata for the annotation type field is shown in Table 73.
+This field describes the type of annotation. Annotations are usually created when someone reviews the SPDX Document, and if this is the case the annotation type should be `REVIEW`. If the author wants to store extra information about one of the elements during creation, it is recommended to use the type of `OTHER`. The metadata for the annotation type field is shown in Table 73.
 
 **Table 73 — Metadata for the annotation type field**
 
@@ -107,7 +107,7 @@ EXAMPLE 2 RDF: Property `spdx:annotationType` in class `spdx:Annotation`
 
 ### 12.4.1 Description
 
-Uniquely identify the element in an SPDX document which is being referenced. These may be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the SPDX identifier reference field is shown in Table 74.
+Uniquely identify the element in an SPDX Document which is being referenced. These may be referenced internally and externally with the addition of the SPDX Document identifier. The metadata for the SPDX identifier reference field is shown in Table 74.
 
 **Table 74 — Metadata for the SPDX identifier reference field**
 
@@ -115,11 +115,11 @@ Uniquely identify the element in an SPDX document which is being referenced. The
 | --------- | ----- |
 | Required | Conditional |
 | Cardinality | 0..1 conditional (Mandatory, one), if there is an Annotation. |
-| Format | `[DocumentRef-[idstring]:]SPDXID`<br>where:<br>`["DocumentRef-"[idstring]":"]` is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>`SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2) and [8.2](file-information.md#8.2). |
+| Format | `[DocumentRef-[idstring]:]SPDXID`<br>where:<br>`["DocumentRef-"[idstring]":"]` is an optional reference to an external SPDX Document as described in [6.6](document-creation-information.md#6.6)<br>`SPDXID` is a unique string containing letters, numbers, `.` and/or `-` as described in [6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2) and [8.2](file-information.md#8.2). |
 
 ### 12.4.2 Intent
 
-There may be several versions of the same snippet, package or file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
+There may be several versions of the same snippet, package or file within an SPDX Document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
 
 ### 12.4.3 Examples
 
@@ -135,7 +135,7 @@ SPDXREF: DocumentRef-spdx-tool-1.2:SPDXRef-5
 
 EXAMPLE 2 RDF:
 
-For RDF, the annotations are a property of the SPDX document, package, file, or snippet they are annotating.
+For RDF, the annotations are a property of the SPDX Document, package, file, or snippet they are annotating.
 
 ```text
 <File rdf:about="#SPDXRef-45">

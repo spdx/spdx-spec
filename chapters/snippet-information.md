@@ -4,7 +4,7 @@
 
 ### 9.1.1 Description
 
-Uniquely identify any element in an SPDX document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX document identifier. The metadata for the snippet SPDX identifier field is shown in Table 52.
+Uniquely identify any element in an SPDX Document which may be referenced by other elements. These may be referenced internally and externally with the addition of the SPDX Document identifier. The metadata for the snippet SPDX identifier field is shown in Table 52.
 
 **Table 52 — Metadata for the snippet SPDX identifier field**
 
@@ -16,7 +16,7 @@ Uniquely identify any element in an SPDX document which may be referenced by oth
 
 ### 9.1.2 Intent
 
-There may be several instances of a snippet within an SPDX document. Each snippet is an element which needs to be able to be referred to uniquely so that relationships between it and other elements can be clearly articulated.
+There may be several instances of a snippet within an SPDX Document. Each snippet is an element which needs to be able to be referred to uniquely so that relationships between it and other elements can be clearly articulated.
 
 ### 9.1.3 Examples
 
@@ -28,7 +28,7 @@ SnippetSPDXID: SPDXRef-1
 
 EXAMPLE 2 RDF: 
 
-The URI for the element shall follow the form: `[SpdxDocumentURI]#SPDXRef-[idstring]` where `[SpdxDocumentURI]` is the URI for the SPDX document containing the element.
+The URI for the element shall follow the form: `[SpdxDocumentURI]#SPDXRef-[idstring]` where `[SpdxDocumentURI]` is the URI for the SPDX Document containing the element.
 
 Using xml:base:
 
@@ -52,7 +52,7 @@ Using document URI:
 
 ### 9.2.1 Description
 
-Uniquely identify the file in an SPDX document which this snippet is associated with. The metadata for the snippet from file SPDX identifier field is shown in Table 53.
+Uniquely identify the file in an SPDX Document which this snippet is associated with. The metadata for the snippet from file SPDX identifier field is shown in Table 53.
 
 **Table 53 — Metadata for the snippet from file SPDX identifier field**
 
@@ -60,11 +60,11 @@ Uniquely identify the file in an SPDX document which this snippet is associated 
 | --------- | ----- |
 | Required | Yes |
 | Cardinality | 1..1 |
-| Format | ["DocumentRef-"[idstring]":"] SPDXID<br>where `DocumentRef-[idstring]`: is an optional reference to an external SPDX document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in ([6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2), [8.2](file-information.md#8.2)). |
+| Format | ["DocumentRef-"[idstring]":"] SPDXID<br>where `DocumentRef-[idstring]`: is an optional reference to an external SPDX Document as described in [6.6](document-creation-information.md#6.6)<br>where `SPDXID` is a string containing letters, numbers, `.` and/or `-`. as described in ([6.3](document-creation-information.md#6.3), [7.2](package-information.md#7.2), [8.2](file-information.md#8.2)). |
 
 ### 9.2.2 Intent
 
-There may be several versions of the same file within an SPDX document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
+There may be several versions of the same file within an SPDX Document. Each element needs to be able to be referred to uniquely so that relationships between elements can be clearly articulated.
 
 ### 9.2.3 Examples
 
@@ -227,16 +227,16 @@ Supported classes from the pointer method vocabulary are `StartEndPointer` and `
 
 ### 9.5.1 Description
 
-This field contains the license the SPDX document creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:
+This field contains the license the SPDX Document creator has concluded as governing the snippet or alternative values if the governing license cannot be determined. The options to populate this field are limited to:
 
 * A valid SPDX License Expression as defined in Annex [D](SPDX-license-expressions.md).
 * `NONE` should be used if there is no licensing information from which to conclude a license for the snippet.
 * `NOASSERTION` should be used if for the snippet:
 
-    - the SPDX document creator has attempted to, but cannot reach a reasonable objective determination of the Concluded License;
-    - the SPDX document creator is uncomfortable concluding a license, despite some license information being available;
-    - the SPDX document creator has made no attempt to determine a Concluded License;
-    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX Document creator has attempted to, but cannot reach a reasonable objective determination of the Concluded License;
+    - the SPDX Document creator is uncomfortable concluding a license, despite some license information being available;
+    - the SPDX Document creator has made no attempt to determine a Concluded License;
+    - the SPDX Document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If the Concluded License is not the same as the License Information in Snippet, a written explanation should be provided in the Comments on License field (see [9.7](#9.7)). With respect to `NOASSERTION`, a written explanation in the Comments on License field (see [9.7](#9.7)) is preferred. If the Snippet Concluded License field is not present for a snippet, it implies an equivalent meaning to `NOASSERTION`. The metadata for the snippet concluded license field is shown in Table 56.
 
@@ -250,7 +250,7 @@ If the Concluded License is not the same as the License Information in Snippet, 
 
 ### 9.5.2 Intent
 
-Here, the intent is for the SPDX document creator to reconcile the license information known about the snippet, what license information is in the snippet itself and other objective information for a package, along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the snippet.
+Here, the intent is for the SPDX Document creator to reconcile the license information known about the snippet, what license information is in the snippet itself and other objective information for a package, along with the results from any scanning tools, to arrive at a reasonably objective conclusion as to what license governs the snippet.
 
 ### 9.5.3 Examples
 
@@ -298,8 +298,8 @@ The options to populate this field are limited to:
 * `NONE`, if the snippet contains no license information whatsoever; or
 * `NOASSERTION`, if:
 
-    - the SPDX document creator has made no attempt to determine this field; or
-    - the SPDX document creator has intentionally provided no information (no meaning should be implied by doing so).
+    - the SPDX Document creator has made no attempt to determine this field; or
+    - the SPDX Document creator has intentionally provided no information (no meaning should be implied by doing so).
 
 If license information for more than one license is contained in the snippet or if the license information offers a choice of licenses, then each of the choices should be listed as a separate entry. If the License Information in Snippet field is not present for a snippet, it implies an equivalent meaning to `NOASSERTION`. The metadata for the license information in snippet field is shown in Table 57.
 
@@ -341,7 +341,7 @@ EXAMPLE 2 RDF: Property `spdx:licenseInfoInSnippet` in class `spdx:Snippet`
 
 ### 9.7.1 Description
 
-This field provides a place for the SPDX document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a snippet. The metadata for the snippet comments on license field is shown in Table 58.
+This field provides a place for the SPDX Document creator to record any relevant background references or analysis that went in to arriving at the Concluded License for a snippet. The metadata for the snippet comments on license field is shown in Table 58.
 
 **Table 58 — Metadata for the snippet comments on license field**
 
@@ -353,7 +353,7 @@ This field provides a place for the SPDX document creator to record any relevant
 
 ### 9.7.2 Intent
 
-Here, the intent is to provide the recipient of the SPDX document with a detailed explanation of how the Concluded License was determined for a Snippet if it does not match the License Information in Snippet, is marked `NOASSERTION`, or other helpful information relevant to determining the license of the snippet in a file.
+Here, the intent is to provide the recipient of the SPDX Document with a detailed explanation of how the Concluded License was determined for a Snippet if it does not match the License Information in Snippet, is marked `NOASSERTION`, or other helpful information relevant to determining the license of the snippet in a file.
 
 ### 9.7.3 Examples
 
@@ -390,7 +390,7 @@ any text relating to a copyright notice, even if not complete;
 
 `NONE`, if the snippet contains no copyright information whatsoever; or
 
-`NOASSERTION`, if the SPDX document creator has not examined the contents of the actual snippet or if the SPDX document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).
+`NOASSERTION`, if the SPDX Document creator has not examined the contents of the actual snippet or if the SPDX Document creator has intentionally provided no information (no meaning should be implied from the absence of an assertion).
 
 If the Snippet Copyright Text field is not present for a snippet, it implies an equivalent meaning to `NOASSERTION`. The metadata for the snippet copyright text field is shown in Table 59.
 
@@ -432,7 +432,7 @@ EXAMPLE 2 RDF: Property `spdx:copyrightText` in class `spdx:Snippet`
 
 ### 9.9.1 Description
 
-This field provides a place for the SPDX document creator to record any general comments about the snippet. The metadata for the snippet comment field is shown in Table 60.
+This field provides a place for the SPDX Document creator to record any general comments about the snippet. The metadata for the snippet comment field is shown in Table 60.
 
 **Table 60 — Metadata for the snippet comment field**
 
@@ -444,7 +444,7 @@ This field provides a place for the SPDX document creator to record any general 
 
 ### 9.9.2 Intent
 
-Here, the intent is to provide the recipient of the SPDX document with more information determined after careful analysis of a snippet.
+Here, the intent is to provide the recipient of the SPDX Document with more information determined after careful analysis of a snippet.
 
 ### 9.9.3 Examples
 
@@ -512,7 +512,7 @@ EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:Snippet`
 
 ### 9.11.1 Description
 
-This field provides a place for the SPDX document creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see `SnippetLicenseConcluded` and `LicenseInfoInSnippet`), and might or might not include copyright notices (see also `SnippetCopyrightText`). The SPDX document creator may use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce. The metadata for the snippet attribution text field is shown in Table 62.
+This field provides a place for the SPDX Document creator to record, at the snippet level, acknowledgements that may be required to be communicated in some contexts. This is not meant to include the snippet's actual complete license text (see `SnippetLicenseConcluded` and `LicenseInfoInSnippet`), and might or might not include copyright notices (see also `SnippetCopyrightText`). The SPDX Document creator may use this field to record other acknowledgements, such as particular clauses from license texts, which might be necessary or desirable to reproduce. The metadata for the snippet attribution text field is shown in Table 62.
 
 **Table 62 — Metadata for the snippet attribution text field**
 
@@ -524,7 +524,7 @@ This field provides a place for the SPDX document creator to record, at the snip
 
 ### 9.11.2 Intent
 
-The intent is to provide the recipient of the SPDX document with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX document creator might or might not explain elsewhere how they intend for this field to be used.
+The intent is to provide the recipient of the SPDX Document with acknowledgement content at a snippet level, to assist redistributors of the file with reproducing those acknowledgements. This field does not necessarily indicate where, or in which contexts, the acknowledgements need to be reproduced (such as end-user documentation, advertising materials, etc.) and the SPDX Document creator might or might not explain elsewhere how they intend for this field to be used.
 
 ### 9.11.3 Examples
 
