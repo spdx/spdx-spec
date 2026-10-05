@@ -232,7 +232,7 @@ Identify any external SPDX Documents referenced within this SPDX Document. The m
 
 ### 6.6.2 Intent
 
-SPDX Elements within this document may be related to other SPDX Elements referenced from external SPDX Documents. An SPDX Element could be a snippet, file, package, license reference or SPDX Document.
+SPDX elements within this document may be related to other SPDX elements referenced from external SPDX Documents. An SPDX element could be a snippet, file, package, license reference or SPDX Document.
 
 ### 6.6.3 Examples
 
