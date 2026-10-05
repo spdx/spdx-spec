@@ -5,7 +5,7 @@
 V2.3.1 is a maintenance release of V2.3.
 It corrects errors, aligns the text with the machine-readable schema
 and ontology, and adds informative guidance.
-No new fields or relationship types were added.
+No new fields or relationship types were added, deleted, or marked as deprecated.
 
 Key changes include:
 
