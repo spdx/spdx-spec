@@ -164,7 +164,7 @@ EXAMPLE 2 RDF: Property `spdx:name` in class `spdx:SpdxDocument`
 
 ### 6.5.1 Description
 
-Provide an SPDX Document-specific namespace as a unique absolute [Uniform Resource Identifier][URI] (URI) as specified in [RFC-3986][rfc3986], with the exception of the ‘#’ delimiter. The SPDX Document URI shall not contain a URI "part" (e.g. the "#" character), since the ‘#’ is used in SPDX Element URIs (packages, files, snippets, etc) to separate the document namespace from the element’s SPDX identifier. Additionally, a scheme (e.g. “https:”) is required.
+Provide an SPDX Document-specific namespace as a unique absolute [Uniform Resource Identifier][URI] (URI) as specified in [RFC-3986][rfc3986], with the exception of the ‘#’ delimiter. The SPDX Document URI shall not contain a URI "part" (e.g. the "#" character), since the ‘#’ is used in SPDX element URIs (packages, files, snippets, etc) to separate the document namespace from the element’s SPDX identifier. Additionally, a scheme (e.g. “https:”) is required.
 
 The URI shall be unique for the SPDX Document including the specific version of the SPDX Document. If the SPDX Document is updated, thereby creating a new version, a new URI for the updated document shall be used. There may only be one URI for an SPDX Document and only one SPDX Document for a given URI. The metadata for the SPDX Document namespace field is shown in Table 6.
 
