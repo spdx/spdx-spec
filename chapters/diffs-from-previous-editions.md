@@ -121,7 +121,7 @@ more information.
 
 * SPDX relationships have been added to allow any SPDX element to have a relationship to other SPDX Elements. Documented the origin of an SPDX hierarchy of sub-packages, documenting the origin of an SPDX Element, and documenting modifications or corrections (annotations) to an SPDX element.
 
-* The ability to reference SPDX Elements outside the current SPDX Document itself (external references).
+* The ability to reference SPDX elements outside the current SPDX Document itself (external references).
 
 * Additional file types are now supported.
 
