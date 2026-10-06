@@ -779,6 +779,7 @@
                         { "$ref": "#/$defs/service_SoftwareService" },
                         { "$ref": "#/$defs/simplelicensing_LicenseExpression" },
                         { "$ref": "#/$defs/simplelicensing_SimpleLicensingText" },
+                        { "$ref": "#/$defs/software_AbstractPackage" },
                         { "$ref": "#/$defs/software_File" },
                         { "$ref": "#/$defs/software_Package" },
                         { "$ref": "#/$defs/software_Sbom" },
@@ -2571,6 +2572,7 @@
                     "hasHost",
                     "hasInput",
                     "hasInstall",
+                    "hasInstance",
                     "hasMetadata",
                     "hasOptionalComponent",
                     "hasOptionalDependency",
@@ -2753,6 +2755,7 @@
                 { "const": "spdx:Core/RelationshipType/hasHost" },
                 { "const": "spdx:Core/RelationshipType/hasInput" },
                 { "const": "spdx:Core/RelationshipType/hasInstall" },
+                { "const": "spdx:Core/RelationshipType/hasInstance" },
                 { "const": "spdx:Core/RelationshipType/hasMetadata" },
                 { "const": "spdx:Core/RelationshipType/hasOptionalComponent" },
                 { "const": "spdx:Core/RelationshipType/hasOptionalDependency" },
@@ -5227,6 +5230,106 @@
             ]
         },
         "prop_simplelicensing_SimpleLicensingText_simplelicensing_licenseText": {
+                    "type": "string"
+        },
+        "software_AbstractPackage": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "software_AbstractPackage"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/software_AbstractPackage_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a software_AbstractPackage"
+            }
+        },
+        "software_AbstractPackage_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/software_AbstractPackage" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "software_AbstractPackage_props": {
+            "allOf": [
+                { "$ref": "#/$defs/Element_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "software_attributionText": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_software_AbstractPackage_software_attributionText"
+                                    }
+                                }
+                            ]
+                        },
+                        "software_copyrightText": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_software_AbstractPackage_software_copyrightText"
+                                    }
+                                }
+                            ]
+                        },
+                        "software_homePage": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_software_AbstractPackage_software_homePage"
+                                    }
+                                }
+                            ]
+                        },
+                        "software_packageVersion": {
+                            "$ref": "#/$defs/prop_software_AbstractPackage_software_packageVersion"
+                        },
+                        "software_sourceInfo": {
+                            "$ref": "#/$defs/prop_software_AbstractPackage_software_sourceInfo"
+                        }
+                    }
+                }
+            ]
+        },
+        "prop_software_AbstractPackage_software_attributionText": {
+                    "type": "string"
+        },
+        "prop_software_AbstractPackage_software_copyrightText": {
+                    "type": "string"
+        },
+        "prop_software_AbstractPackage_software_homePage": {
+                    "$ref": "#/$defs/anyURI"
+        },
+        "prop_software_AbstractPackage_software_packageVersion": {
+                    "type": "string"
+        },
+        "prop_software_AbstractPackage_software_sourceInfo": {
                     "type": "string"
         },
         "software_ContentIdentifier": {
@@ -12117,6 +12220,7 @@
                                 "service_KeyValidationProtocolType",
                                 "simplelicensing_LicenseExpression",
                                 "simplelicensing_SimpleLicensingText",
+                                "software_AbstractPackage",
                                 "software_ContentIdentifier",
                                 "software_ContentIdentifierType",
                                 "software_FileKindType",
@@ -12275,6 +12379,7 @@
                 { "$ref": "#/$defs/service_KeyValidationProtocolType" },
                 { "$ref": "#/$defs/simplelicensing_LicenseExpression" },
                 { "$ref": "#/$defs/simplelicensing_SimpleLicensingText" },
+                { "$ref": "#/$defs/software_AbstractPackage" },
                 { "$ref": "#/$defs/software_ContentIdentifier" },
                 { "$ref": "#/$defs/software_ContentIdentifierType" },
                 { "$ref": "#/$defs/software_FileKindType" },
