@@ -77,39 +77,47 @@ For a minor version X of the SPDX spec:
 
 ## Canonical serialization
 
-Canonical serialization is a single, consistent, normalized, deterministic, and
-reproducible form.
+The canonical serialization shall provide a single, deterministic, normalized,
+and reproducible representation of the underlying data.
+The semantic content of the canonical serialization
+shall remain identical to the original data model (e.g., the RDF data),
+irrespective of the serialization format employed.
 
-Such a canonical form normalizes things like ordering and formatting.
+Any serialization format applied to this specification
+shall enforce strict normalization rules for data ordering, formatting,
+and encoding to guarantee a consistent output.
 
-The content of the canonical serialization is exactly the same as the JSON-LD
-serialization of RDF data, just represented in a consistent way.
+For the JSON format, the canonical serialization shall conform to
+the JSON Canonicalization Scheme (JCS) as defined in
+[RFC 8785](https://datatracker.ietf.org/doc/rfc8785/),
+subject to the following additional constraint:
 
-Canonical serialization is in JSON format, as defined in
-[RFC 8259 (IETF STD 90)](https://datatracker.ietf.org/doc/rfc8259/),
-with the following additional characteristics:
+- Object keys:
+  A key name shall be a string containing only printable non-space ASCII
+  characters in the range U+0021 through U+007E inclusive.
 
-- No line breaks
-- Key names shall be wrapped in double quotes
-- No whitespace outside of strings
-- `true`, `false` and `null`: the literal names shall be lowercase; no other
-  literal names are allowed
-- Integers: represented in base 10 using decimal digits. This designates an
-  integer component that may be prefixed with an optional minus sign.
-  Leading zeros are not allowed.
-- Strings: UTF-8 representation without specific normalization. A string
-  begins and ends with quotation marks (%x22). Any Unicode characters may be
-  placed within the quotation marks, except for the two characters that shall be
-  escaped by a reverse solidus: quotation mark, reverse solidus, and the
-  control characters (U+0000 through U+001F).
-- Arrays: An array structure is represented as square brackets surrounding zero
-  or more items. Items are separated by commas.
-- Objects: An object structure is represented as a pair of curly brackets
-  surrounding zero or more name/value pairs (or members). A name is a string
-  containing only ASCII characters (0x21-0x7F). The names within an object shall
-  be unique. A single colon comes after each name, separating the name from the
-  value. A single comma separates a value from a following name. The name/value
-  pairs are ordered by name.
+### Key characteristics of JCS (Informative)
+
+For convenience, the following summarizes essential characteristics inherited
+from JCS (RFC 8785) and its underlying I-JSON
+([RFC 7493](https://datatracker.ietf.org/doc/rfc7493)) baseline.
+Implementations should consult RFC 8785 for exact normative algorithms:
+
+- No extraneous whitespace:
+  Line breaks, spaces, and tabs do not occur outside of strings.
+- Key uniqueness:
+  Duplicate key names within a single object are strictly prohibited.
+- Key ordering:
+  The name/value pairs within an object are sorted lexicographically based
+  on the exact UTF-16 code units of the key names.
+- Number formatting:
+  Integers and numeric values are represented in base 10 without leading zeros,
+  trailing decimal zeros, or unnecessary exponential notation.
+- String escaping:
+  Strings are represented in UTF-8.
+  Quotation marks (`"`, U+0022), reverse soliduses (`\`, U+005C),
+  and control characters (U+0000 through U+001F, which includes line breaks
+  and tabs) are always escaped.
 
 ## Serialization information
 
