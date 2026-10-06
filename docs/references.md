@@ -66,6 +66,10 @@ European Commission,
 *ISO/IEC 24765:2017 Systems and software engineering — Vocabulary*,
 [https://www.iso.org/standard/71952.html](https://www.iso.org/standard/71952.html).
 
+*ISO/IEC Directives, Part 2,*
+*Principles and rules for the structure and drafting of ISO and IEC documents*,
+<https://www.iso.org/directives>.
+
 *npm-package.json*, npm Inc.,
 [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json).
 
