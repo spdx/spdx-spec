@@ -31134,6 +31134,37 @@
                 "}"
               ]
             },
+            "hasInput_from": {
+              "message": "When relationship is hasInput, from must be a Build, DefinedProcess, or Action",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasInput> .",
+                "    $this <Core/from> ?from .",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Build/Build> }",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/DefinedProcess> }",
+                "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/Action> }",
+                "}"
+              ]
+            },
+            "hasInstall_to": {
+              "message": "When relationship is hasInstall, to must be an Artifact",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasInstall> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Artifact> }",
+                "}"
+              ]
+            },
+            "hasInstall_type": {
+              "message": "When relationship is hasInstall, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasInstall> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
             "hasOptionalDependency_type": {
               "message": "When relationship is hasOptionalDependency, class must be LifecycleScopedRelationship",
               "query": [
@@ -31226,6 +31257,25 @@
                 "}"
               ]
             },
+            "hasUninstall_to": {
+              "message": "When relationship is hasUninstall, to must be an Artifact",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasUninstall> .",
+                "    $this <Core/to> ?to .",
+                "    FILTER NOT EXISTS { ?to rdf:type/rdfs:subClassOf* <Core/Artifact> }",
+                "}"
+              ]
+            },
+            "hasUninstall_type": {
+              "message": "When relationship is hasUninstall, class must be LifecycleScopedRelationship",
+              "query": [
+                "SELECT $this WHERE {",
+                "    $this <Core/relationshipType> <Core/RelationshipType/hasUninstall> .",
+                "    FILTER NOT EXISTS { $this rdf:type <Core/LifecycleScopedRelationship> }",
+                "}"
+              ]
+            },
             "implementedBy_from": {
               "message": "When relationship is implementedBy, from must be a Requirement",
               "query": [
@@ -31256,12 +31306,14 @@
               ]
             },
             "performedBy_from": {
-              "message": "When relationship is performedBy, from must be an Action",
+              "message": "When relationship is performedBy, from must be an Action or a Relationship of type hasInstall or hasUninstall",
               "query": [
                 "SELECT $this WHERE {",
                 "    $this <Core/relationshipType> <Core/RelationshipType/performedBy> .",
                 "    $this <Core/from> ?from .",
                 "    FILTER NOT EXISTS { ?from rdf:type/rdfs:subClassOf* <Core/Action> }",
+                "    FILTER NOT EXISTS { ?from <Core/relationshipType> <Core/RelationshipType/hasInstall> }",
+                "    FILTER NOT EXISTS { ?from <Core/relationshipType> <Core/RelationshipType/hasUninstall> }",
                 "}"
               ]
             },
@@ -31820,7 +31872,7 @@
         "/Dataset/DatasetPackage": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "DatasetPackage",
@@ -32285,7 +32337,7 @@
         "/Dataset/dataCollectionProcess": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "dataCollectionProcess",
@@ -32306,7 +32358,7 @@
         "/Dataset/sensor": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "sensor",
@@ -32327,7 +32379,7 @@
         "/Dataset/confidentialityLevel": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "confidentialityLevel",
@@ -32348,7 +32400,7 @@
         "/Dataset/dataPreprocessing": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "dataPreprocessing",
@@ -32369,7 +32421,7 @@
         "/Dataset/anonymizationMethodUsed": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "anonymizationMethodUsed",
@@ -32390,7 +32442,7 @@
         "/Dataset/knownBias": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "knownBias",
@@ -32411,7 +32463,7 @@
         "/Dataset/intendedUse": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "intendedUse",
@@ -32432,7 +32484,7 @@
         "/Dataset/datasetUpdateMechanism": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "datasetUpdateMechanism",
@@ -32453,7 +32505,7 @@
         "/Dataset/datasetSize": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "datasetSize",
@@ -32474,7 +32526,7 @@
         "/Dataset/datasetNoise": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "datasetNoise",
@@ -32495,7 +32547,7 @@
         "/Dataset/datasetAvailability": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "datasetAvailability",
@@ -32516,7 +32568,7 @@
         "/Dataset/hasSensitivePersonalInformation": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "hasSensitivePersonalInformation",
@@ -32537,7 +32589,7 @@
         "/Dataset/datasetType": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "datasetType",
@@ -32560,7 +32612,7 @@
         "/Dataset/DatasetAvailabilityType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "DatasetAvailabilityType",
@@ -32583,7 +32635,7 @@
         "/Dataset/DatasetType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "DatasetType",
@@ -32615,7 +32667,7 @@
         "/Dataset/ConfidentialityLevelType": {
           "py/object": "spec_parser.model.Vocabulary",
           "ns": {
-            "py/id": 5127
+            "py/id": 5137
           },
           "license": "Community-Spec-1.0",
           "name": "ConfidentialityLevelType",
@@ -33057,7 +33109,7 @@
       "py/id": 4507
     },
     "/Dataset/DatasetPackage": {
-      "py/id": 5129
+      "py/id": 5139
     }
   },
   "properties": {
@@ -33815,43 +33867,43 @@
       "py/id": 4896
     },
     "/Dataset/dataCollectionProcess": {
-      "py/id": 5196
+      "py/id": 5206
     },
     "/Dataset/sensor": {
-      "py/id": 5200
+      "py/id": 5210
     },
     "/Dataset/confidentialityLevel": {
-      "py/id": 5204
+      "py/id": 5214
     },
     "/Dataset/dataPreprocessing": {
-      "py/id": 5208
+      "py/id": 5218
     },
     "/Dataset/anonymizationMethodUsed": {
-      "py/id": 5212
+      "py/id": 5222
     },
     "/Dataset/knownBias": {
-      "py/id": 5216
+      "py/id": 5226
     },
     "/Dataset/intendedUse": {
-      "py/id": 5220
+      "py/id": 5230
     },
     "/Dataset/datasetUpdateMechanism": {
-      "py/id": 5224
+      "py/id": 5234
     },
     "/Dataset/datasetSize": {
-      "py/id": 5228
+      "py/id": 5238
     },
     "/Dataset/datasetNoise": {
-      "py/id": 5232
+      "py/id": 5242
     },
     "/Dataset/datasetAvailability": {
-      "py/id": 5236
+      "py/id": 5246
     },
     "/Dataset/hasSensitivePersonalInformation": {
-      "py/id": 5240
+      "py/id": 5250
     },
     "/Dataset/datasetType": {
-      "py/id": 5244
+      "py/id": 5254
     }
   },
   "vocabularies": {
@@ -33934,31 +33986,31 @@
       "py/id": 4933
     },
     "/Core/AnnotationType": {
-      "py/id": 5069
+      "py/id": 5079
     },
     "/Core/PresenceType": {
-      "py/id": 5073
+      "py/id": 5083
     },
     "/Core/SpecificationType": {
-      "py/id": 5077
+      "py/id": 5087
     },
     "/Core/ProcessReadinessType": {
-      "py/id": 5081
+      "py/id": 5091
     },
     "/Core/IsoAutomationLevel": {
-      "py/id": 5085
+      "py/id": 5095
     },
     "/Core/RelationshipCompleteness": {
-      "py/id": 5089
+      "py/id": 5099
     },
     "/Dataset/DatasetAvailabilityType": {
-      "py/id": 5249
+      "py/id": 5259
     },
     "/Dataset/DatasetType": {
-      "py/id": 5253
+      "py/id": 5263
     },
     "/Dataset/ConfidentialityLevelType": {
-      "py/id": 5257
+      "py/id": 5267
     }
   },
   "individuals": {
@@ -33969,30 +34021,30 @@
       "py/id": 455
     },
     "/Core/NoneElement": {
-      "py/id": 5094
+      "py/id": 5104
     },
     "/Core/SpdxOrganization": {
-      "py/id": 5097
+      "py/id": 5107
     },
     "/Core/NoAssertionElement": {
-      "py/id": 5100
+      "py/id": 5110
     }
   },
   "datatypes": {
     "/Core/MediaType": {
-      "py/id": 5104
+      "py/id": 5114
     },
     "/Core/LanguageTag": {
-      "py/id": 5107
+      "py/id": 5117
     },
     "/Core/VersionNumber": {
-      "py/id": 5110
+      "py/id": 5120
     },
     "/Core/CountryCodeAlpha3": {
-      "py/id": 5113
+      "py/id": 5123
     },
     "/Core/DateTime": {
-      "py/id": 5116
+      "py/id": 5126
     }
   },
   "types": {
@@ -34402,7 +34454,7 @@
       "py/id": 4507
     },
     "/Dataset/DatasetPackage": {
-      "py/id": 5129
+      "py/id": 5139
     },
     "/FunctionalSafety/EvidenceType": {
       "py/id": 639
@@ -34483,46 +34535,46 @@
       "py/id": 4933
     },
     "/Core/AnnotationType": {
-      "py/id": 5069
+      "py/id": 5079
     },
     "/Core/PresenceType": {
-      "py/id": 5073
+      "py/id": 5083
     },
     "/Core/SpecificationType": {
-      "py/id": 5077
+      "py/id": 5087
     },
     "/Core/ProcessReadinessType": {
-      "py/id": 5081
+      "py/id": 5091
     },
     "/Core/IsoAutomationLevel": {
-      "py/id": 5085
+      "py/id": 5095
     },
     "/Core/RelationshipCompleteness": {
-      "py/id": 5089
+      "py/id": 5099
     },
     "/Dataset/DatasetAvailabilityType": {
-      "py/id": 5249
+      "py/id": 5259
     },
     "/Dataset/DatasetType": {
-      "py/id": 5253
+      "py/id": 5263
     },
     "/Dataset/ConfidentialityLevelType": {
-      "py/id": 5257
+      "py/id": 5267
     },
     "/Core/MediaType": {
-      "py/id": 5104
+      "py/id": 5114
     },
     "/Core/LanguageTag": {
-      "py/id": 5107
+      "py/id": 5117
     },
     "/Core/VersionNumber": {
-      "py/id": 5110
+      "py/id": 5120
     },
     "/Core/CountryCodeAlpha3": {
-      "py/id": 5113
+      "py/id": 5123
     },
     "/Core/DateTime": {
-      "py/id": 5116
+      "py/id": 5126
     }
   },
   "class_hierarchy": {
