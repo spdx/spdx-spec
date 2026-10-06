@@ -23,6 +23,24 @@ and others could be but have not yet been implemented.
 Successful validation against the artifacts therefore does not by itself
 establish that SPDX data conforms to this specification.
 
+## Verbal forms for expressions of provisions
+
+In this document, the following verbal forms are used to express the level of
+normativity of a provision:
+
+- "shall" and "shall not" indicate a requirement;
+- "should" and "should not" indicate a recommendation;
+- "may" indicates a permission;
+- "can" and "cannot" indicate a possibility or a capability.
+
+Conformance to this document is determined by its requirements alone.
+Recommendations and permissions do not affect conformance.
+
+These verbal forms are written in lower case, and follow the conventions of the
+ISO/IEC Directives, Part 2, [Clause 7][verbal].
+
+[verbal]: https://www.iso.org/sites/directives/current/part2/index.xhtml#_idParaDest-29
+
 ## Alternate notation for some conformance requirements
 
 This document contains more than a few cardinality assertions, each of which
