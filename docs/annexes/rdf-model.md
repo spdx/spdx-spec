@@ -8,68 +8,68 @@ and is published online at
 
 ## Diagrams
 
-### Core profile
+### Core namespace
 
-[![Core profile diagram][fig_core]][fig_core]
+[![Core namespace diagram][fig_core]][fig_core]
 
-### Software profile
+### Software namespace
 
-[![Software profile diagram][fig_software]][fig_software]
+[![Software namespace diagram][fig_software]][fig_software]
 
-### Security profile
+### Security namespace
 
-[![Security profile diagram][fig_security]][fig_security]
+[![Security namespace diagram][fig_security]][fig_security]
 
-### Licensing profile
+### SimpleLicensing and ExpandedLicensing namespaces
 
-[![Licensing profile diagram][fig_licensing]][fig_licensing]
+[![Licensing namespace diagram][fig_licensing]][fig_licensing]
 
-### Dataset profile
+### Dataset namespace
 
-[![Dataset profile diagram][fig_dataset]][fig_dataset]
+[![Dataset namespace diagram][fig_dataset]][fig_dataset]
 
-### AI profile
+### AI namespace
 
-[![AI profile diagram][fig_ai]][fig_ai]
+[![AI namespace diagram][fig_ai]][fig_ai]
 
-### Build profile
+### Build namespace
 
-[![Build profile diagram][fig_build]][fig_build]
+[![Build namespace diagram][fig_build]][fig_build]
 
-### Extension profile
+### Extension namespace
 
-[![Extension profile diagram][fig_extension]][fig_extension]
+[![Extension namespace diagram][fig_extension]][fig_extension]
 
-### Hardware profile
+### Hardware namespace
 
-[![Hardware profile diagram][fig_hardware]][fig_hardware]
+[![Hardware namespace diagram][fig_hardware]][fig_hardware]
 
-### Service profile
+### Service namespace
 
-[![Service profile diagram][fig_service]][fig_service]
+[![Service namespace diagram][fig_service]][fig_service]
 
-### SupplyChain profile
+### SupplyChain namespace
 
-[![SupplyChain profile diagram][fig_supplychain]][fig_supplychain]
+[![SupplyChain namespace diagram][fig_supplychain]][fig_supplychain]
 
-### Operations profile
+### Operations namespace
 
-[![Operations profile diagram][fig_operations]][fig_operations]
+[![Operations namespace diagram][fig_operations]][fig_operations]
 
-### FunctionalSafety profile
+### FunctionalSafety namespace
 
-[![FunctionalSafety profile diagram][fig_functionalsafety]][fig_functionalsafety]
+[![FunctionalSafety namespace diagram][fig_functionalsafety]][fig_functionalsafety]
 
-[fig_ai]: ../images/model-AI.png "SPDX 3.1 AI profile diagram"
-[fig_build]: ../images/model-Build.png "SPDX 3.1 Build profile diagram"
-[fig_core]: ../images/model-Core.png "SPDX 3.1 Core profile diagram"
-[fig_dataset]: ../images/model-Dataset.png "SPDX 3.1 Dataset profile diagram"
-[fig_extension]: ../images/model-Extension.png "SPDX 3.1 Extension profile diagram"
-[fig_licensing]: ../images/model-Licensing.png "SPDX 3.1 Licensing profile diagram"
-[fig_security]: ../images/model-Security.png "SPDX 3.1 Security profile diagram"
-[fig_software]: ../images/model-Software.png "SPDX 3.1 Software profile diagram"
-[fig_hardware]: ../images/model-Hardware.png "SPDX 3.1 Hardware profile diagram"
-[fig_service]: ../images/model-Service.png "SPDX 3.1 Service profile diagram"
-[fig_supplychain]: ../images/model-SupplyChain.png "SPDX 3.1 SupplyChain profile diagram"
-[fig_operations]: ../images/model-Operations.png "SPDX 3.1 Operations profile diagram"
-[fig_functionalsafety]: ../images/model-FunctionalSafety.png "SPDX 3.1 FunctionalSafety profile diagram"
+[fig_ai]: ../images/model-AI.png "SPDX 3.1 AI namespace diagram"
+[fig_build]: ../images/model-Build.png "SPDX 3.1 Build namespace diagram"
+[fig_core]: ../images/model-Core.png "SPDX 3.1 Core namespace diagram"
+[fig_dataset]: ../images/model-Dataset.png "SPDX 3.1 Dataset namespace diagram"
+[fig_extension]: ../images/model-Extension.png "SPDX 3.1 Extension namespace diagram"
+[fig_licensing]: ../images/model-Licensing.png "SPDX 3.1 SimpleLicensing and ExpandedLicensing namespaces diagram"
+[fig_security]: ../images/model-Security.png "SPDX 3.1 Security namespace diagram"
+[fig_software]: ../images/model-Software.png "SPDX 3.1 Software namespace diagram"
+[fig_hardware]: ../images/model-Hardware.png "SPDX 3.1 Hardware namespace diagram"
+[fig_service]: ../images/model-Service.png "SPDX 3.1 Service namespace diagram"
+[fig_supplychain]: ../images/model-SupplyChain.png "SPDX 3.1 SupplyChain namespace diagram"
+[fig_operations]: ../images/model-Operations.png "SPDX 3.1 Operations namespace diagram"
+[fig_functionalsafety]: ../images/model-FunctionalSafety.png "SPDX 3.1 FunctionalSafety namespace diagram"
