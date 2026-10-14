@@ -18,15 +18,15 @@ Search for 'component' in Software and Systems Engineering Vocabulary
 ([SEVOCAB](https://pascal.computer.org/sev_display/index.action)) also
 provided:
 
-  Note: A component can be hardware or software and can be
-  subdivided into other components. Component refers to a part of a whole,
-  such as a component of a software product or
-  a component of a software identification tag.
-  The terms module, component, and unit are often used interchangeably or
-  defined to be subelements of one another in different ways depending
-  upon the context. The relationship of these terms is not standardized.
-  A component can be independently managed or not from
-  the end-user or administrator's point of view.
+Note: A component can be hardware or software and can be
+subdivided into other components. Component refers to a part of a whole,
+such as a component of a software product or
+a component of a software identification tag.
+The terms module, component, and unit are often used interchangeably or
+defined to be subelements of one another in different ways depending
+upon the context. The relationship of these terms is not standardized.
+A component can be independently managed or not from
+the end-user or administrator's point of view.
 
 **computer hardware**
 
