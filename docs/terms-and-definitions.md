@@ -20,7 +20,7 @@ The terms module, component, and unit are often used interchangeably or
 defined to be subelements of one another in different ways depending
 upon the context. The relationship of these terms is not standardized.
 A component can be independently managed or not from
-the end-user or administrator's point of view (from SEVOCAB).
+the end-user or administrator's point of view (from [SEVOCAB](https://pascal.computer.org/sev_display/index.action)).
 
 [SOURCE: IEEE 1012-2024, 3.1, modified — "One part that makes up a system" has been modified to satisfy the substitutability principle]
 
@@ -28,14 +28,14 @@ the end-user or administrator's point of view (from SEVOCAB).
 
 all or part of the physical components of an information system
 
-[SOURCE: ISO/IEC 2382:2015, modified — leveraged from definition of 'hardware']
+[SOURCE: [ISO/IEC 2382:2015](https://www.iso.org/standard/63598.html), modified — leveraged from definition of 'hardware']
 
 **computer program**
 
 combination of computer instructions and data definitions
 that enable computer hardware to perform computational or control functions
 
-[SOURCE: ISO/IEC/IEEE 24765:2017]
+[SOURCE: [ISO/IEC/IEEE 24765:2017](https://www.iso.org/standard/71952.html)]
 
 **firmware**
 
@@ -44,13 +44,13 @@ typically in read-only memory (ROM) or programmable read-only memory (PROM) —
 such that the programs and data cannot be dynamically written or modified
 during execution of the programs
 
-[SOURCE: CNSSI 4009-2015, leveraged from RFC 4949]
+[SOURCE: [CNSSI 4009-2015](https://www.cnss.gov/CNSS/openDoc.cfm?a=FB8FFE63A4EB15CEB3DEB30DC3181DF2&b=06BB964C5FCA7BFEB73B0C6C6C879B035B07E49DF6FCC3653112AC2D72253394A6CC75366B6981173EF5E9A18C54FDB8) (via [NIST CSRC](https://csrc.nist.gov/glossary/term/firmware)), leveraged from [RFC 4949](https://datatracker.ietf.org/doc/rfc4949/)]
 
 **hardware**
 
 material physical components of a system
 
-[SOURCE: CNSSI 4009-2015, modified — the leading article "The" has been removed to satisfy the substitutability principle]
+[SOURCE: [CNSSI 4009-2015](https://www.cnss.gov/CNSS/openDoc.cfm?a=FB8FFE63A4EB15CEB3DEB30DC3181DF2&b=06BB964C5FCA7BFEB73B0C6C6C879B035B07E49DF6FCC3653112AC2D72253394A6CC75366B6981173EF5E9A18C54FDB8) (via [NIST CSRC](https://csrc.nist.gov/glossary/term/hardware)), modified — the leading article "The" has been removed to satisfy the substitutability principle]
 
 **information system**
 
@@ -60,7 +60,7 @@ facilities, and personnel — that create, collect, record, process, store,
 transport, retrieve, display, disseminate, control, or dispose of
 information to accomplish a specified set of functions
 
-[SOURCE: CNSSI 4009-2015, leveraged from RFC 4949, modified — the leading article "An" has been removed to satisfy the substitutability principle]
+[SOURCE: [CNSSI 4009-2015](https://www.cnss.gov/CNSS/openDoc.cfm?a=FB8FFE63A4EB15CEB3DEB30DC3181DF2&b=06BB964C5FCA7BFEB73B0C6C6C879B035B07E49DF6FCC3653112AC2D72253394A6CC75366B6981173EF5E9A18C54FDB8) (via [NIST CSRC](https://csrc.nist.gov/glossary/term/information_system)), leveraged from [RFC 4949](https://datatracker.ietf.org/doc/rfc4949/), modified — the leading article "An" has been removed to satisfy the substitutability principle]
 
 **interface**
 
@@ -95,7 +95,7 @@ computer programs (which are stored in and executed by computer hardware)
 and associated data (which also is stored in the hardware)
 that may be dynamically written or modified during execution
 
-[SOURCE: CNSSI 4009-2015, leveraged from RFC 4949]
+[SOURCE: [CNSSI 4009-2015](https://www.cnss.gov/CNSS/openDoc.cfm?a=FB8FFE63A4EB15CEB3DEB30DC3181DF2&b=06BB964C5FCA7BFEB73B0C6C6C879B035B07E49DF6FCC3653112AC2D72253394A6CC75366B6981173EF5E9A18C54FDB8) (via [NIST CSRC](https://csrc.nist.gov/glossary/term/software)), leveraged from [RFC 4949](https://datatracker.ietf.org/doc/rfc4949/)]
 
 **stakeholder**
 
@@ -103,7 +103,7 @@ individual or organization having a right, share, claim, or interest
 in a system or in its possession of characteristics
 that meet their needs and expectations
 
-[SOURCE: ISO/IEC/IEEE 15288:2015, via NIST SP 800-160v1r1]
+[SOURCE: ISO/IEC/IEEE 15288:2015, via [NIST CSRC](https://csrc.nist.gov/glossary/term/stakeholder)]
 
 **system**
 
@@ -116,4 +116,4 @@ industrial/process controls systems,
 telephone switching and private branch exchange (PBX) systems,
 and environmental control systems.
 
-[SOURCE: CNSSI 4009-2015, modified — the leading term "Any" has been removed to satisfy the substitutability principle]
+[SOURCE: [CNSSI 4009-2015](https://www.cnss.gov/CNSS/openDoc.cfm?a=FB8FFE63A4EB15CEB3DEB30DC3181DF2&b=06BB964C5FCA7BFEB73B0C6C6C879B035B07E49DF6FCC3653112AC2D72253394A6CC75366B6981173EF5E9A18C54FDB8) (via [NIST CSRC](https://csrc.nist.gov/glossary/term/system)), modified — the leading term "Any" has been removed to satisfy the substitutability principle]
