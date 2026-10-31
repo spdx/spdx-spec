@@ -102,6 +102,13 @@ scenarios (e.g., software, licensing, security, etc.).
 A profile identifies which particular SPDX namespaces, classes, and properties
 it leverages, along with any custom constraints unique to its use.
 
+**requirement**
+
+Statement which translates or expresses a need and its associated constraints and conditions
+
+(From <https://csrc.nist.gov/glossary/term/requirement>,
+from NIST SP 800-160v1r1 from ISO/IEC/IEEE 29148:2018)
+
 **software**
 
 Computer programs (which are stored in and executed by computer hardware)
