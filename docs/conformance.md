@@ -1,5 +1,23 @@
 # Conformance
 
+## Verbal forms for expressions of provisions
+
+In this document, the following verbal forms are used to express the level of
+normativity of a provision:
+
+- "shall" and "shall not" indicate a requirement;
+- "should" and "should not" indicate a recommendation;
+- "may" indicates a permission;
+- "can" and "cannot" indicate a possibility or a capability.
+
+Conformance to this document is determined by its requirements alone.
+Recommendations and permissions do not affect conformance.
+
+These verbal forms are written in lower case, and follow the conventions of the
+ISO/IEC Directives, Part 2, [Clause 7][verbal].
+
+[verbal]: https://www.iso.org/sites/directives/current/part2/index.xhtml#_idParaDest-29
+
 ## Alternate notation for some conformance requirements
 
 This document contains more than a few cardinality assertions, each of which
@@ -26,7 +44,7 @@ the SPDX community, it has been preserved in this document.
 
 Profile is the term for a compliance point within the SPDX community across The
 Linux Foundation and OMG. The System Package Data Exchange (SPDX) specification
-defines the following thirteen compliance points, defined as “profiles”:
+defines the following fourteen compliance points, defined as “profiles”:
 
 - Core profile
 - Software profile
@@ -75,7 +93,7 @@ conform with one of the SPDX serialization formats defined SPDX serialization
 formats.
 
 Conformance to the Software profile compliance point
-only entails support for the Software and Core profile.
+only entails support for the Software and Core profiles.
 
 This compliance point, in combination with the Core profile compliance point,
 provides a baseline of functionality that facilitates interchange of the bills
@@ -96,7 +114,7 @@ mechanism to express how a vulnerability may affect a specific software element
 including if a fix is available.
 
 Conformance to the Security profile compliance point
-only entails support for the Security and Core profile.
+only entails support for the Security and Core profiles.
 
 This compliance point facilitates interchange of the security information
 produced by tools supporting SPDX.
@@ -118,7 +136,7 @@ Both allow expression of the same information,
 albeit in different ways.
 
 Conformance to the Licensing profile compliance point
-only entails support for the Licensing and Core profile.
+only entails support for the Licensing and Core profiles.
 
 This compliance point facilitates interchange of the licensing documents
 expressing which licenses and copyright notices are determined by persons or
@@ -142,7 +160,7 @@ and properties of a dataset, helping users understand and analyze the data more
 effectively.
 
 Conformance to the Dataset profile compliance point
-only entails support for the Dataset and Core profile.
+only entails support for the Dataset and Core profiles.
 
 This compliance point facilitates interchange of the information about
 datasets produced by tools supporting SPDX.
@@ -164,7 +182,7 @@ information about their versions, licenses, and useful security references
 including ethical and security information.
 
 Conformance to the AI profile compliance point
-only entails support for the AI and Core profile.
+only entails support for the AI and Core profiles.
 
 This compliance point facilitates interchange of the AI model related
 information produced by tools supporting SPDX.
@@ -183,7 +201,7 @@ procedures/instructions, environments and actors from the build process along
 with the associated evidence.
 
 Conformance to the Build profile compliance point
-only entails support for the Build and Core profile.
+only entails support for the Build and Core profiles.
 
 This compliance point facilitates interchange of the build information produced
 by tools supporting SPDX.
@@ -201,7 +219,7 @@ formats, including creation of the SBOM, package lists with licensing and other
 related items, and their relationships.
 
 Conformance to the Lite profile compliance point
-only entails support for the Lite and Core profile.
+only entails support for the Lite and Core profiles.
 
 This compliance point facilitates interchange of minimal licensing information
 when produced by tools supporting SPDX.
@@ -241,7 +259,7 @@ formats, including the abstract Extension class serving as the base for all
 defined Extension subclasses.
 
 Conformance to the Extension profile compliance point
-only entails support for the Extension and Core profile.
+only entails support for the Extension and Core profiles.
 
 This compliance point facilitates interchange of extended information that goes
 beyond the standard SPDX produced by tools supporting SPDX and is used between

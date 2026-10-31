@@ -54,13 +54,15 @@ A license expression shall be on a single line, and shall not include a line bre
 
 ## Case sensitivity
 
-In SPDX 3, license expressions are completely *case-insensitive*.
+In SPDX 3.1 and thereafter, license expressions are completely *case-insensitive*.
 
 That includes the operators ("AND", "OR", "WITH"), the special identifiers ("NONE" and "NOASSERTION"), as well as the license identifiers, including the user-defined ones.
 
 For example, the expressions `MIT AND NOASSERTION AND (BSD-3-Clause OR LicenseRef-Name)` and `mit aNd NoaSSerTion AnD (bSd-3-clausE OR licenseref-NAME)` are equivalent.
 
 However, please be aware that it is often important to note the case of the canonical identifier on the [SPDX License List](https://spdx.org/licenses). This is because the canonical identifier's case is used in the URL of the license's or exception's entry on the List, and because the canonical identifier is translated to a URI in RDF documents.
+
+It is recommended, when creating license expressions, to use all uppercase letters for operators and special identifiers, to use the exact casing of the license and exception identifiers as they are present in the License List, and to use a single space character wherever whitespace is used.
 
 ## Simple license expressions
 
@@ -134,7 +136,7 @@ An example where three different licenses apply would be:
 LGPL-2.1-only AND MIT AND BSD-2-Clause
 ```
 
-The "AND" operator is the only operator that can be used in conjuction with the special identifiers "NONE" or "NOASSERTION".
+The "AND" operator is the only operator that can be used in conjunction with the special identifiers "NONE" or "NOASSERTION".
 
 ### Additive "WITH" operator
 
@@ -206,11 +208,9 @@ with-expression = identifier required-ws "WITH" required-ws addition-identifier
 
 addition-identifier = license-exception-id / addition-ref
 
-identifier = license-id / or-later-expression / license-ref
+identifier = license-id / license-id "+" / license-ref
 
-or-later-expression = license-id PLUS
-
-parenthesized-expression = LPAREN optional-ws SPDX-license-expression optional-ws RPAREN
+parenthesized-expression = "(" optional-ws SPDX-license-expression optional-ws ")"
 
 special-identifier = "NONE" / "NOASSERTION"
 
@@ -224,22 +224,14 @@ license-exception-id = <short form license exception identifier from SPDX Licens
 license-ref  = [ "DocumentRef-" idstring ":" ] "LicenseRef-"  idstring
 addition-ref = [ "DocumentRef-" idstring ":" ] "AdditionRef-" idstring
 
+; ---
+
 idstring = *idchar alnum *idchar
-idchar   = alnum / DOT / DASH
+idchar   = alnum / "." / "-"
 alnum    = ALPHA / DIGIT
 
 ; --- Whitespace and characters ---
 
-optional-ws = *SPACE       ; Optional whitespace (zero or more spaces)
-required-ws = 1*SPACE      ; Required whitespace (one or more spaces)
-
-SPACE  = %x20              ; Space character
-LPAREN = %x28              ; ( - Left parenthesis
-RPAREN = %x29              ; ) - Right parenthesis
-PLUS   = %2B               ; + - Plus
-DASH   = %2D               ; - - Dash, hyphen
-DOT    = %2E               ; . - Dot, fullstop, period
-
-ALPHA  = %x41-5A / %x61-7A ; A-Z / a-z
-DIGIT  = %x30-39           ; 0-9
+optional-ws = *SP          ; Optional whitespace (zero or more spaces)
+required-ws = 1*SP         ; Required whitespace (one or more spaces)
 ```

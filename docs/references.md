@@ -7,6 +7,10 @@ all of their content constitutes requirements of this document. For dated
 references, only the edition cited applies. For undated references, the latest
 edition of the referenced document (including any amendments) applies.
 
+*A Guide to the Project Management Body of Knowledge (PMBOK® Guide)*,
+8th edition, Conshohocken, PA: Project Management Institute, 2026,
+<https://www.pmi.org/standards/pmbok>.
+
 *Apache Maven*, Apache Software Foundation,
 [https://maven.apache.org/](https://maven.apache.org/).
 
@@ -62,6 +66,10 @@ European Commission,
 *ISO/IEC 24765:2017 Systems and software engineering — Vocabulary*,
 [https://www.iso.org/standard/71952.html](https://www.iso.org/standard/71952.html).
 
+*ISO/IEC Directives, Part 2,*
+*Principles and rules for the structure and drafting of ISO and IEC documents*,
+<https://www.iso.org/directives>.
+
 *npm-package.json*, npm Inc.,
 [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json).
 
@@ -71,6 +79,10 @@ European Commission,
 POSIX.1-2017 *The Open Group Base Specifications Issue 7*, 2018 edition,
 IEEE/Open Group,
 [https://pubs.opengroup.org/onlinepubs/9699919799/](https://pubs.opengroup.org/onlinepubs/9699919799/).
+
+*Quantities, Units, Dimensions and Types (QUDT) Ontology*,
+Version 3.5.1. September 2026.
+<https://www.qudt.org/catalog/qudt-catalog.html>.
 
 *Resource Description Framework (RDF)*, 2014-02-25, W3C,
 [http://www.w3.org/standards/techs/rdf](http://www.w3.org/standards/techs/rdf).
@@ -224,4 +236,4 @@ The following documents are referred to in the text.
   [https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom](https://www.ntia.gov/report/2021/minimum-elements-software-bill-materials-sbom).
 1. White House, *Executive Order on Improving the Nation’s Cybersecurity*,
   May 2021,
-  [https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/](https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/).
+  <https://www.govinfo.gov/content/pkg/DCPD-202100401/pdf/DCPD-202100401.pdf>.
