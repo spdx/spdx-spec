@@ -66,8 +66,9 @@ This repository consists of these files and directories (partial):
     `spdx/spdx-3-model` repo (see the [build instructions](./build.md)).
 - `examples/` - Examples of various SPDX serializations for the current version
   of the spec.
-- `rdf/` - Model RDF files. These ontology files are generated from model
+- `ontology/` - Ontology files. RDF and context documents generated from model
   Markdown files in the `spdx/spdx-3-model` repo and manually copied here.
+- `schemas/` - JSON Schema files.
 - `mkdocs.yml` - MkDocs recipe for the spec documentation generation. The
   inclusion of model files and the order of chapters are defined here.
 
@@ -95,6 +96,19 @@ The branches in use are:
   `develop` branch.
 - `gh-pages` - This branch hosts generated HTML websites for all versions of
   the specification. It is primarily managed by an automated workflow.
+
+## SPDX 3.0 semantic model canonical URLs
+
+The following canonical IRIs/URLs represent the artifacts for the SPDX 3.0 semantic model:
+
+| Artifact | Canonical URL / IRI | Purpose |
+| --- | --- | --- |
+| **Ontology & SHACL shapes** | <https://spdx.org/rdf/3.0/spdx-model.ttl> | Defines the SPDX 3 vocabulary and graph validation rules. |
+| **Serialization annotations** | <https://spdx.org/rdf/3.0/spdx-json-serialize-annotations.ttl> | Provide structural overrides for translating the RDF model into JSON. |
+| **JSON-LD context** | <https://spdx.org/rdf/3.0/spdx-context.jsonld> | Maps SPDX 3 JSON fields to their corresponding semantic model IRIs. |
+| **JSON schema** | <https://spdx.org/schema/3.0/spdx-json-schema.json> | Validates the structural syntax of SPDX 3 JSON documents. |
+
+> Production notice: Use only these canonical URLs in production. Development URLs on spdx.github.io are volatile, non-persistent, and subject to change.
 
 ## Related documents and repositories
 

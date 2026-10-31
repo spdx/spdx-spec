@@ -63,6 +63,10 @@ on:
     - cron: "0 0,2,4,8,10,22 * * 1-5"  # Every 2 hours off meeting hours (Mon-Fri)
     - cron: "0 12 * * 6,0"  # Noon once on weekends (Sat & Sun)
 
+concurrency:
+  group: publish-gh-pages
+  cancel-in-progress: false  # Cancelling mid-push could leave gh-pages half-updated
+
 jobs:
   build:
     # Don't run scheduled builds for forks
@@ -165,25 +169,25 @@ jobs:
         run: |
           echo Expanded VERSION_ALIASES: $VERSION_ALIASES
       - name: Checkout spdx-spec
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  #v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  #v7.0.1
         with:
           ref: ${{ env.REF_SPEC }}
           path: spdx-spec
           fetch-depth: 0  # Because we will be pushing the gh-pages branch
       - name: Checkout spdx-3-model
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  #v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  #v7.0.1
         with:
           repository: spdx/spdx-3-model
           ref: ${{ env.REF_MODEL }}
           path: spdx-3-model
       - name: Checkout spec-parser
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  #v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  #v7.0.1
         with:
           repository: spdx/spec-parser
           ref: ${{ env.REF_PARSER }}
           path: spec-parser
       - name: Set up specific Python version
-        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  #v6.2.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  #v7.1.0
         with:
           python-version: "3.12"
           cache: "pip"
