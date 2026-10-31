@@ -48,3 +48,6 @@ many additional aspects like data sets, AI models, and build information.
 Since the release of 3.0.0, we have gathered feedback on the level of
 documentation and minor errors in the model which have been addressed in the
 3.0.1 release.
+
+A partial list of tools that can produce and/or consume SPDX data can be found on
+the [SPDX Tools web page](https://spdx.dev/use/spdx-tools/).

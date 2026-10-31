@@ -53,7 +53,7 @@ This can be saved in a variety of formats, like XML, JSON-LD, Turtle, etc.
 1. IRIs for an enumerated value are of the form:
   `https://spdx.org/rdf/3/terms/{Namespacename}/{Vocabularyname}/{Entryname}`
 
-1. IRIs for an individual value list are of the form:
+1. IRIs for an individual value are of the form:
   `https://spdx.org/rdf/3/terms/{Namespacename}/{Individualname}`
 
 Please note that entries appearing in the
@@ -65,6 +65,9 @@ For a minor version X of the SPDX spec:
 
 1. The ontology is available at:
   `https://spdx.org/rdf/3.X/spdx-model.ttl`
+
+1. The JSON-LD serialization annotations file is available at:
+   `https://spdx.org/rdf/3.X/spdx-json-serialize-annotations.ttl`
 
 1. The JSON-LD context definition is available at:
   `https://spdx.org/rdf/3.X/spdx-context.jsonld`
@@ -141,6 +144,60 @@ It requires data to be serialized according to the defined serialization
 specification and validated against the SPDX 3 JSON Schema.
 It may be parsed – not serialized – using standard JSON-LD libraries.
 
+### SpdxDocument
+
+The following SpdxDocument properties are mapped to native JSON-LD mechanisms
+in accordance with JSON-LD syntax specifications. Any property not explicitly
+listed below shall be serialized directly within the SpdxDocument element of
+the JSON-LD data.
+
+During deserialization of JSON-LD formatted SPDX content, the inverse of these
+native mappings shall be expanded to ensure the logical SpdxDocument element
+directly contains its complete set of properties.
+
+#### namespaceMap
+
+The namespaceMap shall utilize the
+[term to IRI mapping](https://www.w3.org/TR/json-ld11/#example-11-term-expansion-from-context-definition)
+defined within the
+[JSON-LD context](https://www.w3.org/TR/json-ld11/#the-context).
+
+#### element
+
+The [graph objects](https://www.w3.org/TR/json-ld11/#graph-objects), `@graph`,
+shall enumerate the elements comprising the SpdxDocument.
+
+Within the RDF graph of an SPDX model instance, all Element nodes
+(i.e., objects that are subclasses of Element) shall be represented as
+a top-level list under the `@graph` key.
+Accordingly, all references to Element nodes shall use the URI of the
+referenced Element.
+
+Element nodes shall not be inlined or embedded into other nodes.
+
+Non-element data (e.g., instances of ExternalRef or comparable complex data
+classes) may be inlined, or they may be included as a top-level
+[blank node](https://www.w3.org/TR/rdf12-concepts/#section-blank-nodes)
+under the `@graph`.
+
+### JSON-LD serialization annotations
+
+To assist implementers in developing software bindings and serialization
+tooling, a serialization annotations file is provided.
+While the core RDF model defines the semantic data relationships,
+this file provides supplementary metadata to guide how specific elements
+should be structured in code and subsequently serialized.
+
+For example, the annotations are used to instruct serialization logic to:
+
+- Map logical identifier properties of core model elements to specific JSON-LD
+  field names.
+- Flag designated extension classes as extensible, indicating that software
+  implementations should permit the inclusion of custom or arbitrary properties.
+
+The SPDX JSON-LD serialization annotations file is available at:
+<https://spdx.org/rdf/3.1/spdx-json-serialize-annotations.ttl>
+
 ### JSON-LD context file
 
 JSON-LD contexts allow JSON documents to use simple, human-readable, locally
@@ -157,51 +214,17 @@ global context file at the top level.
 This reference is achieved using the following JSON construct:
 
 ```json
-"@context": "https://spdx.org/rdf/3.1/spdx-context.jsonld"
+{ "@context": "https://spdx.org/rdf/3.1/spdx-context.jsonld" }
 ```
 
 The SPDX context file defines aliases for specific JSON-LD properties to
-improve compatibility with the SPDX model.  These aliases are:
+improve compatibility with the SPDX model. These aliases are:
 
 - `spdxId`: An alias for the `@id` property.
 - `type`: An alias for the `@type` property.
 
 Additional namespace mappings may be defined within a separate object within
 the context.
-
-### SpdxDocument
-
-The following SpdxDocument properties are mapped to native JSON-LD mechanisms
-defined within the JSON-LD syntax specifications. Any properties not listed
-below should be serialized as part of the SpdxDocument element itself within
-the JSON-LD serialized data.
-
-Deserialization of any JSON-LD serialized SPDX content MUST expand the inverse
-of these native mappings such that the logical SpdxDocument element directly
-contains its full set of properties.
-
-#### namespaceMap
-
-The namespaceMap uses the
-[term to IRI mapping](https://www.w3.org/TR/json-ld11/#example-11-term-expansion-from-context-definition)
-in the [JSON-LD context](https://www.w3.org/TR/json-ld11/#the-context).
-
-#### element
-
-The [graph objects](https://www.w3.org/TR/json-ld11/#graph-objects) `@graph`
-lists the elements for the SpdxDocument.
-
-The RDF graph of an instance of the SPDX model shall contain all Element nodes
-(i.e. objects that are subclasses of Element) as a list on top-level under the
-"@graph" key. This means that all references to Element nodes have to use the
-URI of the referenced Element.
-
-Inlining/Embedding of Element nodes into other nodes is not allowed.
-
-Non-element data (like those of type "ExternalReference" or
-similar complex data classes) may be inlined or included as a
-[blank node](https://www.w3.org/TR/rdf12-concepts/#section-blank-nodes)
-on top-level under the "@graph".
 
 ### JSON-LD validation
 
@@ -225,54 +248,65 @@ The SPDX 3 OWL ontology is available at:
 
 ### Examples
 
-Informational JSON-LD serialization examples can be found at <https://github.com/spdx/spdx-examples>
+Informational JSON-LD serialization examples can be found at:
+<https://github.com/spdx/spdx-examples>
 
 ## Reading JSON serialization
 
 ### Parsing JSON-LD as JSON
 
-This is a description of how to deserialize JSON-LD as a pure JSON format without any knowledge of RDF.
-On top-level, JSON-LD has two keys, "@context" and "@graph".
+This section specifies the procedure for deserializing JSON-LD as a pure JSON
+format, independent of RDF semantics.
+
+At the top level, the JSON-LD shall contain two keys: `@context` and `@graph`.
 
 #### Parsing "@context"
 
-The context is a list of a string and an object. You can ignore the string.
-The object consists of key-value pairs that allow the shortening of IDs and which we will call "namespace map" in the following.
+The `@context` key contains a list comprising a string and an object.
+The string may be ignored.
+The object contains key-value pairs used for substituting identifiers with
+shorter abbreviations, hereafter referred to as the "namespace map".
 
-For deserialization purposes, follow this process:
+During deserialization, the following procedure shall be applied:
 
-- For every string that is an ID (that includes values of the keys "spdxId" and "@id",
-  as well as all strings where you would expect objects according to the SPDX 3 model),
-  split that string at the first colon into "prefix:suffix".
-- If the suffix does not start with "//" and the prefix is a key in the namespace map,
-  replace "prefix:" with the value found under that key in the namespace map.
-- Else do nothing to that string.
+- Each string functioning as an identifier (including values of the `spdxId`
+  and `@id` keys, as well as all strings where objects are expected in
+  accordance with the SPDX 3 model) shall be split at the first colon into
+  a "prefix:suffix" format.
+- If the suffix does not begin with "//" and the prefix corresponds to a key
+  within the namespace map, the "prefix:" shall be replaced with the
+  corresponding value from the namespace map.
+- Otherwise, the string shall remain unmodified.
 
-After you are done applying this process to all IDs, you can ignore the "@context".
+Upon completion of this procedure for all identifiers, the `@context` shall
+be ignored.
 
 #### Parsing "@graph"
 
-You will find an array of objects under the "@graph" key.
-Every one of these objects has a "type" key that tells you
-the class of the SPDX 3 model that the object is an instance of.
-The rest of the keys then correspond to the properties of that SPDX class.
-Take special note of the "spdxId" key which specifies the ID by which the object can be referenced from other places.
+The `@graph` key contains an array of objects.
+Each object includes a `type` key specifying its corresponding class within
+the SPDX 3 model.
+The remaining keys within the object represent the properties of that class.
+The `spdxId` key specifies the identifier used to reference the object.
 
-One thing to note is that not all objects in that list have to be subclasses of Element.
-As only Elements have an spdxId, there is no "spdxId" key in these cases but an "@id" key.
-However, the value of "@id" serves the same function of identifying and referencing that object from within other objects.
+Not all objects within this array are subclasses of Element.
+Because the `spdxId` key is exclusive to Element instances,
+non-element objects utilize an `@id` key instead.
+The `@id` value functions identically to `spdxId` for the purpose of
+identifying and referencing the object.
 
-Last but not least, whenever you encounter a string where you would
-expect an object according to the SPDX 3 model,
-you can substitute that string with the object that has that string as its "spdxId" or "@id".
+During deserialization, if a string is present in a position where the SPDX 3
+model specifies an object, that string shall be substituted with the resolved
+object possessing the matching `spdxId` or `@id` value.
 
 ## File naming
 
-It should be easy to recognize an SPDX 3 file in a file system without opening the file.
+An SPDX 3 file should be identifiable within a file system without inspecting
+its contents.
 
 A suggested naming convention is:
 
-| Format  | Extension    |
-| ------- | ------------ |
-| JSON-LD | *.spdx3.json |
-| RDF/XML | *.spdx3.rdf  |
+| Format  | Extension     |
+| ------- | ------------- |
+| JSON-LD | \*.spdx3.json |
+| RDF/XML | \*.spdx3.rdf  |
