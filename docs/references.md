@@ -66,6 +66,10 @@ European Commission,
 *ISO/IEC 24765:2017 Systems and software engineering — Vocabulary*,
 [https://www.iso.org/standard/71952.html](https://www.iso.org/standard/71952.html).
 
+*ISO/IEC Directives, Part 2,*
+*Principles and rules for the structure and drafting of ISO and IEC documents*,
+<https://www.iso.org/directives>.
+
 *JSON-LD 1.1: A JSON-based Serialization for Linked Data*,
 W3C Recommendation, 2020-07-16,
 <https://www.w3.org/TR/json-ld11/>.
