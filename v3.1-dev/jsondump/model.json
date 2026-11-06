@@ -1945,18 +1945,18 @@
             }
           }
         },
-        "/Software/AbstractPackage": {
+        "/Software/GenericPackage": {
           "py/object": "spec_parser.model.Class",
           "ns": {
             "py/id": 86
           },
           "license": "Community-Spec-1.0",
-          "name": "AbstractPackage",
-          "fqname": "/Software/AbstractPackage",
-          "summary": "Refers to an abstract, conceptual software entity.",
-          "description": "An AbstractPackage represents an abstract, conceptual software entity,\nindependent of any specific version, supplier, or packaging format.\nIt serves as a high-level identifier for a piece of software,\nsuch as \"Linux kernel\", \"OpenSSL,\" or \"Log4j\".\n\nThe primary purpose of a AbstractPackage is to group multiple related\nsoftware [Packages](./Package.md) and to be able to act as a central point\nfor storing metadata that is common across all those packages.\nThis might include information like the project's primary license,\nits official homepage, or its originating author or organization.\n\nSince there might be relationships between AbstractPackages\nand between AbstractPackages and Packages, values of different properties\nmight be different.\nThe precedence rule is that every attribute of a more specific entity\noverwrites attribute values of a more general entity.\nThis way, property values of a Package are always valid;\nWhen an AbstractPackage is related to a Package via hasInstance, the AbstractPackage\u2019s properties serve only as annotations\u2014they provide additional context or metadata but do not set or update the property values on the Package. If a Package does not define a particular property, the AbstractPackage\u2019s value may be used as an annotation, but it does not become the Package\u2019s own property. This annotation behavior extends recursively through chains of AbstractPackages, always respecting the precedence of more specific entities.\nThe chain may continue further to more AbstractPackages,\nas long as there are \"parent\" AbstractPackage and no values have been specified.\n\nA Package shall have no more than one `hasInstance` relationship from `AbstractPackage` Elements.\n\nIt should be noted that this class will rarely appear in SBOMs,\nwhere exact Packages should be listed.",
+          "name": "GenericPackage",
+          "fqname": "/Software/GenericPackage",
+          "summary": "Refers to a generic, conceptual software entity.",
+          "description": "A GenericPackage represents a generic, conceptual software entity,\nindependent of any specific version, supplier, or packaging format.\nIt serves as a high-level identifier for a piece of software,\nsuch as \"Linux kernel\", \"OpenSSL,\" or \"Log4j\".\n\nThe primary purpose of a GenericPackage is to group multiple related\nsoftware [Packages](./Package.md) and to be able to act as a central point\nfor storing metadata that is common across all those packages.\nThis could include information like the project's primary license,\nits official homepage, or its originating author or organization.\n\nSince there could be relationships between GenericPackages\nand between GenericPackages and Packages, values of different properties\ncould be different.\nThe precedence rule is that every attribute of a more specific entity\noverwrites attribute values of a more general entity.\nThis way, property values of a Package are always valid;\nWhen an GenericPackage is related to a Package via a `hasInstance` relationship, the GenericPackage\u2019s properties serve only as annotations\u2014they provide additional context or metadata but do not set or update the property values on the Package. If the Package does not define a particular property, the GenericPackage\u2019s value can be used as an annotation, but it does not become the Package\u2019s own property. This annotation behavior extends recursively through chains of GenericPackages, always respecting the precedence of more specific entities.\nThe chain can continue further to more GenericPackages,\nas long as there are \"parent\" GenericPackage and no values have been specified.\n\nA Package shall have no more than one `hasInstance` relationship from `GenericPackage` Elements.\n\nIt should be noted that this class will rarely appear in SBOMs,\nwhere exact Packages should be listed.",
           "metadata": {
-            "name": "AbstractPackage",
+            "name": "GenericPackage",
             "SubclassOf": "/Core/Element",
             "Instantiability": "Concrete"
           },
@@ -1998,7 +1998,7 @@
             }
           },
           "sparql": {},
-          "iri": "https://spdx.org/rdf/3/terms/Software/AbstractPackage",
+          "iri": "https://spdx.org/rdf/3/terms/Software/GenericPackage",
           "fqsupercname": "/Core/Element",
           "inheritance_stack": [
             "/Core/Element"
@@ -2219,7 +2219,7 @@
           "iri": "https://spdx.org/rdf/3/terms/Software/sourceInfo",
           "used_in": [
             "/Software/Package",
-            "/Software/AbstractPackage"
+            "/Software/GenericPackage"
           ]
         },
         "/Software/copyrightText": {
@@ -2241,7 +2241,7 @@
           "iri": "https://spdx.org/rdf/3/terms/Software/copyrightText",
           "used_in": [
             "/Software/SoftwareArtifact",
-            "/Software/AbstractPackage"
+            "/Software/GenericPackage"
           ]
         },
         "/Software/sbomType": {
@@ -2347,7 +2347,7 @@
           "iri": "https://spdx.org/rdf/3/terms/Software/packageVersion",
           "used_in": [
             "/Software/Package",
-            "/Software/AbstractPackage"
+            "/Software/GenericPackage"
           ]
         },
         "/Software/homePage": {
@@ -2369,7 +2369,7 @@
           "iri": "https://spdx.org/rdf/3/terms/Software/homePage",
           "used_in": [
             "/Software/Package",
-            "/Software/AbstractPackage"
+            "/Software/GenericPackage"
           ]
         },
         "/Software/attributionText": {
@@ -2391,7 +2391,7 @@
           "iri": "https://spdx.org/rdf/3/terms/Software/attributionText",
           "used_in": [
             "/Software/SoftwareArtifact",
-            "/Software/AbstractPackage"
+            "/Software/GenericPackage"
           ]
         },
         "/Software/fileKind": {
@@ -23481,7 +23481,7 @@
           "inheritance_stack": [],
           "direct_subclasses": [
             "/Build/Build",
-            "/Software/AbstractPackage",
+            "/Software/GenericPackage",
             "/FunctionalSafety/EvaluationResult",
             "/FunctionalSafety/RequirementVerification",
             "/FunctionalSafety/Assumption",
@@ -30950,7 +30950,7 @@
             "hasHost": "The `from` /Build/Build was run on the `to` Element during a LifecycleScopeType period (e.g. the host that the build runs on).",
             "hasInput": "The `from` Element has each `to` Element as an input.",
             "hasInstall": "The `from` Element has each `to` Artifact installed (placed into position for use) into it during a LifecycleScopeType period. To express the Agent doing the install, link this relationship as the `from` in `performedBy`.",
-            "hasInstance": "The `from` Software/AbstractPackage has more specific instances that are the `to` Element(s).",
+            "hasInstance": "The `from` Software/GenericPackage has more specific instances that are the `to` Element(s).",
             "hasMetadata": "Every `to` Element is metadata about the `from` Element (`from` hasMetadata `to`).",
             "hasOptionalComponent": "Every `to` Element is an optional component of the `from` Element (`from` hasOptionalComponent `to`).",
             "hasOptionalDependency": "The `from` Element optionally depends on each `to` Element, during a LifecycleScopeType period.",
@@ -34482,7 +34482,7 @@
     "/Software/Snippet": {
       "py/id": 260
     },
-    "/Software/AbstractPackage": {
+    "/Software/GenericPackage": {
       "py/id": 302
     },
     "/Hardware/PhysicalHardware": {
@@ -35830,7 +35830,7 @@
     "/Software/Snippet": {
       "py/id": 260
     },
-    "/Software/AbstractPackage": {
+    "/Software/GenericPackage": {
       "py/id": 302
     },
     "/Hardware/PhysicalHardware": {
@@ -36344,7 +36344,7 @@
   "class_hierarchy": {
     "/Core/Element": [
       "/Build/Build",
-      "/Software/AbstractPackage",
+      "/Software/GenericPackage",
       "/FunctionalSafety/EvaluationResult",
       "/FunctionalSafety/RequirementVerification",
       "/FunctionalSafety/Assumption",
