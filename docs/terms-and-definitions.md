@@ -104,10 +104,11 @@ it leverages, along with any custom constraints unique to its use.
 
 **requirement**
 
-Statement which translates or expresses a need and its associated constraints and conditions
+condition or capability that is met or possessed by a system,
+system component, product, or service to satisfy an agreement,
+standard, specification, or other formally imposed documents
 
-(From <https://csrc.nist.gov/glossary/term/requirement>,
-from NIST SP 800-160v1r1 from ISO/IEC/IEEE 29148:2018)
+(From IEEE 730-2014 IEEE Standard for Software Quality Assurance Processes, 3.2)
 
 **software**
 
