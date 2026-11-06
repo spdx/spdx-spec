@@ -102,6 +102,14 @@ scenarios (e.g., software, licensing, security, etc.).
 A profile identifies which particular SPDX namespaces, classes, and properties
 it leverages, along with any custom constraints unique to its use.
 
+**requirement**
+
+condition or capability that is met or possessed by a system,
+system component, product, or service to satisfy an agreement,
+standard, specification, or other formally imposed documents
+
+(From IEEE 730-2014 IEEE Standard for Software Quality Assurance Processes, 3.2)
+
 **software**
 
 Computer programs (which are stored in and executed by computer hardware)
