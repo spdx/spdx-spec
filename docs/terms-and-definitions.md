@@ -104,11 +104,24 @@ it leverages, along with any custom constraints unique to its use.
 
 **requirement**
 
-condition or capability that is met or possessed by a system,
-system component, product, or service to satisfy an agreement,
-standard, specification, or other formally imposed documents
+condition or capability that is necessary in a system, system component,
+product, or service to satisfy an agreement, standard, specification,
+or other formally imposed documents
 
-(From IEEE 730-2014 IEEE Standard for Software Quality Assurance Processes, 3.2)
+(From IEEE 982:2024,
+Standard for Measures of the Software Aspects of Dependability, 3.1)
+
+Example: software component requirement
+
+Note: Requirements exist at different tiers and express
+the need in high-level form. A requirement is denoted by the word 'shall' and
+includes both the exclusive and applicable optional requirements.
+Requirements provide value when delivered, satisfied, or met.
+Requirements include the quantified and documented needs, wants, and
+expectations of the sponsor, customer, and other stakeholders.
+Well-formed requirements are unambiguous, clear, unique, consistent,
+stand-alone (not grouped), verifiable, and necessary for
+stakeholder acceptability.
 
 **software**
 
