@@ -113,7 +113,7 @@ Standard for Measures of the Software Aspects of Dependability, 3.1)
 
 Example: software component requirement
 
-Note: Requirements exist at different tiers and express
+Note 1 to entry: Requirements exist at different tiers and express
 the need in high-level form. A requirement is denoted by the word 'shall' and
 includes both the exclusive and applicable optional requirements.
 Requirements provide value when delivered, satisfied, or met.
