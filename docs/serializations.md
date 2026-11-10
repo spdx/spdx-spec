@@ -226,14 +226,28 @@ This specification defines a small number of individuals in the ontology
 itself, together with the `CreationInfo` instances that record when and by whom
 those individuals were defined.
 The individuals are terms and their IRIs follow the rules above.
-The `CreationInfo` instances are published directly under
-`https://spdx.org/rdf/3/` rather than under `terms/`:
 
-- `https://spdx.org/rdf/3/creationInfo_NoAssertionElement`
-- `https://spdx.org/rdf/3/creationInfo_NoAssertionLicense`
-- `https://spdx.org/rdf/3/creationInfo_NoneElement`
-- `https://spdx.org/rdf/3/creationInfo_NoneLicense`
-- `https://spdx.org/rdf/3/creationInfo_SpdxOrganization`
+The `CreationInfo` instances are not terms.
+Each records a fact about the release that first published an individual, so
+its IRI carries the version of that release and is published directly under it
+rather than under `terms/`:
+
+```text
+https://spdx.org/rdf/{version}/creationInfo_{individualName}
+```
+
+where `{version}` is the `specVersion` of the instance.
+For example, the individuals first published in SPDX 3.0.1 have:
+
+- `https://spdx.org/rdf/3.0.1/creationInfo_NoAssertionElement`
+- `https://spdx.org/rdf/3.0.1/creationInfo_NoAssertionLicense`
+- `https://spdx.org/rdf/3.0.1/creationInfo_NoneElement`
+- `https://spdx.org/rdf/3.0.1/creationInfo_NoneLicense`
+- `https://spdx.org/rdf/3.0.1/creationInfo_SpdxOrganization`
+
+An individual first published in a later version, for example SPDX 3.1, has
+its `CreationInfo` instance under that version, such as
+`https://spdx.org/rdf/3.1/creationInfo_{individualName}`.
 
 The property values of each of these instances are those with which the
 instance was first published in a released version of this specification.
@@ -243,13 +257,14 @@ published together, and shall not be updated to the version or the date of the
 ontology document in which the instance appears.
 For example, the instance describing `NoneElement` was first published in
 SPDX 3.0.1 with a `specVersion` of `3.0.1` and a `created` of
-`2024-11-22T03:00:01Z`, and it records those values in every subsequent
-SPDX 3.x version of the ontology.
+`2024-11-22T03:00:01Z`, and it records those values, under the same IRI, in
+every subsequent SPDX 3.x version of the ontology.
 
-The IRIs of these instances are stable across the SPDX 3 series, so if each
-version of the ontology asserted different values for the same instance,
-merging the ontologies of two versions into a single graph would give that
-instance more than one `specVersion` and more than one `created`.
+Each individual has exactly one `CreationInfo` instance, and the same instance
+appears in every SPDX 3.x version of the ontology.
+If a later version asserted different values for it, merging the ontologies of
+two versions into a single graph would give that instance more than one
+`specVersion` and more than one `created`.
 The cardinality of each is exactly one, so the merged graph would not satisfy
 the SHACL shapes of this specification.
 
@@ -278,22 +293,16 @@ The rewrite shall be applied to the following IRIs:
 | Legacy IRI | Canonical IRI |
 | ---------- | ------------- |
 | `https://spdx.org/rdf/3.0.1/terms/…` | `https://spdx.org/rdf/3/terms/…` |
-| `https://spdx.org/rdf/3.0.1/creationInfo_…` | `https://spdx.org/rdf/3/creationInfo_…` |
-
-The second row covers the `CreationInfo` instances described in
-[Specification-defined individuals](#specification-defined-individuals), which
-are published directly under the version segment rather than under `terms/`.
-These are distinct from the `creationInfo` property, whose IRI is
-`https://spdx.org/rdf/3/terms/Core/creationInfo` and which is covered by the
-first row.
-A rewrite restricted to `terms/` would cover the property but would not cover
-these instances.
 
 The rewrite shall not be applied to the resource URLs listed in
-[Published resources](#published-resources).
-Those identify versioned documents rather than terms, and they remain
-version-qualified.
-A rewrite of the whole `https://spdx.org/rdf/3.0.1/` prefix would corrupt them
+[Published resources](#published-resources), nor to the `CreationInfo`
+instances described in
+[Specification-defined individuals](#specification-defined-individuals).
+Those are not terms, and they remain version-qualified.
+The `CreationInfo` instances are distinct from the `creationInfo` property,
+whose IRI is `https://spdx.org/rdf/3/terms/Core/creationInfo` and which is
+covered by the rewrite.
+A rewrite of the whole `https://spdx.org/rdf/3.0.1/` prefix would corrupt both
 and shall not be used.
 
 A producer shall emit only canonical term IRIs.
