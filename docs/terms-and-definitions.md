@@ -26,6 +26,7 @@ for example, through architecture views and models, associated with
 particular kinds of architectures such as security architecture,
 functional architecture, physical architecture, resilience architecture.
 Note 2: Architecture can also address a set of rules to define the structure of a system and the interrelationships between its parts.
+
 **component**
 
 One part that makes up a system
