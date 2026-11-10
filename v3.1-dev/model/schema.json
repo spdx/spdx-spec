@@ -415,6 +415,7 @@
                     ]
                 },
                 { "const": "spdx:Core/AnnotationType/other" },
+                { "const": "spdx:Core/AnnotationType/quality" },
                 { "const": "spdx:Core/AnnotationType/review" },
                 { "$ref": "#/$defs/BlankNodeOrIRI" }
             ]
@@ -1191,6 +1192,7 @@
                     "iswc",
                     "lei",
                     "lexid",
+                    "modelName",
                     "nli",
                     "orcidid",
                     "other",
@@ -1199,6 +1201,7 @@
                     "requirementUID",
                     "rorid",
                     "securityOther",
+                    "sku",
                     "spdx2iri",
                     "swhid",
                     "swid",
@@ -1284,6 +1287,7 @@
                 { "const": "spdx:Core/ExternalIdentifierType/iswc" },
                 { "const": "spdx:Core/ExternalIdentifierType/lei" },
                 { "const": "spdx:Core/ExternalIdentifierType/lexid" },
+                { "const": "spdx:Core/ExternalIdentifierType/modelName" },
                 { "const": "spdx:Core/ExternalIdentifierType/nli" },
                 { "const": "spdx:Core/ExternalIdentifierType/orcidid" },
                 { "const": "spdx:Core/ExternalIdentifierType/other" },
@@ -1292,6 +1296,7 @@
                 { "const": "spdx:Core/ExternalIdentifierType/requirementUID" },
                 { "const": "spdx:Core/ExternalIdentifierType/rorid" },
                 { "const": "spdx:Core/ExternalIdentifierType/securityOther" },
+                { "const": "spdx:Core/ExternalIdentifierType/sku" },
                 { "const": "spdx:Core/ExternalIdentifierType/spdx2iri" },
                 { "const": "spdx:Core/ExternalIdentifierType/swhid" },
                 { "const": "spdx:Core/ExternalIdentifierType/swid" },
@@ -6002,6 +6007,7 @@
         "prop_Annotation_annotationType": {
                 "enum": [
                     "other",
+                    "quality",
                     "review"
                 ]
         },
@@ -7925,6 +7931,29 @@
                         "startTime": {
                             "$ref": "#/$defs/prop_operations_Project_startTime"
                         },
+                        "operations_contributionProcess": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_operations_Project_operations_contributionProcess"
+                                    }
+                                }
+                            ]
+                        },
+                        "operations_participationAgreement": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_operations_Project_operations_participationAgreement"
+                                    }
+                                }
+                            ]
+                        },
+                        "operations_projectCharter": {
+                            "$ref": "#/$defs/prop_operations_Project_operations_projectCharter"
+                        },
                         "operations_projectContract": {
                             "$ref": "#/$defs/prop_operations_Project_operations_projectContract"
                         },
@@ -7943,6 +7972,12 @@
                         },
                         "operations_projectTitle": {
                             "$ref": "#/$defs/prop_operations_Project_operations_projectTitle"
+                        },
+                        "operations_projectUrl": {
+                            "$ref": "#/$defs/prop_operations_Project_operations_projectUrl"
+                        },
+                        "operations_technicalScope": {
+                            "$ref": "#/$defs/prop_operations_Project_operations_technicalScope"
                         }
                     },
                     "required": [
@@ -7976,6 +8011,15 @@
                         }
                     ]
         },
+        "prop_operations_Project_operations_contributionProcess": {
+                "$ref": "#/$defs/DefinedProcess_derived"
+        },
+        "prop_operations_Project_operations_participationAgreement": {
+                "$ref": "#/$defs/Specification_derived"
+        },
+        "prop_operations_Project_operations_projectCharter": {
+                "$ref": "#/$defs/ExternalRef_derived"
+        },
         "prop_operations_Project_operations_projectContract": {
                     "$ref": "#/$defs/anyURI"
         },
@@ -7986,6 +8030,12 @@
                 "$ref": "#/$defs/Agent_derived"
         },
         "prop_operations_Project_operations_projectTitle": {
+                    "type": "string"
+        },
+        "prop_operations_Project_operations_projectUrl": {
+                    "$ref": "#/$defs/anyURI"
+        },
+        "prop_operations_Project_operations_technicalScope": {
                     "type": "string"
         },
         "security_CvssV2VulnAssessmentRelationship": {
