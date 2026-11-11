@@ -23989,7 +23989,7 @@
           "name": "PhysicalLocation",
           "fqname": "/Core/PhysicalLocation",
           "summary": "A physical location is a tangible, geographically identifiable place where objects, people, or assets exist or operate.",
-          "description": "A physical location is a tangible, geographically identifiable place where objects, people, or assets exist or operate.",
+          "description": "A physical location is a tangible, geographically identifiable place where objects, people, or assets exist or operate.\n\nAt least one of country, city, streetAddress, geographicPointLocation, or name\nshall be provided.",
           "metadata": {
             "name": "PhysicalLocation",
             "SubclassOf": "Location",
@@ -24052,7 +24052,20 @@
             }
           },
           "ext_prop_restrs": {},
-          "sparql": {},
+          "sparql": {
+            "at_least_one_location_property": {
+              "message": "At least one of Core/country, Core/city, Core/streetAddress, Core/geographicPointLocation, or Core/name is required",
+              "query": [
+                "SELECT $this WHERE {",
+                "    FILTER NOT EXISTS { $this <Core/country> ?country . }",
+                "    FILTER NOT EXISTS { $this <Core/city> ?city . }",
+                "    FILTER NOT EXISTS { $this <Core/streetAddress> ?streetAddress . }",
+                "    FILTER NOT EXISTS { $this <Core/geographicPointLocation> ?point . }",
+                "    FILTER NOT EXISTS { $this <Core/name> ?name . }",
+                "}"
+              ]
+            }
+          },
           "iri": "https://spdx.org/rdf/3/terms/Core/PhysicalLocation",
           "fqsupercname": "/Core/Location",
           "inheritance_stack": [
@@ -24624,9 +24637,9 @@
               "message": "A value for Core/name is required when a value for Core/version is present",
               "query": [
                 "SELECT $this WHERE {",
-                "    $this <Software/version> ?version .",
+                "    $this <Core/version> ?version .",
                 "    FILTER NOT EXISTS {",
-                "        $this <Software/name> ?name .",
+                "        $this <Core/name> ?name .",
                 "    }",
                 "}"
               ]
@@ -31272,7 +31285,7 @@
               ]
             },
             "dependsOn_type": {
-              "message": "When relationship id dependsOn, class must be LifecycleScopedRelationship",
+              "message": "When relationship is dependsOn, class must be LifecycleScopedRelationship",
               "query": [
                 "SELECT $this WHERE {",
                 "    $this <Core/relationshipType> <Core/RelationshipType/dependsOn> .",
@@ -32229,7 +32242,7 @@
         "/ExpandedLicensing/ListedLicense": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "ListedLicense",
@@ -32448,7 +32461,7 @@
         "/ExpandedLicensing/ExtendableLicense": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "ExtendableLicense",
@@ -32567,7 +32580,7 @@
         "/ExpandedLicensing/ListedLicenseException": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "ListedLicenseException",
@@ -32760,7 +32773,7 @@
         "/ExpandedLicensing/CustomLicenseAddition": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "CustomLicenseAddition",
@@ -32924,7 +32937,7 @@
         "/ExpandedLicensing/IndividualLicensingInfo": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "IndividualLicensingInfo",
@@ -33040,7 +33053,7 @@
         "/ExpandedLicensing/ConjunctiveLicenseSet": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "ConjunctiveLicenseSet",
@@ -33171,7 +33184,7 @@
         "/ExpandedLicensing/WithAdditionOperator": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "WithAdditionOperator",
@@ -33316,7 +33329,7 @@
         "/ExpandedLicensing/OrLaterOperator": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "OrLaterOperator",
@@ -33448,7 +33461,7 @@
         "/ExpandedLicensing/LicenseAddition": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "LicenseAddition",
@@ -33651,7 +33664,7 @@
         "/ExpandedLicensing/DisjunctiveLicenseSet": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "DisjunctiveLicenseSet",
@@ -33782,7 +33795,7 @@
         "/ExpandedLicensing/License": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "License",
@@ -34029,7 +34042,7 @@
         "/ExpandedLicensing/CustomLicense": {
           "py/object": "spec_parser.model.Class",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "CustomLicense",
@@ -34221,7 +34234,7 @@
         "/ExpandedLicensing/seeAlso": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "seeAlso",
@@ -34243,7 +34256,7 @@
         "/ExpandedLicensing/standardLicenseHeader": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "standardLicenseHeader",
@@ -34264,7 +34277,7 @@
         "/ExpandedLicensing/subjectExtendableLicense": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "subjectExtendableLicense",
@@ -34285,7 +34298,7 @@
         "/ExpandedLicensing/isFsfLibre": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "isFsfLibre",
@@ -34306,7 +34319,7 @@
         "/ExpandedLicensing/subjectLicense": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "subjectLicense",
@@ -34327,7 +34340,7 @@
         "/ExpandedLicensing/isDeprecatedLicenseId": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "isDeprecatedLicenseId",
@@ -34348,7 +34361,7 @@
         "/ExpandedLicensing/licenseXml": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "licenseXml",
@@ -34370,7 +34383,7 @@
         "/ExpandedLicensing/standardAdditionTemplate": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "standardAdditionTemplate",
@@ -34391,7 +34404,7 @@
         "/ExpandedLicensing/isDeprecatedAdditionId": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "isDeprecatedAdditionId",
@@ -34412,7 +34425,7 @@
         "/ExpandedLicensing/deprecatedVersion": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "deprecatedVersion",
@@ -34434,7 +34447,7 @@
         "/ExpandedLicensing/additionText": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "additionText",
@@ -34455,7 +34468,7 @@
         "/ExpandedLicensing/isOsiApproved": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "isOsiApproved",
@@ -34476,7 +34489,7 @@
         "/ExpandedLicensing/listVersionAdded": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "listVersionAdded",
@@ -34498,7 +34511,7 @@
         "/ExpandedLicensing/subjectAddition": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "subjectAddition",
@@ -34519,7 +34532,7 @@
         "/ExpandedLicensing/obsoletedBy": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "obsoletedBy",
@@ -34541,7 +34554,7 @@
         "/ExpandedLicensing/member": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "member",
@@ -34563,7 +34576,7 @@
         "/ExpandedLicensing/standardLicenseTemplate": {
           "py/object": "spec_parser.model.Property",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "standardLicenseTemplate",
@@ -34587,7 +34600,7 @@
         "/ExpandedLicensing/NoAssertionLicense": {
           "py/object": "spec_parser.model.Individual",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "NoAssertionLicense",
@@ -34607,7 +34620,7 @@
         "/ExpandedLicensing/NoneLicense": {
           "py/object": "spec_parser.model.Individual",
           "ns": {
-            "py/id": 5143
+            "py/id": 5145
           },
           "license": "Community-Spec-1.0",
           "name": "NoneLicense",
@@ -34916,139 +34929,139 @@
       "py/id": 3757
     },
     "/Core/DefinedProcess": {
-      "py/id": 3795
+      "py/id": 3797
     },
     "/Core/DefinedType": {
-      "py/id": 3832
+      "py/id": 3834
     },
     "/Core/UnitOfMeasure": {
-      "py/id": 3844
+      "py/id": 3846
     },
     "/Core/Bom": {
-      "py/id": 3856
+      "py/id": 3858
     },
     "/Core/Artifact": {
-      "py/id": 3883
+      "py/id": 3885
     },
     "/Core/SoftwareAgent": {
-      "py/id": 3918
+      "py/id": 3920
     },
     "/Core/Person": {
-      "py/id": 3937
+      "py/id": 3939
     },
     "/Core/ContactPointRelationship": {
-      "py/id": 3956
+      "py/id": 3958
     },
     "/Core/ElementMap": {
-      "py/id": 3983
+      "py/id": 3985
     },
     "/Core/ExternalIdentifier": {
-      "py/id": 3995
+      "py/id": 3997
     },
     "/Core/Hash": {
-      "py/id": 4013
+      "py/id": 4015
     },
     "/Core/RoleRelationship": {
-      "py/id": 4026
+      "py/id": 4028
     },
     "/Core/Relationship": {
-      "py/id": 4055
+      "py/id": 4057
     },
     "/Core/Organization": {
-      "py/id": 4086
+      "py/id": 4088
     },
     "/Core/Regulation": {
-      "py/id": 4107
+      "py/id": 4109
     },
     "/Core/PackageVerificationCode": {
-      "py/id": 4135
+      "py/id": 4137
     },
     "/Core/Location": {
-      "py/id": 4150
+      "py/id": 4152
     },
     "/Core/Role": {
-      "py/id": 4171
+      "py/id": 4173
     },
     "/Core/ExternalRef": {
-      "py/id": 4199
+      "py/id": 4201
     },
     "/Core/PositiveIntegerRange": {
-      "py/id": 4215
+      "py/id": 4217
     },
     "/Core/NamespaceMap": {
-      "py/id": 4227
+      "py/id": 4229
     },
     "/Core/LifecycleScopedRelationship": {
-      "py/id": 4239
+      "py/id": 4241
     },
     "/Core/SupportRelationship": {
-      "py/id": 4266
+      "py/id": 4268
     },
     "/Core/Action": {
-      "py/id": 4295
+      "py/id": 4297
     },
     "/Core/Agent": {
-      "py/id": 4333
+      "py/id": 4335
     },
     "/Core/Bundle": {
-      "py/id": 4352
+      "py/id": 4354
     },
     "/Core/IndividualElement": {
-      "py/id": 4376
+      "py/id": 4378
     },
     "/Core/CreationInfo": {
-      "py/id": 4395
+      "py/id": 4397
     },
     "/Core/Tool": {
-      "py/id": 4413
+      "py/id": 4415
     },
     "/Core/ElementCollection": {
-      "py/id": 4434
+      "py/id": 4436
     },
     "/Core/ExternalMap": {
-      "py/id": 4459
+      "py/id": 4461
     },
     "/Core/Requirement": {
-      "py/id": 4475
+      "py/id": 4477
     },
     "/Core/SpdxDocument": {
-      "py/id": 4504
+      "py/id": 4506
     },
     "/ExpandedLicensing/ListedLicense": {
-      "py/id": 5145
+      "py/id": 5147
     },
     "/ExpandedLicensing/ExtendableLicense": {
-      "py/id": 5177
+      "py/id": 5179
     },
     "/ExpandedLicensing/ListedLicenseException": {
-      "py/id": 5196
+      "py/id": 5198
     },
     "/ExpandedLicensing/CustomLicenseAddition": {
-      "py/id": 5225
+      "py/id": 5227
     },
     "/ExpandedLicensing/IndividualLicensingInfo": {
-      "py/id": 5250
+      "py/id": 5252
     },
     "/ExpandedLicensing/ConjunctiveLicenseSet": {
-      "py/id": 5269
+      "py/id": 5271
     },
     "/ExpandedLicensing/WithAdditionOperator": {
-      "py/id": 5290
+      "py/id": 5292
     },
     "/ExpandedLicensing/OrLaterOperator": {
-      "py/id": 5313
+      "py/id": 5315
     },
     "/ExpandedLicensing/LicenseAddition": {
-      "py/id": 5334
+      "py/id": 5336
     },
     "/ExpandedLicensing/DisjunctiveLicenseSet": {
-      "py/id": 5365
+      "py/id": 5367
     },
     "/ExpandedLicensing/License": {
-      "py/id": 5386
+      "py/id": 5388
     },
     "/ExpandedLicensing/CustomLicense": {
-      "py/id": 5423
+      "py/id": 5425
     }
   },
   "properties": {
@@ -35524,340 +35537,340 @@
       "py/id": 3626
     },
     "/Core/contentType": {
-      "py/id": 4533
+      "py/id": 4535
     },
     "/Core/postalName": {
-      "py/id": 4537
+      "py/id": 4539
     },
     "/Core/postOfficeBoxNumber": {
-      "py/id": 4541
+      "py/id": 4543
     },
     "/Core/builtTime": {
-      "py/id": 4545
+      "py/id": 4547
     },
     "/Core/postalCode": {
-      "py/id": 4549
+      "py/id": 4551
     },
     "/Core/identifier": {
-      "py/id": 4553
+      "py/id": 4555
     },
     "/Core/import": {
-      "py/id": 4557
+      "py/id": 4559
     },
     "/Core/releaseTime": {
-      "py/id": 4561
+      "py/id": 4563
     },
     "/Core/name": {
-      "py/id": 4565
+      "py/id": 4567
     },
     "/Core/streetAddress": {
-      "py/id": 4569
+      "py/id": 4571
     },
     "/Core/createdUsing": {
-      "py/id": 4573
+      "py/id": 4575
     },
     "/Core/geographicPointLocation": {
-      "py/id": 4577
+      "py/id": 4579
     },
     "/Core/elementValue": {
-      "py/id": 4581
+      "py/id": 4583
     },
     "/Core/namespace": {
-      "py/id": 4585
+      "py/id": 4587
     },
     "/Core/intendedUse": {
-      "py/id": 4589
+      "py/id": 4591
     },
     "/Core/packageVerificationCodeExcludedFile": {
-      "py/id": 4593
+      "py/id": 4595
     },
     "/Core/dataLicense": {
-      "py/id": 4597
+      "py/id": 4599
     },
     "/Core/summary": {
-      "py/id": 4601
+      "py/id": 4603
     },
     "/Core/createdBy": {
-      "py/id": 4605
+      "py/id": 4607
     },
     "/Core/algorithm": {
-      "py/id": 4609
+      "py/id": 4611
     },
     "/Core/externalIdentifierType": {
-      "py/id": 4613
+      "py/id": 4615
     },
     "/Core/subject": {
-      "py/id": 4617
+      "py/id": 4619
     },
     "/Core/definingArtifact": {
-      "py/id": 4621
+      "py/id": 4623
     },
     "/Core/headquartersLocation": {
-      "py/id": 4625
+      "py/id": 4627
     },
     "/Core/endIntegerRange": {
-      "py/id": 4629
+      "py/id": 4631
     },
     "/Core/additionalInformationSpecification": {
-      "py/id": 4633
+      "py/id": 4635
     },
     "/Core/created": {
-      "py/id": 4637
+      "py/id": 4639
     },
     "/Core/annotationType": {
-      "py/id": 4641
+      "py/id": 4643
     },
     "/Core/additionalInformation": {
-      "py/id": 4645
+      "py/id": 4647
     },
     "/Core/scope": {
-      "py/id": 4649
+      "py/id": 4651
     },
     "/Core/isoAutomationLevel": {
-      "py/id": 4653
+      "py/id": 4655
     },
     "/Core/externalRefType": {
-      "py/id": 4657
+      "py/id": 4659
     },
     "/Core/country": {
-      "py/id": 4661
+      "py/id": 4663
     },
     "/Core/profileConformance": {
-      "py/id": 4665
+      "py/id": 4667
     },
     "/Core/standardName": {
-      "py/id": 4669
+      "py/id": 4671
     },
     "/Core/assignedBy": {
-      "py/id": 4673
+      "py/id": 4675
     },
     "/Core/namespaceMap": {
-      "py/id": 4677
+      "py/id": 4679
     },
     "/Core/prefix": {
-      "py/id": 4681
+      "py/id": 4683
     },
     "/Core/givenRole": {
-      "py/id": 4685
+      "py/id": 4687
     },
     "/Core/creationInfo": {
-      "py/id": 4689
+      "py/id": 4691
     },
     "/Core/validUntilTime": {
-      "py/id": 4693
+      "py/id": 4695
     },
     "/Core/completeness": {
-      "py/id": 4697
+      "py/id": 4699
     },
     "/Core/rootElement": {
-      "py/id": 4701
+      "py/id": 4703
     },
     "/Core/roleQualification": {
-      "py/id": 4705
+      "py/id": 4707
     },
     "/Core/requirementStatement": {
-      "py/id": 4709
+      "py/id": 4711
     },
     "/Core/startTime": {
-      "py/id": 4713
+      "py/id": 4715
     },
     "/Core/verifiedUsing": {
-      "py/id": 4717
+      "py/id": 4719
     },
     "/Core/city": {
-      "py/id": 4721
+      "py/id": 4723
     },
     "/Core/devLifecycleStage": {
-      "py/id": 4725
+      "py/id": 4727
     },
     "/Core/originatedBy": {
-      "py/id": 4729
+      "py/id": 4731
     },
     "/Core/provinceStateCode": {
-      "py/id": 4733
+      "py/id": 4735
     },
     "/Core/locationTime": {
-      "py/id": 4737
+      "py/id": 4739
     },
     "/Core/locator": {
-      "py/id": 4741
+      "py/id": 4743
     },
     "/Core/beginIntegerRange": {
-      "py/id": 4745
+      "py/id": 4747
     },
     "/Core/to": {
-      "py/id": 4749
+      "py/id": 4751
     },
     "/Core/contactType": {
-      "py/id": 4753
+      "py/id": 4755
     },
     "/Core/countyCode": {
-      "py/id": 4757
+      "py/id": 4759
     },
     "/Core/key": {
-      "py/id": 4761
+      "py/id": 4763
     },
     "/Core/identifierLocator": {
-      "py/id": 4765
+      "py/id": 4767
     },
     "/Core/typeFromSource": {
-      "py/id": 4769
+      "py/id": 4771
     },
     "/Core/from": {
-      "py/id": 4773
+      "py/id": 4775
     },
     "/Core/relationshipType": {
-      "py/id": 4777
+      "py/id": 4779
     },
     "/Core/context": {
-      "py/id": 4781
+      "py/id": 4783
     },
     "/Core/element": {
-      "py/id": 4785
+      "py/id": 4787
     },
     "/Core/unitQUDT": {
-      "py/id": 4789
+      "py/id": 4791
     },
     "/Core/version": {
-      "py/id": 4793
+      "py/id": 4795
     },
     "/Core/statement": {
-      "py/id": 4797
+      "py/id": 4799
     },
     "/Core/referenceSpecification": {
-      "py/id": 4801
+      "py/id": 4803
     },
     "/Core/suppliedBy": {
-      "py/id": 4805
+      "py/id": 4807
     },
     "/Core/externalRef": {
-      "py/id": 4809
+      "py/id": 4811
     },
     "/Core/externalSpdxId": {
-      "py/id": 4813
+      "py/id": 4815
     },
     "/Core/actionLocation": {
-      "py/id": 4817
+      "py/id": 4819
     },
     "/Core/specVersion": {
-      "py/id": 4821
+      "py/id": 4823
     },
     "/Core/rationale": {
-      "py/id": 4825
+      "py/id": 4827
     },
     "/Core/comment": {
-      "py/id": 4829
+      "py/id": 4831
     },
     "/Core/externalIdentifier": {
-      "py/id": 4833
+      "py/id": 4835
     },
     "/Core/requirementStatus": {
-      "py/id": 4837
+      "py/id": 4839
     },
     "/Core/extension": {
-      "py/id": 4841
+      "py/id": 4843
     },
     "/Core/authorization": {
-      "py/id": 4845
+      "py/id": 4847
     },
     "/Core/processReadiness": {
-      "py/id": 4849
+      "py/id": 4851
     },
     "/Core/responsibility": {
-      "py/id": 4853
+      "py/id": 4855
     },
     "/Core/description": {
-      "py/id": 4857
+      "py/id": 4859
     },
     "/Core/requirementUID": {
-      "py/id": 4861
+      "py/id": 4863
     },
     "/Core/value": {
-      "py/id": 4865
+      "py/id": 4867
     },
     "/Core/endTime": {
-      "py/id": 4869
+      "py/id": 4871
     },
     "/Core/issuingAuthority": {
-      "py/id": 4873
+      "py/id": 4875
     },
     "/Core/definitionSource": {
-      "py/id": 4877
+      "py/id": 4879
     },
     "/Core/spdxId": {
-      "py/id": 4881
+      "py/id": 4883
     },
     "/Core/quantity": {
-      "py/id": 4885
+      "py/id": 4887
     },
     "/Core/hashValue": {
-      "py/id": 4889
+      "py/id": 4891
     },
     "/Core/locationHint": {
-      "py/id": 4893
+      "py/id": 4895
     },
     "/Core/additionalName": {
-      "py/id": 4897
+      "py/id": 4899
     },
     "/Core/supportLevel": {
-      "py/id": 4901
+      "py/id": 4903
     },
     "/Core/inLanguage": {
-      "py/id": 4905
+      "py/id": 4907
     },
     "/Core/specType": {
-      "py/id": 4909
+      "py/id": 4911
     },
     "/ExpandedLicensing/seeAlso": {
-      "py/id": 5452
+      "py/id": 5454
     },
     "/ExpandedLicensing/standardLicenseHeader": {
-      "py/id": 5456
+      "py/id": 5458
     },
     "/ExpandedLicensing/subjectExtendableLicense": {
-      "py/id": 5460
+      "py/id": 5462
     },
     "/ExpandedLicensing/isFsfLibre": {
-      "py/id": 5464
+      "py/id": 5466
     },
     "/ExpandedLicensing/subjectLicense": {
-      "py/id": 5468
+      "py/id": 5470
     },
     "/ExpandedLicensing/isDeprecatedLicenseId": {
-      "py/id": 5472
+      "py/id": 5474
     },
     "/ExpandedLicensing/licenseXml": {
-      "py/id": 5476
+      "py/id": 5478
     },
     "/ExpandedLicensing/standardAdditionTemplate": {
-      "py/id": 5480
+      "py/id": 5482
     },
     "/ExpandedLicensing/isDeprecatedAdditionId": {
-      "py/id": 5484
+      "py/id": 5486
     },
     "/ExpandedLicensing/deprecatedVersion": {
-      "py/id": 5488
+      "py/id": 5490
     },
     "/ExpandedLicensing/additionText": {
-      "py/id": 5492
+      "py/id": 5494
     },
     "/ExpandedLicensing/isOsiApproved": {
-      "py/id": 5496
+      "py/id": 5498
     },
     "/ExpandedLicensing/listVersionAdded": {
-      "py/id": 5500
+      "py/id": 5502
     },
     "/ExpandedLicensing/subjectAddition": {
-      "py/id": 5504
+      "py/id": 5506
     },
     "/ExpandedLicensing/obsoletedBy": {
-      "py/id": 5508
+      "py/id": 5510
     },
     "/ExpandedLicensing/member": {
-      "py/id": 5512
+      "py/id": 5514
     },
     "/ExpandedLicensing/standardLicenseTemplate": {
-      "py/id": 5516
+      "py/id": 5518
     }
   },
   "vocabularies": {
@@ -35922,83 +35935,83 @@
       "py/id": 3639
     },
     "/Core/PresenceType": {
-      "py/id": 4914
+      "py/id": 4916
     },
     "/Core/IsoAutomationLevel": {
-      "py/id": 4918
+      "py/id": 4920
     },
     "/Core/LifecycleScopeType": {
-      "py/id": 4922
+      "py/id": 4924
     },
     "/Core/ProcessReadinessType": {
-      "py/id": 4926
+      "py/id": 4928
     },
     "/Core/RequirementStatusType": {
-      "py/id": 4930
+      "py/id": 4932
     },
     "/Core/ExternalRefType": {
-      "py/id": 4934
+      "py/id": 4936
     },
     "/Core/RelationshipCompleteness": {
-      "py/id": 4938
+      "py/id": 4940
     },
     "/Core/ContactType": {
-      "py/id": 4942
+      "py/id": 4944
     },
     "/Core/SpecificationType": {
-      "py/id": 4946
+      "py/id": 4948
     },
     "/Core/RelationshipType": {
-      "py/id": 4950
+      "py/id": 4952
     },
     "/Core/SupportType": {
-      "py/id": 5096
+      "py/id": 5098
     },
     "/Core/HashAlgorithm": {
-      "py/id": 5100
+      "py/id": 5102
     },
     "/Core/ProfileIdentifierType": {
-      "py/id": 5104
+      "py/id": 5106
     },
     "/Core/ExternalIdentifierType": {
-      "py/id": 5108
+      "py/id": 5110
     },
     "/Core/AnnotationType": {
-      "py/id": 5112
+      "py/id": 5114
     }
   },
   "individuals": {
     "/Core/NoneElement": {
-      "py/id": 5117
+      "py/id": 5119
     },
     "/Core/NoAssertionElement": {
-      "py/id": 5120
+      "py/id": 5122
     },
     "/Core/SpdxOrganization": {
-      "py/id": 5123
+      "py/id": 5125
     },
     "/ExpandedLicensing/NoAssertionLicense": {
-      "py/id": 5522
+      "py/id": 5524
     },
     "/ExpandedLicensing/NoneLicense": {
-      "py/id": 5525
+      "py/id": 5527
     }
   },
   "datatypes": {
     "/Core/LanguageTag": {
-      "py/id": 5127
+      "py/id": 5129
     },
     "/Core/DateTime": {
-      "py/id": 5130
+      "py/id": 5132
     },
     "/Core/CountryCodeAlpha3": {
-      "py/id": 5133
+      "py/id": 5135
     },
     "/Core/MediaType": {
-      "py/id": 5136
+      "py/id": 5138
     },
     "/Core/VersionNumber": {
-      "py/id": 5139
+      "py/id": 5141
     }
   },
   "types": {
@@ -36279,139 +36292,139 @@
       "py/id": 3757
     },
     "/Core/DefinedProcess": {
-      "py/id": 3795
+      "py/id": 3797
     },
     "/Core/DefinedType": {
-      "py/id": 3832
+      "py/id": 3834
     },
     "/Core/UnitOfMeasure": {
-      "py/id": 3844
+      "py/id": 3846
     },
     "/Core/Bom": {
-      "py/id": 3856
+      "py/id": 3858
     },
     "/Core/Artifact": {
-      "py/id": 3883
+      "py/id": 3885
     },
     "/Core/SoftwareAgent": {
-      "py/id": 3918
+      "py/id": 3920
     },
     "/Core/Person": {
-      "py/id": 3937
+      "py/id": 3939
     },
     "/Core/ContactPointRelationship": {
-      "py/id": 3956
+      "py/id": 3958
     },
     "/Core/ElementMap": {
-      "py/id": 3983
+      "py/id": 3985
     },
     "/Core/ExternalIdentifier": {
-      "py/id": 3995
+      "py/id": 3997
     },
     "/Core/Hash": {
-      "py/id": 4013
+      "py/id": 4015
     },
     "/Core/RoleRelationship": {
-      "py/id": 4026
+      "py/id": 4028
     },
     "/Core/Relationship": {
-      "py/id": 4055
+      "py/id": 4057
     },
     "/Core/Organization": {
-      "py/id": 4086
+      "py/id": 4088
     },
     "/Core/Regulation": {
-      "py/id": 4107
+      "py/id": 4109
     },
     "/Core/PackageVerificationCode": {
-      "py/id": 4135
+      "py/id": 4137
     },
     "/Core/Location": {
-      "py/id": 4150
+      "py/id": 4152
     },
     "/Core/Role": {
-      "py/id": 4171
+      "py/id": 4173
     },
     "/Core/ExternalRef": {
-      "py/id": 4199
+      "py/id": 4201
     },
     "/Core/PositiveIntegerRange": {
-      "py/id": 4215
+      "py/id": 4217
     },
     "/Core/NamespaceMap": {
-      "py/id": 4227
+      "py/id": 4229
     },
     "/Core/LifecycleScopedRelationship": {
-      "py/id": 4239
+      "py/id": 4241
     },
     "/Core/SupportRelationship": {
-      "py/id": 4266
+      "py/id": 4268
     },
     "/Core/Action": {
-      "py/id": 4295
+      "py/id": 4297
     },
     "/Core/Agent": {
-      "py/id": 4333
+      "py/id": 4335
     },
     "/Core/Bundle": {
-      "py/id": 4352
+      "py/id": 4354
     },
     "/Core/IndividualElement": {
-      "py/id": 4376
+      "py/id": 4378
     },
     "/Core/CreationInfo": {
-      "py/id": 4395
+      "py/id": 4397
     },
     "/Core/Tool": {
-      "py/id": 4413
+      "py/id": 4415
     },
     "/Core/ElementCollection": {
-      "py/id": 4434
+      "py/id": 4436
     },
     "/Core/ExternalMap": {
-      "py/id": 4459
+      "py/id": 4461
     },
     "/Core/Requirement": {
-      "py/id": 4475
+      "py/id": 4477
     },
     "/Core/SpdxDocument": {
-      "py/id": 4504
+      "py/id": 4506
     },
     "/ExpandedLicensing/ListedLicense": {
-      "py/id": 5145
+      "py/id": 5147
     },
     "/ExpandedLicensing/ExtendableLicense": {
-      "py/id": 5177
+      "py/id": 5179
     },
     "/ExpandedLicensing/ListedLicenseException": {
-      "py/id": 5196
+      "py/id": 5198
     },
     "/ExpandedLicensing/CustomLicenseAddition": {
-      "py/id": 5225
+      "py/id": 5227
     },
     "/ExpandedLicensing/IndividualLicensingInfo": {
-      "py/id": 5250
+      "py/id": 5252
     },
     "/ExpandedLicensing/ConjunctiveLicenseSet": {
-      "py/id": 5269
+      "py/id": 5271
     },
     "/ExpandedLicensing/WithAdditionOperator": {
-      "py/id": 5290
+      "py/id": 5292
     },
     "/ExpandedLicensing/OrLaterOperator": {
-      "py/id": 5313
+      "py/id": 5315
     },
     "/ExpandedLicensing/LicenseAddition": {
-      "py/id": 5334
+      "py/id": 5336
     },
     "/ExpandedLicensing/DisjunctiveLicenseSet": {
-      "py/id": 5365
+      "py/id": 5367
     },
     "/ExpandedLicensing/License": {
-      "py/id": 5386
+      "py/id": 5388
     },
     "/ExpandedLicensing/CustomLicense": {
-      "py/id": 5423
+      "py/id": 5425
     },
     "/Software/SoftwarePurpose": {
       "py/id": 406
@@ -36474,64 +36487,64 @@
       "py/id": 3639
     },
     "/Core/PresenceType": {
-      "py/id": 4914
+      "py/id": 4916
     },
     "/Core/IsoAutomationLevel": {
-      "py/id": 4918
+      "py/id": 4920
     },
     "/Core/LifecycleScopeType": {
-      "py/id": 4922
+      "py/id": 4924
     },
     "/Core/ProcessReadinessType": {
-      "py/id": 4926
+      "py/id": 4928
     },
     "/Core/RequirementStatusType": {
-      "py/id": 4930
+      "py/id": 4932
     },
     "/Core/ExternalRefType": {
-      "py/id": 4934
+      "py/id": 4936
     },
     "/Core/RelationshipCompleteness": {
-      "py/id": 4938
+      "py/id": 4940
     },
     "/Core/ContactType": {
-      "py/id": 4942
+      "py/id": 4944
     },
     "/Core/SpecificationType": {
-      "py/id": 4946
+      "py/id": 4948
     },
     "/Core/RelationshipType": {
-      "py/id": 4950
+      "py/id": 4952
     },
     "/Core/SupportType": {
-      "py/id": 5096
+      "py/id": 5098
     },
     "/Core/HashAlgorithm": {
-      "py/id": 5100
+      "py/id": 5102
     },
     "/Core/ProfileIdentifierType": {
-      "py/id": 5104
+      "py/id": 5106
     },
     "/Core/ExternalIdentifierType": {
-      "py/id": 5108
+      "py/id": 5110
     },
     "/Core/AnnotationType": {
-      "py/id": 5112
+      "py/id": 5114
     },
     "/Core/LanguageTag": {
-      "py/id": 5127
+      "py/id": 5129
     },
     "/Core/DateTime": {
-      "py/id": 5130
+      "py/id": 5132
     },
     "/Core/CountryCodeAlpha3": {
-      "py/id": 5133
+      "py/id": 5135
     },
     "/Core/MediaType": {
-      "py/id": 5136
+      "py/id": 5138
     },
     "/Core/VersionNumber": {
-      "py/id": 5139
+      "py/id": 5141
     }
   },
   "class_hierarchy": {
