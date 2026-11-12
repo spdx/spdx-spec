@@ -22,7 +22,7 @@ upon the context. The relationship of these terms is not standardized.
 A component can be independently managed or not from
 the end-user or administrator's point of view.
 
-[SOURCE: IEEE 1012-2024, 3.1, modified — "One part that makes up a system" has been modified to satisfy the substitutability principle]
+[SOURCE: IEEE 1012-2024, 3.1, modified — rephrased from "One part that makes up a system".]
 
 **computer hardware**
 
