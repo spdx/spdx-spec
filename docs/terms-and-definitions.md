@@ -20,7 +20,7 @@ The terms module, component, and unit are often used interchangeably or
 defined to be subelements of one another in different ways depending
 upon the context. The relationship of these terms is not standardized.
 A component can be independently managed or not from
-the end-user or administrator's point of view (from [SEVOCAB](https://pascal.computer.org/sev_display/index.action)).
+the end-user or administrator's point of view.
 
 [SOURCE: IEEE 1012-2024, 3.1, modified — "One part that makes up a system" has been modified to satisfy the substitutability principle]
 
