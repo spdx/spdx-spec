@@ -10,7 +10,7 @@ at the following addresses:
 
 **component**
 
-part of a system
+one part that makes up a system
 
 Note 1 to entry: A component can be hardware or software and can be
 subdivided into other components. Component refers to a part of a whole,
@@ -22,7 +22,7 @@ upon the context. The relationship of these terms is not standardized.
 A component can be independently managed or not from
 the end-user or administrator's point of view.
 
-[SOURCE: IEEE 1012-2024, 3.1, modified — rephrased from "One part that makes up a system".]
+[SOURCE: IEEE 1012-2024, 3.1, modified.]
 
 **computer hardware**
 
@@ -35,7 +35,7 @@ all or part of the physical components of an information system
 combination of computer instructions and data definitions
 that enable computer hardware to perform computational or control functions
 
-[SOURCE: [ISO/IEC/IEEE 24765:2017](https://www.iso.org/standard/71952.html)]
+[SOURCE: [ISO/IEC/IEEE 24765:2017](https://www.iso.org/standard/71952.html).]
 
 **firmware**
 
@@ -67,7 +67,7 @@ information to accomplish a specified set of functions
 point at which two or more logical, physical, or both,
 system elements or software system elements meet and act on or communicate with each other
 
-[SOURCE: ISO/IEC/IEEE 12207:2026, 3.1.33; ISO/IEC/IEEE 15288:2023, 3.20]
+[SOURCE: ISO/IEC/IEEE 12207:2026, 3.1.33; ISO/IEC/IEEE 15288:2023, 3.20.]
 
 **persona**
 
@@ -80,7 +80,7 @@ Note 1 to entry: A persona typically includes behavior patterns, goals,
 skills, attitudes, and environment, with a few fictional personal details
 to make the persona a realistic character.
 
-[SOURCE: ISO/IEC 25063:2014]
+[SOURCE: ISO/IEC 25063:2014.]
 
 **profile**
 
@@ -103,7 +103,7 @@ individual or organization having a right, share, claim, or interest
 in a system or in its possession of characteristics
 that meet their needs and expectations
 
-[SOURCE: ISO/IEC/IEEE 15288:2015 (via [NIST CSRC](https://csrc.nist.gov/glossary/term/stakeholder))]
+[SOURCE: ISO/IEC/IEEE 15288:2015 (via [NIST CSRC](https://csrc.nist.gov/glossary/term/stakeholder)).]
 
 **system**
 
