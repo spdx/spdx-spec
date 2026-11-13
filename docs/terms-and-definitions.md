@@ -8,6 +8,13 @@ at the following addresses:
 - IEC Electropedia: available at
   [http://www.electropedia.org/](http://www.electropedia.org/)
 
+**assumption**
+
+factor in the planning process considered to be true, real, or certain,
+without proof or demonstration
+
+[SOURCE: A Guide to the Project Management Body of Knowledge (PMBOK® Guide) -- Eighth Edition]
+
 **component**
 
 one part that makes up a system
