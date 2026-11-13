@@ -22,7 +22,7 @@ upon the context. The relationship of these terms is not standardized.
 A component can be independently managed or not from
 the end-user or administrator's point of view.
 
-[SOURCE: IEEE 1012-2024, 3.1, modified.]
+[SOURCE: IEEE 1012-2024, 3.1]
 
 **computer hardware**
 
