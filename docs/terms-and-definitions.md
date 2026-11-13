@@ -12,7 +12,8 @@ at the following addresses:
 
 factor in the planning process considered to be true, real, or certain,
 without proof or demonstration
-(From A Guide to the Project Management Body of Knowledge (PMBOK(R) Guide) -- Eighth Edition)
+
+[SOURCE: A Guide to the Project Management Body of Knowledge (PMBOK® Guide) -- Eighth Edition]
 
 **component**
 
