@@ -8,6 +8,25 @@ at the following addresses:
 - IEC Electropedia: available at
   [http://www.electropedia.org/](http://www.electropedia.org/)
 
+**architecture**
+
+fundamental concepts or properties of an entity in its environment and
+governing principles for the realization and evolution of this entity and
+its related life cycle processes
+(From
+ISO/IEC/IEEE 12207:2026 Systems and software engineering--Software
+life cycle processes, 3.1.6;
+ISO/IEC/IEEE 42020:2019 Software, systems and enterprise --
+Architecture processes, 3.3;
+ISO/IEC/IEEE 42010:2022, Software, systems and enterprise
+Architecture description, 3.2)
+
+Note: Architectures can address a wide range of concerns, expressed,
+for example, through architecture views and models, associated with
+particular kinds of architectures such as security architecture,
+functional architecture, physical architecture, resilience architecture.
+Note 2: Architecture can also address a set of rules to define the structure of a system and the interrelationships between its parts.
+
 **component**
 
 one part that makes up a system
@@ -37,6 +56,17 @@ combination of computer instructions and data definitions
 that enable computer hardware to perform computational or control functions
 
 [SOURCE: [ISO/IEC/IEEE 24765:2017](https://www.iso.org/standard/71952.html)]
+
+**design**
+
+specification of system elements and their relationships, that is
+sufficiently complete to support a compliant implementation of the architecture
+
+(From
+ISO/IEC/IEEE 12207:2026 Systems and software engineering--Software
+life cycle processes, 3.1.20;
+ISO/IEC/IEEE 15288:2023 Systems and software engineering--System
+life cycle processes, 3.13)
 
 **firmware**
 
