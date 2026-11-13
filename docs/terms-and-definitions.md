@@ -108,9 +108,6 @@ condition or capability that is necessary in a system, system component,
 product, or service to satisfy an agreement, standard, specification,
 or other formally imposed documents
 
-(From IEEE 982:2024,
-Standard for Measures of the Software Aspects of Dependability, 3.1)
-
 Example: software component requirement
 
 Note 1 to entry: Requirements exist at different tiers and express
