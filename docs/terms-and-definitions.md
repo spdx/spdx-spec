@@ -119,6 +119,7 @@ expectations of the sponsor, customer, and other stakeholders.
 Well-formed requirements are unambiguous, clear, unique, consistent,
 stand-alone (not grouped), verifiable, and necessary for
 stakeholder acceptability.
+
 [SOURCE: IEEE 982:2024, 3.1]
 
 **software**
