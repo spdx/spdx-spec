@@ -803,6 +803,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../pkg-url-specification/">E. Package URL specification</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../class-hierarchy/">F. Class hierarchy</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">licenses</span></p>
               <ul>
@@ -929,7 +931,7 @@ license-expression = (simple-expression / compound-expression)
 <pre class="codehilite"><code class="language-text">LGPL-2.1-only AND MIT AND BSD-2-Clause
 </code></pre>
 
-<p>The "AND" operator is the only operator that can be used in conjuction with the special identifiers "NONE" or "NOASSERTION".</p>
+<p>The "AND" operator is the only operator that can be used in conjunction with the special identifiers "NONE" or "NOASSERTION".</p>
 <h3 id="additive-with-operator">Additive "WITH" operator</h3>
 <p>Sometimes license texts are found with additional text, which might or might not modify the original license terms.</p>
 <p>In this case, use the binary "WITH" operator to construct a new license expression to represent the special situation. A valid <code>&lt;license-expression&gt;</code> is where the left operand is a <code>&lt;simple-expression&gt;</code> value and the right operand is a <code>&lt;addition-expression&gt;</code> that represents the additional text.</p>
@@ -966,7 +968,7 @@ including precedence and whitespace,
 is described by the following ABNF:</p>
 <pre class="codehilite"><code class="language-ABNF">; ABNF Grammar for License Expressions
 
-SPSX-license-expression = (or-operand *( required-ws &quot;OR&quot; required-ws or-operand )) / special-identifier
+SPDX-license-expression = (or-operand *( required-ws &quot;OR&quot; required-ws or-operand )) / special-identifier
 
 or-operand = (term required-ws &quot;AND&quot; required-ws term *( required-ws &quot;AND&quot; required-ws term )) / base-term
 
@@ -982,7 +984,7 @@ identifier = license-id / or-later-expression / license-ref
 
 or-later-expression = license-id PLUS
 
-parenthesized-expression = LPAREN optional-ws expression optional-ws RPAREN
+parenthesized-expression = LPAREN optional-ws SPDX-license-expression optional-ws RPAREN
 
 special-identifier = &quot;NONE&quot; / &quot;NOASSERTION&quot;
 
@@ -996,7 +998,7 @@ license-exception-id = &lt;short form license exception identifier from SPDX Lic
 license-ref  = [ &quot;DocumentRef-&quot; idstring &quot;:&quot; ] &quot;LicenseRef-&quot;  idstring
 addition-ref = [ &quot;DocumentRef-&quot; idstring &quot;:&quot; ] &quot;AdditionRef-&quot; idstring
 
-idstring = *id-char alnum *id-char
+idstring = *idchar alnum *idchar
 idchar   = alnum / DOT / DASH
 alnum    = ALPHA / DIGIT
 
@@ -1008,9 +1010,9 @@ required-ws = 1*SPACE      ; Required whitespace (one or more spaces)
 SPACE  = %x20              ; Space character
 LPAREN = %x28              ; ( - Left parenthesis
 RPAREN = %x29              ; ) - Right parenthesis
-PLUS   = %2B               ; + - Plus
-DASH   = %2D               ; - - Dash, hyphen
-DOT    = %2E               ; . - Dot, fullstop, period
+PLUS   = %x2B              ; + - Plus
+DASH   = %x2D              ; - - Dash, hyphen
+DOT    = %x2E              ; . - Dot, fullstop, period
 
 ALPHA  = %x41-5A / %x61-7A ; A-Z / a-z
 DIGIT  = %x30-39           ; 0-9
@@ -1027,7 +1029,7 @@ DIGIT  = %x30-39           ; 0-9
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-      <p>SPDX 3.0 Copyright © 2010-2025, The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.</p>
+      <p>SPDX 3.0 Copyright © 2010-2026, The Linux Foundation and its Contributors, including SPDX Model contributions from OMG and its Contributors.</p>
   </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
