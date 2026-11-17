@@ -23,8 +23,8 @@ Note 2 to entry: Architecture can also address a set of rules to define
 the structure of a system and the interrelationships between its parts.
 
 [SOURCE: [ISO/IEC/IEEE 12207:2026], 3.1.6;
-[ISO/IEC/IEEE 42020:2019], 3.3;
-[ISO/IEC/IEEE 42010:2022], 3.2]
+[ISO/IEC/IEEE 42010:2022], 3.2;
+[ISO/IEC/IEEE 42020:2019], 3.3]
 
 **assumption**
 
