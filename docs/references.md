@@ -60,15 +60,36 @@ Ecma International,
 European Commission,
 [https://ec.europa.eu/docsroom/documents/17107](https://ec.europa.eu/docsroom/documents/17107).
 
+*IEEE 1012-2024 IEEE Standard for System, Software, and Hardware Verification and Validation*,
+<https://standards.ieee.org/ieee/1012/7324/>.
+
 *ISO/IEC 2382:2015 Information technology — Vocabulary*,
 [https://www.iso.org/standard/63598.html](https://www.iso.org/standard/63598.html).
 
 *ISO/IEC 24765:2017 Systems and software engineering — Vocabulary*,
 [https://www.iso.org/standard/71952.html](https://www.iso.org/standard/71952.html).
 
+*ISO/IEC 25063:2014 Systems and software engineering — Systems and software product Quality Requirements and Evaluation (SQuaRE) — Common Industry Format (CIF) for usability: Context of use description*,
+<https://www.iso.org/standard/35789.html>.
+
 *ISO/IEC Directives, Part 2,*
 *Principles and rules for the structure and drafting of ISO and IEC documents*,
 <https://www.iso.org/directives>.
+
+*ISO/IEC/IEEE 12207:2026 Systems and software engineering — Software life cycle processes*,
+<https://www.iso.org/standard/90219.html>.
+
+*ISO/IEC/IEEE 15288:2023 Systems and software engineering — System life cycle processes*,
+<https://www.iso.org/standard/81702.html>.
+
+*ISO/IEC/IEEE 24765:2017 Systems and software engineering — Vocabulary*,
+<https://www.iso.org/standard/71952.html>.
+
+*ISO/IEC/IEEE 42010:2022 Software, systems and enterprise — Architecture description*,
+<https://www.iso.org/standard/74393.html>.
+
+*ISO/IEC/IEEE 42020:2019 Software, systems and enterprise — Architecture processes*,
+<https://www.iso.org/standard/68982.html>.
 
 *npm-package.json*, npm Inc.,
 [https://docs.npmjs.com/files/package.json](https://docs.npmjs.com/files/package.json).
@@ -131,6 +152,11 @@ RFC 3986,
 *Uniform Resource Identifier (URI): Generic Syntax*,
 Internet Engineering Task Force,
 [https://datatracker.ietf.org/doc/rfc3986/](https://datatracker.ietf.org/doc/rfc3986/).
+
+RFC 4949,
+*Internet Security Glossary, Version 2*,
+Internet Engineering Task Force,
+<https://datatracker.ietf.org/doc/rfc4949/>.
 
 RFC 5234,
 *Augmented BNF for Syntax Specifications: ABNF*,
