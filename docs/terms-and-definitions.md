@@ -134,6 +134,15 @@ scope of usage for SPDX targeting support for particular use cases and scenarios
 Note 1 to entry: A profile identifies which particular SPDX namespaces, classes, and properties
 it leverages, along with any custom constraints unique to its use.
 
+**requirement**
+
+expression, in the content of a document,
+that conveys objectively verifiable criteria to be fulfilled and
+from which no deviation is permitted
+if conformance with the document is to be claimed
+
+[SOURCE: ISO/IEC Directives Part 2, edition 9 (2021)]
+
 **software**
 
 computer programs (which are stored in and executed by computer hardware)
