@@ -27,6 +27,13 @@ particular kinds of architectures such as security architecture,
 functional architecture, physical architecture, resilience architecture.
 Note 2: Architecture can also address a set of rules to define the structure of a system and the interrelationships between its parts.
 
+**assumption**
+
+factor in the planning process considered to be true, real, or certain,
+without proof or demonstration
+
+[SOURCE: A Guide to the Project Management Body of Knowledge (PMBOK® Guide) -- Eighth Edition]
+
 **component**
 
 one part that makes up a system
