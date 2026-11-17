@@ -104,7 +104,7 @@ that conveys objectively verifiable criteria to be fulfilled and
 from which no deviation is permitted
 if conformance with the document is to be claimed
 
-[SOURCE: ISO/IEC Directives Part 1, edition 9 (2021)]
+[SOURCE: ISO/IEC Directives Part 2, edition 9 (2021)]
 
 **software**
 
