@@ -162,6 +162,14 @@ that meet their needs and expectations
 [SOURCE: ISO/IEC/IEEE 15288:2015
 (via [NIST CSRC](https://csrc.nist.gov/glossary/term/stakeholder))]
 
+**stakeholder need**
+
+prerequisite identified as necessary for a stakeholder,
+or set of stakeholders, to achieve an intended outcome,
+implied or stated within a specific context of use
+
+[SOURCE: [ISO/IEC 25019:2023](https://www.iso.org/standard/78177.html)]
+
 **system**
 
 organized assembly of resources and procedures
