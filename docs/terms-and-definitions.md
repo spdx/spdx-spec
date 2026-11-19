@@ -13,26 +13,26 @@ at the following addresses:
 fundamental concepts or properties of an entity in its environment and
 governing principles for the realization and evolution of this entity and
 its related life cycle processes
-(From
-ISO/IEC/IEEE 12207:2026 Systems and software engineering--Software
-life cycle processes, 3.1.6;
-ISO/IEC/IEEE 42020:2019 Software, systems and enterprise --
-Architecture processes, 3.3;
-ISO/IEC/IEEE 42010:2022, Software, systems and enterprise
-Architecture description, 3.2)
 
-Note: Architectures can address a wide range of concerns, expressed,
+Note 1 to entry: Architectures can address a wide range of concerns, expressed,
 for example, through architecture views and models, associated with
 particular kinds of architectures such as security architecture,
 functional architecture, physical architecture, resilience architecture.
-Note 2: Architecture can also address a set of rules to define the structure of a system and the interrelationships between its parts.
+
+Note 2 to entry: Architecture can also address a set of rules to define
+the structure of a system and the interrelationships between its parts.
+
+[SOURCE: [ISO/IEC/IEEE 12207:2026], 3.1.6;
+[ISO/IEC/IEEE 42010:2022], 3.2;
+[ISO/IEC/IEEE 42020:2019], 3.3]
 
 **assumption**
 
 factor in the planning process considered to be true, real, or certain,
 without proof or demonstration
 
-[SOURCE: A Guide to the Project Management Body of Knowledge (PMBOK® Guide) -- Eighth Edition]
+[SOURCE: A Guide to the Project Management Body of Knowledge (PMBOK® Guide)
+-- Eighth Edition]
 
 **component**
 
@@ -48,32 +48,28 @@ upon the context. The relationship of these terms is not standardized.
 A component can be independently managed or not from
 the end-user or administrator's point of view.
 
-[SOURCE: IEEE 1012-2024, 3.1]
+[SOURCE: [IEEE 1012-2024], 3.1]
 
 **computer hardware**
 
 all or part of the physical components of an information system
 
-[SOURCE: [ISO/IEC 2382:2015](https://www.iso.org/standard/63598.html),
-modified — leveraged from definition of 'hardware'.]
+[SOURCE: [ISO/IEC 2382:2015], modified —
+leveraged from definition of 'hardware'.]
 
 **computer program**
 
 combination of computer instructions and data definitions
 that enable computer hardware to perform computational or control functions
 
-[SOURCE: [ISO/IEC/IEEE 24765:2017](https://www.iso.org/standard/71952.html)]
+[SOURCE: [ISO/IEC/IEEE 24765:2017]]
 
 **design**
 
 specification of system elements and their relationships, that is
 sufficiently complete to support a compliant implementation of the architecture
 
-(From
-ISO/IEC/IEEE 12207:2026 Systems and software engineering--Software
-life cycle processes, 3.1.20;
-ISO/IEC/IEEE 15288:2023 Systems and software engineering--System
-life cycle processes, 3.13)
+[SOURCE: [ISO/IEC/IEEE 12207:2026], 3.1.20; [ISO/IEC/IEEE 15288:2023], 3.13]
 
 **firmware**
 
@@ -82,15 +78,15 @@ typically in read-only memory (ROM) or programmable read-only memory (PROM) —
 such that the programs and data cannot be dynamically written or modified
 during execution of the programs
 
-[SOURCE: [CNSSI 4009-2015](https://www.cnss.gov/CNSS/openDoc.cfm?a=FB8FFE63A4EB15CEB3DEB30DC3181DF2&b=06BB964C5FCA7BFEB73B0C6C6C879B035B07E49DF6FCC3653112AC2D72253394A6CC75366B6981173EF5E9A18C54FDB8)
+[SOURCE: [CNSSI 4009-2015]
 (via [NIST CSRC](https://csrc.nist.gov/glossary/term/firmware)),
-leveraged from [RFC 4949](https://datatracker.ietf.org/doc/rfc4949/).]
+leveraged from [RFC 4949].]
 
 **hardware**
 
 material physical components of a system
 
-[SOURCE: [CNSSI 4009-2015](https://www.cnss.gov/CNSS/openDoc.cfm?a=FB8FFE63A4EB15CEB3DEB30DC3181DF2&b=06BB964C5FCA7BFEB73B0C6C6C879B035B07E49DF6FCC3653112AC2D72253394A6CC75366B6981173EF5E9A18C54FDB8)
+[SOURCE: [CNSSI 4009-2015]
 (via [NIST CSRC](https://csrc.nist.gov/glossary/term/hardware)),
 modified — the leading article "The" has been removed.]
 
@@ -102,9 +98,9 @@ facilities, and personnel — that create, collect, record, process, store,
 transport, retrieve, display, disseminate, control, or dispose of
 information to accomplish a specified set of functions
 
-[SOURCE: [CNSSI 4009-2015](https://www.cnss.gov/CNSS/openDoc.cfm?a=FB8FFE63A4EB15CEB3DEB30DC3181DF2&b=06BB964C5FCA7BFEB73B0C6C6C879B035B07E49DF6FCC3653112AC2D72253394A6CC75366B6981173EF5E9A18C54FDB8)
+[SOURCE: [CNSSI 4009-2015]
 (via [NIST CSRC](https://csrc.nist.gov/glossary/term/information_system)),
-leveraged from [RFC 4949](https://datatracker.ietf.org/doc/rfc4949/),
+leveraged from [RFC 4949],
 modified — the leading article "An" has been removed.]
 
 **interface**
@@ -125,7 +121,7 @@ Note 1 to entry: A persona typically includes behavior patterns, goals,
 skills, attitudes, and environment, with a few fictional personal details
 to make the persona a realistic character.
 
-[SOURCE: ISO/IEC 25063:2014]
+[SOURCE: [ISO/IEC 25063:2014]]
 
 **profile**
 
@@ -141,7 +137,7 @@ that conveys objectively verifiable criteria to be fulfilled and
 from which no deviation is permitted
 if conformance with the document is to be claimed
 
-[SOURCE: ISO/IEC Directives Part 2, edition 9 (2021)]
+[SOURCE: [ISO/IEC Directives Part 2, edition 9 (2021)]]
 
 **software**
 
@@ -149,9 +145,9 @@ computer programs (which are stored in and executed by computer hardware)
 and associated data (which also is stored in the hardware)
 that may be dynamically written or modified during execution
 
-[SOURCE: [CNSSI 4009-2015](https://www.cnss.gov/CNSS/openDoc.cfm?a=FB8FFE63A4EB15CEB3DEB30DC3181DF2&b=06BB964C5FCA7BFEB73B0C6C6C879B035B07E49DF6FCC3653112AC2D72253394A6CC75366B6981173EF5E9A18C54FDB8)
+[SOURCE: [CNSSI 4009-2015]
 (via [NIST CSRC](https://csrc.nist.gov/glossary/term/software)),
-leveraged from [RFC 4949](https://datatracker.ietf.org/doc/rfc4949/).]
+leveraged from [RFC 4949].]
 
 **stakeholder**
 
@@ -159,8 +155,7 @@ individual or organization having a right, share, claim, or interest
 in a system or in its possession of characteristics
 that meet their needs and expectations
 
-[SOURCE: ISO/IEC/IEEE 15288:2015
-(via [NIST CSRC](https://csrc.nist.gov/glossary/term/stakeholder))]
+[SOURCE: [ISO/IEC/IEEE 15288:2023]]
 
 **system**
 
@@ -173,6 +168,18 @@ industrial/process controls systems,
 telephone switching and private branch exchange (PBX) systems,
 and environmental control systems.
 
-[SOURCE: [CNSSI 4009-2015](https://www.cnss.gov/CNSS/openDoc.cfm?a=FB8FFE63A4EB15CEB3DEB30DC3181DF2&b=06BB964C5FCA7BFEB73B0C6C6C879B035B07E49DF6FCC3653112AC2D72253394A6CC75366B6981173EF5E9A18C54FDB8)
+[SOURCE: [CNSSI 4009-2015]
 (via [NIST CSRC](https://csrc.nist.gov/glossary/term/system)),
 modified — the leading term "Any" has been removed.]
+
+[CNSSI 4009-2015]: https://www.cnss.gov/CNSS/openDoc.cfm?a=FB8FFE63A4EB15CEB3DEB30DC3181DF2&b=06BB964C5FCA7BFEB73B0C6C6C879B035B07E49DF6FCC3653112AC2D72253394A6CC75366B6981173EF5E9A18C54FDB8
+[IEEE 1012-2024]: https://standards.ieee.org/ieee/1012/7324/
+[ISO/IEC 2382:2015]: https://www.iso.org/standard/63598.html
+[ISO/IEC 25063:2014]: https://www.iso.org/standard/35789.html
+[ISO/IEC Directives Part 2, edition 9 (2021)]: https://www.iec.ch/standards-development/isoiec-directives-part-2
+[ISO/IEC/IEEE 12207:2026]: https://www.iso.org/standard/90219.html
+[ISO/IEC/IEEE 15288:2023]: https://www.iso.org/standard/81702.html
+[ISO/IEC/IEEE 24765:2017]: https://www.iso.org/standard/71952.html
+[ISO/IEC/IEEE 42010:2022]: https://www.iso.org/standard/74393.html
+[ISO/IEC/IEEE 42020:2019]: https://www.iso.org/standard/68982.html
+[RFC 4949]: https://datatracker.ietf.org/doc/rfc4949/
