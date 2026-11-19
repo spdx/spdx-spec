@@ -113,6 +113,114 @@
             "type": "string",
             "pattern": "^(\\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])T([01]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)(\\.\\d+)?Z$"
         },
+        "ai_AgentMemoryMode": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ai_AgentMemoryMode"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/ai_AgentMemoryMode_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ai_AgentMemoryMode"
+            }
+        },
+        "ai_AgentMemoryMode_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/ai_AgentMemoryMode" }
+                    ]
+                },
+                { "const": "spdx:AI/AgentMemoryMode/episodic" },
+                { "const": "spdx:AI/AgentMemoryMode/external" },
+                { "const": "spdx:AI/AgentMemoryMode/inCache" },
+                { "const": "spdx:AI/AgentMemoryMode/inContext" },
+                { "const": "spdx:AI/AgentMemoryMode/inWeights" },
+                { "const": "spdx:AI/AgentMemoryMode/procedural" },
+                { "const": "spdx:AI/AgentMemoryMode/semantic" },
+                { "const": "spdx:AI/AgentMemoryMode/working" },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "ai_AgentMemoryMode_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                    }
+                }
+            ]
+        },
+        "ai_AgentTrustLevel": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ai_AgentTrustLevel"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/ai_AgentTrustLevel_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ai_AgentTrustLevel"
+            }
+        },
+        "ai_AgentTrustLevel_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/ai_AgentTrustLevel" }
+                    ]
+                },
+                { "const": "spdx:AI/AgentTrustLevel/certified" },
+                { "const": "spdx:AI/AgentTrustLevel/selfDeclared" },
+                { "const": "spdx:AI/AgentTrustLevel/thirdPartyReviewed" },
+                { "const": "spdx:AI/AgentTrustLevel/unverified" },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "ai_AgentTrustLevel_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                    }
+                }
+            ]
+        },
         "ai_EnergyConsumption": {
             "if": {
                 "type": "object",
@@ -722,6 +830,7 @@
                     "type": "object",
                     "unevaluatedProperties": false,
                     "anyOf": [
+                        { "$ref": "#/$defs/ai_AIAgent" },
                         { "$ref": "#/$defs/ai_AIPackage" },
                         { "$ref": "#/$defs/ai_InteractionTemplate" },
                         { "$ref": "#/$defs/build_Build" },
@@ -1922,6 +2031,62 @@
                         }
                     ]
         },
+        "Modality": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "Modality"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "@id": { "$ref": "#/$defs/BlankNodeOrIRI" },
+                            "type": { "type": "string" }
+                        }
+                    },
+                    { "$ref": "#/$defs/Modality_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a Modality"
+            }
+        },
+        "Modality_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/Modality" }
+                    ]
+                },
+                { "const": "spdx:Core/Modality/audio" },
+                { "const": "spdx:Core/Modality/gesturePose" },
+                { "const": "spdx:Core/Modality/hapticTactile" },
+                { "const": "spdx:Core/Modality/image" },
+                { "const": "spdx:Core/Modality/noAssertion" },
+                { "const": "spdx:Core/Modality/other" },
+                { "const": "spdx:Core/Modality/text" },
+                { "const": "spdx:Core/Modality/video" },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "Modality_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SHACLClass" },
+                {
+                    "type": "object",
+                    "properties": {
+                    }
+                }
+            ]
+        },
         "NamespaceMap": {
             "if": {
                 "type": "object",
@@ -2624,9 +2789,11 @@
                     "runsOn",
                     "serializedInArtifact",
                     "testedOn",
+                    "toolsAvailable",
                     "tracedToDetail",
                     "trainedOn",
                     "underInvestigationFor",
+                    "usesModel",
                     "usesTool",
                     "validatedOn",
                     "verifiedBy"
@@ -2808,9 +2975,11 @@
                 { "const": "spdx:Core/RelationshipType/runsOn" },
                 { "const": "spdx:Core/RelationshipType/serializedInArtifact" },
                 { "const": "spdx:Core/RelationshipType/testedOn" },
+                { "const": "spdx:Core/RelationshipType/toolsAvailable" },
                 { "const": "spdx:Core/RelationshipType/tracedToDetail" },
                 { "const": "spdx:Core/RelationshipType/trainedOn" },
                 { "const": "spdx:Core/RelationshipType/underInvestigationFor" },
+                { "const": "spdx:Core/RelationshipType/usesModel" },
                 { "const": "spdx:Core/RelationshipType/usesTool" },
                 { "const": "spdx:Core/RelationshipType/validatedOn" },
                 { "const": "spdx:Core/RelationshipType/verifiedBy" },
@@ -5919,6 +6088,7 @@
                     "type": "object",
                     "unevaluatedProperties": false,
                     "anyOf": [
+                        { "$ref": "#/$defs/ai_AIAgent" },
                         { "$ref": "#/$defs/Organization" },
                         { "$ref": "#/$defs/Person" },
                         { "$ref": "#/$defs/SoftwareAgent" },
@@ -6697,6 +6867,7 @@
                     "type": "object",
                     "unevaluatedProperties": false,
                     "anyOf": [
+                        { "$ref": "#/$defs/ai_AIAgent" },
                         { "$ref": "#/$defs/SoftwareAgent" }
                     ]
                 },
@@ -7832,27 +8003,27 @@
                         "operations_assessmentContext": {
                             "$ref": "#/$defs/prop_operations_ExportControlClassificationAssessment_operations_assessmentContext"
                         },
-                        "operations_assessmentResult": {
-                            "anyOf": [
-                                {
-                                    "type": "array",
-                                    "minItems": 1,
-                                    "items": {
-                                        "$ref": "#/$defs/prop_operations_ExportControlClassificationAssessment_operations_assessmentResult"
-                                    }
-                                }
-                            ]
-                        },
                         "operations_assessmentTime": {
                             "$ref": "#/$defs/prop_operations_ExportControlClassificationAssessment_operations_assessmentTime"
                         },
                         "operations_assessor": {
                             "$ref": "#/$defs/prop_operations_ExportControlClassificationAssessment_operations_assessor"
+                        },
+                        "operations_exportControlClassificationResult": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "minItems": 1,
+                                    "items": {
+                                        "$ref": "#/$defs/prop_operations_ExportControlClassificationAssessment_operations_exportControlClassificationResult"
+                                    }
+                                }
+                            ]
                         }
                     },
                     "required": [
                         "operations_assessedElement",
-                        "operations_assessmentResult"
+                        "operations_exportControlClassificationResult"
                     ]
                 }
             ]
@@ -7862,9 +8033,6 @@
         },
         "prop_operations_ExportControlClassificationAssessment_operations_assessmentContext": {
                 "$ref": "#/$defs/operations_Project_derived"
-        },
-        "prop_operations_ExportControlClassificationAssessment_operations_assessmentResult": {
-                "$ref": "#/$defs/operations_ExportControlClassification_derived"
         },
         "prop_operations_ExportControlClassificationAssessment_operations_assessmentTime": {
                     "type": "string",
@@ -7879,6 +8047,9 @@
         },
         "prop_operations_ExportControlClassificationAssessment_operations_assessor": {
                 "$ref": "#/$defs/Agent_derived"
+        },
+        "prop_operations_ExportControlClassificationAssessment_operations_exportControlClassificationResult": {
+                "$ref": "#/$defs/operations_ExportControlClassification_derived"
         },
         "operations_Project": {
             "if": {
@@ -9565,6 +9736,175 @@
                     }
                 }
             ]
+        },
+        "ai_AIAgent": {
+            "if": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ai_AIAgent"
+                    }
+                },
+                "required": ["type"]
+            },
+            "then": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "spdxId": { "$ref": "#/$defs/IRI" },
+                            "type": { "type": "string" }
+                        },
+                        "required": ["spdxId"]
+                    },
+                    { "$ref": "#/$defs/ai_AIAgent_props" }
+                ]
+            },
+            "else": {
+                "const": "Not a ai_AIAgent"
+            }
+        },
+        "ai_AIAgent_derived": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "unevaluatedProperties": false,
+                    "anyOf": [
+                        { "$ref": "#/$defs/ai_AIAgent" }
+                    ]
+                },
+                { "$ref": "#/$defs/BlankNodeOrIRI" }
+            ]
+        },
+        "ai_AIAgent_props": {
+            "allOf": [
+                { "$ref": "#/$defs/SoftwareAgent_props" },
+                {
+                    "type": "object",
+                    "properties": {
+                        "ai_agentCapability": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_ai_AIAgent_ai_agentCapability"
+                                    }
+                                }
+                            ]
+                        },
+                        "ai_agentCommunicationProtocol": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_ai_AIAgent_ai_agentCommunicationProtocol"
+                                    }
+                                }
+                            ]
+                        },
+                        "ai_agentMemoryMode": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_ai_AIAgent_ai_agentMemoryMode"
+                                    }
+                                }
+                            ]
+                        },
+                        "ai_agentTrustLevel": {
+                            "$ref": "#/$defs/prop_ai_AIAgent_ai_agentTrustLevel"
+                        },
+                        "ai_limitation": {
+                            "$ref": "#/$defs/prop_ai_AIAgent_ai_limitation"
+                        },
+                        "ai_safetyRiskAssessment": {
+                            "$ref": "#/$defs/prop_ai_AIAgent_ai_safetyRiskAssessment"
+                        },
+                        "software_inputModality": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_ai_AIAgent_software_inputModality"
+                                    }
+                                }
+                            ]
+                        },
+                        "software_outputModality": {
+                            "anyOf": [
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/$defs/prop_ai_AIAgent_software_outputModality"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "prop_ai_AIAgent_ai_agentCapability": {
+                    "type": "string"
+        },
+        "prop_ai_AIAgent_ai_agentCommunicationProtocol": {
+                "$ref": "#/$defs/Specification_derived"
+        },
+        "prop_ai_AIAgent_ai_agentMemoryMode": {
+                "enum": [
+                    "episodic",
+                    "external",
+                    "inCache",
+                    "inContext",
+                    "inWeights",
+                    "procedural",
+                    "semantic",
+                    "working"
+                ]
+        },
+        "prop_ai_AIAgent_ai_agentTrustLevel": {
+                "enum": [
+                    "certified",
+                    "selfDeclared",
+                    "thirdPartyReviewed",
+                    "unverified"
+                ]
+        },
+        "prop_ai_AIAgent_ai_limitation": {
+                    "type": "string"
+        },
+        "prop_ai_AIAgent_ai_safetyRiskAssessment": {
+                "enum": [
+                    "high",
+                    "low",
+                    "medium",
+                    "serious"
+                ]
+        },
+        "prop_ai_AIAgent_software_inputModality": {
+                "enum": [
+                    "audio",
+                    "gesturePose",
+                    "hapticTactile",
+                    "image",
+                    "noAssertion",
+                    "other",
+                    "text",
+                    "video"
+                ]
+        },
+        "prop_ai_AIAgent_software_outputModality": {
+                "enum": [
+                    "audio",
+                    "gesturePose",
+                    "hapticTactile",
+                    "image",
+                    "noAssertion",
+                    "other",
+                    "text",
+                    "video"
+                ]
         },
         "ai_InteractionTemplate": {
             "if": {
@@ -12314,6 +12654,8 @@
                         { "$ref": "#/$defs/IRI" },
                         {
                             "enum": [
+                                "ai_AgentMemoryMode",
+                                "ai_AgentTrustLevel",
                                 "ai_EnergyConsumption",
                                 "ai_EnergyConsumptionDescription",
                                 "ai_EnergyUnitType",
@@ -12333,6 +12675,7 @@
                                 "IndividualElement",
                                 "IsoAutomationLevel",
                                 "LifecycleScopeType",
+                                "Modality",
                                 "NamespaceMap",
                                 "PackageVerificationCode",
                                 "PhysicalLocation",
@@ -12426,6 +12769,7 @@
                                 "supplychain_State",
                                 "supplychain_StorageProcess",
                                 "supplychain_TransportProcess",
+                                "ai_AIAgent",
                                 "ai_InteractionTemplate",
                                 "Bom",
                                 "Regulation",
@@ -12473,6 +12817,8 @@
         },
         "AnyClass": {
             "anyOf": [
+                { "$ref": "#/$defs/ai_AgentMemoryMode" },
+                { "$ref": "#/$defs/ai_AgentTrustLevel" },
                 { "$ref": "#/$defs/ai_EnergyConsumption" },
                 { "$ref": "#/$defs/ai_EnergyConsumptionDescription" },
                 { "$ref": "#/$defs/ai_EnergyUnitType" },
@@ -12492,6 +12838,7 @@
                 { "$ref": "#/$defs/IndividualElement" },
                 { "$ref": "#/$defs/IsoAutomationLevel" },
                 { "$ref": "#/$defs/LifecycleScopeType" },
+                { "$ref": "#/$defs/Modality" },
                 { "$ref": "#/$defs/NamespaceMap" },
                 { "$ref": "#/$defs/PackageVerificationCode" },
                 { "$ref": "#/$defs/PhysicalLocation" },
@@ -12585,6 +12932,7 @@
                 { "$ref": "#/$defs/supplychain_State" },
                 { "$ref": "#/$defs/supplychain_StorageProcess" },
                 { "$ref": "#/$defs/supplychain_TransportProcess" },
+                { "$ref": "#/$defs/ai_AIAgent" },
                 { "$ref": "#/$defs/ai_InteractionTemplate" },
                 { "$ref": "#/$defs/Bom" },
                 { "$ref": "#/$defs/Regulation" },
