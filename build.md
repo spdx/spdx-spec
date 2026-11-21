@@ -123,13 +123,19 @@ The command will instruct the spec-parser to read the input from
 placing them in the `spdx-spec/docs/model/` directory.
 These files will then be used by MkDocs.
 
-An `spdx-spec/docs/model/model-files.yml` file will also be generated.
-This file contains a list of the files within `spdx-spec/docs/model/`
-and will be used later for MkDocs configuration.
-We will move this `model-files.yml` file to the `spdx-spec/` directory
-for subsequent use:
+Another two files will also be generated:
+
+- `spdx-spec/docs/model/class-hierarchy.md`
+  which lists lists all classes in the model.
+- `spdx-spec/docs/model/model-files.yml`
+  which lists files within `spdx-spec/docs/model/`
+  and will be used later for MkDocs configuration.
+
+We will move these two files to their specific locations
+in the `spdx-spec/` directory for subsequent use:
 
 ```shell
+mv spdx-spec/docs/model/class-hierarchy.md spdx-spec/docs/annexes/
 mv spdx-spec/docs/model/model-files.yml spdx-spec/
 ```
 
