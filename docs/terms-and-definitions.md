@@ -163,7 +163,7 @@ prerequisite identified as necessary for a stakeholder,
 or set of stakeholders, to achieve an intended outcome,
 implied or stated within a specific context of use
 
-[SOURCE: [ISO/IEC 25019:2023](https://www.iso.org/standard/78177.html)]
+[SOURCE: [ISO/IEC 25019:2023]]
 
 **system**
 
@@ -183,6 +183,7 @@ modified — the leading term "Any" has been removed.]
 [CNSSI 4009-2015]: https://www.cnss.gov/CNSS/openDoc.cfm?a=FB8FFE63A4EB15CEB3DEB30DC3181DF2&b=06BB964C5FCA7BFEB73B0C6C6C879B035B07E49DF6FCC3653112AC2D72253394A6CC75366B6981173EF5E9A18C54FDB8
 [IEEE 1012-2024]: https://standards.ieee.org/ieee/1012/7324/
 [ISO/IEC 2382:2015]: https://www.iso.org/standard/63598.html
+[ISO/IEC 25019:2023]: https://www.iso.org/standard/78177.html
 [ISO/IEC 25063:2014]: https://www.iso.org/standard/35789.html
 [ISO/IEC Directives Part 2, edition 9 (2021)]: https://www.iec.ch/standards-development/isoiec-directives-part-2
 [ISO/IEC/IEEE 12207:2026]: https://www.iso.org/standard/90219.html
