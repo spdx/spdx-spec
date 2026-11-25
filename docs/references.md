@@ -66,6 +66,9 @@ European Commission,
 *ISO/IEC 2382:2015 Information technology — Vocabulary*,
 [https://www.iso.org/standard/63598.html](https://www.iso.org/standard/63598.html).
 
+*ISO/IEC 25019:2023 Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Quality-in-use model*,
+<https://www.iso.org/standard/78177.html>
+
 *ISO/IEC 25063:2014 Systems and software engineering — Systems and software product Quality Requirements and Evaluation (SQuaRE) — Common Industry Format (CIF) for usability: Context of use description*,
 <https://www.iso.org/standard/35789.html>.
 
