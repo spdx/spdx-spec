@@ -196,21 +196,25 @@ is described by the following ABNF:
 ```ABNF
 ; ABNF Grammar for License Expressions
 
-SPDX-license-expression = (or-operand *( required-ws "OR" required-ws or-operand )) / special-identifier
+SPDX-license-expression = pure-expression / special-and-expression / special-term
 
-or-operand = (term required-ws "AND" required-ws term *( required-ws "AND" required-ws term )) / base-term
+pure-expression = pure-and-expression *( required-ws "OR" required-ws pure-and-expression )
 
-term = base-term / special-identifier
+pure-and-expression = pure-term *( required-ws "AND" required-ws pure-term )
 
-base-term = with-expression / identifier / parenthesized-expression
+pure-term = with-expression / identifier / "(" optional-ws pure-expression optional-ws ")"
+
+special-and-expression = (1*( pure-term required-ws "AND" required-ws ) special-term *( required-ws "AND" required-ws term )) / (special-term 1*( required-ws "AND" required-ws term ))
+
+term = pure-term / special-term
+
+special-term = special-identifier / "(" optional-ws (special-and-expression / special-term) optional-ws ")"
 
 with-expression = identifier required-ws "WITH" required-ws addition-identifier
 
 addition-identifier = license-exception-id / addition-ref
 
 identifier = license-id / license-id "+" / license-ref
-
-parenthesized-expression = "(" optional-ws SPDX-license-expression optional-ws ")"
 
 special-identifier = "NONE" / "NOASSERTION"
 
