@@ -89,8 +89,7 @@ usable by all SPDX profiles when producing or consuming SPDX content.
 
 Software that conforms to the SPDX specification at the Software profile
 compliance point shall be able to import and export serialized documents that
-conform with one of the SPDX serialization formats defined SPDX serialization
-formats.
+conform with one of the defined SPDX serialization formats.
 
 Conformance to the Software profile compliance point
 only entails support for the Software and Core profiles.
@@ -106,8 +105,8 @@ consuming SPDX content.
 
 Software that conforms to the SPDX specification at the security profile
 compliance point shall be able to import and export serialized documents that
-conform with one of the SPDX serialization formats defined SPDX serialization
-formats, including the properties and relationships specified in the security
+conform with one of the defined SPDX serialization formats,
+including the properties and relationships specified in the security
 profile, which are in support of exchanging information about software
 vulnerabilities that may exist, the severity of those vulnerabilities, and a
 mechanism to express how a vulnerability may affect a specific software element
@@ -125,8 +124,8 @@ The Licensing profile includes capturing details relevant to software licensing
 and intellectual property information when producing or consuming SPDX content.
 Specifically, software that conforms to the SPDX specification at the Licensing
 profile compliance point shall be able to import and export serialized
-documents that conform with one of the SPDX serialization formats defined SPDX
-serialization formats, including the classes and fields that comprise the SPDX
+documents that conform with one of the defined SPDX serialization formats,
+including the classes and fields that comprise the SPDX
 License Expression syntax and that relate to the
 [SPDX License List](https://spdx.org/licenses/).
 
@@ -150,8 +149,8 @@ in an AI system or other applications when producing or consuming SPDX content.
 
 Software that conforms to the SPDX specification at the Dataset profile
 compliance point shall be able to import and export serialized documents that
-conform with one of the SPDX serialization formats defined SPDX serialization
-formats, including details such as dataset names, versions, sources, associated
+conform with one of the defined SPDX serialization formats,
+including details such as dataset names, versions, sources, associated
 metadata, licensing information, and any other relevant attributes.
 The Dataset profile can covey a description or summary of a dataset, including
 metadata, characteristics, and statistical information about the data.
@@ -173,7 +172,7 @@ content.
 
 Software that conforms to the SPDX specification at the AI profile compliance
 point shall be able to import and export serialized documents that conform with
-one of the SPDX serialization formats defined SPDX serialization formats,
+one of the defined SPDX serialization formats,
 including the information about software components and dependencies associated
 with artificial intelligence and machine learning (AI/ML) models and systems.
 This inventory includes the software frameworks, libraries, and other
@@ -194,8 +193,8 @@ consuming SPDX content.
 
 Software that conforms to the SPDX specification at the Build profile
 compliance point shall be able to import and export serialized documents that
-conform with one of the SPDX serialization formats defined SPDX serialization
-formats, including associated definitions to help express how software is
+conform with one of the defined SPDX serialization formats,
+including associated definitions to help express how software is
 generated and transformed. This includes encoding the inputs, outputs,
 procedures/instructions, environments and actors from the build process along
 with the associated evidence.
@@ -214,8 +213,8 @@ content.
 
 Software that conforms to the SPDX specification at the Lite profile
 compliance point shall be able to import and export serialized documents that
-conform with one of the SPDX serialization formats defined SPDX serialization
-formats, including creation of the SBOM, package lists with licensing and other
+conform with one of the defined SPDX serialization formats,
+including creation of the SBOM, package lists with licensing and other
 related items, and their relationships.
 
 Conformance to the Lite profile compliance point
@@ -254,8 +253,8 @@ consuming non-standard SPDX content in three ways:
 
 Software that conforms to the SPDX specification at the Extension profile
 compliance point shall be able to import and export serialized documents that
-conform with one of the SPDX serialization formats defined SPDX serialization
-formats, including the abstract Extension class serving as the base for all
+conform with one of the defined SPDX serialization formats,
+including the abstract Extension class serving as the base for all
 defined Extension subclasses.
 
 Conformance to the Extension profile compliance point
