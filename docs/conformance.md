@@ -266,6 +266,110 @@ beyond the standard SPDX produced by tools supporting SPDX and is used between
 cooperating parties that understand the form of the extension and can produce
 and consume its non-standard content.
 
+## Hardware profile compliance point
+
+The Hardware profile captures information about hardware, physical or
+virtual, when producing or consuming SPDX content. Hardware is any product,
+real or virtual, that is tangible and is the result of labor, or of a natural
+or artificial process.
+
+Software that conforms to the SPDX specification at the Hardware profile
+compliance point shall be able to import and export serialized documents that
+conform with one of the defined SPDX serialization formats, including the
+classes and properties that describe physical, bulk and virtual hardware, their
+product identification (such as part, batch and serial numbers and the agent
+responsible for them), their physical characteristics (such as dimensions and
+mass), and the product specifications they are made to.
+
+Conformance to the Hardware profile compliance point
+only entails support for the Hardware and Core profiles.
+
+This compliance point facilitates interchange of the hardware information
+produced by tools supporting SPDX.
+
+## Service profile compliance point
+
+The Service profile captures information about software made available as a
+network-accessible service, rather than software distributed for local
+installation, when producing or consuming SPDX content.
+
+Software that conforms to the SPDX specification at the Service profile
+compliance point shall be able to import and export serialized documents that
+conform with one of the defined SPDX serialization formats, including the
+classes and properties that identify a service, describe its providers, the
+countries it is hosted in and the protocols used to validate its server keys,
+and represent its dependencies on other services.
+
+Conformance to the Service profile compliance point
+only entails support for the Service and Core profiles.
+
+This compliance point facilitates interchange of the service information
+produced by tools supporting SPDX, including across organizational trust
+boundaries without requiring disclosure of internal implementation details.
+
+## SupplyChain profile compliance point
+
+The SupplyChain profile captures events and processes associated with the
+lifecycle of a product, including its creation, transportation, usage, and
+decommissioning, when producing or consuming SPDX content. In this profile,
+"product" is used in a broad sense that covers goods, commodities and other
+assets that hold economic value, including software.
+
+Software that conforms to the SPDX specification at the SupplyChain profile
+compliance point shall be able to import and export serialized documents that
+conform with one of the defined SPDX serialization formats, including the
+classes and properties that describe the planned processes and the actions
+actually performed on a product, such as its creation, modification, use,
+inspection, transport, storage, change of responsibility and destruction, and
+the states the product passes through.
+
+Conformance to the SupplyChain profile compliance point
+only entails support for the SupplyChain and Core profiles.
+
+This compliance point facilitates interchange of the supply chain lifecycle
+information produced by tools supporting SPDX.
+
+## Operations profile compliance point
+
+The Operations profile captures the business and technical operations context
+of an Element that cannot, or cannot yet, be extracted directly from its
+source, when producing or consuming SPDX content.
+
+Software that conforms to the SPDX specification at the Operations profile
+compliance point shall be able to import and export serialized documents that
+conform with one of the defined SPDX serialization formats, including the
+classes and properties that describe projects and their ownership, sponsorship
+and agreements, and business relevant assessments of Elements, such as export
+control classification assessments and their results.
+
+Conformance to the Operations profile compliance point
+only entails support for the Operations and Core profiles.
+
+This compliance point facilitates alignment of the interfaces of tools and
+infrastructure supporting SPDX, and interchange of the operations information
+needed as input for later exchange in the supply chain.
+
+## FunctionalSafety profile compliance point
+
+The FunctionalSafety profile captures information about the artifacts created,
+verified and maintained during the safety lifecycle of a system, and the links
+between them, when producing or consuming SPDX content.
+
+Software that conforms to the SPDX specification at the FunctionalSafety
+profile compliance point shall be able to import and export serialized
+documents that conform with one of the defined SPDX serialization formats,
+including the classes and properties that describe assumptions, requirement
+verifications and their evaluation results, the evidence relating artifacts to
+each other, and the safety context in which those relationships apply, such as
+a safety integrity level.
+
+Conformance to the FunctionalSafety profile compliance point
+only entails support for the FunctionalSafety and Core profiles.
+
+This compliance point facilitates interchange of the safety conformance
+documentation produced by tools supporting SPDX, from which a safety case can
+be compiled.
+
 ## Trademark compliance
 
 To be designated an SPDX document, a file shall comply with the requirements of the SPDX Trademark
