@@ -4,24 +4,36 @@
 # documentation
 #
 # SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: Copyright 2024 The SPDX Contributors
+# SPDX-FileCopyrightText: Copyright 2024-2026 The SPDX Contributors
+#
+# It was the case that we use MAJOR.MINOR.PATCH (3-part) version number
+# (e.g., "3.0.1") in IRI of terms and RDF files.
+# With ISO submission of SPDX 3.0 in December 2025, we decided to use MAJOR.MINOR
+# (2-part) version number (e.g., "3.0") instead.
+# In 12 May 2026 Tech call, we agree to use MAJOR version only in term IRIs:
+# https://github.com/spdx/spdx-spec/issues/1378
+# But we will still keep the MAJOR.MINOR for ontoloty/schema/context URL.
+# This needs update in RDF files, tools, publication CI, and IRI redirections.
 
 set -e
+
+SPDX_VERSION="3.1"
 
 THIS_DIR="$(dirname "$0")"
 MD_DIR=docs/annexes
 JSON_DIR=examples/jsonld
 
-SPDX_VERSION="3.0.1"
-SCHEMA_URL="https://spdx.org/schema/${SPDX_VERSION}/spdx-json-schema.json"
-RDF_URL="https://spdx.org/rdf/${SPDX_VERSION}/spdx-model.ttl"
-CONTEXT_URL="https://spdx.org/rdf/${SPDX_VERSION}/spdx-context.jsonld"
+SPDX_VERSION_MAJOR_MINOR="$(echo "$SPDX_VERSION" | cut -d. -f1,2)"  # 3.0.1 -> 3.0; 3.0 -> 3.0
+SCHEMA_URL="https://spdx.org/schema/${SPDX_VERSION_MAJOR_MINOR}/spdx-json-schema.json"
+RDF_URL="https://spdx.org/rdf/${SPDX_VERSION_MAJOR_MINOR}/spdx-model.ttl"
+CONTEXT_URL="https://spdx.org/rdf/${SPDX_VERSION_MAJOR_MINOR}/spdx-context.jsonld"
 
 # print validation setup
 echo "Checking examples in"
 echo "Snippets         : $MD_DIR"
 echo "Files            : $JSON_DIR"
 echo "SPDX version     : $SPDX_VERSION"
+echo "(major.minor)    : $SPDX_VERSION_MAJOR_MINOR"
 echo "Schema           : $SCHEMA_URL"
 echo "Schema resolved  : $(curl -I "$SCHEMA_URL" 2>/dev/null | grep -i "location:" | awk '{print $2}')"
 echo "RDF              : $RDF_URL"
