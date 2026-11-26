@@ -7,6 +7,8 @@ All notable changes to this project will be documented in this file.
 * Changes in document structure and location.
   * "Package URL specification v1" annex is removed in favor of the
     [ECMA-427 Package-URL (PURL) specification](https://ecma-international.org/publications-and-standards/standards/ecma-427/)
+* [SPDX Lite](./docs/annexes/spdx-lite.md) now accepts a `specVersion` without
+  a patch version ("3.1"), in line with the `VersionNumber` datatype.
 
 ## 3.0.1 (2024-12-17)
 
